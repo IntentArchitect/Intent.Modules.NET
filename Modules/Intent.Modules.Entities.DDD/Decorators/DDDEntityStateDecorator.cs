@@ -106,7 +106,7 @@ namespace Intent.Modules.Entities.DDD.Decorators
         {
             if (!associationEnd.IsNavigable)
             {
-                return base.AssociationBefore(associationEnd);
+                return base.AssociationAfter(associationEnd);
             }
 
             var t = CSharpTypeSource.Create(Template.ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>");

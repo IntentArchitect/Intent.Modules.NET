@@ -32,7 +32,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         public string EntityInterfaceName => Project.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel(DomainEntityInterfaceTemplate.Identifier, Model))?.ClassName
                                              ?? $"I{Model.Name}";
 
-        
+
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
@@ -48,7 +48,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
 
         public IEnumerable<DomainEntityStateDecoratorBase> GetDecorators()
         {
-            return _decorators;
+            return _decorators.OrderBy(x => x.Priority);
         }
 
         public string GetBaseClass(ClassModel @class)
