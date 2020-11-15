@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Intent.Packager" Version="3.0.0-*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.AspNet.Owin\Intent.Modules.AspNet.Owin.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Templates\UserContextInterface\UserContextInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UserContextInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\UserContextProviderInterface\UserContextProviderInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UserContextProviderInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\UserContextProvider\UserContextProviderTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UserContextProviderTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\UserContextStatic\UserContextStaticTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UserContextStaticTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Templates\UserContextInterface\UserContextInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserContextInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\UserContextProviderInterface\UserContextProviderInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserContextProviderInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\UserContextProvider\UserContextProviderTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserContextProviderTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\UserContextStatic\UserContextStaticTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserContextStaticTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>
