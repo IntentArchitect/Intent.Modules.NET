@@ -5,7 +5,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Templates;
 
-[assembly: InternalsVisibleTo("Intent.Modules.Common.Tests")]
+[assembly: InternalsVisibleTo("Intent.Modules.Common.CSharp.Tests")]
 
 namespace Intent.Modules.Common.Templates
 {
