@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationId>b6fc9928-d295-416f-a408-a1730334a2e9</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>43fa2234-0d3f-452c-86c2-b30fab304f06</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Contracts\Api\Extensions\DTOModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DTOModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>43fa2234-0d3f-452c-86c2-b30fab304f06</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Contracts\Api\Extensions\FolderModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>FolderModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>43fa2234-0d3f-452c-86c2-b30fab304f06</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Contracts\Api\Extensions\OperationModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>OperationModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>22e18d1e-8803-4bf1-bd94-260e6da45e9f</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.Contracts.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>22e18d1e-8803-4bf1-bd94-260e6da45e9f</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.Contracts.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>..\Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+  </FileLogs>
+</outputLog>

@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
 
         public const string IDENTIFIER = "Intent.Application.Contracts.ServiceContract";
 
-        public ServiceContractTemplate(IProject project, ServiceModel model, string identifier = IDENTIFIER)
+        public ServiceContractTemplate(IOutputTarget project, ServiceModel model, string identifier = IDENTIFIER)
             : base(identifier, project, model)
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DTOTemplate.IDENTIFIER, "List<{0}>"));

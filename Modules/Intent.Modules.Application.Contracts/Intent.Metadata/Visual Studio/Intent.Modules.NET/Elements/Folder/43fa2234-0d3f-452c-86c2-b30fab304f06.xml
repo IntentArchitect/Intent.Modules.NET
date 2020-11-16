@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="43fa2234-0d3f-452c-86c2-b30fab304f06" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Extensions</name>
+  <display>Extensions</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>71bacf94-ce87-4696-946b-b99faa8b6d5d</parentFolderId>
+  <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <childElements>
+    <childElement id="76ba8aa2-fc98-41c3-b9c7-b4880cb56df9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</name>
+      <display>ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>43fa2234-0d3f-452c-86c2-b30fab304f06</parentFolderId>
+      <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="9c33c02e-d23e-4a45-8a04-a913b9c25b47" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>ModuleBuilder.Templates.Api.ApiElementModelExtensions</name>
+      <display>ModuleBuilder.Templates.Api.ApiElementModelExtensions</display>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>43fa2234-0d3f-452c-86c2-b30fab304f06</parentFolderId>
+      <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

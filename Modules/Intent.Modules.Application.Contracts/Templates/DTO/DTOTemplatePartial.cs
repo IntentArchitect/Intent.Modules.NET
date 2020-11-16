@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.Contracts.Templates.DTO
 
         private IList<IDTOAttributeDecorator> _decorators = new List<IDTOAttributeDecorator>();
 
-        public DTOTemplate(IProject project, DTOModel model, string identifier = IDENTIFIER)
+        public DTOTemplate(IOutputTarget project, DTOModel model, string identifier = IDENTIFIER)
             : base(identifier, project, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
@@ -55,17 +55,6 @@ namespace Intent.Modules.Application.Contracts.Templates.DTO
                 @namespace: $"{FolderBasedNamespace}",
                 relativeLocation: string.Join("/", GetNamespaceParts()));
         }
-
-        //protected override RoslynDefaultFileMetadata DefineRoslynDefaultFileMetadata()
-        //{
-        //    return new RoslynDefaultFileMetadata(
-        //        overwriteBehaviour: OverwriteBehaviour.Always,
-        //        fileName: "${Model.Name}",
-        //        fileExtension: "cs",
-        //        relativeLocation: string.Join("/", GetNamespaceParts().DefaultIfEmpty("DTOs")),
-        //        className: "${Model.Name}",
-        //        @namespace: "${FolderBasedNamespace}");
-        //}
 
         public string FolderBasedNamespace => string.Join(".", new[] { OutputTarget.GetNamespace() }.Concat(GetNamespaceParts()));
         public string GenericTypes => Model.GenericTypes.Any() ? $"<{ string.Join(", ", Model.GenericTypes) }>" : "";
