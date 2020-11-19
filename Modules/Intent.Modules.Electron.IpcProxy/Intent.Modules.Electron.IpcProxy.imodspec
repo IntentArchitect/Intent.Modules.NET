@@ -11,6 +11,10 @@
     <template id="Intent.Electron.IpcProxy.AngularTypeScriptIpcServiceProxy">
       <role>Presentation</role>
     </template>
+    <template id="Intent.Electron.IpcProxy.Contracts.TypeScriptDTO">
+      <role>Presentation</role>
+      <location>wwwroot/App/DTOs/Generated</location>
+    </template>
     <template id="Intent.Electron.IpcProxy.CSharpIpcReceivingProxy">
       <role>Distribution</role>
     </template>

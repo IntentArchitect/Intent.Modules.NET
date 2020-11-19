@@ -8,6 +8,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeScript;
 using Intent.Modules.Common.TypeScript.Templates;
 using Intent.Modules.Electron.IpcProxy.Templates.CSharpReceivingProxy;
+using Intent.Modules.Electron.IpcProxy.Templates.TypescriptDTO;
 using Intent.Templates;
 
 namespace Intent.Modules.Electron.IpcProxy.Templates.AngularTypeScriptIpcServiceProxy
@@ -19,8 +20,7 @@ namespace Intent.Modules.Electron.IpcProxy.Templates.AngularTypeScriptIpcService
         public AngularTypeScriptIpcServiceProxyTemplate(ServiceModel model, IProject project)
             : base(Identifier, project, model)
         {
-            AddTypeSource(TypescriptTypeSource.Create(ExecutionContext, "Intent.Typescript.ServiceAgent.Contracts.DTO.Local"));
-            AddTypeSource(TypescriptTypeSource.Create(ExecutionContext, "Intent.Typescript.ServiceAgent.Contracts.DTO.Remote"));
+            AddTypeSource(TypescriptTypeSource.Create(ExecutionContext, TypescriptDtoTemplate.TemplateId));
         }
 
         public override IEnumerable<ITemplateDependency> GetTemplateDependencies()

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
     <PackageReference Include="Intent.Modules.Common.TypeScript" Version="3.0.0-*" />
     <PackageReference Include="Intent.Packager" Version="3.0.0-*">
       <PrivateAssets>all</PrivateAssets>
@@ -19,12 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Intent.SoftwareFactory.SDK">
-      <HintPath>..\..\..\Intent\Intent.IntentArchitect\IntentArchitect.SoftwareFactory\Intent.SoftwareFactory.SDK\bin\Debug\netstandard2.0\Intent.SoftwareFactory.SDK.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Templates\AngularTypeScriptIpcServiceProxy\AngularTypeScriptIpcServiceProxyTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -34,6 +29,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CSharpIpcReceivingProxyTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\TypescriptDTO\TypescriptDtoTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TypescriptDtoTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -45,6 +45,10 @@
     <None Update="Templates\CSharpReceivingProxy\CSharpIpcReceivingProxyTemplate.tt">
       <LastGenOutput>CSharpIpcReceivingProxyTemplate.cs</LastGenOutput>
       <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
+    <None Update="Templates\TypescriptDTO\TypescriptDtoTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TypescriptDtoTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
