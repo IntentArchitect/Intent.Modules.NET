@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationId>a4d94df0-a3d7-4f52-aed0-b0d693ffa062</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>493a19fe-fa60-4ba6-9b00-ba1cfbbb6162</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\FactoryExtensions\AspNetCoreSpaInstaller.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCoreSpaInstaller.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\README.txt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>..\Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+  </FileLogs>
+</outputLog>

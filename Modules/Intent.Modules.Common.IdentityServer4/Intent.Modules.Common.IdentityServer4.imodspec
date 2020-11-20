@@ -2,6 +2,7 @@
 <package>
   <id>Intent.Common.IdentityServer4</id>
   <version>3.0.0-beta.3</version>
+  <supportedClientVersions>[3.0.0-beta,4.0.0)</supportedClientVersions>
   <summary>Common components for all the Identity Server 4 modules</summary>
   <description>Common components for all the Identity Server 4 modules</description>
   <authors>Intent.Modules</authors>

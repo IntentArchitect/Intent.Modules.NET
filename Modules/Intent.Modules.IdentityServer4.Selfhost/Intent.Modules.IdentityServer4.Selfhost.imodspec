@@ -2,6 +2,7 @@
 <package>
   <id>Intent.IdentityServer4.SelfHost</id>
   <version>3.0.0-beta.3</version>
+  <supportedClientVersions>[3.0.0-beta,4.0.0)</supportedClientVersions>
   <summary>For setting up a stand-alone Secure Token Server using Identity Server 4.</summary>
   <description>For setting up a stand-alone Secure Token Server using Identity Server 4.</description>
   <authors>Intent.Modules</authors>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2f1d0809-76b7-4532-a8a3-8c86e1ee1dc8" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AspNetCoreSpaInstaller</name>
+  <display>AspNetCoreSpaInstaller</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fe51d54e-34d6-470f-8e16-9047419a6a8b</parentFolderId>
+  <packageId>fe51d54e-34d6-470f-8e16-9047419a6a8b</packageId>
+  <packageName>Intent.AspNetCore.Interop.Angular</packageName>
+  <stereotypes />
+  <childElements />
+</class>

@@ -15,5 +15,6 @@
     <application id="f75e159b-9104-4a82-a7a7-a912137e717f" name="Intent.Modules.Common.IdentityServer4" relativePath="Intent.Modules.Common.IdentityServer4\Intent.Modules.Common.IdentityServer4.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
     <application id="b6fc9928-d295-416f-a408-a1730334a2e9" name="Intent.Modules.Application.Contracts" relativePath="Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.application.config" />
+    <application id="a4d94df0-a3d7-4f52-aed0-b0d693ffa062" name="Intent.Modules.AspNetCore.Interop.Angular" relativePath="Intent.Modules.AspNetCore.Interop.Angular/Intent.Modules.AspNetCore.Interop.Angular.application.config" />
   </applications>
 </solution>

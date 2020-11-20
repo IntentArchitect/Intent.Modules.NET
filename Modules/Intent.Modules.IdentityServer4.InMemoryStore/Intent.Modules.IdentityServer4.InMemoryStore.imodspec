@@ -2,6 +2,7 @@
 <package>
   <id>Intent.IdentityServer4.InMemoryStore</id>
   <version>3.0.0-beta.3</version>
+  <supportedClientVersions>[3.0.0-beta,4.0.0)</supportedClientVersions>
   <summary>A module that supplements the Self Hosted Identity Server 4 one with in-memory data to get started</summary>
   <description>A module that supplements the Self Hosted Identity Server 4 one with in-memory data to get started</description>
   <authors>Intent.Modules</authors>
