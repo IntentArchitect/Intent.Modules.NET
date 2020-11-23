@@ -134,9 +134,9 @@ namespace Intent.Modules.Common.CSharp.Templates
             return NormalizeNamespace(Types.Get(typeReference).Name);
         }
 
-        public override string GetTypeName(ITemplateDependency templateDependency, bool throwIfNotFound = true)
+        public override string GetTypeName(ITemplateDependency templateDependency, TemplateDiscoveryOptions options = null)
         {
-            var template = GetTemplate<IClassProvider>(templateDependency, throwIfNotFound);
+            var template = GetTemplate<IClassProvider>(templateDependency, options);
             return template == null ? null : NormalizeNamespace(template.FullTypeName());
         }
 
