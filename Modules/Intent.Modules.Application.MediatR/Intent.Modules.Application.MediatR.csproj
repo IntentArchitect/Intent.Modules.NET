@@ -1,0 +1,97 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\CommandHandler\CommandHandlerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandHandlerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\CommandModel\CommandModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandModelTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\DtoModel\DtoModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DtoModelTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\QueryHandler\QueryHandlerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>QueryHandlerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\QueryModel\QueryModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>QueryModelTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\CommandModels\CommandModelsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandModelsTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\QueryModels\QueryModelsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>QueryModelsTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\CommandHandler\CommandHandlerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CommandHandlerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\CommandModel\CommandModelTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CommandModelTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\DtoModel\DtoModelTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DtoModelTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\QueryHandler\QueryHandlerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>QueryHandlerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\QueryModel\QueryModelTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>QueryModelTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\CommandModels\CommandModelsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CommandModelsTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\QueryModels\QueryModelsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>QueryModelsTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Packager" Version="3.0.0-*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

@@ -37,7 +37,7 @@ namespace <#=Namespace#>
             )
         {
              _appService = appService ?? throw new ArgumentNullException(nameof(appService));<#= ConstructorInit() #>
-        } 
+        }
     
 <#  foreach (var operation in Model.Operations)
     {#>

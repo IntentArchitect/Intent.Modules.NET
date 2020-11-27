@@ -16,5 +16,8 @@
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
     <application id="b6fc9928-d295-416f-a408-a1730334a2e9" name="Intent.Modules.Application.Contracts" relativePath="Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.application.config" />
     <application id="a4d94df0-a3d7-4f52-aed0-b0d693ffa062" name="Intent.Modules.AspNetCore.Interop.Angular" relativePath="Intent.Modules.AspNetCore.Interop.Angular/Intent.Modules.AspNetCore.Interop.Angular.application.config" />
+    <application id="64f23573-1bae-4b98-9c17-6e40436297f4" name="Intent.Modules.AspNetCore.WebApi" relativePath="Intent.Modules.AspNetCore.WebApi/Intent.Modules.AspNetCore.WebApi.application.config" />
+    <application id="2722a484-e1a2-4346-8da4-2937c7df3071" name="Intent.Modules.AspNetCore.Controllers" relativePath="Intent.Modules.AspNetCore.Controllers/Intent.Modules.AspNetCore.Controllers.application.config" />
+    <application id="3cbc980e-da30-405c-a8bd-f0043279721f" name="Intent.Modules.Application.MediatR" relativePath="Intent.Modules.Application.MediatR/Intent.Modules.Application.MediatR.application.config" />
   </applications>
 </solution>

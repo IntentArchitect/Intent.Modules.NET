@@ -104,7 +104,7 @@ namespace Intent.Modules.Common.Tests
                     "MyCompany.Movies.Application",
                     "MyCompany.Movies.Application.ServiceCallHandlers.Movies",
                     "MyCompany.Movies.Domain"
-                }, 
+                },
                 usingPaths: new string[]
                 {
                     "MyCompany.Movies.Infrastructure.Data",
@@ -114,6 +114,36 @@ namespace Intent.Modules.Common.Tests
                 });
 
             Assert.Equal("Application.Movies", result);
+        }
+
+        [Fact]
+        public void Scenario6()
+        {
+            var result = CSharpTemplateBase.NormalizeNamespace(
+                localNamespace: "Intent.Modules.Application.MediatR.Templates.QueryModel",
+                foreignType: "Intent.Modelers.Services.CQRS.Api.QueryModel",
+                knownOtherPaths: new string[]
+                {
+                    "System.Collections.Generic",
+                    "Intent.Engine",
+                    "Intent.Modelers.Services.CQRS.Api",
+                    "Intent.Modules.Common.CSharp.Templates",
+                    "Intent.Modules.Common.Templates",
+                    "Intent.RoslynWeaver.Attributes",
+                    "Intent.Templates"
+                },
+                usingPaths: new string[]
+                {
+                    "System.Collections.Generic",
+                    "Intent.Engine",
+                    "Intent.Modelers.Services.CQRS.Api",
+                    "Intent.Modules.Common.CSharp.Templates",
+                    "Intent.Modules.Common.Templates",
+                    "Intent.RoslynWeaver.Attributes",
+                    "Intent.Templates"
+                });
+
+            Assert.Equal("Modelers.Services.CQRS.Api.QueryModel", result);
         }
     }
 }

@@ -116,7 +116,7 @@ using Microsoft.AspNetCore.Mvc;
             
             #line default
             #line hidden
-            this.Write("\r\n        } \r\n    \r\n");
+            this.Write("\r\n        }\r\n    \r\n");
             
             #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.WebApi\Templates\Controller\WebApiControllerTemplate.tt"
   foreach (var operation in Model.Operations)
