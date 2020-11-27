@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.Application.MediatR.Templates
 {
-    class NuGetPackages
+    public class NuGetPackages
     {
+        public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "9.0.*");
     }
 }

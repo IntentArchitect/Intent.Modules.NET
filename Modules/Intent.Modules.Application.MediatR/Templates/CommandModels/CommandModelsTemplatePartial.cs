@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -19,13 +17,15 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
 
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.MediatR);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         private string GetCommandModelName()

@@ -83,14 +83,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             
             #line default
             #line hidden
-            this.Write("(int)HttpStatusCode.OK)]\r\n        public ");
-            
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(operation.IsAsync() ? "async Task<IActionResult>" : "IActionResult"));
-            
-            #line default
-            #line hidden
-            this.Write(" ");
+            this.Write("(int)HttpStatusCode.OK)]\r\n        public async Task<IActionResult> ");
             
             #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.Name));

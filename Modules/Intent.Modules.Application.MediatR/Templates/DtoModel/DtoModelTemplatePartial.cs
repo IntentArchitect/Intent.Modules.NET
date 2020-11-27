@@ -25,7 +25,8 @@ namespace Intent.Modules.Application.MediatR.Templates.DtoModel
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
     }

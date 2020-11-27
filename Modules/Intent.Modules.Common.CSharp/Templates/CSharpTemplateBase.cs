@@ -73,8 +73,6 @@ namespace Intent.Modules.Common.CSharp.Templates
             }
         }
 
-        public string TypeName => $"{Namespace}.{ClassName}";
-
         public override string RunTemplate()
         {
             var templateOutput = base.RunTemplate();

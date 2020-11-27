@@ -19,13 +19,15 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
 
         public CommandHandlerTemplate(IOutputTarget outputTarget, Intent.Modelers.Services.CQRS.Api.CommandModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.MediatR);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                className: $"{Model.Name}Handler",
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         private string GetCommandModelName()

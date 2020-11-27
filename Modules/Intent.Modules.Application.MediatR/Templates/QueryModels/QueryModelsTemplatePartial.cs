@@ -19,13 +19,15 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
 
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.MediatR);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
     }

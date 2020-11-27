@@ -20,13 +20,15 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
 
         public QueryHandlerTemplate(IOutputTarget outputTarget, Intent.Modelers.Services.CQRS.Api.QueryModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.MediatR);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         private string GetQueryModelName()
