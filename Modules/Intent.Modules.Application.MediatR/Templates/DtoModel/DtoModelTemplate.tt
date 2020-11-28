@@ -15,7 +15,7 @@ using System.Collections.Generic;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #>
+    public class <#= ClassName #><#= GetGenericParameters() #>
     {
 <#  foreach(var field in Model.Fields) { #>
         public <#= GetTypeName(field) #> <#= field.Name.ToPascalCase() #> { get; set; }

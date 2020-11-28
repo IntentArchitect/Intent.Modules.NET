@@ -49,14 +49,21 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             
             #line default
             #line hidden
-            this.Write(" : IRequestHandler<");
+            this.Write(" : ");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\CommandHandler\CommandHandlerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetCommandModelName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetRequestHandlerInterface()));
             
             #line default
             #line hidden
-            this.Write(">\r\n    {\r\n        public async Task<Unit> Handle(");
+            this.Write("\r\n    {\r\n        public async Task<");
+            
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\CommandHandler\CommandHandlerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetReturnType()));
+            
+            #line default
+            #line hidden
+            this.Write("> Handle(");
             
             #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\CommandHandler\CommandHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCommandModelName()));

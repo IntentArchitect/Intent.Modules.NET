@@ -80,6 +80,16 @@ namespace Intent.Modules.Common.CSharp.Templates
 {templateOutput}".TrimStart();
         }
 
+        public void AddTypeSource(string templateId, string collectionFormat = "IEnumerable<{0}>")
+        {
+            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, templateId, collectionFormat));
+        }
+
+        public override string NormalizeTypeName(string name)
+        {
+            return NormalizeNamespace(name);
+        }
+
         /// <summary>
         /// Converts the namespace of a fully qualified class name to the relative namespace for this class instance
         /// </summary>
@@ -115,27 +125,6 @@ namespace Intent.Modules.Common.CSharp.Templates
                 .ToArray();
 
             return NormalizeNamespace(localNamespace, foreignType, knownOtherPaths, usingPaths) + (normalizedGenericTypes != null ? $"<{normalizedGenericTypes}>" : "");
-        }
-
-        public void AddTypeSource(string templateId, string collectionFormat = "IEnumerable<{0}>")
-        {
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, templateId, collectionFormat));
-        }
-
-        public override string GetTypeName(ITypeReference typeReference, string collectionFormat)
-        {
-            return NormalizeNamespace(Types.Get(typeReference, collectionFormat).Name);
-        }
-
-        public override string GetTypeName(ITypeReference typeReference)
-        {
-            return NormalizeNamespace(Types.Get(typeReference).Name);
-        }
-
-        public override string GetTypeName(ITemplateDependency templateDependency, TemplateDiscoveryOptions options = null)
-        {
-            var template = GetTemplate<IClassProvider>(templateDependency, options);
-            return template == null ? null : NormalizeNamespace(template.FullTypeName());
         }
 
         private IEnumerable<string> _templateUsings;

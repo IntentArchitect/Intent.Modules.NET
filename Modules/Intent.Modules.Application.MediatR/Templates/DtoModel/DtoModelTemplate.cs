@@ -48,6 +48,12 @@ namespace Intent.Modules.Application.MediatR.Templates.DtoModel
             
             #line default
             #line hidden
+            
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\DtoModel\DtoModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetGenericParameters()));
+            
+            #line default
+            #line hidden
             this.Write("\r\n    {\r\n");
             
             #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\DtoModel\DtoModelTemplate.tt"

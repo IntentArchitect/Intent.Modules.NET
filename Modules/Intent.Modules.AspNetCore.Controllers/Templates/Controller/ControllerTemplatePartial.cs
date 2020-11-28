@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.Controllers.Decorators;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -17,10 +18,10 @@ using Enum = System.Enum;
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class ControllerTemplate : CSharpTemplateBase<ServiceModel>
+    partial class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Modules.AspNetCore.Controllers.Controller";
+        public const string TemplateId = "AspNetCore.Controllers.Controller";
 
         public ControllerTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
         {
@@ -29,8 +30,23 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.Name}",
+                className: $"{Model.Name.RemoveSuffix("Controller", "Service")}Controller",
                 @namespace: $"{OutputTarget.GetNamespace()}");
+        }
+
+        public string OnEnterOperationBody(OperationModel o)
+        {
+            return GetDecorators().Aggregate(x => x.OnEnterOperationBody(o));
+        }
+
+        public string OnExitOperationBody(OperationModel o)
+        {
+            return GetDecorators().Aggregate(x => x.OnExitOperationBody(o));
+        }
+
+        private string GetControllerBase()
+        {
+            return "ApiControllerBase";
         }
 
         private string GetSecurityAttribute(OperationModel o)
@@ -71,33 +87,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
         }
 
-        private string GetOperationCallParameters(OperationModel operation)
+        private string GetOperationArguments(OperationModel operation)
         {
-            if (!operation.Parameters.Any())
-            {
-                return string.Empty;
-            }
-
-            var verb = GetHttpVerb(operation);
-            switch (verb)
-            {
-                case HttpVerb.POST:
-                case HttpVerb.PUT:
-                case HttpVerb.GET:
-                case HttpVerb.DELETE:
-                    return operation.Parameters.Select(x => x.Name).Aggregate((x, y) => $"{x}, {y}");
-                default:
-                    throw new NotSupportedException($"{verb} not supported");
-            }
+            return string.Join(", ", operation.Parameters.Select(x => x.Name));
         }
 
-        private string GetOperationReturnType(OperationModel operation)
+        private string GetReturnType(OperationModel operation)
         {
-            if (operation.TypeReference.Element == null)
+            if (operation.ReturnType == null)
             {
-                return "void";
+                return "ActionResult";
             }
-            return GetTypeName(operation.TypeReference);
+            return $"ActionResult<{GetTypeName(operation.TypeReference)}>";
         }
 
         private HttpVerb GetHttpVerb(OperationModel operation)

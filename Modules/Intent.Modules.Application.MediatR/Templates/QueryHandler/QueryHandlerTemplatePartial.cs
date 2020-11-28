@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -21,14 +22,15 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         public QueryHandlerTemplate(IOutputTarget outputTarget, Intent.Modelers.Services.CQRS.Api.QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
+            AddTypeSource(DtoModelTemplate.TemplateId);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                @namespace: $"{this.GetNamespace()}.{Model.GetConceptName()}",
+                relativeLocation: $"{this.GetFolderPath()}/{Model.GetConceptName()}");
         }
 
         private string GetQueryModelName()

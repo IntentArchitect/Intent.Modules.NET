@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
+using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -20,19 +22,34 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         public CommandHandlerTemplate(IOutputTarget outputTarget, Intent.Modelers.Services.CQRS.Api.CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
+            AddTypeSource(DtoModelTemplate.TemplateId);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                @namespace: $"{this.GetNamespace()}.{Model.GetConceptName()}",
+                relativeLocation: $"{this.GetFolderPath()}/{Model.GetConceptName()}");
+        }
+
+        private string GetRequestHandlerInterface()
+        {
+            return Model.TypeReference.Element != null
+                ? $"IRequestHandler<{GetCommandModelName()}, {GetTypeName(Model.TypeReference)}>"
+                : $"IRequestHandler<{GetCommandModelName()}>";
         }
 
         private string GetCommandModelName()
         {
-            return GetTypeName(CommandHandlerTemplate.TemplateId, Model);
+            return GetTypeName(CommandModelsTemplate.TemplateId, Model);
+        }
+
+        private string GetReturnType()
+        {
+            return Model.TypeReference.Element != null
+                ? GetTypeName(Model.TypeReference)
+                : "Unit";
         }
     }
 }

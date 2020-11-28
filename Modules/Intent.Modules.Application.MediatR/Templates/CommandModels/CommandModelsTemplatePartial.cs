@@ -1,5 +1,6 @@
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -18,19 +19,20 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
+            AddTypeSource(DtoModelTemplate.TemplateId);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                @namespace: $"{this.GetNamespace()}.{Model.GetConceptName()}",
+                relativeLocation: $"{this.GetFolderPath()}/{Model.GetConceptName()}");
         }
 
-        private string GetCommandModelName()
+        private string GetRequestInterface()
         {
-            return GetTypeName(CommandModelsTemplate.TemplateId, Model);
+            return Model.TypeReference.Element != null ? $"IRequest<{GetTypeName(Model.TypeReference)}>" : "IRequest";
         }
     }
 }

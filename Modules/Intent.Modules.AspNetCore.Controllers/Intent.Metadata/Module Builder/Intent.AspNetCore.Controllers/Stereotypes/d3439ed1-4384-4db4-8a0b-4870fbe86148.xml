@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="d3439ed1-4384-4db4-8a0b-4870fbe86148">
+  <name>Api Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetElements>
+    <element id="e030c97a-e066-40a7-8188-808c275df3cb">Operation</element>
+  </targetElements>
+  <applyMode>always</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayFunction />
+  <autoAdd>false</autoAdd>
+  <parentFolderId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</parentFolderId>
+  <order>0</order>
+  <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
+  <packageName>Intent.AspNetCore.Controllers</packageName>
+  <properties>
+    <property id="bc4b8674-1c39-49e0-954e-7643ea0f58a8">
+      <name>Verb</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue>Default</defaultValue>
+      <valueOptions>
+        <option>Default</option>
+        <option>HttpGet</option>
+        <option>HttpPost</option>
+        <option>HttpPut</option>
+        <option>HttpDelete</option>
+      </valueOptions>
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="9c9b97c6-28dc-413b-a397-ff619c51ae0f">
+      <name>Route</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

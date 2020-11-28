@@ -47,7 +47,14 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             
             #line default
             #line hidden
-            this.Write(" : IRequest\r\n    {\r\n");
+            this.Write(" : ");
+            
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\CommandModels\CommandModelsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetRequestInterface()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    {\r\n");
             
             #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\CommandModels\CommandModelsTemplate.tt"
   foreach(var property in Model.Properties) { 

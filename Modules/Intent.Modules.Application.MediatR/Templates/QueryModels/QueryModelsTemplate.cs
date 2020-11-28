@@ -47,14 +47,14 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             
             #line default
             #line hidden
-            this.Write(" : IRequest<");
+            this.Write(" : ");
             
             #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryModels\QueryModelsTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(Model.TypeReference)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetRequestInterface()));
             
             #line default
             #line hidden
-            this.Write(">\r\n    {\r\n");
+            this.Write("\r\n    {\r\n");
             
             #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryModels\QueryModelsTemplate.tt"
   foreach(var property in Model.Properties) { 

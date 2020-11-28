@@ -19,9 +19,9 @@ using System.Threading.Tasks;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #> : IRequestHandler<<#= GetCommandModelName() #>>
+    public class <#= ClassName #> : <#= GetRequestHandlerInterface() #>
     {
-        public async Task<Unit> Handle(<#= GetCommandModelName() #> request, CancellationToken cancellationToken)
+        public async Task<<#= GetReturnType() #>> Handle(<#= GetCommandModelName() #> request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Your implementation here...");
         }

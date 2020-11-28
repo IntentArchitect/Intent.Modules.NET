@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -19,6 +21,7 @@ namespace Intent.Modules.Application.MediatR.Templates.DtoModel
 
         public DtoModelTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
         protected override CSharpFileConfig DefineFileConfig()
@@ -29,5 +32,6 @@ namespace Intent.Modules.Application.MediatR.Templates.DtoModel
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
+        public string GetGenericParameters() => Model.GenericTypes.Any() ? $"<{ string.Join(", ", Model.GenericTypes) }>" : "";
     }
 }
