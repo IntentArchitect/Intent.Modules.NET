@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.AspNetCore.Controllers.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Decorators;
@@ -49,17 +50,42 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return "ApiControllerBase";
         }
 
-        private string GetSecurityAttribute(OperationModel o)
+        private string GetControllerAttributes()
         {
-            if (o.HasStereotype("Secured") || Model.HasStereotype("Secured"))
-            {
-                var roles = o.GetStereotypeProperty<string>("Secured", "Roles");
-                return string.IsNullOrWhiteSpace(roles)
-                    ? "[Authorize]"
-                    : $"[Authorize(Roles = \"{roles}\")]";
-            }
-            return "[AllowAnonymous]";
+            var attributes = new List<string>();
+            attributes.Add(Model.GetControllerSettings().Security().IsAuthorize() ? "[Authorize]" : "[AllowAnonymous]");
+            return string.Join(@"
+    ", attributes);
         }
+
+        private string GetOperationAttributes(OperationModel o)
+        {
+            var attributes = new List<string>();
+            attributes.Add(GetHttpVerbAndPath(o));
+            if (!o.GetApiSettings().Security().IsInherit())
+            {
+                attributes.Add(o.GetApiSettings().Security().IsAuthorize() ? "[Authorize]" : "[AllowAnonymous]");
+            }
+            return string.Join(@"
+        ", attributes);
+        }
+
+        private string GetHttpVerbAndPath(OperationModel o)
+        {
+            return $"[Http{GetHttpVerb(o).ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]";
+        }
+
+        //private string GetSecurityAttribute(OperationModel o)
+        //{
+        //    if (o.HasStereotype("Secured") || Model.HasStereotype("Secured"))
+        //    {
+        //        var roles = o.GetStereotypeProperty<string>("Secured", "Roles");
+        //        return string.IsNullOrWhiteSpace(roles)
+        //            ? "[Authorize]"
+        //            : $"[Authorize(Roles = \"{roles}\")]";
+        //    }
+        //    return "[AllowAnonymous]";
+        //}
 
         private string GetOperationParameters(OperationModel operation)
         {
@@ -77,7 +103,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 case HttpVerb.DELETE:
                     if (operation.Parameters.Any(x => x.TypeReference.Element.SpecializationType == "DTO"))
                     {
-                        Logging.Log.Warning($@"Intent.AspNetCore.WebApi: [{Model.Name}.{operation.Name}] Passing objects into HTTP {GetHttpVerb(operation)} operations is not well supported by this module.
+                        Logging.Log.Warning($@"Intent.AspNetCore.Controllers: [{Model.Name}.{operation.Name}] Passing objects into HTTP {GetHttpVerb(operation)} operations is not well supported by this module.
     We recommend using a POST or PUT verb");
                         // Log warning
                     }
@@ -101,16 +127,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return $"ActionResult<{GetTypeName(operation.TypeReference)}>";
         }
 
+
+
         private HttpVerb GetHttpVerb(OperationModel operation)
         {
-            var verb = operation.GetStereotypeProperty("Http", "Verb", "AUTO").ToUpper();
-            if (verb != "AUTO")
+            var verb = operation.GetApiSettings().HttpVerb();
+            if (!verb.IsAUTO())
             {
-                return Enum.TryParse(verb, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
+                return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
             }
-            if (operation.TypeReference.Element == null || operation.Parameters.Any(x => x.TypeReference.Element.SpecializationType == "DTO"))
+            if (operation.ReturnType == null || operation.Parameters.Any(x => !Types.Get(x.TypeReference).IsPrimitive))
             {
-                var hasIdParam = operation.Parameters.Any(x => x.Name.ToLower().EndsWith("id") && x.TypeReference.Element.SpecializationType != "DTO");
+                var hasIdParam = operation.Parameters.Any(x => x.Name.ToLower().EndsWith("id") && Types.Get(x.TypeReference).IsPrimitive);
                 if (hasIdParam && new[] { "delete", "remove" }.Any(x => operation.Name.ToLower().Contains(x)))
                 {
                     return HttpVerb.DELETE;
@@ -122,8 +150,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private string GetPath(OperationModel operation)
         {
-            var path = operation.GetStereotypeProperty<string>("Http", "Route")?.ToLower();
-            return path ?? operation.Name.ToLower();
+            var path = operation.GetApiSettings().HttpRoute();
+            return !string.IsNullOrWhiteSpace(path) ? path : null;
         }
 
         private string GetParameterBindingAttribute(OperationModel operation, ParameterModel parameter)

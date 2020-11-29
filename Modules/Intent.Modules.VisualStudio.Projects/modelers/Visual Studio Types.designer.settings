@@ -2,6 +2,7 @@
 <settings>
   <id>2ef69545-61ca-42b7-89bd-4ae3d5970280</id>
   <name>Visual Studio Types</name>
+  <designerReferences />
   <packageSettings>
     <packageSetting type="Visual Studio Solution" typeId="07e7b690-a59d-4b72-8440-4308a121d32c">
       <sortChildren>by-type-then-by-name</sortChildren>

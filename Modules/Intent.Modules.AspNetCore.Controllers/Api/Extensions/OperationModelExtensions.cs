@@ -34,44 +34,72 @@ namespace Intent.AspNetCore.Controllers.Api
 
             public string Name => _stereotype.Name;
 
-            public VerbOptions Verb()
+            public HttpVerbOptions HttpVerb()
             {
-                return new VerbOptions(_stereotype.GetProperty<string>("Verb"));
+                return new HttpVerbOptions(_stereotype.GetProperty<string>("Http Verb"));
             }
 
-            public string Route()
+            public string HttpRoute()
             {
-                return _stereotype.GetProperty<string>("Route");
+                return _stereotype.GetProperty<string>("Http Route");
             }
 
-            public class VerbOptions
+            public SecurityOptions Security()
+            {
+                return new SecurityOptions(_stereotype.GetProperty<string>("Security"));
+            }
+
+            public class HttpVerbOptions
             {
                 public readonly string Value;
 
-                public VerbOptions(string value)
+                public HttpVerbOptions(string value)
                 {
                     Value = value;
                 }
 
-                public bool IsDefault()
+                public bool IsAUTO()
                 {
-                    return Value == "Default";
+                    return Value == "AUTO";
                 }
-                public bool IsHttpGet()
+                public bool IsGET()
                 {
-                    return Value == "HttpGet";
+                    return Value == "GET";
                 }
-                public bool IsHttpPost()
+                public bool IsPOST()
                 {
-                    return Value == "HttpPost";
+                    return Value == "POST";
                 }
-                public bool IsHttpPut()
+                public bool IsPUT()
                 {
-                    return Value == "HttpPut";
+                    return Value == "PUT";
                 }
-                public bool IsHttpDelete()
+                public bool IsDELETE()
                 {
-                    return Value == "HttpDelete";
+                    return Value == "DELETE";
+                }
+            }
+
+            public class SecurityOptions
+            {
+                public readonly string Value;
+
+                public SecurityOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public bool IsInherit()
+                {
+                    return Value == "Inherit";
+                }
+                public bool IsAuthorize()
+                {
+                    return Value == "Authorize";
+                }
+                public bool IsAllowAnonymous()
+                {
+                    return Value == "Allow Anonymous";
                 }
             }
 

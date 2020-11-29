@@ -12,7 +12,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {
     public class ControllerDecorator : ITemplateDecorator
     {
-        public int Priority { get; protected set; } = 0;
+        public virtual int Priority { get; protected set; } = 0;
 
         public virtual string OnEnterOperationBody(OperationModel operationModel)
         {

@@ -39,6 +39,30 @@ namespace Intent.AspNetCore.Controllers.Api
                 return _stereotype.GetProperty<string>("Route");
             }
 
+            public SecurityOptions Security()
+            {
+                return new SecurityOptions(_stereotype.GetProperty<string>("Security"));
+            }
+
+            public class SecurityOptions
+            {
+                public readonly string Value;
+
+                public SecurityOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public bool IsAuthorize()
+                {
+                    return Value == "Authorize";
+                }
+                public bool IsAllowAnonymous()
+                {
+                    return Value == "Allow Anonymous";
+                }
+            }
+
         }
 
     }

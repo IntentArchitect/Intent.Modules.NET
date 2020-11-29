@@ -16,30 +16,46 @@
   <packageName>Intent.AspNetCore.Controllers</packageName>
   <properties>
     <property id="bc4b8674-1c39-49e0-954e-7643ea0f58a8">
-      <name>Verb</name>
+      <name>Http Verb</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder>(required)</placeholder>
-      <defaultValue>Default</defaultValue>
+      <defaultValue>AUTO</defaultValue>
       <valueOptions>
-        <option>Default</option>
-        <option>HttpGet</option>
-        <option>HttpPost</option>
-        <option>HttpPut</option>
-        <option>HttpDelete</option>
+        <option>AUTO</option>
+        <option>GET</option>
+        <option>POST</option>
+        <option>PUT</option>
+        <option>DELETE</option>
       </valueOptions>
       <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="9c9b97c6-28dc-413b-a397-ff619c51ae0f">
-      <name>Route</name>
+      <name>Http Route</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder>(default)</placeholder>
+      <placeholder />
+      <defaultValue>[action]</defaultValue>
       <valueOptions />
       <lookupTypes />
+    </property>
+    <property id="49a3788c-2ab4-4580-8fb0-7d3ae81d34a4">
+      <name>Security</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue>Inherit</defaultValue>
+      <valueOptions>
+        <option>Inherit</option>
+        <option>Authorize</option>
+        <option>Allow Anonymous</option>
+      </valueOptions>
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>
 </stereotypeDefinition>

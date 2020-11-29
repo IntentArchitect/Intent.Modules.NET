@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
+using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
@@ -19,13 +20,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
     public class MediatRControllerDecorator : ControllerDecorator
     {
         private readonly ControllerTemplate _template;
-        public const string Identifier = "Intent.AspNetCore.Controllers.MediatRDecorator";
+        public const string DecoratorId = "Intent.AspNetCore.Controllers.MediatRDecorator";
 
         public MediatRControllerDecorator(ControllerTemplate template)
         {
             _template = template;
             _template.AddTypeSource(CommandModelsTemplate.TemplateId);
             _template.AddTypeSource(QueryModelsTemplate.TemplateId);
+            _template.AddTypeSource(DtoModelTemplate.TemplateId);
         }
 
         public override string OnEnterOperationBody(OperationModel operationModel)

@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<ServiceModel, ControllerTemplateDecorator>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<ServiceModel, ControllerDecorator>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -16,13 +16,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace <#= Namespace #>
 {
+    <#= GetControllerAttributes() #>
     public class <#= ClassName #> : <#= GetControllerBase() #>
     {
 
 <#  foreach (var operation in Model.Operations)
     {#>
-        [Http<#= GetHttpVerb(operation).ToString().ToLower().ToPascalCase() #>("<#= GetPath(operation) #>")]
-        <#= GetSecurityAttribute(operation) #>
+        <#= GetOperationAttributes(operation) #>
         public async Task<<#= GetReturnType(operation) #>> <#= operation.Name #>(<#= GetOperationParameters(operation) #>)
         {<#= OnEnterOperationBody(operation) #>
             <#= OnExitOperationBody(operation) #>

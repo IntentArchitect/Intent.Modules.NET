@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Controllers.Decorators
 {
-    [Description(MediatRControllerDecorator.Identifier)]
+    [Description(MediatRControllerDecorator.DecoratorId)]
     public class MediatRControllerDecoratorRegistration : DecoratorRegistration<ControllerTemplate, ControllerDecorator>
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
@@ -17,6 +17,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
             return new MediatRControllerDecorator(template);
         }
 
-        public override string DecoratorId => MediatRControllerDecorator.Identifier;
+        public override string DecoratorId => MediatRControllerDecorator.DecoratorId;
     }
 }

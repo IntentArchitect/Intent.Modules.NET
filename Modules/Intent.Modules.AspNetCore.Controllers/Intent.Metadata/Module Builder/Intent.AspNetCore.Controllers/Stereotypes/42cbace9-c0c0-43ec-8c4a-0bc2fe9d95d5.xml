@@ -24,5 +24,19 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="f135ff88-00ab-4864-b506-88aa0b386e88">
+      <name>Security</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue>Authorize</defaultValue>
+      <valueOptions>
+        <option>Authorize</option>
+        <option>Allow Anonymous</option>
+      </valueOptions>
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
   </properties>
 </stereotypeDefinition>
