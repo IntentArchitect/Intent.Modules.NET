@@ -18,7 +18,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
     {
         public const string Identifier = "Intent.AspNetCore.Startup";
         private readonly IList<CoreWebStartupDecorator> _decorators = new List<CoreWebStartupDecorator>();
-        private readonly IList<ContainerRegistration> _registrations = new List<ContainerRegistration>();
+        private readonly IList<ContainerRegistrationRequest> _registrations = new List<ContainerRegistrationRequest>();
         private readonly IList<DbContextContainerRegistration> _dbContextRegistrations = new List<DbContextContainerRegistration>();
         private readonly IList<Initializations> _serviceConfigurations = new List<Initializations>();
         private readonly IList<Initializations> _initializations = new List<Initializations>();
@@ -26,20 +26,21 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         public CoreWebStartupTemplate(IProject project, IApplicationEventDispatcher eventDispatcher)
             : base(Identifier, project, null)
         {
-            eventDispatcher.Subscribe(ContainerRegistrationEvent.EventId, HandleServiceRegistration);
+            eventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleServiceRegistration);
             eventDispatcher.Subscribe(ContainerRegistrationForDbContextEvent.EventId, HandleDbContextRegistration);
             eventDispatcher.Subscribe(ServiceConfigurationRequiredEvent.EventId, HandleServiceConfiguration);
             eventDispatcher.Subscribe(InitializationRequiredEvent.EventId, HandleInitialization);
         }
 
-        private void HandleServiceRegistration(ApplicationEvent @event)
+        private void HandleServiceRegistration(ContainerRegistrationRequest @event)
         {
-            _registrations.Add(new ContainerRegistration(
-                interfaceType: @event.TryGetValue("InterfaceType"),
-                concreteType: @event.GetValue("ConcreteType"),
-                lifetime: @event.TryGetValue("Lifetime"),
-                interfaceTypeTemplateDependency: @event.TryGetValue("InterfaceTypeTemplateId") != null ? TemplateDependency.OnTemplate(@event.TryGetValue("InterfaceTypeTemplateId")) : null,
-                concreteTypeTemplateDependency: @event.TryGetValue("ConcreteTypeTemplateId") != null ? TemplateDependency.OnTemplate(@event.TryGetValue("ConcreteTypeTemplateId")) : null));
+            _registrations.Add(@event);
+            //_registrations.Add(new ContainerRegistration(
+            //    interfaceType: @event.TryGetValue("InterfaceType"),
+            //    concreteType: @event.GetValue("ConcreteType"),
+            //    lifetime: @event.TryGetValue("Lifetime"),
+            //    interfaceTypeTemplateDependency: @event.TryGetValue("InterfaceTypeTemplateId") != null ? TemplateDependency.OnTemplate(@event.TryGetValue("InterfaceTypeTemplateId")) : null,
+            //    concreteTypeTemplateDependency: @event.TryGetValue("ConcreteTypeTemplateId") != null ? TemplateDependency.OnTemplate(@event.TryGetValue("ConcreteTypeTemplateId")) : null));
         }
 
         private void HandleDbContextRegistration(ApplicationEvent @event)
@@ -173,7 +174,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                                             $"{y}");
         }
 
-        private string DefineServiceRegistration(ContainerRegistration x)
+        private string DefineServiceRegistration(ContainerRegistrationRequest x)
         {
             return x.InterfaceType != null
                 ? $"{Environment.NewLine}            services.{RegistrationType(x)}<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>();"
@@ -185,15 +186,15 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             return $"{Environment.NewLine}            services.AddDbContext<{NormalizeNamespace(x.ConcreteType)}>({(x.Options != null ? $"x => x{x.Options}" : string.Empty)});";
         }
 
-        private string RegistrationType(ContainerRegistration registration)
+        private string RegistrationType(ContainerRegistrationRequest registration)
         {
             switch (registration.Lifetime)
             {
-                case Constants.ContainerRegistrationEvent.SingletonLifetime:
+                case ContainerRegistrationRequest.LifeTime.Singleton:
                     return "AddSingleton";
-                case Constants.ContainerRegistrationEvent.PerServiceCallLifetime:
+                case ContainerRegistrationRequest.LifeTime.PerServiceCall:
                     return "AddScoped";
-                case Constants.ContainerRegistrationEvent.TransientLifetime:
+                case ContainerRegistrationRequest.LifeTime.Transient:
                     return "AddTransient";
                 default:
                     return "AddTransient";
@@ -209,12 +210,12 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
         public override IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
-            return base.GetTemplateDependencies().Concat(_registrations
-                .Where(x => x.InterfaceType != null && x.InterfaceTypeTemplateDependency != null)
-                .Select(x => x.InterfaceTypeTemplateDependency)
-                .Union(_registrations
-                    .Where(x => x.ConcreteTypeTemplateDependency != null)
-                    .Select(x => x.ConcreteTypeTemplateDependency))
+            return base.GetTemplateDependencies().Concat(_registrations.SelectMany(x => x.TemplateDependencies)
+                //.Where(x => x.InterfaceType != null && x.InterfaceTypeTemplateDependency != null)
+                //.Select(x => x.InterfaceTypeTemplateDependency)
+                //.Union(_registrations
+                //    .Where(x => x.ConcreteTypeTemplateDependency != null)
+                //    .Select(x => x.ConcreteTypeTemplateDependency))
                 .Union(_initializations
                     .Where(x => x.TemplateDependancy != null)
                     .Select(x => x.TemplateDependancy))
@@ -240,23 +241,23 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             return Project.TargetFramework().StartsWith("netcoreapp2");
         }
 
-        internal class ContainerRegistration
-        {
-            public ContainerRegistration(string interfaceType, string concreteType, string lifetime, ITemplateDependency interfaceTypeTemplateDependency, ITemplateDependency concreteTypeTemplateDependency)
-            {
-                InterfaceType = interfaceType;
-                ConcreteType = concreteType;
-                Lifetime = lifetime ?? "Transient";
-                InterfaceTypeTemplateDependency = interfaceTypeTemplateDependency;
-                ConcreteTypeTemplateDependency = concreteTypeTemplateDependency;
-            }
+        //internal class ContainerRegistration
+        //{
+        //    public ContainerRegistration(string interfaceType, string concreteType, string lifetime, ITemplateDependency interfaceTypeTemplateDependency, ITemplateDependency concreteTypeTemplateDependency)
+        //    {
+        //        InterfaceType = interfaceType;
+        //        ConcreteType = concreteType;
+        //        Lifetime = lifetime ?? "Transient";
+        //        InterfaceTypeTemplateDependency = interfaceTypeTemplateDependency;
+        //        ConcreteTypeTemplateDependency = concreteTypeTemplateDependency;
+        //    }
 
-            public string InterfaceType { get; }
-            public string ConcreteType { get; }
-            public string Lifetime { get; }
-            public ITemplateDependency InterfaceTypeTemplateDependency { get; }
-            public ITemplateDependency ConcreteTypeTemplateDependency { get; }
-        }
+        //    public string InterfaceType { get; }
+        //    public string ConcreteType { get; }
+        //    public string Lifetime { get; }
+        //    public ITemplateDependency InterfaceTypeTemplateDependency { get; }
+        //    public ITemplateDependency ConcreteTypeTemplateDependency { get; }
+        //}
 
         internal class DbContextContainerRegistration
         {

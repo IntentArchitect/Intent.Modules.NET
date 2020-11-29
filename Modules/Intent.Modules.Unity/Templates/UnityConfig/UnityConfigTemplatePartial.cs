@@ -19,12 +19,12 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
         public const string Identifier = "Intent.Unity.Config";
 
         private IList<IUnityRegistrationsDecorator> _decorators = new List<IUnityRegistrationsDecorator>();
-        private readonly IList<ContainerRegistration> _registrations = new List<ContainerRegistration>();
+        private readonly IList<ContainerRegistrationRequest> _registrations = new List<ContainerRegistrationRequest>();
 
         public UnityConfigTemplate(IProject project, IApplicationEventDispatcher eventDispatcher)
             : base(Identifier, project, null)
         {
-            eventDispatcher.Subscribe(Constants.ContainerRegistrationEvent.EventId, Handle);
+            eventDispatcher.Subscribe<ContainerRegistrationRequest>(Handle);
         }
 
         public IEnumerable<IOutputTarget> ApplicationProjects => ExecutionContext.OutputTargets.Select(x => x.GetTargetPath()[0]).Distinct();
@@ -35,18 +35,18 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
                 className: $"UnityConfig",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
-        
+
         public override string DependencyUsings => "";
 
         public IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
-            return _registrations
-                .Where(x => x.InterfaceType != null && x.InterfaceTypeTemplateDependency != null)
-                .Select(x => x.InterfaceTypeTemplateDependency)
-                .Union(_registrations
-                    .Where(x => x.ConcreteTypeTemplateDependency != null)
-                    .Select(x => x.ConcreteTypeTemplateDependency))
-                .ToList();
+            return _registrations.SelectMany(x => x.TemplateDependencies);
+            //.Where(x => x.InterfaceType != null && x.InterfaceTypeTemplateDependency != null)
+            //.Select(x => x.InterfaceTypeTemplateDependency)
+            //.Union(_registrations
+            //    .Where(x => x.ConcreteTypeTemplateDependency != null)
+            //    .Select(x => x.ConcreteTypeTemplateDependency))
+            //.ToList();
         }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -62,7 +62,7 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
         public string Registrations()
         {
             var registrations = _registrations
-                .Where(x => x.InterfaceType != null || !x.Lifetime.Equals(Constants.ContainerRegistrationEvent.TransientLifetime, StringComparison.InvariantCultureIgnoreCase))
+                .Where(x => x.InterfaceType != null || !x.Lifetime.Equals(ContainerRegistrationRequest.LifeTime.Transient, StringComparison.InvariantCultureIgnoreCase))
                 .ToList();
 
             var output = registrations.Any() ? registrations.Select(GetRegistrationString).Aggregate((x, y) => x + y) : string.Empty;
@@ -70,22 +70,22 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
             return output + Environment.NewLine + GetDecorators().Aggregate(x => x.Registrations());
         }
 
-        private string GetRegistrationString(ContainerRegistration x)
+        private string GetRegistrationString(ContainerRegistrationRequest x)
         {
-            return x.InterfaceType != null 
-                ? $"{Environment.NewLine}            container.RegisterType<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>({GetLifetimeManager(x)});" 
+            return x.InterfaceType != null
+                ? $"{Environment.NewLine}            container.RegisterType<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>({GetLifetimeManager(x)});"
                 : $"{Environment.NewLine}            container.RegisterType<{NormalizeNamespace(x.ConcreteType)}>({GetLifetimeManager(x)});";
         }
 
-        private string GetLifetimeManager(ContainerRegistration registration)
+        private string GetLifetimeManager(ContainerRegistrationRequest registration)
         {
             switch (registration.Lifetime)
             {
-                case Constants.ContainerRegistrationEvent.SingletonLifetime:
+                case ContainerRegistrationRequest.LifeTime.Singleton:
                     return "new ContainerControlledLifetimeManager()";
-                case Constants.ContainerRegistrationEvent.PerServiceCallLifetime:
+                case ContainerRegistrationRequest.LifeTime.PerServiceCall:
                     return $"new {Project.Application.FindTemplateInstance<IClassProvider>(TemplateDependency.OnTemplate(PerServiceCallLifetimeManagerTemplate.Identifier)).ClassName}()";
-                case Constants.ContainerRegistrationEvent.TransientLifetime:
+                case ContainerRegistrationRequest.LifeTime.Transient:
                     return string.Empty;
                 default:
                     return string.Empty;
@@ -111,32 +111,33 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
                 .Select(s => $"using {s};"));
         }
 
-        private void Handle(ApplicationEvent @event)
+        private void Handle(ContainerRegistrationRequest @event)
         {
-            _registrations.Add(new ContainerRegistration(
-                interfaceType: @event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeKey),
-                concreteType: @event.GetValue(ContainerRegistrationEvent.ConcreteTypeKey),
-                lifetime: @event.TryGetValue(ContainerRegistrationEvent.LifetimeKey),
-                interfaceTypeTemplateDependency: @event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeTemplateIdKey) != null ? TemplateDependency.OnTemplate(@event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeTemplateIdKey)) : null,
-                concreteTypeTemplateDependency: @event.TryGetValue(ContainerRegistrationEvent.ConcreteTypeTemplateIdKey) != null ? TemplateDependency.OnTemplate(@event.TryGetValue(ContainerRegistrationEvent.ConcreteTypeTemplateIdKey)) : null));
+            _registrations.Add(@event);
+            //    _registrations.Add(new ContainerRegistration(
+            //        interfaceType: @event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeKey),
+            //        concreteType: @event.GetValue(ContainerRegistrationEvent.ConcreteTypeKey),
+            //        lifetime: @event.TryGetValue(ContainerRegistrationEvent.LifetimeKey),
+            //        interfaceTypeTemplateDependency: @event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeTemplateIdKey) != null ? TemplateDependency.OnTemplate(@event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeTemplateIdKey)) : null,
+            //        concreteTypeTemplateDependency: @event.TryGetValue(ContainerRegistrationEvent.ConcreteTypeTemplateIdKey) != null ? TemplateDependency.OnTemplate(@event.TryGetValue(ContainerRegistrationEvent.ConcreteTypeTemplateIdKey)) : null));
         }
     }
 
-    internal class ContainerRegistration
-    {
-        public ContainerRegistration(string interfaceType, string concreteType, string lifetime, ITemplateDependency interfaceTypeTemplateDependency, ITemplateDependency concreteTypeTemplateDependency)
-        {
-            InterfaceType = interfaceType;
-            ConcreteType = concreteType;
-            Lifetime = lifetime ?? Constants.ContainerRegistrationEvent.TransientLifetime;
-            InterfaceTypeTemplateDependency = interfaceTypeTemplateDependency;
-            ConcreteTypeTemplateDependency = concreteTypeTemplateDependency;
-        }
+    //internal class ContainerRegistration
+    //{
+    //    public ContainerRegistration(string interfaceType, string concreteType, string lifetime, ITemplateDependency interfaceTypeTemplateDependency, ITemplateDependency concreteTypeTemplateDependency)
+    //    {
+    //        InterfaceType = interfaceType;
+    //        ConcreteType = concreteType;
+    //        Lifetime = lifetime ?? Constants.ContainerRegistrationEvent.TransientLifetime;
+    //        InterfaceTypeTemplateDependency = interfaceTypeTemplateDependency;
+    //        ConcreteTypeTemplateDependency = concreteTypeTemplateDependency;
+    //    }
 
-        public string InterfaceType { get; private set; }
-        public string ConcreteType { get; private set; }
-        public string Lifetime { get; private set; }
-        public ITemplateDependency InterfaceTypeTemplateDependency { get; private set; }
-        public ITemplateDependency ConcreteTypeTemplateDependency { get; }
-    }
+    //    public string InterfaceType { get; private set; }
+    //    public string ConcreteType { get; private set; }
+    //    public string Lifetime { get; private set; }
+    //    public ITemplateDependency InterfaceTypeTemplateDependency { get; private set; }
+    //    public ITemplateDependency ConcreteTypeTemplateDependency { get; }
+    //}
 }

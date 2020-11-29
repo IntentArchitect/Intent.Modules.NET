@@ -71,14 +71,15 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
 
         public override void BeforeTemplateExecution()
         {
-            Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { ContainerRegistrationEvent.InterfaceTypeKey, null},
-                { ContainerRegistrationEvent.ConcreteTypeKey, $"{Namespace}.{ClassName}" },
-                { ContainerRegistrationEvent.InterfaceTypeTemplateIdKey, null },
-                { ContainerRegistrationEvent.ConcreteTypeTemplateIdKey, Identifier },
-                { ContainerRegistrationEvent.LifetimeKey, ContainerRegistrationEvent.TransientLifetime }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this));
+            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { ContainerRegistrationEvent.InterfaceTypeKey, null},
+            //    { ContainerRegistrationEvent.ConcreteTypeKey, $"{Namespace}.{ClassName}" },
+            //    { ContainerRegistrationEvent.InterfaceTypeTemplateIdKey, null },
+            //    { ContainerRegistrationEvent.ConcreteTypeTemplateIdKey, Identifier },
+            //    { ContainerRegistrationEvent.LifetimeKey, ContainerRegistrationEvent.TransientLifetime }
+            //});
         }
     }
 }

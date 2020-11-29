@@ -60,13 +60,15 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { "InterfaceType", GetServiceInterfaceName()},
-                { "ConcreteType", $"{Namespace}.{ClassName}" },
-                { "InterfaceTypeTemplateId", ServiceContractTemplate.IDENTIFIER },
-                { "ConcreteTypeTemplateId", Identifier }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.IDENTIFIER, Model)));
+            //ExecutionContext.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { "InterfaceType", GetServiceInterfaceName()},
+            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
+            //    { "InterfaceTypeTemplateId", ServiceContractTemplate.IDENTIFIER },
+            //    { "ConcreteTypeTemplateId", Identifier }
+            //});
         }
 
         private string GetOperationDefinitionParameters(OperationModel o)

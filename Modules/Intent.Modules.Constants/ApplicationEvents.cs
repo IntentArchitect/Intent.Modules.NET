@@ -43,21 +43,21 @@
         public const string PriorityKey = "Priority";
     }
 
-    public static class ContainerRegistrationEvent
-    {
-        public const string EventId = "Container.RegistrationRequired";
-        public const string UsingsKey = "Usings";
-        public const string GroupKey = "Group";
-        public const string InterfaceTypeKey = "InterfaceType";
-        public const string ConcreteTypeKey = "ConcreteType";
-        public const string InterfaceTypeTemplateIdKey = "InterfaceTypeTemplateId";
-        public const string ConcreteTypeTemplateIdKey = "ConcreteTypeTemplateId";
-        public const string LifetimeKey = "Lifetime";
+    //public static class ContainerRegistrationEvent
+    //{
+    //    public const string EventId = "Container.RegistrationRequired";
+    //    public const string UsingsKey = "Usings";
+    //    public const string GroupKey = "Group";
+    //    public const string InterfaceTypeKey = "InterfaceType";
+    //    public const string ConcreteTypeKey = "ConcreteType";
+    //    public const string InterfaceTypeTemplateIdKey = "InterfaceTypeTemplateId";
+    //    public const string ConcreteTypeTemplateIdKey = "ConcreteTypeTemplateId";
+    //    public const string LifetimeKey = "Lifetime";
 
-        public const string TransientLifetime = "Transient";
-        public const string SingletonLifetime = "Singleton";
-        public const string PerServiceCallLifetime = "PerServiceCall";
-    }
+    //    public const string TransientLifetime = "Transient";
+    //    public const string SingletonLifetime = "Singleton";
+    //    public const string PerServiceCallLifetime = "PerServiceCall";
+    //}
 
     public static class ContainerRegistrationForDbContextEvent
     {

@@ -19,15 +19,17 @@ namespace Intent.Modules.Unity.Templates.UnityServiceProvider
         {
         }
 
-        public void BeforeTemplateExecution()
+        public override void BeforeTemplateExecution()
         {
-            Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { "InterfaceType", "IServiceProvider"},
-                { "ConcreteType", $"{Namespace}.{ClassName}" },
-                { "InterfaceTypeTemplateId", null },
-                { "ConcreteTypeTemplateId", Identifier }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface("IServiceProvider"));
+            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { "InterfaceType", "IServiceProvider"},
+            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
+            //    { "InterfaceTypeTemplateId", null },
+            //    { "ConcreteTypeTemplateId", Identifier }
+            //});
         }
 
         protected override CSharpFileConfig DefineFileConfig()

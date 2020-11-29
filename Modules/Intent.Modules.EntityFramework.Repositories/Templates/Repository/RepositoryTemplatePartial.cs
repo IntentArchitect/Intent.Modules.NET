@@ -104,13 +104,15 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
                 return;
             }
 
-            Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { "InterfaceType", $"{contractTemplate.Namespace}.{contractTemplate.ClassName}"},
-                { "ConcreteType", $"{Namespace}.{ClassName}" },
-                { "InterfaceTypeTemplateId", _repositoryInterfaceTemplateDependency.TemplateId },
-                { "ConcreteTypeTemplateId", Identifier }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface(contractTemplate));
+            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { "InterfaceType", $"{contractTemplate.Namespace}.{contractTemplate.ClassName}"},
+            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
+            //    { "InterfaceTypeTemplateId", _repositoryInterfaceTemplateDependency.TemplateId },
+            //    { "ConcreteTypeTemplateId", Identifier }
+            //});
         }
     }
 }

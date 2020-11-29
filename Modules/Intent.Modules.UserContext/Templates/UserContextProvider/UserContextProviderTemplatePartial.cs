@@ -53,11 +53,13 @@ namespace Intent.Modules.UserContext.Templates.UserContextProvider
         {
             var userContextProviderInterface = Project.FindTemplateInstance<IClassProvider>(UserContextProviderInterfaceTemplate.Identifier);
             var contractTemplate = Project.FindTemplateInstance<IClassProvider>(UserContextInterfaceTemplate.Identifier);
-            _eventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { "InterfaceType", $"{userContextProviderInterface.FullTypeName()}<{contractTemplate.FullTypeName()}>" },
-                { "ConcreteType",  this.FullTypeName() }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface($"{userContextProviderInterface.FullTypeName()}<{contractTemplate.FullTypeName()}>"));
+            //_eventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { "InterfaceType", $"{userContextProviderInterface.FullTypeName()}<{contractTemplate.FullTypeName()}>" },
+            //    { "ConcreteType",  this.FullTypeName() }
+            //});
         }
     }
 }

@@ -25,11 +25,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         public ServiceImplementationTemplate(IProject project, ServiceModel model)
             : base(Identifier, project, model)
         {
-        }
-
-        public override void OnCreated()
-        {
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DTOTemplate.IDENTIFIER, "List<{0}>"));
+            AddTypeSource(DTOTemplate.IDENTIFIER, "List<{0}>");
         }
 
         public IEnumerable<ITemplateDependency> GetTemplateDependencies()
@@ -59,13 +55,16 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         public override void BeforeTemplateExecution()
         {
-            Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { "InterfaceType", GetServiceInterfaceName()},
-                { "ConcreteType", $"{Namespace}.{ClassName}" },
-                { "InterfaceTypeTemplateId", ServiceContractTemplate.IDENTIFIER },
-                { "ConcreteTypeTemplateId", Identifier }
-            });
+            base.BeforeTemplateExecution();
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.IDENTIFIER, Model)));
+            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { "InterfaceType", GetServiceInterfaceName()},
+            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
+            //    { "InterfaceTypeTemplateId", ServiceContractTemplate.IDENTIFIER },
+            //    { "ConcreteTypeTemplateId", Identifier }
+            //});
         }
 
         public override string DependencyUsings

@@ -58,14 +58,16 @@ namespace Intent.Modules.AspNet.WebApi.Templates.Controller
 
         public override void BeforeTemplateExecution()
         {
-            Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { ContainerRegistrationEvent.InterfaceTypeKey, null},
-                { ContainerRegistrationEvent.ConcreteTypeKey, $"{Namespace}.{ClassName}" },
-                { ContainerRegistrationEvent.InterfaceTypeTemplateIdKey, null },
-                { ContainerRegistrationEvent.ConcreteTypeTemplateIdKey, Identifier },
-                { ContainerRegistrationEvent.LifetimeKey, ContainerRegistrationEvent.PerServiceCallLifetime }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .WithPerServiceCallLifeTime());
+            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { ContainerRegistrationEvent.InterfaceTypeKey, null},
+            //    { ContainerRegistrationEvent.ConcreteTypeKey, $"{Namespace}.{ClassName}" },
+            //    { ContainerRegistrationEvent.InterfaceTypeTemplateIdKey, null },
+            //    { ContainerRegistrationEvent.ConcreteTypeTemplateIdKey, Identifier },
+            //    { ContainerRegistrationEvent.LifetimeKey, ContainerRegistrationEvent.PerServiceCallLifetime }
+            //});
         }
 
         public string GetServiceInterfaceName()

@@ -38,13 +38,14 @@ namespace Intent.Modules.AspNet.WebApi.Templates.WebApiServiceCallContext
             .ToArray();
         }
 
-        public void BeforeTemplateExecution()
+        public override void BeforeTemplateExecution()
         {
-            Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { "InterfaceType", "Intent.Framework.Core.Context.IContextBackingStore"},
-                { "ConcreteType", $"{Namespace}.{ClassName}" }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this).ForInterface("Intent.Framework.Core.Context.IContextBackingStore"));
+            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { "InterfaceType", "Intent.Framework.Core.Context.IContextBackingStore"},
+            //    { "ConcreteType", $"{Namespace}.{ClassName}" }
+            //});
 
             Project.Application.EventDispatcher.Publish(InitializationRequiredEvent.EventId, new Dictionary<string, string>()
             {

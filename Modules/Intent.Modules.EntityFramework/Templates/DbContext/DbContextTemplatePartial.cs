@@ -55,12 +55,14 @@ namespace Intent.Modules.EntityFramework.Templates.DbContext
                 { "ProviderName", "System.Data.SqlClient" },
             });
 
-            _eventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            {
-                { "ConcreteType", $"{Namespace}.{ClassName}" },
-                { "ConcreteTypeTemplateId", Identifier },
-                { "Lifetime", ContainerRegistrationEvent.PerServiceCallLifetime }
-            });
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .WithPerServiceCallLifeTime());
+            //_eventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
+            //{
+            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
+            //    { "ConcreteTypeTemplateId", Identifier },
+            //    { "Lifetime", ContainerRegistrationEvent.PerServiceCallLifetime }
+            //});
         }
 
         public void AddDecorator(DbContextDecoratorBase decorator)

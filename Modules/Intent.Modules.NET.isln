@@ -19,5 +19,6 @@
     <application id="64f23573-1bae-4b98-9c17-6e40436297f4" name="Intent.Modules.AspNetCore.WebApi" relativePath="Intent.Modules.AspNetCore.WebApi/Intent.Modules.AspNetCore.WebApi.application.config" />
     <application id="2722a484-e1a2-4346-8da4-2937c7df3071" name="Intent.Modules.AspNetCore.Controllers" relativePath="Intent.Modules.AspNetCore.Controllers/Intent.Modules.AspNetCore.Controllers.application.config" />
     <application id="3cbc980e-da30-405c-a8bd-f0043279721f" name="Intent.Modules.Application.MediatR" relativePath="Intent.Modules.Application.MediatR/Intent.Modules.Application.MediatR.application.config" />
+    <application id="9221b11f-796f-4bb6-bf71-87adc4d61cfb" name="Intent.Modules.Application.DependencyInjection" relativePath="Intent.Modules.Application.DependencyInjection/Intent.Modules.Application.DependencyInjection.application.config" />
   </applications>
 </solution>
