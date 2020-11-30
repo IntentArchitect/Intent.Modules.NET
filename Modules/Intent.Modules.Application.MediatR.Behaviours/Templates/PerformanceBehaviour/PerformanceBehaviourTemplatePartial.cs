@@ -10,23 +10,22 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.Templates.UnhandledExceptionBehaviour
+namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBehaviour
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class UnhandledExceptionBehaviourTemplate : CSharpTemplateBase<object>
+    partial class PerformanceBehaviourTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Application.MediatR.UnhandledExceptionBehaviour";
+        public const string TemplateId = "Intent.Application.MediatR.Behaviours.PerformanceBehaviour";
 
-        public UnhandledExceptionBehaviourTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        public PerformanceBehaviourTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MicrosoftExtensionsLogging);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"UnhandledExceptionBehaviour",
+                className: $"PerformanceBehaviour",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
@@ -38,5 +37,6 @@ namespace Intent.Modules.Application.MediatR.Templates.UnhandledExceptionBehavio
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
         }
+
     }
 }

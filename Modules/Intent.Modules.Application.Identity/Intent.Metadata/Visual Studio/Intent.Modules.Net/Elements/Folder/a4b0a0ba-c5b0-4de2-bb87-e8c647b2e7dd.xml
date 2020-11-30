@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a4b0a0ba-c5b0-4de2-bb87-e8c647b2e7dd" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>modelers</name>
+  <display>modelers</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

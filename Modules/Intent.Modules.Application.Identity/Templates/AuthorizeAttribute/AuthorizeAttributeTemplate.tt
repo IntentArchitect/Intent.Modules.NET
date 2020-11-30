@@ -1,0 +1,37 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    /// <summary>
+    /// Specifies the class this attribute is applied to requires authorization.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+    public class <#= ClassName #> : Attribute
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthorizeAttribute"/> class. 
+        /// </summary>
+        public <#= ClassName #>() { }
+
+        /// <summary>
+        /// Gets or sets a comma delimited list of roles that are allowed to access the resource.
+        /// </summary>
+        public string Roles { get; set; }
+
+        /// <summary>
+        /// Gets or sets the policy name that determines access to the resource.
+        /// </summary>
+        public string Policy { get; set; }
+    }
+}

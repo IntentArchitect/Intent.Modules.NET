@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="cae45270-82de-46cb-9f14-648b2343211a" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>UnhandledExceptionBehaviour</name>
-  <display>UnhandledExceptionBehaviour: Single File</display>
+<class id="68ec10f6-35bb-4b18-9845-d5ef91513cff" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>LoggingBehaviour</name>
+  <display>LoggingBehaviour: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>6</order>
+  <order>2</order>
   <genericTypes />
-  <typeReference id="b42748b5-84f5-4a79-b608-ee6944a86953">
+  <typeReference id="3bd56dac-7303-43d7-bd2e-ff7f9097fdce">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -17,9 +17,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>e92495db-1b26-4389-bf06-cc1b375520b1</parentFolderId>
-  <packageId>e92495db-1b26-4389-bf06-cc1b375520b1</packageId>
-  <packageName>Intent.Application.MediatR</packageName>
+  <parentFolderId>d99a3c92-ab23-404c-922d-e7c06a68bc9c</parentFolderId>
+  <packageId>d99a3c92-ab23-404c-922d-e7c06a68bc9c</packageId>
+  <packageName>Intent.Application.MediatR.Behaviours</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">
       <addedByDefault>true</addedByDefault>
@@ -30,7 +30,7 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Services" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Services" isActive="true" />
         <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Location" value="Common/Behaviours" isActive="true" />
       </properties>
     </stereotype>

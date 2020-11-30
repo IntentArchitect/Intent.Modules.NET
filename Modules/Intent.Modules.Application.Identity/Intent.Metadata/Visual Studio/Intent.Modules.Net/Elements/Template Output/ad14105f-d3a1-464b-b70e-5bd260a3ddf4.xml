@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ad14105f-d3a1-464b-b70e-5bd260a3ddf4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</name>
+  <display>ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dc679d96-e52c-4347-8e1d-2771cac060fb</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

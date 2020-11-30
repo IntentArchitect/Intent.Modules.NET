@@ -1,0 +1,90 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\CurrentUserServiceInterface\CurrentUserServiceInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CurrentUserServiceInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IdentityServiceInterfaceTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\AuthorizationAttribute\AuthorizationAttributeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AuthorizationAttributeTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\UnauthorizedAccessException\UnauthorizedAccessExceptionTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UnauthorizedAccessExceptionTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ForbiddenAccessExceptionTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\AuthorizeAttribute\AuthorizeAttributeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AuthorizeAttributeTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\CurrentUserServiceInterface\CurrentUserServiceInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CurrentUserServiceInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityServiceInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\AuthorizationAttribute\AuthorizationAttributeTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthorizationAttributeTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\UnauthorizedAccessException\UnauthorizedAccessExceptionTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UnauthorizedAccessExceptionTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ForbiddenAccessExceptionTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\AuthorizeAttribute\AuthorizeAttributeTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthorizeAttributeTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Packager" Version="3.0.0-*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

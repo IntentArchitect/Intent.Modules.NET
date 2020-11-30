@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AuthorizationBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LoggingBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PerformanceBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UnhandledExceptionBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthorizationBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\LoggingBehaviour\LoggingBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LoggingBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PerformanceBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UnhandledExceptionBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.0-*" />
+    <PackageReference Include="Intent.Packager" Version="3.0.0-*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

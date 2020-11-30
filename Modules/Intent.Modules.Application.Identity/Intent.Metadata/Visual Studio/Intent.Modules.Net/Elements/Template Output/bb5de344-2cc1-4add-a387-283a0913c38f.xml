@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bb5de344-2cc1-4add-a387-283a0913c38f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.DesignerSettings</name>
+  <display>Intent.ModuleBuilder.DesignerSettings</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a4b0a0ba-c5b0-4de2-bb87-e8c647b2e7dd</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

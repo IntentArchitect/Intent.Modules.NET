@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="23b1f670-2e95-412a-9228-9d2788d4167a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</name>
+  <display>ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

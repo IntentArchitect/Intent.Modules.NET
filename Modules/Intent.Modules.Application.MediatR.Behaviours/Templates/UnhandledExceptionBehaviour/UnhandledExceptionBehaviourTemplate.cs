@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.Application.MediatR.Templates.UnhandledExceptionBehaviour
+namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExceptionBehaviour
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.MediatR.Templates.UnhandledExceptionBehavio
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class UnhandledExceptionBehaviourTemplate : CSharpTemplateBase<object>
     {
@@ -36,14 +36,14 @@ namespace Intent.Modules.Application.MediatR.Templates.UnhandledExceptionBehavio
                     "Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mod" +
                     "e.Fully)]\r\n\r\nnamespace ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

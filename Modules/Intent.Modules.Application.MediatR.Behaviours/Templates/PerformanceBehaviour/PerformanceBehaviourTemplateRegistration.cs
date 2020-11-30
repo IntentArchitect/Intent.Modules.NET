@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.Templates.UnhandledExceptionBehaviour
+namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBehaviour
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class UnhandledExceptionBehaviourTemplateRegistration : SingleFileTemplateRegistration
+    public class PerformanceBehaviourTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => UnhandledExceptionBehaviourTemplate.TemplateId;
+        public override string TemplateId => PerformanceBehaviourTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new UnhandledExceptionBehaviourTemplate(outputTarget, null);
+            return new PerformanceBehaviourTemplate(outputTarget, null);
         }
     }
 }

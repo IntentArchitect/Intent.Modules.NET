@@ -17,7 +17,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
     partial class QueryHandlerTemplate : CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.QueryModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Application.MediatR.QueryHandler";
+        public const string TemplateId = "Intent.Application.MediatR.QueryHandler";
 
         public QueryHandlerTemplate(IOutputTarget outputTarget, Intent.Modelers.Services.CQRS.Api.QueryModel model) : base(TemplateId, outputTarget, model)
         {
