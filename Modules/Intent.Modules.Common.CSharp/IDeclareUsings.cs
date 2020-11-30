@@ -24,7 +24,19 @@ namespace Intent.Modules.Common
             _templateDependencies.Add(TemplateDependency.OnTemplate(concreteType));
         }
 
+        private ContainerRegistrationRequest(string concreteType)
+        {
+            ConcreteType = concreteType;
+            Lifetime = LifeTime.Transient;
+            _templateDependencies.Add(TemplateDependency.OnTemplate(concreteType));
+        }
+
         public static ContainerRegistrationRequest ToRegister(IClassProvider concreteType)
+        {
+            return new ContainerRegistrationRequest(concreteType);
+        }
+
+        public static ContainerRegistrationRequest ToRegister(string concreteType)
         {
             return new ContainerRegistrationRequest(concreteType);
         }
@@ -39,6 +51,12 @@ namespace Intent.Modules.Common
         public ContainerRegistrationRequest ForInterface(string interfaceType)
         {
             InterfaceType = interfaceType;
+            return this;
+        }
+
+        public ContainerRegistrationRequest ForConcern(string concern)
+        {
+            Concern = concern;
             return this;
         }
 
@@ -60,15 +78,26 @@ namespace Intent.Modules.Common
             return this;
         }
 
-        public ContainerRegistrationRequest RequiresUsingNamespace(params string[] namespaces)
+        public ContainerRegistrationRequest RequiresUsingNamespaces(params string[] namespaces)
         {
             _requiredNamespaces.AddRange(namespaces);
             return this;
         }
 
+        public ContainerRegistrationRequest HasDependency(ITemplate template)
+        {
+            _templateDependencies.Add(TemplateDependency.OnTemplate(template));
+            return this;
+        }
+
+        public void MarkAsHandled()
+        {
+            IsHandled = true;
+        }
+
         public IEnumerable<string> RequiredNamespaces => _requiredNamespaces;
 
-        public string Group { get; private set; }
+        public string Concern { get; private set; }
 
         public string InterfaceType { get; private set; }
 

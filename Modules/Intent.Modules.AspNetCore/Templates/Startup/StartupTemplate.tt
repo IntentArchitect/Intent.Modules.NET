@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true"  inherits="CSharpTemplateBase<object>"#>
+<#@ template  debug="true"  inherits="CSharpTemplateBase<object, Intent.Modules.AspNetCore.Templates.Startup.StartupDecorator>"#>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
@@ -28,6 +28,9 @@ using Microsoft.Extensions.Options;
 <#  if (!IsNetCore2App()) { #>
 using Microsoft.Extensions.Hosting;
 <#  } #>
+<#  foreach(var @namespace in GetDecorators().SelectMany(x => x.RequiredNamespaces())) { #>
+using <#= @namespace #>;
+<#  } #>
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -43,9 +46,11 @@ namespace <#= Namespace #>
 
         public IConfiguration Configuration { get; }
 
-        // [IntentManaged(Mode.Ignore)] // Uncomment this line to take over management of configuring services
         public void ConfigureServices(IServiceCollection services)
         {
+<#  foreach(var decorator in GetDecorators()) { #>
+            <#= decorator.ConfigureServices() #>
+<#  } #>
 <#  if (IsNetCore2App()) { #>
             services.AddMvc();
 <#  } else { #>

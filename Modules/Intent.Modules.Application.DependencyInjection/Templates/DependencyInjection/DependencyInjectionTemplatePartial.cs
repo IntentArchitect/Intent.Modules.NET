@@ -28,6 +28,12 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
 
         private void HandleEvent(ContainerRegistrationRequest @event)
         {
+            if (@event.Concern != "Application")
+            {
+                return;
+            }
+
+            @event.MarkAsHandled();
             _registrationRequests.Add(@event);
             foreach (var templateDependency in @event.TemplateDependencies)
             {
@@ -44,6 +50,12 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
 
         private string DefineServiceRegistration(ContainerRegistrationRequest x)
         {
+            if (x.ConcreteType.StartsWith("typeof("))
+            {
+                return x.InterfaceType != null
+                    ? $"services.{RegistrationType(x)}({(x.InterfaceType)}, {(x.ConcreteType)});"
+                    : $"services.{RegistrationType(x)}({(x.ConcreteType)});";
+            }
             return x.InterfaceType != null
                 ? $"services.{RegistrationType(x)}<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>();"
                 : $"services.{RegistrationType(x)}<{NormalizeNamespace(x.ConcreteType)}>();";

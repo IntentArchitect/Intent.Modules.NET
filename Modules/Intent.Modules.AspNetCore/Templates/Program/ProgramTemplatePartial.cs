@@ -1,16 +1,22 @@
-﻿using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Templates;
+using Intent.RoslynWeaver.Attributes;
+using System.Collections.Generic;
+
+[assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.AspNetCore.Templates.Program
 {
-    partial class CoreWebProgramTemplate : CSharpTemplateBase<object>
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class ProgramTemplate : CSharpTemplateBase<object>
     {
         public const string Identifier = "Intent.AspNetCore.Program";
 
-        public CoreWebProgramTemplate(IProject project)
+        public ProgramTemplate(IOutputTarget project)
             : base(Identifier, project, null)
         {
         }
@@ -21,5 +27,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                 className: $"Program",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.AspNetCore.Program";
     }
 }

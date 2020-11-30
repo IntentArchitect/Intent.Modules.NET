@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
   <version>3.0.0-beta.5</version>
@@ -10,13 +10,13 @@
   <projectUrl>https://intentarchitect.com/</projectUrl>
   <tags>ASP.NET Core apsnetcore</tags>
   <templates>
-    <template id="Intent.AspNetCore.Program">
+    <template id="Intent.AspNetCore.Program" externalReference="4801c180-6756-4496-a4e0-d9b08a8f6674">
       <config>
         <add key="Namespace" description="Namespace" />
       </config>
       <role>Startup</role>
     </template>
-    <template id="Intent.AspNetCore.Startup">
+    <template id="Intent.AspNetCore.Startup" externalReference="2b0cd2c1-23c0-4841-a618-bc03211d9ae2">
       <config>
         <add key="Namespace" description="Namespace" />
       </config>
@@ -26,11 +26,14 @@
   <decorators />
   <dependencies>
     <dependency id="Intent.Common" version="3.0.0-beta.5" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.0.0-beta.5"/>
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0-beta.5"/>
+    <dependency id="Intent.VisualStudio.Projects" version="3.0.0-beta.5" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0-beta.5" />
+    <dependency id="Intent.Common.Types" version="3.0.0-beta.5" />
+    <dependency id="Intent.Common.CSharp" version="3.0.0-beta.3" />
   </dependencies>
   <files>
-    <file src="$outDir$/$id$.dll"/>
-    <file src="$outDir$/$id$.pdb"/>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
   </files>
+  <metadata />
 </package>

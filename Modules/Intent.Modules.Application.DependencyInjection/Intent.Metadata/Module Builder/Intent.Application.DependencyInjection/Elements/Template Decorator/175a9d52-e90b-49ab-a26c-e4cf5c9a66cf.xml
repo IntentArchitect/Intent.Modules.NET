@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="175a9d52-e90b-49ab-a26c-e4cf5c9a66cf" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>ApplicationStartupDecorator</name>
+  <display>ApplicationStartupDecorator: StartupDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="5d5f120f-dcbc-4784-ad41-e247da37041c">
+    <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AspNetCore</typePackageName>
+    <typePackageId>9d83d9d6-7718-4b4a-b78b-725535182de3</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>33084118-5d41-4965-a200-54aa73ba9021</parentFolderId>
+  <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+  <packageName>Intent.Application.DependencyInjection</packageName>
+  <stereotypes />
+  <childElements />
+</class>

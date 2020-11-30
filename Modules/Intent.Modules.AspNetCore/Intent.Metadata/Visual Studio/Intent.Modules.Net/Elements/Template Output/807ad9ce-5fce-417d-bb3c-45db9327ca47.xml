@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="807ad9ce-5fce-417d-bb3c-45db9327ca47" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</name>
+  <display>ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>59315bd9-a24a-436f-b541-214ce62ed9f9</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

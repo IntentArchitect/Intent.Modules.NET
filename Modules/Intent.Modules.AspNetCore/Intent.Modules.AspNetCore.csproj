@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -6,46 +6,45 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.0-*" />
     <PackageReference Include="Intent.Packager" Version="3.0.0-*">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
   </ItemGroup>
-
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 
-
   <ItemGroup>
-    <None Update="Templates\Program\CoreWebProgramTemplate.tt">
+    <None Update="Templates\Program\ProgramTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CoreWebProgramTemplate.cs</LastGenOutput>
+      <LastGenOutput>ProgramTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Startup\CoreWebStartupTemplate.tt">
+    <None Update="Templates\Startup\StartupTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CoreWebStartupTemplate.cs</LastGenOutput>
+      <LastGenOutput>StartupTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
-
   <ItemGroup>
-    <Compile Update="Templates\Program\CoreWebProgramTemplate.cs">
+    <Compile Update="Templates\Program\ProgramTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>CoreWebProgramTemplate.tt</DependentUpon>
+      <DependentUpon>ProgramTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Startup\CoreWebStartupTemplate.cs">
+    <Compile Update="Templates\Startup\StartupTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>CoreWebStartupTemplate.tt</DependentUpon>
+      <DependentUpon>StartupTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

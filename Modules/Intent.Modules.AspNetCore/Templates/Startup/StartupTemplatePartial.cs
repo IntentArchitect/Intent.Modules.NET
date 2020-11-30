@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Modules.Common.Templates;
@@ -9,21 +9,25 @@ using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.VisualStudio.Projects;
 using Intent.Templates;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.AspNetCore.Templates.Startup
 {
-    partial class CoreWebStartupTemplate : CSharpTemplateBase<object>, IHasTemplateDependencies, IDeclareUsings, IHasDecorators<CoreWebStartupDecorator>, IHasNugetDependencies
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class StartupTemplate : CSharpTemplateBase<object, StartupDecorator>
     {
         public const string Identifier = "Intent.AspNetCore.Startup";
-        private readonly IList<CoreWebStartupDecorator> _decorators = new List<CoreWebStartupDecorator>();
+        private readonly IList<StartupDecorator> _decorators = new List<StartupDecorator>();
         private readonly IList<ContainerRegistrationRequest> _registrations = new List<ContainerRegistrationRequest>();
         private readonly IList<DbContextContainerRegistration> _dbContextRegistrations = new List<DbContextContainerRegistration>();
         private readonly IList<Initializations> _serviceConfigurations = new List<Initializations>();
         private readonly IList<Initializations> _initializations = new List<Initializations>();
 
-        public CoreWebStartupTemplate(IProject project, IApplicationEventDispatcher eventDispatcher)
+        public StartupTemplate(IOutputTarget project, IApplicationEventDispatcher eventDispatcher)
             : base(Identifier, project, null)
         {
             eventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleServiceRegistration);
@@ -35,12 +39,6 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private void HandleServiceRegistration(ContainerRegistrationRequest @event)
         {
             _registrations.Add(@event);
-            //_registrations.Add(new ContainerRegistration(
-            //    interfaceType: @event.TryGetValue("InterfaceType"),
-            //    concreteType: @event.GetValue("ConcreteType"),
-            //    lifetime: @event.TryGetValue("Lifetime"),
-            //    interfaceTypeTemplateDependency: @event.TryGetValue("InterfaceTypeTemplateId") != null ? TemplateDependency.OnTemplate(@event.TryGetValue("InterfaceTypeTemplateId")) : null,
-            //    concreteTypeTemplateDependency: @event.TryGetValue("ConcreteTypeTemplateId") != null ? TemplateDependency.OnTemplate(@event.TryGetValue("ConcreteTypeTemplateId")) : null));
         }
 
         private void HandleDbContextRegistration(ApplicationEvent @event)
@@ -97,15 +95,15 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                                             $"{y}");
         }
 
-        public void AddDecorator(CoreWebStartupDecorator decorator)
-        {
-            _decorators.Add(decorator);
-        }
+        //public void AddDecorator(StartupDecorator decorator)
+        //{
+        //    _decorators.Add(decorator);
+        //}
 
-        public IEnumerable<CoreWebStartupDecorator> GetDecorators()
-        {
-            return _decorators;
-        }
+        //public IEnumerable<StartupDecorator> GetDecorators()
+        //{
+        //    return _decorators;
+        //}
 
         public string Configurations()
         {
@@ -125,6 +123,11 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                                             $"{y}");
         }
 
+        private IEnumerable<ContainerRegistrationRequest> GetServiceRegistrations()
+        {
+            return _registrations.Where(x => !x.IsHandled);
+        }
+
         public string Registrations()
         {
             string registrations = string.Empty;
@@ -133,8 +136,8 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                 registrations += $"{Environment.NewLine}            ConfigureDbContext(services);";
             }
 
-            registrations += _registrations.Any()
-                ? _registrations.Select(DefineServiceRegistration).Aggregate((x, y) => x + y)
+            registrations += GetServiceRegistrations().Any()
+                ? GetServiceRegistrations().Select(DefineServiceRegistration).Aggregate((x, y) => x + y)
                 : string.Empty;
 
             return registrations;// + Environment.NewLine + GetDecorators().Aggregate(x => x.Registrations());
@@ -181,6 +184,12 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
         private string DefineServiceRegistration(ContainerRegistrationRequest x)
         {
+            if (x.ConcreteType.StartsWith("typeof("))
+            {
+                return x.InterfaceType != null
+                    ? $"{Environment.NewLine}            services.{RegistrationType(x)}({NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)});"
+                    : $"{Environment.NewLine}            services.{RegistrationType(x)}({NormalizeNamespace(x.ConcreteType)});";
+            }
             return x.InterfaceType != null
                 ? $"{Environment.NewLine}            services.{RegistrationType(x)}<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>();"
                 : $"{Environment.NewLine}            services.{RegistrationType(x)}<{NormalizeNamespace(x.ConcreteType)}>();";
@@ -210,7 +219,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
         public override IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
-            return base.GetTemplateDependencies().Concat(_registrations.SelectMany(x => x.TemplateDependencies)
+            return base.GetTemplateDependencies().Concat(GetServiceRegistrations().SelectMany(x => x.TemplateDependencies)
                 //.Where(x => x.InterfaceType != null && x.InterfaceTypeTemplateDependency != null)
                 //.Select(x => x.InterfaceTypeTemplateDependency)
                 //.Union(_registrations
@@ -299,5 +308,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                 TemplateDependancy = templateDependency;
             }
         }
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.AspNetCore.Startup";
     }
 }

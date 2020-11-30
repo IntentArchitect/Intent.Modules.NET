@@ -8,7 +8,7 @@ using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
 {
-    public class SwashbuckleCoreWebStartupDecorator : CoreWebStartupDecorator, IHasNugetDependencies
+    public class SwashbuckleCoreWebStartupDecorator : StartupDecorator, IHasNugetDependencies
     {
         public const string Identifier = "Intent.AspNetCore.Swashbuckle.StartupDecorator";
         public SwashbuckleCoreWebStartupDecorator()

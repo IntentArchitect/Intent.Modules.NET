@@ -35,6 +35,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>QueryModelsTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UnhandledExceptionBehaviourTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -75,6 +80,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>QueryModelsTemplate.tt</DependentUpon>
     </Compile>
+  
+    <Compile Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UnhandledExceptionBehaviourTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -88,6 +99,10 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

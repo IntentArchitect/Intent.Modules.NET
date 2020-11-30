@@ -21,5 +21,6 @@
     <application id="3cbc980e-da30-405c-a8bd-f0043279721f" name="Intent.Modules.Application.MediatR" relativePath="Intent.Modules.Application.MediatR/Intent.Modules.Application.MediatR.application.config" />
     <application id="9221b11f-796f-4bb6-bf71-87adc4d61cfb" name="Intent.Modules.Application.DependencyInjection" relativePath="Intent.Modules.Application.DependencyInjection/Intent.Modules.Application.DependencyInjection.application.config" />
     <application id="1991f320-4f82-42f2-95c4-6d5f7683d9fc" name="Intent.Modules.Application.MediatR.Interop.AspNetCore" relativePath="Intent.Modules.Application.MediatR.Interop.AspNetCore/Intent.Modules.Application.MediatR.Interop.AspNetCore.application.config" />
+    <application id="27e8a783-da35-4755-af82-e7f54eff0eb2" name="Intent.Modules.AspNetCore" relativePath="Intent.Modules.AspNetCore/Intent.Modules.AspNetCore.application.config" />
   </applications>
 </solution>

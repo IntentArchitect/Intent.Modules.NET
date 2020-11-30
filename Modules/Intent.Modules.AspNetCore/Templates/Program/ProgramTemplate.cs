@@ -22,9 +22,9 @@ namespace Intent.Modules.AspNetCore.Templates.Program
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\CoreWebProgramTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\ProgramTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class CoreWebProgramTemplate : CSharpTemplateBase<object>
+    public partial class ProgramTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -35,7 +35,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
             this.Write(" \r\n");
             this.Write(" \r\n");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\CoreWebProgramTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\ProgramTemplate.tt"
 
 
 
@@ -45,14 +45,14 @@ namespace Intent.Modules.AspNetCore.Templates.Program
             #line hidden
             this.Write("using Microsoft.AspNetCore;\r\nusing Microsoft.AspNetCore.Hosting;\r\n");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\CoreWebProgramTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\ProgramTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DependencyUsings));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\CoreWebProgramTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Program\ProgramTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default

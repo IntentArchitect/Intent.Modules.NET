@@ -13,35 +13,43 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.MediatR.CommandHandler</role>
+      <role>Services</role>
     </template>
     <template id="Application.MediatR.CommandModels" externalReference="6fe47b20-09e5-4a25-8675-746c403d0158">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.MediatR.CommandModels</role>
+      <role>Services</role>
     </template>
     <template id="Application.MediatR.DtoModel" externalReference="f6caac28-de6f-4ac1-aa33-83ebcd6d346b">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.MediatR.DtoModel</role>
+      <role>Services</role>
     </template>
     <template id="Application.MediatR.QueryHandler" externalReference="3a8eb772-0533-42c8-9767-a87c67884d46">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.MediatR.QueryHandler</role>
+      <role>Services</role>
     </template>
     <template id="Application.MediatR.QueryModels" externalReference="7b686f14-b047-44e4-9065-4de3b48e6048">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.MediatR.QueryModels</role>
+      <role>Services</role>
+    </template>
+    <template id="Application.MediatR.UnhandledExceptionBehaviour" externalReference="cae45270-82de-46cb-9f14-648b2343211a">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Services</role>
+      <location>Common/Behaviours</location>
     </template>
   </templates>
   <dependencies>

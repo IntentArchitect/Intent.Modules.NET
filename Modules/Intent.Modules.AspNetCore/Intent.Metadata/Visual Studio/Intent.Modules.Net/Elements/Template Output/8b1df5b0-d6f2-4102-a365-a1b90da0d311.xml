@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8b1df5b0-d6f2-4102-a365-a1b90da0d311" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.TemplateRegistration.Custom</name>
+  <display>Intent.ModuleBuilder.TemplateRegistration.Custom</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>
