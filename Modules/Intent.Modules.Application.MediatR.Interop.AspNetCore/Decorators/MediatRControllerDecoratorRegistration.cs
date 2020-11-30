@@ -4,10 +4,10 @@ using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTemplate("ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.Decorators
+namespace Intent.Modules.Application.MediatR.Interop.AspNetCore.Decorators
 {
     [Description(MediatRControllerDecorator.DecoratorId)]
     public class MediatRControllerDecoratorRegistration : DecoratorRegistration<ControllerTemplate, ControllerDecorator>

@@ -4,6 +4,8 @@ using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common.Templates;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -14,7 +16,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
     partial class CommandModelsTemplate : CSharpTemplateBase<CommandModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Modules.Application.MediatR.CommandModels";
+        public const string TemplateId = "Application.MediatR.CommandModels";
 
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {

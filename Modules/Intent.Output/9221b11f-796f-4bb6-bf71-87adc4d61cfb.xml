@@ -19,6 +19,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>8a610851-7083-4146-97da-8ccabea5d5ca</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8a610851-7083-4146-97da-8ccabea5d5ca</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionTemplate.cs</ProjectRelativeFilePath>
     </FileLog>

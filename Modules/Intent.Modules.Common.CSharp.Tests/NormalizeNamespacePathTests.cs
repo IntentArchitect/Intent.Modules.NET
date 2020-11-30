@@ -145,5 +145,37 @@ namespace Intent.Modules.Common.Tests
 
             Assert.Equal("Modelers.Services.CQRS.Api.QueryModel", result);
         }
+
+        [Fact]
+        public void Scenario7()
+        {
+            var result = CSharpTemplateBase.NormalizeNamespace(
+                localNamespace: "Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection",
+                foreignType: "Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection.DependencyInjectionDecorator",
+                knownOtherPaths: new string[]
+                {
+                    "System",
+                    "System.Collections.Generic",
+                    "Intent.Engine",
+                    "Intent.Modules.Common",
+                    "Intent.Modules.Common.CSharp.Templates",
+                    "Intent.Modules.Common.Templates",
+                    "Intent.RoslynWeaver.Attributes",
+                    "Intent.Templates",
+                },
+                usingPaths: new string[]
+                {
+                    "System",
+                    "System.Collections.Generic",
+                    "Intent.Engine",
+                    "Intent.Modules.Common",
+                    "Intent.Modules.Common.CSharp.Templates",
+                    "Intent.Modules.Common.Templates",
+                    "Intent.RoslynWeaver.Attributes",
+                    "Intent.Templates",
+                });
+
+            Assert.Equal("DependencyInjectionDecorator", result);
+        }
     }
 }

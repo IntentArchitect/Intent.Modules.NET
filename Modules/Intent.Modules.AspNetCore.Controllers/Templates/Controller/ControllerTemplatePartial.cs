@@ -4,7 +4,6 @@ using System.Linq;
 using Intent.AspNetCore.Controllers.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.AspNetCore.Controllers.Decorators;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;

@@ -16,7 +16,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
     partial class QueryModelsTemplate : CSharpTemplateBase<QueryModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Modules.Application.MediatR.QueryModels";
+        public const string TemplateId = "Application.MediatR.QueryModels";
 
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {

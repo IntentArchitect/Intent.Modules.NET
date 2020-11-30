@@ -174,16 +174,16 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                                             $"{y}");
         }
 
+        private string DefineDbContextRegistration(DbContextContainerRegistration x)
+        {
+            return $"{Environment.NewLine}            services.AddDbContext<{NormalizeNamespace(x.ConcreteType)}>({(x.Options != null ? $"x => x{x.Options}" : string.Empty)});";
+        }
+
         private string DefineServiceRegistration(ContainerRegistrationRequest x)
         {
             return x.InterfaceType != null
                 ? $"{Environment.NewLine}            services.{RegistrationType(x)}<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>();"
                 : $"{Environment.NewLine}            services.{RegistrationType(x)}<{NormalizeNamespace(x.ConcreteType)}>();";
-        }
-
-        private string DefineDbContextRegistration(DbContextContainerRegistration x)
-        {
-            return $"{Environment.NewLine}            services.AddDbContext<{NormalizeNamespace(x.ConcreteType)}>({(x.Options != null ? $"x => x{x.Options}" : string.Empty)});";
         }
 
         private string RegistrationType(ContainerRegistrationRequest registration)

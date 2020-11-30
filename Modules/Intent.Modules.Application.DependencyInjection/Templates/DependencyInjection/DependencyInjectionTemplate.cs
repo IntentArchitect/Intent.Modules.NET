@@ -24,7 +24,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
     
     #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class DependencyInjectionTemplate : CSharpTemplateBase<object>
+    public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection.DependencyInjectionDecorator>
     {
 #line hidden
         /// <summary>
@@ -32,36 +32,64 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Reflection;\r\nusing MediatR;\r\nusing Microsoft.Extensions.DependencyIn" +
+                    "jection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write(@"
-    {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
-        {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
-
-            return services;
-        }
-    }
-}");
+            this.Write("\r\n    {\r\n        public static IServiceCollection AddApplication(this IServiceCol" +
+                    "lection services)\r\n        {\r\n");
+            
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+  foreach(var decorator in GetDecorators()) { 
+            
+            #line default
+            #line hidden
+            this.Write("            ");
+            
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(decorator.ServiceRegistration()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+  foreach(var registration in _registrationRequests) { 
+            
+            #line default
+            #line hidden
+            this.Write("            ");
+            
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DefineServiceRegistration(registration)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            this.Write("            return services;\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

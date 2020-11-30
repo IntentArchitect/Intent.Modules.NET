@@ -1,26 +1,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
-using Intent.Modules.Common;
-using FolderExtensionModel = Intent.Modelers.Services.Api.FolderExtensionModel;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: IntentTemplate("ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Ignore)]
+[assembly: IntentTemplate("ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.Decorators
+namespace Intent.Modules.Application.MediatR.Interop.AspNetCore.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class MediatRControllerDecorator : ControllerDecorator
     {
+        public const string DecoratorId = "Application.MediatR.Interop.AspNetCore.MediatRControllerDecorator";
         private readonly ControllerTemplate _template;
-        public const string DecoratorId = "Intent.AspNetCore.Controllers.MediatRDecorator";
 
         public MediatRControllerDecorator(ControllerTemplate template)
         {
@@ -85,5 +83,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
             }
             return $"new {_template.GetTypeName(mappedElement)}()";
         }
+
     }
 }

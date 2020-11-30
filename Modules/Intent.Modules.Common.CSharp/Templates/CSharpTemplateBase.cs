@@ -166,6 +166,11 @@ namespace Intent.Modules.Common.CSharp.Templates
                 return foreignType;
             }
 
+            if (localNamespaceParts.SequenceEqual(foreignTypeParts.Take(foreignTypeParts.Length - 1)))
+            {
+                return foreignTypeParts.Last();
+            }
+
             // Is there already a using which matches qualifier:
             // (It's not immediately clear what scenario "usings.All(x => x != foreignType)" covers, if you know, please document)
             // localNamespaceParts.Contains(foreignTypeParts.Last()) - if name exists in local namespace, can't use name as is.

@@ -18,8 +18,8 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.0-beta.3" />
-    <dependency id="Intent.Common.Types" version="3.0.0-beta.3" />
+    <dependency id="Intent.Common" version="3.0.0-beta.5" />
+    <dependency id="Intent.Common.Types" version="3.0.0-beta.5" />
     <dependency id="Intent.Common.CSharp" version="3.0.0-beta.3" />
     <dependency id="Intent.Modelers.Services" version="3.0.0-beta.3" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0-beta.3" />
@@ -31,7 +31,5 @@
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Controllers/Intent.AspNetCore.Controllers.pkg.config" externalReference="2e47c1f8-bb68-45ad-aa23-385a4faadc92" />
   </metadata>
-  <decorators>
-    <decorator id="AspNetCore.Controllers.MediatRControllerDecorator" externalReference="15cc94a7-aee5-4bb6-b599-4aff272e870d" />
-  </decorators>
+  <decorators />
 </package>

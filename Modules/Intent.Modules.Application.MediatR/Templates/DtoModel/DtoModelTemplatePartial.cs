@@ -17,7 +17,7 @@ namespace Intent.Modules.Application.MediatR.Templates.DtoModel
     partial class DtoModelTemplate : CSharpTemplateBase<DTOModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Modules.Application.MediatR.DtoModel";
+        public const string TemplateId = "Application.MediatR.DtoModel";
 
         public DtoModelTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {

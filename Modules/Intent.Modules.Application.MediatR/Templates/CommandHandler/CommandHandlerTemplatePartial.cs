@@ -17,7 +17,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
     partial class CommandHandlerTemplate : CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.CommandModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Modules.Application.MediatR.CommandHandler";
+        public const string TemplateId = "Application.MediatR.CommandHandler";
 
         public CommandHandlerTemplate(IOutputTarget outputTarget, Intent.Modelers.Services.CQRS.Api.CommandModel model) : base(TemplateId, outputTarget, model)
         {

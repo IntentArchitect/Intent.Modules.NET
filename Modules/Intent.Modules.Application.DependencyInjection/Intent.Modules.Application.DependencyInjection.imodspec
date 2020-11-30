@@ -26,5 +26,7 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <metadata />
+  <metadata>
+    <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Application.DependencyInjection/Intent.Application.DependencyInjection.pkg.config" externalReference="33084118-5d41-4965-a200-54aa73ba9021" />
+  </metadata>
 </package>
