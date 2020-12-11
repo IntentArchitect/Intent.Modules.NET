@@ -22,9 +22,9 @@ namespace Intent.Modules.IdentityServer4.InMemoryStore.Templates.TestUsers
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsers.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class TestUsers : CSharpTemplateBase<object>
+    public partial class TestUsersTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -36,14 +36,14 @@ namespace Intent.Modules.IdentityServer4.InMemoryStore.Templates.TestUsers
                     "ic;\r\nusing System.Security.Claims;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully" +
                     ")]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsers.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 19 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsers.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

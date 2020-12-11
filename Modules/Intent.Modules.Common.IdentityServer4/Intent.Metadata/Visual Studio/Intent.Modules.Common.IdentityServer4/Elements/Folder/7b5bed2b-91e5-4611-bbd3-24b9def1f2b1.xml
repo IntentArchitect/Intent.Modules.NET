@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7b5bed2b-91e5-4611-bbd3-24b9def1f2b1" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>FactoryExtensions</name>
+  <display>FactoryExtensions</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7a464c74-2277-4101-aab8-59a5161bc77b</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

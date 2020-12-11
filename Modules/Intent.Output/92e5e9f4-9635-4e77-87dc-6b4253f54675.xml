@@ -19,23 +19,23 @@
     </FileLog>
     <FileLog>
       <ProjectId>7a9b0d57-e4cf-4d4c-b1eb-282898e976b2</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsers.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>TestUsers/TestUsers.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>TestUsers/TestUsersTemplate.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>7a9b0d57-e4cf-4d4c-b1eb-282898e976b2</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsers.tt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>TestUsers/TestUsers.tt</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>TestUsers/TestUsersTemplate.tt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>7a9b0d57-e4cf-4d4c-b1eb-282898e976b2</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersPartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>TestUsers/TestUsersPartial.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>TestUsers/TestUsersTemplatePartial.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>7a9b0d57-e4cf-4d4c-b1eb-282898e976b2</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>TestUsers/TestUsersRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Templates\TestUsers\TestUsersTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>TestUsers/TestUsersTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

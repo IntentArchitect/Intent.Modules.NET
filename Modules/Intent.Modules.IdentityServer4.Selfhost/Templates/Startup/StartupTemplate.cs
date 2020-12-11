@@ -22,9 +22,9 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Startup
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\Startup.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class Startup : CSharpTemplateBase<object>
+    public partial class StartupTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -48,21 +48,21 @@ using Microsoft.Extensions.Hosting;
 
 namespace ");
             
-            #line 24 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\Startup.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 26 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\Startup.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        public ");
             
-            #line 28 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\Startup.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -82,7 +82,7 @@ namespace ");
 
             ");
             
-            #line 41 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\Startup.tt"
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetIdentityServerServices(tabSubIndents: 5)));
             
             #line default

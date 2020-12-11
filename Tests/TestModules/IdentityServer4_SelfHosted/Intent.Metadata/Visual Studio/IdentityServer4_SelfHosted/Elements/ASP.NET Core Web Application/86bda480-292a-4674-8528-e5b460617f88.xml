@@ -3,6 +3,7 @@
   <name>IdentityServer4StandaloneApi</name>
   <display>IdentityServer4StandaloneApi</display>
   <isAbstract>false</isAbstract>
+  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>de231ea6-9356-4a0b-9f65-4c7444283d56</parentFolderId>
@@ -25,6 +26,7 @@
       <name>IdentityServer4.InMemoryStore.TestUsers</name>
       <display>IdentityServer4.InMemoryStore.TestUsers</display>
       <isAbstract>false</isAbstract>
+      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -37,6 +39,7 @@
       <name>IdentityServer4.Selfhost.IdentityConfig</name>
       <display>IdentityServer4.Selfhost.IdentityConfig</display>
       <isAbstract>false</isAbstract>
+      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -49,6 +52,7 @@
       <name>IdentityServer4.Selfhost.Program</name>
       <display>IdentityServer4.Selfhost.Program</display>
       <isAbstract>false</isAbstract>
+      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -61,6 +65,7 @@
       <name>IdentityServer4.Selfhost.Startup</name>
       <display>IdentityServer4.Selfhost.Startup</display>
       <isAbstract>false</isAbstract>
+      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -73,6 +78,7 @@
       <name>IdentityServer4.X509CertSigning.CertificateRepo</name>
       <display>IdentityServer4.X509CertSigning.CertificateRepo</display>
       <isAbstract>false</isAbstract>
+      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -85,6 +91,7 @@
       <name>IdentityServer4.X509CertSigning.SigningCertificate</name>
       <display>IdentityServer4.X509CertSigning.SigningCertificate</display>
       <isAbstract>false</isAbstract>
+      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -97,6 +104,7 @@
       <name>IdentityServer4</name>
       <display>IdentityServer4</display>
       <isAbstract>false</isAbstract>
+      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>

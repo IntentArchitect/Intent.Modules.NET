@@ -22,9 +22,9 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfig.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class IdentityConfig : CSharpTemplateBase<object>
+    public partial class IdentityConfigTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -36,14 +36,14 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig
                     "dentityServer4.Models;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamesp" +
                     "ace ");
             
-            #line 17 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfig.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 19 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfig.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -51,7 +51,7 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig
             this.Write("\r\n    {\r\n        public const string ApiResourceName = \"api\";\r\n\r\n        public s" +
                     "tatic IEnumerable<Client> Clients = new List<Client>\r\n        {\r\n");
             
-            #line 25 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfig.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetClients(tabSubIndents: 4)));
             
             #line default

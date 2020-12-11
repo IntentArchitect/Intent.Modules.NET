@@ -22,9 +22,9 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Program
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\Program.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class Program : CSharpTemplateBase<object>
+    public partial class ProgramTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -35,14 +35,14 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Program
             this.Write(" \r\n");
             this.Write("using Microsoft.AspNetCore;\r\nusing Microsoft.AspNetCore.Hosting;\r\n");
             
-            #line 16 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\Program.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DependencyUsings));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 20 "C:\Dev\Intent.Modules\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\Program.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default

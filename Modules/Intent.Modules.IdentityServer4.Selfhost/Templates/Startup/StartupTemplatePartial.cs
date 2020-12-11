@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.IdentityServer4.Decorators;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -16,14 +17,14 @@ using Intent.Templates;
 namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Startup
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    partial class Startup : CSharpTemplateBase<object>, IHasDecorators<StartupDecorator>
+    partial class StartupTemplate : CSharpTemplateBase<object>, IHasDecorators<StartupDecorator>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "IdentityServer4.Selfhost.Startup";
 
         private readonly List<StartupDecorator> _decorators = new List<StartupDecorator>();
 
-        public Startup(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        public StartupTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.IdentityServer4);
         }
@@ -37,22 +38,22 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Startup
 
         public string GetClientsConfiguration()
         {
-            return $"{GetTypeName(IdentityConfig.IdentityConfig.TemplateId)}.Clients";
+            return $"{GetTypeName(IdentityConfigTemplate.TemplateId)}.Clients";
         }
 
         public string GetApiResourcesConfiguration()
         {
-            return $"{GetTypeName(IdentityConfig.IdentityConfig.TemplateId)}.ApiResources";
+            return $"{GetTypeName(IdentityConfigTemplate.TemplateId)}.ApiResources";
         }
 
         public string GetScopesConfiguration()
         {
-            return $"{GetTypeName(IdentityConfig.IdentityConfig.TemplateId)}.Scopes";
+            return $"{GetTypeName(IdentityConfigTemplate.TemplateId)}.Scopes";
         }
 
         public string GetIdentityResourcesConfiguration()
         {
-            return $"{GetTypeName(IdentityConfig.IdentityConfig.TemplateId)}.IdentityResources";
+            return $"{GetTypeName(IdentityConfigTemplate.TemplateId)}.IdentityResources";
         }
 
         public string GetIdentityServerServices(int tabSubIndents)

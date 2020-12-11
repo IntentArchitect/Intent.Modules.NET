@@ -14,13 +14,13 @@ using Intent.Templates;
 namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRepo
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class CertificateRepoRegistration : SingleFileTemplateRegistration
+    public class CertificateRepoTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => CertificateRepo.TemplateId;
+        public override string TemplateId => CertificateRepoTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new CertificateRepo(outputTarget, null);
+            return new CertificateRepoTemplate(outputTarget, null);
         }
     }
 }

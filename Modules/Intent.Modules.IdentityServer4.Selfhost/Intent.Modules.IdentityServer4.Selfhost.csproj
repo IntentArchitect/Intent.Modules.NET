@@ -12,6 +12,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,9 +24,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Clients.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Program\Program.tt">
+    <None Update="Templates\Program\ProgramTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Program.cs</LastGenOutput>
+      <LastGenOutput>ProgramTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\IdentityConfig\Resources\Resources.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -35,24 +36,21 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Scopes.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Startup\Startup.tt">
+    <None Update="Templates\Startup\StartupTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Startup.cs</LastGenOutput>
+      <LastGenOutput>StartupTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\IdentityConfig\ApiResources\ApiResources.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApiResources.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\IdentityConfig\IdentityResources\IdentityResources.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>IdentityResources.cs</LastGenOutput>
     </None>
-  
-    <None Update="Templates\IdentityConfig\IdentityConfig.tt">
+    <None Update="Templates\IdentityConfig\IdentityConfigTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>IdentityConfig.cs</LastGenOutput>
+      <LastGenOutput>IdentityConfigTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -62,10 +60,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Clients.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Program\Program.cs">
+    <Compile Update="Templates\Program\ProgramTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Program.tt</DependentUpon>
+      <DependentUpon>ProgramTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\IdentityConfig\Resources\Resources.cs">
       <DesignTime>True</DesignTime>
@@ -77,28 +75,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Scopes.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Startup\Startup.cs">
+    <Compile Update="Templates\Startup\StartupTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Startup.tt</DependentUpon>
+      <DependentUpon>StartupTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\IdentityConfig\ApiResources\ApiResources.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ApiResources.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\IdentityConfig\IdentityResources\IdentityResources.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>IdentityResources.tt</DependentUpon>
     </Compile>
-  
-    <Compile Update="Templates\IdentityConfig\IdentityConfig.cs">
+    <Compile Update="Templates\IdentityConfig\IdentityConfigTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>IdentityConfig.tt</DependentUpon>
+      <DependentUpon>IdentityConfigTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

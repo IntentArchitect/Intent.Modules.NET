@@ -3,6 +3,7 @@
   <name>Startup</name>
   <display>Startup: Single File</display>
   <isAbstract>false</isAbstract>
+  <order>0</order>
   <genericTypes />
   <typeReference id="cb5d1092-824d-4ecd-8555-4211689b137c">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

@@ -12,6 +12,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0-*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,15 +24,13 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SigningCertificate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\X509CertRepo\X509CertRepo.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>X509CertRepo.cs</LastGenOutput>
     </None>
-  
-    <None Update="Templates\CertificateRepo\CertificateRepo.tt">
+    <None Update="Templates\CertificateRepo\CertificateRepoTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CertificateRepo.cs</LastGenOutput>
+      <LastGenOutput>CertificateRepoTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -41,17 +40,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SigningCertificate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\X509CertRepo\X509CertRepo.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>X509CertRepo.tt</DependentUpon>
     </Compile>
-  
-    <Compile Update="Templates\CertificateRepo\CertificateRepo.cs">
+    <Compile Update="Templates\CertificateRepo\CertificateRepoTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>CertificateRepo.tt</DependentUpon>
+      <DependentUpon>CertificateRepoTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

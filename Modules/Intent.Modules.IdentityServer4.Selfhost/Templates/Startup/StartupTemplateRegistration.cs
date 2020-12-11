@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.IdentityServer4.InMemoryStore.Templates.TestUsers
+namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Startup
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class TestUsersRegistration : SingleFileTemplateRegistration
+    public class StartupTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => TestUsers.TemplateId;
+        public override string TemplateId => StartupTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new TestUsers(outputTarget, null);
+            return new StartupTemplate(outputTarget, null);
         }
     }
 }

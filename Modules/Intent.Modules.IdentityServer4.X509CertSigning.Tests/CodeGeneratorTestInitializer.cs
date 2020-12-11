@@ -16,7 +16,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Tests
         {
             string projectDir = GetProjectDirectory();
 
-            var certificateRepo = new CertificateRepo(new MockOutputTarget(), null);
+            var certificateRepo = new CertificateRepoTemplate(new MockOutputTarget(), null);
             certificateRepo.ConfigureFileMetadata(new MockFileMetadata(
                 @namespace: typeof(CodeGeneratorTestInitializer).Namespace + ".GeneratedTemplates", 
                 className: "CertificateRepo"));

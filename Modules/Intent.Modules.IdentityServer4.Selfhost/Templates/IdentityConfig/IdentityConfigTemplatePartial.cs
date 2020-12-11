@@ -16,14 +16,14 @@ using Intent.Templates;
 namespace Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    partial class IdentityConfig : CSharpTemplateBase<object>, IHasDecorators<IdentityConfigDecorator>
+    partial class IdentityConfigTemplate : CSharpTemplateBase<object>, IHasDecorators<IdentityConfigDecorator>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "IdentityServer4.Selfhost.IdentityConfig";
 
         private readonly List<IdentityConfigDecorator> _decorators = new List<IdentityConfigDecorator>();
 
-        public IdentityConfig(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        public IdentityConfigTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.IdentityServer4);
         }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -9,22 +10,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRepo
+namespace Intent.Modules.IdentityServer4.InMemoryStore.Templates.TestUsers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class CertificateRepo : CSharpTemplateBase<object>
+    partial class TestUsersTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "IdentityServer4.X509CertSigning.CertificateRepo";
+        public const string TemplateId = "IdentityServer4.InMemoryStore.TestUsers";
 
-        public CertificateRepo(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        public TestUsersTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.IdentityServer4);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"CertificateRepo",
+                className: $"TestUsers",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
