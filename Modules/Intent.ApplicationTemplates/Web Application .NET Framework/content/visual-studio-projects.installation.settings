@@ -35,10 +35,10 @@
           </childElements>
         </element>
         <element typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
-          <name>2 - Services</name>
+          <name>2 - Application</name>
           <childElements>
             <element typeId="0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D" type="Class Library (.NET Framework)">
-              <name>${application.name}.Services</name>
+              <name>${application.name}.Application</name>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="f3fcc35a-4bb2-44e7-aca2-d721e047a4c9" name=".NET Framework Settings">
                   <addedByDefault>true</addedByDefault>
@@ -51,13 +51,7 @@
               </stereotypes>
               <childElements>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
-                  <name>Services.Mappings</name>
-                </element>
-                <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
-                  <name>Services.Contracts</name>
-                </element>
-                <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
-                  <name>Services.Implementation</name>
+                  <name>Application</name>
                 </element>
               </childElements>
             </element>
@@ -90,10 +84,10 @@
           </childElements>
         </element>
         <element typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
-          <name>4 - Persistence</name>
+          <name>4 - Infrastructure</name>
           <childElements>
             <element typeId="0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D" type="Class Library (.NET Framework)">
-              <name>${application.name}.Persistence.EF</name>
+              <name>${application.name}.Persistence</name>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="f3fcc35a-4bb2-44e7-aca2-d721e047a4c9" name=".NET Framework Settings">
                   <addedByDefault>true</addedByDefault>
@@ -106,7 +100,7 @@
               </stereotypes>
               <childElements>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
-                  <name>Infrastructure.Data</name>
+                  <name>Infrastructure</name>
                 </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Repository.Implementation</name>

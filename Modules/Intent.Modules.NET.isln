@@ -23,5 +23,6 @@
     <application id="27e8a783-da35-4755-af82-e7f54eff0eb2" name="Intent.Modules.AspNetCore" relativePath="Intent.Modules.AspNetCore/Intent.Modules.AspNetCore.application.config" />
     <application id="2dbbb91b-54b6-4157-b30d-e42e1ab90a8b" name="Intent.Modules.Application.Identity" relativePath="Intent.Modules.Application.Identity/Intent.Modules.Application.Identity.application.config" />
     <application id="5e684d52-7a4c-48fb-b89e-221df0609c32" name="Intent.Modules.Application.MediatR.Behaviours" relativePath="Intent.Modules.Application.MediatR.Behaviours/Intent.Modules.Application.MediatR.Behaviours.application.config" />
+    <application id="ae575ed7-0029-48f7-bdf7-5b742479d6fc" name="Intent.Modules.AspNetCore.IdentityServer" relativePath="Intent.Modules.AspNetCore.IdentityServer/Intent.Modules.AspNetCore.IdentityServer.application.config" />
   </applications>
 </solution>

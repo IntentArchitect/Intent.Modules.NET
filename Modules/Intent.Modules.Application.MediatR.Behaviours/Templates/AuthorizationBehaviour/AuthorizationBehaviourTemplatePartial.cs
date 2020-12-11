@@ -1,8 +1,5 @@
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modules.Application.Identity.Templates.AuthorizationAttribute;
-using Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterface;
-using Intent.Modules.Application.Identity.Templates.IdentityServiceInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
