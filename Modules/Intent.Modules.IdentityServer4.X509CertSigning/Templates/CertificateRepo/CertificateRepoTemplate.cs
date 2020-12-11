@@ -42,7 +42,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
             #line default
             #line hidden
             this.Write("\r\n{\r\n    /// <summary>\r\n    /// Convenient way to obtain X509 Certificates from v" +
-                    "arious sources\r\n    /// </summary>\r\n    static class ");
+                    "arious sources\r\n    /// </summary>\r\n    internal static class ");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.X509CertSigning\Templates\CertificateRepo\CertificateRepoTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

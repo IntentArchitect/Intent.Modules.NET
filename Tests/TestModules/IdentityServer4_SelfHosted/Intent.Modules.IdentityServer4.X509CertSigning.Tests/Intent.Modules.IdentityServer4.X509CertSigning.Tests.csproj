@@ -17,11 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="GeneratedTemplates\" />
+    <ProjectReference Include="..\IdentityServer4StandaloneApi\IdentityServer4StandaloneApi.csproj" />
   </ItemGroup>
 
 </Project>

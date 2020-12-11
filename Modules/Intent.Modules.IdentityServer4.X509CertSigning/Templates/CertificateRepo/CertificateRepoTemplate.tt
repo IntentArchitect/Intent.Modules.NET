@@ -19,7 +19,7 @@ namespace <#= Namespace #>
     /// <summary>
     /// Convenient way to obtain X509 Certificates from various sources
     /// </summary>
-    static class <#= ClassName #>
+    internal static class <#= ClassName #>
     {
         public static X509Certificate2 GetFromCertificateStore(
             string findType,

@@ -4,13 +4,14 @@ using System.Security.Cryptography.X509Certificates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("IdentityServer4.X509CertSigning.CertificateRepo", Version = "1.0")]
 
-namespace Intent.Modules.IdentityServer4.X509CertSigning.Tests.GeneratedTemplates
+namespace IdentityServer4StandaloneApi
 {
     /// <summary>
     /// Convenient way to obtain X509 Certificates from various sources
     /// </summary>
-    static class CertificateRepo
+    internal static class CertificateRepo
     {
         public static X509Certificate2 GetFromCertificateStore(
             string findType,

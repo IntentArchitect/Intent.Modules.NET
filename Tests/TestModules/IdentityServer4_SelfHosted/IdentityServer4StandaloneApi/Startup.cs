@@ -37,7 +37,7 @@ namespace IdentityServer4StandaloneApi
                 .AddInMemoryApiScopes(IdentityConfig.Scopes)
                 .AddInMemoryIdentityResources(IdentityConfig.IdentityResources)
                 .AddTestUsers(TestUsers.Users)
-                .AddDeveloperSigningCredential()
+                .AddSigningCredential(CertificateRepo.GetFromFile("path to pfx file"))
                 ;
 
         }
