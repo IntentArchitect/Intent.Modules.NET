@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<object, Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig.IdentityConfigDecorator>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>

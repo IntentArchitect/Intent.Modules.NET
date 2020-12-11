@@ -3,6 +3,26 @@
   <ApplicationId>92e5e9f4-9635-4e77-87dc-6b4253f54675</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>910c3ee3-42c8-4b43-be8f-4f3ea398aee2</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Decorators\InMemoryIdentityConfigDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InMemoryIdentityConfigDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>910c3ee3-42c8-4b43-be8f-4f3ea398aee2</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Decorators\InMemoryIdentityConfigDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InMemoryIdentityConfigDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>910c3ee3-42c8-4b43-be8f-4f3ea398aee2</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Decorators\InMemoryStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InMemoryStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>910c3ee3-42c8-4b43-be8f-4f3ea398aee2</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Decorators\InMemoryStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InMemoryStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>479bf28a-a5ff-408d-9166-d5d9e60f3e74</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.InMemoryStore\Intent.Modules.IdentityServer4.InMemoryStore.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.InMemoryStore.csproj</ProjectRelativeFilePath>

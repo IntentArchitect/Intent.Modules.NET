@@ -24,7 +24,7 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Startup
     
     #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class StartupTemplate : CSharpTemplateBase<object>
+    public partial class StartupTemplate : CSharpTemplateBase<object, Intent.Modules.IdentityServer4.Selfhost.Templates.Startup.StartupDecorator>
     {
 #line hidden
         /// <summary>

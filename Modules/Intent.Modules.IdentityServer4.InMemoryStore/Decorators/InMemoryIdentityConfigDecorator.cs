@@ -1,5 +1,9 @@
-﻿using Intent.Modules.Common.IdentityServer4.Decorators;
+using Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig;
 using System.Collections.Generic;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Ignore)]
 
 namespace Intent.Modules.IdentityServer4.InMemoryStore.Decorators
 {
@@ -7,7 +11,10 @@ namespace Intent.Modules.IdentityServer4.InMemoryStore.Decorators
     {
         public const string Identifier = "IdentityServer4.InMemoryStore.IdentityConfigDecorator";
 
-        public override int Priority => 1;
+        public InMemoryIdentityConfigDecorator(IdentityConfigTemplate template)
+        {
+            this.Priority = 1;
+        }
 
         public override EntityCollection GetClients()
         {

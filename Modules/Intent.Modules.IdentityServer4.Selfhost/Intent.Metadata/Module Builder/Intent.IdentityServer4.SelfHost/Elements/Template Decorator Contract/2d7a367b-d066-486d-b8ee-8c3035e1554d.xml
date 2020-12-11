@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2d7a367b-d066-486d-b8ee-8c3035e1554d" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>StartupDecorator</name>
+  <display>StartupDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f4108d1e-b173-4b07-bda8-8e53f231aec9</parentFolderId>
+  <packageId>e1a19c18-2631-4bac-9431-ef4f05e001e5</packageId>
+  <packageName>Intent.IdentityServer4.SelfHost</packageName>
+  <stereotypes />
+  <childElements />
+</class>

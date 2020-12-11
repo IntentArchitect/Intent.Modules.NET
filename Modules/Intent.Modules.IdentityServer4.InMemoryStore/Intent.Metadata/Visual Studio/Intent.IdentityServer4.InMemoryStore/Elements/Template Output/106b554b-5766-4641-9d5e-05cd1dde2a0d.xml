@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="106b554b-5766-4641-9d5e-05cd1dde2a0d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.DecoratorTemplate</name>
+  <display>Intent.ModuleBuilder.DecoratorTemplate</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>910c3ee3-42c8-4b43-be8f-4f3ea398aee2</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

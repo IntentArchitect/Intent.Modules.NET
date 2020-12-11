@@ -19,6 +19,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityConfig/IdentityConfigDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityConfig/IdentityConfigTemplate.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -56,6 +61,11 @@
       <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Program/ProgramTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Startup/StartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>

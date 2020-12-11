@@ -3,7 +3,7 @@
   <name>IdentityConfig</name>
   <display>IdentityConfig: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <order>1</order>
   <genericTypes />
   <typeReference id="f9e2df11-3ce6-4261-810f-b30f5da242cf">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

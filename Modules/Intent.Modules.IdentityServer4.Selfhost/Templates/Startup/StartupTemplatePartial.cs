@@ -4,7 +4,6 @@ using System.Text;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.IdentityServer4.Decorators;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig;
 using Intent.RoslynWeaver.Attributes;
@@ -16,13 +15,11 @@ using Intent.Templates;
 
 namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Startup
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    partial class StartupTemplate : CSharpTemplateBase<object>, IHasDecorators<StartupDecorator>
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class StartupTemplate : CSharpTemplateBase<object, StartupDecorator>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "IdentityServer4.Selfhost.Startup";
-
-        private readonly List<StartupDecorator> _decorators = new List<StartupDecorator>();
 
         public StartupTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
         {
@@ -85,16 +82,6 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.Startup
         private static void AddFluentCall(StringBuilder sb, string indents, string statement)
         {
             sb.Append(indents).Append(".").AppendLine(statement);
-        }
-
-        public void AddDecorator(StartupDecorator decorator)
-        {
-            _decorators.Add(decorator);
-        }
-
-        public IEnumerable<StartupDecorator> GetDecorators()
-        {
-            return _decorators;
         }
     }
 }

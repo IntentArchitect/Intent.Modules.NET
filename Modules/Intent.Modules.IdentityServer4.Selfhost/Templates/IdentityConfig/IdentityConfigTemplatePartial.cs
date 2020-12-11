@@ -4,7 +4,6 @@ using System.Text;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.IdentityServer4.Decorators;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -15,13 +14,11 @@ using Intent.Templates;
 
 namespace Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    partial class IdentityConfigTemplate : CSharpTemplateBase<object>, IHasDecorators<IdentityConfigDecorator>
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class IdentityConfigTemplate : CSharpTemplateBase<object, IdentityConfigDecorator>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "IdentityServer4.Selfhost.IdentityConfig";
-
-        private readonly List<IdentityConfigDecorator> _decorators = new List<IdentityConfigDecorator>();
 
         public IdentityConfigTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
         {
@@ -57,16 +54,6 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig
                 sb.Append(indents).Append("    ").AppendLine($"{field.Key} = {field.Value},");
             }
             sb.Append(indents).AppendLine("},");
-        }
-
-        public void AddDecorator(IdentityConfigDecorator decorator)
-        {
-            _decorators.Add(decorator);
-        }
-
-        public IEnumerable<IdentityConfigDecorator> GetDecorators()
-        {
-            return _decorators;
         }
     }
 }

@@ -1,17 +1,22 @@
-﻿using Intent.Engine;
-using Intent.Modules.Common.IdentityServer4.Decorators;
+using System.ComponentModel;
+using Intent.Engine;
 using Intent.Modules.Common.Registrations;
-using System;
+using Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 
 namespace Intent.Modules.IdentityServer4.InMemoryStore.Decorators
 {
-    public class InMemoryIdentityConfigDecoratorRegistration : DecoratorRegistration<IdentityConfigDecorator>
+    [Description(InMemoryIdentityConfigDecorator.Identifier)]
+    public class InMemoryIdentityConfigDecoratorRegistration : DecoratorRegistration<IdentityConfigTemplate, IdentityConfigDecorator>
     {
-        public override string DecoratorId => InMemoryIdentityConfigDecorator.Identifier;
-
-        public override IdentityConfigDecorator CreateDecoratorInstance(IApplication application)
+        public override IdentityConfigDecorator CreateDecoratorInstance(IdentityConfigTemplate template, IApplication application)
         {
-            return new InMemoryIdentityConfigDecorator();
+            return new InMemoryIdentityConfigDecorator(template);
         }
+
+        public override string DecoratorId => InMemoryIdentityConfigDecorator.Identifier;
     }
 }

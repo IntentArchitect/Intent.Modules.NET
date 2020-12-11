@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="31206a74-853c-419d-92f7-7282b130cf58" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>InMemoryIdentityConfigDecorator</name>
+  <display>InMemoryIdentityConfigDecorator: IdentityConfigDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="5c2ce6ad-8644-4f69-8214-ccd7179379af">
+    <typeId>efdf5e18-9d8f-4db4-aac7-d110d9948aa8</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.IdentityServer4.SelfHost</typePackageName>
+    <typePackageId>e1a19c18-2631-4bac-9431-ef4f05e001e5</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>a9cceffe-39ff-48e7-83a9-9440958774d9</parentFolderId>
+  <packageId>a9cceffe-39ff-48e7-83a9-9440958774d9</packageId>
+  <packageName>Intent.IdentityServer4.InMemoryStore</packageName>
+  <stereotypes />
+  <childElements />
+</class>

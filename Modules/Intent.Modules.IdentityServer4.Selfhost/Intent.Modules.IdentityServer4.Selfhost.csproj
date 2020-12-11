@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Common.IdentityServer4\Intent.Modules.Common.IdentityServer4.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Templates\IdentityConfig\Clients\Clients.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Clients.cs</LastGenOutput>

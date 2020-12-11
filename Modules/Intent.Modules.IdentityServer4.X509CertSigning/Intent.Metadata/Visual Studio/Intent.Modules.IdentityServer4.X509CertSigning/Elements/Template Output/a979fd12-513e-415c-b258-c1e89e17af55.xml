@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a979fd12-513e-415c-b258-c1e89e17af55" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>IdentityServer4.Selfhost.Startup</name>
+  <display>IdentityServer4.Selfhost.Startup</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4c9a9332-6dff-4586-b9b4-d1924b5afab2</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

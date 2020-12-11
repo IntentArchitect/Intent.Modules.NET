@@ -19,13 +19,15 @@
   <decorators>
     <decorator id="IdentityServer4.InMemoryStore.StartupDecorator" />
     <decorator id="IdentityServer4.InMemoryStore.IdentityConfigDecorator" />
+    <decorator id="IdentityServer4.InMemoryStore.InMemoryIdentityConfigDecorator" externalReference="31206a74-853c-419d-92f7-7282b130cf58" />
+    <decorator id="IdentityServer4.InMemoryStore.InMemoryStartupDecorator" externalReference="75f06335-a36a-44d8-af4b-33d947898718" />
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.0-beta.5" />
     <dependency id="Intent.Common.Types" version="3.0.0-beta.5" />
     <dependency id="Intent.Common.CSharp" version="3.0.0-beta.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0-beta.5" />
-    <dependency id="Intent.Common.IdentityServer4" version="3.0.0-beta.5" />
+    <dependency id="Intent.IdentityServer4.SelfHost" version="3.0.0-beta.5" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

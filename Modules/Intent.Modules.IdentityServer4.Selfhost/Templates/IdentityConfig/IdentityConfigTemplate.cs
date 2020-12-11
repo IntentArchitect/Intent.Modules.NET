@@ -24,7 +24,7 @@ namespace Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig
     
     #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class IdentityConfigTemplate : CSharpTemplateBase<object>
+    public partial class IdentityConfigTemplate : CSharpTemplateBase<object, Intent.Modules.IdentityServer4.Selfhost.Templates.IdentityConfig.IdentityConfigDecorator>
     {
 #line hidden
         /// <summary>
