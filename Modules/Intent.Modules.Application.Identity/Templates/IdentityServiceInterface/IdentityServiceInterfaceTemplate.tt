@@ -7,6 +7,7 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -14,6 +15,14 @@ namespace <#= Namespace #>
 {
     public interface <#= ClassName #>
     {
-        string UserId { get; }
+        Task<string> GetUserNameAsync(string userId);
+
+        Task<bool> IsInRoleAsync(string userId, string role);
+
+        Task<bool> AuthorizeAsync(string userId, string policyName);
+
+        Task<(<#= GetResultModel() #>, string UserId)> CreateUserAsync(string userName, string password);
+
+        Task<<#= GetResultModel() #>> DeleteUserAsync(string userId);
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="686dfade-cebf-4530-9ab9-267d5121bf57" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.Templates.Api.ApiElementModel</name>
+  <display>Intent.ModuleBuilder.Templates.Api.ApiElementModel</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1493e01a-e500-4911-bdc5-a3b40a5240b2</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="629d4dfb-31b6-4dc3-9a78-772ff06c2e2f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.Templates.FactoryExtension</name>
+  <display>Intent.ModuleBuilder.Templates.FactoryExtension</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6da7a23f-fd33-4591-ab54-ae173aa26575</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

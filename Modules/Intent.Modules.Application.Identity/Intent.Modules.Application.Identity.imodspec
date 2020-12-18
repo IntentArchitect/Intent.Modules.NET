@@ -40,6 +40,14 @@
       <role>Application.Contracts</role>
       <location>Common/Exceptions</location>
     </template>
+    <template id="Intent.Application.Identity.ResultModel" externalReference="68c81f7f-55ec-4466-961e-3cbdeda66f50">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contracts</role>
+      <location>Common/Models</location>
+    </template>
   </templates>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.0-beta.5" />

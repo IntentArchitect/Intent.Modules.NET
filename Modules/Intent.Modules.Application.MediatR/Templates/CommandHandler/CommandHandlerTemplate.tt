@@ -15,12 +15,19 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace <#= Namespace #>
 {
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : <#= GetRequestHandlerInterface() #>
     {
+        [IntentInitialGen]
+        public <#= ClassName #>()
+        {
+        }
+
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public async Task<<#= GetReturnType() #>> Handle(<#= GetCommandModelName() #> request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Your implementation here...");

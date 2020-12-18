@@ -9,6 +9,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>8c807cfc-22fb-4383-a5e4-de97e1efbd51</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Api\Extensions\ParameterModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ParameterModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c807cfc-22fb-4383-a5e4-de97e1efbd51</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Api\Extensions\ServiceModelExtensions.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ServiceModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>

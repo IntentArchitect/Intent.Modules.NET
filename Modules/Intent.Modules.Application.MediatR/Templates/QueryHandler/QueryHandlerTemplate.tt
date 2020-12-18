@@ -15,12 +15,19 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace <#= Namespace #>
 {
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : IRequestHandler<<#= GetQueryModelName() #>, <#= GetTypeName(Model.TypeReference) #>>
     {
+        [IntentInitialGen]
+        public <#= ClassName #>()
+        {
+        }
+
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public Task<<#= GetTypeName(Model.TypeReference) #>> Handle(<#= GetQueryModelName() #> request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Your implementation here...");

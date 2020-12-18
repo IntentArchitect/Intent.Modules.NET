@@ -28,7 +28,26 @@ namespace Intent.Modules.Application.MediatR.Interop.AspNetCore.Decorators
             _template.AddTypeSource(DtoModelTemplate.TemplateId);
         }
 
-        public override string OnEnterOperationBody(OperationModel operationModel)
+        public override string[] DependencyNamespaces()
+        {
+            return new[]
+            {
+                "MediatR",
+                "Microsoft.AspNetCore.Mvc",
+                "Microsoft.Extensions.DependencyInjection"
+            };
+        }
+
+        public override string EnterClass()
+        {
+            return @"
+        private ISender _mediator;
+
+        protected ISender Mediator => _mediator ??= HttpContext.RequestServices.GetService<ISender>();
+";
+        }
+
+        public override string EnterOperationBody(OperationModel operationModel)
         {
             var validations = new StringBuilder();
             var payloadParameter = GetPayloadParameter(operationModel);
@@ -48,7 +67,7 @@ namespace Intent.Modules.Application.MediatR.Interop.AspNetCore.Decorators
             return validations.ToString();
         }
 
-        public override string OnExitOperationBody(OperationModel operationModel)
+        public override string ExitOperationBody(OperationModel operationModel)
         {
             var payload = GetPayloadParameter(operationModel)?.Name
                 ?? (operationModel.InternalElement.IsMapped ? GetMappedPayload(operationModel) : "UNKNOWN");

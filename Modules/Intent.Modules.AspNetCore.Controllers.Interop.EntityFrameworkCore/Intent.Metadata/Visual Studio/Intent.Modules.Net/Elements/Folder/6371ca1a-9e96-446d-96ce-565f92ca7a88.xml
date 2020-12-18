@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6371ca1a-9e96-446d-96ce-565f92ca7a88" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Decorators</name>
+  <display>Decorators</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a7d8cbe5-1155-40da-8b0c-cfc0b1e9851c</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

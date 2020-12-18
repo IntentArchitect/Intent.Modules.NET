@@ -32,21 +32,39 @@ namespace Intent.Modules.Application.Identity.Templates.IdentityServiceInterface
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\n" +
+                    "namespace ");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        string UserId { get; }\r\n    }\r\n}");
+            this.Write("\r\n    {\r\n        Task<string> GetUserNameAsync(string userId);\r\n\r\n        Task<bo" +
+                    "ol> IsInRoleAsync(string userId, string role);\r\n\r\n        Task<bool> AuthorizeAs" +
+                    "ync(string userId, string policyName);\r\n\r\n        Task<(");
+            
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetResultModel()));
+            
+            #line default
+            #line hidden
+            this.Write(", string UserId)> CreateUserAsync(string userName, string password);\r\n\r\n        T" +
+                    "ask<");
+            
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\IdentityServiceInterface\IdentityServiceInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetResultModel()));
+            
+            #line default
+            #line hidden
+            this.Write("> DeleteUserAsync(string userId);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

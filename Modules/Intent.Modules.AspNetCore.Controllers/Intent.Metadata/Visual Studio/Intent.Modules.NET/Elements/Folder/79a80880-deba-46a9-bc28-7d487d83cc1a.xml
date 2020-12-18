@@ -20,9 +20,10 @@
     </stereotype>
   </stereotypes>
   <childElements>
-    <childElement id="8461567d-1f9a-41dc-8c7d-522f74443fd4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.Templates.Api.ApiAssociationModel</name>
-      <display>ModuleBuilder.Templates.Api.ApiAssociationModel</display>
+    <childElement id="68f39899-78b5-48c0-9224-b709c208cd92" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel</name>
+      <display>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
@@ -33,9 +34,10 @@
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="42c1225b-217f-475a-8946-8d119cbb054d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.Templates.Api.ApiElementExtensionModel</name>
-      <display>ModuleBuilder.Templates.Api.ApiElementExtensionModel</display>
+    <childElement id="c4cf5954-304b-450b-9485-1d333514cd3f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel</name>
+      <display>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <order>2</order>
       <genericTypes />
@@ -46,9 +48,10 @@
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="f69ccee1-890d-4359-b98a-9519085b9724" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.Templates.Api.ApiElementModel</name>
-      <display>ModuleBuilder.Templates.Api.ApiElementModel</display>
+    <childElement id="37a84ebe-58ae-4726-87e6-3e23f7a4063a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Api.ApiElementModel</name>
+      <display>Intent.ModuleBuilder.Templates.Api.ApiElementModel</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <order>3</order>
       <genericTypes />
@@ -59,9 +62,10 @@
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="f0196526-8877-43fc-b377-82c037a850d4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.Templates.Api.ApiPackageModel</name>
-      <display>ModuleBuilder.Templates.Api.ApiPackageModel</display>
+    <childElement id="1e499358-76bf-4625-9fcf-87284e82805b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Api.ApiPackageModel</name>
+      <display>Intent.ModuleBuilder.Templates.Api.ApiPackageModel</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <order>4</order>
       <genericTypes />

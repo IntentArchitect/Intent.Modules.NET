@@ -98,6 +98,26 @@
       <ProjectRelativeFilePath>IdentityServiceInterface/IdentityServiceInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Templates\ResultModel\ResultModelTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ResultModel/ResultModelTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Templates\ResultModel\ResultModelTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ResultModel/ResultModelTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Templates\ResultModel\ResultModelTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ResultModel/ResultModelTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Templates\ResultModel\ResultModelTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ResultModel/ResultModelTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <SolutionRelativeFilePath>..\Intent.Modules.Net.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>

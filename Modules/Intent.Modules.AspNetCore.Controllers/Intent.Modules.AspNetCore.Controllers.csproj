@@ -9,6 +9,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ControllerTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\ApiControllerBase\ApiControllerBaseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiControllerBaseTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -17,11 +22,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ControllerTemplate.tt</DependentUpon>
     </Compile>
+
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.0-*" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.0-*" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.0-*" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.0.0-pre.1" />
     <PackageReference Include="Intent.Packager" Version="3.0.0-*">

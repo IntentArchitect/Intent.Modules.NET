@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3acea21f-572d-4087-a364-4bc4742dc5dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel</name>
+  <display>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>50a62698-8af6-476a-8738-574f986639a0</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

@@ -35,44 +35,52 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         {
             this.Write("using MediatR;\r\nusing System;\r\nusing System.Collections.Generic;\r\nusing System.Li" +
                     "nq;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: Defaul" +
-                    "tIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+                    "tIntentManaged(Mode.Merge)]\r\n\r\nnamespace ");
             
             #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    public class ");
+            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n    public class ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : IRequestHandler<");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetQueryModelName()));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(Model.TypeReference)));
             
             #line default
             #line hidden
-            this.Write(">\r\n    {\r\n        public Task<");
+            this.Write(">\r\n    {\r\n        [IntentInitialGen]\r\n        public ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("()\r\n        {\r\n        }\r\n\r\n        [IntentManaged(Mode.Merge, Signature = Mode.F" +
+                    "ully)]\r\n        public Task<");
+            
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(Model.TypeReference)));
             
             #line default
             #line hidden
             this.Write("> Handle(");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetQueryModelName()));
             
             #line default

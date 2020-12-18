@@ -33,6 +33,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AuthorizeAttributeTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\ResultModel\ResultModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResultModelTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -69,6 +74,12 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AuthorizeAttributeTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\ResultModel\ResultModelTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResultModelTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

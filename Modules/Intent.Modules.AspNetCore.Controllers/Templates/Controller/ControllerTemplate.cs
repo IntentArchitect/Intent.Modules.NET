@@ -34,38 +34,86 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         public override string TransformText()
         {
             this.Write("using System.Threading.Tasks;\r\nusing Microsoft.AspNetCore.Authorization;\r\nusing M" +
-                    "icrosoft.AspNetCore.Mvc;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nname" +
-                    "space ");
+                    "icrosoft.AspNetCore.Mvc;\r\n");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+  foreach(var @namespace in GetDependencyNamespaces()) { 
+            
+            #line default
+            #line hidden
+            this.Write("using ");
+            
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(@namespace));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n");
+            
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    ");
+            this.Write("\r\n{\r\n    [ApiController]\r\n    [Route(\"api/[controller]\")]\r\n    ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetControllerAttributes()));
             
             #line default
             #line hidden
             this.Write("\r\n    public class ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetControllerBase()));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n\r\n");
+            this.Write("\r\n    {");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetEnterClass()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n\r\n    public ");
+            
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("(");
+            
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorParameters()));
+            
+            #line default
+            #line hidden
+            this.Write(")\r\n    {");
+            
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorImplementation()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    }\r\n\r\n");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
   foreach (var operation in Model.Operations)
     {
             
@@ -73,54 +121,67 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             #line hidden
             this.Write("        ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationAttributes(operation)));
             
             #line default
             #line hidden
             this.Write("\r\n        public async Task<");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetReturnType(operation)));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.Name));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationParameters(operation)));
             
             #line default
             #line hidden
             this.Write(")\r\n        {");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(OnEnterOperationBody(operation)));
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetEnterOperationBody(operation)));
             
             #line default
             #line hidden
             this.Write("\r\n            ");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(OnExitOperationBody(operation)));
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetMidOperationBody(operation)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n            ");
+            
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetExitOperationBody(operation)));
             
             #line default
             #line hidden
             this.Write("\r\n        }\r\n\r\n");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
   }
             
             #line default
             #line hidden
-            this.Write("    }\r\n}");
+            
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetExitClass()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

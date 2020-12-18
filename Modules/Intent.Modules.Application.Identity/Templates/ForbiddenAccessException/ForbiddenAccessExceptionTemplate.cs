@@ -32,16 +32,16 @@ namespace Intent.Modules.Application.Identity.Templates.ForbiddenAccessException
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

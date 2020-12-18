@@ -11,23 +11,33 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+<#  foreach(var @namespace in GetDependencyNamespaces()) { #>
+using <#= @namespace #>;
+<#  } #>
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace <#= Namespace #>
 {
+    [ApiController]
+    [Route("api/[controller]")]
     <#= GetControllerAttributes() #>
     public class <#= ClassName #> : <#= GetControllerBase() #>
-    {
+    {<#= GetEnterClass() #>
+
+    public <#= ClassName #>(<#= GetConstructorParameters() #>)
+    {<#= GetConstructorImplementation() #>
+    }
 
 <#  foreach (var operation in Model.Operations)
     {#>
         <#= GetOperationAttributes(operation) #>
         public async Task<<#= GetReturnType(operation) #>> <#= operation.Name #>(<#= GetOperationParameters(operation) #>)
-        {<#= OnEnterOperationBody(operation) #>
-            <#= OnExitOperationBody(operation) #>
+        {<#= GetEnterOperationBody(operation) #>
+            <#= GetMidOperationBody(operation) #>
+            <#= GetExitOperationBody(operation) #>
         }
 
-<#  }#>
+<#  }#><#= GetExitClass() #>
     }
 }

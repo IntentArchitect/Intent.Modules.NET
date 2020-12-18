@@ -46,19 +46,7 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterf
             
             #line default
             #line hidden
-            this.Write(@"
-    {
-        Task<string> GetUserNameAsync(string userId);
-
-        Task<bool> IsInRoleAsync(string userId, string role);
-
-        Task<bool> AuthorizeAsync(string userId, string policyName);
-
-        Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password);
-
-        Task<Result> DeleteUserAsync(string userId);
-    }
-}");
+            this.Write("\r\n    {\r\n        string UserId { get; }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

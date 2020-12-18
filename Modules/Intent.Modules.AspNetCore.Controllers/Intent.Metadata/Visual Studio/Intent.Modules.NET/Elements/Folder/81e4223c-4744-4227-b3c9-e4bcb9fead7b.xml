@@ -20,11 +20,53 @@
     </stereotype>
   </stereotypes>
   <childElements>
+    <childElement id="4ed202af-4152-4961-a6c8-1873725b6699" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
+      <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="deadce90-8c19-44b1-abc4-8ee3b18332b9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
+      <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="40cac551-30e3-40e0-ae1b-4cc1b559c125" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>2</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
+      <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
     <childElement id="cdaa7072-0629-4303-8786-95141f62b1ed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.ProjectItemTemplate.Partial</name>
       <display>Intent.ModuleBuilder.ProjectItemTemplate.Partial</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
@@ -37,7 +79,7 @@
       <name>Intent.ModuleBuilder.ProjectItemTemplate.T4Template</name>
       <display>Intent.ModuleBuilder.ProjectItemTemplate.T4Template</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
@@ -50,7 +92,7 @@
       <name>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed</name>
       <display>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
@@ -63,7 +105,7 @@
       <name>Intent.ModuleBuilder.TemplateRegistration.Custom</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.Custom</display>
       <isAbstract>false</isAbstract>
-      <order>3</order>
+      <order>6</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
@@ -76,7 +118,7 @@
       <name>Intent.ModuleBuilder.TemplateRegistration.FilePerModel</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.FilePerModel</display>
       <isAbstract>false</isAbstract>
-      <order>4</order>
+      <order>7</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
@@ -89,7 +131,7 @@
       <name>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel</display>
       <isAbstract>false</isAbstract>
-      <order>5</order>
+      <order>8</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
@@ -102,45 +144,6 @@
       <name>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel</display>
       <isAbstract>false</isAbstract>
-      <order>6</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
-      <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="f4ae0123-97ae-4c73-a19f-99d542f303cb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.CSharp.Templates.CSharpTemplate</name>
-      <display>ModuleBuilder.CSharp.Templates.CSharpTemplate</display>
-      <isAbstract>false</isAbstract>
-      <order>7</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
-      <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="3f4c15ed-dd42-4c9d-833c-a1285b52187c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</name>
-      <display>ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</display>
-      <isAbstract>false</isAbstract>
-      <order>8</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</parentFolderId>
-      <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="0a40bf31-f403-4996-ac72-910ae30d61eb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</name>
-      <display>ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</display>
-      <isAbstract>false</isAbstract>
       <order>9</order>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -150,9 +153,10 @@
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="0e0022e4-242d-4ed5-b997-986fd7d61723" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ModuleBuilder.Templates.TemplateDecoratorContract</name>
-      <display>ModuleBuilder.Templates.TemplateDecoratorContract</display>
+    <childElement id="9426c537-aa87-4eaf-9c73-e720c944253d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.TemplateDecoratorContract</name>
+      <display>Intent.ModuleBuilder.Templates.TemplateDecoratorContract</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <order>10</order>
       <genericTypes />
