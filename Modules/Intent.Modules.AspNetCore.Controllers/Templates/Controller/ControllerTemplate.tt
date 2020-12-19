@@ -20,7 +20,6 @@ using <#= @namespace #>;
 namespace <#= Namespace #>
 {
     [ApiController]
-    [Route("api/[controller]")]
     <#= GetControllerAttributes() #>
     public class <#= ClassName #> : <#= GetControllerBase() #>
     {<#= GetEnterClass() #>

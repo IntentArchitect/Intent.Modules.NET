@@ -4,16 +4,6 @@
   <FileLogs>
     <FileLog>
       <ProjectId>fa735300-c7dc-4eba-8185-ee77188f11a8</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR.Interop.AspNetCore\Decorators\MediatRControllerDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRControllerDecorator.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fa735300-c7dc-4eba-8185-ee77188f11a8</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR.Interop.AspNetCore\Decorators\MediatRControllerDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRControllerDecoratorRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fa735300-c7dc-4eba-8185-ee77188f11a8</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR.Interop.AspNetCore\Decorators\MediatRDependencyInjectionDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>MediatRDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
     </FileLog>

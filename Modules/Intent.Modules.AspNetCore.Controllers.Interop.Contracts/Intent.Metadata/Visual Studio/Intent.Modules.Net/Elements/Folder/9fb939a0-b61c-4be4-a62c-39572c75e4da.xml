@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9fb939a0-b61c-4be4-a62c-39572c75e4da" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Extensions</name>
+  <display>Extensions</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>97e1bfd7-4dc9-4962-9425-20963fa653b7</parentFolderId>
+  <packageId>9c3c0891-9229-46f0-860f-8f0fbe181a65</packageId>
+  <packageName>Intent.Modules.Net</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <childElements>
+    <childElement id="a9578448-fa8d-478c-94b0-933b330babf0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</name>
+      <display>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9fb939a0-b61c-4be4-a62c-39572c75e4da</parentFolderId>
+      <packageId>9c3c0891-9229-46f0-860f-8f0fbe181a65</packageId>
+      <packageName>Intent.Modules.Net</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="cddd08c4-322a-4886-b188-45c9ffdad72b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions</name>
+      <display>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9fb939a0-b61c-4be4-a62c-39572c75e4da</parentFolderId>
+      <packageId>9c3c0891-9229-46f0-860f-8f0fbe181a65</packageId>
+      <packageName>Intent.Modules.Net</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

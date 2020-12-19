@@ -17,7 +17,6 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <decorators>
-    <decorator id="Application.MediatR.Interop.AspNetCore.MediatRControllerDecorator" externalReference="24f1d328-8ab8-4177-b143-c04102d5619d" />
     <decorator id="Application.MediatR.Interop.AspNetCore.MediatRDependencyInjectionDecorator" externalReference="e4500280-5f0a-422b-8163-7354a4d831a0" />
   </decorators>
   <metadata />

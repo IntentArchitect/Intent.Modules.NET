@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationId>5180a9bb-2a87-43ee-86be-8720445d06df</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>af0e9715-bdb6-4ba4-abc0-754cfb434d05</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers.Interop.MediatR\Decorators\MediatRControllerDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRControllerDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>af0e9715-bdb6-4ba4-abc0-754cfb434d05</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers.Interop.MediatR\Decorators\MediatRControllerDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRControllerDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7fc198b5-33e0-44e5-a158-354dcdf367e9</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers.Interop.MediatR\Intent.Modules.AspNetCore.Controllers.Interop.MediatR.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Interop.MediatR.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7fc198b5-33e0-44e5-a158-354dcdf367e9</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers.Interop.MediatR\Intent.Modules.AspNetCore.Controllers.Interop.MediatR.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Interop.MediatR.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7fc198b5-33e0-44e5-a158-354dcdf367e9</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers.Interop.MediatR\README.txt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>..\Intent.Modules.Net.sln</SolutionRelativeFilePath>
+    </FileLog>
+  </FileLogs>
+</outputLog>

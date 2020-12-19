@@ -73,7 +73,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetControllerAttributes()
         {
             var attributes = new List<string>();
-            attributes.Add(Model.GetControllerSettings().Security().IsAuthorize() ? "[Authorize]" : "[AllowAnonymous]");
+            if (Model.GetControllerSettings().Security().IsAuthorize())
+            {
+                attributes.Add("[Authorize]");
+            }
+            attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetControllerSettings().Route()) ? "api/[controller]" : Model.GetControllerSettings().Route())}"")]");
             return string.Join(@"
     ", attributes);
         }
@@ -136,9 +140,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return $"ActionResult<{GetTypeName(operation.TypeReference)}>";
         }
 
-
-
-        private HttpVerb GetHttpVerb(OperationModel operation)
+        public HttpVerb GetHttpVerb(OperationModel operation)
         {
             var verb = operation.GetApiSettings().HttpVerb();
             if (!verb.IsAUTO())
@@ -196,13 +198,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             ", GetDecorators().SelectMany(x => x.ConstructorParameters()));
         }
 
-
         private string GetConstructorImplementation()
         {
             return GetDecorators().Aggregate(x => x.ConstructorImplementation());
         }
 
-        internal enum HttpVerb
+        public enum HttpVerb
         {
             GET,
             POST,

@@ -17,7 +17,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <decorators>
-    <decorator id="AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerDecorator" externalReference="4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe" />
+    <decorator id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerDecorator" externalReference="4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe" />
   </decorators>
   <metadata />
 </package>
