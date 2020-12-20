@@ -41,6 +41,11 @@
         <package id="Intent.EntityFrameworkCore.Interop.WebApi" version="3.0.0-beta.5"/>
       </install>
     </detect>
+    <detect id="Intent.AspNetCore.Controllers">
+      <install>
+        <package id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore" version="3.0.0-beta.5"/>
+      </install>
+    </detect>
   </interoperability>
   <dependencies>
     <dependency id="Intent.Modelers.Domain" version="3.0.0-beta.5"/>

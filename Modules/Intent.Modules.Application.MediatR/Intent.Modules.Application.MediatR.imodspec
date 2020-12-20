@@ -44,6 +44,13 @@
       <role>Application</role>
     </template>
   </templates>
+  <interoperability>
+    <detect id="Intent.AspNetCore.Controllers">
+      <install>
+        <package id="Intent.AspNetCore.Controllers.Interop.MediatR" version="3.0.0-beta.5"/>
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.0-beta.5" />
     <dependency id="Intent.Common.Types" version="3.0.0-beta.5" />

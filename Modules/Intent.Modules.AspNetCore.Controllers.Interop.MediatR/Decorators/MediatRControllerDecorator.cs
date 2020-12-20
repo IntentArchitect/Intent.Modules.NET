@@ -7,6 +7,7 @@ using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -103,7 +104,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             var mappedElement = operationModel.InternalElement.MappedElement;
             if (GetMappedParameters(operationModel).Any())
             {
-                return $"new {_template.GetTypeName(mappedElement)} {{ {string.Join(", ", GetMappedParameters(operationModel).Select(x => x.InternalElement.MappedElement.Element.Name + " = " + x.Name))}}}";
+                return $"new {_template.GetTypeName(mappedElement)} {{ {string.Join(", ", GetMappedParameters(operationModel).Select(x => x.InternalElement.MappedElement.Element.Name.ToPascalCase() + " = " + x.Name))}}}";
             }
             return $"new {_template.GetTypeName(mappedElement)}()";
         }
