@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Contracts.Templates.DTO;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -23,18 +23,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
         public ContractDispatchDecorator(ControllerTemplate template)
         {
             _template = template;
-            _template.AddTypeSource(DTOTemplate.IDENTIFIER, "List<{0}>");
+            _template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
         public override string EnterClass()
         {
             return $@"
-        private readonly {_template.GetTypeName(ServiceContractTemplate.IDENTIFIER, _template.Model)} _appService;";
+        private readonly {_template.GetTypeName(ServiceContractTemplate.TemplateId, _template.Model)} _appService;";
         }
 
         public override IEnumerable<string> ConstructorParameters()
         {
-            return new[] { $"{_template.GetTypeName(ServiceContractTemplate.IDENTIFIER, _template.Model)} appService" };
+            return new[] { $"{_template.GetTypeName(ServiceContractTemplate.TemplateId, _template.Model)} appService" };
         }
 
         public override string ConstructorImplementation()

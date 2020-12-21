@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.Common.Registrations;

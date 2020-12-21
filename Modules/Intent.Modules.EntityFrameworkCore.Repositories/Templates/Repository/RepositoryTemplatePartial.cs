@@ -9,6 +9,7 @@ using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFramework.Templates.DbContext;

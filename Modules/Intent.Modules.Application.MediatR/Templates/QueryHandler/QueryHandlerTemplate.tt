@@ -28,7 +28,7 @@ namespace <#= Namespace #>
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public Task<<#= GetTypeName(Model.TypeReference) #>> Handle(<#= GetQueryModelName() #> request, CancellationToken cancellationToken)
+        public async Task<<#= GetTypeName(Model.TypeReference) #>> Handle(<#= GetQueryModelName() #> request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException("Your implementation here...");
         }

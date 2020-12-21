@@ -14,6 +14,10 @@
     <factoryExtension id="Intent.EntityFrameworkCore.Extensions.UseInMemory" />
   </factoryExtensions>
   <templates>
+    <template id="Intent.EntityFrameworkCore.DbContextInterface">
+      <role>Application.Common</role>
+      <location>Common/Interfaces</location>
+    </template>
     <template id="Intent.EntityFrameworkCore.DbContext">
       <role>Infrastructure.Data</role>
       <config>
@@ -39,11 +43,6 @@
     <detect id="Intent.AspNetCore.WebApi">
       <install>
         <package id="Intent.EntityFrameworkCore.Interop.WebApi" version="3.0.0-beta.5"/>
-      </install>
-    </detect>
-    <detect id="Intent.AspNetCore.Controllers">
-      <install>
-        <package id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore" version="3.0.0-beta.5"/>
       </install>
     </detect>
   </interoperability>

@@ -1,5 +1,4 @@
-﻿using Intent.Modules.Application.Contracts.Templates.DTO;
-using Intent.Modules.Application.Contracts.Templates.ServiceContract;
+﻿using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHandler;
 using Intent.Templates;
 using System.Collections.Generic;
@@ -8,8 +7,10 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -29,7 +30,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         public override void OnCreated()
         {
             base.OnCreated();
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DTOTemplate.IDENTIFIER, "List<{0}>"));
+            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
         }
 
         //public IEnumerable<ITemplateDependency> GetTemplateDependencies()
@@ -61,7 +62,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
-                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.IDENTIFIER, Model)));
+                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
             //ExecutionContext.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
             //{
             //    { "InterfaceType", GetServiceInterfaceName()},
@@ -100,7 +101,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
 
         public string GetServiceInterfaceName()
         {
-            var serviceContractTemplate = GetTypeName(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.IDENTIFIER, x => x.Id == Model.Id));
+            var serviceContractTemplate = GetTypeName(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id));
             return serviceContractTemplate;
         }
 

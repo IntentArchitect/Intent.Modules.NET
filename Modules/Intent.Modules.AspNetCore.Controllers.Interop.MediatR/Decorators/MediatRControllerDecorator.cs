@@ -3,8 +3,8 @@ using System.Linq;
 using System.Text;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
-using Intent.Modules.Application.MediatR.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.Templates;
@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             _template = template;
             _template.AddTypeSource(CommandModelsTemplate.TemplateId);
             _template.AddTypeSource(QueryModelsTemplate.TemplateId);
-            _template.AddTypeSource(DtoModelTemplate.TemplateId);
+            _template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
         public override IEnumerable<string> DependencyNamespaces()

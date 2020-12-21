@@ -9,6 +9,7 @@ using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Templates;
 

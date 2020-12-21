@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40d2bacb-e5f2-45f2-ad53-32c16110d54a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.ProjectItemTemplate.Partial</name>
+  <display>Intent.ModuleBuilder.ProjectItemTemplate.Partial</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c5027e61-e656-4adb-be9c-951d7451de69</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

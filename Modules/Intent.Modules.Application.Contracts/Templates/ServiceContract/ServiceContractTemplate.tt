@@ -1,7 +1,8 @@
-﻿<#@ template  debug="true"  inherits="CSharpTemplateBase<ServiceModel>" #>
+<#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, ServiceContractDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
+<#@ import namespace="Intent.Modules.Application.Dtos.Templates" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Modelers.Services.Api" #>
@@ -30,7 +31,7 @@ namespace <#=Namespace#>
 #>
     <#= ContractAttributes()#>
     public interface <#=ClassName#> : IDisposable
-    {
+    {<#= EnterClass() #>
 <#
     foreach (var o in Model.Operations)
     {
@@ -45,6 +46,6 @@ namespace <#=Namespace#>
         <#= GetOperationReturnType(o) #> <#= o.Name.ToPascalCase() #>(<#= GetOperationDefinitionParameters(o) #>);
 <#
     }
-#>
+#><#= ExitClass() #>
     }
 }

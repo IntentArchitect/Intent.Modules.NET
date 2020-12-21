@@ -15,9 +15,14 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Templates\DbContextInterface\DbContextInterfaceTemplate.tt">
+      <LastGenOutput>DbContextInterfaceTemplate.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
     <None Update="Templates\DbContext\DbContextTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbContextTemplate.cs</LastGenOutput>
@@ -33,6 +38,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Templates\DbContextInterface\DbContextInterfaceTemplate.cs">
+      <DependentUpon>DbContextInterfaceTemplate.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Templates\DbContext\DbContextTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

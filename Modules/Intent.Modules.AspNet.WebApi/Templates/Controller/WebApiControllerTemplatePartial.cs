@@ -1,7 +1,6 @@
 ﻿using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Contracts.Templates.DTO;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
@@ -12,7 +11,9 @@ using Intent.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.AspNet.WebApi.Templates.Controller
@@ -26,7 +27,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.Controller
         public WebApiControllerTemplate(IProject project, ServiceModel model, string identifier = Identifier)
             : base(identifier, project, model)
         {
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DTOTemplate.IDENTIFIER, "List<{0}>"));
+            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
             AddAssemblyReference(new GacAssemblyReference("System.Transactions"));
         }
 
@@ -72,7 +73,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.Controller
 
         public string GetServiceInterfaceName()
         {
-            return GetTypeName(ServiceContractTemplate.IDENTIFIER, Model);
+            return GetTypeName(ServiceContractTemplate.TemplateId, Model);
         }
 
         public string DeclarePrivateVariables()

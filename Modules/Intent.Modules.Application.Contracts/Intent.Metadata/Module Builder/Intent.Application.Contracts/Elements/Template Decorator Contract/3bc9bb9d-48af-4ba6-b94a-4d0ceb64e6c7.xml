@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3bc9bb9d-48af-4ba6-b94a-4d0ceb64e6c7" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>ServiceContractDecorator</name>
+  <display>ServiceContractDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f6981dd6-09ab-429f-9a86-ba62d02f307c</parentFolderId>
+  <packageId>b258d75f-f895-43b9-bb91-6500664716f9</packageId>
+  <packageName>Intent.Application.Contracts</packageName>
+  <stereotypes />
+  <childElements />
+</class>

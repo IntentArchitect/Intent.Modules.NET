@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2e837e0e-09a3-49d3-beb3-96e7ac8acca1" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>AutoMapperDtoDecorator</name>
+  <display>AutoMapperDtoDecorator: DtoModelDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="482b984d-5303-4574-a4fb-6a44ba3dfa94">
+    <typeId>b0eb283a-13f0-4d72-8000-917fa9550574</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Application.Dtos</typePackageName>
+    <typePackageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>07506ac6-9222-4c62-a5b1-1ca986f92e0e</parentFolderId>
+  <packageId>07506ac6-9222-4c62-a5b1-1ca986f92e0e</packageId>
+  <packageName>Intent.Application.Dtos.AutoMapper</packageName>
+  <stereotypes />
+  <childElements />
+</class>

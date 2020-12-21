@@ -28,9 +28,6 @@ using Microsoft.Extensions.Options;
 <#  if (!IsNetCore2App()) { #>
 using Microsoft.Extensions.Hosting;
 <#  } #>
-<#  foreach(var @namespace in GetDecorators().SelectMany(x => x.RequiredNamespaces())) { #>
-using <#= @namespace #>;
-<#  } #>
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 

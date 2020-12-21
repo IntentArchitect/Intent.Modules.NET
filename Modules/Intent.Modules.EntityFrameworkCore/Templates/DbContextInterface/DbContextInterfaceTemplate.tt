@@ -1,0 +1,31 @@
+﻿<#@ template  debug="true" inherits="CSharpTemplateBase<IEnumerable<ClassModel>>"#>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ Assembly Name="Intent.SoftwareFactory" #>
+<#@ import namespace="Intent.Modelers.Domain.Api" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #> 
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public interface <#= ClassName#>
+    {
+<#  foreach (var model in Model) { #>
+        DbSet<<#= GetEntityName(model) #>> <#= GetEntityName(model).ToPluralName()#> { get; set; }
+
+<#  } #>
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+    }
+}

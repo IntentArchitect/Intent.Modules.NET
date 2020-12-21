@@ -4,13 +4,13 @@
   <FileLogs>
     <FileLog>
       <ProjectId>80081361-cc7d-430c-8861-8b2ac9d6e8a7</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.csproj</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Intent.Application.MediatR.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Application.MediatR.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>80081361-cc7d-430c-8861-8b2ac9d6e8a7</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.imodspec</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>80081361-cc7d-430c-8861-8b2ac9d6e8a7</ProjectId>
@@ -56,26 +56,6 @@
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Templates\CommandModels\CommandModelsTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>CommandModels/CommandModelsTemplateRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Templates\DtoModel\DtoModelTemplate.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>DtoModel/DtoModelTemplate.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Templates\DtoModel\DtoModelTemplate.tt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>DtoModel/DtoModelTemplate.tt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Templates\DtoModel\DtoModelTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>DtoModel/DtoModelTemplatePartial.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.MediatR\Templates\DtoModel\DtoModelTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>DtoModel/DtoModelTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>

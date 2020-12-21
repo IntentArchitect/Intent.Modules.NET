@@ -10,6 +10,7 @@ using Intent.Modules.EntityFramework.Repositories.Templates.EntityCompositionVis
 using Intent.Modules.EntityFramework.Templates.DbContext;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Templates;

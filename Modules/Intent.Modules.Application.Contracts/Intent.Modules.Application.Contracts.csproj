@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.0-*" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.0-*" />
     <PackageReference Include="Intent.Packager" Version="3.0.0-*">
       <PrivateAssets>all</PrivateAssets>
@@ -16,15 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Application.Dtos\Intent.Modules.Application.Dtos.csproj" />
     <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\DTO\DTOTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DTOTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\ServiceContract\ServiceContractTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ServiceContractTemplate.cs</LastGenOutput>
@@ -37,11 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\DTO\DTOTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DTOTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\ServiceContract\ServiceContractTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

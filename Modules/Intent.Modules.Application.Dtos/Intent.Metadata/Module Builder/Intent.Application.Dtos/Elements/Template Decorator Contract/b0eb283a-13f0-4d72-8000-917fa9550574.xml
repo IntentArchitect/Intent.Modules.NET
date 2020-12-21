@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b0eb283a-13f0-4d72-8000-917fa9550574" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>DtoModelDecorator</name>
+  <display>DtoModelDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8229e960-3d06-4e61-952e-b08570edca67</parentFolderId>
+  <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+  <packageName>Intent.Application.Dtos</packageName>
+  <stereotypes />
+  <childElements />
+</class>

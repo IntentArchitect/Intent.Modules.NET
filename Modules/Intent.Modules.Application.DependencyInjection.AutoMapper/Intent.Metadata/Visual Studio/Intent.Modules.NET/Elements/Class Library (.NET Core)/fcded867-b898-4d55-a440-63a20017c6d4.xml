@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fcded867-b898-4d55-a440-63a20017c6d4" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
+  <name>Intent.Modules.Application.DependencyInjection.AutoMapper</name>
+  <display>Intent.Modules.Application.DependencyInjection.AutoMapper</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e81d54f0-ff24-4498-a785-6e62b510302a</parentFolderId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4756bd10-23e2-473b-9957-d7083759cd42" display="Target Multiple Frameworks" value="false" isActive="true" />
+        <property name="ef3e7b17-ba1d-4818-82a2-5a8ad3875d40" display="Target Framework" value="2619c225-4a0d-40ba-ae06-6b2c31384342" isActive="true" />
+        <property name="5215b600-32fc-4a6d-af72-9eb88a6f30e7" display="Target Frameworks" value="" isActive="false" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <childElements>
+    <childElement id="561b3880-ea17-4ddd-b604-71f922c09f2f" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Api</name>
+      <display>Api</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fcded867-b898-4d55-a440-63a20017c6d4</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="0f69be17-bdca-4179-b840-3f89b593f0b6" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Decorators</name>
+      <display>Decorators</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fcded867-b898-4d55-a440-63a20017c6d4</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="4f823d28-d8d8-4a3b-abda-3b4972ce500c" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>DesignerConfig</name>
+      <display>DesignerConfig</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fcded867-b898-4d55-a440-63a20017c6d4</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="698e531f-f012-4c1d-a55b-41b793d12981" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>IModSpec</name>
+      <display>IModSpec</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fcded867-b898-4d55-a440-63a20017c6d4</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="4031b149-4b47-4c3b-beda-fbf2b3be9903" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Templates</name>
+      <display>Templates</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fcded867-b898-4d55-a440-63a20017c6d4</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

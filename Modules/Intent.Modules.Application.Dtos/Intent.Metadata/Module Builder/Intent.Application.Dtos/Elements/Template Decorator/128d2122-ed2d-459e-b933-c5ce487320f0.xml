@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="128d2122-ed2d-459e-b933-c5ce487320f0" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>DataContractDTOAttributeDecorator</name>
+  <display>DataContractDTOAttributeDecorator: DtoModelDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="4d5e8483-bc62-4317-b9de-75ac54fb6383">
+    <typeId>b0eb283a-13f0-4d72-8000-917fa9550574</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Application.Dtos</typePackageName>
+    <typePackageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</parentFolderId>
+  <packageId>7c10c085-173e-4ce3-9aa5-3cc261c87b1f</packageId>
+  <packageName>Intent.Application.Dtos</packageName>
+  <stereotypes />
+  <childElements />
+</class>

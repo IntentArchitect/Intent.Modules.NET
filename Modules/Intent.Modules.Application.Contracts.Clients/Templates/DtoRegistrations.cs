@@ -4,13 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using Intent.Modelers.Services;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Contracts.Templates.DTO;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Templates;
 
 namespace Intent.Modules.Application.Contracts.Clients.Templates
@@ -29,7 +29,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates
 
         public override ITemplate CreateTemplateInstance(IOutputTarget project, ServiceProxyDTOModel model)
         {
-            return new DTOTemplate(project, model, TemplateId);
+            return new DtoModelTemplate(project, model, TemplateId);
         }
 
         public override IEnumerable<ServiceProxyDTOModel> GetModels(IApplication application)

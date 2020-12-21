@@ -3,7 +3,7 @@
   <name>QueryHandler</name>
   <display>QueryHandler: File Per Model</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>3</order>
   <genericTypes />
   <typeReference id="f6e61dbe-a66d-484b-91f3-636ca00e7900">
     <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>

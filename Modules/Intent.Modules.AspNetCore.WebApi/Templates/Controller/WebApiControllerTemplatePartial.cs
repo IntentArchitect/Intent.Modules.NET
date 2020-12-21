@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
-using Intent.Modules.Application.Contracts.Templates.DTO;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.SoftwareFactory;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -31,7 +31,7 @@ namespace Intent.Modules.AspNetCore.WebApi.Templates.Controller
         public override void OnCreated()
         {
             Types.DefaultCollectionFormat = "List<{0}>";
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DTOTemplate.IDENTIFIER, "List<{0}>"));
+            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
         }
 
         public IEnumerable<string> DeclareUsings()
@@ -43,7 +43,7 @@ namespace Intent.Modules.AspNetCore.WebApi.Templates.Controller
         {
             return new[]
             {
-                TemplateDependency.OnTemplate(ServiceContractTemplate.IDENTIFIER)
+                TemplateDependency.OnTemplate(ServiceContractTemplate.TemplateId)
             };
         }
 
@@ -64,7 +64,7 @@ namespace Intent.Modules.AspNetCore.WebApi.Templates.Controller
 
         public string GetServiceInterfaceName()
         {
-            var serviceContractTemplate = ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.IDENTIFIER, x => x.Id == Model.Id));
+            var serviceContractTemplate = ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id));
             return NormalizeNamespace($"{serviceContractTemplate.Namespace}.{serviceContractTemplate.ClassName}");
         }
 

@@ -71,7 +71,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             #line default
             #line hidden
             this.Write("()\r\n        {\r\n        }\r\n\r\n        [IntentManaged(Mode.Merge, Signature = Mode.F" +
-                    "ully)]\r\n        public Task<");
+                    "ully)]\r\n        public async Task<");
             
             #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(Model.TypeReference)));

@@ -5,10 +5,11 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
-using Intent.Modules.Application.Contracts.Templates.DTO;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -25,7 +26,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
             : base(Identifier, project, model)
         {
             SetDefaultTypeCollectionFormat("List<{0}>");
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DTOTemplate.IDENTIFIER, "List<{0}>"));
+            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
             Service = service;
         }
 

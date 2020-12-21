@@ -5,10 +5,11 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
-using Intent.Modules.Application.Contracts.Templates.DTO;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -25,14 +26,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         public ServiceImplementationTemplate(IProject project, ServiceModel model)
             : base(Identifier, project, model)
         {
-            AddTypeSource(DTOTemplate.IDENTIFIER, "List<{0}>");
+            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
         public IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
             return new[]
             {
-                TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.IDENTIFIER, x => x.Id == Model.Id)
+                TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id)
             }.Union(GetDecorators().SelectMany(x => x.GetConstructorDependencies(Model).Select(d => d.TemplateDependency)));
         }
 
@@ -57,7 +58,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         {
             base.BeforeTemplateExecution();
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
-                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.IDENTIFIER, Model)));
+                .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
             //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
             //{
             //    { "InterfaceType", GetServiceInterfaceName()},
@@ -115,7 +116,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         public string GetServiceInterfaceName()
         {
-            var serviceContractTemplate = Project.Application.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.IDENTIFIER, x => x.Id == Model.Id));
+            var serviceContractTemplate = Project.Application.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id));
             return $"{serviceContractTemplate.Namespace}.{serviceContractTemplate.ClassName}";
         }
 

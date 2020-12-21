@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
+using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -7,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Application.DependencyInjection.MediatR.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class MediatRDependencyInjectionDecorator : DependencyInjectionDecorator
+    public class MediatRDependencyInjectionDecorator : DependencyInjectionDecorator, IDeclareUsings
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Application.DependencyInjection.MediatR.MediatRDependencyInjectionDecorator";
@@ -22,6 +24,11 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.Decorators
         public override string ServiceRegistration()
         {
             return "services.AddMediatR(Assembly.GetExecutingAssembly());";
+        }
+
+        public IEnumerable<string> DeclareUsings()
+        {
+            yield return "MediatR";
         }
     }
 }

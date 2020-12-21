@@ -5,6 +5,7 @@ using Intent.Eventing;
 using Intent.Templates;
 using System.Collections.Generic;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
