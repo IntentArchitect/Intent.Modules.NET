@@ -16,14 +16,6 @@
       <role>Application.Mapping</role>
       <location>Common/Mappings</location>
     </template>
-    <template id="Intent.Application.AutoMapper.MappingExtensions" externalReference="6e40c432-9494-47ab-b696-668af143ff79">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Mapping</role>
-      <location>Common/Mappings</location>
-    </template>
     <template id="Intent.Application.AutoMapper.MappingProfile" externalReference="a4bcb24d-d6b7-4955-9997-efb5a0d99aee">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -40,9 +32,9 @@
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0-beta.5" />
   </dependencies>
   <interoperability>
-    <detect id="Intent.Application.DependencyInjection">
+    <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.0.0-beta.5"/>
+        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.0.0-beta.5" />
       </install>
     </detect>
   </interoperability>

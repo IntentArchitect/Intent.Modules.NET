@@ -17,7 +17,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EFMapping
 {
     partial class EFMappingTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasTemplateDependencies, IHasNugetDependencies, IHasDecorators<IEFMappingTemplateDecorator>, ITemplatePostCreationHook
     {
-        public const string Identifier = "Intent.EntityFrameworkCore.EFMapping";
+        public const string Identifier = "Intent.EntityFrameworkCore.Configurations";
         private readonly IList<IEFMappingTemplateDecorator> _decorators = new List<IEFMappingTemplateDecorator>();
         private ITemplateDependency _domainTemplateDependancy;
 
@@ -35,7 +35,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EFMapping
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.Name}Mapping",
+                className: $"{Model.Name}Configuration",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 

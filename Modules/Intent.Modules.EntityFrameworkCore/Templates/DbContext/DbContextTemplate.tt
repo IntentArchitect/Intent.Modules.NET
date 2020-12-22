@@ -18,7 +18,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName#> : <#= GetBaseClass() #>
+    public class <#= ClassName#> : <#= GetBaseTypes() #>
     {
         public <#= ClassName#>(DbContextOptions options) : base(options)
         {

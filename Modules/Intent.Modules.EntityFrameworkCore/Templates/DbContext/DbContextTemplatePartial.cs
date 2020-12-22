@@ -6,11 +6,13 @@ using Intent.Eventing;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFramework.Templates.DbContext;
+using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
@@ -26,16 +28,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
         }
 
-        public string GetEntityName(ClassModel model)
-        {
-            return GetTypeName(GetMetadata().CustomMetadata["Entity Template Id"], model);
-        }
-
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Project.Application.Name}DbContext".ToCSharpIdentifier(),
                 @namespace: $"{OutputTarget.GetNamespace()}");
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+
+        }
+
+        public string GetEntityName(ClassModel model)
+        {
+            return GetTypeName(GetMetadata().CustomMetadata["Entity Template Id"], model);
         }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -84,11 +91,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             return Environment.NewLine + Environment.NewLine + code;
         }
 
-        public string GetBaseClass()
+        public string GetBaseTypes()
         {
             try
             {
-                return NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext");
+                var baseClass = NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext");
+                return $"{baseClass}, {GetTypeName(DbContextInterfaceTemplate.Identifier)}";
             }
             catch (InvalidOperationException)
             {

@@ -30,8 +30,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
-                @namespace: $"{this.GetNamespace()}.{Model.GetConceptName()}",
-                relativeLocation: $"{this.GetFolderPath()}/{Model.GetConceptName()}");
+                @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
+                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
         }
 
         private string GetRequestHandlerInterface()

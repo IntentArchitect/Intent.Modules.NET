@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="96afbf9c-4eee-47eb-9c0e-cf05130350cf" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>EntityFrameworkCoreDependencyInjectionDecorator</name>
+  <display>EntityFrameworkCoreDependencyInjectionDecorator: DependencyInjectionDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="2a39637a-0901-45fa-91ce-54a73a821e5c">
+    <typeId>08c8b8d6-b827-4ac8-b201-e6ae7614743d</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Infrastructure.DependencyInjection</typePackageName>
+    <typePackageId>652850d7-ae15-457c-9c5d-d36266780022</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</parentFolderId>
+  <packageId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</packageId>
+  <packageName>Intent.DependencyInjection.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <childElements />
+</class>

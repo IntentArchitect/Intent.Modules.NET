@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d8fbcffb-7a65-4876-b7a2-a9deadda4219" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.ProjectItemTemplate.T4Template</name>
+  <display>Intent.ModuleBuilder.ProjectItemTemplate.T4Template</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

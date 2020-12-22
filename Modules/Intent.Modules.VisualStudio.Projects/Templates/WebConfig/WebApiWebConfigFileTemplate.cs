@@ -12,6 +12,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
@@ -22,41 +23,33 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
 
 
         private IList<IWebConfigDecorator> _decorators = new List<IWebConfigDecorator>();
-        private readonly IDictionary<string, string> _appSettings = new Dictionary<string, string>();
-        private readonly IDictionary<string, ConnectionStringElement> _connectionStrings = new Dictionary<string, ConnectionStringElement>();
+        private readonly IList<AppSettingRegistrationRequest> _appSettings = new List<AppSettingRegistrationRequest>();
+        private readonly IList<ConnectionStringRegistrationRequest> _connectionStrings = new List<ConnectionStringRegistrationRequest>();
 
         public WebApiWebConfigFileTemplate(IProject project, IApplicationEventDispatcher eventDispatcher)
             : base(IDENTIFIER, project, null)
         {
-            eventDispatcher.Subscribe(ApplicationEvents.Config_AppSetting, HandleAppSetting);
-            eventDispatcher.Subscribe(ApplicationEvents.Config_ConnectionString, HandleConnectionString);
+            eventDispatcher.Subscribe<AppSettingRegistrationRequest>(HandleAppSetting);
+            eventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
         }
 
-        private void HandleAppSetting(ApplicationEvent @event)
+        private void HandleAppSetting(AppSettingRegistrationRequest @event)
         {
-            if (_appSettings.ContainsKey(@event.GetValue("Key")))
+            if (_appSettings.Any(x => x.Key == @event.Key && x.Value != @event.Value))
             {
-                if (_appSettings[@event.GetValue("Key")] != @event.GetValue("Value"))
-                {
-                    // TODO: Do not commit
-                    //throw new Exception($"Misconfiguration in [{GetType().Name}]: AppSetting with key [{@event.Key}] already defined with different value to [{@event.Value}].");
-                }
+                // Throw exception?
                 return;
             }
-            _appSettings.Add(@event.GetValue("Key"), @event.GetValue("Value"));
+            _appSettings.Add(@event);
         }
 
-        private void HandleConnectionString(ApplicationEvent @event)
+        private void HandleConnectionString(ConnectionStringRegistrationRequest @event)
         {
-            if (_connectionStrings.ContainsKey(@event.GetValue("Name")))
+            if (_connectionStrings.Any(x => x.Name == @event.Name && x.ConnectionString != @event.ConnectionString))
             {
-                if (_connectionStrings[@event.GetValue("Name")].ConnectionString != @event.GetValue("ConnectionString"))
-                {
-                    throw new Exception($"Misconfiguration in [{GetType().Name}]: ConnectionString with name [{@event.GetValue("Name")}] already defined with different value to [{@event.GetValue("ConnectionString")}].");
-                }
-                return;
+                throw new Exception($"Misconfiguration in [{GetType().Name}]: ConnectionString with name [{@event.Name}] already defined with different value to [{@event.ConnectionString}].");
             }
-            _connectionStrings.Add(@event.GetValue("Name"), new ConnectionStringElement(name: @event.GetValue("Name"), connectionString: @event.GetValue("ConnectionString"), providerName: @event.GetValue("ProviderName")));
+            _connectionStrings.Add(@event);
         }
 
         public override ITemplateFileConfig GetTemplateFileConfig()
@@ -109,7 +102,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
 
             // Connection Strings:
             var connectionStringsElement = doc.XPathSelectElement("/ns:configuration/ns:connectionStrings", namespaces);
-            if (connectionStringsElement == null && _connectionStrings.Values.Any())
+            if (connectionStringsElement == null && _connectionStrings.Any())
             {
                 connectionStringsElement = new XElement("connectionStrings");
 
@@ -123,7 +116,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
                 }
             }
 
-            foreach (var connectionString in _connectionStrings.Values)
+            foreach (var connectionString in _connectionStrings)
             {
                 if (connectionStringsElement == null) throw new Exception("connectionStringsElement is null");
 
@@ -141,7 +134,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
             {
                 webConfigDecorator.Install(doc, Project);
             }
-            
+
             return doc.ToStringUTF8();
         }
 
@@ -193,19 +186,5 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
         {
             _decorators.Add(decorator);
         }
-    }
-
-    public class ConnectionStringElement
-    {
-        public ConnectionStringElement(string name, string connectionString, string providerName)
-        {
-            Name = name;
-            ConnectionString = connectionString;
-            ProviderName = providerName;
-        }
-
-        public string Name { get; set; }
-        public string ConnectionString { get; set; }
-        public string ProviderName { get; set; }
     }
 }

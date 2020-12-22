@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Application.DependencyInjection.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class ApplicationStartupDecorator : StartupDecorator
+    public class ApplicationStartupDecorator : StartupDecorator, IDeclareUsings
     {
         public const string DecoratorId = "Application.DependencyInjection.ApplicationStartupDecorator";
 
@@ -26,7 +27,7 @@ namespace Intent.Modules.Application.DependencyInjection.Decorators
             return "services.AddApplication();";
         }
 
-        public override IEnumerable<string> RequiredNamespaces()
+        public IEnumerable<string> DeclareUsings()
         {
             return new[] { _template.GetTemplate<IClassProvider>(DependencyInjectionTemplate.TemplateId).Namespace };
         }

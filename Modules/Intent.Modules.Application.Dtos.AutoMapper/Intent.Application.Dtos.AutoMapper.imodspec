@@ -14,7 +14,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Mappings</role>
-      <location>Mappings</location>
+      <location></location>
     </template>
   </templates>
   <dependencies>

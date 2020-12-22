@@ -10,6 +10,7 @@ using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.EntityFramework.Templates.EFMapping;
@@ -49,21 +50,13 @@ namespace Intent.Modules.EntityFramework.Templates.DbContext
 
         public override void BeforeTemplateExecution()
         {
-            _eventDispatcher.Publish(ApplicationEvents.Config_ConnectionString, new Dictionary<string, string>()
-            {
-                { "Name", $"{Project.Application.Name}DB" },
-                { "ConnectionString", $"Server=.;Initial Catalog={ Project.Application.SolutionName };Integrated Security=true;MultipleActiveResultSets=True" },
-                { "ProviderName", "System.Data.SqlClient" },
-            });
+            ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                name: $"{Project.Application.Name}DB",
+                connectionString: $"Server=.;Initial Catalog={ OutputTarget.Application.Name };Integrated Security=true;MultipleActiveResultSets=True",
+                providerName: "System.Data.SqlClient"));
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .WithPerServiceCallLifeTime());
-            //_eventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            //{
-            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
-            //    { "ConcreteTypeTemplateId", Identifier },
-            //    { "Lifetime", ContainerRegistrationEvent.PerServiceCallLifetime }
-            //});
         }
 
         public void AddDecorator(DbContextDecoratorBase decorator)

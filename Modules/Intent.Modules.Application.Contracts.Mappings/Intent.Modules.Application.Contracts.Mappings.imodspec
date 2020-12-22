@@ -12,7 +12,7 @@
       <role>Application.Mappings</role>
       <location>Mappings</location>
       <config>          
-        <add key="ContractTemplateDependancyId" default="Intent.Application.Contracts.DTO" description="The template Id for the template producing the Contracts" />
+        <add key="ContractTemplateDependancyId" default="Intent.Application.Dtos.DtoModel" description="The template Id for the template producing the Contracts" />
         <add key="DomainTemplateDependancyId" default="Intent.Entities.DomainEntityInterface" description="The template Id for the template producing the Domain Entities" />
         <add key="Stereotype Name" default="Mapping Configuration" description="The name of the stereotype on a mapped DTO to specify an override source type to map from." />
         <add key="Stereotype Property Name (Type)" default="Type" description="The Type for the above stereotype to specify the source type name to map from." />
@@ -23,7 +23,7 @@
       <role>Application.Mappings</role>
       <location>Mappings</location>
       <config>
-        <add key="ContractTemplateDependancyId" description="The template Id for the template producing the Contracts" default="Intent.Application.Contracts.DTO"  />
+        <add key="ContractTemplateDependancyId" description="The template Id for the template producing the Contracts" default="Intent.Application.Dtos.DtoModel"  />
         <add key="DomainTemplateDependancyId" description="The template Id for the template producing the Domain Entities" default="Intent.Entities.DomainEntityInterface" />
         <add key="Stereotype Name" default="Mapping Configuration" description="The name of the stereotype on a mapped DTO to specify an override source type to map from." />
         <add key="Stereotype Property Name (Type)" default="Type" description="The Type for the above stereotype to specify the source type name to map from." />

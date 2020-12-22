@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ef7a3509-70bd-4331-99ab-94e57d53cc05" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</name>
+  <display>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c8a70e09-8d85-4281-b5e2-7afa7933d311</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

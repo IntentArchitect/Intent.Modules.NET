@@ -4,6 +4,7 @@ using Intent.Eventing;
 using Intent.Templates;
 using System.Collections.Generic;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
 
@@ -95,29 +96,32 @@ namespace Intent.Modules.AspNet.Owin.Jwt.Decorators
 
         public void BeforeTemplateExecution()
         {
-            _solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
-            {
-                { "Key", "IdentityServer.Issuer.SigningCertificate.FindType" },
-                { "Value", "FindBySubjectName" }
-            });
-            _solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
-            {
-                { "Key", "IdentityServer.Issuer.SigningCertificate.FindValue" },
-                { "Value", "localhost" }
-            });
-            _solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
-            {
-                { "IdentityServer.Issuer.SigningCertificate.FindValue", "localhost" },
-            });
+            _solutionEvents.Publish(new AppSettingRegistrationRequest("IdentityServer.Issuer.SigningCertificate.FindType", "FindBySubjectName"));
+            _solutionEvents.Publish(new AppSettingRegistrationRequest("IdentityServer.Issuer.SigningCertificate.FindValue", "localhost"));
+            //_solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
+            //{
+            //    { "Key", "IdentityServer.Issuer.SigningCertificate.FindType" },
+            //    { "Value", "FindBySubjectName" }
+            //});
+            //_solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
+            //{
+            //    { "Key", "IdentityServer.Issuer.SigningCertificate.FindValue" },
+            //    { "Value", "localhost" }
+            //});
+            //_solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
+            //{
+            //    { "IdentityServer.Issuer.SigningCertificate.FindValue", "localhost" },
+            //});
         }
 
         private void HandleIdentityServerAvailable(ApplicationEvent @event)
         {
-            _solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
-            {
-                { "Key", "IdentityServer.Issuer.Name" },
-                { "Value", @event.GetValue("AuthorityUrl") }
-            });
+            _solutionEvents.Publish(new AppSettingRegistrationRequest("IdentityServer.Issuer.Name", @event.GetValue("AuthorityUrl")));
+            //_solutionEvents.Publish(ApplicationEvents.Config_AppSetting, new Dictionary<string, string>()
+            //{
+            //    { "Key", "IdentityServer.Issuer.Name" },
+            //    { "Value", @event.GetValue("AuthorityUrl") }
+            //});
         }
     }
 }

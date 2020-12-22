@@ -82,10 +82,54 @@
       </stereotypes>
       <childElements>
         <childElement id="07c8d898-bd91-4174-87b1-0fd8a20cab6b" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Application.Mappings</name>
-          <display>Intent.Application.Mappings</display>
+          <name>Intent.Application.AutoMapper</name>
+          <display>Intent.Application.AutoMapper</display>
           <isAbstract>false</isAbstract>
           <order>0</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7805deaa-bf2e-4aa9-a736-f8dac33badcf</parentFolderId>
+          <packageId>32fc3c15-c98e-4b36-9b7d-dd2f7b8885ed</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.0.0-beta.5" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
+        <childElement id="2355c79d-34dc-47a2-9ad8-1740189c8130" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Application.Dtos.AutoMapper</name>
+          <display>Intent.Application.Dtos.AutoMapper</display>
+          <isAbstract>false</isAbstract>
+          <order>1</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7805deaa-bf2e-4aa9-a736-f8dac33badcf</parentFolderId>
+          <packageId>32fc3c15-c98e-4b36-9b7d-dd2f7b8885ed</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.0.0-beta.5" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
+        <childElement id="1e861cd0-4428-44f2-bbe1-f94e7f876a9f" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Application.DependencyInjection.AutoMapper</name>
+          <display>Intent.Application.DependencyInjection.AutoMapper</display>
+          <isAbstract>false</isAbstract>
+          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7805deaa-bf2e-4aa9-a736-f8dac33badcf</parentFolderId>

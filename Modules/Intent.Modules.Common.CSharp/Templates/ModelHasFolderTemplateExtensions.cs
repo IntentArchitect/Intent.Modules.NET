@@ -7,23 +7,16 @@ namespace Intent.Modules.Common.CSharp.Templates
 {
     public static class ModelHasFolderTemplateExtensions
     {
-        public static string GetFolderPath<TModel>(this IntentTemplateBase<TModel> template)
+        public static string GetFolderPath<TModel>(this IntentTemplateBase<TModel> template, params string[] additionalFolders)
             where TModel : IHasFolder
         {
-            return string.Join("/", template.Model.GetParentFolderNames());
+            return string.Join("/", template.Model.GetParentFolderNames().Concat(additionalFolders));
         }
 
-        public static string GetNamespace<TModel>(this CSharpTemplateBase<TModel> template)
+        public static string GetNamespace<TModel>(this CSharpTemplateBase<TModel> template, params string[] additionalFolders)
             where TModel : IHasFolder
         {
-            if (template.Model.GetParentFolderNames().Any())
-            {
-                return $"{template.OutputTarget.GetNamespace()}.{string.Join(".", template.Model.GetParentFolderNames())}";
-            }
-            else
-            {
-                return template.OutputTarget.GetNamespace();
-            }
+            return string.Join(".", new [] { template.OutputTarget.GetNamespace() }.Concat(template.Model.GetParentFolderNames()).Concat(additionalFolders));
         }
     }
 }

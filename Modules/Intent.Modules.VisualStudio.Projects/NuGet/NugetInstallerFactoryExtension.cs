@@ -379,7 +379,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                             x.ProjectName,
                             x.ConsolidatedPackageVersions[packageId].Version
                         })
-                        .OrderByDescending(x => x.Version)
+                        .OrderByDescending(x => x.Version.ToString())
                         .ThenBy(x => x.ProjectName)
                         .Select(x => $"    Version {x.Version} in '{x.ProjectName}'")
                         .Aggregate((x, y) => x + Environment.NewLine + y)

@@ -32,7 +32,8 @@ namespace Intent.Modules.Application.Dtos.Decorators
 
         public override string PropertyAttributes(DTOModel dto, DTOFieldModel field)
         {
-            return "[DataMember]";
+            return @"
+        [DataMember]";
         }
 
         public IEnumerable<string> DeclareUsings()

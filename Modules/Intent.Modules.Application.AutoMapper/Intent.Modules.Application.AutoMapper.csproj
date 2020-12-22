@@ -9,10 +9,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MapFromInterfaceTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\MappingExtensions\MappingExtensionsTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MappingExtensionsTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\MappingProfile\MappingProfileTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MappingProfileTemplate.cs</LastGenOutput>
@@ -24,11 +20,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>MapFromInterfaceTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\MappingExtensions\MappingExtensionsTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MappingExtensionsTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\MappingProfile\MappingProfileTemplate.cs">
       <DesignTime>True</DesignTime>

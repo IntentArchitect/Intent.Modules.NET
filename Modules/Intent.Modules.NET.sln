@@ -132,7 +132,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection.AutoMapper", "Intent.Modules.Application.DependencyInjection.AutoMapper\Intent.Modules.Application.DependencyInjection.AutoMapper.csproj", "{FCDED867-B898-4D55-A440-63A20017C6D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.DependencyInjection", "Intent.Modules.AspNetCore.DependencyInjection\Intent.Modules.AspNetCore.DependencyInjection.csproj", "{F2BB3C20-FE86-46C4-BC9C-1DA9DC536710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Infrastructure.DependencyInjection", "Intent.Modules.Infrastructure.DependencyInjection\Intent.Modules.Infrastructure.DependencyInjection.csproj", "{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DependencyInjection.EntityFrameworkCore", "Intent.Modules.DependencyInjection.EntityFrameworkCore\Intent.Modules.DependencyInjection.EntityFrameworkCore.csproj", "{B9AF8D74-7AB3-45E7-8A0D-EEEF2B532474}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -380,10 +382,14 @@ Global
 		{FCDED867-B898-4D55-A440-63A20017C6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCDED867-B898-4D55-A440-63A20017C6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCDED867-B898-4D55-A440-63A20017C6D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2BB3C20-FE86-46C4-BC9C-1DA9DC536710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2BB3C20-FE86-46C4-BC9C-1DA9DC536710}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2BB3C20-FE86-46C4-BC9C-1DA9DC536710}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2BB3C20-FE86-46C4-BC9C-1DA9DC536710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9AF8D74-7AB3-45E7-8A0D-EEEF2B532474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9AF8D74-7AB3-45E7-8A0D-EEEF2B532474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9AF8D74-7AB3-45E7-8A0D-EEEF2B532474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9AF8D74-7AB3-45E7-8A0D-EEEF2B532474}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -449,7 +455,8 @@ Global
 		{34F467F9-4A45-43AD-8FE7-5DCB850E724A} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{9E1B7E0F-7918-41D9-8C52-0A020A279CAB} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{FCDED867-B898-4D55-A440-63A20017C6D4} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{F2BB3C20-FE86-46C4-BC9C-1DA9DC536710} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{17A3CB70-A261-43EA-B2B3-6F106AF95A0B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{B9AF8D74-7AB3-45E7-8A0D-EEEF2B532474} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -39,26 +39,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>MappingExtensions/MappingExtensionsTemplate.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplate.tt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>MappingExtensions/MappingExtensionsTemplate.tt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>MappingExtensions/MappingExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.AutoMapper\Templates\MappingExtensions\MappingExtensionsTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>MappingExtensions/MappingExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile/MappingProfileTemplate.cs</ProjectRelativeFilePath>
     </FileLog>

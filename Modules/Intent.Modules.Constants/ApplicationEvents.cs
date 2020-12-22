@@ -18,8 +18,6 @@
         public const string IndexHtml_JsFileAvailable = "IndexHtml.JsFileAvailable";
         public const string AngularJs_ModuleRegistered = "AngularJs.ModuleRegistered";
         public const string AngularJs_ConfigurationRequired = "AngularJs.ConfigurationRequired";
-        public const string Config_AppSetting = "Config.AppSetting";
-        public const string Config_ConnectionString = "Config.ConnectionString";
         public const string AppStart_InitializationRequired = "AppStart.InitializationRequired";
         public const string Typescript_TypingsRequired = "Typescript.Typings";
     }

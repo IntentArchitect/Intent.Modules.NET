@@ -29,8 +29,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}.{Model.GetConceptName()}",
-                relativeLocation: $"{this.GetFolderPath()}/{Model.GetConceptName()}");
+                @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
+                relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
         }
 
         private string GetRequestInterface()

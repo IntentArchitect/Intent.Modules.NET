@@ -93,7 +93,7 @@
           <name>4 - Infrastructure</name>
           <childElements>
             <element typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE" type="Class Library (.NET Core)">
-              <name>${application.name}.Persistence</name>
+              <name>${application.name}.Infrastructure</name>
               <stereotypes>
                 <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
                   <addedByDefault>true</addedByDefault>

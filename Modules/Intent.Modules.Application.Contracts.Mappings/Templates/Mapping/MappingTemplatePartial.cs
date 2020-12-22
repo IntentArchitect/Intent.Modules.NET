@@ -162,7 +162,7 @@ namespace Intent.Modules.Application.Contracts.Mappings.Templates.Mapping
         private IEnumerable<string> GetNamespaceParts()
         {
             return Model
-                .GetFolderPath(includePackage: false)
+                .GetParentFolders()
                 .Select(x => x.GetStereotypeProperty<string>(StandardStereotypes.NamespaceProvider, "Namespace"))
                 .Where(x => !string.IsNullOrWhiteSpace(x))
                 .ToArray();
