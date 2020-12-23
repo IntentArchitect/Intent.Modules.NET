@@ -34,5 +34,7 @@
     <application id="989555da-0ffa-4ade-bacf-69f9cd261300" name="Intent.Modules.Application.DependencyInjection.AutoMapper" relativePath="Intent.Modules.Application.DependencyInjection.AutoMapper/Intent.Modules.Application.DependencyInjection.AutoMapper.application.config" />
     <application id="5d935a54-a908-4812-9169-cf57c94719b3" name="Intent.Modules.Infrastructure.DependencyInjection" relativePath="Intent.Modules.Infrastructure.DependencyInjection/Intent.Modules.Infrastructure.DependencyInjection.application.config" />
     <application id="54aec6b2-a592-4bf0-8432-4c060c8cec1a" name="Intent.Modules.DependencyInjection.EntityFrameworkCore" relativePath="Intent.Modules.DependencyInjection.EntityFrameworkCore/Intent.Modules.DependencyInjection.EntityFrameworkCore.application.config" />
+    <application id="69f06913-7f0d-4ad1-bf64-0b14901a49cd" name="Intent.Modules.Application.MediatR.FluentValidation" relativePath="Intent.Modules.Application.MediatR.FluentValidation/Intent.Modules.Application.MediatR.FluentValidation.application.config" />
+    <application id="b3270798-d8b7-442c-8140-f5dc8200371a" name="Intent.Modules.Application.DependencyInjection.FluentValidation" relativePath="Intent.Modules.Application.DependencyInjection.FluentValidation/Intent.Modules.Application.DependencyInjection.FluentValidation.application.config" />
   </applications>
 </solution>

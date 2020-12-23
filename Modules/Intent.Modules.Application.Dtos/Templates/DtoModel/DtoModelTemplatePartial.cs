@@ -26,6 +26,14 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return new CSharpFileConfig(
+                className: $"{Model.Name}",
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: this.GetFolderPath());
+        }
+
         public string ClassAttributes()
         {
             return GetDecorators().Aggregate(x => x.ClassAttributes(Model));
@@ -64,14 +72,6 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     .Select(x => "\r\n            " + GetTypeName(x.TypeReference) + " " + x.Name.ToCamelCase(reservedWordEscape: true))
                     .Aggregate((x, y) => x + ", " + y)
                 : "";
-        }
-
-        protected override CSharpFileConfig DefineFileConfig()
-        {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: this.GetFolderPath());
         }
 
         public string GenericTypes => Model.GenericTypes.Any() ? $"<{ string.Join(", ", Model.GenericTypes) }>" : "";

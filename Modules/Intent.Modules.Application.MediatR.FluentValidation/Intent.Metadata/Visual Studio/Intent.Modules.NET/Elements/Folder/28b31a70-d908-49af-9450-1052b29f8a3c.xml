@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="28b31a70-d908-49af-9450-1052b29f8a3c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Templates</name>
+  <display>Templates</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f70df819-b1a1-460c-ad99-567cf48a1a99</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

@@ -65,10 +65,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
                 }
             }
 
-            if (!memberMappings.Any())
-            {
-                return base.ExitClass();
-            }
+            //if (!memberMappings.Any())
+            //{
+            //    return base.ExitClass();
+            //}
 
             return $@"
         public void Mapping(Profile profile)

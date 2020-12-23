@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="76ee3517-d801-4e2a-8607-37a076f6e672" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.Templates.Api.ApiMetadataPackageExtensions</name>
+  <display>Intent.ModuleBuilder.Templates.Api.ApiMetadataPackageExtensions</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f70df819-b1a1-460c-ad99-567cf48a1a99</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

@@ -1,0 +1,33 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.QueryModel>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using FluentValidation;
+
+[assembly: DefaultIntentManaged(Mode.Merge)]
+
+namespace <#= Namespace #>
+{
+    [IntentManaged(Mode.Merge)]
+    public class <#= ClassName #> : AbstractValidator<<#= GetQueryModel() #>>
+    {
+        [IntentManaged(Mode.Fully)]
+        public <#= ClassName #>()
+        {
+<#  foreach(var fieldRule in this.GetValidationRules(Model.Properties)) { #>
+            <#= fieldRule #>
+
+<#  } #>
+        }
+<#  foreach(var method in GetCustomValidationMethods()) { #>
+
+        <#= method #>
+<#  } #>
+    }
+}

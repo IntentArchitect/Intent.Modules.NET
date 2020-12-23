@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9de2cedd-f485-47b4-81d6-e736787ce501" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.TemplateRegistration.FilePerModel</name>
+  <display>Intent.ModuleBuilder.TemplateRegistration.FilePerModel</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>28b31a70-d908-49af-9450-1052b29f8a3c</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>

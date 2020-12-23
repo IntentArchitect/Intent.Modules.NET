@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="84d1de11-3e2a-49f6-924f-cf70cf09b31b" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>FluentValidationDependencyInjectionDecorator</name>
+  <display>FluentValidationDependencyInjectionDecorator: DependencyInjectionDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="3d7f19b2-8c79-4d1b-9164-67ee7ec3cc90">
+    <typeId>617c7ba4-0e1e-452a-ae2a-7cdd53f5f6c9</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Application.DependencyInjection</typePackageName>
+    <typePackageId>33084118-5d41-4965-a200-54aa73ba9021</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>e2c42d5e-d746-4abf-99bc-e4c04c512847</parentFolderId>
+  <packageId>e2c42d5e-d746-4abf-99bc-e4c04c512847</packageId>
+  <packageName>Intent.Application.DependencyInjection.FluentValidation</packageName>
+  <stereotypes />
+  <childElements />
+</class>

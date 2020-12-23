@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationId>b3270798-d8b7-442c-8140-f5dc8200371a</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>c02ec711-33b1-4b53-b87d-7d85c45a8101</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection.FluentValidation\Decorators\FluentValidationDependencyInjectionDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c02ec711-33b1-4b53-b87d-7d85c45a8101</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection.FluentValidation\Decorators\FluentValidationDependencyInjectionDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidationDependencyInjectionDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b0ab7936-8875-49d5-8892-af57ee0b9a87</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection.FluentValidation\Intent.Application.DependencyInjection.FluentValidation.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Application.DependencyInjection.FluentValidation.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b0ab7936-8875-49d5-8892-af57ee0b9a87</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection.FluentValidation\Intent.Modules.Application.DependencyInjection.FluentValidation.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.FluentValidation.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b0ab7936-8875-49d5-8892-af57ee0b9a87</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection.FluentValidation\README.txt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>..\Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+  </FileLogs>
+</outputLog>

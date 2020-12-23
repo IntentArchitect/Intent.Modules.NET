@@ -46,8 +46,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MapFromInterface
             
             #line default
             #line hidden
-            this.Write("<T>\r\n    {   \r\n        void Mapping(Profile profile) => profile.CreateMap(typeof(" +
-                    "T), GetType());\r\n    }\r\n}");
+            this.Write("<T>\r\n    {   \r\n        void Mapping(Profile profile);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

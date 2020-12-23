@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f79f0f00-9987-4fd0-abc1-4f593548bb6f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.ModuleBuilder.IModeSpecFile</name>
+  <display>Intent.ModuleBuilder.IModeSpecFile</display>
+  <externalReference>Intent.ModuleBuilder</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f70df819-b1a1-460c-ad99-567cf48a1a99</parentFolderId>
+  <stereotypes />
+  <childElements />
+</class>
