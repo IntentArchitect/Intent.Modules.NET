@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.Modules.Entities.Templates.DomainEnum;
 
 namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 {
@@ -30,7 +31,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 
         public override void OnCreated()
         {
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityStateTemplate.Identifier, "ICollection<{0}>"));
+            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityStateTemplate.TemplateId, "ICollection<{0}>"));
+            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEnumTemplate.TemplateId, "ICollection<{0}>"));
             Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier), OPERATIONS_CONTEXT);
         }
         

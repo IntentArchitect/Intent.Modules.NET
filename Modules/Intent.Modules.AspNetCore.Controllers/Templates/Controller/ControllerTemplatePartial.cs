@@ -73,11 +73,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetControllerAttributes()
         {
             var attributes = new List<string>();
-            if (Model.GetControllerSettings().Security().IsAuthorize())
+            if (Model.GetApiSettings().Security().IsAuthorize())
             {
                 attributes.Add("[Authorize]");
             }
-            attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetControllerSettings().Route()) ? "api/[controller]" : Model.GetControllerSettings().Route())}"")]");
+            attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetApiSettings().HttpRoute()) ? "api/[controller]" : Model.GetApiSettings().HttpRoute())}"")]");
             return string.Join(@"
     ", attributes);
         }

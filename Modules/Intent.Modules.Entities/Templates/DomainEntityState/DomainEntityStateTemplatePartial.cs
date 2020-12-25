@@ -11,6 +11,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEntityState
@@ -18,15 +19,16 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
     partial class DomainEntityStateTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityStateDecoratorBase>, ITemplatePostCreationHook
     {
         private readonly IMetadataManager _metadataManager;
-        public const string Identifier = "Intent.Entities.DomainEntityState";
+        public const string TemplateId = "Intent.Entities.DomainEntityState";
 
         private readonly IList<DomainEntityStateDecoratorBase> _decorators = new List<DomainEntityStateDecoratorBase>();
 
         public DomainEntityStateTemplate(ClassModel model, IProject project, IMetadataManager metadataManager)
-            : base(Identifier, project, model)
+            : base(TemplateId, project, model)
         {
             _metadataManager = metadataManager;
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, Identifier, "ICollection<{0}>"));
+            AddTypeSource(TemplateId, "ICollection<{0}>");
+            AddTypeSource(DomainEnumTemplate.TemplateId, "ICollection<{0}>");
         }
 
         public string EntityInterfaceName => Project.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel(DomainEntityInterfaceTemplate.Identifier, Model))?.ClassName

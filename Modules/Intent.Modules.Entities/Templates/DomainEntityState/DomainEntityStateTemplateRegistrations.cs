@@ -11,7 +11,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEntityState
 {
-    [Description(DomainEntityStateTemplate.Identifier)]
+    [Description(DomainEntityStateTemplate.TemplateId)]
     public class DomainEntityStateTemplateRegistrations : ModelTemplateRegistrationBase<ClassModel>
     {
         private readonly IMetadataManager _metadataManager;
@@ -21,7 +21,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => DomainEntityStateTemplate.Identifier;
+        public override string TemplateId => DomainEntityStateTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IProject project, ClassModel model)
         {

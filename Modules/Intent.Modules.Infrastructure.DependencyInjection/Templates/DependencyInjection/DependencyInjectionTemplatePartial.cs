@@ -28,7 +28,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
         private void HandleEvent(ContainerRegistrationRequest @event)
         {
-            if (@event.Concern != "Application")
+            if (@event.Concern != "Infrastructure")
             {
                 return;
             }

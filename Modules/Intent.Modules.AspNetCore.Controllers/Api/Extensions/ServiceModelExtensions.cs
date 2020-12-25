@@ -11,32 +11,32 @@ namespace Intent.AspNetCore.Controllers.Api
 {
     public static class ServiceModelExtensions
     {
-        public static ControllerSettings GetControllerSettings(this ServiceModel model)
+        public static ApiSettings GetApiSettings(this ServiceModel model)
         {
-            var stereotype = model.GetStereotype("Controller Settings");
-            return stereotype != null ? new ControllerSettings(stereotype) : null;
+            var stereotype = model.GetStereotype("Api Settings");
+            return stereotype != null ? new ApiSettings(stereotype) : null;
         }
 
-        public static bool HasControllerSettings(this ServiceModel model)
+        public static bool HasApiSettings(this ServiceModel model)
         {
-            return model.HasStereotype("Controller Settings");
+            return model.HasStereotype("Api Settings");
         }
 
 
-        public class ControllerSettings
+        public class ApiSettings
         {
             private IStereotype _stereotype;
 
-            public ControllerSettings(IStereotype stereotype)
+            public ApiSettings(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }
 
             public string Name => _stereotype.Name;
 
-            public string Route()
+            public string HttpRoute()
             {
-                return _stereotype.GetProperty<string>("Route");
+                return _stereotype.GetProperty<string>("Http Route");
             }
 
             public SecurityOptions Security()

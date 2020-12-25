@@ -1,0 +1,27 @@
+﻿<#@ template  debug="true"  inherits="CSharpTemplateBase<EnumModel>" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ Assembly Name="Intent.SoftwareFactory" #>
+<#@ import namespace="Intent.Modules.Common.Types.Api" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic"#>
+using System;
+using System.Collections.Generic;
+<#= DependencyUsings #>
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public enum <#= ClassName #>
+    {
+        <#= GetEnumLiterals(Model.Literals) #>
+    }
+}

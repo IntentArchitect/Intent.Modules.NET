@@ -10,6 +10,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEntity
@@ -23,6 +24,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             : base(Identifier, project, model)
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier));
+            AddTypeSource(DomainEnumTemplate.TemplateId);
         }
 
         protected override CSharpFileConfig DefineFileConfig()

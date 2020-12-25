@@ -29,6 +29,9 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             _template = template;
         }
 
+        private DomainEntityStateTemplate _entityTemplate;
+        public DomainEntityStateTemplate EntityTemplate => _entityTemplate ??= _template.GetTemplate<DomainEntityStateTemplate>(DomainEntityStateTemplate.TemplateId, _template.Model.Mapping.ElementId);
+
         public IEnumerable<string> DeclareUsings()
         {
             if (!_template.Model.IsMapped)
@@ -45,7 +48,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             {
                 return base.BaseInterfaces();
             }
-            return new[] { $"{_template.GetTypeName(MapFromInterfaceTemplate.TemplateId)}<{_template.GetTypeName(DomainEntityStateTemplate.Identifier, _template.Model.Mapping.ElementId)}>" };
+            return new[] { $"{_template.GetTypeName(MapFromInterfaceTemplate.TemplateId)}<{EntityTemplate.ClassName}>" };
         }
 
         public override string ExitClass()
@@ -56,12 +59,14 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             }
 
             var memberMappings = new List<string>();
-            foreach (var field in _template.Model.Fields)
+            foreach (var field in _template.Model.Fields.Where(x => x.Mapping != null))
             {
-                if (field.Mapping != null && field.Name.ToPascalCase() != GetPath(field.Mapping.Path))
+                var shouldCast = _template.Types.Get(field.TypeReference).IsPrimitive && 
+                                 _template.GetTypeName(field) != EntityTemplate.GetTypeName(field.Mapping.Element?.TypeReference);
+                if (field.Name.ToPascalCase() != GetPath(field.Mapping.Path) || shouldCast)
                 {
                     memberMappings.Add($@"
-                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => src.{GetPath(field.Mapping.Path)}))");
+                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({_template.GetTypeName(field)})" : "")}src.{GetPath(field.Mapping.Path)}))");
                 }
             }
 
@@ -73,7 +78,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             return $@"
         public void Mapping(Profile profile)
         {{
-            profile.CreateMap<{_template.GetTypeName(DomainEntityStateTemplate.Identifier, _template.Model.Mapping.ElementId)}, {_template.ClassName}>(){string.Join($"", memberMappings)};
+            profile.CreateMap<{_template.GetTypeName(DomainEntityStateTemplate.TemplateId, _template.Model.Mapping.ElementId)}, {_template.ClassName}>(){string.Join($"", memberMappings)};
         }}";
         }
 

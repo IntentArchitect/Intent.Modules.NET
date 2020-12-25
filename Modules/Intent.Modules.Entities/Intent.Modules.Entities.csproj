@@ -19,6 +19,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AutofacConfigTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\DomainEnum\DomainEnumTemplate.tt">
+      <LastGenOutput>DomainEnumTemplate.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
     <None Update="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEntityInterfaceTemplate.cs</LastGenOutput>
@@ -55,6 +59,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEntityTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\DomainEnum\DomainEnumTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEnumTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

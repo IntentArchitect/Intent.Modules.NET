@@ -14,7 +14,6 @@
 <#@ import namespace="System.Collections.Generic"#>
 using System;
 using System.Collections.Generic;
-<#= DependencyUsings #>
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -30,9 +29,8 @@ namespace <#= Namespace #>
         {
             continue;
         }
-        string attributeType = GetTypeName(attribute.Type);
 #><#= PropertyAnnotations(attribute) #>
-        <#= attributeType #> <#= attribute.Name.ToPascalCase() #> { <#= AttributeAccessors(attribute) #> }
+        <#= GetTypeName(attribute.Type) #> <#= attribute.Name.ToPascalCase() #> { <#= AttributeAccessors(attribute) #> }
 <#  }
 
     foreach (var associatedClass in Model.AssociatedClasses)
