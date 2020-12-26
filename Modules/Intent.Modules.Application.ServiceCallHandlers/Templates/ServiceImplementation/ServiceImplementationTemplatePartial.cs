@@ -62,6 +62,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Application")
                 .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
             //ExecutionContext.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
             //{

@@ -3,19 +3,24 @@
   <ApplicationId>a4d94df0-a3d7-4f52-aed0-b0d693ffa062</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>493a19fe-fa60-4ba6-9b00-ba1cfbbb6162</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\FactoryExtensions\AspNetCoreSpaInstaller.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>AspNetCoreSpaInstaller.cs</ProjectRelativeFilePath>
+      <ProjectId>4b3f8fa7-db3a-499c-b4c2-5b076d6eae97</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\Decorators\AngularStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AngularStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4b3f8fa7-db3a-499c-b4c2-5b076d6eae97</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\Decorators\AngularStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AngularStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\Intent.AspNetCore.Interop.Angular.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
       <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>

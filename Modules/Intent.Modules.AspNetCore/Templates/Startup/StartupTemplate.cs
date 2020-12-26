@@ -84,48 +84,47 @@ using Microsoft.Extensions.Options;
                     "   public void ConfigureServices(IServiceCollection services)\r\n        {\r\n");
             
             #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-  foreach(var decorator in GetDecorators()) { 
-            
-            #line default
-            #line hidden
-            this.Write("            ");
-            
-            #line 45 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(decorator.ConfigureServices()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-  } 
-            
-            #line default
-            #line hidden
-            
-            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   if (IsNetCore2App()) { 
             
             #line default
             #line hidden
             this.Write("            services.AddMvc();\r\n");
             
-            #line 49 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   } else { 
             
             #line default
             #line hidden
             this.Write("            services.AddControllers();\r\n");
             
+            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            
+            #line 49 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+  foreach(var decorator in GetDecorators()) { 
+            
+            #line default
+            #line hidden
+            this.Write("            ");
+            
+            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(decorator.ConfigureServices()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
             #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   } 
             
             #line default
             #line hidden
-            this.Write("            IntentConfiguredServices(services);\r\n");
             
-            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ServiceConfigurations()));
+            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Registrations()));
             
             #line default
             #line hidden
@@ -133,7 +132,7 @@ using Microsoft.Extensions.Options;
                     " to configure the HTTP request pipeline.\r\n        public void Configure(IApplica" +
                     "tionBuilder app, ");
             
-            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            #line 55 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture((IsNetCore2App() ? "IHostingEnvironment" : "IWebHostEnvironment")));
             
             #line default
@@ -141,7 +140,7 @@ using Microsoft.Extensions.Options;
             this.Write(" env)\r\n        {\r\n            if (env.IsDevelopment())\r\n            {\r\n          " +
                     "      app.UseDeveloperExceptionPage();\r\n            }\r\n");
             
-            #line 63 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   if (IsNetCore2App()) { 
             
             #line default
@@ -150,14 +149,14 @@ using Microsoft.Extensions.Options;
                     "days. You may want to change this for production scenarios, see https://aka.ms/a" +
                     "spnetcore-hsts.\r\n                app.UseHsts();\r\n            }\r\n");
             
-            #line 69 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            #line 67 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   } 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 71 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            #line 69 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   if (IsNetCore2App()) { 
             
             #line default
@@ -165,7 +164,7 @@ using Microsoft.Extensions.Options;
             this.Write("            app.UseHttpsRedirection();\r\n            \r\n            app.UseMvc();\r\n" +
                     "");
             
-            #line 75 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            #line 73 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   } else { 
             
             #line default
@@ -174,33 +173,53 @@ using Microsoft.Extensions.Options;
                     "      app.UseAuthorization();\r\n\r\n            app.UseEndpoints(endpoints =>\r\n    " +
                     "        {\r\n                endpoints.MapControllers();\r\n            });\r\n");
             
-            #line 86 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            #line 84 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
   } 
             
             #line default
             #line hidden
             
-            #line 87 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Configurations()));
+            #line 85 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+  foreach(var decorator in GetDecorators()) { 
             
             #line default
             #line hidden
-            this.Write("\r\n        }\r\n\r\n        public void IntentConfiguredServices(IServiceCollection se" +
-                    "rvices) \r\n        {\r\n");
+            this.Write("            ");
+            
+            #line 86 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(decorator.Configuration()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 87 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            this.Write("        }\r\n");
+            
+            #line 89 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+  foreach(var decorator in GetDecorators()) { 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        ");
+            
+            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(decorator.Methods()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
             
             #line 92 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Registrations()));
+  } 
             
             #line default
             #line hidden
-            this.Write("\r\n        }\r\n\r\n");
-            
-            #line 95 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Methods()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    }\r\n}");
+            this.Write("    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

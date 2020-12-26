@@ -58,6 +58,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         {
             base.BeforeTemplateExecution();
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Application")
                 .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
             //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
             //{

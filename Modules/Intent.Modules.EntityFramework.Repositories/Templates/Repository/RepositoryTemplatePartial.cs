@@ -106,6 +106,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
             }
 
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Infrastructure")
                 .ForInterface(contractTemplate));
             //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
             //{

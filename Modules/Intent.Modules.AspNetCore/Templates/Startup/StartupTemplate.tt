@@ -41,16 +41,14 @@ namespace <#= Namespace #>
 
         public void ConfigureServices(IServiceCollection services)
         {
-<#  foreach(var decorator in GetDecorators()) { #>
-            <#= decorator.ConfigureServices() #>
-<#  } #>
 <#  if (IsNetCore2App()) { #>
             services.AddMvc();
 <#  } else { #>
             services.AddControllers();
 <#  } #>
-            IntentConfiguredServices(services);
-<#= ServiceConfigurations() #>
+<#  foreach(var decorator in GetDecorators()) { #>
+            <#= decorator.ConfigureServices() #>
+<#  } #><#= Registrations() #>
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,14 +82,13 @@ namespace <#= Namespace #>
                 endpoints.MapControllers();
             });
 <#  } #>
-<#= Configurations() #>
+<#  foreach(var decorator in GetDecorators()) { #>
+            <#= decorator.Configuration() #>
+<#  } #>
         }
+<#  foreach(var decorator in GetDecorators()) { #>
 
-        public void IntentConfiguredServices(IServiceCollection services) 
-        {
-<#= Registrations() #>
-        }
-
-<#= Methods() #>
+        <#= decorator.Methods() #>
+<#  } #>
     }
 }

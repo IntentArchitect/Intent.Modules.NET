@@ -12,13 +12,13 @@ using Intent.Registrations;
 namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
 {
     [Description(SwashbuckleCoreWebStartupDecorator.Identifier)]
-    public class SwashbuckleCoreWebStartupDecoratorRegistration : DecoratorRegistration<StartupDecorator>
+    public class SwashbuckleCoreWebStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
     {
-        public override string DecoratorId => SwashbuckleCoreWebStartupDecorator.Identifier;
-
-        public override StartupDecorator CreateDecoratorInstance(IApplication application)
+        public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new SwashbuckleCoreWebStartupDecorator();
+            return new SwashbuckleCoreWebStartupDecorator(template);
         }
+
+        public override string DecoratorId => SwashbuckleCoreWebStartupDecorator.Identifier;
     }
 }

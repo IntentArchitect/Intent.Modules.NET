@@ -5,16 +5,16 @@
     <UserSecretsId>41679098-8b9f-485e-92f8-cc67d283717f</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.0-*" />
-    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.0.0-*" />
-    <PackageReference Include="Intent.Packager" Version="3.0.0-*">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.*" />
+    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.0.*" />
+    <PackageReference Include="Intent.Packager" Version="3.0.*">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 </Project>

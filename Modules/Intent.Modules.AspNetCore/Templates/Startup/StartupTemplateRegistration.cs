@@ -20,7 +20,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class StartupTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => StartupTemplate.Identifier;
+        public override string TemplateId => StartupTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget project)
         {

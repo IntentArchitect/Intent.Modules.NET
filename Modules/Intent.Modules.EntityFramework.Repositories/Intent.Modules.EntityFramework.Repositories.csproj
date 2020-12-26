@@ -4,14 +4,14 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.0.0-*" />
-    <PackageReference Include="Intent.Packager" Version="3.0.0-*">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.0.*" />
+    <PackageReference Include="Intent.Packager" Version="3.0.*">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Common.CSharp\Intent.Modules.Common.CSharp.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
     <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
     <ProjectReference Include="..\Intent.Modules.EntityFramework\Intent.Modules.EntityFramework.csproj" />
