@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -25,17 +25,14 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>QueryModelTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\CommandModels\CommandModelsTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CommandModelsTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\QueryModels\QueryModelsTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>QueryModelsTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnhandledExceptionBehaviourTemplate.cs</LastGenOutput>
@@ -68,19 +65,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>QueryModelTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\CommandModels\CommandModelsTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CommandModelsTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\QueryModels\QueryModelsTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>QueryModelsTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -89,6 +83,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.0.*" />

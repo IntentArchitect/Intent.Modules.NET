@@ -10,7 +10,7 @@ using Intent.Templates;
 
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection
 {
@@ -18,7 +18,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
     partial class DependencyInjectionTemplate : CSharpTemplateBase<object, DependencyInjectionDecorator>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Application.DependencyInjection.DependencyInjection";
+        public const string TemplateId = "Intent.Application.DependencyInjection.DependencyInjection";
 
         private readonly IList<ContainerRegistrationRequest> _registrationRequests = new List<ContainerRegistrationRequest>();
 

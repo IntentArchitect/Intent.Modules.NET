@@ -61,8 +61,9 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             var memberMappings = new List<string>();
             foreach (var field in _template.Model.Fields.Where(x => x.Mapping != null))
             {
-                var shouldCast = _template.Types.Get(field.TypeReference).IsPrimitive && 
-                                 _template.GetTypeName(field) != EntityTemplate.GetTypeName(field.Mapping.Element?.TypeReference);
+                var shouldCast = _template.GetTypeInfo(field.TypeReference).IsPrimitive &&
+                                 field.Mapping.Element?.TypeReference != null &&
+                                 _template.GetTypeInfo(field.TypeReference).Name != EntityTemplate.GetTypeInfo(field.Mapping.Element.TypeReference).Name;
                 if (field.Name.ToPascalCase() != GetPath(field.Mapping.Path) || shouldCast)
                 {
                     memberMappings.Add($@"

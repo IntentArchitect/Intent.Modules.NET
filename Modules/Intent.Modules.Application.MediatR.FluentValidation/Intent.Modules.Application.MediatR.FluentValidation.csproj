@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -17,7 +17,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\ValidationException\ValidationExceptionTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationExceptionTemplate.cs</LastGenOutput>
@@ -40,7 +39,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ValidationBehaviourTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\ValidationException\ValidationExceptionTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -49,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.0.*" />
     <PackageReference Include="Intent.Packager" Version="3.0.*">

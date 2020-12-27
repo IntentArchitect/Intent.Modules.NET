@@ -4,13 +4,13 @@
   <FileLogs>
     <FileLog>
       <ProjectId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.Identity.csproj</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Intent.Application.Identity.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Application.Identity.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.Identity.imodspec</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.Identity.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</ProjectId>

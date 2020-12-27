@@ -14,13 +14,13 @@
     </FileLog>
     <FileLog>
       <ProjectId>1d15d8ba-269b-4a31-8855-602cddaa651b</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.csproj</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection\Intent.Application.DependencyInjection.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Application.DependencyInjection.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>1d15d8ba-269b-4a31-8855-602cddaa651b</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.imodspec</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>1d15d8ba-269b-4a31-8855-602cddaa651b</ProjectId>

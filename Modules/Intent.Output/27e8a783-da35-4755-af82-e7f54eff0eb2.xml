@@ -4,13 +4,13 @@
   <FileLogs>
     <FileLog>
       <ProjectId>4ed421bb-c577-4eb0-bfc5-801f66f5ab52</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.csproj</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore\Intent.AspNetCore.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>4ed421bb-c577-4eb0-bfc5-801f66f5ab52</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.imodspec</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>4ed421bb-c577-4eb0-bfc5-801f66f5ab52</ProjectId>

@@ -6,7 +6,7 @@ using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
 using System.Collections.Generic;
 
-[assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.AspNetCore.Templates.Program

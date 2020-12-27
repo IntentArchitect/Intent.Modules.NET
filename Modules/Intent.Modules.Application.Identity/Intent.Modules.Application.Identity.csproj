@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -13,27 +13,22 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>IdentityServiceInterfaceTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\AuthorizationAttribute\AuthorizationAttributeTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AuthorizationAttributeTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\UnauthorizedAccessException\UnauthorizedAccessExceptionTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnauthorizedAccessExceptionTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ForbiddenAccessExceptionTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\AuthorizeAttribute\AuthorizeAttributeTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AuthorizeAttributeTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\ResultModel\ResultModelTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ResultModelTemplate.cs</LastGenOutput>
@@ -51,31 +46,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>IdentityServiceInterfaceTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\AuthorizationAttribute\AuthorizationAttributeTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AuthorizationAttributeTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\UnauthorizedAccessException\UnauthorizedAccessExceptionTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>UnauthorizedAccessExceptionTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ForbiddenAccessExceptionTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\AuthorizeAttribute\AuthorizeAttributeTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AuthorizeAttributeTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\ResultModel\ResultModelTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -84,6 +74,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
     <PackageReference Include="Intent.Packager" Version="3.0.*">
       <PrivateAssets>all</PrivateAssets>

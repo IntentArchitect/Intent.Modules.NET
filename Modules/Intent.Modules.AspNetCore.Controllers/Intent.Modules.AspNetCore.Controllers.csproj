@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -9,7 +9,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ControllerTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\ApiControllerBase\ApiControllerBaseTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApiControllerBaseTemplate.cs</LastGenOutput>
@@ -22,10 +21,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ControllerTemplate.tt</DependentUpon>
     </Compile>
-
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.*" />
     <PackageReference Include="Intent.Packager" Version="3.0.*">
