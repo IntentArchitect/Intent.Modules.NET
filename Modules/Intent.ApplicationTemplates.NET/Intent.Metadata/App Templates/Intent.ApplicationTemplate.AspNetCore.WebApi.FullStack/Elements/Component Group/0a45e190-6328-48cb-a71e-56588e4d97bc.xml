@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="7f576d30-7a96-477d-a37c-17976cbdd8d7" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+<class id="0a45e190-6328-48cb-a71e-56588e4d97bc" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Api</name>
   <display>Api</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>061e7174-b0ab-4b90-8c32-11cf5de6a081</parentFolderId>
-  <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
-  <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
+  <parentFolderId>fe18fa2b-1214-435e-9273-cf1804f6f21b</parentFolderId>
+  <packageId>fe18fa2b-1214-435e-9273-cf1804f6f21b</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack</packageName>
   <stereotypes />
   <childElements>
-    <childElement id="a0f4665a-c0f4-4cc7-8dd8-96c3c33a19ff" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+    <childElement id="478d5e7b-d547-438a-a00d-298c722250f5" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>ASP.NET Core RESTful Api</name>
       <display>ASP.NET Core RESTful Api</display>
       <isAbstract>false</isAbstract>
       <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>7f576d30-7a96-477d-a37c-17976cbdd8d7</parentFolderId>
-      <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
-      <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
+      <parentFolderId>0a45e190-6328-48cb-a71e-56588e4d97bc</parentFolderId>
+      <packageId>fe18fa2b-1214-435e-9273-cf1804f6f21b</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
           <addedByDefault>true</addedByDefault>
@@ -34,16 +34,16 @@
         </stereotype>
       </stereotypes>
       <childElements>
-        <childElement id="435f5116-e0b0-47ba-9737-ed16c6829454" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="e4f3f012-736a-40f2-92a3-16e73558cfba" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore</name>
           <display>Intent.AspNetCore</display>
           <isAbstract>false</isAbstract>
           <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>a0f4665a-c0f4-4cc7-8dd8-96c3c33a19ff</parentFolderId>
-          <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
+          <parentFolderId>478d5e7b-d547-438a-a00d-298c722250f5</parentFolderId>
+          <packageId>fe18fa2b-1214-435e-9273-cf1804f6f21b</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
               <addedByDefault>true</addedByDefault>
@@ -56,16 +56,16 @@
           </stereotypes>
           <childElements />
         </childElement>
-        <childElement id="37c856c5-beca-450d-b804-af411cfe09ee" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="1eae97d8-d12b-4f8d-91eb-f6463aa46c08" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Controllers</name>
           <display>Intent.AspNetCore.Controllers</display>
           <isAbstract>false</isAbstract>
           <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>a0f4665a-c0f4-4cc7-8dd8-96c3c33a19ff</parentFolderId>
-          <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
+          <parentFolderId>478d5e7b-d547-438a-a00d-298c722250f5</parentFolderId>
+          <packageId>fe18fa2b-1214-435e-9273-cf1804f6f21b</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
               <addedByDefault>true</addedByDefault>
@@ -80,16 +80,16 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="3cada494-d1fa-47ab-9268-e023a37feba2" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+    <childElement id="11452dfe-fcd9-4366-9e96-d5b8e3097d66" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>OpenAPI (Swashbuckle)</name>
       <display>OpenAPI (Swashbuckle)</display>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>7f576d30-7a96-477d-a37c-17976cbdd8d7</parentFolderId>
-      <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
-      <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
+      <parentFolderId>0a45e190-6328-48cb-a71e-56588e4d97bc</parentFolderId>
+      <packageId>fe18fa2b-1214-435e-9273-cf1804f6f21b</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
           <addedByDefault>true</addedByDefault>
@@ -103,16 +103,16 @@
         </stereotype>
       </stereotypes>
       <childElements>
-        <childElement id="f0cb9959-f3fe-426f-b143-1277d48de36a" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="7f98d98c-e63d-4edb-9b69-ff512bf8db13" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Swashbuckle</name>
           <display>Intent.AspNetCore.Swashbuckle</display>
           <isAbstract>false</isAbstract>
           <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>3cada494-d1fa-47ab-9268-e023a37feba2</parentFolderId>
-          <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
+          <parentFolderId>11452dfe-fcd9-4366-9e96-d5b8e3097d66</parentFolderId>
+          <packageId>fe18fa2b-1214-435e-9273-cf1804f6f21b</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
               <addedByDefault>true</addedByDefault>

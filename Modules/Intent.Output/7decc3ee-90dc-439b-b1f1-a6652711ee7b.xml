@@ -4,21 +4,31 @@
   <FileLogs>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.ApplicationTemplates.NET\Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture\metadata.iatspec</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.ApplicationTemplates.NET/Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack/metadata.iatspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack/metadata.iatspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <SolutionRelativeFilePath>../Intent.ApplicationTemplates.NET/Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture/metadata.iatspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture/metadata.iatspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.ApplicationTemplates.NET\Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack\metadata.iatspec</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.ApplicationTemplates.NET/Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack/metadata.iatspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack/metadata.iatspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.ApplicationTemplates.NET\Intent.ApplicationTemplates.NET.csproj</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.ApplicationTemplates.NET/Intent.ApplicationTemplate.FullStackWebApi/metadata.iatspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.ApplicationTemplate.FullStackWebApi/metadata.iatspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <SolutionRelativeFilePath>../Intent.ApplicationTemplates.NET/Intent.ApplicationTemplates.NET.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
-      <SolutionRelativeFilePath>..\Intent.Modules.NET.sln</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>
