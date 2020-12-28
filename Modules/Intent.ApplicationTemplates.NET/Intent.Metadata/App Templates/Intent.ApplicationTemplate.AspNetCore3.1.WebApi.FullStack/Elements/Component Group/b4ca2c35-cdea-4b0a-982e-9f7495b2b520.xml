@@ -50,7 +50,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.0.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.0.0-beta.4" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -72,7 +72,29 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.0.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.0.0-beta.4" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
+        <childElement id="8ab04a72-fe5f-4837-89c1-88194db639de" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Angular.ServiceProxies</name>
+          <display>Intent.Angular.ServiceProxies</display>
+          <isAbstract>false</isAbstract>
+          <order>2</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1ff113f5-5cb5-4275-81eb-9a86f65b7cad</parentFolderId>
+          <packageId>32fc3c15-c98e-4b36-9b7d-dd2f7b8885ed</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.0.0-beta.4" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

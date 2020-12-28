@@ -23,8 +23,13 @@
                 </stereotype>
               </stereotypes>
               <childElements>
-                <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
-                  <name>FrontEnd</name>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>ClientApp</name>
+                  <childElements>
+                    <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
+                      <name>Front End</name>
+                    </element>
+                  </childElements>
                 </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Distribution</name>

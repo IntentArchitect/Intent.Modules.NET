@@ -38,7 +38,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
         public override string TransformText()
         {
             dynamic config;
-            if (!File.Exists(GetMetadata().GetFullLocationPathWithFileName()))
+            if (!File.Exists(GetMetadata().GetFilePath()))
             {
                 var randomPort = new Random().Next(40000, 65535);
                 var randomSslPort = new Random().Next(44300, 44399);
@@ -86,7 +86,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             }
             else
             {
-                var existingFileContent = File.ReadAllText(GetMetadata().GetFullLocationPathWithFileName());
+                var existingFileContent = File.ReadAllText(GetMetadata().GetFilePath());
                 config = JsonConvert.DeserializeObject(existingFileContent, new JsonSerializerSettings());
             }
 
