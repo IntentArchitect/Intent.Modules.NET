@@ -34,7 +34,7 @@ steps:
       projects: '**/*.sln'
       nobuild: true
 
-- template: 'azure-pipelines/templates/steps/nuget.yml'
-  parameters:
-    noBuild: true
-    projects: []
+# - template: 'azure-pipelines/templates/steps/nuget.yml'
+#   parameters:
+#     noBuild: true
+#     projects: []
