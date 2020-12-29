@@ -2,26 +2,39 @@ trigger:
   batch: true
   branches:
     include:
-    - master
+    - '*'
 
-stages:
-  - stage:
-    jobs:
-      - job:
-        pool:
-          vmImage: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
 
-        steps:
+steps:
 
-          - checkout: self
-            persistCredentials: true
-    
-          - task: DotNetCoreCLI@2
-            displayName: 'dotnet build'
-            condition: succeeded()
-            env:
-              DOTNET_NOLOGO: 'true'
-            inputs:
-              command: 'build'
-              projects: '**/*.sln'
-              arguments: '--nologo'
+- checkout: 'self'
+  persistCredentials: true
+  fetchDepth: 1
+  submodules: 'recursive'
+
+- task: NuGetAuthenticate@0
+  displayName: 'nuget authenticate'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  env:
+    DOTNET_NOLOGO: 1
+  inputs:
+      command: 'build'
+      projects: '**/*.sln'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  env:
+    DOTNET_NOLOGO: 1
+  inputs:
+      command: 'test'
+      projects: '**/*.sln'
+      nobuild: true
+
+- template: 'azure-pipelines/templates/steps/nuget.yml'
+  parameters:
+    noBuild: true
+    projects: []
