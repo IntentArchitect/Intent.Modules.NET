@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -11,17 +11,22 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Templates.DomainEntityState;
-using Intent.Modules.EntityFramework.Templates.DbContext;
+using Intent.Modules.EntityFrameworkCore.Templates.Configurations;
 using Intent.Templates;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
 {
-    partial class DbContextInterfaceTemplate : CSharpTemplateBase<IEnumerable<ClassModel>>, ITemplateBeforeExecutionHook, IHasTemplateDependencies
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class DbContextInterfaceTemplate : CSharpTemplateBase<IList<ClassModel>>
     {
         public const string Identifier = "Intent.EntityFrameworkCore.DbContextInterface";
 
 
-        public DbContextInterfaceTemplate(IEnumerable<ClassModel> models, IOutputTarget outputTarget)
+        public DbContextInterfaceTemplate(IList<ClassModel> models, IOutputTarget outputTarget)
             : base(Identifier, outputTarget, models)
         {
             AddNugetDependency(NugetPackages.EntityFrameworkCore);
@@ -41,7 +46,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
 
         public string GetMappingClassName(ClassModel model)
         {
-            return GetTypeName(EFMapping.EFMappingTemplate.Identifier, model);
+            return GetTypeName(ConfigurationsTemplate.Identifier, model);
         }
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.EntityFrameworkCore.DbContextInterface";
     }
 }

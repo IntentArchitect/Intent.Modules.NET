@@ -12,7 +12,6 @@ using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Modules.EntityFramework.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Templates;
 

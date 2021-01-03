@@ -18,6 +18,46 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventNotification/DomainEventNotificationTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventNotification/DomainEventNotificationTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventNotification/DomainEventNotificationTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventNotification/DomainEventNotificationTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventNotification/DomainEventNotificationTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventNotification/DomainEventNotificationTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventNotification/DomainEventNotificationTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventNotification/DomainEventNotificationTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventService/DomainEventServiceTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventService/DomainEventServiceTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventService/DomainEventServiceTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventService/DomainEventServiceTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>

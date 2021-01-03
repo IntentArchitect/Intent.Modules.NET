@@ -36,5 +36,7 @@
     <application id="b3270798-d8b7-442c-8140-f5dc8200371a" name="Intent.Modules.Application.DependencyInjection.FluentValidation" relativePath="Intent.Modules.Application.DependencyInjection.FluentValidation/Intent.Modules.Application.DependencyInjection.FluentValidation.application.config" />
     <application id="11cd8cc9-0bc6-456a-9c81-94e640dd2829" name="Intent.Modules.MediatR.DomainEvents" relativePath="Intent.Modules.MediatR.DomainEvents/Intent.Modules.MediatR.DomainEvents.application.config" />
     <application id="0e9a49a4-507f-4e16-8f39-0c7496722ef5" name="Intent.Modules.DomainEvents" relativePath="Intent.Modules.DomainEvents/Intent.Modules.DomainEvents.application.config" />
+    <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="Intent.Modules.EntityFrameworkCore" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
+    <application id="9a4086c7-0093-4ffd-9f3b-8f7d1b2b1466" name="Intent.Modules.EntityFrameworkCore.Interop.DomainEvents" relativePath="Intent.Modules.EntityFrameworkCore.Interop.DomainEvents/Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.application.config" />
   </applications>
 </solution>

@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true" inherits="CSharpTemplateBase<ClassModel>" #>
+<#@ template  debug="true" inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
@@ -92,8 +92,8 @@ foreach (var attribute in Model.Attributes)
         }
     }
 
-    var decimalPrecision = attribute.GetDecimalConstraints().Precision();
-    var decimalScale = attribute.GetDecimalConstraints().Scale();
+    var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
+    var decimalScale = attribute.GetDecimalConstraints()?.Scale();
     if (decimalPrecision.HasValue && decimalScale.HasValue)
     {
 #>

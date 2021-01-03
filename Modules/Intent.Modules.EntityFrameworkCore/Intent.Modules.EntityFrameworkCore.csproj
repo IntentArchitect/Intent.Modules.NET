@@ -1,16 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.*" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.0.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.0.*" />
     <PackageReference Include="Intent.Packager" Version="3.0.*">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,13 +35,18 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbMigrationsReadMeTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\EFMapping\EFMappingTemplate.tt">
+    <None Update="Templates\Configurations\ConfigurationsTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>EFMappingTemplate.cs</LastGenOutput>
+      <LastGenOutput>ConfigurationsTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Templates\Configurations\ConfigurationsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConfigurationsTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\DbContextInterface\DbContextInterfaceTemplate.cs">
       <DependentUpon>DbContextInterfaceTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -52,11 +61,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbMigrationsReadMeTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\EFMapping\EFMappingTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EFMappingTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

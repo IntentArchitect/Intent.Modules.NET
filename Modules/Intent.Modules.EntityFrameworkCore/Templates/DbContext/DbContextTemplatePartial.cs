@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -11,20 +11,26 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
-using Intent.Modules.EntityFramework.Templates.DbContext;
+using Intent.Modules.EntityFrameworkCore.Templates.Configurations;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Templates;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 {
-    partial class DbContextTemplate : CSharpTemplateBase<IEnumerable<ClassModel>>, ITemplateBeforeExecutionHook, IHasDecorators<DbContextDecoratorBase>, IHasTemplateDependencies
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class DbContextTemplate : CSharpTemplateBase<IList<ClassModel>, DbContextDecoratorBase>
     {
-        public const string Identifier = "Intent.EntityFrameworkCore.DbContext";
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
         private readonly IList<DbContextDecoratorBase> _decorators = new List<DbContextDecoratorBase>();
 
-        public DbContextTemplate(IEnumerable<ClassModel> models, IOutputTarget outputTarget)
-            : base(Identifier, outputTarget, models)
+        public DbContextTemplate(IList<ClassModel> models, IOutputTarget outputTarget)
+            : base(TemplateId, outputTarget, models)
         {
         }
 
@@ -63,20 +69,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public bool UseLazyLoadingProxies => !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
 
-        public void AddDecorator(DbContextDecoratorBase decorator)
-        {
-            _decorators.Add(decorator);
-        }
-
-        public IEnumerable<DbContextDecoratorBase> GetDecorators()
-        {
-            return _decorators;
-        }
-
-        public string DeclareUsings()
-        {
-            return string.Join(Environment.NewLine, GetDecorators().SelectMany(x => x.DeclareUsings()).Select(s => $"using {s};"));
-        }
 
         public string GetMethods()
         {
@@ -100,13 +92,37 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             }
             catch (InvalidOperationException)
             {
-                throw new Exception($"Multiple decorators attempting to modify 'base class' on {Identifier}");
+                throw new Exception($"Multiple decorators attempting to modify 'base class' on {TemplateId}");
             }
         }
 
         public string GetMappingClassName(ClassModel model)
         {
-            return GetTypeName(EFMapping.EFMappingTemplate.Identifier, model);
+            return GetTypeName(ConfigurationsTemplate.Identifier, model);
+        }
+
+        private string GetPrivateFields()
+        {
+            var privateFields = GetDecorators().SelectMany(x => x.GetPrivateFields()).ToList();
+            return privateFields.Any() ? string.Join(@"
+        ", privateFields) + @"
+        " : "";
+        }
+
+        private string GetConstructorParameters()
+        {
+            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorParameters()).ToList();
+            return privateFields.Any() ? @",
+            " + string.Join(@",
+            ", privateFields) : "";
+        }
+
+        private string GetConstructorInitializations()
+        {
+            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorInitializations()).ToList();
+            return privateFields.Any() ? @"
+            " + string.Join(@"
+            ", privateFields) : "";
         }
     }
 }

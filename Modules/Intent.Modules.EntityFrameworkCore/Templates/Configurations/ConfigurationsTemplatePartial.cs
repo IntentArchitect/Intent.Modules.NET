@@ -1,30 +1,34 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Templates;
 using Intent.Utils;
 using AssociationType = Intent.Modelers.Domain.Api.AssociationType;
+using Intent.RoslynWeaver.Attributes;
 
-namespace Intent.Modules.EntityFrameworkCore.Templates.EFMapping
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
+
+namespace Intent.Modules.EntityFrameworkCore.Templates.Configurations
 {
-    partial class EFMappingTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasTemplateDependencies, IHasNugetDependencies, IHasDecorators<IEFMappingTemplateDecorator>, ITemplatePostCreationHook
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class ConfigurationsTemplate : CSharpTemplateBase<ClassModel>
     {
         public const string Identifier = "Intent.EntityFrameworkCore.Configurations";
         private readonly IList<IEFMappingTemplateDecorator> _decorators = new List<IEFMappingTemplateDecorator>();
         private ITemplateDependency _domainTemplateDependancy;
 
-        public EFMappingTemplate(ClassModel model, IProject project)
+        public ConfigurationsTemplate(IOutputTarget project, ClassModel model)
             : base(Identifier, project, model)
         {
-            if (Model.HasStereotype(Stereotypes.Rdbms.Table.Name))
+            if (Model.HasTable())
             {
                 AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer);
             }
@@ -228,10 +232,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EFMapping
 
         private static string GetForeignKeyLambda(AssociationEndModel associationEnd)
         {
-            var columns = associationEnd.Class.GetStereotypeProperty(
-                    stereotypeName: Stereotypes.Rdbms.ForeignKey.Name,
-                    propertyName: Stereotypes.Rdbms.ForeignKey.Property.ColumnName,
-                    defaultIfNotFound: associationEnd.OtherEnd().Name().ToPascalCase() + "Id")
+            var columns = ((associationEnd.IsSourceEnd()
+                    ? (associationEnd as AssociationSourceEndModel).GetForeignKey()?.ColumnName()
+                    : (associationEnd as AssociationTargetEndModel).GetForeignKey()?.ColumnName())
+                           ?? associationEnd.OtherEnd().Name().ToPascalCase() + "Id")
                 .Split(',')
                 .Select(x => x.Trim())
                 .ToList();
@@ -251,6 +255,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EFMapping
     You will need to create a joining-table entity (e.g. [{Model.Name}] 1 --> * [{Model.Name}{associationEnd.Class.Name}] * --> 1 [{associationEnd.Class.Name}])
     For more information, please see https://github.com/aspnet/EntityFrameworkCore/issues/1368");
         }
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.EntityFrameworkCore.Configurations";
     }
 
     public interface IEFMappingTemplateDecorator : ITemplateDecorator

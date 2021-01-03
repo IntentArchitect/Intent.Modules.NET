@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.DomainEvents.Templates.DomainEventBase;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,9 +25,13 @@ namespace Intent.Modules.DomainEvents.Templates.HasDomainEventInterface
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"HasDomainEventInterface",
+                className: $"IHasDomainEvent",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
+        private string GetDomainEventBaseType()
+        {
+            return GetTypeName(DomainEventBaseTemplate.TemplateId);
+        }
     }
 }

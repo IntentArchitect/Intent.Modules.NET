@@ -7,13 +7,20 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #>
+    public abstract class <#= ClassName #>
     {
-
+        protected <#= ClassName #>()
+        {
+            DateOccurred = DateTimeOffset.UtcNow;
+        }
+        public bool IsPublished { get; set; }
+        public DateTimeOffset DateOccurred { get; protected set; }
     }
 }

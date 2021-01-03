@@ -24,7 +24,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEventBase
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"DomainEventBase",
+                className: $"DomainEvent",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 

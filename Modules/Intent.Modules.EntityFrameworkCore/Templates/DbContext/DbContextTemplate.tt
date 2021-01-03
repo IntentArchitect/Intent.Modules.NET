@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true" inherits="CSharpTemplateBase<IEnumerable<ClassModel>>"#>
+﻿<#@ template  debug="true" inherits="CSharpTemplateBase<IList<ClassModel>, DbContextDecoratorBase>"#>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
@@ -11,17 +11,20 @@
 <#@ import namespace="System.Diagnostics" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections" #>
-<#@ import namespace="System.Collections.Generic" #> 
+<#@ import namespace="System.Collections.Generic" #>
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-<#= DeclareUsings() #>
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace <#= Namespace #>
 {
     public class <#= ClassName#> : <#= GetBaseTypes() #>
     {
-        public <#= ClassName#>(DbContextOptions options) : base(options)
-        {
+        <#= GetPrivateFields() #>
+        public <#= ClassName#>(DbContextOptions options<#= GetConstructorParameters() #>) : base(options)
+        {<#= GetConstructorInitializations() #>
         }
 
 <#
@@ -32,6 +35,14 @@ foreach (var model in Model)
 <#
 }
 #>
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            <#= GetDecoratorsOutput(x => x.BeforeCallToSaveChangesAsync()) #>
+            var result = await base.SaveChangesAsync(cancellationToken);
+            <#= GetDecoratorsOutput(x => x.AfterCallToSaveChangesAsync()) #>
+            return result;
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

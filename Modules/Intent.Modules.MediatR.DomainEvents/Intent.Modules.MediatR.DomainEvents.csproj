@@ -13,6 +13,16 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventHandlerTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\DomainEventService\DomainEventServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DomainEventServiceTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\DomainEventNotification\DomainEventNotificationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DomainEventNotificationTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +36,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEventHandlerTemplate.tt</DependentUpon>
     </Compile>
+  
+    <Compile Update="Templates\DomainEventService\DomainEventServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventServiceTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\DomainEventNotification\DomainEventNotificationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventNotificationTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +59,14 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

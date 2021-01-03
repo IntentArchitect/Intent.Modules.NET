@@ -59,6 +59,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.DomainEvents/Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>HasDomainEventInterface/HasDomainEventInterfaceTemplate.cs</ProjectRelativeFilePath>
     </FileLog>

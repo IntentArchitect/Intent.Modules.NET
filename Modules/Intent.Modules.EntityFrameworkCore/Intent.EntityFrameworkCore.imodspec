@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Entity Framework Core implementation.</summary>
   <description>Entity Framework Core implementation.</description>
@@ -10,11 +10,11 @@
   <projectUrl>https://intentarchitect.com/</projectUrl>
   <tags>EntityFrameworkCore EF EntityFramework Core</tags>
   <templates>
-    <template id="Intent.EntityFrameworkCore.DbContextInterface">
+    <template id="Intent.EntityFrameworkCore.DbContextInterface" externalReference="b74d885c-a582-4101-9d92-c4edb7e67844">
       <role>Application.Common</role>
       <location>Common/Interfaces</location>
     </template>
-    <template id="Intent.EntityFrameworkCore.DbContext">
+    <template id="Intent.EntityFrameworkCore.DbContext" externalReference="96f7b6e6-79da-4f5e-b095-3d603777968b">
       <role>Infrastructure.Data</role>
       <location>Persistence</location>
       <config>
@@ -22,7 +22,7 @@
         <add key="Use Lazy-Loading Proxies" description="Whether EF should be configured to use lazy-loading proxies" type="boolean" default="true" />
       </config>
     </template>
-    <template id="Intent.EntityFrameworkCore.Configurations">
+    <template id="Intent.EntityFrameworkCore.Configurations" externalReference="326c3819-5992-4e09-8a48-2a088b471ba5">
       <role>Infrastructure.Data</role>
       <location>Persistence/Configurations</location>
       <config>
@@ -31,7 +31,7 @@
         <add key="Use Foreign Keys" description="Flag for whether to use foreign keys from the Entities model." type="boolean" default="true" />
       </config>
     </template>
-    <template id="Intent.EntityFrameworkCore.DbMigrationsReadMe" enabled="true">
+    <template id="Intent.EntityFrameworkCore.DbMigrationsReadMe" enabled="true" externalReference="8dca43ad-a912-4d76-aca9-4eaf77d6127a">
       <role>Infrastructure.Data</role>
       <location>Persistence</location>
     </template>
@@ -40,26 +40,34 @@
   <interoperability>
     <detect id="Intent.AspNetCore.WebApi">
       <install>
-        <package id="Intent.EntityFrameworkCore.Interop.WebApi" version="3.0.0"/>
+        <package id="Intent.EntityFrameworkCore.Interop.WebApi" version="3.0.0" />
+      </install>
+    </detect>
+    <detect id="Intent.DomainEvents">
+      <install>
+        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.0.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.0.0"/>
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.0.0" />
       </install>
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Modelers.Domain" version="3.0.0"/>
-    <dependency id="Intent.Common.CSharp" version="3.0.0"/>
-    <dependency id="Intent.Metadata.RDBMS" version="3.0.0"/>
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0"/>
+    <dependency id="Intent.Modelers.Domain" version="3.0.1" />
+    <dependency id="Intent.Common.CSharp" version="3.0.1" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.0.0" />
+    <dependency id="Intent.Entities" version="3.0.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0" />
+    <dependency id="Intent.Common" version="3.0.0" />
+    <dependency id="Intent.Common.Types" version="3.0.0" />
   </dependencies>
   <files>
-    <file src="$outDir$/$id$.dll"/>
-    <file src="$outDir$/$id$.pdb"/>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata>
-    <install target="Domain" src="Metadata/Domain"/>
+    <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.EntityFrameworkCore/Intent.EntityFrameworkCore.pkg.config" externalReference="a9d2a398-04e4-4300-9fbb-768568c65f9e" />
   </metadata>
 </package>

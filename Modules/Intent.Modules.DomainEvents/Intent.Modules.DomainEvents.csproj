@@ -17,6 +17,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HasDomainEventInterfaceTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DomainEventServiceInterfaceTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +40,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>HasDomainEventInterfaceTemplate.tt</DependentUpon>
     </Compile>
+  
+    <Compile Update="Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventServiceInterfaceTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +58,14 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>
