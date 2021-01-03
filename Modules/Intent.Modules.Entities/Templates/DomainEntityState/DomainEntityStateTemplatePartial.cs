@@ -11,6 +11,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Templates;
 

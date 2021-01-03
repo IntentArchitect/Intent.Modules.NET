@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\DomainEvent\DomainEventTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DomainEventTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\DomainEventBase\DomainEventBaseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DomainEventBaseTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\HasDomainEventInterface\HasDomainEventInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HasDomainEventInterfaceTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\DomainEvent\DomainEventTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\DomainEventBase\DomainEventBaseTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventBaseTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\HasDomainEventInterface\HasDomainEventInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HasDomainEventInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.*" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.0.*" />
+    <PackageReference Include="Intent.Packager" Version="3.0.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.*" />
+  </ItemGroup>
+
+</Project>

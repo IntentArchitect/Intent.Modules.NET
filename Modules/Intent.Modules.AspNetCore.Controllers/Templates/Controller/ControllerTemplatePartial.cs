@@ -35,11 +35,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
-        public string[] GetDependencyNamespaces()
-        {
-            return GetDecorators().SelectMany(x => x.DependencyNamespaces()).Distinct().ToArray();
-        }
-
         public string GetEnterClass()
         {
             return GetDecorators().Aggregate(x => x.EnterClass());
@@ -124,11 +119,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 default:
                     throw new NotSupportedException($"{verb} not supported");
             }
-        }
-
-        private string GetOperationArguments(OperationModel operation)
-        {
-            return string.Join(", ", operation.Parameters.Select(x => x.Name));
         }
 
         private string GetReturnType(OperationModel operation)

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationId>11cd8cc9-0bc6-456a-9c81-94e640dd2829</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>e70fc8ae-5eff-42c7-8f04-e1f44947b9c0</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Intent.MediatR.DomainEvents.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.MediatR.DomainEvents.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e70fc8ae-5eff-42c7-8f04-e1f44947b9c0</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/Intent.Modules.MediatR.DomainEvents.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.MediatR.DomainEvents.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e70fc8ae-5eff-42c7-8f04-e1f44947b9c0</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.MediatR.DomainEvents/README.txt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+  </FileLogs>
+</outputLog>

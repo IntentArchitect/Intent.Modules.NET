@@ -14,11 +14,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     {
         public virtual int Priority { get; protected set; } = 0;
 
-        public virtual IEnumerable<string> DependencyNamespaces()
-        {
-            return new string[0];
-        }
-
         public virtual string BaseClass()
         {
             return null;

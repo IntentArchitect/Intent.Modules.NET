@@ -7,6 +7,7 @@ using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -16,7 +17,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class MediatRControllerDecorator : ControllerDecorator
+    public class MediatRControllerDecorator : ControllerDecorator, IDeclareUsings
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.MediatR.MediatRControllerDecorator";
@@ -28,16 +29,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             _template.AddTypeSource(CommandModelsTemplate.TemplateId);
             _template.AddTypeSource(QueryModelsTemplate.TemplateId);
             _template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-        }
-
-        public override IEnumerable<string> DependencyNamespaces()
-        {
-            return new[]
-            {
-                "MediatR",
-                "Microsoft.AspNetCore.Mvc",
-                "Microsoft.Extensions.DependencyInjection"
-            };
         }
 
         public override string EnterClass()
@@ -109,5 +100,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             return $"new {_template.GetTypeName(mappedElement)}()";
         }
 
+        public IEnumerable<string> DeclareUsings()
+        {
+            return new[]
+            {
+                "MediatR",
+                "Microsoft.AspNetCore.Mvc",
+                "Microsoft.Extensions.DependencyInjection"
+            };
+        }
     }
 }

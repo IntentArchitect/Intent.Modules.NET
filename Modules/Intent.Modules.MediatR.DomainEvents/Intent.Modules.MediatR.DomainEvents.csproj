@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\DomainEvent\DomainEventTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DomainEventTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\DomainEventHandler\DomainEventHandlerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DomainEventHandlerTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\DomainEvent\DomainEventTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\DomainEventHandler\DomainEventHandlerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventHandlerTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.*" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.*" />
+    <PackageReference Include="Intent.Packager" Version="3.0.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.*" />
+  </ItemGroup>
+
+</Project>

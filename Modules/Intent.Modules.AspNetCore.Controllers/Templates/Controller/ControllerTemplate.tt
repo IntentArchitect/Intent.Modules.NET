@@ -13,9 +13,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-<#  foreach(var @namespace in GetDependencyNamespaces()) { #>
-using <#= @namespace #>;
-<#  } #>
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 

@@ -13,6 +13,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
     using Intent.Modules.Common.Templates;
     using Intent.Modules.Common.CSharp.Templates;
     using Intent.Modules.Common;
+    using Intent.Metadata.RDBMS.Api;
     using System;
     using System.IO;
     using System.Diagnostics;
@@ -36,7 +37,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
         {
             this.Write(" \r\n\r\n");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 //Some initial validation
     foreach (var associationEnd in Model.AssociatedClasses)
     {
@@ -94,42 +95,42 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
                     "tity.Infrastructure.Annotations;\r\nusing System.ComponentModel.DataAnnotations.Sc" +
                     "hema;\r\n");
             
-            #line 70 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 71 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DependencyUsings));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 74 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 75 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public partial class ");
             
-            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 77 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : EntityTypeConfiguration<");
             
-            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 77 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(Model)));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n    \r\n        public ");
             
-            #line 79 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 80 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("()\r\n        {\r\n");
             
-            #line 81 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 82 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
   if (Model.ParentClass == null || Model.ParentClass.GetStereotypeProperty<string>("InheritanceMapping", "Type") != "TPH")
     {
             
@@ -137,21 +138,21 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("            this.ToTable(\"");
             
-            #line 83 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetStereotypeProperty("Table", "Name", Model.Name)));
+            #line 84 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetTable()?.Name() ?? Model.Name));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 83 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.HasStereotype("Table") ? ", \"" + Model.GetStereotypeProperty("Table", "Schema", "dbo") + "\"" : ""));
+            #line 84 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.HasTable() ? ", \"" + (Model.GetTable().Schema() ?? "dbo") + "\"" : ""));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 84 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 85 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
     }
     if (Model.GetStereotypeProperty<string>("InheritanceMapping", "Type") == "TPH")
     {
@@ -163,28 +164,28 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("            this.Map<");
             
-            #line 90 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(subClass.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(">(m => m.Requires(\"DbSpecialization\").HasValue((int)");
             
-            #line 90 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Specialization.");
             
-            #line 90 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(subClass.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("));\r\n");
             
-            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 92 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
       }
     }
 	bool mapPk = true;
@@ -195,7 +196,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
         //No Key mapping required
     } 
 
-    var explicitPrimaryKeys = Model.Attributes.Where(x => x.HasStereotype("Primary Key")).ToList();
+    var explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToList();
     var addedImplicitKey = false;
     if (Model.ParentClass == null && !explicitPrimaryKeys.Any()) {
         addedImplicitKey = true;
@@ -205,21 +206,21 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             this.Write("            this.HasKey(x => x.Id);\r\n            this.Property(x => x.Id).HasColu" +
                     "mnName(\"Id\");\r\n");
             
-            #line 107 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 108 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
   } else {
             
             #line default
             #line hidden
             this.Write("            this.HasKey(x => ");
             
-            #line 108 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 109 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture((explicitPrimaryKeys.Count() == 1 ? "x." + explicitPrimaryKeys.Single().Name.ToPascalCase() : string.Format("new {{ {0} }}", string.Join(", ", explicitPrimaryKeys.Select(x => "x." + x.Name))))));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 109 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 110 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
   }
     foreach (var childClass in Model.ChildClasses) {
             
@@ -227,28 +228,28 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("            this.Map<");
             
-            #line 111 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 112 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(childClass)));
             
             #line default
             #line hidden
             this.Write(">(m => m.Requires(\"");
             
-            #line 111 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 112 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("Type\").HasValue(\"");
             
-            #line 111 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 112 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(childClass)));
             
             #line default
             #line hidden
             this.Write("\"));\r\n");
             
-            #line 112 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 113 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
   }  
     foreach (var attribute in Model.Attributes)
     {
@@ -261,14 +262,14 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("            this.Property(x => x.");
             
-            #line 119 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 120 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attribute.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")");
             
-            #line 119 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 120 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
 		if (!string.IsNullOrEmpty(attribute.GetStereotypeProperty<string>("Index", "UniqueKey")))
 		{
@@ -278,42 +279,42 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             this.Write("                .HasColumnAnnotation(\"Index\", new IndexAnnotation(new []\r\n       " +
                     "             {\r\n");
             
-            #line 124 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 			foreach(var index in attribute.Stereotypes.Where(x => x.Name == "Index")) { 
             
             #line default
             #line hidden
             this.Write("                        new IndexAttribute(\"");
             
-            #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("_");
             
-            #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(index.GetProperty("UniqueKey", "Unique1")));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(index.GetProperty("Order", "1")));
             
             #line default
             #line hidden
             this.Write(") { IsUnique = ");
             
-            #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(index.GetProperty("IsUnique", "false")));
             
             #line default
             #line hidden
             this.Write(" },\r\n");
             
-            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 127 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
 			}
             
@@ -321,7 +322,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("                    }))");
             
-            #line 128 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 129 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
         }
         if (!attribute.Type.IsNullable){
@@ -330,13 +331,13 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("\r\n                .IsRequired()");
             
-            #line 132 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 133 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
         }
 
-        if (attribute.Type.Element.Name == "string" )
+        if (attribute.Type.Element.Name == "string")
         {
-            var maxLength = attribute.GetStereotypeProperty<int?>("StringOptions", "MaxLength") ?? attribute.GetStereotypeProperty<int?>("Text", "MaxLength");     // (Text for backwards compatibility with RichDomain)
+            var maxLength = attribute.GetTextConstraints()?.MaxLength();     // (Text for backwards compatibility with RichDomain)
             if (maxLength.HasValue){
         
             
@@ -344,17 +345,17 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("\r\n                .HasMaxLength(");
             
-            #line 141 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 142 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(maxLength.Value));
             
             #line default
             #line hidden
             this.Write(")");
             
-            #line 141 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 142 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
             }
-            var isUnicode = attribute.GetStereotypeProperty<bool>("StringOptions", "IsUnicode", false);    
+            var isUnicode = attribute.GetTextConstraints().IsUnicode();    
             if (isUnicode){
         
             
@@ -362,34 +363,34 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("\r\n                .IsUnicode()");
             
-            #line 147 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 148 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
             }
         }
 
-        var decimalPrecision = attribute.GetStereotypeProperty<int?>("Numeric", "Precision");
-        var decimalScale = attribute.GetStereotypeProperty<int?>("Numeric", "Scale");
+        var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
+        var decimalScale = attribute.GetDecimalConstraints()?.Scale();
         if (decimalPrecision.HasValue && decimalScale.HasValue){
             
             #line default
             #line hidden
             this.Write("\r\n                .HasPrecision(");
             
-            #line 155 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 156 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(decimalPrecision));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 155 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 156 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(decimalScale));
             
             #line default
             #line hidden
             this.Write(")");
             
-            #line 155 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 156 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
         }
 
@@ -401,27 +402,27 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("                .HasColumnType(\"");
             
-            #line 161 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 162 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeOverride(attribute)));
             
             #line default
             #line hidden
             this.Write("\")\r\n");
             
-            #line 162 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 163 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
       } 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t;\r\n\r\n");
             
-            #line 165 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 166 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
   }
             
             #line default
             #line hidden
             
-            #line 166 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 167 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
     foreach (var associationEnd in Model.AssociatedClasses)
     {
 
@@ -441,21 +442,21 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("            ");
             
-            #line 180 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 181 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Format("this.{0}(x => x.{1})", !associationEnd.IsNullable ? "HasRequired" : "HasOptional", associationEnd.Name().ToPascalCase())));
             
             #line default
             #line hidden
             this.Write("\r\n                .WithMany(");
             
-            #line 181 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 182 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : ""));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 182 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 183 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
               if (RequiresForeignKeyOnAssociatedEnd(associationEnd.OtherEnd())) {
                     if (UseForeignKeys) { 
             
@@ -463,28 +464,28 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("\t\t\t\t.HasForeignKey(");
             
-            #line 184 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 185 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetForeignKeyLambda(associationEnd.OtherEnd())));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 185 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 186 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				    } else { 
             
             #line default
             #line hidden
             this.Write("                .Map(m => m.MapKey(\"");
             
-            #line 186 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 187 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Id\"))\r\n");
             
-            #line 187 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 188 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				    }
                 } 
             
@@ -492,7 +493,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("                ;\r\n\r\n");
             
-            #line 191 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 192 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
                   break;
             case RelationshipType.ManyToOne :
             
@@ -500,69 +501,69 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("            this.HasMany(x => x.");
             
-            #line 193 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 194 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 194 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 195 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				if(RequiresForeignKeyOnAssociatedEnd(associationEnd)) {  
             
             #line default
             #line hidden
             this.Write("                .");
             
-            #line 195 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 196 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Format("{0}({1})", !associationEnd.OtherEnd().IsNullable ? "WithRequired" : "WithOptional", "x => x." + associationEnd.OtherEnd().Name().ToPascalCase())));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 196 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 197 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				    if (UseForeignKeys) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t.HasForeignKey(");
             
-            #line 197 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 198 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetForeignKeyLambda(associationEnd)));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 198 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 199 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				    } else { 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t.Map(m => m.MapKey(\"");
             
-            #line 199 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 200 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Id\"))\r\n");
             
-            #line 200 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 201 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				    } 
             
             #line default
             #line hidden
             
-            #line 201 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 202 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				    if(associationEnd.Association.AssociationType == AssociationType.Composition) {  
             
             #line default
             #line hidden
             this.Write("\t\t\t\t.WillCascadeOnDelete()\r\n");
             
-            #line 203 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 204 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 				    }
                 } 
             
@@ -570,7 +571,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("                ;\r\n\r\n");
             
-            #line 207 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 208 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
                   break;
             case RelationshipType.ManyToMany :
             
@@ -578,14 +579,14 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line hidden
             this.Write("            this.HasMany(x => x.");
             
-            #line 209 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 210 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n                .WithMany(");
             
-            #line 210 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 211 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : ""));
             
             #line default
@@ -593,28 +594,28 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             this.Write(")\r\n                .Map(m => \r\n                    {\r\n                        m.T" +
                     "oTable(\"");
             
-            #line 213 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 214 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().Class.Name.ToPascalCase() + associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("\");\r\n                        m.MapLeftKey(\"");
             
-            #line 214 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 215 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().Class.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Id\");\r\n                        m.MapRightKey(\"");
             
-            #line 215 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 216 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Id\");\r\n                    });\r\n\r\n");
             
-            #line 218 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+            #line 219 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
                   break;
         }       
     }
@@ -626,7 +627,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 225 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 226 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
 public void MapOneToOne(AssociationEndModel associationEnd)
 {
@@ -640,42 +641,42 @@ public void MapOneToOne(AssociationEndModel associationEnd)
         #line default
         #line hidden
         
-        #line 233 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 234 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write("            ");
 
         
         #line default
         #line hidden
         
-        #line 234 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 235 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(string.Format("this.{0}(x => x.{1})", hasClause, associationEnd.Name().ToPascalCase())));
 
         
         #line default
         #line hidden
         
-        #line 234 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 235 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write("\r\n            ");
 
         
         #line default
         #line hidden
         
-        #line 235 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 236 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(string.Format(".{0}({1})", withClause, associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase(): "" )));
 
         
         #line default
         #line hidden
         
-        #line 235 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 236 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 236 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 237 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
   if (((associationEnd.Association.AssociationType == AssociationType.Composition && associationEnd.Association.RelationshipString() == "0..1->1")
             || (associationEnd.Association.AssociationType == AssociationType.Aggregation && associationEnd.Association.RelationshipString() == "0..1->1"))
          && Model.Attributes.All(a => a.Name.ToPascalCase() != associationEnd.OtherEnd().Class.GetStereotypeProperty("Foreign Key", "Column Name", associationEnd.Name().ToPascalCase() + "Id").ToPascalCase()))
@@ -684,60 +685,60 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 239 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 240 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write("            .Map(m => m.MapKey(\"");
 
         
         #line default
         #line hidden
         
-        #line 240 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 241 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().Class.GetStereotypeProperty("Foreign Key", "Column Name", associationEnd.Name().ToPascalCase() + "Id")));
 
         
         #line default
         #line hidden
         
-        #line 240 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 241 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write("\"))\r\n");
 
         
         #line default
         #line hidden
         
-        #line 241 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 242 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
     }
         
         #line default
         #line hidden
         
-        #line 242 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 243 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 	if(associationEnd.Association.AssociationType == AssociationType.Composition) {  
         
         #line default
         #line hidden
         
-        #line 242 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 243 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write("\t\t\t.WillCascadeOnDelete()\r\n");
 
         
         #line default
         #line hidden
         
-        #line 244 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 245 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 	} 
         
         #line default
         #line hidden
         
-        #line 244 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 245 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 this.Write("            ;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 246 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
+        #line 247 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
     
 }
 

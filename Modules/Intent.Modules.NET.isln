@@ -8,14 +8,12 @@
   <metadataRelativePath>Intent.MetaData</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
   <applications>
-    <application id="3517d53b-f6f7-4d96-8315-efcc6d5622ec" relativePath="Intent.Modules.Common.CSharp\Common.CSharp.application.config" />
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="beca030c-beb8-43b8-88e7-75b0639ef40c" name="Intent.Modules.IdentityServer4.Selfhost" relativePath="Intent.Modules.IdentityServer4.Selfhost\Intent.Modules.IdentityServer4.Selfhost.application.config" />
     <application id="92e5e9f4-9635-4e77-87dc-6b4253f54675" name="Intent.Modules.IdentityServer4.InMemoryStore" relativePath="Intent.Modules.IdentityServer4.InMemoryStore\Intent.Modules.IdentityServer4.InMemoryStore.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
     <application id="b6fc9928-d295-416f-a408-a1730334a2e9" name="Intent.Modules.Application.Contracts" relativePath="Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.application.config" />
     <application id="a4d94df0-a3d7-4f52-aed0-b0d693ffa062" name="Intent.Modules.AspNetCore.Interop.Angular" relativePath="Intent.Modules.AspNetCore.Interop.Angular/Intent.Modules.AspNetCore.Interop.Angular.application.config" />
-    <application id="64f23573-1bae-4b98-9c17-6e40436297f4" name="Intent.Modules.AspNetCore.WebApi" relativePath="Intent.Modules.AspNetCore.WebApi/Intent.Modules.AspNetCore.WebApi.application.config" />
     <application id="2722a484-e1a2-4346-8da4-2937c7df3071" name="Intent.Modules.AspNetCore.Controllers" relativePath="Intent.Modules.AspNetCore.Controllers/Intent.Modules.AspNetCore.Controllers.application.config" />
     <application id="3cbc980e-da30-405c-a8bd-f0043279721f" name="Intent.Modules.Application.MediatR" relativePath="Intent.Modules.Application.MediatR/Intent.Modules.Application.MediatR.application.config" />
     <application id="9221b11f-796f-4bb6-bf71-87adc4d61cfb" name="Intent.Modules.Application.DependencyInjection" relativePath="Intent.Modules.Application.DependencyInjection/Intent.Modules.Application.DependencyInjection.application.config" />
@@ -36,5 +34,7 @@
     <application id="54aec6b2-a592-4bf0-8432-4c060c8cec1a" name="Intent.Modules.DependencyInjection.EntityFrameworkCore" relativePath="Intent.Modules.DependencyInjection.EntityFrameworkCore/Intent.Modules.DependencyInjection.EntityFrameworkCore.application.config" />
     <application id="69f06913-7f0d-4ad1-bf64-0b14901a49cd" name="Intent.Modules.Application.MediatR.FluentValidation" relativePath="Intent.Modules.Application.MediatR.FluentValidation/Intent.Modules.Application.MediatR.FluentValidation.application.config" />
     <application id="b3270798-d8b7-442c-8140-f5dc8200371a" name="Intent.Modules.Application.DependencyInjection.FluentValidation" relativePath="Intent.Modules.Application.DependencyInjection.FluentValidation/Intent.Modules.Application.DependencyInjection.FluentValidation.application.config" />
+    <application id="11cd8cc9-0bc6-456a-9c81-94e640dd2829" name="Intent.Modules.MediatR.DomainEvents" relativePath="Intent.Modules.MediatR.DomainEvents/Intent.Modules.MediatR.DomainEvents.application.config" />
+    <application id="0e9a49a4-507f-4e16-8f39-0c7496722ef5" name="Intent.Modules.DomainEvents" relativePath="Intent.Modules.DomainEvents/Intent.Modules.DomainEvents.application.config" />
   </applications>
 </solution>

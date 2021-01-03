@@ -6,6 +6,7 @@
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Modules.Common"#>
+<#@ import namespace="Intent.Metadata.RDBMS.Api"#>
 <#@ import namespace="System" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Diagnostics" #>
@@ -80,7 +81,7 @@ namespace <#= Namespace #>
         {
 <#  if (Model.ParentClass == null || Model.ParentClass.GetStereotypeProperty<string>("InheritanceMapping", "Type") != "TPH")
     {#>
-            this.ToTable("<#= Model.GetStereotypeProperty("Table", "Name", Model.Name) #>"<#= Model.HasStereotype("Table") ? ", \"" + Model.GetStereotypeProperty("Table", "Schema", "dbo") + "\"" : "" #>);
+            this.ToTable("<#= Model.GetTable()?.Name() ?? Model.Name #>"<#= Model.HasTable() ? ", \"" + (Model.GetTable().Schema() ?? "dbo") + "\"" : "" #>);
 <#    }
     if (Model.GetStereotypeProperty<string>("InheritanceMapping", "Type") == "TPH")
     {
@@ -98,7 +99,7 @@ namespace <#= Namespace #>
         //No Key mapping required
     } 
 
-    var explicitPrimaryKeys = Model.Attributes.Where(x => x.HasStereotype("Primary Key")).ToList();
+    var explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToList();
     var addedImplicitKey = false;
     if (Model.ParentClass == null && !explicitPrimaryKeys.Any()) {
         addedImplicitKey = true;#>
@@ -132,15 +133,15 @@ namespace <#= Namespace #>
                 .IsRequired()<#
         }
 
-        if (attribute.Type.Element.Name == "string" )
+        if (attribute.Type.Element.Name == "string")
         {
-            var maxLength = attribute.GetStereotypeProperty<int?>("StringOptions", "MaxLength") ?? attribute.GetStereotypeProperty<int?>("Text", "MaxLength");     // (Text for backwards compatibility with RichDomain)
+            var maxLength = attribute.GetTextConstraints()?.MaxLength();     // (Text for backwards compatibility with RichDomain)
             if (maxLength.HasValue){
         #>
 
                 .HasMaxLength(<#= maxLength.Value#>)<#
             }
-            var isUnicode = attribute.GetStereotypeProperty<bool>("StringOptions", "IsUnicode", false);    
+            var isUnicode = attribute.GetTextConstraints().IsUnicode();    
             if (isUnicode){
         #>
 
@@ -148,8 +149,8 @@ namespace <#= Namespace #>
             }
         }
 
-        var decimalPrecision = attribute.GetStereotypeProperty<int?>("Numeric", "Precision");
-        var decimalScale = attribute.GetStereotypeProperty<int?>("Numeric", "Scale");
+        var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
+        var decimalScale = attribute.GetDecimalConstraints()?.Scale();
         if (decimalPrecision.HasValue && decimalScale.HasValue){#>
 
                 .HasPrecision(<#= decimalPrecision#>, <#= decimalScale #>)<#
