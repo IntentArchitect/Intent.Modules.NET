@@ -82,5 +82,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Where(x => x.SpecializationType == TemplateOutputModel.SpecializationType)
             .Select(x => new TemplateOutputModel(x))
             .ToList();
+
+        public IList<ConsoleAppNETFrameworkModel> ConsoleAppNETFrameworks => UnderlyingPackage.ChildElements
+            .Where(x => x.SpecializationType == ConsoleAppNETFrameworkModel.SpecializationType)
+            .Select(x => new ConsoleAppNETFrameworkModel(x))
+            .ToList();
     }
 }

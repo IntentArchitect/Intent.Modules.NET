@@ -36,7 +36,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             _entityStateTemplateDependency = TemplateDependency.OnModel<ClassModel>(GetMetadata().CustomMetadata["Entity Template Id"], (to) => to.Id == Model.Id);
             _entityInterfaceTemplateDependency = TemplateDependency.OnModel<ClassModel>(GetMetadata().CustomMetadata["Entity Interface Template Id"], (to) => to.Id == Model.Id);
             _repositoryInterfaceTemplateDependency = TemplateDependency.OnModel(EntityRepositoryInterfaceTemplate.Identifier, Model);
-            _dbContextTemplateDependency = TemplateDependency.OnTemplate(DbContextTemplate.Identifier);
+            _dbContextTemplateDependency = TemplateDependency.OnTemplate(DbContextTemplate.TemplateId);
         }
 
         public string EntityInterfaceName

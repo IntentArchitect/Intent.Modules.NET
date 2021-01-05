@@ -14,8 +14,6 @@
 <#@ import namespace="System.Collections.Generic" #> 
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-<#= DependencyUsings #>
-<#= DeclareUsings() #>
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 

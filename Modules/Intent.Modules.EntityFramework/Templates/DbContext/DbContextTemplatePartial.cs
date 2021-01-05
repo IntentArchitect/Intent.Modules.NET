@@ -69,11 +69,6 @@ namespace Intent.Modules.EntityFramework.Templates.DbContext
             return _decorators;
         }
 
-        public string DeclareUsings()
-        {
-            return string.Join(Environment.NewLine, GetDecorators().SelectMany(x => x.DeclareUsings()).Select(s => $"using {s};"));
-        }
-
         public string GetMethods()
         {
             var code = string.Join(Environment.NewLine + Environment.NewLine,

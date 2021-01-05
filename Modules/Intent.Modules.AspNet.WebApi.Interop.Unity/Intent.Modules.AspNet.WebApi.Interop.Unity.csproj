@@ -4,8 +4,8 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.*" />
-    <PackageReference Include="Intent.Packager" Version="3.0.*">
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.1" />
+    <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

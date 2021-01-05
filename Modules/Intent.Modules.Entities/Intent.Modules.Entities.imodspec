@@ -49,12 +49,12 @@
   <interoperability>
     <detect id="Intent.EntityFramework">
       <install>
-        <package id="Intent.Entities.Keys" version="3.0.0"/>
+        <package id="Intent.Entities.Keys" version="3.0.1"/>
       </install>
     </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Entities.Keys" version="3.0.0"/>
+        <package id="Intent.Entities.Keys" version="3.0.1"/>
       </install>
     </detect>
   </interoperability>
@@ -62,7 +62,7 @@
     <dependency id="Intent.Modelers.Domain" version="3.0.1"/>
     <dependency id="Intent.Common.CSharp" version="3.0.1"/>
     <dependency id="Intent.Common.Types" version="3.0.1"/>
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0"/>
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1"/>
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll"/>

@@ -28,12 +28,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         public override string EnterClass()
         {
             return $@"
-        private readonly {_template.GetTypeName(DbContextTemplate.Identifier)} _dbContext;";
+        private readonly {_template.GetTypeName(DbContextTemplate.TemplateId)} _dbContext;";
         }
 
         public override IEnumerable<string> ConstructorParameters()
         {
-            return new[] { $"{_template.GetTypeName(DbContextTemplate.Identifier)} dbContext" };
+            return new[] { $"{_template.GetTypeName(DbContextTemplate.TemplateId)} dbContext" };
         }
 
         public override string ConstructorImplementation()

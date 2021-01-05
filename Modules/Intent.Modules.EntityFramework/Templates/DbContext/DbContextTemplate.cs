@@ -34,51 +34,37 @@ namespace Intent.Modules.EntityFramework.Templates.DbContext
         public override string TransformText()
         {
             this.Write(" \r\nusing System.Data.Entity;\r\nusing System.Data.Entity.ModelConfiguration.Convent" +
-                    "ions;\r\n");
+                    "ions;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DependencyUsings));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DeclareUsings()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
-            
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetBaseClass()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        public ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("() : base(\"");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Application.Name));
             
             #line default
@@ -87,21 +73,21 @@ namespace Intent.Modules.EntityFramework.Templates.DbContext
                     "DbModelBuilder modelBuilder)\r\n        {\r\n            base.OnModelCreating(modelB" +
                     "uilder);\r\n\r\n            ConfigureConventions(modelBuilder);\r\n            \r\n");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
  foreach (var model in Model) {
             
             #line default
             #line hidden
             this.Write("            modelBuilder.Configurations.Add(new ");
             
-            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetMappingName(model)));
             
             #line default
             #line hidden
             this.Write("());\r\n");
             
-            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
  }
             
             #line default
@@ -116,14 +102,14 @@ namespace Intent.Modules.EntityFramework.Templates.DbContext
 			// Customize Default Schema
 			// modelBuilder.HasDefaultSchema(""");
             
-            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Application.Name));
             
             #line default
             #line hidden
             this.Write("\");\r\n        }");
             
-            #line 49 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetMethods()));
             
             #line default

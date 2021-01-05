@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
@@ -20,11 +20,11 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.0" />
-    <dependency id="Intent.Common.Types" version="3.0.0" />
-    <dependency id="Intent.Common.CSharp" version="3.0.0" />
-    <dependency id="Intent.Modelers.Services" version="3.0.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0" />
+    <dependency id="Intent.Common" version="3.0.1" />
+    <dependency id="Intent.Common.Types" version="3.0.1" />
+    <dependency id="Intent.Common.CSharp" version="3.0.1" />
+    <dependency id="Intent.Modelers.Services" version="3.0.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

@@ -100,5 +100,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return (_element != null ? _element.GetHashCode() : 0);
         }
         public const string SpecializationTypeId = "0dc2b846-c968-49eb-99b7-8776919313a8";
+
+        public IList<ConsoleAppNETFrameworkModel> ConsoleAppNETFrameworks => _element.ChildElements
+                    .Where(x => x.SpecializationType == ConsoleAppNETFrameworkModel.SpecializationType)
+                    .Select(x => new ConsoleAppNETFrameworkModel(x))
+                    .ToList();
     }
 }

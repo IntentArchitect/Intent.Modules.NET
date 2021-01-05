@@ -40,18 +40,18 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             return $@"
             if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
             {{
-                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.Identifier)}>(options =>
+                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>(options =>
                     options.UseInMemoryDatabase(""{_template.OutputTarget.Application.Name}""));
             }}
             else
             {{
-                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.Identifier)}>(options =>
+                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>(options =>
                     options.UseSqlServer(
                         configuration.GetConnectionString(""DefaultConnection""),
-                        b => b.MigrationsAssembly(typeof({_template.GetTypeName(DbContextTemplate.Identifier)}).Assembly.FullName)));
+                        b => b.MigrationsAssembly(typeof({_template.GetTypeName(DbContextTemplate.TemplateId)}).Assembly.FullName)));
             }}
 
-            services.AddScoped<{_template.GetTypeName(DbContextInterfaceTemplate.Identifier)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.Identifier)}>());";
+            services.AddScoped<{_template.GetTypeName(DbContextInterfaceTemplate.Identifier)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
         }
 
         public IEnumerable<string> DeclareUsings()

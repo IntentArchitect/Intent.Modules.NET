@@ -1,18 +1,5 @@
 ﻿namespace Intent.Modules.Constants
 {
-    public static class SoftwareFactoryEvents
-    {
-        public const string FileAdded = "Intent.SoftwareFactory.AddProjectItemEvent";
-        public const string FileRemoved = "Intent.SoftwareFactory.RemoveProjectItemEvent";
-        public const string AddTargetEvent = "Intent.SoftwareFactory.AddTargetEvent";
-        public const string AddTaskEvent = "Intent.SoftwareFactory.AddTaskEvent";
-        public const string ChangeProjectItemTypeEvent = "Intent.SoftwareFactory.ChangeProjectItemTypeEvent";
-        public const string DeleteFileCommand = "Intent.SoftwareFactory.DeleteFileCommand";
-        public const string OverwriteFileCommand = "Intent.SoftwareFactory.OverwriteFileCommand";
-        public const string CreateFileCommand = "Intent.SoftwareFactory.CreateFileCommand";
-        public const string CodeWeaveCodeLossEvent = "Intent.SoftwareFactory.CodeWeaveCodeLossEvent";
-    }
-
     public static class ApplicationEvents
     {
         public const string IndexHtml_JsFileAvailable = "IndexHtml.JsFileAvailable";
@@ -72,15 +59,5 @@
     {
         public const string SeedDataRequiredEvent = "EntityFrameworkEvents.SeedDataRequiredEvent";
         public const string SeedDataRequiredEventKey = "EntityFrameworkEvents.SeedDataRequiredEvent.Key";
-    }
-
-    public static class LaunchProfileRegistrationEvent
-    {
-        public const string EventId = nameof(LaunchProfileRegistrationEvent);
-        public const string ProfileNameKey = "profileName";
-        public const string CommandNameKey = "commandName";
-        public const string LaunchBrowserKey = "launchBrowser";
-        public const string LaunchUrlKey = "launchUrl";
-        public const string ApplicationUrl = "applicationUrl";
     }
 }
