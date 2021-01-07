@@ -22,7 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
     public class AppSettingsTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
-        public string TemplateId => AppSettingsTemplate.Identifier;
+        public string TemplateId => AppSettingsTemplate.TemplateId;
 
 
         public AppSettingsTemplateRegistration(IMetadataManager metadataManager)
