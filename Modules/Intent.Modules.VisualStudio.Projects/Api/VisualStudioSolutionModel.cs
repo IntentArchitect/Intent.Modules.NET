@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Common;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiPackageModel", Version = "1.0")]
@@ -34,57 +35,57 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string FileLocation => UnderlyingPackage.FileLocation;
 
         public IList<ASPNETCoreWebApplicationModel> ASPNETCoreWebApplications => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == ASPNETCoreWebApplicationModel.SpecializationType)
+            .GetElementsOfType(ASPNETCoreWebApplicationModel.SpecializationTypeId)
             .Select(x => new ASPNETCoreWebApplicationModel(x))
             .ToList();
 
         public IList<ASPNETWebApplicationNETFrameworkModel> ASPNETWebApplicationNETFrameworks => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == ASPNETWebApplicationNETFrameworkModel.SpecializationType)
+            .GetElementsOfType(ASPNETWebApplicationNETFrameworkModel.SpecializationTypeId)
             .Select(x => new ASPNETWebApplicationNETFrameworkModel(x))
             .ToList();
 
         public IList<ClassLibraryNETCoreModel> ClassLibraryNETCores => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == ClassLibraryNETCoreModel.SpecializationType)
+            .GetElementsOfType(ClassLibraryNETCoreModel.SpecializationTypeId)
             .Select(x => new ClassLibraryNETCoreModel(x))
             .ToList();
 
         public IList<ClassLibraryNETFrameworkModel> ClassLibraryNETFrameworks => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == ClassLibraryNETFrameworkModel.SpecializationType)
+            .GetElementsOfType(ClassLibraryNETFrameworkModel.SpecializationTypeId)
             .Select(x => new ClassLibraryNETFrameworkModel(x))
             .ToList();
 
         public IList<SolutionFolderModel> Folders => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == SolutionFolderModel.SpecializationType)
+            .GetElementsOfType(SolutionFolderModel.SpecializationTypeId)
             .Select(x => new SolutionFolderModel(x))
             .ToList();
 
         public IList<NETCoreVersionModel> NETCoreVersions => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == NETCoreVersionModel.SpecializationType)
+            .GetElementsOfType(NETCoreVersionModel.SpecializationTypeId)
             .Select(x => new NETCoreVersionModel(x))
             .ToList();
 
         public IList<NETFrameworkVersionModel> NETFrameworkVersions => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == NETFrameworkVersionModel.SpecializationType)
+            .GetElementsOfType(NETFrameworkVersionModel.SpecializationTypeId)
             .Select(x => new NETFrameworkVersionModel(x))
             .ToList();
 
         public IList<RoleModel> Roles => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == RoleModel.SpecializationType)
+            .GetElementsOfType(RoleModel.SpecializationTypeId)
             .Select(x => new RoleModel(x))
             .ToList();
 
         public IList<WCFServiceApplicationModel> WCFServiceApplications => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == WCFServiceApplicationModel.SpecializationType)
+            .GetElementsOfType(WCFServiceApplicationModel.SpecializationTypeId)
             .Select(x => new WCFServiceApplicationModel(x))
             .ToList();
 
         public IList<TemplateOutputModel> TemplateOutputs => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == TemplateOutputModel.SpecializationType)
+            .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)
             .Select(x => new TemplateOutputModel(x))
             .ToList();
 
         public IList<ConsoleAppNETFrameworkModel> ConsoleAppNETFrameworks => UnderlyingPackage.ChildElements
-            .Where(x => x.SpecializationType == ConsoleAppNETFrameworkModel.SpecializationType)
+            .GetElementsOfType(ConsoleAppNETFrameworkModel.SpecializationTypeId)
             .Select(x => new ConsoleAppNETFrameworkModel(x))
             .ToList();
     }

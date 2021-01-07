@@ -24,6 +24,14 @@
       <role>Application.Common</role>
       <location>Common/Models</location>
     </template>
+    <template id="Intent.MediatR.DomainEvents.DomainEventHandler" externalReference="7a160dcd-41c6-4e89-a6fc-f237f5ce15d7">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.EventHandlers</role>
+      <location>EventHandlers</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>

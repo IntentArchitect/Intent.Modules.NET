@@ -2,6 +2,7 @@ using System;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Common.Types.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions", Version = "1.0")]

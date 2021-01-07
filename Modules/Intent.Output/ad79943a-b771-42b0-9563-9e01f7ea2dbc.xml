@@ -142,5 +142,30 @@
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/modelers/Visual Studio.designer.config</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Visual Studio.designer.config</ProjectRelativeFilePath>
     </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>CoreWeb/AppSettings/AppSettingsDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>CoreWeb/AppSettings/AppSettingsTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>CoreWeb/AppSettings/AppSettingsTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>CoreWeb/AppSettings/AppSettingsTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
   </FileLogs>
 </outputLog>

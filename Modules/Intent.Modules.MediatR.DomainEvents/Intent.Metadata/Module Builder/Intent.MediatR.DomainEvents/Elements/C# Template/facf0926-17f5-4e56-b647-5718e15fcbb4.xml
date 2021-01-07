@@ -3,7 +3,7 @@
   <name>DomainEventNotification</name>
   <display>DomainEventNotification: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>2</order>
   <genericTypes />
   <typeReference id="d5547dcf-b308-4936-9ddd-c54d619951b0">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

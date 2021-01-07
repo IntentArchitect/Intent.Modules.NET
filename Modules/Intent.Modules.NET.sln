@@ -136,6 +136,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DomainEvents
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents", "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents\Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj", "{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.Modules.AspNetCore.IdentityServer", "Intent.Modules.AspNetCore.IdentityServer\Intent.Modules.AspNetCore.IdentityServer.csproj", "{15B513BF-7FE2-46BD-B881-5F6EC283D683}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -390,6 +392,10 @@ Global
 		{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B513BF-7FE2-46BD-B881-5F6EC283D683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B513BF-7FE2-46BD-B881-5F6EC283D683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B513BF-7FE2-46BD-B881-5F6EC283D683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B513BF-7FE2-46BD-B881-5F6EC283D683}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

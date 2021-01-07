@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Common;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModel", Version = "1.0")]
@@ -39,37 +40,37 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         [IntentManaged(Mode.Fully)]
         public IList<SolutionFolderModel> Folders => _element.ChildElements
-            .Where(x => x.SpecializationType == SolutionFolderModel.SpecializationType)
+            .GetElementsOfType(SolutionFolderModel.SpecializationTypeId)
             .Select(x => new SolutionFolderModel(x))
             .ToList();
 
         [IntentManaged(Mode.Fully)]
         public IList<ClassLibraryNETCoreModel> ClassLibraryNETCores => _element.ChildElements
-            .Where(x => x.SpecializationType == ClassLibraryNETCoreModel.SpecializationType)
+            .GetElementsOfType(ClassLibraryNETCoreModel.SpecializationTypeId)
             .Select(x => new ClassLibraryNETCoreModel(x))
             .ToList();
 
         [IntentManaged(Mode.Fully)]
         public IList<ClassLibraryNETFrameworkModel> ClassLibraryNETFrameworks => _element.ChildElements
-            .Where(x => x.SpecializationType == ClassLibraryNETFrameworkModel.SpecializationType)
+            .GetElementsOfType(ClassLibraryNETFrameworkModel.SpecializationTypeId)
             .Select(x => new ClassLibraryNETFrameworkModel(x))
             .ToList();
 
         [IntentManaged(Mode.Fully)]
         public IList<ASPNETCoreWebApplicationModel> ASPNETCoreWebApplications => _element.ChildElements
-            .Where(x => x.SpecializationType == ASPNETCoreWebApplicationModel.SpecializationType)
+            .GetElementsOfType(ASPNETCoreWebApplicationModel.SpecializationTypeId)
             .Select(x => new ASPNETCoreWebApplicationModel(x))
             .ToList();
 
         [IntentManaged(Mode.Fully)]
         public IList<ASPNETWebApplicationNETFrameworkModel> ASPNETWebApplicationNETFrameworks => _element.ChildElements
-            .Where(x => x.SpecializationType == ASPNETWebApplicationNETFrameworkModel.SpecializationType)
+            .GetElementsOfType(ASPNETWebApplicationNETFrameworkModel.SpecializationTypeId)
             .Select(x => new ASPNETWebApplicationNETFrameworkModel(x))
             .ToList();
 
         [IntentManaged(Mode.Fully)]
         public IList<WCFServiceApplicationModel> WCFServiceApplications => _element.ChildElements
-            .Where(x => x.SpecializationType == WCFServiceApplicationModel.SpecializationType)
+            .GetElementsOfType(WCFServiceApplicationModel.SpecializationTypeId)
             .Select(x => new WCFServiceApplicationModel(x))
             .ToList();
 

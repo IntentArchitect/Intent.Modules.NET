@@ -63,7 +63,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         [IntentManaged(Mode.Fully)]
         public IList<RoleModel> Roles => _element.ChildElements
-            .Where(x => x.SpecializationType == RoleModel.SpecializationType)
+            .GetElementsOfType(RoleModel.SpecializationTypeId)
             .Select(x => new RoleModel(x))
             .ToList();
 
@@ -96,7 +96,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         [IntentManaged(Mode.Fully)]
         public IList<FolderModel> Folders => _element.ChildElements
-            .Where(x => x.SpecializationType == FolderModel.SpecializationType)
+            .GetElementsOfType(FolderModel.SpecializationTypeId)
             .Select(x => new FolderModel(x))
             .ToList();
         public const string SpecializationTypeId = "52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE";

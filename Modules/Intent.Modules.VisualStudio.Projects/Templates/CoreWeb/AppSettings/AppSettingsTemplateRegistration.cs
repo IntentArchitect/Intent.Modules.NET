@@ -1,15 +1,24 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
+using Intent.Metadata.Models;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Registrations;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+using System;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 {
-    [Description(AppSettingsTemplate.Identifier)]
+    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class AppSettingsTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;

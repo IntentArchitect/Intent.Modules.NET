@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Common;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModel", Version = "1.0")]
@@ -87,13 +88,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         [IntentManaged(Mode.Fully)]
         public IList<RoleModel> Roles => _element.ChildElements
-            .Where(x => x.SpecializationType == RoleModel.SpecializationType)
+            .GetElementsOfType(RoleModel.SpecializationTypeId)
             .Select(x => new RoleModel(x))
             .ToList();
 
         [IntentManaged(Mode.Fully)]
         public IList<FolderModel> Folders => _element.ChildElements
-            .Where(x => x.SpecializationType == FolderModel.SpecializationType)
+            .GetElementsOfType(FolderModel.SpecializationTypeId)
             .Select(x => new FolderModel(x))
             .ToList();
 

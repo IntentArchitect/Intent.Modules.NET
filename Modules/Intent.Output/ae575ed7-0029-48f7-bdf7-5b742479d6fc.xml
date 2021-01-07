@@ -4,31 +4,31 @@
   <FileLogs>
     <FileLog>
       <ProjectId>b9cc44d3-c19b-4496-804d-ceaefd2310d0</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.IdentityServer\Decorators\IdentityServerStartupDecorator.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.IdentityServer/Decorators/IdentityServerStartupDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServerStartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>b9cc44d3-c19b-4496-804d-ceaefd2310d0</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.IdentityServer\Decorators\IdentityServerStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.IdentityServer/Decorators/IdentityServerStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServerStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>15b513bf-7fe2-46bd-b881-5f6ec283d683</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.IdentityServer\Intent.Modules.AspNetCore.IdentityServer.csproj</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.IdentityServer/Intent.AspNetCore.IdentityServer.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.IdentityServer.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>15b513bf-7fe2-46bd-b881-5f6ec283d683</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.IdentityServer/Intent.Modules.AspNetCore.IdentityServer.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.IdentityServer.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>15b513bf-7fe2-46bd-b881-5f6ec283d683</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.IdentityServer\Intent.Modules.AspNetCore.IdentityServer.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.IdentityServer.imodspec</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15b513bf-7fe2-46bd-b881-5f6ec283d683</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.IdentityServer\README.txt</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.IdentityServer/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
-      <SolutionRelativeFilePath>..\Intent.Modules.Net.sln</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Net.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

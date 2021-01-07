@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -13,12 +13,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventHandlerTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\DomainEventService\DomainEventServiceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventServiceTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\DomainEventNotification\DomainEventNotificationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventNotificationTemplate.cs</LastGenOutput>
@@ -26,23 +24,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\DomainEvent\DomainEventTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DomainEventTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\DomainEventHandler\DomainEventHandlerTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEventHandlerTemplate.tt</DependentUpon>
     </Compile>
-  
+    <Compile Update="Templates\DomainEvent\DomainEventTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainEventTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\DomainEventService\DomainEventServiceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEventServiceTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\DomainEventNotification\DomainEventNotificationTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -53,6 +49,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.1" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.0.*" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

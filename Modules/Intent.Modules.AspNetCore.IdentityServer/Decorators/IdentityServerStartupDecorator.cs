@@ -2,7 +2,7 @@ using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Ignore)]
-[assembly: IntentTemplate("ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.IdentityServer.Decorators
 {

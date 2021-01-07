@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="c5749322-7ef9-4947-95dd-9a9c01131077" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>DomainEventService</name>
-  <display>DomainEventService: Single File</display>
+<class id="7a160dcd-41c6-4e89-a6fc-f237f5ce15d7" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>DomainEventHandler</name>
+  <display>DomainEventHandler: File Per Model</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>1</order>
   <genericTypes />
-  <typeReference id="4344c9d3-5992-4aeb-87b7-ee8afa323c10">
-    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
+  <typeReference id="afe254ba-2a21-4109-af11-86c4108206c2">
+    <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -27,11 +27,11 @@
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
         <property name="a9de6cf5-6d4f-4ae1-aa60-5ca85e458709" display="Source" value="Lookup Type" isActive="true" />
-        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
-        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
+        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="6ab29b31-27af-4f56-a67c-986d82097d63" isActive="true" />
+        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="0814e459-fb9b-47db-b7eb-32ce30397e8a" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Infrastructure.Services" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Location" value="Services" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.EventHandlers" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Location" value="EventHandlers" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

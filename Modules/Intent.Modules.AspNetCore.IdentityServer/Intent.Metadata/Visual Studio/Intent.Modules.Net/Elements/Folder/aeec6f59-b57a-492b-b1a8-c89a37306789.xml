@@ -163,5 +163,53 @@
       <stereotypes />
       <childElements />
     </childElement>
+    <childElement id="2cad45c6-6ee2-4340-ab46-c22e5bcb4702" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.TemplateDecoratorContract</name>
+      <display>Intent.ModuleBuilder.Templates.TemplateDecoratorContract</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aeec6f59-b57a-492b-b1a8-c89a37306789</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="2da5255e-c6f8-4929-af19-ef2d571ad928" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aeec6f59-b57a-492b-b1a8-c89a37306789</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="660a0d46-7dd8-43ef-96e5-2317600620bf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aeec6f59-b57a-492b-b1a8-c89a37306789</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="12b8f0fe-91ba-49bc-987a-66f688dafc4f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aeec6f59-b57a-492b-b1a8-c89a37306789</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -35,6 +35,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
         /// </summary>
         public override string TransformText()
         {
+            this.Write("    ");
             this.Write(" \r\n\r\n");
             
             #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
@@ -355,7 +356,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             #line 142 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework\Templates\EFMapping\EFMappingTemplate.tt"
 
             }
-            var isUnicode = attribute.GetTextConstraints().IsUnicode();    
+            var isUnicode = attribute.GetTextConstraints()?.IsUnicode() ?? false;    
             if (isUnicode){
         
             

@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true"  inherits="IntentFileTemplateBase<object>"#>
+<#@ template  debug="true"  inherits="IntentTemplateBase<object, Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings.AppSettingsDecorator>"#>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
