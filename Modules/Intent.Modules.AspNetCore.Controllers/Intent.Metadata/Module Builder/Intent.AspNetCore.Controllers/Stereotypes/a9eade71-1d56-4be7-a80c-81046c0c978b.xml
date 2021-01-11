@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="a9eade71-1d56-4be7-a80c-81046c0c978b">
+  <name>Secured</name>
+  <targetMode>of-type</targetMode>
+  <targetElements>
+    <element id="b16578a5-27b1-4047-a8df-f0b783d706bd">Service</element>
+    <element id="e030c97a-e066-40a7-8188-808c275df3cb">Operation</element>
+  </targetElements>
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="lock" />
+  <displayIcon>true</displayIcon>
+  <displayFunction />
+  <autoAdd>false</autoAdd>
+  <parentFolderId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</parentFolderId>
+  <order>0</order>
+  <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
+  <packageName>Intent.AspNetCore.Controllers</packageName>
+  <properties>
+    <property id="2b39acef-6079-48c9-b85e-2b0981f9de70">
+      <name>Roles</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

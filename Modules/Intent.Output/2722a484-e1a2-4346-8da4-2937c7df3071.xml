@@ -4,61 +4,56 @@
   <FileLogs>
     <FileLog>
       <ProjectId>8c807cfc-22fb-4383-a5e4-de97e1efbd51</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Api\Extensions\OperationModelExtensions.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Api/Extensions/OperationModelExtensions.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>OperationModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>8c807cfc-22fb-4383-a5e4-de97e1efbd51</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Api\Extensions\ParameterModelExtensions.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>ParameterModelExtensions.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8c807cfc-22fb-4383-a5e4-de97e1efbd51</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Api\Extensions\ServiceModelExtensions.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Api/Extensions/ServiceModelExtensions.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ServiceModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Intent.AspNetCore.Controllers.imodspec</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Intent.AspNetCore.Controllers.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.Controllers.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Intent.Modules.AspNetCore.Controllers.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\README.txt</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerDecorator.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Templates/Controller/ControllerDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Templates/Controller/ControllerTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplate.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Templates/Controller/ControllerTemplate.tt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplate.tt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplatePartial.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Templates/Controller/ControllerTemplatePartial.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplatePartial.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplateRegistration.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Templates/Controller/ControllerTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
-      <SolutionRelativeFilePath>..\Intent.Modules.NET.sln</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

@@ -17,9 +17,7 @@
     <template id="Intent.VisualStudio.Projects.ConsoleApp.Program" />
     <template id="Intent.VisualStudio.Projects.CoreLibrary.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.CSProject" />
-    <template id="Intent.VisualStudio.Projects.CoreWeb.AppSettings" externalReference="cc3f8b62-c026-49c9-bef2-52cdd44f0ebd">
-      <role>Intent.VisualStudio.Projects.CoreWeb.AppSettings</role>
-    </template>
+    <template id="Intent.VisualStudio.Projects.CoreWeb.AppSettings" externalReference="cc3f8b62-c026-49c9-bef2-52cdd44f0ebd"/>
     <template id="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
     <template id="Intent.VisualStudio.Projects.VisualStudio2015Solution" />
     <template id="Intent.VisualStudio.Projects.WebConfig" />

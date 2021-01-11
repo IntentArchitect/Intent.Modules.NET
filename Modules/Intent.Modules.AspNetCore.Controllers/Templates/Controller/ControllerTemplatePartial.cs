@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.AspNetCore.Controllers.Api;
 using Intent.Engine;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
@@ -68,11 +69,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetControllerAttributes()
         {
             var attributes = new List<string>();
-            if (Model.GetApiSettings().Security().IsAuthorize())
+            if (Model.HasSecured())
             {
                 attributes.Add("[Authorize]");
             }
-            attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetApiSettings().HttpRoute()) ? "api/[controller]" : Model.GetApiSettings().HttpRoute())}"")]");
+            attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
             return string.Join(@"
     ", attributes);
         }
@@ -81,9 +82,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             var attributes = new List<string>();
             attributes.Add(GetHttpVerbAndPath(o));
-            if (!o.GetApiSettings().Security().IsInherit())
+            if (o.ParentService.HasSecured() != o.HasSecured())
             {
-                attributes.Add(o.GetApiSettings().Security().IsAuthorize() ? "[Authorize]" : "[AllowAnonymous]");
+                attributes.Add(o.HasSecured() ? "[Authorize]" : "[AllowAnonymous]");
             }
             return string.Join(@"
         ", attributes);
@@ -109,7 +110,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 case HttpVerb.GET:
                 case HttpVerb.DELETE:
                     if (operation.Parameters.Any(x => x.TypeReference.Element.SpecializationTypeId != TypeDefinitionModel.SpecializationTypeId &&
-                                                      x.GetParameterSettings().Source().IsAuto()))
+                                                      x.GetParameterSettings().Source().IsDefault()))
                     {
                         Logging.Log.Warning($@"Intent.AspNetCore.Controllers: [{Model.Name}.{operation.Name}] Passing objects into HTTP {GetHttpVerb(operation)} operations is not well supported by this module.
     We recommend using a POST or PUT verb");
@@ -130,34 +131,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return $"ActionResult<{GetTypeName(operation.TypeReference)}>";
         }
 
-        public HttpVerb GetHttpVerb(OperationModel operation)
-        {
-            var verb = operation.GetApiSettings().HttpVerb();
-            if (!verb.IsAUTO())
-            {
-                return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
-            }
-            if (operation.ReturnType == null || operation.Parameters.Any(x => !Types.Get(x.TypeReference).IsPrimitive))
-            {
-                var hasIdParam = operation.Parameters.Any(x => x.Name.ToLower().EndsWith("id") && Types.Get(x.TypeReference).IsPrimitive);
-                if (hasIdParam && new[] { "delete", "remove" }.Any(x => operation.Name.ToLower().Contains(x)))
-                {
-                    return HttpVerb.DELETE;
-                }
-                return hasIdParam ? HttpVerb.PUT : HttpVerb.POST;
-            }
-            return HttpVerb.GET;
-        }
-
         private string GetPath(OperationModel operation)
         {
-            var path = operation.GetApiSettings().HttpRoute();
+            var path = operation.GetHttpSettings().Route();
             return !string.IsNullOrWhiteSpace(path) ? path : null;
         }
 
         private string GetParameterBindingAttribute(OperationModel operation, ParameterModel parameter)
         {
-            if (parameter.GetParameterSettings().Source().IsAuto())
+            if (parameter.GetParameterSettings().Source().IsDefault())
             {
                 return "";
             }
@@ -191,6 +173,26 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetConstructorImplementation()
         {
             return GetDecorators().Aggregate(x => x.ConstructorImplementation());
+        }
+
+        private HttpVerb GetHttpVerb(OperationModel operation)
+        {
+            var verb = operation.GetHttpSettings().Verb();
+            return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
+            //if (!verb.IsAUTO())
+            //{
+            //    return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
+            //}
+            //if (operation.ReturnType == null || operation.Parameters.Any(x => !Types.Get(x.TypeReference).IsPrimitive))
+            //{
+            //    var hasIdParam = operation.Parameters.Any(x => x.Name.ToLower().EndsWith("id") && Types.Get(x.TypeReference).IsPrimitive);
+            //    if (hasIdParam && new[] { "delete", "remove" }.Any(x => operation.Name.ToLower().Contains(x)))
+            //    {
+            //        return HttpVerb.DELETE;
+            //    }
+            //    return hasIdParam ? HttpVerb.PUT : HttpVerb.POST;
+            //}
+            //return HttpVerb.GET;
         }
 
         public enum HttpVerb

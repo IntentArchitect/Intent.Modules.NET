@@ -11,56 +11,32 @@ namespace Intent.AspNetCore.Controllers.Api
 {
     public static class ServiceModelExtensions
     {
-        public static ApiSettings GetApiSettings(this ServiceModel model)
+        public static Secured GetSecured(this ServiceModel model)
         {
-            var stereotype = model.GetStereotype("Api Settings");
-            return stereotype != null ? new ApiSettings(stereotype) : null;
+            var stereotype = model.GetStereotype("Secured");
+            return stereotype != null ? new Secured(stereotype) : null;
         }
 
-        public static bool HasApiSettings(this ServiceModel model)
+        public static bool HasSecured(this ServiceModel model)
         {
-            return model.HasStereotype("Api Settings");
+            return model.HasStereotype("Secured");
         }
 
 
-        public class ApiSettings
+        public class Secured
         {
             private IStereotype _stereotype;
 
-            public ApiSettings(IStereotype stereotype)
+            public Secured(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }
 
             public string Name => _stereotype.Name;
 
-            public string HttpRoute()
+            public string Roles()
             {
-                return _stereotype.GetProperty<string>("Http Route");
-            }
-
-            public SecurityOptions Security()
-            {
-                return new SecurityOptions(_stereotype.GetProperty<string>("Security"));
-            }
-
-            public class SecurityOptions
-            {
-                public readonly string Value;
-
-                public SecurityOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public bool IsAuthorize()
-                {
-                    return Value == "Authorize";
-                }
-                public bool IsAllowAnonymous()
-                {
-                    return Value == "Allow Anonymous";
-                }
+                return _stereotype.GetProperty<string>("Roles");
             }
 
         }

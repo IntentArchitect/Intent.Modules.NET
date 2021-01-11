@@ -11,96 +11,32 @@ namespace Intent.AspNetCore.Controllers.Api
 {
     public static class OperationModelExtensions
     {
-        public static ApiSettings GetApiSettings(this OperationModel model)
+        public static Secured GetSecured(this OperationModel model)
         {
-            var stereotype = model.GetStereotype("Api Settings");
-            return stereotype != null ? new ApiSettings(stereotype) : null;
+            var stereotype = model.GetStereotype("Secured");
+            return stereotype != null ? new Secured(stereotype) : null;
         }
 
-        public static bool HasApiSettings(this OperationModel model)
+        public static bool HasSecured(this OperationModel model)
         {
-            return model.HasStereotype("Api Settings");
+            return model.HasStereotype("Secured");
         }
 
 
-        public class ApiSettings
+        public class Secured
         {
             private IStereotype _stereotype;
 
-            public ApiSettings(IStereotype stereotype)
+            public Secured(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }
 
             public string Name => _stereotype.Name;
 
-            public HttpVerbOptions HttpVerb()
+            public string Roles()
             {
-                return new HttpVerbOptions(_stereotype.GetProperty<string>("Http Verb"));
-            }
-
-            public string HttpRoute()
-            {
-                return _stereotype.GetProperty<string>("Http Route");
-            }
-
-            public SecurityOptions Security()
-            {
-                return new SecurityOptions(_stereotype.GetProperty<string>("Security"));
-            }
-
-            public class HttpVerbOptions
-            {
-                public readonly string Value;
-
-                public HttpVerbOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public bool IsAUTO()
-                {
-                    return Value == "AUTO";
-                }
-                public bool IsGET()
-                {
-                    return Value == "GET";
-                }
-                public bool IsPOST()
-                {
-                    return Value == "POST";
-                }
-                public bool IsPUT()
-                {
-                    return Value == "PUT";
-                }
-                public bool IsDELETE()
-                {
-                    return Value == "DELETE";
-                }
-            }
-
-            public class SecurityOptions
-            {
-                public readonly string Value;
-
-                public SecurityOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public bool IsInherit()
-                {
-                    return Value == "Inherit";
-                }
-                public bool IsAuthorize()
-                {
-                    return Value == "Authorize";
-                }
-                public bool IsAllowAnonymous()
-                {
-                    return Value == "Allow Anonymous";
-                }
+                return _stereotype.GetProperty<string>("Roles");
             }
 
         }
