@@ -92,6 +92,6 @@ namespace <#= Namespace #>
             }
         }
 <#= AssociationAfter(associatedClass) #>
-<#  }#>
+<#  }#><#= AfterProperties(Model) #>
     }
 }

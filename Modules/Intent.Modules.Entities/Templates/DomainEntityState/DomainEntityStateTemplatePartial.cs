@@ -102,6 +102,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         {
             return GetDecorators().Aggregate(x => x.BeforeProperties(@class));
         }
+        public string AfterProperties(ClassModel @class)
+        {
+            return GetDecorators().Aggregate(x => x.AfterProperties(@class));
+        }
 
         public string PropertyBefore(AttributeModel attribute)
         {

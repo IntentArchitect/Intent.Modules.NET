@@ -4,6 +4,16 @@
   <FileLogs>
     <FileLog>
       <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore.Interop.DomainEvents/Decorators/DomainEventsConfigurationsDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventsConfigurationsDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore.Interop.DomainEvents/Decorators/DomainEventsConfigurationsDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DomainEventsConfigurationsDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9e130caa-284a-4a72-8a44-2c12f731caca</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore.Interop.DomainEvents/Decorators/DomainEventsDbContextDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventsDbContextDecorator.cs</ProjectRelativeFilePath>
     </FileLog>

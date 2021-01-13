@@ -1,4 +1,4 @@
-<#@ template  debug="true" inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>" #>
+<#@ template  debug="true" inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel, Intent.Modules.EntityFrameworkCore.Templates.Configurations.ConfigurationsDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
@@ -50,12 +50,9 @@ else
 <#
 }
 
-if (Model.ParentClass != null) {
-#>
+    if (Model.ParentClass != null) { #>
             builder.HasBaseType<<#= Model.ParentClass.Name #>>();
-<#
-}
-
+<#  }#><#= GetDecoratorsOutput(x => x.BeforeAttributes()) #><#
 foreach (var attribute in Model.Attributes)
 {
     if (attribute.Name.ToLower() == "id" && addedImplicitKey)
@@ -124,8 +121,8 @@ foreach (var attribute in Model.Attributes)
 #>
                 ;
 
+<#}#><#= GetDecoratorsOutput(x => x.AfterAttributes()) #>
 <#
-}
 
 var indexes = Model.Attributes
     .Where(x => x.HasIndex())

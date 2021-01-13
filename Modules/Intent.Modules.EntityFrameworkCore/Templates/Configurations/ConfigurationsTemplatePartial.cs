@@ -19,7 +19,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.EntityFrameworkCore.Templates.Configurations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class ConfigurationsTemplate : CSharpTemplateBase<ClassModel>
+    partial class ConfigurationsTemplate : CSharpTemplateBase<ClassModel, ConfigurationsDecorator>
     {
         public const string Identifier = "Intent.EntityFrameworkCore.Configurations";
         private readonly IList<IEFMappingTemplateDecorator> _decorators = new List<IEFMappingTemplateDecorator>();

@@ -32,26 +32,18 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
         /// </summary>
         public override string TransformText()
         {
-            this.Write(@"using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using FluentValidation;
-using MediatR;
-using ValidationException = CleanArchitecture.Application.Common.Exceptions.ValidationException;
-
-[assembly: DefaultIntentManaged(Mode.Fully)]
-
-namespace ");
+            this.Write("using System.Collections.Generic;\r\nusing System.Linq;\r\nusing System.Threading;\r\nu" +
+                    "sing System.Threading.Tasks;\r\nusing FluentValidation;\r\nusing MediatR;\r\n\r\n[assemb" +
+                    "ly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -60,7 +52,7 @@ namespace ");
                     "quest : IRequest<TResponse>\r\n    {\r\n        private readonly IEnumerable<IValida" +
                     "tor<TRequest>> _validators;\r\n\r\n        public ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -80,15 +72,12 @@ namespace ");
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
                 if (failures.Count != 0)
-                    throw new ");
-            
-            #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetValidationException()));
-            
-            #line default
-            #line hidden
-            this.Write("(failures);\r\n            }\r\n            return await next();\r\n        }\r\n    }\r\n}" +
-                    "");
+                    throw new ValidationException(failures);
+            }
+            return await next();
+        }
+    }
+}");
             return this.GenerationEnvironment.ToString();
         }
     }

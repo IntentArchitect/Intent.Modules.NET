@@ -360,7 +360,13 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             
             #line default
             #line hidden
-            this.Write("    }\r\n}\r\n");
+            
+            #line 95 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\DomainEntityState\DomainEntityStateTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(AfterProperties(Model)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

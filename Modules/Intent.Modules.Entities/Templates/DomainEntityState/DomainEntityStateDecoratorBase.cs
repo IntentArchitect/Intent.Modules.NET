@@ -20,6 +20,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         public virtual string GetBaseClass(ClassModel @class) { return null; }
         public virtual string Constructors(ClassModel @class) { return null; }
         public virtual string BeforeProperties(ClassModel @class) { return null; }
+        public virtual string AfterProperties(ClassModel @class) { return null; }
         public virtual string PropertyBefore(AttributeModel attribute) { return null; }
         public virtual string PropertyFieldAnnotations(AttributeModel attribute) { return null; }
         public virtual string PropertyAnnotations(AttributeModel attribute) { return null; }

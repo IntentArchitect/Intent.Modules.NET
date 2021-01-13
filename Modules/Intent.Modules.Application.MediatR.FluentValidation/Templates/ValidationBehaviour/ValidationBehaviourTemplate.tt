@@ -13,7 +13,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
-using ValidationException = CleanArchitecture.Application.Common.Exceptions.ValidationException;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -39,7 +38,7 @@ namespace <#= Namespace #>
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
                 if (failures.Count != 0)
-                    throw new <#= GetValidationException() #>(failures);
+                    throw new ValidationException(failures);
             }
             return await next();
         }
