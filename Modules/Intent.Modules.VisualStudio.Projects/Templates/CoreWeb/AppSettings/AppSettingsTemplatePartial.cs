@@ -148,6 +148,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 
         public void AddPropertyIfNotExists(string key, object value)
         {
+            if (value is bool b)
+            {
+                _appSettings[key] = b;
+            }
+            if (value is int i)
+            {
+                _appSettings[key] = i;
+            }
+            if (value is string s)
+            {
+                _appSettings[key] = s;
+            }
             if (!PropertyExists(key))
             {
                 _appSettings[key] = JObject.FromObject(value);
