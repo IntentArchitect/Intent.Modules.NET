@@ -81,14 +81,7 @@ namespace <#= Namespace #>
             {
                 endpoints.MapControllers();
             });
-<#  } #>
-<#  foreach(var decorator in GetDecorators()) { #>
-            <#= decorator.Configuration() #>
-<#  } #>
-        }
-<#  foreach(var decorator in GetDecorators()) { #>
-
-        <#= decorator.Methods() #>
-<#  } #>
+<#  } #><#= GetDecoratorsOutput(x => x.Configuration()) #>
+        }<#=  GetDecoratorsOutput(x => x.Methods()) #>
     }
 }

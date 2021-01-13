@@ -45,12 +45,12 @@
     </detect>
     <detect id="Intent.DomainEvents">
       <install>
-        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.0.1" />
+        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.0.2" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.0.1" />
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.0.2" />
       </install>
     </detect>
   </interoperability>

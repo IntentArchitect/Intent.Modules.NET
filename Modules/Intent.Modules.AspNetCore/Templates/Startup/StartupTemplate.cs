@@ -179,47 +179,19 @@ using Microsoft.Extensions.Options;
             #line default
             #line hidden
             
+            #line 84 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetDecoratorsOutput(x => x.Configuration())));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        }");
+            
             #line 85 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-  foreach(var decorator in GetDecorators()) { 
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetDecoratorsOutput(x => x.Methods())));
             
             #line default
             #line hidden
-            this.Write("            ");
-            
-            #line 86 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(decorator.Configuration()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 87 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-  } 
-            
-            #line default
-            #line hidden
-            this.Write("        }\r\n");
-            
-            #line 89 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-  foreach(var decorator in GetDecorators()) { 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n        ");
-            
-            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(decorator.Methods()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 92 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore\Templates\Startup\StartupTemplate.tt"
-  } 
-            
-            #line default
-            #line hidden
-            this.Write("    }\r\n}");
+            this.Write("\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
