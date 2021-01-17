@@ -21,7 +21,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.MediatR.DomainEvents.DomainEventService";
 
-        public DomainEventServiceTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DomainEventServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

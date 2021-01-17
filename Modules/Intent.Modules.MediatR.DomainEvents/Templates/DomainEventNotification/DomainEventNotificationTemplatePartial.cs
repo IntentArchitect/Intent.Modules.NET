@@ -18,7 +18,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.MediatR.DomainEvents.DomainEventNotification";
 
-        public DomainEventNotificationTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DomainEventNotificationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

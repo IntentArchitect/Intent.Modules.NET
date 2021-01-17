@@ -1,4 +1,4 @@
-<#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, ServiceContractDecorator>" #>
+<#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, Intent.Modules.Application.Contracts.Templates.ServiceContract.ServiceContractDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>

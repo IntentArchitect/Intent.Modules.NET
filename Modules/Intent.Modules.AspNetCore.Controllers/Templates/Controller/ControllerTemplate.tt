@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<ServiceModel, ControllerDecorator>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, Intent.Modules.AspNetCore.Controllers.Templates.Controller.ControllerDecorator>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>

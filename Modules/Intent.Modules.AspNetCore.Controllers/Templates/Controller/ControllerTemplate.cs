@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     
     #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>
+    public partial class ControllerTemplate : CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, ControllerDecorator>
     {
 #line hidden
         /// <summary>

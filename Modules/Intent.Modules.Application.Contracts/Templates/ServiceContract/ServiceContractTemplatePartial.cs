@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Contracts.ServiceContract";
 
+        [IntentManaged(Mode.Ignore)]
         public ServiceContractTemplate(IOutputTarget project, ServiceModel model, string identifier = TemplateId)
             : base(identifier, project, model)
         {

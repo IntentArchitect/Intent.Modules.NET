@@ -19,6 +19,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.MediatR.DomainEvents.DomainEventHandler";
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DomainEventHandlerTemplate(IOutputTarget outputTarget, DomainEventModel model) : base(TemplateId, outputTarget, model)
         {
         }

@@ -25,15 +25,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public ControllerTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
         {
         }
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name.RemoveSuffix("Controller", "Service")}Controller",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         public string GetEnterClass()
