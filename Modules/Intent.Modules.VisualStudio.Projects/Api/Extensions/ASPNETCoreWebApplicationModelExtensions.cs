@@ -21,6 +21,17 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype(".NET Core Settings");
         }
 
+        public static ProjectOptions GetProjectOptions(this ASPNETCoreWebApplicationModel model)
+        {
+            var stereotype = model.GetStereotype("Project Options");
+            return stereotype != null ? new ProjectOptions(stereotype) : null;
+        }
+
+        public static bool HasProjectOptions(this ASPNETCoreWebApplicationModel model)
+        {
+            return model.HasStereotype("Project Options");
+        }
+
 
         public class NETCoreSettings
         {
@@ -46,6 +57,24 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             public IElement[] TargetFrameworks()
             {
                 return _stereotype.GetProperty<IElement[]>("Target Frameworks");
+            }
+
+        }
+
+        public class ProjectOptions
+        {
+            private IStereotype _stereotype;
+
+            public ProjectOptions(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+            public string RelativeLocation()
+            {
+                return _stereotype.GetProperty<string>("Relative Location");
             }
 
         }

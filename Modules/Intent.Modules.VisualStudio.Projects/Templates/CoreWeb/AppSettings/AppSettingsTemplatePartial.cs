@@ -25,7 +25,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class AppSettingsTemplate : IntentTemplateBase<object, AppSettingsDecorator>
     {
-        
+
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.VisualStudio.Projects.CoreWeb.AppSettings";
         private readonly IList<AppSettingRegistrationRequest> _appSettings = new List<AppSettingRegistrationRequest>();
