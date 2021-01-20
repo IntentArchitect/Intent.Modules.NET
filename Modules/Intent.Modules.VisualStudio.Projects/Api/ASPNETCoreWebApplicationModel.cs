@@ -27,7 +27,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
             _element = element;
-            RelativeLocation = this.GetProjectOptions()?.RelativeLocation();
+            RelativeLocation = this.GetCSharpProjectOptions()?.RelativeLocation();
+            LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
+            NullableEnabled = this.GetCSharpProjectOptions()?.NullableEnabled() ?? false;
             ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
         }
 
@@ -36,6 +38,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string ProjectTypeId => VisualStudioProjectTypeIds.CoreWebApp;
         public SolutionFolderModel ParentFolder { get; }
         public VisualStudioSolutionModel Solution => new VisualStudioSolutionModel(InternalElement.Package);
+        public string LanguageVersion { get; }
+        public bool NullableEnabled { get; }
 
         public IOutputTargetConfig ToOutputTargetConfig()
         {

@@ -20,6 +20,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         IList<FolderModel> Folders { get; }
         SolutionFolderModel ParentFolder { get; }
         VisualStudioSolutionModel Solution { get; }
+        string LanguageVersion { get; }
+        bool NullableEnabled { get; }
     }
 
     public static class VisualStudioProjectExtensions

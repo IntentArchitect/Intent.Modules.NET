@@ -15,6 +15,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public ProjectConfig(IVisualStudioProject project)
         {
             _project = project;
+            Metadata = new Dictionary<string, object>()
+            {
+                { "Language Version", _project.LanguageVersion },
+                { "Nullable Enabled", _project.NullableEnabled },
+                { "Target Frameworks", _project.TargetFrameworkVersion() }
+            };
+            string? s = null;
+            IStereotype? o = null;
         }
 
         public IEnumerable<IStereotype> Stereotypes => _project.Stereotypes;

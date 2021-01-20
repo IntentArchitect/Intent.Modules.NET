@@ -21,15 +21,15 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype(".NET Framework Settings");
         }
 
-        public static ProjectOptions GetProjectOptions(this ClassLibraryNETFrameworkModel model)
+        public static CSharpProjectOptions GetCSharpProjectOptions(this ClassLibraryNETFrameworkModel model)
         {
-            var stereotype = model.GetStereotype("Project Options");
-            return stereotype != null ? new ProjectOptions(stereotype) : null;
+            var stereotype = model.GetStereotype("C# Project Options");
+            return stereotype != null ? new CSharpProjectOptions(stereotype) : null;
         }
 
-        public static bool HasProjectOptions(this ClassLibraryNETFrameworkModel model)
+        public static bool HasCSharpProjectOptions(this ClassLibraryNETFrameworkModel model)
         {
-            return model.HasStereotype("Project Options");
+            return model.HasStereotype("C# Project Options");
         }
 
 
@@ -74,20 +74,101 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         }
 
-        public class ProjectOptions
+        public class CSharpProjectOptions
         {
             private IStereotype _stereotype;
 
-            public ProjectOptions(IStereotype stereotype)
+            public CSharpProjectOptions(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }
 
             public string Name => _stereotype.Name;
 
+            public LanguageVersionOptions LanguageVersion()
+            {
+                return new LanguageVersionOptions(_stereotype.GetProperty<string>("Language Version"));
+            }
+
             public string RelativeLocation()
             {
                 return _stereotype.GetProperty<string>("Relative Location");
+            }
+
+            public bool NullableEnabled()
+            {
+                return _stereotype.GetProperty<bool>("Nullable Enabled");
+            }
+
+            public class LanguageVersionOptions
+            {
+                public readonly string Value;
+
+                public LanguageVersionOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public bool IsDefault()
+                {
+                    return Value == "default";
+                }
+                public bool IsLatest()
+                {
+                    return Value == "latest";
+                }
+                public bool IsPreview()
+                {
+                    return Value == "preview";
+                }
+                public bool Is90()
+                {
+                    return Value == "9.0";
+                }
+                public bool Is80()
+                {
+                    return Value == "8.0";
+                }
+                public bool Is73()
+                {
+                    return Value == "7.3";
+                }
+                public bool Is72()
+                {
+                    return Value == "7.2";
+                }
+                public bool Is71()
+                {
+                    return Value == "7.1";
+                }
+                public bool Is7()
+                {
+                    return Value == "7";
+                }
+                public bool Is6()
+                {
+                    return Value == "6";
+                }
+                public bool Is5()
+                {
+                    return Value == "5";
+                }
+                public bool Is4()
+                {
+                    return Value == "4";
+                }
+                public bool Is3()
+                {
+                    return Value == "3";
+                }
+                public bool Is2()
+                {
+                    return Value == "2";
+                }
+                public bool Is1()
+                {
+                    return Value == "1";
+                }
             }
 
         }

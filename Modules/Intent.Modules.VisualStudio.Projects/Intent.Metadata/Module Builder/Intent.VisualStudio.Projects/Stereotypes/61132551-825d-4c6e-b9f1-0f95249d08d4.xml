@@ -3,6 +3,7 @@
   <name>Folder Options</name>
   <targetMode>of-type</targetMode>
   <targetElements>
+    <element id="3407a825-1331-4f3f-89a4-901903ed97ce">Folder</element>
     <element id="4d95d53a-8855-4f35-aa82-e312643f5c5f">Folder</element>
   </targetElements>
   <applyMode>always</applyMode>
