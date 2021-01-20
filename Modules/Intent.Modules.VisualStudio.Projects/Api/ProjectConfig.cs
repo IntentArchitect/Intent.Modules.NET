@@ -21,8 +21,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 { "Nullable Enabled", _project.NullableEnabled },
                 { "Target Frameworks", _project.TargetFrameworkVersion() }
             };
-            string? s = null;
-            IStereotype? o = null;
         }
 
         public IEnumerable<IStereotype> Stereotypes => _project.Stereotypes;
