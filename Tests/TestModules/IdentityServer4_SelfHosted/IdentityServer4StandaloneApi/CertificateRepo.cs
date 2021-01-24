@@ -2,12 +2,18 @@ using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("IdentityServer4.X509CertSigning.CertificateRepo", Version = "1.0")]
 
 namespace IdentityServer4StandaloneApi
 {
+    
+
+
     /// <summary>
     /// Convenient way to obtain X509 Certificates from various sources
     /// </summary>
@@ -81,6 +87,18 @@ namespace IdentityServer4StandaloneApi
             return new X509Certificate2(fileName, password);
         }
 
+        public static X509Certificate2 GetUsingOptions(IConfiguration configuration)
+        {
+            var certificateOptions = new CertificateOptions();
+            configuration.GetSection("CertificateOptions").Bind(certificateOptions);
+
+            return GetFromCertificateStore(
+                certificateOptions.FindType,
+                certificateOptions.FindValue,
+                certificateOptions.StoreName,
+                certificateOptions.StoreLocation);
+        }
+
         private static byte[] ReadStream(Stream input)
         {
             byte[] buffer = new byte[16 * 1024];
@@ -94,6 +112,14 @@ namespace IdentityServer4StandaloneApi
                 return ms.ToArray();
             }
         }
+    }
+
+    public class CertificateOptions
+    {
+        public X509FindType FindType { get; set; }
+        public string FindValue { get; set; }
+        public StoreName StoreName { get; set; }
+        public StoreLocation StoreLocation { get; set; }
     }
 
     public class CertificateStoreException : Exception
