@@ -13,7 +13,7 @@ namespace Intent.Modules.IdentityServer4.InMemoryStore.Decorators
 {
     public class X509CertSigningStartupDecorator : StartupDecorator
     {
-        public const string Identifier = "IdentityServer4.X509CertSigning.StartupDecorator";
+        public const string Identifier = "IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator";
 
         public X509CertSigningStartupDecorator(StartupTemplate startupTemplate)
         {
@@ -24,7 +24,7 @@ namespace Intent.Modules.IdentityServer4.InMemoryStore.Decorators
         {
             return new[]
             {
-                @"AddSigningCredential(CertificateRepo.GetFromFile(""path to pfx file""))"
+                @"AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration))"
             };
         }
     }

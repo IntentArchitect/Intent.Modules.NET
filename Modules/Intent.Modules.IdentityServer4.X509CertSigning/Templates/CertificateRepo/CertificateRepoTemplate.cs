@@ -32,11 +32,18 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing System.IO;\r\nusing System.Security.Cryptography.X509Certifica" +
-                    "tes;\r\nusing Intent.RoslynWeaver.Attributes;\r\n\r\n[assembly: DefaultIntentManaged(M" +
-                    "ode.Fully)]\r\n\r\nnamespace ");
+            this.Write(@"using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.X509CertSigning\Templates\CertificateRepo\CertificateRepoTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.X509CertSigning\Templates\CertificateRepo\CertificateRepoTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -44,7 +51,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
             this.Write("\r\n{\r\n    /// <summary>\r\n    /// Convenient way to obtain X509 Certificates from v" +
                     "arious sources\r\n    /// </summary>\r\n    internal static class ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.X509CertSigning\Templates\CertificateRepo\CertificateRepoTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.X509CertSigning\Templates\CertificateRepo\CertificateRepoTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -78,7 +85,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
                     "tEmbeddedCertificate(string resourceName, string password = null)\r\n        {\r\n  " +
                     "          var assembly = typeof(");
             
-            #line 80 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.X509CertSigning\Templates\CertificateRepo\CertificateRepoTemplate.tt"
+            #line 82 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.X509CertSigning\Templates\CertificateRepo\CertificateRepoTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -88,12 +95,33 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
                     "ream(stream), password);\r\n            }\r\n        }\r\n\r\n        public static X509" +
                     "Certificate2 GetFromFile(string fileName, string password = null)\r\n        {\r\n  " +
                     "          return new X509Certificate2(fileName, password);\r\n        }\r\n\r\n       " +
-                    " private static byte[] ReadStream(Stream input)\r\n        {\r\n            byte[] b" +
-                    "uffer = new byte[16 * 1024];\r\n            using (MemoryStream ms = new MemoryStr" +
-                    "eam())\r\n            {\r\n                int read;\r\n                while ((read =" +
-                    " input.Read(buffer, 0, buffer.Length)) > 0)\r\n                {\r\n                " +
-                    "    ms.Write(buffer, 0, read);\r\n                }\r\n                return ms.ToA" +
-                    "rray();\r\n            }\r\n        }\r\n    }\r\n\r\n    public class CertificateStoreExc" +
+                    " public static X509Certificate2 GetUsingOptions(IConfiguration configuration)\r\n " +
+                    "       {\r\n            var certificateOptions = new CertificateOptions();\r\n      " +
+                    "      configuration.GetSection(\"CertificateOptions\").Bind(certificateOptions);\r\n" +
+                    "\r\n            if (certificateOptions.Store != null)\r\n            {\r\n            " +
+                    "    return GetFromCertificateStore(\r\n                    certificateOptions.Stor" +
+                    "e.FindType,\r\n                    certificateOptions.Store.FindValue,\r\n          " +
+                    "          certificateOptions.Store.StoreName,\r\n                    certificateOp" +
+                    "tions.Store.StoreLocation);\r\n            }\r\n\r\n            if (certificateOptions" +
+                    ".File != null)\r\n            {\r\n                return GetFromFile(\r\n            " +
+                    "        certificateOptions.File.Filename, \r\n                    certificateOptio" +
+                    "ns.File.Password);\r\n            }\r\n\r\n            throw new CertificateStoreExcep" +
+                    "tion(\r\n            @\"\"\"CertificateOptions\"\" configuration section needs one of t" +
+                    "he following members populated:\r\n    - Store\r\n    - File\r\n\r\nPlease see the Certi" +
+                    "ficateRepo.cs for more details\");\r\n        }\r\n\r\n        private static byte[] Re" +
+                    "adStream(Stream input)\r\n        {\r\n            byte[] buffer = new byte[16 * 102" +
+                    "4];\r\n            using (MemoryStream ms = new MemoryStream())\r\n            {\r\n  " +
+                    "              int read;\r\n                while ((read = input.Read(buffer, 0, bu" +
+                    "ffer.Length)) > 0)\r\n                {\r\n                    ms.Write(buffer, 0, r" +
+                    "ead);\r\n                }\r\n                return ms.ToArray();\r\n            }\r\n " +
+                    "       }\r\n    }\r\n\r\n    public class CertificateOptions\r\n    {\r\n        public Ce" +
+                    "rtificateOptionsStore Store { get; set; }\r\n        public CertificateOptionsFile" +
+                    " File { get; set; }\r\n    }\r\n\r\n    public class CertificateOptionsStore\r\n    {\r\n " +
+                    "       public X509FindType FindType { get; set; }\r\n        public string FindVal" +
+                    "ue { get; set; }\r\n        public StoreName StoreName { get; set; }\r\n        publ" +
+                    "ic StoreLocation StoreLocation { get; set; }\r\n    }\r\n\r\n    public class Certific" +
+                    "ateOptionsFile\r\n    {\r\n        public string Filename { get; set; }\r\n        pub" +
+                    "lic string Password { get; set; }\r\n    }\r\n\r\n    public class CertificateStoreExc" +
                     "eption : Exception\r\n    {\r\n        public CertificateStoreException() : base()\r\n" +
                     "        {\r\n        }\r\n\r\n        public CertificateStoreException(string message)" +
                     " : base(message)\r\n        {\r\n        }\r\n\r\n        public CertificateStoreExcepti" +

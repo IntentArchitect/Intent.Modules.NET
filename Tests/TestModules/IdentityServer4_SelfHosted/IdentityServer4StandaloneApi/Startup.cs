@@ -39,6 +39,7 @@ namespace IdentityServer4StandaloneApi
                 .AddTestUsers(TestUsers.Users)
                 .AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration))
                 ;
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -59,5 +59,29 @@
       <stereotypes />
       <childElements />
     </childElement>
+    <childElement id="87c65b8c-199d-4a03-ab46-24a37de72b67" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.TemplateDecorator</name>
+      <display>Intent.ModuleBuilder.Templates.TemplateDecorator</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="8e0deaf4-458c-4d5b-a5cb-ea39be1f0eac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration</name>
+      <display>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -4,14 +4,13 @@ using System.Security.Cryptography.X509Certificates;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("IdentityServer4.X509CertSigning.CertificateRepo", Version = "1.0")]
 
 namespace IdentityServer4StandaloneApi
 {
-    
+
 
 
     /// <summary>
@@ -92,11 +91,28 @@ namespace IdentityServer4StandaloneApi
             var certificateOptions = new CertificateOptions();
             configuration.GetSection("CertificateOptions").Bind(certificateOptions);
 
-            return GetFromCertificateStore(
-                certificateOptions.FindType,
-                certificateOptions.FindValue,
-                certificateOptions.StoreName,
-                certificateOptions.StoreLocation);
+            if (certificateOptions.Store != null)
+            {
+                return GetFromCertificateStore(
+                    certificateOptions.Store.FindType,
+                    certificateOptions.Store.FindValue,
+                    certificateOptions.Store.StoreName,
+                    certificateOptions.Store.StoreLocation);
+            }
+
+            if (certificateOptions.File != null)
+            {
+                return GetFromFile(
+                    certificateOptions.File.Filename,
+                    certificateOptions.File.Password);
+            }
+
+            throw new CertificateStoreException(
+            @"""CertificateOptions"" configuration section needs one of the following members populated:
+    - Store
+    - File
+
+Please see the CertificateRepo.cs for more details");
         }
 
         private static byte[] ReadStream(Stream input)
@@ -116,10 +132,22 @@ namespace IdentityServer4StandaloneApi
 
     public class CertificateOptions
     {
+        public CertificateOptionsStore Store { get; set; }
+        public CertificateOptionsFile File { get; set; }
+    }
+
+    public class CertificateOptionsStore
+    {
         public X509FindType FindType { get; set; }
         public string FindValue { get; set; }
         public StoreName StoreName { get; set; }
         public StoreLocation StoreLocation { get; set; }
+    }
+
+    public class CertificateOptionsFile
+    {
+        public string Filename { get; set; }
+        public string Password { get; set; }
     }
 
     public class CertificateStoreException : Exception

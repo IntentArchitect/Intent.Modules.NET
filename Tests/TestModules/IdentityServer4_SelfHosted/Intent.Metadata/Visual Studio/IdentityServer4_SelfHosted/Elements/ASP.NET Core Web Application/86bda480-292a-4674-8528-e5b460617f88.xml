@@ -3,7 +3,7 @@
   <name>IdentityServer4StandaloneApi</name>
   <display>IdentityServer4StandaloneApi</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>de231ea6-9356-4a0b-9f65-4c7444283d56</parentFolderId>
@@ -18,6 +18,16 @@
         <property name="4756bd10-23e2-473b-9957-d7083759cd42" display="Target Multiple Frameworks" value="false" isActive="true" />
         <property name="ef3e7b17-ba1d-4818-82a2-5a8ad3875d40" display="Target Framework" value="d603dbfd-3361-4406-b5c0-efc2ac6f33fc" isActive="true" />
         <property name="5215b600-32fc-4a6d-af72-9eb88a6f30e7" display="Target Frameworks" value="" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+        <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -39,7 +49,7 @@
       <name>IdentityServer4.Selfhost.IdentityConfig</name>
       <display>IdentityServer4.Selfhost.IdentityConfig</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -52,7 +62,7 @@
       <name>IdentityServer4.Selfhost.Program</name>
       <display>IdentityServer4.Selfhost.Program</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -65,7 +75,7 @@
       <name>IdentityServer4.Selfhost.Startup</name>
       <display>IdentityServer4.Selfhost.Startup</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -78,7 +88,7 @@
       <name>IdentityServer4.X509CertSigning.CertificateRepo</name>
       <display>IdentityServer4.X509CertSigning.CertificateRepo</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -91,7 +101,7 @@
       <name>IdentityServer4.X509CertSigning.SigningCertificate</name>
       <display>IdentityServer4.X509CertSigning.SigningCertificate</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -104,7 +114,7 @@
       <name>IdentityServer4</name>
       <display>IdentityServer4</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>6</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>

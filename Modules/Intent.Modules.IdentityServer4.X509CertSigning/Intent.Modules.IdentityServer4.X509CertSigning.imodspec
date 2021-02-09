@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.X506CertSigning</id>
-  <version>3.0.2</version>
+  <version>3.0.3</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Support the capability of using PFX files or the Windows Certificate Store to sign tokens</summary>
   <description>Support the capability of using PFX files or the Windows Certificate Store to sign tokens</description>
@@ -18,15 +18,16 @@
     </template>
   </templates>
   <decorators>
-    <decorator id="IdentityServer4.X509CertSigning.StartupDecorator" />
     <decorator id="IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator" externalReference="30b9cf6f-6885-48c4-bda8-766b0a148d00" />
+    <decorator id="IdentityServer4.X509CertSigning.AppSettingsDecorator" />
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.1" />
     <dependency id="Intent.Common.Types" version="3.0.1" />
-    <dependency id="Intent.Common.CSharp" version="3.0.1" />
+    <dependency id="Intent.Common.CSharp" version="3.0.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1" />
     <dependency id="Intent.IdentityServer4.SelfHost" version="3.0.1" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.0.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
