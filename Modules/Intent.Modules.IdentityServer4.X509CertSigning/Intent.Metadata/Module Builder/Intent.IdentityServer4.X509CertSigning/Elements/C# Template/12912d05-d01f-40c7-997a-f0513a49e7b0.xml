@@ -19,7 +19,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>9dd5af98-e049-4ecd-a5b5-3b74a0ef1136</parentFolderId>
   <packageId>9dd5af98-e049-4ecd-a5b5-3b74a0ef1136</packageId>
-  <packageName>Intent.IdentityServer4.X506CertSigning</packageName>
+  <packageName>Intent.IdentityServer4.X509CertSigning</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">
       <addedByDefault>true</addedByDefault>

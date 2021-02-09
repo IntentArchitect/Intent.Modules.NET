@@ -7,7 +7,7 @@ using Intent.Templates;
 
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRepo
 {
@@ -15,9 +15,10 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Templates.CertificateRe
     partial class CertificateRepoTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "IdentityServer4.X509CertSigning.CertificateRepo";
+        public const string TemplateId = "Intent.IdentityServer4.X509CertSigning.CertificateRepo";
 
-        public CertificateRepoTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public CertificateRepoTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
