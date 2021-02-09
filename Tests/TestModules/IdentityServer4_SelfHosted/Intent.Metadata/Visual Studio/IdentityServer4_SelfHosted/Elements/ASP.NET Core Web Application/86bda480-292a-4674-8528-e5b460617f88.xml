@@ -32,9 +32,10 @@
     </stereotype>
   </stereotypes>
   <childElements>
-    <childElement id="e3094e45-f7f9-4975-b83b-1d480b5a92d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>IdentityServer4.InMemoryStore.TestUsers</name>
-      <display>IdentityServer4.InMemoryStore.TestUsers</display>
+    <childElement id="ce7bfd16-f172-4431-a214-ce516db7d73c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Program</name>
+      <display>Intent.AspNetCore.Program</display>
+      <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
       <order>0</order>
       <genericTypes />
@@ -45,63 +46,12 @@
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="4aa6349c-30c0-4d7d-bf1f-3cec3211c04d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>IdentityServer4.Selfhost.IdentityConfig</name>
-      <display>IdentityServer4.Selfhost.IdentityConfig</display>
+    <childElement id="7b76aa52-bb3d-4756-8eba-cef1d6470017" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Startup</name>
+      <display>Intent.AspNetCore.Startup</display>
+      <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
       <order>1</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="5d32426c-d0ee-4c91-a3e2-3b87296e6804" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>IdentityServer4.Selfhost.Program</name>
-      <display>IdentityServer4.Selfhost.Program</display>
-      <isAbstract>false</isAbstract>
-      <order>2</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="500a2e08-f1b6-47db-bb55-a0664a159e25" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>IdentityServer4.Selfhost.Startup</name>
-      <display>IdentityServer4.Selfhost.Startup</display>
-      <isAbstract>false</isAbstract>
-      <order>3</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="6e30a7e1-f4c0-4587-ad1c-ac78a096581c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>IdentityServer4.X509CertSigning.CertificateRepo</name>
-      <display>IdentityServer4.X509CertSigning.CertificateRepo</display>
-      <isAbstract>false</isAbstract>
-      <order>4</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="ed674267-7438-4edf-9ba2-4ce7b303ae89" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>IdentityServer4.X509CertSigning.SigningCertificate</name>
-      <display>IdentityServer4.X509CertSigning.SigningCertificate</display>
-      <isAbstract>false</isAbstract>
-      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
@@ -114,12 +64,24 @@
       <name>IdentityServer4</name>
       <display>IdentityServer4</display>
       <isAbstract>false</isAbstract>
-      <order>6</order>
+      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
       <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
       <packageName>IdentityServer4_SelfHosted</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="2743c922-3147-4c30-b4d0-2a65ab031eb3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.IdentityServer4.X509CertSigning.CertificateRepo</name>
+      <display>Intent.IdentityServer4.X509CertSigning.CertificateRepo</display>
+      <externalReference>Intent.IdentityServer4.X509CertSigning</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
       <stereotypes />
       <childElements />
     </childElement>

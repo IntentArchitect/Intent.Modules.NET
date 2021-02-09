@@ -12,10 +12,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("IdentityServer4.Selfhost.Startup", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
 
 namespace IdentityServer4StandaloneApi
 {
+    [IntentManaged(Mode.Merge)]
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -27,21 +28,18 @@ namespace IdentityServer4StandaloneApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddControllersWithViews();
-            // services.AddRazorPages();
             services.AddControllers();
 
-            services.AddIdentityServer()
-                .AddInMemoryClients(IdentityConfig.Clients)
-                .AddInMemoryApiResources(IdentityConfig.ApiResources)
-                .AddInMemoryApiScopes(IdentityConfig.Scopes)
-                .AddInMemoryIdentityResources(IdentityConfig.IdentityResources)
-                .AddTestUsers(TestUsers.Users)
-                .AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration))
-                ;
+            var idServerBuilder = services.AddIdentityServer();
+            idServerBuilder.AddInMemoryClients(Configuration.GetSection("IdentityServer:Clients"))
+                .AddInMemoryApiResources(Configuration.GetSection("IdentityServer:ApiResources"))
+                .AddInMemoryApiScopes(Configuration.GetSection("IdentityServer:ApiScopes"))
+                .AddInMemoryIdentityResources(Configuration.GetSection("IdentityServer:IdentityResources"));
+            idServerBuilder.AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration));
 
         }
 
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -50,13 +48,13 @@ namespace IdentityServer4StandaloneApi
             }
 
             app.UseHttpsRedirection();
-            // app.UseStaticFiles();
-
             app.UseRouting();
-
-            app.UseIdentityServer();
             app.UseAuthorization();
-            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute().RequireAuthorization());
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
         }
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("IdentityServer4.X509CertSigning.CertificateRepo", Version = "1.0")]
+[assembly: IntentTemplate("Intent.IdentityServer4.X509CertSigning.CertificateRepo", Version = "1.0")]
 
 namespace IdentityServer4StandaloneApi
 {

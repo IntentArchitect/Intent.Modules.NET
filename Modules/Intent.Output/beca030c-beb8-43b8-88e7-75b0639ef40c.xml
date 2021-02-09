@@ -4,88 +4,18 @@
   <FileLogs>
     <FileLog>
       <ProjectId>d9267876-4fbb-49bb-b061-f5dc37275754</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Intent.Modules.IdentityServer4.Selfhost.csproj</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Selfhost/Intent.IdentityServer4.SelfHost.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.IdentityServer4.SelfHost.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d9267876-4fbb-49bb-b061-f5dc37275754</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Selfhost/Intent.Modules.IdentityServer4.Selfhost.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.Selfhost.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>d9267876-4fbb-49bb-b061-f5dc37275754</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Intent.Modules.IdentityServer4.Selfhost.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.Selfhost.imodspec</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d9267876-4fbb-49bb-b061-f5dc37275754</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\README.txt</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Selfhost/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityConfig/IdentityConfigDecorator.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityConfig/IdentityConfigTemplate.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplate.tt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityConfig/IdentityConfigTemplate.tt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityConfig/IdentityConfigTemplatePartial.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\IdentityConfig\IdentityConfigTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityConfig/IdentityConfigTemplateRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplate.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Program/ProgramTemplate.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplate.tt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Program/ProgramTemplate.tt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Program/ProgramTemplatePartial.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Program\ProgramTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Program/ProgramTemplateRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupDecorator.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplate.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplate.tt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplate.tt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplatePartial.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d0e43b19-61e8-4715-80c4-da7aee572b21</ProjectId>
-      <SolutionRelativeFilePath>..\Intent.Modules.IdentityServer4.Selfhost\Templates\Startup\StartupTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

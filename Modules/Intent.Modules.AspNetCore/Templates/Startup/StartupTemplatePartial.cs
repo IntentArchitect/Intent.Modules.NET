@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
+using System.Text;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -42,6 +43,61 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private bool IsNetCore2App()
         {
             return OutputTarget.IsNetCore2App();
+        }
+
+        private string GetServiceConfigurations(string baseIndent)
+        {
+            var serviceConfigElements = new List<(string Code, int Priority)>();
+            serviceConfigElements.AddRange(GetDecorators().Select(s => (s.ConfigureServices(), s.Priority)));
+            return GetCodeInNeatLines(serviceConfigElements, baseIndent);
+        }
+
+        private string GetApplicationConfigurations(string baseIndent)
+        {
+            var appConfigElements = new List<(string Code, int Priority)>();
+            if (IsNetCore2App())
+            {
+                appConfigElements.Add(("app.UseHttpsRedirection();", -20));
+                appConfigElements.Add(("app.UseMvc();", -10));
+            }
+            else
+            {
+                appConfigElements.Add(("app.UseHttpsRedirection();", -20));
+                appConfigElements.Add(("app.UseRouting();", -10));
+                appConfigElements.Add(("app.UseAuthorization();", -5));
+                appConfigElements.Add((@"
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});", -1));
+            }
+
+            appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));
+
+            return GetCodeInNeatLines(appConfigElements, baseIndent);
+        }
+
+        private string GetCodeInNeatLines(List<(string Code, int Priority)> codeSections, string baseIndent)
+        {
+            codeSections.Sort(Comparer<(string Code, int Priority)>
+                .Create((x, y) => x.Priority.CompareTo(y.Priority)));
+
+            var sb = new StringBuilder();
+            base.PushIndent(baseIndent);
+
+            foreach (var element in codeSections)
+            {
+                var codeLines = element.Code
+                    .Trim()
+                    .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var line in codeLines)
+                {
+                    sb.Append(base.CurrentIndent).AppendLine(line);
+                }
+            }
+
+            base.PopIndent();
+            return sb.ToString();
         }
 
         //private void HandleDbContextRegistration(ApplicationEvent @event)

@@ -46,9 +46,8 @@ namespace <#= Namespace #>
 <#  } else { #>
             services.AddControllers();
 <#  } #>
-<#  foreach(var decorator in GetDecorators()) { #>
-            <#= decorator.ConfigureServices() #>
-<#  } #><#= Registrations() #>
+
+<#= GetServiceConfigurations("            ") #><#= Registrations() #>
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,22 +65,7 @@ namespace <#= Namespace #>
             }
 <#  } #>
 
-<#  if (IsNetCore2App()) { #>
-            app.UseHttpsRedirection();
-            
-            app.UseMvc();
-<#  } else { #>
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-<#  } #><#= GetDecoratorsOutput(x => x.Configuration()) #>
+<#= GetApplicationConfigurations("            ") #>
         }<#=  GetDecoratorsOutput(x => x.Methods()) #>
     }
 }

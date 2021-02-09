@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("IdentityServer4.Selfhost.Program", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
 namespace IdentityServer4StandaloneApi
 {

@@ -1,10 +1,10 @@
 using Intent.Engine;
 using Intent.Modules.Common;
-using Intent.Modules.IdentityServer4.Selfhost.Templates.Startup;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.AspNetCore.Templates.Startup;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Ignore)]
@@ -17,15 +17,12 @@ namespace Intent.Modules.IdentityServer4.InMemoryStore.Decorators
 
         public X509CertSigningStartupDecorator(StartupTemplate startupTemplate)
         {
-            this.Priority = 1;
+            this.Priority = -8;
         }
 
-        public override IReadOnlyCollection<string> GetServicesConfigurationStatements()
+        public override string ConfigureServices()
         {
-            return new[]
-            {
-                @"AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration))"
-            };
+            return "idServerBuilder.AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration));";
         }
     }
 }
