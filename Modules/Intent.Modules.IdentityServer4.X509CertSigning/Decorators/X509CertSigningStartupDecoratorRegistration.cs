@@ -15,7 +15,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Decorators
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new X509CertSigningStartupDecorator(template);
+            return new X509CertSigningStartupDecorator(template, application);
         }
 
         public override string DecoratorId => X509CertSigningStartupDecorator.DecoratorId;
