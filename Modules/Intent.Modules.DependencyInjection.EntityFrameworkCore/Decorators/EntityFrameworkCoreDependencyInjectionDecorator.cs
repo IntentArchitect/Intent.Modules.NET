@@ -46,9 +46,12 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             else
             {{
                 services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>(options =>
+                {{
                     options.UseSqlServer(
                         configuration.GetConnectionString(""DefaultConnection""),
-                        b => b.MigrationsAssembly(typeof({_template.GetTypeName(DbContextTemplate.TemplateId)}).Assembly.FullName)));
+                        b => b.MigrationsAssembly(typeof({_template.GetTypeName(DbContextTemplate.TemplateId)}).Assembly.FullName));
+                    options.UseLazyLoadingProxies();
+                }});
             }}
 
             services.AddScoped<{_template.GetTypeName(DbContextInterfaceTemplate.Identifier)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";

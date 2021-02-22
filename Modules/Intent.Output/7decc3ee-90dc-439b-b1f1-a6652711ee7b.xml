@@ -19,6 +19,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <SolutionRelativeFilePath>../Intent.ApplicationTemplates.NET/Intent.ApplicationTemplate.EmptyVisualStudioSolution/metadata.iatspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.ApplicationTemplate.EmptyVisualStudioSolution/metadata.iatspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
       <SolutionRelativeFilePath>../Intent.ApplicationTemplates.NET/Intent.ApplicationTemplate.FullStackWebApi/metadata.iatspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.FullStackWebApi/metadata.iatspec</ProjectRelativeFilePath>
     </FileLog>

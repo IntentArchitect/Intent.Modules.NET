@@ -50,14 +50,9 @@ foreach (var model in Model)
 
             ConfigureModel(modelBuilder);
 
-<#
-foreach (var model in Model)
-{
-#>
+<#  foreach (var model in Model) { #>
             modelBuilder.ApplyConfiguration(new <#= GetMappingClassName(model) #>());
-<#
-}
-#>
+<#  } #>
         }
 
         [IntentManaged(Mode.Ignore)]
