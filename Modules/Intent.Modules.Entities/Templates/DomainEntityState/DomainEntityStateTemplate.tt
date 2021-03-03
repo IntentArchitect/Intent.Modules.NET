@@ -20,7 +20,7 @@ using System.Collections.Generic;
 namespace <#= Namespace #>
 {
 <#= ClassAnnotations(Model) #>
-    public <#= Model.IsAbstract ? "abstract " : "" #>partial class <#= ClassName #> : <#= GetBaseClass(Model)#>, I<#= ClassName #><#= GetInterfaces(Model) #>
+    public <#= Model.IsAbstract ? "abstract " : "" #>partial class <#= ClassName #> : <#= GetBaseTypes(Model)#>
     {
 <#= Constructors(Model) #>
 <#= BeforeProperties(Model) #>

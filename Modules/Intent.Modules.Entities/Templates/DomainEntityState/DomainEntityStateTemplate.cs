@@ -71,20 +71,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             this.Write(" : ");
             
             #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\DomainEntityState\DomainEntityStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetBaseClass(Model)));
-            
-            #line default
-            #line hidden
-            this.Write(", I");
-            
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\DomainEntityState\DomainEntityStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
-            
-            #line default
-            #line hidden
-            
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\DomainEntityState\DomainEntityStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetInterfaces(Model)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetBaseTypes(Model)));
             
             #line default
             #line hidden

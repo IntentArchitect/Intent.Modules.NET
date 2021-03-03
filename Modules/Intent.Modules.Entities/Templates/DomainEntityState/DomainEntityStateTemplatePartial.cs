@@ -54,11 +54,14 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             return _decorators.OrderBy(x => x.Priority);
         }
 
-        public string GetBaseClass(ClassModel @class)
+        public string GetBaseTypes(ClassModel @class)
         {
             try
             {
-                return GetDecorators().Select(x => x.GetBaseClass(@class)).SingleOrDefault(x => x != null) ?? @class.ParentClass?.Name ?? GetBaseType();
+                var baseTypes = new List<string>();
+                baseTypes.Add(GetDecorators().Select(x => x.GetBaseClass(@class)).SingleOrDefault(x => x != null) ?? @class.ParentClass?.Name);
+                baseTypes.AddRange(GetInterfaces(Model));
+                return string.Join(", ", baseTypes.Where(x => !string.IsNullOrWhiteSpace(x)));
             }
             catch (InvalidOperationException)
             {
@@ -66,26 +69,30 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             }
         }
 
-        private string GetBaseType()
-        {
-            var typeId = Model.GetStereotypeProperty<string>("Base Type", "Type");
-            if (typeId == null)
-            {
-                return "Object";
-            }
+        //private string GetBaseType()
+        //{
+        //    var typeId = Model.GetStereotypeProperty<string>("Base Type", "Type");
+        //    if (typeId == null)
+        //    {
+        //        return "Object";
+        //    }
 
-            var type = _metadataManager.Domain(OutputTarget.Application).GetTypeDefinitionModels().FirstOrDefault(x => x.Id == typeId);
-            if (type != null)
-            {
-                return type.Name;
-            }
-            throw new Exception($"Could not find Base Type for class {Model.Name}");
-        }
+        //    var type = _metadataManager.Domain(OutputTarget.Application).GetTypeDefinitionModels().FirstOrDefault(x => x.Id == typeId);
+        //    if (type != null)
+        //    {
+        //        return type.Name;
+        //    }
+        //    throw new Exception($"Could not find Base Type for class {Model.Name}");
+        //}
 
-        public string GetInterfaces(ClassModel @class)
+        public IEnumerable<string> GetInterfaces(ClassModel @class)
         {
-            var interfaces = GetDecorators().SelectMany(x => x.GetInterfaces(@class)).Distinct().ToList();
-            return interfaces.Any() ? ", " + interfaces.Aggregate((x, y) => x + ", " + y) : "";
+            var interfaces = new List<string>()
+            {
+                GetTypeName(DomainEntityInterfaceTemplate.Identifier, Model)
+            };
+            interfaces.AddRange(GetDecorators().SelectMany(x => x.GetInterfaces(@class)).Distinct().ToList());
+            return interfaces;
         }
 
         public string ClassAnnotations(ClassModel @class)

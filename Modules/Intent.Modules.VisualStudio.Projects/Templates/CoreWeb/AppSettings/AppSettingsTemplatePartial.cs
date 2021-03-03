@@ -23,7 +23,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class AppSettingsTemplate : IntentTemplateBase<object, AppSettingsDecorator>
+    partial class AppSettingsTemplate : IntentTemplateBase<object, AppSettingsDecorator>, IHasDecorators<AppSettingsDecorator>
     {
 
         [IntentManaged(Mode.Fully)]
