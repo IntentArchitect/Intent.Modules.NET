@@ -2,7 +2,6 @@ using Intent.Engine;
 using Intent.Modules.Common.Registrations;
 using System.ComponentModel;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.IdentityServer4.InMemoryStore.Decorators;
 using Intent.Modules.AspNetCore.Templates.Startup;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]

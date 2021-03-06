@@ -73,7 +73,7 @@
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="65a4d6cc-8238-4837-85c4-ac90613d1bc4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="0fc11be3-9cf9-4c49-a910-69706d29553b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.IdentityServer4.X509CertSigning.CertificateRepo</name>
       <display>Intent.IdentityServer4.X509CertSigning.CertificateRepo</display>
       <externalReference>Intent.IdentityServer4.X509CertSigning</externalReference>

@@ -33,11 +33,11 @@ namespace IdentityServer4StandaloneApi
 
             var idServerBuilder = services.AddIdentityServer();
             CustomIdentityServerConfiguration(idServerBuilder);
-            idServerBuilder.AddDeveloperSigningCredential();
             idServerBuilder.AddInMemoryClients(Configuration.GetSection("IdentityServer:Clients"))
                 .AddInMemoryApiResources(Configuration.GetSection("IdentityServer:ApiResources"))
                 .AddInMemoryApiScopes(Configuration.GetSection("IdentityServer:ApiScopes"))
                 .AddInMemoryIdentityResources(Configuration.GetSection("IdentityServer:IdentityResources"));
+            idServerBuilder.AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration));
 
         }
 

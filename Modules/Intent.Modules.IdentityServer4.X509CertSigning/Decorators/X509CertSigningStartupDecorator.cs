@@ -10,7 +10,7 @@ using Intent.Modules.IdentityServer4.SecureTokenServer.Contracts;
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Ignore)]
 
-namespace Intent.Modules.IdentityServer4.InMemoryStore.Decorators
+namespace Intent.Modules.IdentityServer4.X509CertSigning.Decorators
 {
     public class X509CertSigningStartupDecorator : StartupDecorator, IDecoratorExecutionHooks
     {
