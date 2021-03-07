@@ -134,6 +134,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.SecureTokenServer", "Intent.Modules.IdentityServer4.SecureTokenServer\Intent.Modules.IdentityServer4.SecureTokenServer.csproj", "{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Security.BearerToken", "Intent.Modules.Application.Security.BearerToken\Intent.Modules.Application.Security.BearerToken.csproj", "{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -384,6 +386,10 @@ Global
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -450,6 +456,7 @@ Global
 		{E484D3DA-E357-43A3-B37B-A43C33A639D1} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{0ECE1FC5-4AC8-4A07-BF27-B756E8809992} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

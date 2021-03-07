@@ -18,7 +18,7 @@
     </template>
   </templates>
   <decorators>
-    <decorator id="IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator"  />
+    <decorator id="IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator" />
     <decorator id="IdentityServer4.X509CertSigning.AppSettingsDecorator" />
   </decorators>
   <dependencies>

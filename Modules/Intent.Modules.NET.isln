@@ -36,5 +36,6 @@
     <application id="07b5dc37-49fd-416e-8330-49c9a83331f2" name="Intent.Modules.EntityFrameworkCore" relativePath="Intent.Modules.EntityFrameworkCore/Intent.Modules.EntityFrameworkCore.application.config" />
     <application id="9a4086c7-0093-4ffd-9f3b-8f7d1b2b1466" name="Intent.Modules.EntityFrameworkCore.Interop.DomainEvents" relativePath="Intent.Modules.EntityFrameworkCore.Interop.DomainEvents/Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.application.config" />
     <application id="4721d523-68c5-4285-85ef-fe1871918162" name="IdentityServer4.SecureTokenServer" relativePath="Intent.Modules.IdentityServer4.SecureTokenServer/IdentityServer4.SecureTokenServer.application.config" />
+    <application id="8d97d581-efbb-47bd-b460-05a3293a5afa" name="Application.Security.BearerToken" relativePath="Intent.Modules.Application.Security.BearerToken/Application.Security.BearerToken.application.config" />
   </applications>
 </solution>

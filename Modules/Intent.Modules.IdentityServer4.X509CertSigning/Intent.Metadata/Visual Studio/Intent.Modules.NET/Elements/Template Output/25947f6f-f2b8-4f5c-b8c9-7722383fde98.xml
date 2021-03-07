@@ -3,10 +3,12 @@
   <name>IdentityServer4.Selfhost.Program</name>
   <display>IdentityServer4.Selfhost.Program</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4c9a9332-6dff-4586-b9b4-d1924b5afab2</parentFolderId>
+  <packageId>4c9a9332-6dff-4586-b9b4-d1924b5afab2</packageId>
+  <packageName>Intent.Modules.NET</packageName>
   <stereotypes />
   <childElements />
 </class>
