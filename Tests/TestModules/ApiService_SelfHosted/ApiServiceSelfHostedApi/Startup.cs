@@ -33,6 +33,7 @@ namespace ApiServiceSelfHostedApi
 
             ConfigureSwagger(services);
 
+            services.AddTransient<Contracts.ITestService, Services.TestService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

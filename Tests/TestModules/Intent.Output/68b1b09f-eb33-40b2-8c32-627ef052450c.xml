@@ -33,6 +33,11 @@
       <ProjectRelativeFilePath>Properties/launchsettings.json</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>46f5153e-310e-45b3-be04-8eef541c518f</ProjectId>
+      <SolutionRelativeFilePath>../ApiService_SelfHosted/ApiServiceSelfHostedApi/Services/TestService.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>TestService.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>33989c97-ae1f-4e13-a24a-9cc725edb1c4</ProjectId>
       <SolutionRelativeFilePath>../ApiService_SelfHosted/ApiServiceSelfHostedApi/Startup.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
