@@ -10,12 +10,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Security.Claims;
+using Microsoft.OpenApi.Models;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
 
-namespace IdentityServer4StandaloneApi
+namespace ApiServiceSelfHostedApi
 {
     [IntentManaged(Mode.Merge)]
     public class Startup
@@ -31,13 +31,7 @@ namespace IdentityServer4StandaloneApi
         {
             services.AddControllers();
 
-            var idServerBuilder = services.AddIdentityServer();
-            CustomIdentityServerConfiguration(idServerBuilder);
-            idServerBuilder.AddInMemoryClients(Configuration.GetSection("IdentityServer:Clients"))
-                .AddInMemoryApiResources(Configuration.GetSection("IdentityServer:ApiResources"))
-                .AddInMemoryApiScopes(Configuration.GetSection("IdentityServer:ApiScopes"))
-                .AddInMemoryIdentityResources(Configuration.GetSection("IdentityServer:IdentityResources"));
-            idServerBuilder.AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration));
+            ConfigureSwagger(services);
 
         }
 
@@ -51,28 +45,28 @@ namespace IdentityServer4StandaloneApi
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            InitializeSwagger(app);
 
         }
-
-        [IntentManaged(Mode.Ignore)]
-        private void CustomIdentityServerConfiguration(IIdentityServerBuilder idServerBuilder)
+        private void ConfigureSwagger(IServiceCollection services)
         {
-            idServerBuilder.AddTestUsers(new List<IdentityServer4.Test.TestUser>
+            services.AddSwaggerGen(c =>
             {
-                new IdentityServer4.Test.TestUser
-                {
-                    SubjectId = "testuser",
-                    Username = "testuser",
-                    Password = "P@ssw0rd",
-                    IsActive = true,
-                    Claims = new[] { new Claim("role", "MyRole") }
-                }
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiService_SelfHosted API", Version = "v1" });
+            });
+        }
+
+        private void InitializeSwagger(IApplicationBuilder app)
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiService_SelfHosted API V1");
             });
         }
     }

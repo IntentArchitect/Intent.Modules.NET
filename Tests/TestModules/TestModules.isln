@@ -8,5 +8,6 @@
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
   <applications>
     <application id="b3361140-152a-4aa9-9622-463db2799893" name="IdentityServer4_SelfHosted" relativePath="IdentityServer4_SelfHosted\IdentityServer4_SelfHosted.application.config" />
+    <application id="68b1b09f-eb33-40b2-8c32-627ef052450c" name="ApiService_SelfHosted" relativePath="ApiService_SelfHosted/ApiService_SelfHosted.application.config" />
   </applications>
 </solution>

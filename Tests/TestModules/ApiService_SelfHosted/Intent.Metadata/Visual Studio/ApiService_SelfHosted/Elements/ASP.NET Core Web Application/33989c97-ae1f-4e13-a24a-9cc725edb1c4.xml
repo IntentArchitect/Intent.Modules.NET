@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="86bda480-292a-4674-8528-e5b460617f88" type="ASP.NET Core Web Application" typeId="FFD54A85-9362-48AC-B646-C93AB9AC63D2">
-  <name>IdentityServer4StandaloneApi</name>
-  <display>IdentityServer4StandaloneApi</display>
+<class id="33989c97-ae1f-4e13-a24a-9cc725edb1c4" type="ASP.NET Core Web Application" typeId="FFD54A85-9362-48AC-B646-C93AB9AC63D2">
+  <name>ApiServiceSelfHostedApi</name>
+  <display>ApiServiceSelfHostedApi</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>de231ea6-9356-4a0b-9f65-4c7444283d56</parentFolderId>
-  <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-  <packageName>IdentityServer4_SelfHosted</packageName>
+  <parentFolderId>108e6f63-610d-4d6a-aa46-6d90e6acc6b6</parentFolderId>
+  <packageId>c6f595a8-74a5-4e5e-bab1-f6c13d833aa0</packageId>
+  <packageName>ApiService_SelfHosted</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
       <addedByDefault>true</addedByDefault>
@@ -32,58 +32,57 @@
     </stereotype>
   </stereotypes>
   <childElements>
-    <childElement id="ce7bfd16-f172-4431-a214-ce516db7d73c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="fe7f5272-3d62-4102-ac85-11092c66d118" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Program</name>
       <display>Intent.AspNetCore.Program</display>
       <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
+      <parentFolderId>33989c97-ae1f-4e13-a24a-9cc725edb1c4</parentFolderId>
+      <packageId>c6f595a8-74a5-4e5e-bab1-f6c13d833aa0</packageId>
+      <packageName>ApiService_SelfHosted</packageName>
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="7b76aa52-bb3d-4756-8eba-cef1d6470017" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="a0846f60-59c9-448b-a4ee-18dba5ddf674" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Startup</name>
       <display>Intent.AspNetCore.Startup</display>
       <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
+      <parentFolderId>33989c97-ae1f-4e13-a24a-9cc725edb1c4</parentFolderId>
+      <packageId>c6f595a8-74a5-4e5e-bab1-f6c13d833aa0</packageId>
+      <packageName>ApiService_SelfHosted</packageName>
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="0fc11be3-9cf9-4c49-a910-69706d29553b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.IdentityServer4.X509CertSigning.CertificateRepo</name>
-      <display>Intent.IdentityServer4.X509CertSigning.CertificateRepo</display>
-      <externalReference>Intent.IdentityServer4.X509CertSigning</externalReference>
+    <childElement id="2bea1b4e-3013-4ddd-ab1a-12e4384c0413" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Distribution</name>
+      <display>Distribution</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
+      <parentFolderId>33989c97-ae1f-4e13-a24a-9cc725edb1c4</parentFolderId>
+      <packageId>c6f595a8-74a5-4e5e-bab1-f6c13d833aa0</packageId>
+      <packageName>ApiService_SelfHosted</packageName>
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="2ed6e10e-e94d-4646-ac8e-59b6833f18fd" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>IdentityServer4</name>
-      <display>IdentityServer4</display>
+    <childElement id="1680a427-9b82-4919-92d8-84c272fc2b17" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Startup</name>
+      <display>Startup</display>
       <isAbstract>false</isAbstract>
-      <order>3</order>
+      <order>6</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>86bda480-292a-4674-8528-e5b460617f88</parentFolderId>
-      <packageId>de231ea6-9356-4a0b-9f65-4c7444283d56</packageId>
-      <packageName>IdentityServer4_SelfHosted</packageName>
+      <parentFolderId>33989c97-ae1f-4e13-a24a-9cc725edb1c4</parentFolderId>
+      <packageId>c6f595a8-74a5-4e5e-bab1-f6c13d833aa0</packageId>
+      <packageName>ApiService_SelfHosted</packageName>
       <stereotypes />
       <childElements />
     </childElement>
