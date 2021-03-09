@@ -13,6 +13,16 @@
       <ProjectRelativeFilePath>ServiceModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Decorators/RolesAuthorizationDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>RolesAuthorizationDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Decorators/RolesAuthorizationDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>RolesAuthorizationDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Intent.AspNetCore.Controllers.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.Controllers.imodspec</ProjectRelativeFilePath>

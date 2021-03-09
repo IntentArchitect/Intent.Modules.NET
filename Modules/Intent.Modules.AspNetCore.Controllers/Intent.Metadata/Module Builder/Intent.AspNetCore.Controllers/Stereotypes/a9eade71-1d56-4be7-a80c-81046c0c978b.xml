@@ -17,6 +17,7 @@
   <packageName>Intent.AspNetCore.Controllers</packageName>
   <properties>
     <property id="2b39acef-6079-48c9-b85e-2b0981f9de70">
+      <comment>A comma delimited list of roles that are allowed to access the resource</comment>
       <name>Roles</name>
       <type>string</type>
       <controlType>text</controlType>

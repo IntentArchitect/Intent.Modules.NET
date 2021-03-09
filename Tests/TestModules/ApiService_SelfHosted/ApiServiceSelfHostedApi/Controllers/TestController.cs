@@ -42,7 +42,7 @@ namespace ApiServiceSelfHostedApi.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "MyRole")]
         public async Task<ActionResult> AuthorizedOperation()
         {
 

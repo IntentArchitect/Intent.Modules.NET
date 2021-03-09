@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Intent.AspNetCore.Controllers.Api;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
@@ -74,7 +75,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             var attributes = new List<string>();
             if (Model.HasSecured())
             {
-                attributes.Add("[Authorize]");
+                // We can extend this later (if desired) to have multiple Secure stereotypes create
+                // multiple Authorization Models.
+                var authModel = new AuthorizationModel();
+                GetDecorators().ToList().ForEach(x => x.UpdateServiceAuhtorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
+                attributes.Add(GetAuthorizationAttribute(authModel));
             }
             attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
             return string.Join(@"
@@ -87,10 +92,50 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             attributes.Add(GetHttpVerbAndPath(o));
             if (o.ParentService.HasSecured() != o.HasSecured())
             {
-                attributes.Add(o.HasSecured() ? "[Authorize]" : "[AllowAnonymous]");
+                if (o.HasSecured())
+                {
+                    // We can extend this later (if desired) to have multiple Secure stereotypes create
+                    // multiple Authorization Models.
+                    var authModel = new AuthorizationModel();
+                    GetDecorators().ToList().ForEach(x => x.UpdateOperationAuhtorization(authModel, new OperationSecureModel(o, o.GetSecured())));
+                    attributes.Add(GetAuthorizationAttribute(authModel));
+                }
+                else
+                {
+                    attributes.Add("[AllowAnonymous]");
+                }
             }
             return string.Join(@"
         ", attributes);
+        }
+
+        private static string GetAuthorizationAttribute(AuthorizationModel authorizationModel)
+        {
+            if (authorizationModel == null) { throw new ArgumentNullException(nameof(authorizationModel)); }
+
+            var fieldExpressions = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(authorizationModel.RolesExpression))
+            {
+                fieldExpressions.Add($"Roles = {authorizationModel.RolesExpression}");
+            }
+
+            if (!string.IsNullOrWhiteSpace(authorizationModel.Policy))
+            {
+                fieldExpressions.Add($"Policy = {authorizationModel.Policy}");
+            }
+
+            if (!string.IsNullOrWhiteSpace(authorizationModel.AuthenticationSchemesExpression))
+            {
+                fieldExpressions.Add($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
+            }
+
+            if (fieldExpressions.Any())
+            {
+                return $"[Authorize ({string.Join(", ", fieldExpressions)})]";
+            }
+
+            return "[Authorize]";
         }
 
         private string GetHttpVerbAndPath(OperationModel o)
