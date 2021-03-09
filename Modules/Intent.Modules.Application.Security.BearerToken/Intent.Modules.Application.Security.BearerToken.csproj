@@ -13,4 +13,9 @@
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj" />
+    <ProjectReference Include="..\Intent.Modules.VisualStudio.Projects\Intent.Modules.VisualStudio.Projects.csproj" />
+  </ItemGroup>
+
 </Project>

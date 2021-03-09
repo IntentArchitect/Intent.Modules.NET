@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.IdentityModel.Tokens.Jwt;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
@@ -31,6 +33,7 @@ namespace ApiServiceSelfHostedApi
         {
             services.AddControllers();
 
+            ConfigureAuthentication(services);
             ConfigureSwagger(services);
 
             services.AddTransient<Contracts.ITestService, Services.TestService>();
@@ -46,6 +49,7 @@ namespace ApiServiceSelfHostedApi
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
@@ -69,6 +73,24 @@ namespace ApiServiceSelfHostedApi
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiService_SelfHosted API V1");
             });
+        }
+
+        private void ConfigureAuthentication(IServiceCollection services)
+        {
+            // Use '[IntentManaged(Mode.Ignore)]' on this method should you want to deviate from the standard JWT token approach
+
+            JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                // JWT tokens (default scheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+                {
+                    options.Authority = Configuration.GetSection("Security.Bearer:Authority").Get<string>();
+                    options.Audience = Configuration.GetSection("Security.Bearer:Audience").Get<string>();
+
+                    options.TokenValidationParameters.RoleClaimType = "role";
+                })
+                ;
         }
     }
 }

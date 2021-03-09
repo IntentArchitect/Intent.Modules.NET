@@ -22,7 +22,7 @@ namespace ApiServiceSelfHostedApi.Controllers
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
         }
 
-        [HttpPost]
+        [HttpPost("anonymous")]
         public async Task<ActionResult> AnonymousOperation()
         {
 
@@ -31,7 +31,7 @@ namespace ApiServiceSelfHostedApi.Controllers
             return NoContent();
         }
 
-        [HttpPost]
+        [HttpPost("authenticated")]
         [Authorize]
         public async Task<ActionResult> AuthenticatedOperation()
         {
@@ -41,7 +41,7 @@ namespace ApiServiceSelfHostedApi.Controllers
             return NoContent();
         }
 
-        [HttpPost]
+        [HttpPost("authorized")]
         [Authorize(Roles = "MyRole")]
         public async Task<ActionResult> AuthorizedOperation()
         {
