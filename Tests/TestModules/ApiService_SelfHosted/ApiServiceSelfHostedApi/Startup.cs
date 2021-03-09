@@ -89,6 +89,7 @@ namespace ApiServiceSelfHostedApi
                     options.Audience = Configuration.GetSection("Security.Bearer:Audience").Get<string>();
 
                     options.TokenValidationParameters.RoleClaimType = "role";
+                    options.SaveToken = true;
                 })
                 ;
         }
