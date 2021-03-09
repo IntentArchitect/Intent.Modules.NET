@@ -13,7 +13,7 @@ namespace Intent.Modules.Application.Security.BearerToken.Decorators
 
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new BearerTokenStartupDecorator();
+            return new BearerTokenStartupDecorator(application);
         }
     }
 }

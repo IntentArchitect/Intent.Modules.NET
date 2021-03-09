@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b8980a54-1fc3-4ea5-a721-74ac2326d513" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>84d2575b-dff6-4ba2-9f9c-26adb6661a3a</parentFolderId>
+  <packageId>84d2575b-dff6-4ba2-9f9c-26adb6661a3a</packageId>
+  <packageName>IdentityServer4_CoHosted</packageName>
+  <stereotypes />
+  <childElements />
+</class>

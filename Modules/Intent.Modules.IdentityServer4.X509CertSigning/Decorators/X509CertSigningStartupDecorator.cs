@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.AspNetCore.Templates.Startup;
-using Intent.Modules.IdentityServer4.SecureTokenServer.Contracts;
+using Intent.Modules.IdentityServer4.SecureTokenServer.Events;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Ignore)]

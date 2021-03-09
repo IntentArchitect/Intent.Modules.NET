@@ -1,5 +1,5 @@
 ﻿using Intent.Modules.AspNetCore.Templates.Startup;
-using Intent.Modules.IdentityServer4.SecureTokenServer.Contracts;
+using Intent.Modules.IdentityServer4.SecureTokenServer.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;

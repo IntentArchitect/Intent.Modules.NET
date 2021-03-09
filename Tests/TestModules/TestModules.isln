@@ -9,5 +9,6 @@
   <applications>
     <application id="b3361140-152a-4aa9-9622-463db2799893" name="IdentityServer4_SelfHosted" relativePath="IdentityServer4_SelfHosted\IdentityServer4_SelfHosted.application.config" />
     <application id="68b1b09f-eb33-40b2-8c32-627ef052450c" name="ApiService_SelfHosted" relativePath="ApiService_SelfHosted/ApiService_SelfHosted.application.config" />
+    <application id="394b259f-8609-49e3-a94a-ad908d33cdef" name="IdentityServer4_CoHosted" relativePath="IdentityServer4_CoHosted/IdentityServer4_CoHosted.application.config" />
   </applications>
 </solution>

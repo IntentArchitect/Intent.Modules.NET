@@ -1,33 +1,47 @@
-﻿using Intent.Modules.AspNetCore.Templates.Startup;
+﻿using Intent.Engine;
+using Intent.Modules.Application.Security.BearerToken.Events;
+using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.Modules.Common.VisualStudio;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Intent.Modules.Application.Security.BearerToken.Decorators
 {
     public class BearerTokenStartupDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
     {
-        public const string DecoratorId = "Application.Security.BearerTokenStartupDecorator";
+        public const string DecoratorId = "Application.Security.BearerToken.BearerTokenStartupDecorator";
+        private bool _overrideBearerTokenConfiguration;
 
-        public BearerTokenStartupDecorator()
+        public BearerTokenStartupDecorator(IApplication application)
         {
             Priority = -9;
+            application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
+            {
+                _overrideBearerTokenConfiguration = true;
+            });
         }
 
         public override string Configuration()
         {
+            if (_overrideBearerTokenConfiguration) { return string.Empty; }
+
             return "app.UseAuthentication();";
         }
 
         public override string ConfigureServices()
         {
+            if (_overrideBearerTokenConfiguration) { return string.Empty; }
+
             return @"ConfigureAuthentication(services);";
         }
 
         public IEnumerable<string> DeclareUsings()
         {
+            if (_overrideBearerTokenConfiguration) { return Enumerable.Empty<string>(); }
+
             return new[]
             {
                 "Microsoft.AspNetCore.Authentication.JwtBearer",
@@ -37,7 +51,7 @@ namespace Intent.Modules.Application.Security.BearerToken.Decorators
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
-            return new[] 
+            return new[]
             {
                 NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer
             };
@@ -45,6 +59,8 @@ namespace Intent.Modules.Application.Security.BearerToken.Decorators
 
         public override string Methods()
         {
+            if (_overrideBearerTokenConfiguration) { return string.Empty; }
+
             return @"
 private void ConfigureAuthentication(IServiceCollection services)
 {
