@@ -70,7 +70,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             
             #line default
             #line hidden
-            this.Write("(DbContextOptions options");
+            this.Write("(");
+            
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContext\DbContextTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetDbContextOptionsType()));
+            
+            #line default
+            #line hidden
+            this.Write(" options");
             
             #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorParameters()));

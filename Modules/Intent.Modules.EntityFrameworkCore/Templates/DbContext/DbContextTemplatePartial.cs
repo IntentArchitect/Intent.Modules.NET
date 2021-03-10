@@ -15,6 +15,7 @@ using Intent.Modules.EntityFrameworkCore.Templates.Configurations;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.EntityFrameworkCore.Events;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -28,10 +29,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
         private readonly IList<DbContextDecoratorBase> _decorators = new List<DbContextDecoratorBase>();
+        private bool _useDbContextAsOptionsParameter;
 
         public DbContextTemplate(IList<ClassModel> models, IOutputTarget outputTarget)
             : base(TemplateId, outputTarget, models)
         {
+            base.Project.Application.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt => 
+            {
+                _useDbContextAsOptionsParameter = evt.UseDbContextAsOptionsParameter;
+            });
         }
 
         protected override CSharpFileConfig DefineFileConfig()
@@ -94,6 +100,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             {
                 throw new Exception($"Multiple decorators attempting to modify 'base class' on {TemplateId}");
             }
+        }
+
+        public string GetDbContextOptionsType()
+        {
+            if (_useDbContextAsOptionsParameter)
+            {
+                return $"DbContextOptions<{ClassName}>";
+            }
+            return "DbContextOptions";
         }
 
         public string GetMappingClassName(ClassModel model)

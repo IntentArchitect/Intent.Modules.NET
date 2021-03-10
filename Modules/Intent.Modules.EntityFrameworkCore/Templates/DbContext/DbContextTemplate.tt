@@ -23,7 +23,7 @@ namespace <#= Namespace #>
     public class <#= ClassName#> : <#= GetBaseTypes() #>
     {
         <#= GetPrivateFields() #>
-        public <#= ClassName#>(DbContextOptions options<#= GetConstructorParameters() #>) : base(options)
+        public <#= ClassName#>(<#= GetDbContextOptionsType() #> options<#= GetConstructorParameters() #>) : base(options)
         {<#= GetConstructorInitializations() #>
         }
 
