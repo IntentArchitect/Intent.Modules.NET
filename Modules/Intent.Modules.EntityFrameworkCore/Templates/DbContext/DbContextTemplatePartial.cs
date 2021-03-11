@@ -34,7 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public DbContextTemplate(IList<ClassModel> models, IOutputTarget outputTarget)
             : base(TemplateId, outputTarget, models)
         {
-            base.Project.Application.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt => 
+            base.Project.Application.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt =>
             {
                 _useDbContextAsOptionsParameter |= evt.UseDbContextAsOptionsParameter;
             });
@@ -118,7 +118,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         private string GetPrivateFields()
         {
-            var privateFields = GetDecorators().SelectMany(x => x.GetPrivateFields()).ToList();
+            var privateFields = GetDecorators().SelectMany(x => x.GetPrivateFields() ?? Enumerable.Empty<string>()).ToList();
             return privateFields.Any() ? string.Join(@"
         ", privateFields) + @"
         " : "";
@@ -126,7 +126,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         private string GetConstructorParameters()
         {
-            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorParameters()).ToList();
+            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorParameters() ?? Enumerable.Empty<string>()).ToList();
             return privateFields.Any() ? @",
             " + string.Join(@",
             ", privateFields) : "";
@@ -134,7 +134,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         private string GetConstructorInitializations()
         {
-            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorInitializations()).ToList();
+            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorInitializations() ?? Enumerable.Empty<string>()).ToList();
             return privateFields.Any() ? @"
             " + string.Join(@"
             ", privateFields) : "";
