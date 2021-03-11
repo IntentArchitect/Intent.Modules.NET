@@ -36,7 +36,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
             base.Project.Application.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt => 
             {
-                _useDbContextAsOptionsParameter = evt.UseDbContextAsOptionsParameter;
+                _useDbContextAsOptionsParameter |= evt.UseDbContextAsOptionsParameter;
             });
         }
 
