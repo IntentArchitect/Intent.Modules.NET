@@ -42,6 +42,7 @@ namespace IdentityServer4CoHosted
                 .AddInMemoryApiResources(Configuration.GetSection("IdentityServer:ApiResources"))
                 .AddInMemoryApiScopes(Configuration.GetSection("IdentityServer:ApiScopes"))
                 .AddInMemoryIdentityResources(Configuration.GetSection("IdentityServer:IdentityResources"));
+            services.AddInfrastructure(Configuration);
             ConfigureSwagger(services);
 
             services.AddTransient<Contracts.ITestService, Services.TestService>();
