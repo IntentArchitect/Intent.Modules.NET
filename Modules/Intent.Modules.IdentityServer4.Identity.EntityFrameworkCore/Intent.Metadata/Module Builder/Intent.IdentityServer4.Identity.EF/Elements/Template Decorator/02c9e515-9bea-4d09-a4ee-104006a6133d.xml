@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="589e9d0d-5459-4b1b-b435-a8ece676b1ff" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>IdentityDbContextDecorator</name>
-  <display>IdentityDbContextDecorator: DbContextDecoratorBase</display>
+<class id="02c9e515-9bea-4d09-a4ee-104006a6133d" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>AspNetIdentityUserDecorator</name>
+  <display>AspNetIdentityUserDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>1</order>
   <genericTypes />
-  <typeReference id="0d353b63-9905-4716-8c7f-56f98e568154">
-    <typeId>c35164c7-3797-476e-89ba-c98b96de3176</typeId>
+  <typeReference id="253b1fe5-3b2e-4b86-9b0a-f38ae91de0a7">
+    <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.EntityFrameworkCore</typePackageName>
-    <typePackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</typePackageId>
+    <typePackageName>Intent.AspNetCore</typePackageName>
+    <typePackageId>9d83d9d6-7718-4b4a-b78b-725535182de3</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

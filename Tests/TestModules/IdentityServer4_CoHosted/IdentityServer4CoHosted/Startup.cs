@@ -14,6 +14,9 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using IdentityServer4.AspNetIdentity;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
@@ -34,14 +37,18 @@ namespace IdentityServer4CoHosted
         {
             services.AddControllers();
 
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityServer4CoHosted.EF.IdentityServer4_CoHostedDbContext>()
+                ;
             ConfigureAuthentication(services);
             var idServerBuilder = services.AddIdentityServer();
-            CustomIdentityServerConfiguration(idServerBuilder);
             idServerBuilder.AddDeveloperSigningCredential();
             idServerBuilder.AddInMemoryClients(Configuration.GetSection("IdentityServer:Clients"))
                 .AddInMemoryApiResources(Configuration.GetSection("IdentityServer:ApiResources"))
                 .AddInMemoryApiScopes(Configuration.GetSection("IdentityServer:ApiScopes"))
                 .AddInMemoryIdentityResources(Configuration.GetSection("IdentityServer:IdentityResources"));
+            idServerBuilder.AddAspNetIdentity<IdentityUser>();
+            CustomIdentityServerConfiguration(idServerBuilder);
             services.AddInfrastructure(Configuration);
             ConfigureSwagger(services);
 
@@ -55,6 +62,8 @@ namespace IdentityServer4CoHosted
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            InitializeDbTestData(app);
 
             app.UseHttpsRedirection();
             app.UseRouting();
@@ -99,17 +108,35 @@ namespace IdentityServer4CoHosted
         private void CustomIdentityServerConfiguration(IIdentityServerBuilder idServerBuilder)
         {
             // Uncomment to have a test user handy
-            idServerBuilder.AddTestUsers(new List<IdentityServer4.Test.TestUser>
+            //idServerBuilder.AddTestUsers(new List<IdentityServer4.Test.TestUser>
+            //{
+            //    new IdentityServer4.Test.TestUser
+            //    {
+            //        SubjectId = "testuser",
+            //        Username = "testuser",
+            //        Password = "P@ssw0rd",
+            //        IsActive = true,
+            //        Claims = new[] { new Claim("role", "MyRole") }
+            //    }
+            //});
+        }
+
+        private static void InitializeDbTestData(IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                new IdentityServer4.Test.TestUser
+                //serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+                //serviceScope.ServiceProvider.GetRequiredService<IdentityServer4_CoHostedDbContext>().Database.Migrate();
+
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                if (!userManager.Users.Any())
                 {
-                    SubjectId = "testuser",
-                    Username = "testuser",
-                    Password = "P@ssw0rd",
-                    IsActive = true,
-                    Claims = new[] { new Claim("role", "MyRole") }
+                    var identityUser = new IdentityUser("testuser");
+
+                    userManager.CreateAsync(identityUser, "P@ssw0rd").Wait();
+                    userManager.AddClaimsAsync(identityUser, new Claim[] { new Claim("role", "MyRole") }).Wait();
                 }
-            });
+            }
         }
     }
 }

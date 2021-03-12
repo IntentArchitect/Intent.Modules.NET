@@ -10,11 +10,14 @@
   <templates></templates>
   <decorators>
     <decorator id="Intent.IdentityServer4.Identity.EF.IdentityDbContextDecorator" externalReference="589e9d0d-5459-4b1b-b435-a8ece676b1ff" />
+    <decorator id="Intent.IdentityServer4.Identity.EF.IdentityUserDecorator" externalReference="6e4ab589-36f5-42ff-b02f-814441137fc8" />
+    <decorator id="Intent.IdentityServer4.Identity.EF.AspNetIdentityUserDecorator" externalReference="02c9e515-9bea-4d09-a4ee-104006a6133d" />
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.1" />
+    <dependency id="Intent.AspNetCore" version="3.0.3" />
     <dependency id="Intent.EntityFrameworkCore" version="3.0.3" />
   </dependencies>
   <files>

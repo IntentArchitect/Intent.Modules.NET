@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj" />
     <ProjectReference Include="..\Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

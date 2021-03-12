@@ -13,6 +13,7 @@
     <decorator id="Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationAppSettingsDecorator" externalReference="af8b9891-e035-439d-b11b-3c4c8f155836" />
     <decorator id="Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationStartupDecorator" externalReference="6580ac86-d389-40bb-baab-5b78448e43a4" />
     <decorator id="Intent.IdentityServer4.SecureTokenServer.IdentityServerStartupDecorator" externalReference="34dde606-0f40-4dea-b47e-1aef9ccc48dd" />
+    <decorator id="Intent.IdentityServer4.SecureTokenServer.IdentityCustomStartupDecorator" externalReference="0d7e806a-7048-454f-aba3-33cfff1582c3" />
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="34dde606-0f40-4dea-b47e-1aef9ccc48dd" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>IdentityServerStartupDecorator</name>
-  <display>IdentityServerStartupDecorator: StartupDecorator</display>
+<class id="0d7e806a-7048-454f-aba3-33cfff1582c3" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>IdentityCustomStartupDecorator</name>
+  <display>IdentityCustomStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
+  <order>4</order>
   <genericTypes />
-  <typeReference id="117924aa-fe70-4f9c-83ae-7724678eb172">
+  <typeReference id="664ed272-9901-42f6-869f-528ad1d9f4eb">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

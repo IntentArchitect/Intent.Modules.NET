@@ -1,6 +1,6 @@
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Add-Migration -Name {ChangeName} -StartupProject "IdentityServer4CoHosted" -Project EF
+Add-Migration -Name {ChangeName} -StartupProject "IdentityServer4CoHosted" -Project IdentityServer4CoHosted
 
 
 Override an existing migration:

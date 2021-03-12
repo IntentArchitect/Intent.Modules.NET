@@ -34,6 +34,16 @@
     </FileLog>
     <FileLog>
       <ProjectId>7b018e4e-0383-44ac-ae09-2f3cc333d369</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.SecureTokenServer/Decorators/IdentityCustomStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityCustomStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b018e4e-0383-44ac-ae09-2f3cc333d369</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.SecureTokenServer/Decorators/IdentityCustomStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityCustomStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b018e4e-0383-44ac-ae09-2f3cc333d369</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.SecureTokenServer/Decorators/IdentityServerStartupDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServerStartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
