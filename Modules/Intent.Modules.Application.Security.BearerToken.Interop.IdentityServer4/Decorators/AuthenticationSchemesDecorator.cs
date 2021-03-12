@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -13,14 +14,16 @@ namespace Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer
     [IntentManaged(Mode.Merge)]
     public class AuthenticationSchemesDecorator : ControllerDecorator, IDeclareUsings
     {
-        [IntentManaged(Mode.Fully)] 
-        public const string DecoratorId = "Application.Security.BearerToken.Interop.IdentityServer4.AuthenticationSchemesDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "BearerToken.Interop.IdentityServer4.AuthenticationSchemesDecorator";
 
         private readonly ControllerTemplate _template;
+        private readonly IApplication _application;
 
-        public AuthenticationSchemesDecorator(ControllerTemplate template)
+        public AuthenticationSchemesDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
         }
 
         public IEnumerable<string> DeclareUsings()

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -17,11 +18,13 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.DeveloperCertSigningStartupDecorator";
 
         private readonly StartupTemplate _template;
+        private readonly IApplication _application;
         private bool _hasCertificateSpecified;
 
-        public DeveloperCertSigningStartupDecorator(StartupTemplate template, Engine.IApplication application)
+        public DeveloperCertSigningStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             Priority = -8;
             application.EventDispatcher.Subscribe<CertificateSpecifiedEvent>(evt =>
             {

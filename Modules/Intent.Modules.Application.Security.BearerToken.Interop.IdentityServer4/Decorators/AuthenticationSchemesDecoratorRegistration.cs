@@ -17,7 +17,7 @@ namespace Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new AuthenticationSchemesDecorator(template);
+            return new AuthenticationSchemesDecorator(template, application);
         }
 
         public override string DecoratorId => AuthenticationSchemesDecorator.DecoratorId;

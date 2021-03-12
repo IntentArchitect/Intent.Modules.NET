@@ -15,18 +15,19 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Decorators
     public class X509CertSigningStartupDecorator : StartupDecorator, IDecoratorExecutionHooks
     {
         public const string DecoratorId = "IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator";
+        private StartupTemplate _template;
+        private IApplication _application;
 
-        public X509CertSigningStartupDecorator(StartupTemplate startupTemplate, IApplication application)
+        public X509CertSigningStartupDecorator(StartupTemplate template, IApplication application)
         {
+            _template = template;
+            _application = application;
             this.Priority = -8;
-            Application = application;
         }
-
-        public IApplication Application { get; }
 
         public void BeforeTemplateExecution()
         {
-            Application.EventDispatcher.Publish(new CertificateSpecifiedEvent());
+            _application.EventDispatcher.Publish(new CertificateSpecifiedEvent());
         }
 
         public override string ConfigureServices()

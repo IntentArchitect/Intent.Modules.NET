@@ -17,7 +17,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new IdentityServerStartupDecorator(template);
+            return new IdentityServerStartupDecorator(template, application);
         }
 
         public override string DecoratorId => IdentityServerStartupDecorator.DecoratorId;

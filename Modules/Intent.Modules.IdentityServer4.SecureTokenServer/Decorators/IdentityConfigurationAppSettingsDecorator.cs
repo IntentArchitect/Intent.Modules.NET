@@ -14,11 +14,13 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationAppSettingsDecorator";
 
         private readonly AppSettingsTemplate _template;
+        private readonly IApplication _application;
         private readonly string _appName;
 
         public IdentityConfigurationAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             _appName = application.Name;
         }
 

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -16,11 +17,11 @@ namespace Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore.Decorators
     public class IdentityDbContextDecorator :
         DbContextDecoratorBase, IDecoratorExecutionHooks, IDeclareUsings, IHasNugetDependencies
     {
-        [IntentManaged(Mode.Fully)] 
-        public const string DecoratorId = "IdentityServer4.Identity.EntityFramework.IdentityDbContextDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.IdentityServer4.Identity.EF.IdentityDbContextDecorator";
 
 
-        private readonly DbContextTemplate _template; 
+        private readonly DbContextTemplate _template;
         private readonly Engine.IApplication _application;
 
         public IdentityDbContextDecorator(DbContextTemplate template, Engine.IApplication application)

@@ -15,14 +15,17 @@ namespace Intent.Modules.Application.Security.BearerToken.Decorators
     [IntentManaged(Mode.Merge)]
     public class BearerTokenConfigurationSettingsDecorator : AppSettingsDecorator
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Application.Security.BearerToken.BearerTokenConfigurationSettingsDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.Application.Security.BearerToken.BearerTokenConfigurationSettingsDecorator";
 
         private readonly AppSettingsTemplate _template;
+        private readonly IApplication _application;
         private bool _overrideBearerTokenConfiguration;
 
         public BearerTokenConfigurationSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
             {
                 _overrideBearerTokenConfiguration = true;

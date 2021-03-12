@@ -13,23 +13,22 @@ namespace Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer
     [IntentManaged(Mode.Merge)]
     public class LocalApiBearerTokenStartupDecorator : StartupDecorator, IDeclareUsings, IDecoratorExecutionHooks
     {
-        [IntentManaged(Mode.Fully)] 
-        public const string DecoratorId = "Application.Security.BearerToken.Interop.IdentityServer4.LocalApiBearerTokenStartupDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "BearerToken.Interop.IdentityServer4.LocalApiBearerTokenStartupDecorator";
 
         private readonly StartupTemplate _template;
+        private readonly IApplication _application;
 
         public LocalApiBearerTokenStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             Priority = -9;
-            Application = application;
         }
-
-        public IApplication Application { get; }
 
         public void BeforeTemplateExecution()
         {
-            Application.EventDispatcher.Publish(new OverrideBearerTokenConfigurationEvent());
+            _application.EventDispatcher.Publish(new OverrideBearerTokenConfigurationEvent());
         }
 
         public override string ConfigureServices()
@@ -60,5 +59,6 @@ private void ConfigureAuthentication(IServiceCollection services)
         });
 }";
         }
+
     }
 }

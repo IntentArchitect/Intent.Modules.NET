@@ -17,15 +17,17 @@ namespace Intent.Modules.Application.Security.BearerToken.Decorators
     [IntentManaged(Mode.Merge)]
     public class BearerTokenStartupDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Application.Security.BearerToken.BearerTokenStartupDecorator";
-        
-        private readonly StartupTemplate _template;
-        private bool _overrideBearerTokenConfiguration;
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.Application.Security.BearerToken.BearerTokenStartupDecorator";
 
+        private readonly StartupTemplate _template;
+        private readonly IApplication _application;
+        private bool _overrideBearerTokenConfiguration;
 
         public BearerTokenStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             Priority = -9;
             application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
             {
