@@ -1,23 +1,28 @@
-﻿using Intent.Engine;
+using Intent.Engine;
 using Intent.Modules.Application.Security.BearerToken.Events;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Application.Security.BearerToken.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class BearerTokenConfigurationSettingsDecorator : AppSettingsDecorator
     {
-        public const string DecoratorId = "Application.Security.BearerToken.BearerTokenConfigurationSettingsDecorator";
+        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Application.Security.BearerToken.BearerTokenConfigurationSettingsDecorator";
 
-        private readonly IApplication _application;
+        private readonly AppSettingsTemplate _template;
         private bool _overrideBearerTokenConfiguration;
 
-        public BearerTokenConfigurationSettingsDecorator(IApplication application)
+        public BearerTokenConfigurationSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
-            _application = application;
+            _template = template;
             application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
             {
                 _overrideBearerTokenConfiguration = true;

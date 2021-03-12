@@ -3,6 +3,26 @@
   <ApplicationId>8d97d581-efbb-47bd-b460-05a3293a5afa</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenConfigurationSettingsDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>BearerTokenConfigurationSettingsDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenConfigurationSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>BearerTokenConfigurationSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>BearerTokenStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>BearerTokenStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Intent.Application.Security.BearerToken.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.Security.BearerToken.imodspec</ProjectRelativeFilePath>
@@ -16,6 +36,9 @@
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

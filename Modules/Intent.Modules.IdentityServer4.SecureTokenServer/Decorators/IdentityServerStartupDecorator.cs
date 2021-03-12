@@ -1,18 +1,27 @@
-﻿using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.Modules.Common.VisualStudio;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class IdentityServerStartupDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
     {
-        public const string DecoratorId = "IdentityServer4.SecureTokenServer.IdentityServerStartupDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.IdentityServerStartupDecorator";
 
-        public IdentityServerStartupDecorator()
+        private readonly StartupTemplate _template;
+
+        public IdentityServerStartupDecorator(StartupTemplate template)
         {
+            _template = template;
             Priority = -9;
         }
 
@@ -55,7 +64,7 @@ private void CustomIdentityServerConfiguration(IIdentityServerBuilder idServerBu
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
-            return new[] 
+            return new[]
             {
                 NugetPackages.IdentityServer4
             };

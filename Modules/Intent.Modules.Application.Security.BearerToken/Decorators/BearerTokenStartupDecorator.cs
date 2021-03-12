@@ -1,4 +1,4 @@
-﻿using Intent.Engine;
+using Intent.Engine;
 using Intent.Modules.Application.Security.BearerToken.Events;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
@@ -7,16 +7,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Application.Security.BearerToken.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class BearerTokenStartupDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
     {
-        public const string DecoratorId = "Application.Security.BearerToken.BearerTokenStartupDecorator";
+        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Application.Security.BearerToken.BearerTokenStartupDecorator";
+        
+        private readonly StartupTemplate _template;
         private bool _overrideBearerTokenConfiguration;
 
-        public BearerTokenStartupDecorator(IApplication application)
+
+        public BearerTokenStartupDecorator(StartupTemplate template, IApplication application)
         {
+            _template = template;
             Priority = -9;
             application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
             {

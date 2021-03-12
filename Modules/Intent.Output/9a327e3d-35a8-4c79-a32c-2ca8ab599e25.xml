@@ -3,6 +3,16 @@
   <ApplicationId>9a327e3d-35a8-4c79-a32c-2ca8ab599e25</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/IdentityDbContextDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityDbContextDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/IdentityDbContextDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityDbContextDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>ef2b4d6c-38f2-4376-8ade-d209767821c6</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Intent.IdentityServer4.Identity.EF.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.Identity.EF.imodspec</ProjectRelativeFilePath>

@@ -1,16 +1,25 @@
-﻿using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.AspNetCore.Templates.Startup;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class IdentityConfigurationStartupDecorator : StartupDecorator
     {
-        public const string DecoratorId = "IdentityServer4.SecureTokenServer.IdentityConfigurationStartupDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationStartupDecorator";
 
-        public IdentityConfigurationStartupDecorator()
+        private readonly StartupTemplate _template;
+
+        public IdentityConfigurationStartupDecorator(StartupTemplate template)
         {
+            _template = template;
             Priority = -8;
         }
 

@@ -1,17 +1,26 @@
-﻿using Intent.Engine;
+using Intent.Engine;
 using Intent.Modules.Application.Security.BearerToken.Events;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using System.Collections.Generic;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class LocalApiBearerTokenStartupDecorator : StartupDecorator, IDeclareUsings, IDecoratorExecutionHooks
     {
+        [IntentManaged(Mode.Fully)] 
         public const string DecoratorId = "Application.Security.BearerToken.Interop.IdentityServer4.LocalApiBearerTokenStartupDecorator";
 
-        public LocalApiBearerTokenStartupDecorator(IApplication application)
+        private readonly StartupTemplate _template;
+
+        public LocalApiBearerTokenStartupDecorator(StartupTemplate template, IApplication application)
         {
+            _template = template;
             Priority = -9;
             Application = application;
         }

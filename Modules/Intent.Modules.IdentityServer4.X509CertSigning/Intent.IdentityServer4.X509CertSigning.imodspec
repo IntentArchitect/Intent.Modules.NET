@@ -18,8 +18,8 @@
     </template>
   </templates>
   <decorators>
-    <decorator id="IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator" />
-    <decorator id="IdentityServer4.X509CertSigning.AppSettingsDecorator" />
+    <decorator id="Intent.IdentityServer4.X509CertSigning.X509CertSigningAppSettingsDecorator" externalReference="9077e920-9e84-4b01-98fe-c71dd2d25010" />
+    <decorator id="Intent.IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator" externalReference="e5a6a18d-f239-4eb0-aabb-31e64a3669d1" />
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />

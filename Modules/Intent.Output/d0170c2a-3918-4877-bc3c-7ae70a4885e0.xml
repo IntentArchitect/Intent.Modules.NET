@@ -3,6 +3,26 @@
   <ApplicationId>d0170c2a-3918-4877-bc3c-7ae70a4885e0</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningAppSettingsDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>X509CertSigningAppSettingsDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningAppSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>X509CertSigningAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>X509CertSigningStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>X509CertSigningStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Intent.IdentityServer4.X509CertSigning.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.X509CertSigning.imodspec</ProjectRelativeFilePath>
@@ -36,6 +56,9 @@
       <ProjectId>9db0a5a2-cab2-4e7b-b224-47f0c6af8587</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Templates/CertificateRepo/CertificateRepoTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>CertificateRepo/CertificateRepoTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

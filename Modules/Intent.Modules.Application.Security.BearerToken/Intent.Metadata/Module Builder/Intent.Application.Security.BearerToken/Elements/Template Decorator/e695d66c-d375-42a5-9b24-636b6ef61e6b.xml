@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e695d66c-d375-42a5-9b24-636b6ef61e6b" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>BearerTokenConfigurationSettingsDecorator</name>
+  <display>BearerTokenConfigurationSettingsDecorator: AppSettingsDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="8f229869-d600-430c-a3e0-fb6a139d58d6">
+    <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.VisualStudio.Projects</typePackageName>
+    <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>dc5bde69-a694-4347-9683-d746710568e7</parentFolderId>
+  <packageId>dc5bde69-a694-4347-9683-d746710568e7</packageId>
+  <packageName>Intent.Application.Security.BearerToken</packageName>
+  <stereotypes />
+  <childElements />
+</class>

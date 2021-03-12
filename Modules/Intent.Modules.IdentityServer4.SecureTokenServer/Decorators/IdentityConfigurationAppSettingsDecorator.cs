@@ -1,15 +1,24 @@
-﻿using Intent.Engine;
+using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class IdentityConfigurationAppSettingsDecorator : AppSettingsDecorator
     {
-        public const string Identifier = "IdentityServer4.SecureTokenServer.IdentityConfigurationAppSettingsDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationAppSettingsDecorator";
+
+        private readonly AppSettingsTemplate _template;
         private readonly string _appName;
 
-        public IdentityConfigurationAppSettingsDecorator(IApplication application)
+        public IdentityConfigurationAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
+            _template = template;
             _appName = application.Name;
         }
 

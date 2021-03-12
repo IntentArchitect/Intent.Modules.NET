@@ -1,19 +1,25 @@
-﻿using Intent.Engine;
+using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.Registrations;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4.Decorators
 {
+    [Description(AuthenticationSchemesDecorator.DecoratorId)]
     public class AuthenticationSchemesDecoratorRegistration : DecoratorRegistration<ControllerTemplate, ControllerDecorator>
     {
-        public override string DecoratorId => AuthenticationSchemesDecorator.DecoratorId;
-
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new AuthenticationSchemesDecorator();
+            return new AuthenticationSchemesDecorator(template);
         }
+
+        public override string DecoratorId => AuthenticationSchemesDecorator.DecoratorId;
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5a6a18d-f239-4eb0-aabb-31e64a3669d1" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>X509CertSigningStartupDecorator</name>
+  <display>X509CertSigningStartupDecorator: StartupDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>3</order>
+  <genericTypes />
+  <typeReference id="82ba9be5-63c4-4fc5-a0b9-3fd74c8079c2">
+    <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AspNetCore</typePackageName>
+    <typePackageId>9d83d9d6-7718-4b4a-b78b-725535182de3</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>9dd5af98-e049-4ecd-a5b5-3b74a0ef1136</parentFolderId>
+  <packageId>9dd5af98-e049-4ecd-a5b5-3b74a0ef1136</packageId>
+  <packageName>Intent.IdentityServer4.X509CertSigning</packageName>
+  <stereotypes />
+  <childElements />
+</class>
