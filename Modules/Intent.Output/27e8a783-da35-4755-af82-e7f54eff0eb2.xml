@@ -3,6 +3,26 @@
   <ApplicationId>27e8a783-da35-4755-af82-e7f54eff0eb2</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore/Decorators/DefaultControllerEndpointStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore/Decorators/DefaultControllerEndpointStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore/Decorators/DefaultControllerServicesStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore/Decorators/DefaultControllerServicesStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>4ed421bb-c577-4eb0-bfc5-801f66f5ab52</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.AspNetCore/Intent.AspNetCore.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.imodspec</ProjectRelativeFilePath>

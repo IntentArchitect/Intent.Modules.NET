@@ -19,31 +19,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>7aacf861-b3dc-40f1-bfda-ddec0d73eaa5</ProjectId>
-      <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/DependencyInjection.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f76b2dd9-0e50-4852-85bd-5f0060ef3807</ProjectId>
-      <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/EF/IdentityServer4_CoHostedDbContext.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityServer4_CoHostedDbContext.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f76b2dd9-0e50-4852-85bd-5f0060ef3807</ProjectId>
-      <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/EF/IIdentityServer4_CoHostedDbContext.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IIdentityServer4_CoHostedDbContext.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f76b2dd9-0e50-4852-85bd-5f0060ef3807</ProjectId>
-      <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/EF/MIGRATION_README.txt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ec96ff0f-fa76-4b5b-bf9b-aab5779ce19d</ProjectId>
-      <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/Entities/IdentityGenerator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7aacf861-b3dc-40f1-bfda-ddec0d73eaa5</ProjectId>
       <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/IdentityServer4CoHosted.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServer4CoHosted.csproj</ProjectRelativeFilePath>
     </FileLog>

@@ -16,8 +16,8 @@ namespace Intent.Modules.AspNetCore.Templates.Program
     {
         public const string Identifier = "Intent.AspNetCore.Program";
 
-        public ProgramTemplate(IOutputTarget project)
-            : base(Identifier, project, null)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(Identifier, outputTarget, model)
         {
         }
 

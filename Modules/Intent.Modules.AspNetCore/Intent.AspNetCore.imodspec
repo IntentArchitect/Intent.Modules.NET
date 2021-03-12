@@ -23,12 +23,15 @@
       <role>Startup</role>
     </template>
   </templates>
-  <decorators></decorators>
+  <decorators>
+    <decorator id="Intent.AspNetCore.DefaultControllerServicesStartupDecorator" externalReference="4c45c883-135c-4c22-a158-406357a9e7d0" />
+    <decorator id="Intent.AspNetCore.DefaultControllerEndpointStartupDecorator" externalReference="bbf150dc-49c3-4c10-93ac-4b13b3f449ac" />
+  </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.1" />
+    <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.1" />
-    <dependency id="Intent.Common.CSharp" version="3.0.1" />
+    <dependency id="Intent.Common.CSharp" version="3.0.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1" />
   </dependencies>
   <files>

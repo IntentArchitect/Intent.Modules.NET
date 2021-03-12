@@ -66,7 +66,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     public class ServiceSecureModel
     {
         internal ServiceSecureModel(
-            ServiceModel serviceModel, 
+            ServiceModel serviceModel,
             Intent.AspNetCore.Controllers.Api.ServiceModelExtensions.Secured stereotype)
         {
             ServiceModel = serviceModel;

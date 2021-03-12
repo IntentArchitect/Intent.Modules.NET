@@ -24,7 +24,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
         public override ITemplate CreateTemplateInstance(IOutputTarget project)
         {
-            return new StartupTemplate(project, project.Application.EventDispatcher);
+            return new StartupTemplate(project, null);
         }
 
         //public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)

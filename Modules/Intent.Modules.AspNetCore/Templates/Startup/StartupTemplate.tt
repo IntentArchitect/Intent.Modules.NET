@@ -41,12 +41,6 @@ namespace <#= Namespace #>
 
         public void ConfigureServices(IServiceCollection services)
         {
-<#  if (IsNetCore2App()) { #>
-            services.AddMvc();
-<#  } else { #>
-            services.AddControllers();
-<#  } #>
-
 <#= GetServiceConfigurations("            ") #><#= Registrations() #>
         }
 

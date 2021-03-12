@@ -39,5 +39,6 @@
     <application id="8d97d581-efbb-47bd-b460-05a3293a5afa" name="Application.Security.BearerToken" relativePath="Intent.Modules.Application.Security.BearerToken/Application.Security.BearerToken.application.config" />
     <application id="6cb69650-5f1b-432a-af9d-09ad2c0569e9" name="Application.Security.BearerToken.Interop.IdentityServer4" relativePath="Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4/Application.Security.BearerToken.Interop.IdentityServer4.application.config" />
     <application id="9a327e3d-35a8-4c79-a32c-2ca8ab599e25" name="IdentityServer4.Identity.EntityFrameworkCore" relativePath="Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/IdentityServer4.Identity.EntityFrameworkCore.application.config" />
+    <application id="16af2dcb-ca8a-43bc-96fb-cf84f1862656" name="IdentityServer4.UI" relativePath="Intent.Modules.IdentityServer4.UI/IdentityServer4.UI.application.config" />
   </applications>
 </solution>

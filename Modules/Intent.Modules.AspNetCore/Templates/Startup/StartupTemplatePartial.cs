@@ -26,10 +26,10 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         public const string TemplateId = "Intent.AspNetCore.Startup";
         private readonly IList<ContainerRegistrationRequest> _registrations = new List<ContainerRegistrationRequest>();
 
-        public StartupTemplate(IOutputTarget project, IApplicationEventDispatcher eventDispatcher)
-            : base(TemplateId, project, null)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            eventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleServiceRegistration);
+            outputTarget.Application.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleServiceRegistration);
             //eventDispatcher.Subscribe(ContainerRegistrationForDbContextEvent.EventId, HandleDbContextRegistration);
             //eventDispatcher.Subscribe(ServiceConfigurationRequiredEvent.EventId, HandleServiceConfiguration);
             //eventDispatcher.Subscribe(InitializationRequiredEvent.EventId, HandleInitialization);
@@ -40,7 +40,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             _registrations.Add(@event);
         }
 
-        private bool IsNetCore2App()
+        public bool IsNetCore2App()
         {
             return OutputTarget.IsNetCore2App();
         }
@@ -57,19 +57,13 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             var appConfigElements = new List<(string Code, int Priority)>();
             if (IsNetCore2App())
             {
-                appConfigElements.Add(("app.UseHttpsRedirection();", -20));
-                appConfigElements.Add(("app.UseMvc();", -10));
+                appConfigElements.Add(("app.UseHttpsRedirection();", -30));
             }
             else
             {
-                appConfigElements.Add(("app.UseHttpsRedirection();", -20));
-                appConfigElements.Add(("app.UseRouting();", -10));
+                appConfigElements.Add(("app.UseHttpsRedirection();", -30));
+                appConfigElements.Add(("app.UseRouting();", -20));
                 appConfigElements.Add(("app.UseAuthorization();", -5));
-                appConfigElements.Add((@"
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});", -1));
             }
 
             appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));

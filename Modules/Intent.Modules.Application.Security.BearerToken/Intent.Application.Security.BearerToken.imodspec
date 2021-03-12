@@ -22,7 +22,7 @@
   <interoperability>
     <detect id="Intent.IdentityServer4.SecureTokenServer">
       <install>
-        <package id="Application.Security.BearerToken.Interop.IdentityServer4" version="3.0.0" />
+        <package id="BearerToken.Interop.IdentityServer4" version="3.0.0" />
       </install>
     </detect>
   </interoperability>
