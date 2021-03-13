@@ -28,20 +28,38 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         {
             appSettings.AddPropertyIfNotExists("IdentityServer", new
             {
-                Clients = new[]
+                Clients = new object[]
                 {
                     new
                     {
                         Enabled = true,
-                        ClientId = $"{_appName}_client",
-                        ClientName = $"{_appName} Client",
+                        ClientId = $"{_appName}_ResourceOwner_Client",
+                        ClientName = $"{_appName} Resource-Owner Client",
                         RequireClientSecret = false,
+                        ClientSecrets = new []{ new { Value = "secret" } },
                         AllowedGrantTypes = new []{ "password" },
+                        AllowedScopes = new []{ "api", "roles", "openid", "profile", "email" }
+                    },
+                    new
+                    {
+                        Enabled = false,
+                        ClientId = $"{_appName}_AuthCode_Client",
+                        ClientName = $"{_appName} Authorize-Code Client",
+                        RequireClientSecret = false,
+                        ClientSecrets = new []{ new { Value = "secret" } },
+                        AllowedGrantTypes = new []{ "authorization_code" },
                         AllowedScopes = new []{ "api", "roles", "openid", "profile", "email" },
-                        RequirePkce = false,
-                        AllowAccessTokensViaBrowser = false,
-                        PostLogoutRedirectUris = new string[0],
-                        AllowPlainTextPkce = false,
+                        RequirePkce = true,
+                        AllowAccessTokensViaBrowser = true,
+                        RedirectUris = new string[]
+                        {
+                            "https://my-app-domain/oauth2-redirect.html"
+                        },
+                        PostLogoutRedirectUris = new string[]
+                        {
+                            "https://my-app-domain/logout.html"
+                        },
+                        AllowPlainTextPkce = false
                     }
                 },
                 ApiScopes = new[]
