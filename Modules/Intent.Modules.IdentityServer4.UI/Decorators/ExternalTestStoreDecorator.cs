@@ -54,7 +54,7 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
             return @"private Task<TestUser> AutoProvisionUser(string provider, string providerUserId, IEnumerable<Claim> claims)
         {
             var user = _users.AutoProvisionUser(provider, providerUserId, claims.ToList());
-            return user;
+            return Task.FromResult(user);
         }";
         }
 
