@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="71190011-f577-4fc1-a964-11b24e07ef39" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>StaticFilesStartupDecorator</name>
-  <display>StaticFilesStartupDecorator: StartupDecorator</display>
+<class id="be287863-aec7-4c58-bf04-07aaaacd6fb1" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>AccountTestStoreDecorator</name>
+  <display>AccountTestStoreDecorator: AccountAuthProviderDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>6</order>
+  <order>2</order>
   <genericTypes />
-  <typeReference id="010088ba-25a9-4927-8fe9-ecc7a631caa1">
-    <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
+  <typeReference id="b5a1e36d-674d-4921-ac0c-8d51a40c749f">
+    <typeId>cddac3d6-bb33-4fbd-8a21-00e4fd833225</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.AspNetCore</typePackageName>
-    <typePackageId>9d83d9d6-7718-4b4a-b78b-725535182de3</typePackageId>
+    <typePackageName>Intent.IdentityServer4.UI</typePackageName>
+    <typePackageId>cd56af70-eebc-4a8c-9a59-65b917e4e434</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

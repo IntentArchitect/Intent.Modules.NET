@@ -29,6 +29,8 @@
     <decorator id="Intent.IdentityServer4.UI.RazorPageControllerStartupDecorator" externalReference="f3f7aef4-8f6e-4233-b6af-cdde542f70f6" />
     <decorator id="Intent.IdentityServer4.UI.StaticFilesStartupDecorator" externalReference="71190011-f577-4fc1-a964-11b24e07ef39" />
     <decorator id="Intent.IdentityServer4.UI.MVCControllerEndpointStartupDecorator" externalReference="4c1f3227-41a7-4947-9517-903f7d7911da" />
+    <decorator id="Intent.IdentityServer4.UI.AccountTestStoreDecorator" externalReference="be287863-aec7-4c58-bf04-07aaaacd6fb1" />
+    <decorator id="Intent.IdentityServer4.UI.ExternalTestStoreDecorator" externalReference="a5200d0f-be1c-4792-b365-c804b036c1b6" />
   </decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.IdentityServer4.UI.IdentityServerQuickstartExtractorFactoryExtension" externalReference="c2836371-2d1f-4565-ae1a-a29c6c999789" />
@@ -44,5 +46,7 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <metadata />
+  <metadata>
+    <install src="Intent.Metadata/Module Builder/Intent.IdentityServer4.UI/Intent.IdentityServer4.UI.pkg.config" externalReference="cd56af70-eebc-4a8c-9a59-65b917e4e434" target="Module Builder" />
+  </metadata>
 </package>

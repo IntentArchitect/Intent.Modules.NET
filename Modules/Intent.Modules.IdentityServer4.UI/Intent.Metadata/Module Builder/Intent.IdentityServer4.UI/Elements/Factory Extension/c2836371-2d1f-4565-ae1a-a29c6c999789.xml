@@ -3,7 +3,7 @@
   <name>IdentityServerQuickstartExtractorFactoryExtension</name>
   <display>IdentityServerQuickstartExtractorFactoryExtension</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
+  <order>7</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cd56af70-eebc-4a8c-9a59-65b917e4e434</parentFolderId>

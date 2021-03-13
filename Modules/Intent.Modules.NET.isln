@@ -40,5 +40,6 @@
     <application id="16af2dcb-ca8a-43bc-96fb-cf84f1862656" name="IdentityServer4.UI" relativePath="Intent.Modules.IdentityServer4.UI/IdentityServer4.UI.application.config" />
     <application id="9a327e3d-35a8-4c79-a32c-2ca8ab599e25" name="IdentityServer4.Identity.EFCore" relativePath="Intent.Modules.IdentityServer4.Identity.EFCore/IdentityServer4.Identity.EFCore.application.config" />
     <application id="6cb69650-5f1b-432a-af9d-09ad2c0569e9" name="BearerToken.Interop.IdentityServer4" relativePath="Intent.Modules.BearerToken.Interop.IdentityServer4/Intent.BearerToken.Interop.IdentityServer4.application.config" />
+    <application id="8a808685-7c02-401d-b575-0bdc44a3717f" name="IdentityServer4.UI.Interop.Identity.EFCore" relativePath="Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore/IdentityServer4.UI.Interop.Identity.EFCore.application.config" />
   </applications>
 </solution>

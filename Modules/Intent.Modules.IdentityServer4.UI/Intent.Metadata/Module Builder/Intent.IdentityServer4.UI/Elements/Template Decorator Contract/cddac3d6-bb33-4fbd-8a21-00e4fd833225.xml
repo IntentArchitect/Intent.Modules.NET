@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cddac3d6-bb33-4fbd-8a21-00e4fd833225" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>AccountAuthProviderDecorator</name>
+  <display>AccountAuthProviderDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62c7762a-3091-4e29-bb21-bfea845ef51d</parentFolderId>
+  <packageId>cd56af70-eebc-4a8c-9a59-65b917e4e434</packageId>
+  <packageName>Intent.IdentityServer4.UI</packageName>
+  <stereotypes />
+  <childElements />
+</class>

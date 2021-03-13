@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cfb67386-2b94-40e7-b2e9-fa47a2148d35" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>ExternalAuthProviderDecorator</name>
+  <display>ExternalAuthProviderDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f619a9e9-4473-4d03-89d8-1e42adf41e0d</parentFolderId>
+  <packageId>cd56af70-eebc-4a8c-9a59-65b917e4e434</packageId>
+  <packageName>Intent.IdentityServer4.UI</packageName>
+  <stereotypes />
+  <childElements />
+</class>

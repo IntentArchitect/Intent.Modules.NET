@@ -4,6 +4,26 @@
   <FileLogs>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/AccountTestStoreDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AccountTestStoreDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/AccountTestStoreDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AccountTestStoreDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/ExternalTestStoreDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalTestStoreDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/ExternalTestStoreDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalTestStoreDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/MVCControllerEndpointStartupDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>MVCControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -54,6 +74,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountAuthProviderDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/AccountController/AccountAuthProviderDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplate.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -71,6 +96,11 @@
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalAuthProviderDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/ExternalController/ExternalAuthProviderDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>

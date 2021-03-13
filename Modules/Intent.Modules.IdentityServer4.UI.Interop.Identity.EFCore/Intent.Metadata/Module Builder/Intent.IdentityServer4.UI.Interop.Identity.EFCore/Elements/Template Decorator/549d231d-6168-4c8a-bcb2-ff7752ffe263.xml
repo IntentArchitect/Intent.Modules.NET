@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="549d231d-6168-4c8a-bcb2-ff7752ffe263" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>AccountSignInManagerDecorator</name>
+  <display>AccountSignInManagerDecorator: AccountAuthProviderDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="c6a30c47-d052-4649-b2cc-e2214ebc9dfd">
+    <typeId>cddac3d6-bb33-4fbd-8a21-00e4fd833225</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.IdentityServer4.UI</typePackageName>
+    <typePackageId>cd56af70-eebc-4a8c-9a59-65b917e4e434</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>4cc4fa7a-f389-429a-a867-b3cd9ee72e3d</parentFolderId>
+  <packageId>4cc4fa7a-f389-429a-a867-b3cd9ee72e3d</packageId>
+  <packageName>Intent.IdentityServer4.UI.Interop.Identity.EFCore</packageName>
+  <stereotypes />
+  <childElements />
+</class>

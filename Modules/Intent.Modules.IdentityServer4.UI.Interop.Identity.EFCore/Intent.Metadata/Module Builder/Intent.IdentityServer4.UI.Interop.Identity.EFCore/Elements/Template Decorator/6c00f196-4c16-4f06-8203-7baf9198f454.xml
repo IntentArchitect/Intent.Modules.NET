@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6c00f196-4c16-4f06-8203-7baf9198f454" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>ExternalSignInManagerDecorator</name>
+  <display>ExternalSignInManagerDecorator: ExternalAuthProviderDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="928926ac-115c-46da-acde-830354ff3771">
+    <typeId>cfb67386-2b94-40e7-b2e9-fa47a2148d35</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.IdentityServer4.UI</typePackageName>
+    <typePackageId>cd56af70-eebc-4a8c-9a59-65b917e4e434</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>4cc4fa7a-f389-429a-a867-b3cd9ee72e3d</parentFolderId>
+  <packageId>4cc4fa7a-f389-429a-a867-b3cd9ee72e3d</packageId>
+  <packageName>Intent.IdentityServer4.UI.Interop.Identity.EFCore</packageName>
+  <stereotypes />
+  <childElements />
+</class>

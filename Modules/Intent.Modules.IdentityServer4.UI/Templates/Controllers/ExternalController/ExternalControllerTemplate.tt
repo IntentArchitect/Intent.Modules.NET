@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<object, Intent.Modules.IdentityServer4.UI.Templates.Controllers.ExternalController.ExternalAuthProviderDecorator>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -12,7 +12,6 @@ using IdentityServer4;
 using IdentityServer4.Events;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
-using IdentityServer4.Test;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +31,7 @@ namespace IdentityServerHost.Quickstart.UI
     [AllowAnonymous]
     public class ExternalController : Controller
     {
-        private readonly TestUserStore _users;
+        private readonly <#= AuthProviderType #> _<#= AuthProviderVariableName #>;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clientStore;
         private readonly ILogger<ExternalController> _logger;
@@ -43,9 +42,9 @@ namespace IdentityServerHost.Quickstart.UI
             IClientStore clientStore,
             IEventService events,
             ILogger<ExternalController> logger,
-            TestUserStore users = null)
+            <#= AuthProviderType #> <#= AuthProviderVariableName #>)
         {
-            _users = users;
+            _<#= AuthProviderVariableName #> = <#= AuthProviderVariableName #>;
 
             _interaction = interaction;
             _clientStore = clientStore;
@@ -106,10 +105,7 @@ namespace IdentityServerHost.Quickstart.UI
             var (user, provider, providerUserId, claims) = FindUserFromExternalProvider(result);
             if (user == null)
             {
-                // this might be where you might initiate a custom workflow for user registration
-                // in this sample we don't show how that would be done, as our sample implementation
-                // simply auto-provisions new external user
-                user = AutoProvisionUser(provider, providerUserId, claims);
+                user = await CustomUserProvisionProcess(provider, providerUserId, claims);
             }
 
             // this allows us to collect any additional claims or properties
@@ -171,15 +167,20 @@ namespace IdentityServerHost.Quickstart.UI
             var providerUserId = userIdClaim.Value;
 
             // find external user
-            var user = _users.FindByExternalProvider(provider, providerUserId);
+            var user = <#= GetUserLookupCodeExpression() #>;
 
             return (user, provider, providerUserId, claims);
         }
 
-        private TestUser AutoProvisionUser(string provider, string providerUserId, IEnumerable<Claim> claims)
+        <#= GetAutoProvisionUserMethodCode() #>
+
+        [IntentManaged(Mode.Ignore)]
+        private Task<<#= AuthProviderUserType #>> CustomUserProvisionProcess(string provider, string providerUserId, IEnumerable<Claim> claims)
         {
-            var user = _users.AutoProvisionUser(provider, providerUserId, claims.ToList());
-            return user;
+            // this might be where you might initiate a custom workflow for user registration
+            // in this sample we don't show how that would be done, as our sample implementation
+            // simply auto-provisions new external user
+            return AutoProvisionUser(provider, providerUserId, claims);
         }
 
         // if the external login is OIDC-based, there are certain things we need to preserve to make logout work
