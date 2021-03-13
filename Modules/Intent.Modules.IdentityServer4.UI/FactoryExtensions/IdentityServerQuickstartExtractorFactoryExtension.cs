@@ -20,14 +20,25 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
         public override string Id => "Intent.IdentityServer4.UI.IdentityServerQuickstartExtractorFactoryExtension";
         public override int Order => 0;
 
+        [IntentManaged(Mode.Ignore)]
         const string ZipFileResourcePath = "Intent.Modules.IdentityServer4.UI" + ".Resources." + RootFolder + ".zip";
+        [IntentManaged(Mode.Ignore)]
         const string RootFolder = "IdentityServer4.Quickstart.UI-main";
 
+        [IntentManaged(Mode.Ignore)]
         private static readonly IReadOnlyCollection<string> TargetFolders = new string[]
         {
             "Quickstart",
             "Views",
             "wwwroot"
+        };
+
+        [IntentManaged(Mode.Ignore)]
+        private static readonly HashSet<string> FilesToIgnore = new HashSet<string>
+        {
+            Path.Combine(RootFolder, "Quickstart", "Account", "AccountController.cs").Replace("\\", "/"),
+            Path.Combine(RootFolder, "Quickstart", "Account", "ExternalController.cs").Replace("\\", "/"),
+            Path.Combine(RootFolder, "Quickstart", "TestUsers.cs").Replace("\\", "/")
         };
 
         [IntentManaged(Mode.Ignore)]
@@ -44,10 +55,10 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
                     return;
                 }
 
-                if (Directory.Exists(Path.Combine(targetApp.Location, "Quickstart")))
-                {
-                    return;
-                }
+                var filecheckpath = Path.Combine(targetApp.Location, "Quickstart", "Extracted.txt");
+                if (File.Exists(filecheckpath)) { return; }
+
+                File.WriteAllText(filecheckpath, "This file is used to indicate whether the UI contents have been extracted by Intent Architect");
 
                 var zipFileStream = GetFileFromResource(ZipFileResourcePath);
 
@@ -57,12 +68,15 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
             }
         }
 
+        [IntentManaged(Mode.Ignore)]
         private void ExtractFilesToRootPath(Stream zipFileStream, string rootLocation)
         {
             using (var archive = new ZipArchive(zipFileStream, ZipArchiveMode.Read))
             {
                 foreach (var entry in archive.Entries.Where(p => p.Name != string.Empty))
                 {
+                    if (FilesToIgnore.Contains(entry.FullName)) { continue; }
+
                     var pathComponents = entry.FullName.Split('/', StringSplitOptions.RemoveEmptyEntries);
                     if (pathComponents.Intersect(TargetFolders).Any())
                     {
@@ -75,6 +89,7 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
             }
         }
 
+        [IntentManaged(Mode.Ignore)]
         private Stream GetFileFromResource(string resourcePath)
         {
             var stream = typeof(IdentityServerQuickstartExtractorFactoryExtension).Assembly.GetManifestResourceStream(resourcePath);

@@ -37,7 +37,7 @@
       <display>Intent.AspNetCore.Program</display>
       <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>6</order>
+      <order>7</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7aacf861-b3dc-40f1-bfda-ddec0d73eaa5</parentFolderId>
@@ -51,7 +51,7 @@
       <display>Intent.AspNetCore.Startup</display>
       <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>7</order>
+      <order>8</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7aacf861-b3dc-40f1-bfda-ddec0d73eaa5</parentFolderId>

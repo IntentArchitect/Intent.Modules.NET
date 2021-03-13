@@ -6,6 +6,14 @@
 
   <ItemGroup>
     <None Remove="Resources\IdentityServer4.Quickstart.UI-main.zip" />
+    <None Update="Templates\Controllers\AccountController\AccountControllerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AccountControllerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Controllers\ExternalController\ExternalControllerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ExternalControllerTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -14,6 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.5" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,6 +33,23 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\Controllers\AccountController\AccountControllerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AccountControllerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Controllers\ExternalController\ExternalControllerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExternalControllerTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

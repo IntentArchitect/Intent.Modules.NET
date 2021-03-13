@@ -33,6 +33,16 @@
       <ProjectRelativeFilePath>Properties/launchsettings.json</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>632a385a-2543-45cc-8543-b22e792bfab5</ProjectId>
+      <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/Quickstart/Account/AccountController.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AccountController.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>632a385a-2543-45cc-8543-b22e792bfab5</ProjectId>
+      <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/Quickstart/Account/ExternalController.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalController.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>2c485c1b-b227-4b85-af12-3fa619534bef</ProjectId>
       <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/Services/TestService.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>TestService.cs</ProjectRelativeFilePath>

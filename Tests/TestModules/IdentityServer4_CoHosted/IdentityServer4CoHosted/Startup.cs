@@ -16,6 +16,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.Test;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]

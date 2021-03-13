@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="c2836371-2d1f-4565-ae1a-a29c6c999789" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>IdentityServerQuickstartExtractorFactoryExtension</name>
-  <display>IdentityServerQuickstartExtractorFactoryExtension</display>
+<class id="cf4f7dd7-6e60-450a-aa72-61d2b3219fa0" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Controllers</name>
+  <display>Controllers</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cd56af70-eebc-4a8c-9a59-65b917e4e434</parentFolderId>

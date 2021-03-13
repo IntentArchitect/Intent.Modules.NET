@@ -3,7 +3,7 @@
   <name>RazorPageControllerStartupDecorator</name>
   <display>RazorPageControllerStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <typeReference id="44cd64e8-9b38-4831-af06-995033632583">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

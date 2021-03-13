@@ -53,6 +53,46 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>
