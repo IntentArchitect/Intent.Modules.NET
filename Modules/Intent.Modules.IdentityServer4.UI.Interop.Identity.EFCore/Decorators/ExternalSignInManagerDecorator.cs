@@ -27,12 +27,12 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.Decorators
 
         public override string GetAuthProviderVariableName()
         {
-            return "signInManager";
+            return "userManager";
         }
 
         public override string GetAuthProviderType()
         {
-            return "SignInManager<IdentityUser>";
+            return "UserManager<IdentityUser>";
         }
 
         public override string GetAuthProviderUserType()
@@ -45,7 +45,7 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.Decorators
             return @"private async Task<IdentityUser> AutoProvisionUser(string provider, string providerUserId, IEnumerable<Claim> claims)
         {
             // create dummy internal account (you can do something more complex)
-            var user = new ApplicationUser(Guid.NewGuid().ToString());
+            var user = new IdentityUser(Guid.NewGuid().ToString());
             await _userManager.CreateAsync(user);
 
             // add external user ID to new account
@@ -57,6 +57,12 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.Decorators
         public override string GetUserLookupCodeExpression()
         {
             return "await _userManager.FindByLoginAsync(provider, providerUserId)";
+        }
+
+        public override string GetUserMappingCode()
+        {
+            return @"var user_username = user.UserName;
+                    var user_subjectId = user.Id;";
         }
 
         public void BeforeTemplateExecution()

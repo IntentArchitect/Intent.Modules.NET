@@ -20,5 +20,12 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.Controllers.ExternalContro
         public abstract string GetAutoProvisionUserMethodCode();
 
         public abstract string GetUserLookupCodeExpression();
+
+        /// <summary>
+        /// Your code needs to ultimately generate and populate 2 variables:
+        /// * user_username
+        /// * user_subjectId
+        /// </summary>
+        public abstract string GetUserMappingCode();
     }
 }

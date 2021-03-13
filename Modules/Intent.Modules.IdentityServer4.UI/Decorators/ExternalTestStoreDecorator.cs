@@ -58,6 +58,13 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
         }";
         }
 
+        public override string GetUserMappingCode()
+        {
+            if (_overridden) { return string.Empty; }
+            return @"var user_username = user.Username;
+                    var user_subjectId = user.SubjectId;";
+        }
+
         public override string GetUserLookupCodeExpression()
         {
             if (_overridden) { return string.Empty; }

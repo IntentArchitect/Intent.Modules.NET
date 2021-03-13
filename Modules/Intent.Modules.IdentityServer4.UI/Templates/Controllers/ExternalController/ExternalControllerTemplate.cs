@@ -136,49 +136,63 @@ namespace IdentityServerHost.Quickstart.UI
                     "cipal.Claims.Select(c => $\"{c.Type}: {c.Value}\");\r\n                _logger.LogDe" +
                     "bug(\"External claims: {@claims}\", externalClaims);\r\n            }\r\n\r\n           " +
                     " // lookup our user and external provider info\r\n            var (user, provider," +
-                    " providerUserId, claims) = FindUserFromExternalProvider(result);\r\n            if" +
-                    " (user == null)\r\n            {\r\n                user = await CustomUserProvision" +
-                    "Process(provider, providerUserId, claims);\r\n            }\r\n\r\n            // this" +
-                    " allows us to collect any additional claims or properties\r\n            // for th" +
-                    "e specific protocols used and store them in the local auth cookie.\r\n            " +
-                    "// this is typically used to store data needed for signout from those protocols." +
-                    "\r\n            var additionalLocalClaims = new List<Claim>();\r\n            var lo" +
-                    "calSignInProps = new AuthenticationProperties();\r\n            ProcessLoginCallba" +
-                    "ck(result, additionalLocalClaims, localSignInProps);\r\n            \r\n            " +
-                    "// issue authentication cookie for user\r\n            var isuser = new IdentitySe" +
-                    "rverUser(user.SubjectId)\r\n            {\r\n                DisplayName = user.User" +
-                    "name,\r\n                IdentityProvider = provider,\r\n                AdditionalC" +
-                    "laims = additionalLocalClaims\r\n            };\r\n\r\n            await HttpContext.S" +
-                    "ignInAsync(isuser, localSignInProps);\r\n\r\n            // delete temporary cookie " +
-                    "used during external authentication\r\n            await HttpContext.SignOutAsync(" +
-                    "IdentityServerConstants.ExternalCookieAuthenticationScheme);\r\n\r\n            // r" +
-                    "etrieve return URL\r\n            var returnUrl = result.Properties.Items[\"returnU" +
-                    "rl\"] ?? \"~/\";\r\n\r\n            // check if external login is in the context of an " +
-                    "OIDC request\r\n            var context = await _interaction.GetAuthorizationConte" +
-                    "xtAsync(returnUrl);\r\n            await _events.RaiseAsync(new UserLoginSuccessEv" +
-                    "ent(provider, providerUserId, user.SubjectId, user.Username, true, context?.Clie" +
-                    "nt.ClientId));\r\n\r\n            if (context != null)\r\n            {\r\n             " +
-                    "   if (context.IsNativeClient())\r\n                {\r\n                    // The " +
-                    "client is native, so this change in how to\r\n                    // return the re" +
-                    "sponse is for better UX for the end user.\r\n                    return this.Loadi" +
-                    "ngPage(\"Redirect\", returnUrl);\r\n                }\r\n            }\r\n\r\n            " +
-                    "return Redirect(returnUrl);\r\n        }\r\n\r\n        private (TestUser user, string" +
-                    " provider, string providerUserId, IEnumerable<Claim> claims) FindUserFromExterna" +
-                    "lProvider(AuthenticateResult result)\r\n        {\r\n            var externalUser = " +
-                    "result.Principal;\r\n\r\n            // try to determine the unique id of the extern" +
-                    "al user (issued by the provider)\r\n            // the most common claim type for " +
-                    "that are the sub claim and the NameIdentifier\r\n            // depending on the e" +
-                    "xternal provider, some other claim type might be used\r\n            var userIdCla" +
-                    "im = externalUser.FindFirst(JwtClaimTypes.Subject) ??\r\n                         " +
-                    "     externalUser.FindFirst(ClaimTypes.NameIdentifier) ??\r\n                     " +
-                    "         throw new Exception(\"Unknown userid\");\r\n\r\n            // remove the use" +
-                    "r id claim so we don\'t include it as an extra claim if/when we provision the use" +
-                    "r\r\n            var claims = externalUser.Claims.ToList();\r\n            claims.Re" +
-                    "move(userIdClaim);\r\n\r\n            var provider = result.Properties.Items[\"scheme" +
-                    "\"];\r\n            var providerUserId = userIdClaim.Value;\r\n\r\n            // find " +
-                    "external user\r\n            var user = ");
+                    " providerUserId, claims) = await FindUserFromExternalProvider(result);\r\n        " +
+                    "    if (user == null)\r\n            {\r\n                user = await CustomUserPro" +
+                    "visionProcess(provider, providerUserId, claims);\r\n            }\r\n\r\n            /" +
+                    "/ this allows us to collect any additional claims or properties\r\n            // " +
+                    "for the specific protocols used and store them in the local auth cookie.\r\n      " +
+                    "      // this is typically used to store data needed for signout from those prot" +
+                    "ocols.\r\n            var additionalLocalClaims = new List<Claim>();\r\n            " +
+                    "var localSignInProps = new AuthenticationProperties();\r\n            ProcessLogin" +
+                    "Callback(result, additionalLocalClaims, localSignInProps);\r\n            \r\n      " +
+                    "      var user_username = user.UserName;\r\n            var user_subjectId = user." +
+                    "Id;\r\n\r\n            // issue authentication cookie for user\r\n            var isus" +
+                    "er = new IdentityServerUser(user_subjectId)\r\n            {\r\n                Disp" +
+                    "layName = user_username,\r\n                IdentityProvider = provider,\r\n        " +
+                    "        AdditionalClaims = additionalLocalClaims\r\n            };\r\n\r\n            " +
+                    "await HttpContext.SignInAsync(isuser, localSignInProps);\r\n\r\n            // delet" +
+                    "e temporary cookie used during external authentication\r\n            await HttpCo" +
+                    "ntext.SignOutAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);\r" +
+                    "\n\r\n            // retrieve return URL\r\n            var returnUrl = result.Proper" +
+                    "ties.Items[\"returnUrl\"] ?? \"~/\";\r\n\r\n            // check if external login is in" +
+                    " the context of an OIDC request\r\n            var context = await _interaction.Ge" +
+                    "tAuthorizationContextAsync(returnUrl);\r\n            await _events.RaiseAsync(new" +
+                    " UserLoginSuccessEvent(provider, providerUserId, user_subjectId, user_username, " +
+                    "true, context?.Client.ClientId));\r\n\r\n            if (context != null)\r\n         " +
+                    "   {\r\n                if (context.IsNativeClient())\r\n                {\r\n        " +
+                    "            // The client is native, so this change in how to\r\n                 " +
+                    "   // return the response is for better UX for the end user.\r\n                  " +
+                    "  return this.LoadingPage(\"Redirect\", returnUrl);\r\n                }\r\n          " +
+                    "  }\r\n\r\n            return Redirect(returnUrl);\r\n        }\r\n\r\n        private asy" +
+                    "nc Task<(");
             
-            #line 170 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            #line 154 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(AuthProviderUserType));
+            
+            #line default
+            #line hidden
+            this.Write(@" user, string provider, string providerUserId, IEnumerable<Claim> claims)> FindUserFromExternalProvider(AuthenticateResult result)
+        {
+            var externalUser = result.Principal;
+
+            // try to determine the unique id of the external user (issued by the provider)
+            // the most common claim type for that are the sub claim and the NameIdentifier
+            // depending on the external provider, some other claim type might be used
+            var userIdClaim = externalUser.FindFirst(JwtClaimTypes.Subject) ??
+                              externalUser.FindFirst(ClaimTypes.NameIdentifier) ??
+                              throw new Exception(""Unknown userid"");
+
+            // remove the user id claim so we don't include it as an extra claim if/when we provision the user
+            var claims = externalUser.Claims.ToList();
+            claims.Remove(userIdClaim);
+
+            var provider = result.Properties.Items[""scheme""];
+            var providerUserId = userIdClaim.Value;
+
+            // find external user
+            var user = ");
+            
+            #line 173 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetUserLookupCodeExpression()));
             
             #line default
@@ -186,14 +200,14 @@ namespace IdentityServerHost.Quickstart.UI
             this.Write(";\r\n\r\n            return (user, provider, providerUserId, claims);\r\n        }\r\n\r\n " +
                     "       ");
             
-            #line 175 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            #line 178 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAutoProvisionUserMethodCode()));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n        [IntentManaged(Mode.Ignore)]\r\n        private Task<");
             
-            #line 178 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            #line 181 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthProviderUserType));
             
             #line default
