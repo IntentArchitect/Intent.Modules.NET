@@ -3,42 +3,42 @@
   <ApplicationId>6cb69650-5f1b-432a-af9d-09ad2c0569e9</ApplicationId>
   <FileLogs>
     <FileLog>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.BearerToken.Interop.IdentityServer4/Decorators/AuthenticationSchemesDecorator.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/AuthenticationSchemesDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>AuthenticationSchemesDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.BearerToken.Interop.IdentityServer4/Decorators/AuthenticationSchemesDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/AuthenticationSchemesDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>AuthenticationSchemesDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.BearerToken.Interop.IdentityServer4/Decorators/LocalApiBearerTokenStartupDecorator.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/LocalApiBearerTokenStartupDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>LocalApiBearerTokenStartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.BearerToken.Interop.IdentityServer4/Decorators/LocalApiBearerTokenStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/LocalApiBearerTokenStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>LocalApiBearerTokenStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.BearerToken.Interop.IdentityServer4/Intent.BearerToken.Interop.IdentityServer4.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.BearerToken.Interop.IdentityServer4.imodspec</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Intent.Modules.Security.BearerToken.Interop.IdentityServer4.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Security.BearerToken.Interop.IdentityServer4.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.BearerToken.Interop.IdentityServer4/Intent.Modules.BearerToken.Interop.IdentityServer4.csproj</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.BearerToken.Interop.IdentityServer4.csproj</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.BearerToken.Interop.IdentityServer4/README.txt</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

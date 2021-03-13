@@ -3,42 +3,42 @@
   <ApplicationId>8d97d581-efbb-47bd-b460-05a3293a5afa</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenConfigurationSettingsDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>BearerTokenConfigurationSettingsDecorator.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenConfigurationSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>BearerTokenConfigurationSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenStartupDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>BearerTokenStartupDecorator.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Decorators/BearerTokenStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>BearerTokenStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Intent.Application.Security.BearerToken.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Application.Security.BearerToken.imodspec</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/Intent.Modules.Application.Security.BearerToken.csproj</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.Security.BearerToken.csproj</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Application.Security.BearerToken/README.txt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
       <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTConfigurationSettingsDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>JWTConfigurationSettingsDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTConfigurationSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>JWTConfigurationSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTStartupDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>JWTStartupDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>JWTStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Intent.Modules.Security.JWT.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Security.JWT.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Intent.Security.JWT.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Security.JWT.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/README.txt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

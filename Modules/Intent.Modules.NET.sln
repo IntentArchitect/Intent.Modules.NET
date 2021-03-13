@@ -134,15 +134,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.SecureTokenServer", "Intent.Modules.IdentityServer4.SecureTokenServer\Intent.Modules.IdentityServer4.SecureTokenServer.csproj", "{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Security.BearerToken", "Intent.Modules.Application.Security.BearerToken\Intent.Modules.Application.Security.BearerToken.csproj", "{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.UI", "Intent.Modules.IdentityServer4.UI\Intent.Modules.IdentityServer4.UI.csproj", "{BA65EA8F-9C7C-4ACC-BB47-4E80763DC120}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.Identity.EFCore", "Intent.Modules.IdentityServer4.Identity.EFCore\Intent.Modules.IdentityServer4.Identity.EFCore.csproj", "{EC01FF01-3A4A-41B8-93E1-4E56356B71E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.BearerToken.Interop.IdentityServer4", "Intent.Modules.BearerToken.Interop.IdentityServer4\Intent.Modules.BearerToken.Interop.IdentityServer4.csproj", "{5095405C-F588-46B9-A8A0-B125C7C25634}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore", "Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore\Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.csproj", "{6289A1B3-7E43-4C1A-9472-C9E8703D41E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.JWT", "Intent.Modules.Security.JWT\Intent.Modules.Security.JWT.csproj", "{0D877C5D-0B6F-4CE4-9A0C-744DE589B431}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.BearerToken.Interop.IdentityServer4", "Intent.Modules.Security.BearerToken.Interop.IdentityServer4\Intent.Modules.Security.BearerToken.Interop.IdentityServer4.csproj", "{996404D7-407C-498A-9939-352E801A574F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -394,10 +394,6 @@ Global
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA65EA8F-9C7C-4ACC-BB47-4E80763DC120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA65EA8F-9C7C-4ACC-BB47-4E80763DC120}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA65EA8F-9C7C-4ACC-BB47-4E80763DC120}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -406,14 +402,18 @@ Global
 		{EC01FF01-3A4A-41B8-93E1-4E56356B71E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC01FF01-3A4A-41B8-93E1-4E56356B71E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC01FF01-3A4A-41B8-93E1-4E56356B71E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5095405C-F588-46B9-A8A0-B125C7C25634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5095405C-F588-46B9-A8A0-B125C7C25634}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5095405C-F588-46B9-A8A0-B125C7C25634}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5095405C-F588-46B9-A8A0-B125C7C25634}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6289A1B3-7E43-4C1A-9472-C9E8703D41E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6289A1B3-7E43-4C1A-9472-C9E8703D41E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6289A1B3-7E43-4C1A-9472-C9E8703D41E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6289A1B3-7E43-4C1A-9472-C9E8703D41E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D877C5D-0B6F-4CE4-9A0C-744DE589B431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D877C5D-0B6F-4CE4-9A0C-744DE589B431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D877C5D-0B6F-4CE4-9A0C-744DE589B431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D877C5D-0B6F-4CE4-9A0C-744DE589B431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996404D7-407C-498A-9939-352E801A574F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996404D7-407C-498A-9939-352E801A574F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996404D7-407C-498A-9939-352E801A574F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996404D7-407C-498A-9939-352E801A574F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -480,11 +480,11 @@ Global
 		{E484D3DA-E357-43A3-B37B-A43C33A639D1} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{0ECE1FC5-4AC8-4A07-BF27-B756E8809992} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{019E9097-AC3F-4E6B-9F34-E7ED1FB5FB92} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{BA65EA8F-9C7C-4ACC-BB47-4E80763DC120} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{EC01FF01-3A4A-41B8-93E1-4E56356B71E2} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{5095405C-F588-46B9-A8A0-B125C7C25634} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{6289A1B3-7E43-4C1A-9472-C9E8703D41E7} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{0D877C5D-0B6F-4CE4-9A0C-744DE589B431} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{996404D7-407C-498A-9939-352E801A574F} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
