@@ -19,7 +19,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>1594b654-0151-4686-8e52-05efce0e3522</parentFolderId>
   <packageId>1594b654-0151-4686-8e52-05efce0e3522</packageId>
-  <packageName>Intent.IdentityServer4.Identity.EF</packageName>
+  <packageName>Intent.IdentityServer4.Identity.EFCore</packageName>
   <stereotypes />
   <childElements />
 </class>

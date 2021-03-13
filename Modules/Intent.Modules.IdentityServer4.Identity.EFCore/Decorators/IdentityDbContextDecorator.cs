@@ -11,14 +11,14 @@ using Intent.Engine;
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
 
-namespace Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore.Decorators
+namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
     public class IdentityDbContextDecorator :
         DbContextDecoratorBase, IDecoratorExecutionHooks, IDeclareUsings, IHasNugetDependencies
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.IdentityServer4.Identity.EF.IdentityDbContextDecorator";
+        public const string DecoratorId = "Intent.IdentityServer4.Identity.EFCore.IdentityDbContextDecorator";
 
 
         private readonly DbContextTemplate _template;

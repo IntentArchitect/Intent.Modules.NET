@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="ef2b4d6c-38f2-4376-8ade-d209767821c6" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
-  <name>Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore</name>
-  <display>Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore</display>
+  <name>Intent.Modules.IdentityServer4.Identity.EFCore</name>
+  <display>Intent.Modules.IdentityServer4.Identity.EFCore</display>
   <isAbstract>false</isAbstract>
   <order>1</order>
   <genericTypes />

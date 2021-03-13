@@ -8,13 +8,13 @@ using System.Collections.Generic;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 
-namespace Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore.Decorators
+namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
     public class AspNetIdentityUserDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.IdentityServer4.Identity.EF.AspNetIdentityUserDecorator";
+        public const string DecoratorId = "Intent.IdentityServer4.Identity.EFCore.AspNetIdentityUserDecorator";
 
         private readonly StartupTemplate _template;
         private readonly IApplication _application;

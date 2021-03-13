@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
-namespace Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore.Decorators
+namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [Description(IdentityDbContextDecorator.DecoratorId)]
     public class IdentityDbContextDecoratorRegistration : DecoratorRegistration<DbContextTemplate, DbContextDecoratorBase>

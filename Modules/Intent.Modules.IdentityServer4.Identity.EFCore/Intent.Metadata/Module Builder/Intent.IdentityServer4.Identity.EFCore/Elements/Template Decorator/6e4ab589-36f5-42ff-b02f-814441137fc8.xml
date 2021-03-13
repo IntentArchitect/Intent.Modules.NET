@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="02c9e515-9bea-4d09-a4ee-104006a6133d" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>AspNetIdentityUserDecorator</name>
-  <display>AspNetIdentityUserDecorator: StartupDecorator</display>
+<class id="6e4ab589-36f5-42ff-b02f-814441137fc8" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>IdentityUserDecorator</name>
+  <display>IdentityUserDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>3</order>
   <genericTypes />
-  <typeReference id="253b1fe5-3b2e-4b86-9b0a-f38ae91de0a7">
+  <typeReference id="2140b8c4-445d-4bf0-a137-7c66406d2f34">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -19,7 +19,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>1594b654-0151-4686-8e52-05efce0e3522</parentFolderId>
   <packageId>1594b654-0151-4686-8e52-05efce0e3522</packageId>
-  <packageName>Intent.IdentityServer4.Identity.EF</packageName>
+  <packageName>Intent.IdentityServer4.Identity.EFCore</packageName>
   <stereotypes />
   <childElements />
 </class>

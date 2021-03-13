@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore
+namespace Intent.Modules.IdentityServer4.Identity.EFCore
 {
     public static class NugetPackages
     {

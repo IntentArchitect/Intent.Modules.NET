@@ -4,47 +4,47 @@
   <FileLogs>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/AspNetIdentityUserDecorator.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/AspNetIdentityUserDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>AspNetIdentityUserDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/AspNetIdentityUserDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/AspNetIdentityUserDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>AspNetIdentityUserDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/IdentityDbContextDecorator.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/IdentityDbContextDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityDbContextDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/IdentityDbContextDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/IdentityDbContextDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityDbContextDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/IdentityUserDecorator.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/IdentityUserDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityUserDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Decorators/IdentityUserDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/IdentityUserDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityUserDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ef2b4d6c-38f2-4376-8ade-d209767821c6</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Intent.IdentityServer4.Identity.EF.imodspec</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.IdentityServer4.Identity.EF.imodspec</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Intent.IdentityServer4.Identity.EFCore.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.IdentityServer4.Identity.EFCore.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ef2b4d6c-38f2-4376-8ade-d209767821c6</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore.csproj</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Intent.Modules.IdentityServer4.Identity.EFCore.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.Identity.EFCore.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ef2b4d6c-38f2-4376-8ade-d209767821c6</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EntityFrameworkCore/README.txt</SolutionRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
