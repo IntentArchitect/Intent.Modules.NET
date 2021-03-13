@@ -42,7 +42,7 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.Decorators
 
         public override string GetAutoProvisionUserMethodCode()
         {
-            return @"private async Task<ApplicationUser> AutoProvisionUser(string provider, string providerUserId, IEnumerable<Claim> claims)
+            return @"private async Task<IdentityUser> AutoProvisionUser(string provider, string providerUserId, IEnumerable<Claim> claims)
         {
             // create dummy internal account (you can do something more complex)
             var user = new ApplicationUser(Guid.NewGuid().ToString());

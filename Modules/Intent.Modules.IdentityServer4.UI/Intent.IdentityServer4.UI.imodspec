@@ -42,6 +42,13 @@
     <dependency id="Intent.Common.CSharp" version="3.0.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.IdentityServer4.Identity.EFCore">
+      <install>
+        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="3.0.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
