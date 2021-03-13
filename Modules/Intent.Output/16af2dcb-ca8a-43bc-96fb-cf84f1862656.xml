@@ -123,6 +123,16 @@
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/ZipFileContent/ZipFileContentTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ZipFileContent/ZipFileContentTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/ZipFileContent/ZipFileContentTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ZipFileContent/ZipFileContentTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>

@@ -3,7 +3,7 @@
   <name>StaticFilesStartupDecorator</name>
   <display>StaticFilesStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>6</order>
+  <order>7</order>
   <genericTypes />
   <typeReference id="010088ba-25a9-4927-8fe9-ecc7a631caa1">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

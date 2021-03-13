@@ -3,7 +3,7 @@
   <name>MVCControllerEndpointStartupDecorator</name>
   <display>MVCControllerEndpointStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>5</order>
   <genericTypes />
   <typeReference id="bc02e7d5-8125-4402-bdff-c0cb11d2e8e5">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
