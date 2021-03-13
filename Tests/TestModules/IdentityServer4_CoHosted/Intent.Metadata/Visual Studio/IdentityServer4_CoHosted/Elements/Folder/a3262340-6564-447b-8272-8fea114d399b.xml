@@ -25,7 +25,7 @@
       <display>Intent.AspNetCore.Controllers.Controller</display>
       <externalReference>Intent.AspNetCore.Controllers</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a3262340-6564-447b-8272-8fea114d399b</parentFolderId>
