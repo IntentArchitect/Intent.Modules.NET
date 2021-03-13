@@ -115,8 +115,7 @@ namespace IdentityServerHost.Quickstart.UI
             var localSignInProps = new AuthenticationProperties();
             ProcessLoginCallback(result, additionalLocalClaims, localSignInProps);
             
-            var user_username = user.UserName;
-            var user_subjectId = user.Id;
+            <#= GetUserMappingCode() #>
 
             // issue authentication cookie for user
             var isuser = new IdentityServerUser(user_subjectId)

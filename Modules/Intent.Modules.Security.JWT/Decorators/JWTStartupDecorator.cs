@@ -28,7 +28,7 @@ namespace Intent.Modules.Security.JWT.Decorators
         {
             _template = template;
             _application = application;
-            Priority = -9;
+            Priority = -10;
             application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
             {
                 _overrideBearerTokenConfiguration = true;

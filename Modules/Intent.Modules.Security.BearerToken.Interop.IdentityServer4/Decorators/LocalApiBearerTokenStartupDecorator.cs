@@ -23,7 +23,7 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
         {
             _template = template;
             _application = application;
-            Priority = -9;
+            Priority = -10;
         }
 
         public void BeforeTemplateExecution()

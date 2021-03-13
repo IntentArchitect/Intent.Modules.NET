@@ -83,5 +83,12 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.Controllers.ExternalContro
                 .Select(s => s.GetUserLookupCodeExpression())
                 .First(p => !string.IsNullOrEmpty(p));
         }
+
+        public string GetUserMappingCode()
+        {
+            return GetDecorators()
+                .Select(s => s.GetUserMappingCode())
+                .First(p => !string.IsNullOrEmpty(p));
+        }
     }
 }

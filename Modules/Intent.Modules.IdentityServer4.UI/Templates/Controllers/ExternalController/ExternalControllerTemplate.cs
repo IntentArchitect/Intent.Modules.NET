@@ -145,28 +145,51 @@ namespace IdentityServerHost.Quickstart.UI
                     "ocols.\r\n            var additionalLocalClaims = new List<Claim>();\r\n            " +
                     "var localSignInProps = new AuthenticationProperties();\r\n            ProcessLogin" +
                     "Callback(result, additionalLocalClaims, localSignInProps);\r\n            \r\n      " +
-                    "      var user_username = user.UserName;\r\n            var user_subjectId = user." +
-                    "Id;\r\n\r\n            // issue authentication cookie for user\r\n            var isus" +
-                    "er = new IdentityServerUser(user_subjectId)\r\n            {\r\n                Disp" +
-                    "layName = user_username,\r\n                IdentityProvider = provider,\r\n        " +
-                    "        AdditionalClaims = additionalLocalClaims\r\n            };\r\n\r\n            " +
-                    "await HttpContext.SignInAsync(isuser, localSignInProps);\r\n\r\n            // delet" +
-                    "e temporary cookie used during external authentication\r\n            await HttpCo" +
-                    "ntext.SignOutAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);\r" +
-                    "\n\r\n            // retrieve return URL\r\n            var returnUrl = result.Proper" +
-                    "ties.Items[\"returnUrl\"] ?? \"~/\";\r\n\r\n            // check if external login is in" +
-                    " the context of an OIDC request\r\n            var context = await _interaction.Ge" +
-                    "tAuthorizationContextAsync(returnUrl);\r\n            await _events.RaiseAsync(new" +
-                    " UserLoginSuccessEvent(provider, providerUserId, user_subjectId, user_username, " +
-                    "true, context?.Client.ClientId));\r\n\r\n            if (context != null)\r\n         " +
-                    "   {\r\n                if (context.IsNativeClient())\r\n                {\r\n        " +
-                    "            // The client is native, so this change in how to\r\n                 " +
-                    "   // return the response is for better UX for the end user.\r\n                  " +
-                    "  return this.LoadingPage(\"Redirect\", returnUrl);\r\n                }\r\n          " +
-                    "  }\r\n\r\n            return Redirect(returnUrl);\r\n        }\r\n\r\n        private asy" +
-                    "nc Task<(");
+                    "      ");
             
-            #line 154 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            #line 118 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetUserMappingCode()));
+            
+            #line default
+            #line hidden
+            this.Write(@"
+
+            // issue authentication cookie for user
+            var isuser = new IdentityServerUser(user_subjectId)
+            {
+                DisplayName = user_username,
+                IdentityProvider = provider,
+                AdditionalClaims = additionalLocalClaims
+            };
+
+            await HttpContext.SignInAsync(isuser, localSignInProps);
+
+            // delete temporary cookie used during external authentication
+            await HttpContext.SignOutAsync(IdentityServerConstants.ExternalCookieAuthenticationScheme);
+
+            // retrieve return URL
+            var returnUrl = result.Properties.Items[""returnUrl""] ?? ""~/"";
+
+            // check if external login is in the context of an OIDC request
+            var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
+            await _events.RaiseAsync(new UserLoginSuccessEvent(provider, providerUserId, user_subjectId, user_username, true, context?.Client.ClientId));
+
+            if (context != null)
+            {
+                if (context.IsNativeClient())
+                {
+                    // The client is native, so this change in how to
+                    // return the response is for better UX for the end user.
+                    return this.LoadingPage(""Redirect"", returnUrl);
+                }
+            }
+
+            return Redirect(returnUrl);
+        }
+
+        private async Task<(");
+            
+            #line 153 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthProviderUserType));
             
             #line default
@@ -192,7 +215,7 @@ namespace IdentityServerHost.Quickstart.UI
             // find external user
             var user = ");
             
-            #line 173 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            #line 172 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetUserLookupCodeExpression()));
             
             #line default
@@ -200,14 +223,14 @@ namespace IdentityServerHost.Quickstart.UI
             this.Write(";\r\n\r\n            return (user, provider, providerUserId, claims);\r\n        }\r\n\r\n " +
                     "       ");
             
-            #line 178 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            #line 177 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAutoProvisionUserMethodCode()));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n        [IntentManaged(Mode.Ignore)]\r\n        private Task<");
             
-            #line 181 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
+            #line 180 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthProviderUserType));
             
             #line default

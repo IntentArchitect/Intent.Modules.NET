@@ -55,10 +55,8 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
                     return;
                 }
 
-                var filecheckpath = Path.Combine(targetApp.Location, "Quickstart", "Extracted.txt");
+                var filecheckpath = Path.Combine(targetApp.Location, "Controllers", "Account", "AccountOptions.cs");
                 if (File.Exists(filecheckpath)) { return; }
-
-                File.WriteAllText(filecheckpath, "This file is used to indicate whether the UI contents have been extracted by Intent Architect");
 
                 var zipFileStream = GetFileFromResource(ZipFileResourcePath);
 
@@ -80,7 +78,9 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
                     var pathComponents = entry.FullName.Split('/', StringSplitOptions.RemoveEmptyEntries);
                     if (pathComponents.Intersect(TargetFolders).Any())
                     {
-                        var outpath = Path.Combine(rootLocation, entry.FullName.Replace(RootFolder + "/", string.Empty));
+                        var outpath = Path.Combine(rootLocation, entry.FullName
+                            .Replace(RootFolder + "/", string.Empty)
+                            .Replace("Quickstart/", "Controllers/"));
                         var fileInfo = new FileInfo(outpath);
                         fileInfo.Directory.Create();
                         entry.ExtractToFile(outpath);
