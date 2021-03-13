@@ -9,13 +9,13 @@ using Intent.Engine;
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
 
-namespace Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4.Decorators
+namespace Intent.Modules.BearerToken.Interop.IdentityServer4.Decorators
 {
     [IntentManaged(Mode.Merge)]
     public class AuthenticationSchemesDecorator : ControllerDecorator, IDeclareUsings
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "BearerToken.Interop.IdentityServer4.AuthenticationSchemesDecorator";
+        public const string DecoratorId = "Intent.BearerToken.Interop.IdentityServer4.AuthenticationSchemesDecorator";
 
         private readonly ControllerTemplate _template;
         private readonly IApplication _application;

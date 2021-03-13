@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="996404d7-407c-498a-9939-352e801a574f" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
-  <name>Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4</name>
-  <display>Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4</display>
+  <name>Intent.Modules.BearerToken.Interop.IdentityServer4</name>
+  <display>Intent.Modules.BearerToken.Interop.IdentityServer4</display>
   <isAbstract>false</isAbstract>
   <order>1</order>
   <genericTypes />

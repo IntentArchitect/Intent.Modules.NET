@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
-namespace Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4.Decorators
+namespace Intent.Modules.BearerToken.Interop.IdentityServer4.Decorators
 {
     [Description(LocalApiBearerTokenStartupDecorator.DecoratorId)]
     public class LocalApiBearerTokenStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>

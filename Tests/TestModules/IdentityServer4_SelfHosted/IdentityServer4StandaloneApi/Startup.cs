@@ -30,14 +30,13 @@ namespace IdentityServer4StandaloneApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             var idServerBuilder = services.AddIdentityServer();
-            CustomIdentityServerConfiguration(idServerBuilder);
             idServerBuilder.AddInMemoryClients(Configuration.GetSection("IdentityServer:Clients"))
                 .AddInMemoryApiResources(Configuration.GetSection("IdentityServer:ApiResources"))
                 .AddInMemoryApiScopes(Configuration.GetSection("IdentityServer:ApiScopes"))
                 .AddInMemoryIdentityResources(Configuration.GetSection("IdentityServer:IdentityResources"));
             idServerBuilder.AddSigningCredential(CertificateRepo.GetUsingOptions(Configuration));
+            CustomIdentityServerConfiguration(idServerBuilder);
 
         }
 

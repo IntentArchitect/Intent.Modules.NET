@@ -19,7 +19,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>01be688b-cbcb-4f94-8e14-c74fe55c499c</parentFolderId>
   <packageId>01be688b-cbcb-4f94-8e14-c74fe55c499c</packageId>
-  <packageName>BearerToken.Interop.IdentityServer4</packageName>
+  <packageName>Intent.BearerToken.Interop.IdentityServer4</packageName>
   <stereotypes />
   <childElements />
 </class>

@@ -37,8 +37,8 @@
     <application id="9a4086c7-0093-4ffd-9f3b-8f7d1b2b1466" name="Intent.Modules.EntityFrameworkCore.Interop.DomainEvents" relativePath="Intent.Modules.EntityFrameworkCore.Interop.DomainEvents/Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.application.config" />
     <application id="4721d523-68c5-4285-85ef-fe1871918162" name="IdentityServer4.SecureTokenServer" relativePath="Intent.Modules.IdentityServer4.SecureTokenServer/IdentityServer4.SecureTokenServer.application.config" />
     <application id="8d97d581-efbb-47bd-b460-05a3293a5afa" name="Application.Security.BearerToken" relativePath="Intent.Modules.Application.Security.BearerToken/Application.Security.BearerToken.application.config" />
-    <application id="6cb69650-5f1b-432a-af9d-09ad2c0569e9" name="Application.Security.BearerToken.Interop.IdentityServer4" relativePath="Intent.Modules.Application.Security.BearerToken.Interop.IdentityServer4/Application.Security.BearerToken.Interop.IdentityServer4.application.config" />
     <application id="16af2dcb-ca8a-43bc-96fb-cf84f1862656" name="IdentityServer4.UI" relativePath="Intent.Modules.IdentityServer4.UI/IdentityServer4.UI.application.config" />
     <application id="9a327e3d-35a8-4c79-a32c-2ca8ab599e25" name="IdentityServer4.Identity.EFCore" relativePath="Intent.Modules.IdentityServer4.Identity.EFCore/IdentityServer4.Identity.EFCore.application.config" />
+    <application id="6cb69650-5f1b-432a-af9d-09ad2c0569e9" name="BearerToken.Interop.IdentityServer4" relativePath="Intent.Modules.BearerToken.Interop.IdentityServer4/Intent.BearerToken.Interop.IdentityServer4.application.config" />
   </applications>
 </solution>

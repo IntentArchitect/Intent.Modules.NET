@@ -32,7 +32,6 @@ namespace ApiServiceSelfHostedApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             ConfigureAuthentication(services);
             ConfigureSwagger(services);
 
