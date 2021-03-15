@@ -1,9 +1,6 @@
-﻿using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using Intent.Metadata.Models;
+﻿using System.Collections.Generic;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Common;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation
 {
@@ -25,19 +22,5 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         }
 
         public int Priority { get; } = 0;
-    }
-
-    public class ConstructorParameter
-    {
-        public ConstructorParameter(string type, string name, ITemplateDependency templateDependency)
-        {
-            ParameterType = type;
-            ParameterName = name;
-            TemplateDependency = templateDependency;
-        }
-
-        public string ParameterType { get; }
-        public string ParameterName { get; }
-        public ITemplateDependency TemplateDependency { get; }
     }
 }

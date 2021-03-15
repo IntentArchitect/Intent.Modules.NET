@@ -2,39 +2,39 @@
 using System.Linq;
 using System.Text;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.Templates;
 
 namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation
 {
     partial class ServiceImplementationTemplate : CSharpTemplateBase<ServiceModel>, ITemplate, IHasTemplateDependencies, ITemplateBeforeExecutionHook, IHasDecorators<ServiceImplementationDecoratorBase>, ITemplatePostCreationHook
     {
-        private IList<ServiceImplementationDecoratorBase> _decorators = new List<ServiceImplementationDecoratorBase>();
+        private readonly IList<ServiceImplementationDecoratorBase> _decorators = new List<ServiceImplementationDecoratorBase>();
 
         public const string Identifier = "Intent.Application.ServiceImplementations";
-        public ServiceImplementationTemplate(IProject project, ServiceModel model)
-            : base(Identifier, project, model)
+        public ServiceImplementationTemplate(IOutputTarget outputTarget, ServiceModel model)
+            : base(Identifier, outputTarget, model)
         {
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
-        public IEnumerable<ITemplateDependency> GetTemplateDependencies()
+        public override IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
-            return new[]
-            {
-                TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id)
-            }.Union(GetDecorators().SelectMany(x => x.GetConstructorDependencies(Model).Select(d => d.TemplateDependency)));
+            return base.GetTemplateDependencies()
+                .Concat(new[]
+                {
+                    TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id)
+                })
+                .Concat(GetDecorators()
+                    .SelectMany(x => x.GetConstructorDependencies(Model)
+                        .Select(d => d.TemplateDependency)));
         }
 
         public void AddDecorator(ServiceImplementationDecoratorBase decorator)
@@ -51,7 +51,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         public override void BeforeTemplateExecution()
@@ -60,13 +61,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Application")
                 .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
-            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            //{
-            //    { "InterfaceType", GetServiceInterfaceName()},
-            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
-            //    { "InterfaceTypeTemplateId", ServiceContractTemplate.IDENTIFIER },
-            //    { "ConcreteTypeTemplateId", Identifier }
-            //});
         }
 
         public override string DependencyUsings
@@ -95,15 +89,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                 return "";
             }
             return o.Parameters.Select(x => $"{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => x + ", " + y);
-        }
-
-        private string GetOperationCallParameters(OperationModel o)
-        {
-            if (!o.Parameters.Any())
-            {
-                return "";
-            }
-            return o.Parameters.Select(x => $"{x.Name}").Aggregate((x, y) => x + ", " + y);
         }
 
         private string GetOperationReturnType(OperationModel o)
