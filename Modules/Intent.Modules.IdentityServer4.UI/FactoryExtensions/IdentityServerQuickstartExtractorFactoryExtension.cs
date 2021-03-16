@@ -24,11 +24,13 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public void OnStep(IApplication application, string step)
         {
+            const string ROLE_DISTRIBUTION = "Distribution";
+
             if (step == ExecutionLifeCycleSteps.AfterCommitChanges)
             {
                 Logging.Log.Info($"Extracting content of {ResourceHelper.QuickstartFileName}.zip ...");
 
-                var targetApp = application.OutputTargets.SingleOrDefault(p => p.HasRole("Distribution"));
+                var targetApp = application.OutputTargets.SingleOrDefault(p => p.HasRole(ROLE_DISTRIBUTION));
                 if (targetApp == null)
                 {
                     Logging.Log.Warning("No host application found to output zip file content");

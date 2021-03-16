@@ -54,14 +54,14 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.ZipFileContent
 
         public void DoRegistration(ITemplateInstanceRegistry registery, IApplication applicationManager)
         {
-            ResourceHelper.ReadQuickstartFileContents(archive => 
+            ResourceHelper.ReadQuickstartFileContents(archive =>
             {
                 foreach (var entry in archive.Entries.Where(p => p.Name != string.Empty))
                 {
                     if (FilesToIgnore.Contains(entry.FullName)) { continue; }
 
-                    registery.Register(TemplateId, project => new ZipFileContentTemplate(project, new ZipEntry 
-                    { 
+                    registery.Register(TemplateId, project => new ZipFileContentTemplate(project, new ZipEntry
+                    {
                         FullFileNamePath = entry.FullName
                             .Replace(ResourceHelper.QuickstartFileName + "/", string.Empty)
                             .Replace("Quickstart/", "Controllers/"),

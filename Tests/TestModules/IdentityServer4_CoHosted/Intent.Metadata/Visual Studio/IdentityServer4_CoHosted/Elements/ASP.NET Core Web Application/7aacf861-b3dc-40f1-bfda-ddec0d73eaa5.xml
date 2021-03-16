@@ -60,7 +60,7 @@
       <stereotypes />
       <childElements />
     </childElement>
-    <childElement id="ffdaf1bb-5cf5-496c-9b00-ae633eb668db" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="dd696678-c8ad-41d2-affe-1f9f01127424" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.IdentityServer4.UI.ZipFileContent</name>
       <display>Intent.IdentityServer4.UI.ZipFileContent</display>
       <externalReference>Intent.IdentityServer4.UI</externalReference>
@@ -87,11 +87,24 @@
       <stereotypes />
       <childElements />
     </childElement>
+    <childElement id="10eafd9f-d61e-4583-a876-ff2c76e0f4fb" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Persistence</name>
+      <display>Persistence</display>
+      <isAbstract>false</isAbstract>
+      <order>10</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7aacf861-b3dc-40f1-bfda-ddec0d73eaa5</parentFolderId>
+      <packageId>84d2575b-dff6-4ba2-9f9c-26adb6661a3a</packageId>
+      <packageName>IdentityServer4_CoHosted</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
     <childElement id="dc8c787d-772b-4c30-8fe8-a15dc0894942" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Startup</name>
       <display>Startup</display>
       <isAbstract>false</isAbstract>
-      <order>10</order>
+      <order>11</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7aacf861-b3dc-40f1-bfda-ddec0d73eaa5</parentFolderId>
