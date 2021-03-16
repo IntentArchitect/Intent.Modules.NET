@@ -28,7 +28,7 @@ namespace Intent.Modules.IdentityServer4.UI.FactoryExtensions
             {
                 Logging.Log.Info($"Extracting content of {ResourceHelper.QuickstartFileName}.zip ...");
 
-                var targetApp = application.OutputTargets.SingleOrDefault(p => p.Parent == null);
+                var targetApp = application.OutputTargets.SingleOrDefault(p => p.HasRole("Distribution"));
                 if (targetApp == null)
                 {
                     Logging.Log.Warning("No host application found to output zip file content");
