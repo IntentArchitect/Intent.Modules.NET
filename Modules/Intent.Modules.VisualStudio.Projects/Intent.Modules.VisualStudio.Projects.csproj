@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.0.1</Version>
+    <Version>3.0.5</Version>
     <Authors>Intent Architect</Authors>
     <Company>Intent Architect</Company>
     <Product>Intent Architect</Product>
@@ -12,7 +12,6 @@
     <PackageIcon>logo.png</PackageIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Templates\NodeJSProjectFile\**" />
     <EmbeddedResource Remove="Templates\NodeJSProjectFile\**" />
@@ -22,14 +21,12 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Api\Extensions\" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.0.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.2" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.7" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -41,13 +38,11 @@
     <PackageReference Include="NuGet.Versioning" Version="5.6.0" />
     <PackageReference Include="System.CodeDom" Version="4.7.0" />
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
     <None Update="Templates\AssemblyInfo\AssemblyInfoTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -74,11 +69,9 @@
       <LastGenOutput>VisualStudio2015SolutionTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="Templates\AssemblyInfo\AssemblyInfoTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -111,5 +104,4 @@
       <DependentUpon>VisualStudio2015SolutionTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-
 </Project>

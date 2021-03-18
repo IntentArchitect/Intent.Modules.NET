@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Version>3.0.3</Version>
   </PropertyGroup>
-
   <ItemGroup>
     <None Update="Templates\DomainEvent\DomainEventTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -17,13 +17,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HasDomainEventInterfaceTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventServiceInterfaceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="Templates\DomainEvent\DomainEventTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -40,18 +38,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>HasDomainEventInterfaceTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEventServiceInterfaceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.0.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.0.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.7" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.0.2" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -59,13 +55,10 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
-
 </Project>

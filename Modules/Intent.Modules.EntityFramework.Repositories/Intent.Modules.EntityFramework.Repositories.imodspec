@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFramework.Repositories</id>
-  <version>3.0.1</version>
+  <version>3.0.2</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Repository Patterns for Entity Framework.</summary>
   <description>Repository Patterns for Entity Framework.</description>
@@ -35,18 +35,17 @@
       </config>
     </template>
   </templates>
-  <decorators>
-  </decorators>
+  <decorators></decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.1"/>
-    <dependency id="Intent.Common.Types" version="3.0.1"/>
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1"/>
-    <dependency id="Intent.Entities.Repositories.Api" version="3.0.1"/>
-    <dependency id="Intent.EntityFramework" version="3.0.1"/>
+    <dependency id="Intent.Common" version="3.0.4" />
+    <dependency id="Intent.Common.Types" version="3.0.3" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1" />
+    <dependency id="Intent.Entities.Repositories.Api" version="3.0.2" />
+    <dependency id="Intent.EntityFramework" version="3.0.3" />
   </dependencies>
   <files>
-    <file src="$outDir$/$id$.dll"/>
-    <file src="$outDir$/$id$.pdb"/>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
   </files>
   <!--<metadata>
     <install target="Domain" src="Metadata/Domain"/>

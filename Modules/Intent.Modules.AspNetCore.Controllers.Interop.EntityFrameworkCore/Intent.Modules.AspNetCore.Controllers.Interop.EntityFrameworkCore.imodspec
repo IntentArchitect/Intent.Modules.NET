@@ -10,8 +10,8 @@
   <templates></templates>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />
-    <dependency id="Intent.Common.Types" version="3.0.1" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.0.2" />
+    <dependency id="Intent.Common.Types" version="3.0.3" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.0.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

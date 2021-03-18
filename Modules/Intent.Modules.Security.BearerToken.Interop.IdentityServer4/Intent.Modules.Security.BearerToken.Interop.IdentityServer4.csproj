@@ -1,9 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Version>3.0.0</Version>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
@@ -13,11 +13,9 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" />
     <ProjectReference Include="..\Intent.Modules.IdentityServer4.SecureTokenServer\Intent.Modules.IdentityServer4.SecureTokenServer.csproj" />
     <ProjectReference Include="..\Intent.Modules.Security.JWT\Intent.Modules.Security.JWT.csproj" />
   </ItemGroup>
-
 </Project>
