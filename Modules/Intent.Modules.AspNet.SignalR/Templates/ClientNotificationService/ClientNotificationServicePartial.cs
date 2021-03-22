@@ -26,7 +26,7 @@ namespace Intent.Modules.AspNet.SignalR.Templates.ClientNotificationService
                 fileExtension: "cs",
                 relativeLocation: "Services",
                 className: "IClientNotificationService",
-                @namespace: "${Project.ProjectName}.Services");
+                @namespace: "${Project.Name}.Services");
         }
     }
 }

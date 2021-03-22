@@ -104,10 +104,11 @@ if (Model.ParentClass == null && !explicitPrimaryKeys.Any())
             
             #line default
             #line hidden
-            this.Write("            builder.HasKey(x => x.Id);\r\n            builder.Property(x => x.Id).U" +
-                    "sePropertyAccessMode(PropertyAccessMode.Property);\r\n");
+            this.Write("            builder.HasKey(x => x.Id);\r\n            builder.Property(x => x.Id)\r\n" +
+                    "                   .UsePropertyAccessMode(PropertyAccessMode.Property)\r\n        " +
+                    "           .ValueGeneratedNever();\r\n");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
 }
 else
@@ -118,14 +119,14 @@ else
             #line hidden
             this.Write("            builder.HasKey(x => ");
             
-            #line 49 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture((explicitPrimaryKeys.Count() == 1 ? "x." + explicitPrimaryKeys.Single().Name.ToPascalCase() : string.Format("new {{ {0} }}", string.Join(", ", explicitPrimaryKeys.Select(x => "x." + x.Name))))));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
 }
 
@@ -135,26 +136,26 @@ else
             #line hidden
             this.Write("            builder.HasBaseType<");
             
-            #line 54 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 56 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.ParentClass.Name));
             
             #line default
             #line hidden
             this.Write(">();\r\n");
             
-            #line 55 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
   }
             
             #line default
             #line hidden
             
-            #line 55 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDecoratorsOutput(x => x.BeforeAttributes())));
             
             #line default
             #line hidden
             
-            #line 55 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
 foreach (var attribute in Model.Attributes)
 {
@@ -168,14 +169,14 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("            builder.Property(x => x.");
             
-            #line 63 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 65 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attribute.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 64 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 66 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     if (!attribute.Type.IsNullable)
     {
@@ -184,7 +185,7 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .IsRequired()");
             
-            #line 67 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 69 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     }
 
@@ -194,7 +195,7 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .UseSqlServerIdentityColumn()\r\n");
             
-            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 74 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     }
 
@@ -205,14 +206,14 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .HasDefaultValueSql(\"");
             
-            #line 77 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 79 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attribute.GetDefaultConstraint().Value()));
             
             #line default
             #line hidden
             this.Write("\")\r\n");
             
-            #line 78 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 80 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     }
 
@@ -227,14 +228,14 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .HasMaxLength(");
             
-            #line 87 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 89 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(maxLength.Value));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 88 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 90 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
         }
     }
@@ -249,21 +250,21 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .HasColumnType(\"decimal(");
             
-            #line 97 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 99 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(decimalPrecision));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 97 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 99 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(decimalScale));
             
             #line default
             #line hidden
             this.Write(")\")\r\n");
             
-            #line 98 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 100 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     }
 
@@ -275,14 +276,14 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .HasColumnType(\"");
             
-            #line 104 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 106 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeOverride(attribute)));
             
             #line default
             #line hidden
             this.Write("\")\r\n");
             
-            #line 105 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 107 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     }
 
@@ -294,7 +295,7 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .IsConcurrencyToken()\r\n");
             
-            #line 112 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 114 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     }
 
@@ -306,7 +307,7 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                .IsRowVersion()\r\n");
             
-            #line 119 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 121 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
     }
 
@@ -315,20 +316,20 @@ foreach (var attribute in Model.Attributes)
             #line hidden
             this.Write("                ;\r\n\r\n");
             
-            #line 124 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 }
             
             #line default
             #line hidden
             
-            #line 124 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDecoratorsOutput(x => x.AfterAttributes())));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 127 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
 
 var indexes = Model.Attributes
@@ -342,28 +343,28 @@ foreach(var index in indexes)
             #line hidden
             this.Write("            builder.HasIndex(x => ");
             
-            #line 133 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 135 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(index.Count() == 1 ? "x." + index.Single().Name.ToPascalCase() : string.Format("new {{ {0} }}", string.Join(", ", index.OrderBy(x => x.GetStereotypeProperty<int>("Index", "Order", 0)).Select(x => "x." + x.Name)))));
             
             #line default
             #line hidden
             this.Write(")\r\n                .HasName(\"");
             
-            #line 134 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 136 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(index.Key));
             
             #line default
             #line hidden
             this.Write("\")\r\n                .IsUnique(");
             
-            #line 135 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 137 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(index.First().GetIndex().IsUnique().ToString().ToLower() ?? "false"));
             
             #line default
             #line hidden
             this.Write(")\r\n                ;\r\n");
             
-            #line 137 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 139 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
 }
 
@@ -384,21 +385,21 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("            builder.HasOne(x => x.");
             
-            #line 152 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 154 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n                .WithOne(");
             
-            #line 153 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 155 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : ""));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 154 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 156 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             if (!associationEnd.OtherEnd().IsNullable)
             {
@@ -408,7 +409,7 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                .HasForeignKey<");
             
-            #line 158 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 160 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
@@ -416,7 +417,7 @@ foreach (var associationEnd in Model.AssociatedClasses)
             this.Write(">(x => x.Id)\r\n                .IsRequired()\r\n                .OnDelete(DeleteBeha" +
                     "vior.Cascade)\r\n");
             
-            #line 161 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 163 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             }
             else
@@ -427,21 +428,21 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                .HasForeignKey<");
             
-            #line 166 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 168 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write(">(");
             
-            #line 166 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 168 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetForeignKeyLambda(associationEnd.OtherEnd())));
             
             #line default
             #line hidden
             this.Write(")\r\n                .OnDelete(DeleteBehavior.Restrict)\r\n");
             
-            #line 168 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 170 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             }
 
@@ -450,7 +451,7 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                ;\r\n\r\n");
             
-            #line 173 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 175 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             break;
         case RelationshipType.OneToMany:
@@ -460,21 +461,21 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("            builder.HasOne(x => x.");
             
-            #line 177 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 179 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n                .WithMany(");
             
-            #line 178 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 180 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : ""));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 179 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 181 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             if (UseForeignKeys)
             {
@@ -484,14 +485,14 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                .HasForeignKey(");
             
-            #line 183 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 185 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetForeignKeyLambda(associationEnd.OtherEnd())));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 184 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 186 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             }
             else
@@ -502,14 +503,14 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                .HasForeignKey(\"");
             
-            #line 189 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 191 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Id\"))\r\n");
             
-            #line 190 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 192 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             }
 
@@ -518,7 +519,7 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                .OnDelete(DeleteBehavior.Restrict)\r\n                ;\r\n\r\n");
             
-            #line 196 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 198 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             break;
         case RelationshipType.ManyToOne:
@@ -528,21 +529,21 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("            builder.HasMany(x => x.");
             
-            #line 200 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 202 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n                .WithOne(x => x.");
             
-            #line 201 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 203 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 202 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 204 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             if (UseForeignKeys)
             {
@@ -552,14 +553,14 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                .HasForeignKey(");
             
-            #line 206 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 208 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetForeignKeyLambda(associationEnd)));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 207 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 209 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             }
             else
@@ -570,14 +571,14 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                .Map(m => m.MapKey(\"");
             
-            #line 212 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 214 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.OtherEnd().Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("Id\"))\r\n");
             
-            #line 213 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 215 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             }
 
@@ -590,7 +591,7 @@ foreach (var associationEnd in Model.AssociatedClasses)
             this.Write("                .IsRequired()\r\n                .OnDelete(DeleteBehavior.Cascade)\r" +
                     "\n");
             
-            #line 221 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 223 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             }
 
@@ -599,7 +600,7 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("                ;\r\n\r\n");
             
-            #line 226 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 228 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
           break;
         case RelationshipType.ManyToMany:
             IssueManyToManyWarning(associationEnd);
@@ -609,14 +610,14 @@ foreach (var associationEnd in Model.AssociatedClasses)
             #line hidden
             this.Write("            builder.Ignore(x => x.");
             
-            #line 230 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 232 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(associationEnd.Name().ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(")\r\n                ;\r\n\r\n");
             
-            #line 233 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
+            #line 235 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\Configurations\ConfigurationsTemplate.tt"
 
             break;
     }

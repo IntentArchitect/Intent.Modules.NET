@@ -33,7 +33,7 @@ namespace Intent.Modules.UserContext.Templates.UserContextProviderInterface
                        fileExtension: "cs",
                        relativeLocation: "Providers",
                        className: "IUserContextProvider",
-                       @namespace: "${Project.ProjectName}"
+                       @namespace: "${Project.Name}"
                 );
         }
 

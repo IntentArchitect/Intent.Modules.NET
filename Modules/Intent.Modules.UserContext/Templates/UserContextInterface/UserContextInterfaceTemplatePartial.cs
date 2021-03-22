@@ -27,7 +27,7 @@ namespace Intent.Modules.UserContext.Templates.UserContextInterface
                        fileExtension: "cs",
                        relativeLocation: "Context",
                        className: "IUserContextData",
-                       @namespace: "${Project.ProjectName}"
+                       @namespace: "${Project.Name}"
                 );
         }
     }
