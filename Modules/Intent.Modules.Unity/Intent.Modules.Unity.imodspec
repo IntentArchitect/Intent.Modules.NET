@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Unity</id>
-  <version>3.0.2</version>
+  <version>3.0.3</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Unity container for patterns that require Dependency Injection.</summary>
   <description>Unity container for patterns that require Dependency Injection.</description>
@@ -11,15 +11,15 @@
   <tags>Unity Container DI Dependency Injection</tags>
   <templates>
     <template id="Intent.Unity.Config">
-      <role>Distribution</role>
+      <role>Distribution.WebApi</role>
       <location>Unity</location>
     </template>
     <template id="Intent.Unity.ServiceProvider">
-      <role>Distribution</role>
+      <role>Distribution.WebApi</role>
       <location>Unity</location>
     </template>
     <template id="Intent.Unity.PerServiceCallLifetimeManager">
-      <role>Distribution</role>
+      <role>Distribution.WebApi</role>
       <location>Unity</location>
     </template>
   </templates>
