@@ -13,7 +13,7 @@
       <ProjectRelativeFilePath>ITestService.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
-      <ProjectId>ddeba930-fd3b-42b5-bcab-ffddcf387fcc</ProjectId>
+      <ProjectId>49872d51-4707-4bb2-a7c1-49929b2f7845</ProjectId>
       <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/Controllers/Account/AccountController.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>AccountController.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -23,7 +23,7 @@
       <ProjectRelativeFilePath>Controllers/Account/AccountOptions.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
-      <ProjectId>ddeba930-fd3b-42b5-bcab-ffddcf387fcc</ProjectId>
+      <ProjectId>49872d51-4707-4bb2-a7c1-49929b2f7845</ProjectId>
       <SolutionRelativeFilePath>../IdentityServer4_CoHosted/IdentityServer4CoHosted/Controllers/Account/ExternalController.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ExternalController.cs</ProjectRelativeFilePath>
     </FileLog>

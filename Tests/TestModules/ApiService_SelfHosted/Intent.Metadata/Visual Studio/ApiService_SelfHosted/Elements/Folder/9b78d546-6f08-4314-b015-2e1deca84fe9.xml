@@ -34,5 +34,19 @@
       <stereotypes />
       <childElements />
     </childElement>
+    <childElement id="4220aa94-2760-4c2c-a6a3-a7657b7ae864" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.DtoModel</name>
+      <display>Intent.Application.Dtos.DtoModel</display>
+      <externalReference>Intent.Application.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9b78d546-6f08-4314-b015-2e1deca84fe9</parentFolderId>
+      <packageId>c6f595a8-74a5-4e5e-bab1-f6c13d833aa0</packageId>
+      <packageName>ApiService_SelfHosted</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
   </childElements>
 </class>
