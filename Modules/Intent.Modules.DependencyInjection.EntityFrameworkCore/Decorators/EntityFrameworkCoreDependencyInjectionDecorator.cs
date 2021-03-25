@@ -41,7 +41,10 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
             {{
                 services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>(options =>
-                    options.UseInMemoryDatabase(""{_template.OutputTarget.Application.Name}""));
+                {{
+                    options.UseInMemoryDatabase(""{_template.OutputTarget.Application.Name}"");
+                    options.UseLazyLoadingProxies();
+                }});
             }}
             else
             {{
