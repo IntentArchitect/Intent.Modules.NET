@@ -68,5 +68,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return (_element != null ? _element.GetHashCode() : 0);
         }
         public const string SpecializationTypeId = "6453c4bd-78b8-4589-a223-9f57a348a1a1";
+
+        public string Comment => _element.Comment;
     }
 }

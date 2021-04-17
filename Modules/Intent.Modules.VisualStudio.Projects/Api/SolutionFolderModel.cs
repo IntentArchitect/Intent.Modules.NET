@@ -106,5 +106,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                     .Where(x => x.SpecializationType == ConsoleAppNETFrameworkModel.SpecializationType)
                     .Select(x => new ConsoleAppNETFrameworkModel(x))
                     .ToList();
+
+        public string Comment => _element.Comment;
+
+        public IList<SQLServerDatabaseProjectModel> SQLServerDatabaseProjects => _element.ChildElements
+                    .GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
+                    .Select(x => new SQLServerDatabaseProjectModel(x))
+                    .ToList();
     }
 }

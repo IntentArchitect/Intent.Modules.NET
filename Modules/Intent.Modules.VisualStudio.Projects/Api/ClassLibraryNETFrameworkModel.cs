@@ -35,6 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string RelativeLocation { get; }
         public string LanguageVersion { get; }
         public bool NullableEnabled { get; }
+        public string FileExtension => "csproj";
         public string Type => SpecializationType;
         public string ProjectTypeId => VisualStudioProjectTypeIds.CSharpLibrary;
         public SolutionFolderModel ParentFolder { get; }
@@ -106,5 +107,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                     .Where(x => x.SpecializationType == TemplateOutputModel.SpecializationType)
                     .Select(x => new TemplateOutputModel(x))
                     .ToList();
+
+        public string Comment => _element.Comment;
     }
 }

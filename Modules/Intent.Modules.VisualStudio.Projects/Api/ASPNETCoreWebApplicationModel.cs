@@ -40,6 +40,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public VisualStudioSolutionModel Solution => new VisualStudioSolutionModel(InternalElement.Package);
         public string LanguageVersion { get; }
         public bool NullableEnabled { get; }
+        public string FileExtension => "csproj";
 
         public IOutputTargetConfig ToOutputTargetConfig()
         {
@@ -108,5 +109,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                     .Where(x => x.SpecializationType == TemplateOutputModel.SpecializationType)
                     .Select(x => new TemplateOutputModel(x))
                     .ToList();
+
+        public string Comment => _element.Comment;
     }
 }

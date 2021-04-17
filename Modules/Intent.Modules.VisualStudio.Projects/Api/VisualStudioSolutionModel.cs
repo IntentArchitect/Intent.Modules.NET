@@ -88,5 +88,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .GetElementsOfType(ConsoleAppNETFrameworkModel.SpecializationTypeId)
             .Select(x => new ConsoleAppNETFrameworkModel(x))
             .ToList();
+
+        public IList<SQLServerDatabaseProjectModel> SQLServerDatabaseProjects => UnderlyingPackage.ChildElements
+            .GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
+            .Select(x => new SQLServerDatabaseProjectModel(x))
+            .ToList();
     }
 }

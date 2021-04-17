@@ -22,6 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .Concat(metadataManager.VisualStudio(application).GetClassLibraryNETFrameworkModels())
                 .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETFrameworkModels())
                 .Concat(metadataManager.VisualStudio(application).GetWCFServiceApplicationModels())
+                .Concat(metadataManager.VisualStudio(application).GetSQLServerDatabaseProjectModels())
                 .ToList();
         }
 
@@ -93,6 +94,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         {
             return designer.GetElementsOfType(FolderModel.SpecializationTypeId)
                 .Select(x => new FolderModel(x))
+                .ToList();
+        }
+
+        public static IList<SQLServerDatabaseProjectModel> GetSQLServerDatabaseProjectModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
+                .Select(x => new SQLServerDatabaseProjectModel(x))
                 .ToList();
         }
 

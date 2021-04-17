@@ -83,7 +83,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                         new CoreProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(outputEvent.Value);
                         break;
                     default:
-                        throw new Exception($"No syncer configured for project '{vsProject.Name}' with type ({vsProject.Type})");
+                        Logging.Log.Warning("No project synchronizer could be found for project: " + vsProject.Name);
+                        continue;
                 }
             }
 

@@ -99,6 +99,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/SQLServerDatabaseProjectModel.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>SQLServerDatabaseProjectModel.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/TemplateOutputModel.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>TemplateOutputModel.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -171,6 +176,26 @@
       <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>SqlServerDatabase/SqlProject/SqlProjectTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>SqlServerDatabase/SqlProject/SqlProjectTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>SqlServerDatabase/SqlProject/SqlProjectTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

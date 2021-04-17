@@ -22,6 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         VisualStudioSolutionModel Solution { get; }
         string LanguageVersion { get; }
         bool NullableEnabled { get; }
+        string FileExtension { get; }
     }
 
     public static class VisualStudioProjectExtensions

@@ -109,7 +109,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                 foreach (var projectName in missingProjects)
                 {
                     var project = Projects.Where(f => f.Name == projectName).First();
-                    parser.Insert($"Project(\"{{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}}\") = \"{project.Name}\", \"{project.ToOutputTargetConfig().RelativeLocation}\\{project.Name}.csproj\", \"{{{project.Id.ToString().ToUpper()}}}\"\r\nEndProject\r\n");
+                    var type = project.ProjectTypeId == SQLServerDatabaseProjectModel.SpecializationTypeId
+                        ? SQLServerDatabaseProjectModel.SpecializationTypeId
+                        : "FAE04EC0-301F-11D3-BF4B-00C04F79EFBC"; // CS Project
+                    parser.Insert($"Project(\"{{{type}}}\") = \"{project.Name}\", \"{project.ToOutputTargetConfig().RelativeLocation}\\{project.Name}.{project.FileExtension}\", \"{{{project.Id.ToString().ToUpper()}}}\"\r\nEndProject\r\n");
                 }
 
                 //Add Solution Folders

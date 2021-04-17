@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -20,13 +20,24 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  
+    <None Update="Templates\SqlServerDatabase\SqlProject\SqlProjectTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SqlProjectTemplate.cs</LastGenOutput>
+    </None>
+  
+    <Compile Update="Templates\SqlServerDatabase\SqlProject\SqlProjectTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SqlProjectTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Api\Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.7" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.8" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
