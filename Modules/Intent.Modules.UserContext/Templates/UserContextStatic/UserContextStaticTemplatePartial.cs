@@ -1,30 +1,23 @@
-﻿using Intent.Modules.Common.Templates;
-using Intent.Engine;
-using Intent.Modules.Common.CSharp;
+﻿using Intent.Engine;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Templates;
+using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.UserContext.Templates.UserContextStatic
 {
-    partial class UserContextStaticTemplate : CSharpTemplateBase<object>, ITemplate
+    partial class UserContextStaticTemplate : CSharpTemplateBase<object>
     {
         public const string Identifier = "Intent.UserContext.UserContextStatic";
 
-        public UserContextStaticTemplate(IProject project)
-            : base(Identifier, project, null)
+        public UserContextStaticTemplate(IOutputTarget outputTarget)
+            : base(Identifier, outputTarget, null)
         {
-        }
-
-        public override RoslynMergeConfig ConfigureRoslynMerger()
-        {
-            return new RoslynMergeConfig(new TemplateMetadata(Id, "1.0"));
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                       className: $"UserContext",
-                       @namespace: $"{OutputTarget.GetNamespace()}");
+                className: "UserContext",
+                @namespace: $"{this.GetNamespace()}");
         }
     }
 }

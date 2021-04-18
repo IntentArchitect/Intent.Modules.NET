@@ -6,11 +6,11 @@ using Intent.Templates;
 namespace Intent.Modules.UserContext.Templates.UserContextProviderInterface
 {
     [Description(UserContextProviderInterfaceTemplate.Identifier)]
-    public class UserContextProviderInterfaceTemplateRegistration : NoModelTemplateRegistrationBase
+    public class UserContextProviderInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
         public override string TemplateId => UserContextProviderInterfaceTemplate.Identifier;
 
-        public override ITemplate CreateTemplateInstance(IProject project)
+        public override ITemplate CreateTemplateInstance(IOutputTarget project)
         {
             return new UserContextProviderInterfaceTemplate(project);
         }

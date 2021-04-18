@@ -1,28 +1,25 @@
-﻿using Intent.Modules.Application.Contracts.Templates.ServiceContract;
-using Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHandler;
-using Intent.Templates;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
+using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Constants;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplementation
 {
     partial class ServiceImplementationTemplate : CSharpTemplateBase<ServiceModel>, ITemplate, IHasTemplateDependencies, IHasNugetDependencies, ITemplateBeforeExecutionHook, ITemplatePostCreationHook
     {
         public const string Identifier = "Intent.Application.ServiceCallHandlers.ServiceImplementation";
-        public ServiceImplementationTemplate(IProject project, ServiceModel model)
+        public ServiceImplementationTemplate(IOutputTarget project, ServiceModel model)
             : base(Identifier, project, model)
         {
         }
@@ -32,15 +29,6 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
             base.OnCreated();
             Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DtoModelTemplate.TemplateId, "List<{0}>"));
         }
-
-        //public IEnumerable<ITemplateDependency> GetTemplateDependencies()
-        //{
-        //    return new[]
-        //    {
-        //        TemplateDependency.OnModel(ServiceContractTemplate.IDENTIFIER, Model)
-        //    }
-        //    .Union(Model.Operations.Select(x => TemplateDependency.OnModel(ServiceCallHandlerImplementationTemplate.Identifier, x)).ToArray());
-        //}
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
@@ -56,21 +44,15 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Application")
                 .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
-            //ExecutionContext.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            //{
-            //    { "InterfaceType", GetServiceInterfaceName()},
-            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
-            //    { "InterfaceTypeTemplateId", ServiceContractTemplate.IDENTIFIER },
-            //    { "ConcreteTypeTemplateId", Identifier }
-            //});
         }
 
         private string GetOperationDefinitionParameters(OperationModel o)

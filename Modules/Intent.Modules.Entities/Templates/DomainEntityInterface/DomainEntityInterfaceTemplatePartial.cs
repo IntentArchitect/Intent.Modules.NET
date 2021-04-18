@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
-using Intent.Engine;
-using Intent.Templates;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Metadata.Models;
+using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
@@ -13,19 +10,20 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 {
-    partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityInterfaceDecoratorBase>, ITemplatePostCreationHook
+    partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityInterfaceDecoratorBase>, ITemplatePostCreationHook, IDeclareUsings
     {
         private readonly IMetadataManager _metadataManager;
         public const string Identifier = "Intent.Entities.DomainEntityInterface";
-        private const string OPERATIONS_CONTEXT = "Operations";
+        private const string OperationsContext = "Operations";
 
         private readonly IList<DomainEntityInterfaceDecoratorBase> _decorators = new List<DomainEntityInterfaceDecoratorBase>();
 
-        public DomainEntityInterfaceTemplate(ClassModel model, IProject project, IMetadataManager metadataManager)
-            : base(Identifier, project, model)
+        public DomainEntityInterfaceTemplate(ClassModel model, IOutputTarget outputTarget, IMetadataManager metadataManager)
+            : base(Identifier, outputTarget, model)
         {
             _metadataManager = metadataManager;
         }
@@ -34,9 +32,9 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         {
             Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityStateTemplate.TemplateId, "ICollection<{0}>"));
             Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEnumTemplate.TemplateId, "ICollection<{0}>"));
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier), OPERATIONS_CONTEXT);
+            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier), OperationsContext);
         }
-        
+
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
@@ -141,7 +139,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public string GetParametersDefinition(OperationModel operation)
         {
             return operation.Parameters.Any()
-                ? operation.Parameters.Select(x => NormalizeNamespace(Types.InContext(OPERATIONS_CONTEXT).Get(x.TypeReference).Name) + " " + x.Name.ToCamelCase()).Aggregate((x, y) => x + ", " + y)
+                ? operation.Parameters.Select(x => NormalizeNamespace(Types.InContext(OperationsContext).Get(x.TypeReference).Name) + " " + x.Name.ToCamelCase()).Aggregate((x, y) => x + ", " + y)
                 : "";
         }
 
@@ -151,7 +149,15 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             {
                 return o.IsAsync() ? "Task" : "void";
             }
-            return o.IsAsync() ? $"Task<{NormalizeNamespace(Types.InContext(OPERATIONS_CONTEXT).Get(o.TypeReference).Name)}>" : NormalizeNamespace(Types.InContext(OPERATIONS_CONTEXT).Get(o.TypeReference).Name);
+            return o.IsAsync() ? $"Task<{NormalizeNamespace(Types.InContext(OperationsContext).Get(o.TypeReference).Name)}>" : NormalizeNamespace(Types.InContext(OperationsContext).Get(o.TypeReference).Name);
+        }
+
+        public IEnumerable<string> DeclareUsings()
+        {
+            if (Model.Operations.Any(x => x.IsAsync()))
+            {
+                yield return "System.Threading.Tasks";
+            }
         }
     }
 }

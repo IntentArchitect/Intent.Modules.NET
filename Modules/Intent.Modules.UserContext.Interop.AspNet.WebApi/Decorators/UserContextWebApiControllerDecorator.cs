@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.UserContext.Templates.UserContextProviderInterface;
 using Intent.Templates;
 
 namespace Intent.Modules.UserContext.Interop.AspNet.WebApi.Decorators
@@ -42,6 +43,7 @@ namespace Intent.Modules.UserContext.Interop.AspNet.WebApi.Decorators
             return new[]
             {
                 TemplateDependency.OnTemplate(UserContextInterfaceTemplate.Identifier),
+                TemplateDependency.OnTemplate(UserContextProviderInterfaceTemplate.Identifier)
             };
         }
     }

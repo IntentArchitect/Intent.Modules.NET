@@ -1,27 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Templates.DomainEntityInterface;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEntity
 {
-    partial class DomainEntityTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityDecoratorBase>, ITemplatePostCreationHook
+    partial class DomainEntityTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityDecoratorBase>, ITemplatePostCreationHook, IDeclareUsings
     {
         public const string Identifier = "Intent.Entities.DomainEntity";
         private readonly IList<DomainEntityDecoratorBase> _decorators = new List<DomainEntityDecoratorBase>();
 
-        public DomainEntityTemplate(ClassModel model, IOutputTarget project)
-            : base(Identifier, project, model)
+        public DomainEntityTemplate(ClassModel model, IOutputTarget outputTarget)
+            : base(Identifier, outputTarget, model)
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier));
             AddTypeSource(DomainEnumTemplate.TemplateId);
@@ -52,9 +49,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         public string GetParametersDefinition(OperationModel operation)
         {
             return string.Join(", ", operation.Parameters.Select(x => $"{GetTypeName(x.Type)} {x.Name.ToCamelCase()}"));
-            //return operation.Parameters.Any() 
-            //    ? operation.Parameters.Select(x => GetTypeName(x.Type) + " " +).Aggregate((x, y) => x + ", " + y) 
-            //    : "";
         }
 
         public string EmitOperationReturnType(OperationModel o)
@@ -64,6 +58,14 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 return o.IsAsync() ? "async Task" : "void";
             }
             return o.IsAsync() ? $"async Task<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.ReturnType);
+        }
+
+        public IEnumerable<string> DeclareUsings()
+        {
+            if (Model.Operations.Any(x => x.IsAsync()))
+            {
+                yield return "System.Threading.Tasks";
+            }
         }
     }
 }
