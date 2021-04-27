@@ -14,7 +14,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new RolesAuthorizationDecorator(template);
+            return new RolesAuthorizationDecorator(template, application);
         }
 
         public override string DecoratorId => RolesAuthorizationDecorator.DecoratorId;

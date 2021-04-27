@@ -42,7 +42,7 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />
-    <dependency id="Intent.Common.CSharp" version="3.0.7" />
+    <dependency id="Intent.Common.CSharp" version="3.0.8" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
   </dependencies>
   <metadata>

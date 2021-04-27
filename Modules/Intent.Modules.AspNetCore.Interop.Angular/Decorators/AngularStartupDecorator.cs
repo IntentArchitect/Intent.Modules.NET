@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -50,7 +51,7 @@ namespace Intent.Modules.AspNetCore.Interop.Angular.Decorators
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {{
-                configuration.RootPath = ""ClientApp/dist"";
+                configuration.RootPath = ""{GetAngularAppRelativePath(_template.OutputTarget.Application)}/dist"";
             }});
         }}
 
@@ -61,7 +62,7 @@ namespace Intent.Modules.AspNetCore.Interop.Angular.Decorators
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = ""ClientApp"";
+                spa.Options.SourcePath = ""{GetAngularAppRelativePath(_template.OutputTarget.Application)}"";
 
                 if (env.IsDevelopment())
                 {{
@@ -74,6 +75,17 @@ namespace Intent.Modules.AspNetCore.Interop.Angular.Decorators
         public IEnumerable<string> DeclareUsings()
         {
             yield return "Microsoft.AspNetCore.SpaServices.AngularCli";
+        }
+
+        private static IOutputTarget GetFrontEndOutputTarget(IApplication application)
+        {
+            return application.OutputTargets.FirstOrDefault(x => x.HasRole("Front End"));
+        }
+
+        private static string GetAngularAppRelativePath(IApplication application)
+        {
+            var outputTargetPath = GetFrontEndOutputTarget(application).GetTargetPath();
+            return string.Join("/", outputTargetPath.Skip(1));
         }
     }
 }

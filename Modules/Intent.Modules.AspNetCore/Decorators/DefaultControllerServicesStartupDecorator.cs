@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Decorators
         private readonly IApplication _application;
         private bool _overrideDefaultController;
 
+        [IntentManaged(Mode.Merge)]
         public DefaultControllerServicesStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;

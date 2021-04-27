@@ -4,6 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -18,7 +19,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
 
         private readonly ControllerTemplate _template;
 
-        public RolesAuthorizationDecorator(ControllerTemplate template)
+        [IntentManaged(Mode.Merge)]
+        public RolesAuthorizationDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
         }
@@ -43,5 +45,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
                 authorizationModel.RolesExpression = $@"""{interimExpression}""";
             }
         }
+        private readonly IApplication _application;
     }
 }
