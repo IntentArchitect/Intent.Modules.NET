@@ -1,17 +1,15 @@
-﻿using Intent.Modules.Constants;
-using Intent.Engine;
-using Intent.Eventing;
-using Intent.Templates;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
+using Intent.Eventing;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Unity.Templates.PerServiceCallLifetimeManager;
+using Intent.Templates;
 
 namespace Intent.Modules.Unity.Templates.UnityConfig
 {
@@ -19,11 +17,11 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
     {
         public const string Identifier = "Intent.Unity.Config";
 
-        private IList<IUnityRegistrationsDecorator> _decorators = new List<IUnityRegistrationsDecorator>();
+        private readonly IList<IUnityRegistrationsDecorator> _decorators = new List<IUnityRegistrationsDecorator>();
         private readonly IList<ContainerRegistrationRequest> _registrations = new List<ContainerRegistrationRequest>();
 
-        public UnityConfigTemplate(IProject project, IApplicationEventDispatcher eventDispatcher)
-            : base(Identifier, project, null)
+        public UnityConfigTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher eventDispatcher)
+            : base(Identifier, outputTarget, null)
         {
             eventDispatcher.Subscribe<ContainerRegistrationRequest>(Handle);
         }
@@ -33,21 +31,18 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"UnityConfig",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                className: "UnityConfig",
+                @namespace: this.GetNamespace(),
+                relativeLocation: this.GetFolderPath());
         }
 
         public override string DependencyUsings => "";
 
-        public IEnumerable<ITemplateDependency> GetTemplateDependencies()
+        public override IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
-            return _registrations.SelectMany(x => x.TemplateDependencies);
-            //.Where(x => x.InterfaceType != null && x.InterfaceTypeTemplateDependency != null)
-            //.Select(x => x.InterfaceTypeTemplateDependency)
-            //.Union(_registrations
-            //    .Where(x => x.ConcreteTypeTemplateDependency != null)
-            //    .Select(x => x.ConcreteTypeTemplateDependency))
-            //.ToList();
+            return _registrations
+                .SelectMany(x => x.TemplateDependencies)
+                .Union(base.GetTemplateDependencies());
         }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -68,7 +63,9 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
 
             var output = registrations.Any() ? registrations.Select(GetRegistrationString).Aggregate((x, y) => x + y) : string.Empty;
 
-            return output + Environment.NewLine + GetDecorators().Aggregate(x => x.Registrations());
+            output += Environment.NewLine + GetDecorators().Aggregate(x => x.Registrations());
+
+            return output.Trim();
         }
 
         private string GetRegistrationString(ContainerRegistrationRequest x)
@@ -115,30 +112,6 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
         private void Handle(ContainerRegistrationRequest @event)
         {
             _registrations.Add(@event);
-            //    _registrations.Add(new ContainerRegistration(
-            //        interfaceType: @event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeKey),
-            //        concreteType: @event.GetValue(ContainerRegistrationEvent.ConcreteTypeKey),
-            //        lifetime: @event.TryGetValue(ContainerRegistrationEvent.LifetimeKey),
-            //        interfaceTypeTemplateDependency: @event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeTemplateIdKey) != null ? TemplateDependency.OnTemplate(@event.TryGetValue(ContainerRegistrationEvent.InterfaceTypeTemplateIdKey)) : null,
-            //        concreteTypeTemplateDependency: @event.TryGetValue(ContainerRegistrationEvent.ConcreteTypeTemplateIdKey) != null ? TemplateDependency.OnTemplate(@event.TryGetValue(ContainerRegistrationEvent.ConcreteTypeTemplateIdKey)) : null));
         }
     }
-
-    //internal class ContainerRegistration
-    //{
-    //    public ContainerRegistration(string interfaceType, string concreteType, string lifetime, ITemplateDependency interfaceTypeTemplateDependency, ITemplateDependency concreteTypeTemplateDependency)
-    //    {
-    //        InterfaceType = interfaceType;
-    //        ConcreteType = concreteType;
-    //        Lifetime = lifetime ?? Constants.ContainerRegistrationEvent.TransientLifetime;
-    //        InterfaceTypeTemplateDependency = interfaceTypeTemplateDependency;
-    //        ConcreteTypeTemplateDependency = concreteTypeTemplateDependency;
-    //    }
-
-    //    public string InterfaceType { get; private set; }
-    //    public string ConcreteType { get; private set; }
-    //    public string Lifetime { get; private set; }
-    //    public ITemplateDependency InterfaceTypeTemplateDependency { get; private set; }
-    //    public ITemplateDependency ConcreteTypeTemplateDependency { get; }
-    //}
 }

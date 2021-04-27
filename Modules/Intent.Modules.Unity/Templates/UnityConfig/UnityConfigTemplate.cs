@@ -64,7 +64,8 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
             this.Write(@"
     {
         #region Unity Container
-        private static readonly Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
+
+        private static readonly Lazy<IUnityContainer> Container = new Lazy<IUnityContainer>(() =>
         {
             var container = new UnityContainer();
             RegisterTypes(container);
@@ -76,9 +77,59 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
         /// </summary>
         public static IUnityContainer GetConfiguredContainer()
         {
-            return container.Value;
+            return Container.Value;
         }
+
         #endregion
+
+        private static readonly IReadOnlyCollection<Assembly> ApplicationAssemblies;
+
+        static ");
+            
+            #line 49 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("()\r\n        {\r\n            var applicationAssemblyNames = new[]\r\n            {\r\n");
+            
+            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
+
+foreach (var project in ApplicationProjects)
+{
+
+            
+            #line default
+            #line hidden
+            this.Write("                \"");
+            
+            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(project.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\"");
+            
+            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(project != ApplicationProjects.Last() ? "," : string.Empty));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
+            
+            #line 58 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
+
+}
+
+            
+            #line default
+            #line hidden
+            this.Write(@"            };
+
+            ApplicationAssemblies = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(assembly => applicationAssemblyNames.Contains(assembly.GetName().Name))
+                .ToArray();
+        }
 
         private static void RegisterTypes(IUnityContainer container)
         {
@@ -99,39 +150,8 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
 
         private static void LoadConventions(IUnityContainer container)
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies()
-                .Where(x => 
-");
-            
-            #line 66 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
-  foreach(var project in ApplicationProjects) { 
-            
-            #line default
-            #line hidden
-            this.Write("                            ");
-            
-            #line 67 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(project == ApplicationProjects.First() ? "" : "|| "));
-            
-            #line default
-            #line hidden
-            this.Write("x.GetName().Name.Equals(\"");
-            
-            #line 67 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(project.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\") \r\n");
-            
-            #line 68 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
-  } 
-            
-            #line default
-            #line hidden
-            this.Write(@"                      ).ToArray();
             container.RegisterTypes(
-               AllClasses.FromAssemblies(assemblies),
+               AllClasses.FromAssemblies(ApplicationAssemblies),
                WithMappings.FromMatchingInterface,
                WithName.Default,
                WithLifetime.PerResolve);
@@ -141,7 +161,7 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
         {
             ");
             
-            #line 79 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
+            #line 96 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Unity\Templates\UnityConfig\UnityConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Registrations()));
             
             #line default

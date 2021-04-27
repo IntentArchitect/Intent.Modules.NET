@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Templates;
 
 namespace Intent.Modules.Unity.Templates.PerServiceCallLifetimeManager
@@ -13,18 +11,19 @@ namespace Intent.Modules.Unity.Templates.PerServiceCallLifetimeManager
     {
         public const string Identifier = "Intent.Unity.PerServiceCallLifetimeManager";
 
-        public PerServiceCallLifetimeManagerTemplate(IProject project)
-            : base (Identifier, project, null)
+        public PerServiceCallLifetimeManagerTemplate(IOutputTarget outputTarget)
+            : base(Identifier, outputTarget, null)
         {
         }
 
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"PerServiceCallLifetimeManager",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                className: "PerServiceCallLifetimeManager",
+                @namespace: this.GetNamespace(),
+                relativeLocation: this.GetFolderPath());
         }
-        
+
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
             return new[]

@@ -1,21 +1,18 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using Intent.Modules.Common.Registrations;
+﻿using System.ComponentModel;
 using Intent.Engine;
+using Intent.Modules.Common.Registrations;
 using Intent.Templates;
-
 
 namespace Intent.Modules.Unity.Templates.UnityServiceProvider
 {
     [Description(UnityServiceProviderTemplate.Identifier)]
-    public class IdentityGeneratorTemplateRegistration : NoModelTemplateRegistrationBase
+    public class IdentityGeneratorTemplateRegistration : SingleFileTemplateRegistration
     {
         public override string TemplateId => UnityServiceProviderTemplate.Identifier;
 
-        public override ITemplate CreateTemplateInstance(IProject project)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new UnityServiceProviderTemplate(project);
+            return new UnityServiceProviderTemplate(outputTarget);
         }
     }
 }

@@ -1,13 +1,7 @@
-﻿using System.Collections.Generic;
-using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
-using Intent.Engine;
+﻿using Intent.Engine;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Templates;
 
 namespace Intent.Modules.Unity.Templates.UnityServiceProvider
 {
@@ -15,8 +9,8 @@ namespace Intent.Modules.Unity.Templates.UnityServiceProvider
     {
         public const string Identifier = "Intent.Unity.ServiceProvider";
 
-        public UnityServiceProviderTemplate(IProject project)
-            : base(Identifier, project, null)
+        public UnityServiceProviderTemplate(IOutputTarget outputTarget)
+            : base(Identifier, outputTarget, null)
         {
         }
 
@@ -24,13 +18,6 @@ namespace Intent.Modules.Unity.Templates.UnityServiceProvider
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForInterface("IServiceProvider"));
-            //Project.Application.EventDispatcher.Publish(ContainerRegistrationEvent.EventId, new Dictionary<string, string>()
-            //{
-            //    { "InterfaceType", "IServiceProvider"},
-            //    { "ConcreteType", $"{Namespace}.{ClassName}" },
-            //    { "InterfaceTypeTemplateId", null },
-            //    { "ConcreteTypeTemplateId", Identifier }
-            //});
         }
 
         protected override CSharpFileConfig DefineFileConfig()

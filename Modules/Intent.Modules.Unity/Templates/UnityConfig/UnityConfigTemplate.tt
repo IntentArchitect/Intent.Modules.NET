@@ -26,7 +26,8 @@ namespace <#= Namespace #>
     public class <#= ClassName #>
     {
         #region Unity Container
-        private static readonly Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
+
+        private static readonly Lazy<IUnityContainer> Container = new Lazy<IUnityContainer>(() =>
         {
             var container = new UnityContainer();
             RegisterTypes(container);
@@ -38,9 +39,31 @@ namespace <#= Namespace #>
         /// </summary>
         public static IUnityContainer GetConfiguredContainer()
         {
-            return container.Value;
+            return Container.Value;
         }
+
         #endregion
+
+        private static readonly IReadOnlyCollection<Assembly> ApplicationAssemblies;
+
+        static <#= ClassName #>()
+        {
+            var applicationAssemblyNames = new[]
+            {
+<#
+foreach (var project in ApplicationProjects)
+{
+#>
+                "<#= project.Name #>"<#= project != ApplicationProjects.Last() ? "," : string.Empty #>
+<#
+}
+#>
+            };
+
+            ApplicationAssemblies = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(assembly => applicationAssemblyNames.Contains(assembly.GetName().Name))
+                .ToArray();
+        }
 
         private static void RegisterTypes(IUnityContainer container)
         {
@@ -61,14 +84,8 @@ namespace <#= Namespace #>
 
         private static void LoadConventions(IUnityContainer container)
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies()
-                .Where(x => 
-<#  foreach(var project in ApplicationProjects) { #>
-                            <#= project == ApplicationProjects.First() ? "" : "|| " #>x.GetName().Name.Equals("<#= project.Name #>") 
-<#  } #>
-                      ).ToArray();
             container.RegisterTypes(
-               AllClasses.FromAssemblies(assemblies),
+               AllClasses.FromAssemblies(ApplicationAssemblies),
                WithMappings.FromMatchingInterface,
                WithName.Default,
                WithLifetime.PerResolve);
