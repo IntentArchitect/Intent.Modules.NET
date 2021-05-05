@@ -6,29 +6,29 @@ Create a new migration:
 add-migration -Name {ChangeName} -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject#> -ConfigurationTypeName <#= DbContextConfigurationName #>
 
 
-Override an existing migration:
+Overwrite an existing migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-add-migration -Name {ExistingNameWithoutDateComponent} -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject#> -ConfigurationTypeName <#= DbContextConfigurationName #> -Force
+add-migration -Name {ChangeName} -Force -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject#> -ConfigurationTypeName <#= DbContextConfigurationName #>
 
 
-Update to latest version:
+Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 update-database -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject #> -ConfigurationTypeName <#= DbContextConfigurationName #>
 
 
-Upgrade/downgrade to specific version
+Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-update-database -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject #> -ConfigurationTypeName <#= DbContextConfigurationName #> -TargetMigration:{Target}
+update-database -TargetMigration:{Target} -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject #> -ConfigurationTypeName <#= DbContextConfigurationName #>
 
 
-Generate script which detects current database version and updates it to the latest:
+Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-update-database -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject #> -ConfigurationTypeName <#= DbContextConfigurationName #> -Script -SourceMigration:$InitialDatabase
+update-database -SourceMigration:$InitialDatabase -Script -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject #> -ConfigurationTypeName <#= DbContextConfigurationName #>
 
 
-Generate a script two upgrade from and to a specific version:
+Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-update-database -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject #> -ConfigurationTypeName <#= DbContextConfigurationName #> -Script -SourceMigration:{Source} -TargetMigration:{Target}
+update-database -SourceMigration:{Source} -TargetMigration:{Target} -Script -StartupProjectName "<#= StartupProject #>" -ProjectName <#= MigrationProject #> -ConfigurationTypeName <#= DbContextConfigurationName #>
 
 
 Drop all tables in schema:

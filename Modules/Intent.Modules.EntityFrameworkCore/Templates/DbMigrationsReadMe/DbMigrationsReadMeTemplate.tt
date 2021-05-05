@@ -6,29 +6,29 @@ Create a new migration:
 Add-Migration -Name {ChangeName} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject#>
 
 
-Override an existing migration:
+Overwrite an existing migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Add-Migration -Name {ExistingNameWithoutDateComponent} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject#>
+Add-Migration -Name {ChangeName} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject#>
 
 
-Update to latest version:
+Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Update-Database -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
 
 
-Upgrade/downgrade to specific version
+Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Update-Database -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #> -Migration {Target}
+Update-Database -Migration {Target} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
 
 
-Generate script which detects current database version and updates it to the latest:
+Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Script-Migration -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #> -Script -SourceMigration:$InitialDatabase
+Script-Migration -SourceMigration:$InitialDatabase -Script -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
 
 
-Generate a script two upgrade from and to a specific version:
+Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Script-Migration -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #> -Script -SourceMigration:{Source} -TargetMigration:{Target}
+Script-Migration -SourceMigration:{Source} -TargetMigration:{Target} -Script -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
 
 
 Drop all tables in schema:
