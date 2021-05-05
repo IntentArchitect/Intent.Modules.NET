@@ -33,7 +33,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                     new
                     {
                         Enabled = true,
-                        ClientId = $"{_appName}_ResourceOwner_Client",
+                        ClientId = $"ResourceOwner_Client",
                         ClientName = $"{_appName} Resource-Owner Client",
                         RequireClientSecret = false,
                         ClientSecrets = new []{ new { Value = "secret" } },
@@ -42,8 +42,8 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                     },
                     new
                     {
-                        Enabled = false,
-                        ClientId = $"{_appName}_AuthCode_Client",
+                        Enabled = true,
+                        ClientId = $"Auth_Code_Client",
                         ClientName = $"{_appName} Authorize-Code Client",
                         RequireClientSecret = false,
                         ClientSecrets = new []{ new { Value = "secret" } },
@@ -53,11 +53,11 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                         AllowAccessTokensViaBrowser = true,
                         RedirectUris = new string[]
                         {
-                            "https://my-app-domain/oauth2-redirect.html"
+                            "https://localhost:{port}/authentication/login-callback"
                         },
                         PostLogoutRedirectUris = new string[]
                         {
-                            "https://my-app-domain/logout.html"
+                            "https://localhost:{port}/authentication/logout-callback"
                         },
                         AllowPlainTextPkce = false
                     }
