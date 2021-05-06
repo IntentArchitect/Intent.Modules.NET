@@ -21,6 +21,13 @@
     <dependency id="Intent.Common.Types" version="3.0.3" />
     <dependency id="Intent.VisualStudio.Projects" version="3.0.6" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.Security.JWT">
+      <install>
+        <package id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.0.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
