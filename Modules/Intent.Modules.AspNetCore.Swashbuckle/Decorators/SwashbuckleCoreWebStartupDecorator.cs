@@ -1,23 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
-using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+using System.Collections.Generic;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
 {
+    [IntentManaged(Mode.Merge)]
     public class SwashbuckleCoreWebStartupDecorator : StartupDecorator, IDeclareUsings
     {
-        public const string Identifier = "Intent.AspNetCore.Swashbuckle.StartupDecorator";
-        private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.AspNetCore.Swashbuckle.SwashbuckleCoreWebStartupDecorator";
 
-        public SwashbuckleCoreWebStartupDecorator(StartupTemplate template)
+        private readonly StartupTemplate _template;
+        private readonly IApplication _application;
+
+        [IntentManaged(Mode.Merge)]
+        public SwashbuckleCoreWebStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
             _template.AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
+            _application = application;
         }
 
         public override int Priority => 100;
@@ -37,19 +43,16 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
             return $@"        
         private void ConfigureSwagger(IServiceCollection services)
         {{
-            services.AddSwaggerGen(c =>
-            {{
-                c.SwaggerDoc(""v1"", new OpenApiInfo {{ Title = ""{_template.OutputTarget.Application.Name} API"", Version = ""v1"" }});
-            }});
+            services.AddSwaggerGen();
+            services.Configure<SwaggerGenOptions>(Configuration.GetSection(""Swashbuckle:SwaggerGen""));
+            services.Configure<SwaggerOptions>(Configuration.GetSection(""Swashbuckle:Swagger""));
+            services.Configure<SwaggerUIOptions>(Configuration.GetSection(""Swashbuckle:SwaggerUI""));
         }}
 
         private void InitializeSwagger(IApplicationBuilder app)
         {{
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {{
-                c.SwaggerEndpoint(""/swagger/v1/swagger.json"", ""{_template.OutputTarget.Application.Name} API V1"");
-            }});
+            app.UseSwaggerUI();
         }}";
         }
 

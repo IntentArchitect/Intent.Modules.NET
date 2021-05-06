@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bc6e3b78-630d-4804-9475-23f606694704" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>SwashbuckleAppSettingsDecorator</name>
+  <display>SwashbuckleAppSettingsDecorator: AppSettingsDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="ae3c7ca4-fa21-445e-a6f9-18c6eab664d5">
+    <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.VisualStudio.Projects</typePackageName>
+    <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>f7c0dfe8-5d94-4a79-9282-4665facdace5</parentFolderId>
+  <packageId>f7c0dfe8-5d94-4a79-9282-4665facdace5</packageId>
+  <packageName>Intent.AspNetCore.Swashbuckle</packageName>
+  <stereotypes />
+  <childElements />
+</class>

@@ -41,5 +41,6 @@
     <application id="8a808685-7c02-401d-b575-0bdc44a3717f" name="IdentityServer4.UI.Interop.Identity.EFCore" relativePath="Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore/IdentityServer4.UI.Interop.Identity.EFCore.application.config" />
     <application id="8d97d581-efbb-47bd-b460-05a3293a5afa" name="Security.JWT" relativePath="Intent.Modules.Security.JWT/Security.JWT.application.config" />
     <application id="6cb69650-5f1b-432a-af9d-09ad2c0569e9" name="Security.BearerToken.Interop.IdentityServer4" relativePath="Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Security.BearerToken.Interop.IdentityServer4.application.config" />
+    <application id="24057b1c-2a88-4c71-b21a-74baaa302412" name="AspNetCore.Swashbuckle" relativePath="Intent.Modules.AspNetCore.Swashbuckle/AspNetCore.Swashbuckle.application.config" />
   </applications>
 </solution>
