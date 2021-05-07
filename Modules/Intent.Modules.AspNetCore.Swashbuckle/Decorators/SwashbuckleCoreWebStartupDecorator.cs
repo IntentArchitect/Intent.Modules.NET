@@ -1,4 +1,5 @@
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperationFilter;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
@@ -43,7 +44,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
             return $@"        
         private void ConfigureSwagger(IServiceCollection services)
         {{
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c => c.OperationFilter<{_template.GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId)}>());
             services.Configure<SwaggerGenOptions>(Configuration.GetSection(""Swashbuckle:SwaggerGen""));
             services.Configure<SwaggerOptions>(Configuration.GetSection(""Swashbuckle:Swagger""));
             services.Configure<SwaggerUIOptions>(Configuration.GetSection(""Swashbuckle:SwaggerUI""));
