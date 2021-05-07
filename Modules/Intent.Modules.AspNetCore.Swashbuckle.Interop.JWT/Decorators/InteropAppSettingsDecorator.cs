@@ -66,7 +66,6 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
 
             if (settings.SwaggerUI.OAuthConfigObject == null)
             {
-                settings.SwaggerUI.RoutePrefix = string.Empty;
                 settings.SwaggerUI.OAuthConfigObject = JObject.FromObject(new
                 {
                     ClientId = "ResourceOwner_Client / Auth_Code_Client",
