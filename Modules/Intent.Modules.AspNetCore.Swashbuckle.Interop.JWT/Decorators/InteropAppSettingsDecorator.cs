@@ -27,57 +27,55 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
         {
-            var settings = appSettings.GetPropertyAs<Dictionary<string, object>>("Swashbuckle");
+            var settings = appSettings.GetProperty("Swashbuckle");
 
-            var schemes = new
+            if (settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes == null)
             {
-                oauth2 = new
+                settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes = JObject.FromObject(new
                 {
-                    Type = "OAuth2",
-                    Flows = new
+                    oauth2 = new
                     {
-                        Password = new
+                        Type = "OAuth2",
+                        Flows = new
                         {
-                            AuthorizationUrl = "https://localhost:{sts port}/connect/authorize",
-                            TokenUrl = "https://localhost:{sts port}/connect/token",
-                            Scopes = new
+                            Password = new
                             {
-                                roles = "Roles scope",
-                                api = "API scope"
-                            }
-                        },
-                        AuthorizationCode = new
-                        {
-                            AuthorizationUrl = "https://localhost:{sts port}/connect/authorize",
-                            TokenUrl = "https://localhost:{sts port}/connect/token",
-                            RefreshUrl = (string)null,
-                            Scopes = new
+                                AuthorizationUrl = "https://localhost:{sts port}/connect/authorize",
+                                TokenUrl = "https://localhost:{sts port}/connect/token",
+                                Scopes = new
+                                {
+                                    roles = "Roles scope",
+                                    api = "API scope"
+                                }
+                            },
+                            AuthorizationCode = new
                             {
-                                roles = "Roles scope",
-                                api = "API scope"
+                                AuthorizationUrl = "https://localhost:{sts port}/connect/authorize",
+                                TokenUrl = "https://localhost:{sts port}/connect/token",
+                                RefreshUrl = (string)null,
+                                Scopes = new
+                                {
+                                    roles = "Roles scope",
+                                    api = "API scope"
+                                }
                             }
                         }
                     }
-                }
-            };
-            settings["SwaggerGen"] = new Dictionary<string, object> { { "SecuritySchemes", schemes } };
+                });
+            }
 
-            settings["SwaggerUI"] = new Dictionary<string, object>
+            if (settings.SwaggerUI.OAuthConfigObject == null)
             {
-                { "RoutePrefix", " " },
+                settings.SwaggerUI.RoutePrefix = string.Empty;
+                settings.SwaggerUI.OAuthConfigObject = JObject.FromObject(new
                 {
-                    "OAuthConfigObject", new
-                    {
-                        ClientId = "ResourceOwner_Client / Auth_Code_Client",
-                        ClientSecret = (string)null,
-                        AppName = "NewApplication",
-                        UsePkceWithAuthorizationCodeGrant = true,
-                        ScopeSeparator = " "
-                    }
-                }
-            };
-
-            appSettings.SetProperty("Swashbuckle", settings);
+                    ClientId = "ResourceOwner_Client / Auth_Code_Client",
+                    ClientSecret = (string)null,
+                    AppName = _template.OutputTarget.Application.Name,
+                    UsePkceWithAuthorizationCodeGrant = true,
+                    ScopeSeparator = " "
+                });
+            }
         }
     }
 }

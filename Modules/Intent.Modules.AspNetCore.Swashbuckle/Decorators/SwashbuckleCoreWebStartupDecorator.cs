@@ -59,6 +59,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
         public IEnumerable<string> DeclareUsings()
         {
             yield return "Microsoft.OpenApi.Models";
+            yield return "Swashbuckle.AspNetCore.SwaggerGen";
+            yield return "Swashbuckle.AspNetCore.Swagger";
+            yield return "Swashbuckle.AspNetCore.SwaggerUI";
         }
     }
 }
