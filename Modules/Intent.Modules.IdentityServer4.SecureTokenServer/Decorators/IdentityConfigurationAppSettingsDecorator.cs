@@ -54,7 +54,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                         RedirectUris = new string[]
                         {
                             "https://localhost:{port}/authentication/login-callback",
-                            "https://localhost:{port}/oauth2-redirect.html"
+                            "https://localhost:{port}/swagger/oauth2-redirect.html"
                         },
                         PostLogoutRedirectUris = new string[]
                         {
