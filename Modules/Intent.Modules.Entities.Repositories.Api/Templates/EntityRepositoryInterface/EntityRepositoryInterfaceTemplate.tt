@@ -27,5 +27,6 @@ namespace <#= Namespace #>
     public interface <#= ClassName #> : <#= RepositoryInterfaceName #><<#= EntityInterfaceName #>, <#= EntityStateName #>>
     {
         Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id);
+        Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(params <#= PrimaryKeyType #>[] ids);
     }
 }

@@ -6,6 +6,7 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Templates;
@@ -28,9 +29,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.Configurations
         public ConfigurationsTemplate(IOutputTarget project, ClassModel model)
             : base(Identifier, project, model)
         {
+            AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
             if (Model.HasTable())
             {
-                AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer);
+                AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(Project));
             }
 
             ValidateAssociations();
@@ -120,16 +122,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.Configurations
         }
 
         public string EntityStateName => Project.FindTemplateInstance<IClassProvider>(_domainTemplateDependancy)?.ClassName ?? Model.Name;
-
-        public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
-        {
-            return new[]
-            {
-                NugetPackages.EntityFrameworkCore,
-            }
-            .Union(base.GetNugetDependencies())
-            .ToArray();
-        }
 
         public override IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {

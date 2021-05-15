@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Humanizer.Inflections;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.Contracts;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Decorators;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,47 +13,51 @@ using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
-    public class DeleteImplementationStrategy : IImplementationStrategy
+    public class GetAllImplementationStrategy : IImplementationStrategy
     {
         private readonly CrudConventionDecorator _decorator;
 
-        public DeleteImplementationStrategy(CrudConventionDecorator decorator)
+        public GetAllImplementationStrategy(CrudConventionDecorator decorator)
         {
             _decorator = decorator;
         }
 
         public bool Match(ClassModel domainModel, OperationModel operationModel)
         {
+            if (operationModel.Parameters.Any())
+            {
+                return false;
+            }
+
+            if (!(operationModel?.TypeReference?.IsCollection ?? false))
+            {
+                return false;
+            }
+
             var lowerDomainName = domainModel.Name.ToLower();
+            var pluralLowerDomainName = Vocabularies.Default.Pluralize(lowerDomainName);
             var lowerOperationName = operationModel.Name.ToLower();
-            if (operationModel.Parameters.Count() != 1)
-            {
-                return false;
-            }
-
-            if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
-                                                    string.Equals(p.Name, $"{lowerDomainName}Id", StringComparison.InvariantCultureIgnoreCase)))
-            {
-                return false;
-            }
-
-            if (operationModel.TypeReference.Element != null)
-            {
-                return false;
-            }
-
             return new[]
             {
-                "delete",
-                $"delete{lowerDomainName}"
+                $"get",
+                $"get{lowerDomainName}",
+                $"get{pluralLowerDomainName}",
+                $"get{pluralLowerDomainName}list",
+                $"getall",
+                $"getall{pluralLowerDomainName}",
+                $"find",
+                $"find{lowerDomainName}",
+                $"find{pluralLowerDomainName}",
+                "findall"
             }
             .Contains(lowerOperationName);
         }
 
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            return $@"var existing{domainModel.Name} ={ (operationModel.IsAsync() ? " await" : "") } {domainModel.Name.ToPrivateMember()}Repository.FindById{ (operationModel.IsAsync() ? "Async" : "") }({operationModel.Parameters.Single().Name.ToCamelCase()});
-                {domainModel.Name.ToPrivateMember()}Repository.Remove(existing{domainModel.Name});";
+            var dto = _decorator.FindDTOModel(operationModel.TypeReference.Element.Id);
+            return $@"var elements ={ (operationModel.IsAsync() ? "await" : "") } {domainModel.Name.ToPrivateMember()}Repository.FindAll{ (operationModel.IsAsync() ? "Async" : "") }();
+            return elements.MapTo{_decorator.Template.GetTypeName(DtoModelTemplate.TemplateId, dto)}List(_mapper);";
         }
 
         public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
@@ -61,7 +66,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             return new[]
             {
                 new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),
+                new ConstructorParameter(_decorator.Template.UseType("AutoMapper.IMapper"), "mapper"), 
             };
-        }
+        }   
     }
 }

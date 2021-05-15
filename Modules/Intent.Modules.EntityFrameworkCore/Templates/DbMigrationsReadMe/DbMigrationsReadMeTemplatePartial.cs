@@ -46,8 +46,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         {
             return new[]
             {
-                NugetPackages.EntityFrameworkCoreDesign,
-                NugetPackages.EntityFrameworkCoreTools,
+                NugetPackages.EntityFrameworkCoreDesign(OutputTarget),
+                NugetPackages.EntityFrameworkCoreTools(OutputTarget),
             }
             .ToArray();
         }

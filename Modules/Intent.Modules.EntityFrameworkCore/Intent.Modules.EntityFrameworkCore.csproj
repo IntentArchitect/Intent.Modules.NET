@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.8" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.9" />
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.0.2" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.0.3" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
@@ -37,6 +37,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConfigurationsTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityTypeConfigurationTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Templates\Configurations\ConfigurationsTemplate.cs">
@@ -58,6 +63,12 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbMigrationsReadMeTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityTypeConfigurationTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

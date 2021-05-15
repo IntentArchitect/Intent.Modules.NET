@@ -93,7 +93,21 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
             
             #line default
             #line hidden
-            this.Write(" id);\r\n    }\r\n}");
+            this.Write(" id);\r\n        Task<List<");
+            
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(EntityInterfaceName));
+            
+            #line default
+            #line hidden
+            this.Write(">> FindByIdsAsync(params ");
+            
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyType));
+            
+            #line default
+            #line hidden
+            this.Write("[] ids);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

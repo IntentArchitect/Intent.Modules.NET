@@ -1,29 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Intent.Metadata.Models;
-using Intent.Modules.Application.Contracts;
-using Intent.Modules.Common;
-using Intent.Engine;
 using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Contracts;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Decorators;
+using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
-namespace Intent.Modules.Convention.ServiceImplementations.MethodImplementationStrategies
+namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
     public class UpdateImplementationStrategy : IImplementationStrategy
     {
-        public bool Match(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, OperationModel operationModel)
+        private readonly CrudConventionDecorator _decorator;
+
+        public UpdateImplementationStrategy(CrudConventionDecorator decorator)
         {
+            _decorator = decorator;
+        }
+
+        public bool Match(ClassModel domainModel, OperationModel operationModel)
+        {
+            var lowerDomainName = domainModel.Name.ToLower();
+            var lowerOperationName = operationModel.Name.ToLower();
             if (operationModel.Parameters.Count() != 2)
             {
                 return false;
             }
 
-            if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.OrdinalIgnoreCase)))
+            if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
+                                                    string.Equals(p.Name, $"{lowerDomainName}Id", StringComparison.InvariantCultureIgnoreCase)))
             {
                 return false;
             }
@@ -33,8 +43,6 @@ namespace Intent.Modules.Convention.ServiceImplementations.MethodImplementationS
                 return false;
             }
 
-            var lowerDomainName = domainModel.Name.ToLower();
-            var lowerOperationName = operationModel.Name.ToLower();
             return new[]
             {
                 "put",
@@ -45,25 +53,34 @@ namespace Intent.Modules.Convention.ServiceImplementations.MethodImplementationS
             .Contains(lowerOperationName);
         }
 
-        public string GetImplementation(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, OperationModel operationModel)
+        public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            var idParam = operationModel.Parameters.First(p => string.Equals(p.Name, "id", StringComparison.OrdinalIgnoreCase));
-            var dtoParam = operationModel.Parameters.First(p => !string.Equals(p.Name, "id", StringComparison.OrdinalIgnoreCase));
+            var idParam = operationModel.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
+            var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
 
             return $@"var existing{domainModel.Name} ={ (operationModel.IsAsync() ? " await" : "") } {domainModel.Name.ToPrivateMember()}Repository.FindById{ (operationModel.IsAsync() ? "Async" : "") }({idParam.Name});
-                {EmitPropertyAssignments(metadataManager, application, domainModel, "existing"+ domainModel.Name, dtoParam)}";
+                {EmitPropertyAssignments(domainModel, "existing"+ domainModel.Name, dtoParam)}";
         }
 
-        private string EmitPropertyAssignments(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, string domainVarName, ParameterModel operationParameterModel)
+        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
+        {
+            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.Identifier, targetEntity);
+            return new[]
+            {
+                new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),
+            };
+        }
+
+        private string EmitPropertyAssignments(ClassModel domainModel, string domainVarName, ParameterModel operationParameterModel)
         {
             var sb = new StringBuilder();
-            var dto = metadataManager.Services(application).GetDTOModels().First(p => p.Id == operationParameterModel.TypeReference.Element.Id);
-            foreach (var domainAttribute in domainModel.Attributes)
+            var dto = _decorator.FindDTOModel(operationParameterModel.TypeReference.Element.Id);
+            foreach (var dtoField in dto.Fields)
             {
-                var dtoField = dto.Fields.FirstOrDefault(p => p.Name.Equals(domainAttribute.Name, StringComparison.OrdinalIgnoreCase));
-                if (dtoField == null)
+                var domainAttribute = domainModel.Attributes.FirstOrDefault(p => p.Name.Equals(dtoField.Name, StringComparison.OrdinalIgnoreCase));
+                if (domainAttribute == null)
                 {
-                    sb.AppendLine($"                    #warning No matching field found for {domainAttribute.Name}");
+                    sb.AppendLine($"                    #warning No matching field found for {dtoField.Name}");
                     continue;
                 }
                 if (domainAttribute.Type.Element.Id != dtoField.TypeReference.Element.Id)
@@ -73,7 +90,6 @@ namespace Intent.Modules.Convention.ServiceImplementations.MethodImplementationS
                 }
                 sb.AppendLine($"                    {domainVarName}.{domainAttribute.Name.ToPascalCase()} = {operationParameterModel.Name}.{dtoField.Name.ToPascalCase()};");
             }
-
             return sb.ToString().Trim();
         }
     }

@@ -16,6 +16,7 @@ using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.EntityFrameworkCore.Events;
+using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -43,7 +44,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Project.Application.Name}DbContext".ToCSharpIdentifier(),
+                className: $"ApplicationDbContext",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
@@ -62,12 +63,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             return (UseLazyLoadingProxies
                 ? new[]
                 {
-                    NugetPackages.EntityFrameworkCore,
-                    NugetPackages.EntityFrameworkCoreProxies,
+                    NugetPackages.EntityFrameworkCore(Project),
+                    NugetPackages.EntityFrameworkCoreProxies(Project),
                 }
                 : new[]
                 {
-                    NugetPackages.EntityFrameworkCore,
+                    NugetPackages.EntityFrameworkCore(Project),
                 })
             .Union(base.GetNugetDependencies())
             .ToArray();
@@ -113,7 +114,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public string GetMappingClassName(ClassModel model)
         {
-            return GetTypeName(ConfigurationsTemplate.Identifier, model);
+            return GetTypeName(EntityTypeConfigurationTemplate.TemplateId, model);
         }
 
         private string GetPrivateFields()

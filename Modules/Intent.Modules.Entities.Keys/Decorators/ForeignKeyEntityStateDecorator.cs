@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Intent.Modules.Common;
 using Intent.Modules.Entities.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Configuration;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins;
@@ -28,7 +30,8 @@ namespace Intent.Modules.Entities.Keys.Decorators
                 {
                     return base.AssociationBefore(associationEnd);
                 }
-                return $@"       public {_foreignKeyType}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }Id {{ get; set; }}
+                var foreignKeyType = associationEnd.Class.GetSurrogateKeyType(Template.Types);
+                return $@"       public {foreignKeyType}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }Id {{ get; set; }}
 ";
             }
             return base.AssociationBefore(associationEnd);

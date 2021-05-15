@@ -1,14 +1,51 @@
-﻿using Intent.Modules.Common.VisualStudio;
+﻿using Intent.Engine;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.EntityFrameworkCore
 {
     public static class NugetPackages
     {
-        public static NugetPackageInfo EntityFrameworkCore = new NugetPackageInfo("Microsoft.EntityFrameworkCore", "3.1.13");
-        public static NugetPackageInfo EntityFrameworkCoreDesign = new NugetPackageInfo("Microsoft.EntityFrameworkCore.Design", "3.1.13");
-        public static NugetPackageInfo EntityFrameworkCoreTools = new NugetPackageInfo("Microsoft.EntityFrameworkCore.Tools", "3.1.13");
-        public static NugetPackageInfo EntityFrameworkCoreSqlServer = new NugetPackageInfo("Microsoft.EntityFrameworkCore.SqlServer", "3.1.13");
-        public static NugetPackageInfo EntityFrameworkCoreInMemory = new NugetPackageInfo("Microsoft.EntityFrameworkCore.InMemory", "3.1.13");
-        public static NugetPackageInfo EntityFrameworkCoreProxies = new NugetPackageInfo("Microsoft.EntityFrameworkCore.Proxies", "3.1.13");
+        public static void AddEntityFrameworkCoreNuGet<T>(this CSharpTemplateBase<T> template)
+        {
+            if (template.Project.IsNetCore2App())
+            {
+                template.AddNugetDependency("Microsoft.EntityFrameworkCore", "2.1.14");
+            }
+            if (template.Project.IsNetCore3App())
+            {
+                template.AddNugetDependency("Microsoft.EntityFrameworkCore", "3.1.15");
+            }
+            if (template.Project.IsNet5App())
+            {
+                template.AddNugetDependency("Microsoft.EntityFrameworkCore", "5.0.6");
+            }
+        }
+
+
+        private static string GetVersion(ICSharpProject project)
+        {
+            if (project.IsNetCore2App())
+            {
+                return "2.1.14";
+            }
+            if (project.IsNetCore3App())
+            {
+                return "3.1.15";
+            }
+            if (project.IsNet5App())
+            {
+                return "5.0.6";
+            }
+            return "5.0.6";
+        }
+
+        public static NugetPackageInfo EntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore", GetVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo EntityFrameworkCoreDesign(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Design", GetVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo EntityFrameworkCoreTools(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Tools", GetVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo EntityFrameworkCoreSqlServer(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.SqlServer", GetVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.InMemory", GetVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo EntityFrameworkCoreProxies(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Proxies", GetVersion(outputTarget.GetProject()));
     }
 }

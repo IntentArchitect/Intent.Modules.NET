@@ -18,7 +18,12 @@ namespace Intent.Modules.Entities.Keys.Decorators
         {
             if (!associationEnd.IsNavigable && associationEnd.Multiplicity == Multiplicity.One && associationEnd.OtherEnd().Multiplicity == Multiplicity.Many)
             {
-                return $@"       public virtual { Template.Types.Get(associationEnd) } { associationEnd.Name() } {{ get; set; }}
+                return $@"       public virtual { Template.GetTypeName(associationEnd) } { associationEnd.Name() } {{ get; set; }}
+";
+            }
+            if (!associationEnd.IsNavigable && associationEnd.Multiplicity == Multiplicity.Many && associationEnd.OtherEnd().Multiplicity == Multiplicity.Many)
+            {
+                return $@"       public virtual { Template.GetTypeName(associationEnd) } { associationEnd.Name() } {{ get; set; }}
 ";
             }
             return base.AssociationBefore(associationEnd);

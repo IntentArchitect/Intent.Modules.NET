@@ -25,18 +25,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
-        public override IEnumerable<ITemplateDependency> GetTemplateDependencies()
-        {
-            return base.GetTemplateDependencies()
-                .Concat(new[]
-                {
-                    TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id)
-                })
-                .Concat(GetDecorators()
-                    .SelectMany(x => x.GetConstructorDependencies(Model)
-                        .Select(d => d.TemplateDependency)));
-        }
-
         public void AddDecorator(ServiceImplementationDecoratorBase decorator)
         {
             _decorators.Add(decorator);
@@ -50,7 +38,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.Name}",
+                className: $"{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
@@ -61,25 +49,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Application")
                 .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
-        }
-
-        public override string DependencyUsings
-        {
-            get
-            {
-                var builder = new StringBuilder(base.DependencyUsings).AppendLine();
-                var additionalUsings = GetDecorators()
-                    .SelectMany(s => s.GetUsings(Model))
-                    .Distinct()
-                    .Where(p => !string.IsNullOrEmpty(p))
-                    .ToArray();
-                foreach (var @using in additionalUsings)
-                {
-                    builder.AppendLine($"using {@using};");
-                }
-
-                return builder.ToString();
-            }
         }
 
         private string GetOperationDefinitionParameters(OperationModel o)
@@ -109,7 +78,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         private IEnumerable<ConstructorParameter> GetConstructorDependencies()
         {
             var parameters = GetDecorators()
-                .SelectMany(s => s.GetConstructorDependencies(this.Model))
+                .SelectMany(s => s.GetConstructorDependencies())
                 .Distinct()
                 .ToArray();
             return parameters;
@@ -117,7 +86,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         private string GetImplementation(OperationModel operation)
         {
-            var output = GetDecorators().Aggregate(x => x.GetDecoratedImplementation(Model, operation));
+            var output = GetDecorators().Aggregate(x => x.GetDecoratedImplementation(operation));
             if (string.IsNullOrWhiteSpace(output))
             {
                 return @"

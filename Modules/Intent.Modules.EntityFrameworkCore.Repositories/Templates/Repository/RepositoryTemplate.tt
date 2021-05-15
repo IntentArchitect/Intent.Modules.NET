@@ -14,6 +14,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -30,6 +31,11 @@ namespace <#= Namespace #>
         public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id)
         {
             return await FindAsync(x => x.<#= PrimaryKeyName #> == id);
+        }
+
+        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(params <#= PrimaryKeyType #>[] ids)
+        {
+            return await FindAllAsync(x => ids.Contains(x.<#= PrimaryKeyName #>));
         }
     }
 }

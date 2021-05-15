@@ -108,6 +108,31 @@
       <ProjectRelativeFilePath>DbMigrationsReadMe/DbMigrationsReadMeTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
     </FileLog>
   </FileLogs>

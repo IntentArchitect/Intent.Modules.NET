@@ -13,16 +13,12 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #> 
-<#
-#>
-
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
-<#=DependencyUsings#>
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 
@@ -48,7 +44,7 @@ namespace <#=Namespace#>
 <#  foreach (var o in Model.Operations) 
 	{ #>
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public <#= GetOperationReturnType(o) #> <#= o.Name#>(<#= GetOperationDefinitionParameters(o) #>)
+        public <#= GetOperationReturnType(o) #> <#= o.Name.ToPascalCase() #>(<#= GetOperationDefinitionParameters(o) #>)
         {<#= GetImplementation(o) #>		
         }
 

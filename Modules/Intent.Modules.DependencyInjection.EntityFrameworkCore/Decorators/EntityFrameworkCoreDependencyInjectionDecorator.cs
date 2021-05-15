@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.EntityFrameworkCore;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
@@ -23,9 +24,12 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         public EntityFrameworkCoreDependencyInjectionDecorator(DependencyInjectionTemplate template)
         {
             _template = template;
-            _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer);
-            _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory);
-
+            _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
+            _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(_template.Project));
+            if (_template.Project.IsNet5App())
+            {
+                _template.AddNugetDependency("Microsoft.Extensions.Configuration.Binder", "5.0.0");
+            }
             _template.ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                 key: "UseInMemoryDatabase", 
                 value: "true"));

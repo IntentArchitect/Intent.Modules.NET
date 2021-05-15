@@ -1,15 +1,15 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
-namespace Intent.Modules.Convention.ServiceImplementations.MethodImplementationStrategies
+namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
     public interface IImplementationStrategy
     {
-        bool Match(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, OperationModel operationModel);
-        string GetImplementation(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, OperationModel operationModel);
+        bool Match(ClassModel domainModel, OperationModel operationModel);
+        string GetImplementation(ClassModel domainModel, OperationModel operationModel);
+        IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity);
     }
 }

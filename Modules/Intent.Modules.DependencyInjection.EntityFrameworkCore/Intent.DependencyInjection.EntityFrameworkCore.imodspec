@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DependencyInjection.EntityFrameworkCore</id>
-  <version>3.0.5</version>
+  <version>3.0.6</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
@@ -16,6 +16,7 @@
     <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
     <dependency id="Intent.Infrastructure.DependencyInjection" version="3.0.2" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.0.5" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

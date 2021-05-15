@@ -22,12 +22,36 @@ namespace Intent.Modules.Application.Contracts.Api
             return model.HasStereotype("Asynchronous");
         }
 
+        public static Synchronous GetSynchronous(this OperationModel model)
+        {
+            var stereotype = model.GetStereotype("Synchronous");
+            return stereotype != null ? new Synchronous(stereotype) : null;
+        }
+
+        public static bool HasSynchronous(this OperationModel model)
+        {
+            return model.HasStereotype("Synchronous");
+        }
+
 
         public class Asynchronous
         {
             private IStereotype _stereotype;
 
             public Asynchronous(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
+        }
+
+        public class Synchronous
+        {
+            private IStereotype _stereotype;
+
+            public Synchronous(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

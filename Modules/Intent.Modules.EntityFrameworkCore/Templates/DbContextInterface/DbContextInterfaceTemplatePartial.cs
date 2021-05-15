@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
         public DbContextInterfaceTemplate(IList<ClassModel> models, IOutputTarget outputTarget)
             : base(Identifier, outputTarget, models)
         {
-            AddNugetDependency(NugetPackages.EntityFrameworkCore);
+            AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
         }
 
         public string GetEntityName(ClassModel model)
@@ -40,7 +40,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"I{Project.Application.Name}DbContext".ToCSharpIdentifier(),
+                className: $"IApplicationDbContext",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 

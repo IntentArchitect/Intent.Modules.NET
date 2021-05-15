@@ -1,27 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Contracts;
+using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Decorators;
+using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Entities.Templates.DomainEntityState;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
-namespace Intent.Modules.Convention.ServiceImplementations.MethodImplementationStrategies
+namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
     public class CreateImplementationStrategy : IImplementationStrategy
     {
-        public bool Match(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, OperationModel operationModel)
+        private readonly CrudConventionDecorator _decorator;
+
+        public CreateImplementationStrategy(CrudConventionDecorator decorator)
+        {
+            _decorator = decorator;
+        }
+
+        public bool Match(ClassModel domainModel, OperationModel operationModel)
         {
             if (operationModel.Parameters.Count() != 1)
             {
                 return false;
             }
 
-            if (operationModel.TypeReference.Element != null)
+            if (operationModel.TypeReference.Element != null && !_decorator.Template.GetTypeInfo(operationModel.TypeReference).IsPrimitive)
             {
                 return false;
             }
@@ -34,30 +44,50 @@ namespace Intent.Modules.Convention.ServiceImplementations.MethodImplementationS
                 $"post{lowerDomainName}",
                 "create",
                 $"create{lowerDomainName}",
+                $"add{lowerDomainName}",
             }
             .Contains(lowerOperationName);
         }
 
-        public string GetImplementation(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, OperationModel operationModel)
+        public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            return $@"var new{domainModel.Name} = new {domainModel.Name}
+            var entityName = _decorator.Template.GetTypeName(DomainEntityStateTemplate.TemplateId, domainModel, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+            var impl = $@"var new{domainModel.Name} = new {entityName ?? domainModel.Name}
                 {{
-{EmitPropertyAssignments(metadataManager, application, domainModel, operationModel.Parameters.First())}
+{GetPropertyAssignments(domainModel, operationModel.Parameters.First())}
                 }};
                 
                 {domainModel.Name.ToPrivateMember()}Repository.Add(new{domainModel.Name});";
+
+            if (operationModel.TypeReference.Element != null)
+            {
+                impl += $@"
+                await {domainModel.Name.ToPrivateMember()}Repository.SaveChangesAsync();
+                return new{domainModel.Name}.Id;";
+            }
+
+            return impl;
         }
 
-        private string EmitPropertyAssignments(IMetadataManager metadataManager, Engine.IApplication application, ClassModel domainModel, ParameterModel operationParameterModel)
+        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
+        {
+            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.Identifier, targetEntity);
+            return new[]
+            {
+                new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),
+            };
+        }
+
+        private string GetPropertyAssignments(ClassModel domainModel, ParameterModel operationParameterModel)
         {
             var sb = new StringBuilder();
-            var dto = metadataManager.Services(application).GetDTOModels().First(p => p.Id == operationParameterModel.TypeReference.Element.Id);
-            foreach (var domainAttribute in domainModel.Attributes)
+            var dto = _decorator.FindDTOModel(operationParameterModel.TypeReference.Element.Id);
+            foreach (var dtoField in dto.Fields)
             {
-                var dtoField = dto.Fields.FirstOrDefault(p => p.Name.Equals(domainAttribute.Name, StringComparison.OrdinalIgnoreCase));
-                if (dtoField == null)
+                var domainAttribute = domainModel.Attributes.FirstOrDefault(p => p.Name.Equals(dtoField.Name, StringComparison.OrdinalIgnoreCase));
+                if (domainAttribute == null)
                 {
-                    sb.AppendLine($"                    #warning No matching field found for {domainAttribute.Name}");
+                    sb.AppendLine($"                    #warning No matching field found for {dtoField.Name}");
                     continue;
                 }
                 if (domainAttribute.Type.Element.Id != dtoField.TypeReference.Element.Id)

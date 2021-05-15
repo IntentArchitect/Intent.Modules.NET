@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
-  <version>3.0.2</version>
+  <version>3.0.3</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Autocomplete implementations by using convention based naming.</summary>
   <description>
@@ -14,16 +14,14 @@
   <templates></templates>
   <decorators>
     <decorator id="Intent.Conventions.ServiceImplementations.Decorator" enabled="true">
-      <config>
-        <add key="Repository Interface Template Id" description="The template Id for the template producing the Repository Interfaces" default="Intent.Entities.Repositories.Api.Interface" />
-      </config>
     </decorator>
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
     <dependency id="Intent.Application.ServiceImplementations" version="3.0.3" />
-    <dependency id="Intent.Application.Contracts.Mappings" version="3.0.0-beta.6" />
+    <dependency id="Intent.Entities.Repositories.Api" version="3.0.2" />
+    <dependency id="Intent.Application.AutoMapper" version="3.0.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
