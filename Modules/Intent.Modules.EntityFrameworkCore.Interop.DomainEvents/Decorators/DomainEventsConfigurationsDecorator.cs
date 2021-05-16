@@ -1,4 +1,4 @@
-using Intent.Modules.EntityFrameworkCore.Templates.Configurations;
+using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -6,15 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 {
-    [IntentManaged(Mode.Merge)]
-    public class DomainEventsConfigurationsDecorator : ConfigurationsDecorator
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public class DomainEventsConfigurationsDecorator : EntityTypeConfigurationDecorator
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsConfigurationsDecorator";
 
-        private readonly ConfigurationsTemplate _template;
+        private readonly EntityTypeConfigurationTemplate _template;
 
-        public DomainEventsConfigurationsDecorator(ConfigurationsTemplate template)
+        public DomainEventsConfigurationsDecorator(EntityTypeConfigurationTemplate template)
         {
             _template = template;
         }

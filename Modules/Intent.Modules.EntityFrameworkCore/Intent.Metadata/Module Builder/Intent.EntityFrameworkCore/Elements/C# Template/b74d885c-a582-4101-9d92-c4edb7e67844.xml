@@ -3,7 +3,7 @@
   <name>DbContextInterface</name>
   <display>DbContextInterface: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>2</order>
   <genericTypes />
   <typeReference id="d1553d82-e60b-4dba-8fcb-2d644bf0c73c">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

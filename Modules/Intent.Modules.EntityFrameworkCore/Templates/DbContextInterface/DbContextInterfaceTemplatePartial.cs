@@ -11,7 +11,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Templates.DomainEntityState;
-using Intent.Modules.EntityFrameworkCore.Templates.Configurations;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -44,10 +43,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
-        public string GetMappingClassName(ClassModel model)
-        {
-            return GetTypeName(ConfigurationsTemplate.Identifier, model);
-        }
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.EntityFrameworkCore.DbContextInterface";
     }

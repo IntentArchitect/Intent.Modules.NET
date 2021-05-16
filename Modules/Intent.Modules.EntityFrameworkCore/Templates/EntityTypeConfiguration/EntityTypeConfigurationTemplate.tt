@@ -18,7 +18,7 @@ namespace <#= Namespace #>
     public class <#= ClassName #> : IEntityTypeConfiguration<<#= GetEntityName() #>>
     {
         public void Configure(EntityTypeBuilder<<#= GetEntityName() #>> builder)
-        {<#= GetTableMapping() #><#= GetKeyMapping() #>
+        {<#= GetTableMapping() #><#= GetKeyMapping() #><#= GetDecoratorsOutput(x => x.BeforeAttributes()) #>
 <#  foreach(var attribute in Model.Attributes.Where(x => HasMapping(x))) { #>
             <#= GetAttributeMapping(attribute) #>
 <#  } #><#= GetDecoratorsOutput(x => x.AfterAttributes()) #>

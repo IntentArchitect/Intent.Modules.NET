@@ -75,6 +75,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             
             #line default
             #line hidden
+            
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetDecoratorsOutput(x => x.BeforeAttributes())));
+            
+            #line default
+            #line hidden
             this.Write("\r\n");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"

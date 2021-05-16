@@ -11,7 +11,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
-using Intent.Modules.EntityFrameworkCore.Templates.Configurations;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;

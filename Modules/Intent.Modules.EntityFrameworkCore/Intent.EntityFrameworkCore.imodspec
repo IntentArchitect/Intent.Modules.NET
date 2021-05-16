@@ -22,15 +22,6 @@
         <add key="Use Lazy-Loading Proxies" description="Whether EF should be configured to use lazy-loading proxies" type="boolean" default="true" />
       </config>
     </template>
-    <template id="Intent.EntityFrameworkCore.Configurations" externalReference="326c3819-5992-4e09-8a48-2a088b471ba5">
-      <role>Infrastructure.Data</role>
-      <location>Persistence/Configurations</location>
-      <config>
-        <add key="Entity Template Id" description="The template Id for the template producing the Domain Entities" default="Intent.Entities.DomainEntityState" />
-        <add key="Implicit Surrogate Key" description="Flag for whether to use implicit surrogate keys from the Entities model." type="boolean" default="true" />
-        <add key="Use Foreign Keys" description="Flag for whether to use foreign keys from the Entities model." type="boolean" default="true" />
-      </config>
-    </template>
     <template id="Intent.EntityFrameworkCore.DbMigrationsReadMe" enabled="true" externalReference="8dca43ad-a912-4d76-aca9-4eaf77d6127a">
       <role>Infrastructure.Data</role>
       <location>Persistence</location>

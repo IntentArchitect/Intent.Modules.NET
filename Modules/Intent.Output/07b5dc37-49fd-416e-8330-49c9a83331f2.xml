@@ -19,31 +19,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/Configurations/ConfigurationsDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Configurations/ConfigurationsDecorator.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/Configurations/ConfigurationsTemplate.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Configurations/ConfigurationsTemplate.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/Configurations/ConfigurationsTemplate.tt</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Configurations/ConfigurationsTemplate.tt</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/Configurations/ConfigurationsTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Configurations/ConfigurationsTemplatePartial.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/Configurations/ConfigurationsTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>Configurations/ConfigurationsTemplateRegistration.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.EntityFrameworkCore/Templates/DbContext/DbContextDecoratorBase.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>DbContext/DbContextDecoratorBase.cs</ProjectRelativeFilePath>
     </FileLog>

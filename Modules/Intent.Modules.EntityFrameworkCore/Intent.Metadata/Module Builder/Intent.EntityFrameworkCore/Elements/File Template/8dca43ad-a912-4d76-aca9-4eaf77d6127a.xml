@@ -3,7 +3,7 @@
   <name>DbMigrationsReadMe</name>
   <display>DbMigrationsReadMe: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
+  <order>4</order>
   <genericTypes />
   <typeReference id="9af91c88-7449-4c02-a63e-6f09e91a8711">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

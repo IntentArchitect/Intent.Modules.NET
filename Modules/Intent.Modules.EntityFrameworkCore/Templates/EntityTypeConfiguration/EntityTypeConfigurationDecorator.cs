@@ -11,9 +11,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     {
         public int Priority { get; protected set; } = 0;
 
-        public virtual string AfterAttributes()
-        {
-            return null;
-        }
+        public virtual string BeforeAttributes() => null;
+
+        public virtual string AfterAttributes() => null;
     }
 }
