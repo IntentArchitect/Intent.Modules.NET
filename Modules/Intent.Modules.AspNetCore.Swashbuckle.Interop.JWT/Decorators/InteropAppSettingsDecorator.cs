@@ -3,6 +3,9 @@ using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using Intent.RoslynWeaver.Attributes;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using Intent.Modules.AspNetCore.Events;
+using Intent.Modules.Common.Configuration;
+using Intent.Modules.Common.CSharp.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -17,12 +20,19 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
 
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
+        private string _stsPort = "{sts_port}";
 
         [IntentManaged(Mode.Merge)]
         public InteropAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
+            _application.EventDispatcher.Subscribe<SecureTokenServiceHostedEvent>(Handle); // This is just temporary. Need to store these settings in a solution-wide accessible space for each app.
+        }
+
+        private void Handle(SecureTokenServiceHostedEvent @event)
+        {
+            _stsPort = @event.Port;
         }
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
@@ -40,8 +50,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
                         {
                             Password = new
                             {
-                                AuthorizationUrl = "https://localhost:{sts port}/connect/authorize",
-                                TokenUrl = "https://localhost:{sts port}/connect/token",
+                                AuthorizationUrl = $"https://localhost:{_stsPort}/connect/authorize",
+                                TokenUrl = $"https://localhost:{_stsPort}/connect/token",
                                 Scopes = new
                                 {
                                     roles = "Roles scope",
@@ -50,8 +60,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
                             },
                             AuthorizationCode = new
                             {
-                                AuthorizationUrl = "https://localhost:{sts port}/connect/authorize",
-                                TokenUrl = "https://localhost:{sts port}/connect/token",
+                                AuthorizationUrl = $"https://localhost:{_stsPort}/connect/authorize",
+                                TokenUrl = $"https://localhost:{_stsPort}/connect/token",
                                 RefreshUrl = (string)null,
                                 Scopes = new
                                 {

@@ -4,6 +4,7 @@ using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Intent.Modules.AspNetCore.Events;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.Security.JWT.Events;
 
@@ -20,7 +21,8 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
-        private bool _overrideBearerTokenConfiguration;
+        private bool _stsIsSelfHostedInThisApplication;
+        private string _stsPort = "{sts_port}";
 
         public JWTConfigurationSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
@@ -28,17 +30,23 @@ namespace Intent.Modules.Security.JWT.Decorators
             _application = application;
             application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
             {
-                _overrideBearerTokenConfiguration = true;
+                _stsIsSelfHostedInThisApplication = true;
             });
+            _application.EventDispatcher.Subscribe<SecureTokenServiceHostedEvent>(Handle); // This is just temporary. Need to store these settings in a solution-wide accessible space for each app.
+        }
+
+        private void Handle(SecureTokenServiceHostedEvent @event)
+        {
+            _stsPort = @event.Port;
         }
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
         {
-            if (_overrideBearerTokenConfiguration) { return; }
+            if (_stsIsSelfHostedInThisApplication) { return; }
 
             appSettings.AddPropertyIfNotExists("Security.Bearer", new
             {
-                Authority = "https://stshost.here",
+                Authority = $"https://localhost:{_stsPort}",
                 Audience = "api"
             });
         }

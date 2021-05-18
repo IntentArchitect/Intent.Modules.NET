@@ -30,7 +30,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             _explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToList();
-            this.AddEntityFrameworkCoreNuGet();
+            AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
+            AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(Project));
         }
 
         protected override CSharpFileConfig DefineFileConfig()

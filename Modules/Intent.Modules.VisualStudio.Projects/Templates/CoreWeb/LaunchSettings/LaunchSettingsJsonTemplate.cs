@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Configuration;
 using Intent.Templates;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -14,6 +16,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
 {
     public class LaunchSettingsJsonTemplate : IntentFileTemplateBase<object>, ITemplate
     {
+        private int _randomPort;
+        private int _randomSslPort;
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
         public LaunchSettingsJsonTemplate(IProject project, IApplicationEventDispatcher applicationEventDispatcher)
@@ -35,13 +39,34 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             });
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
+            if (!File.Exists(GetMetadata().GetFilePath()))
+            {
+                _randomPort = new Random().Next(40000, 65535);
+                _randomSslPort = new Random().Next(44300, 44399);
+                ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent($"http://localhost:{_randomPort}/", _randomPort, _randomSslPort));
+            }
+            else
+            {
+                var appSettings = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(GetMetadata().GetFilePath()));
+                if (int.TryParse(appSettings["iisSettings"]?["iisExpress"]?["sslPort"]?.ToString(), out _randomSslPort) &&
+                    appSettings["iisSettings"]?["iisExpress"]?["applicationUrl"]?.ToString().Split(new[] { ':', '/' }, StringSplitOptions.RemoveEmptyEntries).Any(x => int.TryParse(x, out _randomPort)) == true)
+                {
+                    ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
+                        applicationUrl: appSettings["iisSettings"]["iisExpress"]["applicationUrl"].ToString(), 
+                        port: _randomPort, 
+                        sslPort: _randomSslPort));
+                }
+            }
+        }
+
         public override string TransformText()
         {
             dynamic config;
             if (!File.Exists(GetMetadata().GetFilePath()))
             {
-                var randomPort = new Random().Next(40000, 65535);
-                var randomSslPort = new Random().Next(44300, 44399);
                 config = JsonConvert.DeserializeObject(JsonConvert.SerializeObject(new LaunchSettingsJson()
                 {
                     iisSettings = new IISSettings()
@@ -50,8 +75,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                         anonymousAuthentication = true,
                         iisExpress = new IISExpress()
                         {
-                            applicationUrl = $"http://localhost:{randomPort}/",
-                            sslPort = randomSslPort
+                            applicationUrl = $"http://localhost:{_randomPort}/",
+                            sslPort = _randomSslPort
                         }
                     },
                     profiles = new Dictionary<string, Profile>()
@@ -74,7 +99,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                                 {
                                     ASPNETCORE_ENVIRONMENT = "Development"
                                 },
-                                applicationUrl = $"http://localhost:{randomPort}/"
+                                applicationUrl = $"http://localhost:{_randomPort}/"
                             }
                         }
                     }

@@ -1,9 +1,9 @@
-
+﻿
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.0.5</Version>
+    <Version>3.0.7</Version>
     <Authors>Intent Architect</Authors>
     <Company>Intent Architect</Company>
     <Product>Intent Architect</Product>
@@ -36,8 +36,8 @@
     <Folder Include="Api\Extensions\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.8" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.9" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

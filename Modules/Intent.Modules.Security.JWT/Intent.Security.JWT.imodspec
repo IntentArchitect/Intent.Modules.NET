@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>For generating code to secure your API services using the JWT bearer tokens</summary>
   <description>For generating code to secure your API services using the JWT bearer tokens</description>
@@ -16,13 +16,13 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
-    <dependency id="Intent.AspNetCore" version="3.0.3" />
+    <dependency id="Intent.AspNetCore" version="3.0.4" />
     <dependency id="Intent.VisualStudio.Projects" version="3.0.5" />
   </dependencies>
   <interoperability>
     <detect id="Intent.IdentityServer4.SecureTokenServer">
       <install>
-        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.0.0" />
+        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.0.1" />
       </install>
     </detect>
   </interoperability>

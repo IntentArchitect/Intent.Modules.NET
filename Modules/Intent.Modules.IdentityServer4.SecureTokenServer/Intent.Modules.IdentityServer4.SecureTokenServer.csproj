@@ -5,7 +5,8 @@
     <Version>3.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
+    <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.0.7" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,6 +16,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj" />
-    <ProjectReference Include="..\Intent.Modules.VisualStudio.Projects\Intent.Modules.VisualStudio.Projects.csproj" />
   </ItemGroup>
 </Project>
