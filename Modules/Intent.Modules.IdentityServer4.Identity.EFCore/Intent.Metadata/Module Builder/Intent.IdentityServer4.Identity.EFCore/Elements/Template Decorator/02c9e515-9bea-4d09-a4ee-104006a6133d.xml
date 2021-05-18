@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="02c9e515-9bea-4d09-a4ee-104006a6133d" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
   <name>AspNetIdentityUserDecorator</name>
-  <display>AspNetIdentityUserDecorator: StartupDecorator</display>
+  <display>AspNetIdentityUserDecorator: IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
   <order>1</order>
   <genericTypes />
   <typeReference id="253b1fe5-3b2e-4b86-9b0a-f38ae91de0a7">
-    <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
+    <typeId>7ab8228e-f35b-4587-a807-4ce75bf09375</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.AspNetCore</typePackageName>
-    <typePackageId>9d83d9d6-7718-4b4a-b78b-725535182de3</typePackageId>
+    <typePackageName>Intent.IdentityServer4.SecureTokenServer</typePackageName>
+    <typePackageId>dbcde434-4411-479b-8374-34cb11190cf1</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

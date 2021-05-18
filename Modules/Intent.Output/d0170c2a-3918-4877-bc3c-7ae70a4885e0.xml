@@ -14,13 +14,13 @@
     </FileLog>
     <FileLog>
       <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningStartupDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>X509CertSigningStartupDecorator.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningIdentityConfigurationDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>X509CertSigningIdentityConfigurationDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>X509CertSigningStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.X509CertSigning/Decorators/X509CertSigningIdentityConfigurationDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>X509CertSigningIdentityConfigurationDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7ab8228e-f35b-4587-a807-4ce75bf09375" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>IdentityConfigurationDecorator</name>
+  <display>IdentityConfigurationDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4cffcf4c-6398-4915-94ed-7f2a449219a7</parentFolderId>
+  <packageId>dbcde434-4411-479b-8374-34cb11190cf1</packageId>
+  <packageName>Intent.IdentityServer4.SecureTokenServer</packageName>
+  <stereotypes />
+  <childElements />
+</class>

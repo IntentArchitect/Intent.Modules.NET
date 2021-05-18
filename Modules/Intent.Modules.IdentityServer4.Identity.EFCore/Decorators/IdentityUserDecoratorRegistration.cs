@@ -2,6 +2,7 @@ using System.ComponentModel;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentityServerConfiguration;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,9 +11,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [Description(IdentityUserDecorator.DecoratorId)]
-    public class IdentityUserDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
+    public class IdentityUserDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
     {
-        public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
+        public override IdentityConfigurationDecorator CreateDecoratorInstance(IdentityServerConfigurationTemplate template, IApplication application)
         {
             return new IdentityUserDecorator(template, application);
         }

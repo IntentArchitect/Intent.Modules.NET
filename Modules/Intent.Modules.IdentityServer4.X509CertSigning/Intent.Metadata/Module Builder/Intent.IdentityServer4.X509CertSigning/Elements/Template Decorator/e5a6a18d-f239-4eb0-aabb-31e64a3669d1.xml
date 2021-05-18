@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e5a6a18d-f239-4eb0-aabb-31e64a3669d1" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>X509CertSigningStartupDecorator</name>
-  <display>X509CertSigningStartupDecorator: StartupDecorator</display>
+  <name>X509CertSigningIdentityConfigurationDecorator</name>
+  <display>X509CertSigningIdentityConfigurationDecorator: IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
   <order>3</order>
   <genericTypes />
   <typeReference id="82ba9be5-63c4-4fc5-a0b9-3fd74c8079c2">
-    <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
+    <typeId>7ab8228e-f35b-4587-a807-4ce75bf09375</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.AspNetCore</typePackageName>
-    <typePackageId>9d83d9d6-7718-4b4a-b78b-725535182de3</typePackageId>
+    <typePackageName>Intent.IdentityServer4.SecureTokenServer</typePackageName>
+    <typePackageId>dbcde434-4411-479b-8374-34cb11190cf1</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

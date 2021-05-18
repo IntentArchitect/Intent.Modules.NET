@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.X509CertSigning</id>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Support the capability of using PFX files or the Windows Certificate Store to sign tokens</summary>
   <description>Support the capability of using PFX files or the Windows Certificate Store to sign tokens</description>
@@ -19,16 +19,15 @@
   </templates>
   <decorators>
     <decorator id="Intent.IdentityServer4.X509CertSigning.X509CertSigningAppSettingsDecorator" externalReference="9077e920-9e84-4b01-98fe-c71dd2d25010" />
-    <decorator id="Intent.IdentityServer4.X509CertSigning.X509CertSigningStartupDecorator" externalReference="e5a6a18d-f239-4eb0-aabb-31e64a3669d1" />
+    <decorator id="Intent.IdentityServer4.X509CertSigning.X509CertSigningIdentityConfigurationDecorator" externalReference="e5a6a18d-f239-4eb0-aabb-31e64a3669d1" />
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
     <dependency id="Intent.Common.CSharp" version="3.0.7" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1" />
-    <dependency id="Intent.IdentityServer4.SecureTokenServer" version="3.0.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.2" />
+    <dependency id="Intent.IdentityServer4.SecureTokenServer" version="3.0.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.0.5" />
-    <dependency id="Intent.AspNetCore" version="3.0.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

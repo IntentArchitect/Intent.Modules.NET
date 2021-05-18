@@ -1,6 +1,5 @@
 using System.ComponentModel;
 using Intent.Engine;
-using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentityServerConfiguration;
 using Intent.RoslynWeaver.Attributes;
@@ -8,16 +7,16 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 
-namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
+namespace Intent.Modules.IdentityServer4.X509CertSigning.Decorators
 {
-    [Description(AspNetIdentityUserDecorator.DecoratorId)]
-    public class AspNetIdentityUserDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
+    [Description(X509CertSigningIdentityConfigurationDecorator.DecoratorId)]
+    public class X509CertSigningIdentityConfigurationDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
     {
         public override IdentityConfigurationDecorator CreateDecoratorInstance(IdentityServerConfigurationTemplate template, IApplication application)
         {
-            return new AspNetIdentityUserDecorator(template, application);
+            return new X509CertSigningIdentityConfigurationDecorator(template, application);
         }
 
-        public override string DecoratorId => AspNetIdentityUserDecorator.DecoratorId;
+        public override string DecoratorId => X509CertSigningIdentityConfigurationDecorator.DecoratorId;
     }
 }

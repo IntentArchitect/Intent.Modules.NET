@@ -2,6 +2,7 @@ using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentityServerConfiguration;
 using Intent.RoslynWeaver.Attributes;
 using System.Collections.Generic;
 
@@ -11,15 +12,16 @@ using System.Collections.Generic;
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class AspNetIdentityUserDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
+    public class AspNetIdentityUserDecorator : IdentityConfigurationDecorator, IDeclareUsings, IHasNugetDependencies
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.Identity.EFCore.AspNetIdentityUserDecorator";
 
-        private readonly StartupTemplate _template;
+        private readonly IdentityServerConfigurationTemplate _template;
         private readonly IApplication _application;
 
-        public AspNetIdentityUserDecorator(StartupTemplate template, IApplication application)
+        [IntentManaged(Mode.Merge)]
+        public AspNetIdentityUserDecorator(IdentityServerConfigurationTemplate template, IApplication application)
         {
             _template = template;
             _application = application;

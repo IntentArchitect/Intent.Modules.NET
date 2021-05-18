@@ -19,6 +19,7 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Decorators
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
 
+        [IntentManaged(Mode.Merge)]
         public X509CertSigningAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;

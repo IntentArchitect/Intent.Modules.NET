@@ -33,6 +33,16 @@
       <ProjectRelativeFilePath>IdentityUserDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
+      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/PrepopulatedUsersConfigurationDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>PrepopulatedUsersConfigurationDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/PrepopulatedUsersConfigurationDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>PrepopulatedUsersConfigurationDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
       <ProjectId>ef2b4d6c-38f2-4376-8ade-d209767821c6</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.Identity.EFCore/Intent.IdentityServer4.Identity.EFCore.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.Identity.EFCore.imodspec</ProjectRelativeFilePath>

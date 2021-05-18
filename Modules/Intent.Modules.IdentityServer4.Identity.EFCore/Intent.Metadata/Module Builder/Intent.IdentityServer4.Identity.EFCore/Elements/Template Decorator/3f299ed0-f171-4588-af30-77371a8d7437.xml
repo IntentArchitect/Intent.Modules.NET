@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="f2766794-dd7b-46df-9140-689099e162ce" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>DeveloperCertSigningStartupDecorator</name>
-  <display>DeveloperCertSigningStartupDecorator: StartupDecorator</display>
+<class id="3f299ed0-f171-4588-af30-77371a8d7437" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>PrepopulatedUsersConfigurationDecorator</name>
+  <display>PrepopulatedUsersConfigurationDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>4</order>
   <genericTypes />
-  <typeReference id="b0ed13d8-bf83-41c7-88e4-1b28ca78c3f5">
+  <typeReference id="68061848-85fd-42af-a387-cfdd57625d01">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -17,9 +17,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>dbcde434-4411-479b-8374-34cb11190cf1</parentFolderId>
-  <packageId>dbcde434-4411-479b-8374-34cb11190cf1</packageId>
-  <packageName>Intent.IdentityServer4.SecureTokenServer</packageName>
+  <parentFolderId>1594b654-0151-4686-8e52-05efce0e3522</parentFolderId>
+  <packageId>1594b654-0151-4686-8e52-05efce0e3522</packageId>
+  <packageName>Intent.IdentityServer4.Identity.EFCore</packageName>
   <stereotypes />
   <childElements />
 </class>

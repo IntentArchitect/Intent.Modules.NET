@@ -20,6 +20,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         private readonly string _appName;
         private string _sslPort = "client_port";
 
+        [IntentManaged(Mode.Merge)]
         public IdentityConfigurationAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;

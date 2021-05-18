@@ -24,6 +24,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
         private readonly DbContextTemplate _template;
         private readonly Engine.IApplication _application;
 
+        [IntentManaged(Mode.Merge)]
         public IdentityDbContextDecorator(DbContextTemplate template, Engine.IApplication application)
         {
             _template = template;

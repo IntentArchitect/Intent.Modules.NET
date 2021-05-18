@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.Identity.EFCore</id>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Adds support to IdentityServer4 to store Identity users in a SQL Server DB using Entity Framework Core</summary>
   <description>Adds support to IdentityServer4 to store Identity users in a SQL Server DB using Entity Framework Core</description>
@@ -12,13 +12,15 @@
     <decorator id="Intent.IdentityServer4.Identity.EFCore.IdentityDbContextDecorator" externalReference="589e9d0d-5459-4b1b-b435-a8ece676b1ff" />
     <decorator id="Intent.IdentityServer4.Identity.EFCore.IdentityUserDecorator" externalReference="6e4ab589-36f5-42ff-b02f-814441137fc8" />
     <decorator id="Intent.IdentityServer4.Identity.EFCore.AspNetIdentityUserDecorator" externalReference="02c9e515-9bea-4d09-a4ee-104006a6133d" />
+    <decorator id="Intent.IdentityServer4.Identity.EFCore.PrepopulatedUsersConfigurationDecorator" externalReference="3f299ed0-f171-4588-af30-77371a8d7437" />
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
-    <dependency id="Intent.AspNetCore" version="3.0.3" />
+    <dependency id="Intent.AspNetCore" version="3.0.4" />
     <dependency id="Intent.EntityFrameworkCore" version="3.0.3" />
+    <dependency id="Intent.IdentityServer4.SecureTokenServer" version="3.0.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
