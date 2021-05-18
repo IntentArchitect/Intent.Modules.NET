@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.CommandModel>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.CommandModel, Intent.Modules.Application.MediatR.Templates.CommandHandler.CommandHandlerDecorator>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -21,16 +21,15 @@ namespace <#= Namespace #>
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : <#= GetRequestHandlerInterface() #>
-    {
+    {<#= GetFields() #>
         [IntentInitialGen]
-        public <#= ClassName #>()
-        {
+        public <#= ClassName #>(<#= GetCtorParams() #>)
+        {<#= GetCtorInitializations() #>
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public async Task<<#= GetReturnType() #>> Handle(<#= GetCommandModelName() #> request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException("Your implementation here...");
+        {<#= GetImplementation() #>
         }
     }
 }

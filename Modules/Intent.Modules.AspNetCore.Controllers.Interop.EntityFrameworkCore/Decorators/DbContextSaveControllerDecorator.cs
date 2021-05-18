@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.CSharp.Templates;
@@ -22,7 +23,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         public DbContextSaveControllerDecorator(ControllerTemplate template)
         {
             _template = template;
-            Priority = 10;
+            Priority = 100;
         }
 
         public override string EnterClass()
@@ -44,8 +45,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
 
         public override string MidOperationBody(OperationModel operationModel)
         {
+            if (operationModel.GetHttpSettings().Verb().IsGET())
+            {
+                return string.Empty;
+            }
             return $@"
-            await _dbContext.SaveChangesAsync();";
+            await _dbContext.SaveChangesAsync(cancellationToken);";
         }
     }
 }

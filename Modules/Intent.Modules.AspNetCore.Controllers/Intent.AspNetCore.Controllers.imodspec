@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>3.0.4</version>
+  <version>3.0.5</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
@@ -26,7 +26,7 @@
     <dependency id="Intent.Common.Types" version="3.0.3" />
     <dependency id="Intent.Common.CSharp" version="3.0.7" />
     <dependency id="Intent.Modelers.Services" version="3.0.2" />
-    <dependency id="Intent.Metadata.WebApi" version="3.0.3" />
+    <dependency id="Intent.Metadata.WebApi" version="3.0.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.2" />
   </dependencies>
   <files>
@@ -34,6 +34,6 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata>
-    <install target="Services" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Controllers/Intent.AspNetCore.Controllers.pkg.config" externalReference="2e47c1f8-bb68-45ad-aa23-385a4faadc92" />
+    <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Controllers/Intent.AspNetCore.Controllers.pkg.config" externalReference="2e47c1f8-bb68-45ad-aa23-385a4faadc92" />
   </metadata>
 </package>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c09b329c-dd0a-4d7f-858c-a012ae180b32" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>QueryHandlerCrudDecorator</name>
+  <display>QueryHandlerCrudDecorator: QueryHandlerDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="ed30912a-2251-4a53-a8a3-415da9b70015">
+    <typeId>745ca135-d095-4fa8-9fa3-8fc4d700c6c5</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Application.MediatR</typePackageName>
+    <typePackageId>e92495db-1b26-4389-bf06-cc1b375520b1</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</parentFolderId>
+  <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+  <packageName>Intent.Application.MediatR.CRUD</packageName>
+  <stereotypes />
+  <childElements />
+</class>

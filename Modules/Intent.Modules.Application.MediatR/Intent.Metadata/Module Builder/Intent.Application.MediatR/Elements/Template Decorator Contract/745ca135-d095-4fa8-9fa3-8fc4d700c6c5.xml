@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="745ca135-d095-4fa8-9fa3-8fc4d700c6c5" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>QueryHandlerDecorator</name>
+  <display>QueryHandlerDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3a8eb772-0533-42c8-9767-a87c67884d46</parentFolderId>
+  <packageId>e92495db-1b26-4389-bf06-cc1b375520b1</packageId>
+  <packageName>Intent.Application.MediatR</packageName>
+  <stereotypes />
+  <childElements />
+</class>

@@ -13,6 +13,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
@@ -28,14 +29,14 @@ namespace <#= Namespace #>
         {
         }
 
-        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id)
+        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.<#= PrimaryKeyName #> == id);
+            return await FindAsync(x => x.<#= PrimaryKeyName #> == id, cancellationToken);
         }
 
-        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(params <#= PrimaryKeyType #>[] ids)
+        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] ids, CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(x => ids.Contains(x.<#= PrimaryKeyName #>));
+            return await FindAllAsync(x => ids.Contains(x.<#= PrimaryKeyName #>), cancellationToken);
         }
     }
 }

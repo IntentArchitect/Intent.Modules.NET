@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</id>
-  <version>3.0.3</version>
+  <version>3.0.4</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -12,6 +12,7 @@
     <dependency id="Intent.Common" version="3.0.4" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
     <dependency id="Intent.EntityFrameworkCore" version="3.0.3" />
+    <dependency id="Intent.AspNetCore.Controllers" version="3.0.5" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

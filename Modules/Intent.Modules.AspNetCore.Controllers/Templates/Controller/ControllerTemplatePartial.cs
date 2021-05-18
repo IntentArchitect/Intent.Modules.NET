@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Intent.AspNetCore.Controllers.Api;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -100,7 +99,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     GetDecorators().ToList().ForEach(x => x.UpdateOperationAuhtorization(authModel, new OperationSecureModel(o, o.GetSecured())));
                     attributes.Add(GetAuthorizationAttribute(authModel));
                 }
-                else
+                else if (o.HasUnsecured())
                 {
                     attributes.Add("[AllowAnonymous]");
                 }
@@ -145,16 +144,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private string GetOperationParameters(OperationModel operation)
         {
-            if (!operation.Parameters.Any())
-            {
-                return string.Empty;
-            }
+            var parameters = new List<string>();
             var verb = GetHttpVerb(operation);
             switch (verb)
             {
                 case HttpVerb.POST:
                 case HttpVerb.PUT:
-                    return operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => $"{x}, {y}");
+                    parameters.AddRange(operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
+                    break;
                 case HttpVerb.GET:
                 case HttpVerb.DELETE:
                     if (operation.Parameters.Any(x => x.TypeReference.Element.SpecializationTypeId != TypeDefinitionModel.SpecializationTypeId &&
@@ -164,10 +161,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     We recommend using a POST or PUT verb");
                         // Log warning
                     }
-                    return operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => x + ", " + y);
+                    parameters.AddRange(operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
+                    break;
                 default:
                     throw new NotSupportedException($"{verb} not supported");
             }
+
+            parameters.Add("CancellationToken cancellationToken");
+            return string.Join(", ", parameters);
         }
 
         private string GetReturnType(OperationModel operation)
@@ -227,20 +228,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             var verb = operation.GetHttpSettings().Verb();
             return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
-            //if (!verb.IsAUTO())
-            //{
-            //    return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
-            //}
-            //if (operation.ReturnType == null || operation.Parameters.Any(x => !Types.Get(x.TypeReference).IsPrimitive))
-            //{
-            //    var hasIdParam = operation.Parameters.Any(x => x.Name.ToLower().EndsWith("id") && Types.Get(x.TypeReference).IsPrimitive);
-            //    if (hasIdParam && new[] { "delete", "remove" }.Any(x => operation.Name.ToLower().Contains(x)))
-            //    {
-            //        return HttpVerb.DELETE;
-            //    }
-            //    return hasIdParam ? HttpVerb.PUT : HttpVerb.POST;
-            //}
-            //return HttpVerb.GET;
         }
 
         public enum HttpVerb

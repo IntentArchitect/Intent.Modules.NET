@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2fa5d716-3bc4-4a74-828d-d9b7c966ae17" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>CommandHandlerCrudDecorator</name>
+  <display>CommandHandlerCrudDecorator: CommandHandlerDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="023eacf1-f9d4-4a66-b475-8aa88b833aae">
+    <typeId>9c8ff153-4dca-4d95-8136-043ed779abd1</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Application.MediatR</typePackageName>
+    <typePackageId>e92495db-1b26-4389-bf06-cc1b375520b1</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</parentFolderId>
+  <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+  <packageName>Intent.Application.MediatR.CRUD</packageName>
+  <stereotypes />
+  <childElements />
+</class>

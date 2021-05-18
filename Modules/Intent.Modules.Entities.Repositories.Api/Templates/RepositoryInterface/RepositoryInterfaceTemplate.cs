@@ -49,23 +49,27 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
             
             #line default
             #line hidden
-            this.Write(@"<TDomain, TPersistence>
-    {
-        void Add(TDomain entity);
-        void Remove(TDomain entity);
-        Task<int> SaveChangesAsync();
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
-        Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression);
-        Task<List<TDomain>> FindAllAsync();
-        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression);
-        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq);
-        Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int pageSize);
-        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize);
-        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageIndex, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq);
-        Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression);
-        Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression);
-    }
-}");
+            this.Write("<TDomain, TPersistence>\r\n    {\r\n        void Add(TDomain entity);\r\n        void R" +
+                    "emove(TDomain entity);\r\n        Task<int> SaveChangesAsync();\r\n        Task<int>" +
+                    " SaveChangesAsync(CancellationToken cancellationToken);\r\n        Task<TDomain> F" +
+                    "indAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToke" +
+                    "n cancellationToken = default);\r\n        Task<List<TDomain>> FindAllAsync(Cancel" +
+                    "lationToken cancellationToken = default);\r\n        Task<List<TDomain>> FindAllAs" +
+                    "ync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken can" +
+                    "cellationToken = default);\r\n        Task<List<TDomain>> FindAllAsync(Expression<" +
+                    "Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQuer" +
+                    "yable<TPersistence>> linq, CancellationToken cancellationToken = default);\r\n    " +
+                    "    Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int pageSize, Cancellat" +
+                    "ionToken cancellationToken = default);\r\n        Task<IPagedResult<TDomain>> Find" +
+                    "AllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int " +
+                    "pageSize, CancellationToken cancellationToken = default);\r\n        Task<IPagedRe" +
+                    "sult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpressio" +
+                    "n, int pageIndex, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersi" +
+                    "stence>> linq, CancellationToken cancellationToken = default);\r\n        Task<int" +
+                    "> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, Cancellation" +
+                    "Token cancellationToken = default);\r\n        Task<bool> AnyAsync(Expression<Func" +
+                    "<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = de" +
+                    "fault);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

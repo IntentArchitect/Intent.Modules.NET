@@ -14,10 +14,11 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
 {
     partial class EntityRepositoryInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasTemplateDependencies, ITemplatePostCreationHook
     {
-        public const string Identifier = "Intent.Entities.Repositories.Api.EntityInterface";
+        public const string TemplateId = "Intent.Entities.Repositories.Api.EntityInterface";
+        public const string Identifier = TemplateId;
 
         public EntityRepositoryInterfaceTemplate(ClassModel model, IProject project)
-            : base(Identifier, project, model)
+            : base(TemplateId, project, model)
         {
         }
 

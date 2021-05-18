@@ -18,6 +18,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,7 +27,7 @@ namespace <#= Namespace #>
 {
     public interface <#= ClassName #> : <#= RepositoryInterfaceName #><<#= EntityInterfaceName #>, <#= EntityStateName #>>
     {
-        Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id);
-        Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(params <#= PrimaryKeyType #>[] ids);
+        Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id, CancellationToken cancellationToken = default);
+        Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] ids, CancellationToken cancellationToken = default);
     }
 }

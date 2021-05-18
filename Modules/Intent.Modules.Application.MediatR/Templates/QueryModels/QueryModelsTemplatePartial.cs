@@ -5,6 +5,7 @@ using Intent.Modules.Application.Dtos.Templates;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -19,10 +20,12 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.QueryModels";
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
+            AddTypeSource(DomainEnumTemplate.TemplateId, "List<{0}>");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

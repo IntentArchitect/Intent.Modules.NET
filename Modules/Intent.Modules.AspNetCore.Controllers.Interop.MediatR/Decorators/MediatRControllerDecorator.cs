@@ -66,8 +66,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 ?? (operationModel.InternalElement.IsMapped ? GetMappedPayload(operationModel) : "UNKNOWN");
 
             return operationModel.ReturnType != null
-                ? $"return await Mediator.Send({payload});"
-                : $@"await Mediator.Send({payload});";
+                ? $"var result = await Mediator.Send({payload}, cancellationToken);"
+                : $@"await Mediator.Send({payload}, cancellationToken);";
         }
 
         public override string ExitOperationBody(OperationModel operationModel)
@@ -75,7 +75,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             return operationModel.ReturnType == null
                 ? $@"
             return NoContent();"
-                : null;
+                : $@"
+            return result;";
         }
 
         private ParameterModel GetPayloadParameter(OperationModel operationModel)

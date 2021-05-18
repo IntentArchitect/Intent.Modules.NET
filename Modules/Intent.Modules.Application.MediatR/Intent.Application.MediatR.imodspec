@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>3.0.3</version>
+  <version>3.0.4</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -38,12 +38,13 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.4" />
+    <dependency id="Intent.Common" version="3.0.5" />
     <dependency id="Intent.Common.Types" version="3.0.3" />
-    <dependency id="Intent.Common.CSharp" version="3.0.7" />
+    <dependency id="Intent.Common.CSharp" version="3.0.9" />
     <dependency id="Intent.Modelers.Services.CQRS" version="3.0.2" />
     <dependency id="Intent.Application.Dtos" version="3.0.2" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.2" />
+    <dependency id="Intent.Modelers.Services" version="3.0.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
@@ -61,5 +62,7 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <metadata />
+  <metadata>
+    <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Application.MediatR/Intent.Application.MediatR.pkg.config" externalReference="e92495db-1b26-4389-bf06-cc1b375520b1" />
+  </metadata>
 </package>

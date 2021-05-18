@@ -5,6 +5,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,6 +25,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
+            AddTypeSource(DomainEnumTemplate.TemplateId, "List<{0}>");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

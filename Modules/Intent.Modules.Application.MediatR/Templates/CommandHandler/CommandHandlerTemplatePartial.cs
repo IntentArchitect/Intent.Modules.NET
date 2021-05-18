@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.Dtos.Templates;
@@ -14,13 +15,14 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    partial class CommandHandlerTemplate : CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.CommandModel>
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class CommandHandlerTemplate : CSharpTemplateBase<CommandModel, CommandHandlerDecorator>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.CommandHandler";
 
-        public CommandHandlerTemplate(IOutputTarget outputTarget, Intent.Modelers.Services.CQRS.Api.CommandModel model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public CommandHandlerTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
@@ -51,6 +53,32 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             return Model.TypeReference.Element != null
                 ? GetTypeName(Model.TypeReference)
                 : "Unit";
+        }
+
+        private string GetFields()
+        {
+            return $@"
+        {string.Join(@"
+        ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"{x.Type} _{x.Name.ToCamelCase()};"))}";
+        }
+
+        private string GetCtorParams()
+        {
+            return string.Join(@", ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"{x.Type} {x.Name.ToCamelCase()}"));
+        }
+
+        private string GetCtorInitializations()
+        {
+            return $@"
+            {string.Join(@"
+            ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"_{x.Name.ToCamelCase()} = {x.Name.ToCamelCase()};"))}";
+        }
+
+        private string GetImplementation()
+        {
+            var impl = GetDecoratorsOutput(x => x.GetImplementation());
+            return !string.IsNullOrWhiteSpace(impl) ? impl : @"
+            throw new NotImplementedException(""Your implementation here..."");";
         }
     }
 }

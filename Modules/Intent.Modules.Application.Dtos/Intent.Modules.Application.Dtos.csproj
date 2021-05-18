@@ -16,6 +16,9 @@
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="Templates\DtoModel\DtoModelTemplate.tt">
       <LastGenOutput>DtoModelTemplate.cs</LastGenOutput>
       <Generator>TextTemplatingFilePreprocessor</Generator>

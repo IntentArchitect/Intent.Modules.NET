@@ -3,16 +3,6 @@
   <ApplicationId>2722a484-e1a2-4346-8da4-2937c7df3071</ApplicationId>
   <FileLogs>
     <FileLog>
-      <ProjectId>8c807cfc-22fb-4383-a5e4-de97e1efbd51</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Api/Extensions/OperationModelExtensions.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>OperationModelExtensions.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8c807cfc-22fb-4383-a5e4-de97e1efbd51</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Api/Extensions/ServiceModelExtensions.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>ServiceModelExtensions.cs</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Controllers/Decorators/RolesAuthorizationDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>RolesAuthorizationDecorator.cs</ProjectRelativeFilePath>

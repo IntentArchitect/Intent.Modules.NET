@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.QueryModel>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.CQRS.Api.QueryModel, Intent.Modules.Application.MediatR.Templates.QueryHandler.QueryHandlerDecorator>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -21,16 +21,15 @@ namespace <#= Namespace #>
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : IRequestHandler<<#= GetQueryModelName() #>, <#= GetTypeName(Model.TypeReference) #>>
-    {
+    {<#= GetFields() #>
         [IntentInitialGen]
-        public <#= ClassName #>()
-        {
+        public <#= ClassName #>(<#= GetCtorParams() #>)
+        {<#= GetCtorInitializations() #>
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public async Task<<#= GetTypeName(Model.TypeReference) #>> Handle(<#= GetQueryModelName() #> request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException("Your implementation here...");
+        {<#= GetImplementation() #>
         }
     }
 }

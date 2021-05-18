@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -67,28 +68,28 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     {
         internal ServiceSecureModel(
             ServiceModel serviceModel,
-            Intent.AspNetCore.Controllers.Api.ServiceModelExtensions.Secured stereotype)
+            ServiceModelExtensions.Secured stereotype)
         {
             ServiceModel = serviceModel;
             Stereotype = stereotype;
         }
 
         public ServiceModel ServiceModel { get; }
-        public Intent.AspNetCore.Controllers.Api.ServiceModelExtensions.Secured Stereotype { get; }
+        public ServiceModelExtensions.Secured Stereotype { get; }
     }
 
     public class OperationSecureModel
     {
         internal OperationSecureModel(
             OperationModel operationModel,
-            Intent.AspNetCore.Controllers.Api.OperationModelExtensions.Secured stereotype)
+            OperationModelExtensions.Secured stereotype)
         {
             OperationModel = operationModel;
             Stereotype = stereotype;
         }
 
         public OperationModel OperationModel { get; }
-        public Intent.AspNetCore.Controllers.Api.OperationModelExtensions.Secured Stereotype { get; }
+        public OperationModelExtensions.Secured Stereotype { get; }
     }
 
     public class AuthorizationModel

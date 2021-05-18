@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9c8ff153-4dca-4d95-8136-043ed779abd1" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>CommandHandlerDecorator</name>
+  <display>CommandHandlerDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4ba1d060-8722-4b1d-97e1-e7f070b8be2e</parentFolderId>
+  <packageId>e92495db-1b26-4389-bf06-cc1b375520b1</packageId>
+  <packageName>Intent.Application.MediatR</packageName>
+  <stereotypes />
+  <childElements />
+</class>
