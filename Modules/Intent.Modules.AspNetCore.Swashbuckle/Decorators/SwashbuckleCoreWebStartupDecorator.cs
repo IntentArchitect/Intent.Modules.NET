@@ -1,5 +1,5 @@
 using Intent.Engine;
-using Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperationFilter;
+using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class SwashbuckleCoreWebStartupDecorator : StartupDecorator, IDeclareUsings
+    public class SwashbuckleCoreWebStartupDecorator : StartupDecorator
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Swashbuckle.SwashbuckleCoreWebStartupDecorator";
@@ -23,46 +23,22 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
         public SwashbuckleCoreWebStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
-            _template.AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
             _application = application;
+            _template.AddTemplateDependency(SwashbuckleConfigurationTemplate.TemplateId);
         }
 
         public override int Priority => 100;
 
         public override string ConfigureServices()
         {
-            return @"ConfigureSwagger(services);";
+            return @"services.ConfigureSwagger(Configuration);";
         }
 
         public override string Configuration()
         {
-            return @"InitializeSwagger(app);";
-        }
-
-        public override string Methods()
-        {
-            return $@"        
-        private void ConfigureSwagger(IServiceCollection services)
-        {{
-            services.AddSwaggerGen(c => c.OperationFilter<{_template.GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId)}>());
-            services.Configure<SwaggerGenOptions>(Configuration.GetSection(""Swashbuckle:SwaggerGen""));
-            services.Configure<SwaggerOptions>(Configuration.GetSection(""Swashbuckle:Swagger""));
-            services.Configure<SwaggerUIOptions>(Configuration.GetSection(""Swashbuckle:SwaggerUI""));
-        }}
-
-        private void InitializeSwagger(IApplicationBuilder app)
-        {{
+            return @"
             app.UseSwagger();
-            app.UseSwaggerUI();
-        }}";
-        }
-
-        public IEnumerable<string> DeclareUsings()
-        {
-            yield return "Microsoft.OpenApi.Models";
-            yield return "Swashbuckle.AspNetCore.SwaggerGen";
-            yield return "Swashbuckle.AspNetCore.Swagger";
-            yield return "Swashbuckle.AspNetCore.SwaggerUI";
+            app.UseSwaggerUI();";
         }
     }
 }

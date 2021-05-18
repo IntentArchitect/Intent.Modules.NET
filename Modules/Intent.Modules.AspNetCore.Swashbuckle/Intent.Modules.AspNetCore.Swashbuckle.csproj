@@ -28,6 +28,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AuthorizeCheckOperationFilterTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\SwashbuckleConfiguration\SwashbuckleConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SwashbuckleConfigurationTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +40,12 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AuthorizeCheckOperationFilterTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\SwashbuckleConfiguration\SwashbuckleConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SwashbuckleConfigurationTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

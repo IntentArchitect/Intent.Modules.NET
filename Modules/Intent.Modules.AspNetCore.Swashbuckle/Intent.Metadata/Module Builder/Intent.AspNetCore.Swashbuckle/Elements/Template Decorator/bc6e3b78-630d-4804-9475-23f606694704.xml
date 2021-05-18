@@ -3,7 +3,7 @@
   <name>SwashbuckleAppSettingsDecorator</name>
   <display>SwashbuckleAppSettingsDecorator: AppSettingsDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <typeReference id="ae3c7ca4-fa21-445e-a6f9-18c6eab664d5">
     <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>

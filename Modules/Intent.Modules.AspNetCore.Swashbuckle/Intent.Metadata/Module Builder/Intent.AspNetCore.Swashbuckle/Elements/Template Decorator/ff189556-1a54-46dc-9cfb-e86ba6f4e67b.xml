@@ -3,7 +3,7 @@
   <name>SwashbuckleCoreWebStartupDecorator</name>
   <display>SwashbuckleCoreWebStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>4</order>
   <genericTypes />
   <typeReference id="eab789ef-268e-4bd6-97a7-045209feab0a">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
