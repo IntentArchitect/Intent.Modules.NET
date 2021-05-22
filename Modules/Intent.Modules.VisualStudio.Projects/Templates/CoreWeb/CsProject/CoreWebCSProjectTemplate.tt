@@ -16,7 +16,7 @@
     <TargetFramework><#= Project.TargetFramework() #></TargetFramework>
   </PropertyGroup>
 
-<#  if (Project.TargetFramework().StartsWith("netcoreapp2")) { #>
+<#  if (Project.IsNetCore2App()) { #>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />

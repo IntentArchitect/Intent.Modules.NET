@@ -14,7 +14,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
         public Dictionary<string, NuGetPackage> GetInstalledPackages(string projectPath, XNode xNode)
         {
             var packageReferenceElements = xNode.XPathSelectElements("Project/ItemGroup/PackageReference");
-            
+
             return packageReferenceElements.ToDictionary(
                 element => element.Attribute("Include")?.Value,
                 element =>
@@ -65,13 +65,15 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                 var packageId = requestedPackage.Key;
                 var package = requestedPackage.Value;
 
-                var existingProjectReference = document.XPathSelectElement($"Project/ItemGroup/ProjectReference[substring(@Include,string-length(@Include) -string-length('{packageId}.csproj') +1) = '{packageId}.csproj']");
+                var existingProjectReference = document.XPathSelectElement(
+                    $"Project/ItemGroup/ProjectReference[substring(@Include,string-length(@Include) -string-length('{packageId}.csproj') +1) = '{packageId}.csproj']");
                 if (existingProjectReference != null)
                 {
                     continue;
                 }
 
-                var packageReferenceElement = packageReferenceItemGroup.XPathSelectElement($"PackageReference[@Include='{packageId}']");
+                var packageReferenceElement =
+                    packageReferenceItemGroup.XPathSelectElement($"PackageReference[@Include='{packageId}']");
                 if (packageReferenceElement == null)
                 {
                     tracing.Info($"Installing {packageId} {package.Version} into project {projectName}");
@@ -114,12 +116,13 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                     continue;
                 }
 
-                tracing.Info($"Upgrading {packageId} from {versionAttribute.Value} to {package.Version} in project {projectName}");
+                tracing.Info(
+                    $"Upgrading {packageId} from {versionAttribute.Value} to {package.Version} in project {projectName}");
                 versionAttribute.SetValue(package.Version.OriginalString);
             }
 
             SortAlphabetically(packageReferenceItemGroup);
-            return Format(document);
+            return document.ToFormattedProjectString();
         }
 
         private static void SortAlphabetically(XContainer packageReferenceItemGroup)
@@ -134,51 +137,6 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                 packageReferenceElement.Remove();
                 packageReferenceItemGroup.Add(packageReferenceElement);
             }
-        }
-
-        private static string Format(XDocument document)
-        {
-            // Changes the XML from:
-
-            // <Project Sdk="Microsoft.NET.Sdk">
-            //   <PropertyGroup>
-            //     ...
-            //   </PropertyGroup>
-            //   <PropertyGroup>
-            //     ...
-            //   </PropertyGroup>
-            // </Project>
-
-            // To:
-
-            // <Project Sdk="Microsoft.NET.Sdk">
-            //
-            //   <PropertyGroup>
-            //     ...
-            //   </PropertyGroup>
-            //
-            //   <PropertyGroup>
-            //     ...
-            //   </PropertyGroup>
-            //
-            // </Project>
-
-
-            document = XDocument.Parse(document.ToString(), LoadOptions.PreserveWhitespace);
-            if (document == null)
-                throw new Exception("document is null");
-            if (document.Root == null)
-                throw new Exception("document.Root is null");
-
-            foreach (var node in document.Root.Nodes())
-            {
-                if (node is XText xText)
-                {
-                    xText.Value = $"\n{xText.Value}";
-                }
-            }
-
-            return document.ToString();
         }
     }
 }

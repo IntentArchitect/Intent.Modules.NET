@@ -15,7 +15,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         {
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
-            var project = TestFixtureHelper.CreateProject(NuGetScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
             // Act
@@ -35,7 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "PackageToInstall.Id", "1.0.0" }
             });
@@ -71,7 +71,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "TestPackage.One", "3.0.0" }
             });
@@ -106,7 +106,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.VerboseWithPackageReference, TestVersion.Low, existingPackage, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, existingPackage, new Dictionary<string, string>
             {
                 { $"{nameof(TestPackage)}.{testPackageToInstall}", "1.0.0" }
             });

@@ -31,16 +31,16 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
         private bool _settingConsolidatePackageVersions;
         private bool _settingWarnOnMultipleVersionsOfSamePackage;
         private readonly IDictionary<string, IVisualStudioProjectTemplate> _projectRegistry = new Dictionary<string, IVisualStudioProjectTemplate>();
-        private static readonly IDictionary<NuGetScheme, INuGetSchemeProcessor> NuGetProjectSchemeProcessors;
+        private static readonly IDictionary<VisualStudioProjectScheme, INuGetSchemeProcessor> NuGetProjectSchemeProcessors;
 
         static NugetInstallerFactoryExtension()
         {
-            NuGetProjectSchemeProcessors = new Dictionary<NuGetScheme, INuGetSchemeProcessor>
+            NuGetProjectSchemeProcessors = new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>
             {
-                { NuGetScheme.Lean, new LeanSchemeProcessor() },
-                { NuGetScheme.Unsupported, new UnsupportedSchemeProcessor() },
-                { NuGetScheme.VerboseWithPackageReference, new VerboseWithPackageReferencesSchemeProcessor() },
-                { NuGetScheme.VerboseWithPackagesDotConfig, new VerboseWithPackagesDotConfigSchemeProcessor() }
+                { VisualStudioProjectScheme.Lean, new LeanSchemeProcessor() },
+                { VisualStudioProjectScheme.Unsupported, new UnsupportedSchemeProcessor() },
+                { VisualStudioProjectScheme.VerboseWithPackageReference, new VerboseWithPackageReferencesSchemeProcessor() },
+                { VisualStudioProjectScheme.VerboseWithPackagesDotConfig, new VerboseWithPackagesDotConfigSchemeProcessor() }
             };
         }
 
@@ -223,7 +223,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
             var projectContent = project.LoadContent();
             var document = XDocument.Parse(projectContent);
 
-            var projectType = ResolveNuGetScheme(document);
+            var projectType = document.ResolveProjectScheme();
             if (!NuGetProjectSchemeProcessors.TryGetValue(projectType, out var processor))
                 throw new ArgumentOutOfRangeException(nameof(projectType), $"No scheme registered for type {projectType}.");
 
@@ -294,36 +294,6 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
             };
         }
 
-        internal static NuGetScheme ResolveNuGetScheme(XNode xNode)
-        {
-            if (xNode == null)
-            {
-                return NuGetScheme.Unsupported;
-            }
-
-            var (prefix, namespaceManager, namespaceName) = xNode.Document.GetNamespaceManager();
-
-            if (xNode.XPathSelectElement("/Project[@Sdk]") != null)
-            {
-                return NuGetScheme.Lean;
-            }
-
-            if (xNode.XPathSelectElement($"/{prefix}:Project/{prefix}:ItemGroup/{prefix}:None[@Include='packages.config']", namespaceManager) != null)
-            {
-                return NuGetScheme.VerboseWithPackagesDotConfig;
-            }
-
-            if (xNode.XPathSelectElement($"/{prefix}:Project", namespaceManager) != null)
-            {
-                // Even if there is no PackageReference element, so long as there is no packages.config, then we are free to to use
-                // PackageReferences going forward. In the event there is PackageReference element, then we are of course already
-                // using the PackageReference scheme.
-                return NuGetScheme.VerboseWithPackageReference;
-            }
-
-            return NuGetScheme.Unsupported;
-        }
-
         private static void ConsolidatePackageVersions(IReadOnlyCollection<NuGetProject> projectPackages, IDictionary<string, VersionRange> highestVersions)
         {
             foreach (var highestVersion in highestVersions)
@@ -386,6 +356,88 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                 })
                 .Select(x => $"{x.PackageId} has the following versions installed:{Environment.NewLine}{x.VersionReport}")
                 .Aggregate((x, y) => x + Environment.NewLine + y);
+        }
+    }
+
+    internal static class VSProjectExtensions
+    {
+        internal static VisualStudioProjectScheme ResolveProjectScheme(this XDocument xNode)
+        {
+            if (xNode == null)
+            {
+                return VisualStudioProjectScheme.Unsupported;
+            }
+
+            var (prefix, namespaceManager, namespaceName) = xNode.Document.GetNamespaceManager();
+
+            if (xNode.XPathSelectElement($"/{prefix}:Project[@Sdk]", namespaceManager) != null)
+            {
+                return VisualStudioProjectScheme.Lean;
+            }
+
+            if (xNode.XPathSelectElement($"/{prefix}:Project/{prefix}:ItemGroup/{prefix}:None[@Include='packages.config']", namespaceManager) != null)
+            {
+                return VisualStudioProjectScheme.VerboseWithPackagesDotConfig;
+            }
+
+            if (xNode.XPathSelectElement($"/{prefix}:Project", namespaceManager) != null)
+            {
+                // Even if there is no PackageReference element, so long as there is no packages.config, then we are free to to use
+                // PackageReferences going forward. In the event there is PackageReference element, then we are of course already
+                // using the PackageReference scheme.
+                return VisualStudioProjectScheme.VerboseWithPackageReference;
+            }
+
+            return VisualStudioProjectScheme.Unsupported;
+        }
+
+        internal static string ToFormattedProjectString(this XDocument document)
+        {
+            // Changes the XML from:
+
+            // <Project Sdk="Microsoft.NET.Sdk">
+            //   <PropertyGroup>
+            //     ...
+            //   </PropertyGroup>
+            //   <PropertyGroup>
+            //     ...
+            //   </PropertyGroup>
+            // </Project>
+
+            // To:
+
+            // <Project Sdk="Microsoft.NET.Sdk">
+            //
+            //   <PropertyGroup>
+            //     ...
+            //   </PropertyGroup>
+            //
+            //   <PropertyGroup>
+            //     ...
+            //   </PropertyGroup>
+            //
+            // </Project>
+
+            if (document.ResolveProjectScheme() != VisualStudioProjectScheme.Lean)
+            {
+                return document.ToString();
+            }
+
+            document = XDocument.Parse(document.ToString(), LoadOptions.PreserveWhitespace);
+            if (document == null)
+                throw new Exception("document is null");
+            if (document.Root == null)
+                throw new Exception("document.Root is null");
+
+            foreach (var node in document.Root.Nodes())
+            {
+                if (node is XText xText)
+                {
+                    xText.Value = $"\n{xText.Value}";
+                }
+            }
+
+            return document.ToString();
         }
     }
 }

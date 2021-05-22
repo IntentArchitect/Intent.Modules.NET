@@ -1,6 +1,6 @@
 namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
 {
-    internal enum NuGetScheme
+    internal enum VisualStudioProjectScheme
     {
         /// <summary>
         /// New lean format, required for use by .NET Standard and .NET Core project types.

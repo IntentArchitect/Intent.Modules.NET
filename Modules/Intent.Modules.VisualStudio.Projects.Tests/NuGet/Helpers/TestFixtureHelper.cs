@@ -19,12 +19,12 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
 {
     internal static class TestFixtureHelper
     {
-        internal static ProjectImplementation CreateProject(NuGetScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
+        internal static ProjectImplementation CreateProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
         {
             return new ProjectImplementation(scheme, testVersion, testPackage, nugetPackagesToInstall);
         }
 
-        internal static NuGetProject CreateNuGetProject(NuGetScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
+        internal static NuGetProject CreateNuGetProject(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
         {
             return NugetInstallerFactoryExtension.DetermineProjectNugetPackageInfo(CreateProject(scheme, testVersion, testPackage, nugetPackagesToInstall));
         }
@@ -33,7 +33,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
         {
             private readonly IDictionary<string, string> _nugetPackagesToInstall;
 
-            public ProjectImplementation(NuGetScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
+            public ProjectImplementation(VisualStudioProjectScheme? scheme, TestVersion testVersion, TestPackage testPackage, IDictionary<string, string> nugetPackagesToInstall)
             {
                 _nugetPackagesToInstall = nugetPackagesToInstall;
 
@@ -52,9 +52,19 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
                 return File.ReadAllText(FilePath);
             }
 
+            public void UpdateContent(string content)
+            {
+                File.WriteAllText(FilePath, content);
+            }
+
             public IEnumerable<INugetPackageInfo> RequestedNugetPackages()
             {
                 return _nugetPackagesToInstall.Select(x => new NuGetPackages(x));
+            }
+
+            public IEnumerable<string> GetTargetFrameworks()
+            {
+                return new List<string>();
             }
 
             private class NuGetPackages : INugetPackageInfo
@@ -78,21 +88,21 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
             }
         }
 
-        internal static string GetPath(NuGetScheme? scheme, TestVersion testVersion, int number)
+        internal static string GetPath(VisualStudioProjectScheme? scheme, TestVersion testVersion, int number)
         {
             string path;
             switch (scheme)
             {
-                case NuGetScheme.Lean:
+                case VisualStudioProjectScheme.Lean:
                     path = $@"{scheme}/{testVersion}Version{number}.xml";
                     break;
-                case NuGetScheme.VerboseWithPackageReference:
+                case VisualStudioProjectScheme.VerboseWithPackageReference:
                     path = $@"{scheme}/{testVersion}Version{number}.xml";
                     break;
-                case NuGetScheme.VerboseWithPackagesDotConfig:
+                case VisualStudioProjectScheme.VerboseWithPackagesDotConfig:
                     path = $@"{scheme}/{testVersion}Version{number}/csproj.xml";
                     break;
-                case NuGetScheme.Unsupported:
+                case VisualStudioProjectScheme.Unsupported:
                 case null:
                     path = $@"VerboseWithNoScheme/csproj.xml";
                     break;

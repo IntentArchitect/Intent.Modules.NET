@@ -13,7 +13,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         {
             // Arrange
             var sut = new UnsupportedSchemeProcessor();
-            var project = TestFixtureHelper.CreateProject(NuGetScheme.Unsupported, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Unsupported, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
 
             // Act
             var installedPackages = sut.GetInstalledPackages(project.FilePath, null);
@@ -28,7 +28,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new UnsupportedSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.Unsupported, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Unsupported, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "PackageToInstall.Id", "1.0.0" }
             });
@@ -54,7 +54,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new UnsupportedSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.Unsupported, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Unsupported, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "TestPackage.One", "3.0.0" }
             });

@@ -13,7 +13,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
     {
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.CSProject";
 
-        public CoreWebCSProjectTemplate(IProject project, ASPNETCoreWebApplicationModel model)
+        public CoreWebCSProjectTemplate(IOutputTarget project, ASPNETCoreWebApplicationModel model)
             : base (Identifier, project, model)
         {
         }

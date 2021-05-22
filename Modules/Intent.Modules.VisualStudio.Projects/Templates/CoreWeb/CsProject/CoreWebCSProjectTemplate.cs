@@ -22,7 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class CoreWebCSProjectTemplate : VisualStudioProjectTemplateBase
     {
@@ -37,15 +37,15 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
             this.Write("<Project Sdk=\"Microsoft.NET.Sdk.Web\">\r\n\r\n  <PropertyGroup>\r\n    <TargetFramework>" +
                     "");
             
-            #line 16 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.TargetFramework()));
             
             #line default
             #line hidden
             this.Write("</TargetFramework>\r\n  </PropertyGroup>\r\n\r\n");
             
-            #line 19 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
-  if (Project.TargetFramework().StartsWith("netcoreapp2")) { 
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
+  if (Project.IsNetCore2App()) { 
             
             #line default
             #line hidden
@@ -60,7 +60,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
 
 ");
             
-            #line 29 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
   } 
             
             #line default

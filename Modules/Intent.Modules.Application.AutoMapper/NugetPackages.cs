@@ -4,6 +4,6 @@ namespace Intent.Modules.Application.AutoMapper
 {
     public static class NugetPackages
     {
-        public static INugetPackageInfo AutoMapper = new NugetPackageInfo("AutoMapper", "9.0.*");
+        public static INugetPackageInfo AutoMapper = new NugetPackageInfo("AutoMapper", "10.1.1");
     }
 }

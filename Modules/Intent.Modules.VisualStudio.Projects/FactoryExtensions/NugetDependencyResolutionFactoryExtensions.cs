@@ -46,7 +46,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 // root path is the project itself
                 var project = outputTarget.GetTargetPath()[0];
 
-                project.AddNugetPackages(GetTemplateNugetDependencies(outputTarget)); 
+                project.AddNugetPackages(GetTemplateNugetDependencies(outputTarget));
 
                 var assemblyDependencies = outputTarget.TemplateInstances
                         .SelectMany(ti => ti.GetAllAssemblyDependencies())

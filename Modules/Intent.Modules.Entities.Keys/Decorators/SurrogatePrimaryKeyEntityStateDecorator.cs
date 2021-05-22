@@ -22,7 +22,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
 
         public override string BeforeProperties(ClassModel @class)
         {
-            if (@class.ParentClass != null || @class.Attributes.Any(x => x.HasStereotype("Primary Key")))
+            if (@class.ParentClass != null || @class.Attributes.Any(x => x.Name.Equals("Id", StringComparison.InvariantCultureIgnoreCase) || x.HasStereotype("Primary Key")))
             {
                 return base.BeforeProperties(@class);
             }

@@ -11,6 +11,7 @@
     <PackageProjectUrl>https://github.com/IntentSoftware/Intent.Modules.NET</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Templates\NodeJSProjectFile\**" />

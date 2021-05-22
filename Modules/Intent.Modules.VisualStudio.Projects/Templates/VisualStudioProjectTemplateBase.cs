@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 using Intent.Engine;
+using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Templates;
@@ -15,22 +17,47 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
 {
     public abstract class VisualStudioProjectTemplateBase : IntentFileTemplateBase<IVisualStudioProject>, ITemplate, IVisualStudioProjectTemplate
     {
-
+        private string _fileContent;
         protected VisualStudioProjectTemplateBase([NotNull]string templateId, [NotNull]IOutputTarget project, [NotNull]IVisualStudioProject model) : base(templateId, project, model)
         {
         }
 
         public string ProjectId => Model.Id;
         public string Name => Model.Name;
-        public string FilePath => GetMetadata().GetFullLocationPathWithFileName();
+        public string FilePath => GetMetadata().GetFilePath();
 
         public string LoadContent()
         {
             var change = ExecutionContext.ChangeManager.FindChange(FilePath);
 
-            return change != null
+            return (change != null
                 ? change.Content
-                : File.ReadAllText(Path.GetFullPath(FilePath));
+                : _fileContent ??= File.ReadAllText(Path.GetFullPath(FilePath)));
+        }
+
+        public void UpdateContent(string content, ISoftwareFactoryEventDispatcher sfEventDispatcher)
+        {
+            // Normalize the content of both by parsing with no whitespace and calling .ToString()
+            var targetContent = XDocument.Parse(content).ToString();
+            var existingContent = LoadContent();
+            
+            if (existingContent == targetContent)
+            {
+                return;
+            }
+
+            var change = ExecutionContext.ChangeManager.FindChange(FilePath);
+            if (change != null)
+            {
+                change.ChangeContent(content);
+                return;
+            }
+
+            sfEventDispatcher.Publish(new SoftwareFactoryEvent(SoftwareFactoryEvents.OverwriteFileCommand, new Dictionary<string, string>
+            {
+                { "FullFileName", FilePath },
+                { "Content", content },
+            }));
         }
 
         //public void ChangeOutput(string content)
@@ -64,6 +91,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
         public IEnumerable<INugetPackageInfo> RequestedNugetPackages()
         {
             return OutputTarget.NugetPackages();
+        }
+
+        public IEnumerable<string> GetTargetFrameworks()
+        {
+            return Model.TargetFrameworkVersion();
         }
 
         public override void OnCreated()

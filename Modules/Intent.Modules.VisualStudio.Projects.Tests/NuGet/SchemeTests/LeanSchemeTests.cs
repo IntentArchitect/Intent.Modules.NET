@@ -15,7 +15,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
-            var project = TestFixtureHelper.CreateProject(NuGetScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
             // Act
@@ -35,7 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
                 {
                     {"PackageToInstall.Id", "1.0.0"}
                 });
@@ -68,7 +68,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
             {
                 { "TestPackage.One", "3.0.0" }
             });
@@ -102,7 +102,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(NuGetScheme.Lean, TestVersion.Low, existingPackage, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, existingPackage, new Dictionary<string, string>
             {
                 { $"{nameof(TestPackage)}.{testPackageToInstall}", "1.0.0" }
             });

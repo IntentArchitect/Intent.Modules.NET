@@ -33,11 +33,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
 
         public override string EnterClass()
         {
-            return @"
-        private ISender _mediator;
+            return $@"
+        private readonly ISender _mediator;";
+        }
 
-        protected ISender Mediator => _mediator ??= HttpContext.RequestServices.GetService<ISender>();
-";
+        public override IEnumerable<string> ConstructorParameters()
+        {
+            return new[] { $"ISender mediator" };
+        }
+
+        public override string ConstructorImplementation()
+        {
+            return $@"
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));";
         }
 
         public override string EnterOperationBody(OperationModel operationModel)
@@ -49,7 +57,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 foreach (var mappedParameter in GetMappedParameters(operationModel))
                 {
                     validations.Append($@"
-            if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.InternalElement.MappedElement.Element.Name})
+            if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.InternalElement.MappedElement.Element.Name.ToPascalCase()})
             {{
                 return BadRequest();
             }}
@@ -66,8 +74,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 ?? (operationModel.InternalElement.IsMapped ? GetMappedPayload(operationModel) : "UNKNOWN");
 
             return operationModel.ReturnType != null
-                ? $"var result = await Mediator.Send({payload}, cancellationToken);"
-                : $@"await Mediator.Send({payload}, cancellationToken);";
+                ? $"var result = await _mediator.Send({payload}, cancellationToken);"
+                : $@"await _mediator.Send({payload}, cancellationToken);";
         }
 
         public override string ExitOperationBody(OperationModel operationModel)
