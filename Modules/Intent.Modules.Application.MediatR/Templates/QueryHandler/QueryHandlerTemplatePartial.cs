@@ -45,7 +45,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         {
             return $@"
         {string.Join(@"
-        ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"{x.Type} _{x.Name.ToCamelCase()};"))}";
+        ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"private {x.Type} _{x.Name.ToCamelCase()};"))}";
         }
 
         private string GetCtorParams()
