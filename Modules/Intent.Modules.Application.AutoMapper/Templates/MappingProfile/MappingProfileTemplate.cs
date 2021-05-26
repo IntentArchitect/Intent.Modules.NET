@@ -16,6 +16,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
     using Intent.Modules.Common.CSharp.Templates;
     using Intent.Templates;
     using Intent.Metadata.Models;
+    using Intent.Modules.Application.AutoMapper.Templates.MapFromInterface;
     using System;
     
     /// <summary>
@@ -32,6 +33,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             this.Write("using AutoMapper;\r\nusing System;\r\nusing System.Linq;\r\nusing System.Reflection;\r\n\r" +
                     "\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
@@ -63,7 +65,14 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
         {
             var types = assembly.GetExportedTypes()
                 .Where(t => t.GetInterfaces().Any(i => 
-                    i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)))
+                    i.IsGenericType && i.GetGenericTypeDefinition() == typeof(");
+            
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(MapFromInterfaceTemplate.TemplateId)));
+            
+            #line default
+            #line hidden
+            this.Write(@"<>)))
                 .ToList();
 
             foreach (var type in types)
