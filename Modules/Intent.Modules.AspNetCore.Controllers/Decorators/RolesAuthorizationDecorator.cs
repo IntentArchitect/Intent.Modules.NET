@@ -47,4 +47,4 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
         }
         private readonly IApplication _application;
     }
-}
+}z

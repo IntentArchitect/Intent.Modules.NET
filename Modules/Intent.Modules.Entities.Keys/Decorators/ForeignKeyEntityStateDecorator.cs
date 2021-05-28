@@ -11,15 +11,16 @@ using Intent.Plugins;
 
 namespace Intent.Modules.Entities.Keys.Decorators
 {
-    public class ForeignKeyEntityStateDecorator : DomainEntityStateDecoratorBase, ISupportsConfiguration
+    public class ForeignKeyEntityStateDecorator : DomainEntityStateDecoratorBase
     {
-        private string _foreignKeyType = "Guid";
+        private string _foreignKeyType;
         public const string Identifier = "Intent.Entities.Keys.ForeignKeyEntityDecorator";
         public const string ForeignKeyType = "Foreign Key Type";
 
         public ForeignKeyEntityStateDecorator(DomainEntityStateTemplate template) : base(template)
         {
             Priority = -100;
+            _foreignKeyType = template.GetSurrogateKeyType() ?? "System.Guid";
         }
 
         public override string AssociationBefore(AssociationEndModel associationEnd)
@@ -30,20 +31,21 @@ namespace Intent.Modules.Entities.Keys.Decorators
                 {
                     return base.AssociationBefore(associationEnd);
                 }
-                var foreignKeyType = associationEnd.Class.GetSurrogateKeyType(Template.Types);
+
+                var foreignKeyType = associationEnd.Class.GetExplicitSurrogateKeyType(Template.Types) ?? Template.UseType(_foreignKeyType);
                 return $@"       public {foreignKeyType}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }Id {{ get; set; }}
 ";
             }
             return base.AssociationBefore(associationEnd);
         }
 
-        public override void Configure(IDictionary<string, string> settings)
-        {
-            base.Configure(settings);
-            if (settings.ContainsKey(ForeignKeyType) && !string.IsNullOrWhiteSpace(settings[ForeignKeyType]))
-            {
-                _foreignKeyType = settings[ForeignKeyType];
-            }
-        }
+        //public override void Configure(IDictionary<string, string> settings)
+        //{
+        //    base.Configure(settings);
+        //    if (settings.ContainsKey(ForeignKeyType) && !string.IsNullOrWhiteSpace(settings[ForeignKeyType]))
+        //    {
+        //        _foreignKeyType = settings[ForeignKeyType];
+        //    }
+        //}
     }
 }

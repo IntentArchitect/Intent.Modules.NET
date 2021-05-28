@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Keys</id>
-  <version>3.0.3</version>
+  <version>3.1.0</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Adds primary and foreign key properties to entities.</summary>
   <description>Adds primary and foreign key properties to entities. This is typically required for ORMs (Object Relational Mappers) such as Entity Framework.</description>
@@ -26,6 +26,21 @@
       </properties>
     </section>
   </settings>-->
+  <moduleSettings>
+    <group id="intent.modules.entities.keys" title="Entity Keys Settings">
+      <settings>
+        <setting id="use-partials-for-api-select" title="Key Type" module="Intent.ModuleBuilder" type="select">
+          <hint>Some test hint...</hint>
+          <value>test2</value>
+          <options>
+            <option value="System.Guid" description="Guid" />
+            <option value="int" description="Integer" />
+            <option value="long" description="Long" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <templates>
     <template id="Intent.Entities.Keys.IdentityGenerator">
       <role>Domain</role>

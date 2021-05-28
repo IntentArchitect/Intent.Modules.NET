@@ -43,14 +43,14 @@ namespace Intent.Modules.Entities.Keys
             return @class.GetExplicitPrimaryKey().SingleOrDefault()?.Name ?? "Id";
         }
 
-        public static string GetSurrogateKeyType(this ClassModel @class, ITypeResolver typeResolver)
+        public static string GetExplicitSurrogateKeyType(this ClassModel @class, ITypeResolver typeResolver)
         {
             if (!HasSurrogateKey(@class))
             {
                 throw new Exception($"{nameof(ClassModel)} [{@class}] does not have a surrogate key");
             }
 
-            return @class.GetExplicitPrimaryKey().Any() ?typeResolver.Get(@class.GetExplicitPrimaryKey().SingleOrDefault()?.Type.Element).Name : "Guid";
+            return @class.GetExplicitPrimaryKey().Any() ?typeResolver.Get(@class.GetExplicitPrimaryKey().SingleOrDefault()?.Type.Element).Name : null;
         }
 
         public static bool HasSurrogateKey(this ClassModel @class)

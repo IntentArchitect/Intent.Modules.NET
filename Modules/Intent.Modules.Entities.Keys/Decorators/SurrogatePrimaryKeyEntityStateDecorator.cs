@@ -12,12 +12,13 @@ namespace Intent.Modules.Entities.Keys.Decorators
 {
     public class SurrogatePrimaryKeyEntityStateDecorator : DomainEntityStateDecoratorBase, IHasTemplateDependencies
     {
-        private string _surrogateKeyType = "Guid";
+        private string _surrogateKeyType;
         public const string Identifier = "Intent.Entities.Keys.SurrogatePrimaryKeyEntityStateDecorator";
         public const string SurrogateKeyType = "Surrogate Key Type";
 
         public SurrogatePrimaryKeyEntityStateDecorator(DomainEntityStateTemplate template) : base(template)
         {
+            _surrogateKeyType = template.GetSurrogateKeyType() ?? "System.Guid";
         }
 
         public override string BeforeProperties(ClassModel @class)
@@ -27,7 +28,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
                 return base.BeforeProperties(@class);
             }
 
-            if (UseIdentityGenerator())
+            if (SurrogateKeyTypeIsGuid())
             {
                 return @"
         private Guid? _id = null;
@@ -46,31 +47,31 @@ namespace Intent.Modules.Entities.Keys.Decorators
         /// <summary>
         /// Get the persistent object's identifier
         /// </summary>
-        public virtual {_surrogateKeyType} Id {{ get; set; }}";
+        public virtual {Template.UseType(_surrogateKeyType)} Id {{ get; set; }}";
         }
 
-        private bool UseIdentityGenerator()
+        private bool SurrogateKeyTypeIsGuid()
         {
-            return _surrogateKeyType.Trim().Equals("Guid", StringComparison.InvariantCultureIgnoreCase);
+            return _surrogateKeyType.Trim().Equals("System.Guid", StringComparison.InvariantCultureIgnoreCase);
         }
 
         public IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
-            if (!UseIdentityGenerator())
+            if (!SurrogateKeyTypeIsGuid())
             {
                 return new List<ITemplateDependency>();
             }
             return new[] { TemplateDependency.OnTemplate(IdentityGeneratorTemplate.Identifier) };
         }
 
-        public override void Configure(IDictionary<string, string> settings)
-        {
-            base.Configure(settings);
-            if (settings.ContainsKey(SurrogateKeyType) && !string.IsNullOrWhiteSpace(settings[SurrogateKeyType]))
-            {
-                _surrogateKeyType = settings[SurrogateKeyType];
-            }
-        }
+        //public override void Configure(IDictionary<string, string> settings)
+        //{
+        //    base.Configure(settings);
+        //    if (settings.ContainsKey(SurrogateKeyType) && !string.IsNullOrWhiteSpace(settings[SurrogateKeyType]))
+        //    {
+        //        _surrogateKeyType = settings[SurrogateKeyType];
+        //    }
+        //}
 
     }
 }

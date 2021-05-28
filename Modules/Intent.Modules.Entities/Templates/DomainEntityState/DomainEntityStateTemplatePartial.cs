@@ -69,22 +69,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             }
         }
 
-        //private string GetBaseType()
-        //{
-        //    var typeId = Model.GetStereotypeProperty<string>("Base Type", "Type");
-        //    if (typeId == null)
-        //    {
-        //        return "Object";
-        //    }
-
-        //    var type = _metadataManager.Domain(OutputTarget.Application).GetTypeDefinitionModels().FirstOrDefault(x => x.Id == typeId);
-        //    if (type != null)
-        //    {
-        //        return type.Name;
-        //    }
-        //    throw new Exception($"Could not find Base Type for class {Model.Name}");
-        //}
-
         public IEnumerable<string> GetInterfaces(ClassModel @class)
         {
             var interfaces = new List<string>()
