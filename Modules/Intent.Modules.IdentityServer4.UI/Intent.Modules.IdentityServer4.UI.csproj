@@ -19,8 +19,8 @@
     <EmbeddedResource Include="Resources\IdentityServer4.Quickstart.UI-main.zip" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.0.4" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.8" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.9" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

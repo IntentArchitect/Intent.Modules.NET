@@ -52,7 +52,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
                 return File.ReadAllText(FilePath);
             }
 
-            public void UpdateContent(string content)
+            public void UpdateContent(string content, ISoftwareFactoryEventDispatcher sfEventDispatcher)
             {
                 File.WriteAllText(FilePath, content);
             }
