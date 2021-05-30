@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationId>9ae3f429-8cd5-4090-8a8b-f5dec3f95704</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>686b4ffe-4efa-4078-a854-a82578df6d4c</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/Decorators/InteropSwashbuckleAppSettingsDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InteropSwashbuckleAppSettingsDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>686b4ffe-4efa-4078-a854-a82578df6d4c</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/Decorators/InteropSwashbuckleAppSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InteropSwashbuckleAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7cebad54-ba71-407c-b781-6d265dd4ba7b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7cebad54-ba71-407c-b781-6d265dd4ba7b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7cebad54-ba71-407c-b781-6d265dd4ba7b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/README.txt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+  </FileLogs>
+</outputLog>

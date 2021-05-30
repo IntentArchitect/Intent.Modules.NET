@@ -16,6 +16,7 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
         private readonly StartupTemplate _template;
         private readonly IApplication _application;
 
+        [IntentManaged(Mode.Merge)]
         public MVCControllerEndpointStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;

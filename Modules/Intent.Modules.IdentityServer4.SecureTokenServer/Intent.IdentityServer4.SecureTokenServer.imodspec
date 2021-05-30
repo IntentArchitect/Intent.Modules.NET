@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.SecureTokenServer</id>
-  <version>3.0.1</version>
+  <version>3.0.2</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>The main module responsible for IdentityServer4 hosting</summary>
   <description>The main module responsible for IdentityServer4 hosting</description>
@@ -30,6 +30,13 @@
     <dependency id="Intent.Common.CSharp" version="3.0.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.2" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.AspNetCore.Swashbuckle">
+      <install>
+        <package id="Intent.IdentityServer4.STS.Interop.Swashbuckle.JWT" version="3.0.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
