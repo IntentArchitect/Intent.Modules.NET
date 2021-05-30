@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Events;
+using System;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -20,70 +23,68 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
 
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
-        private string _stsPort = "{sts_port}";
+        private readonly List<SwaggerOAuth2SchemeEvent> _swaggerSchemes;
 
         [IntentManaged(Mode.Merge)]
         public InteropAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-            _application.EventDispatcher.Subscribe<SecureTokenServiceHostedEvent>(Handle); // This is just temporary. Need to store these settings in a solution-wide accessible space for each app.
+            _application.EventDispatcher.Subscribe<SwaggerOAuth2SchemeEvent>(Handle);
+            _swaggerSchemes = new List<SwaggerOAuth2SchemeEvent>();
         }
 
-        private void Handle(SecureTokenServiceHostedEvent @event)
+        private void Handle(SwaggerOAuth2SchemeEvent @event)
         {
-            _stsPort = @event.Port;
+            _swaggerSchemes.Add(@event);
         }
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
         {
             var settings = appSettings.GetProperty("Swashbuckle");
 
-            if (settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes == null)
+            dynamic securitySchemes = settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes;
+            if (securitySchemes == null)
             {
-                settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes = JObject.FromObject(new
+                securitySchemes = new
                 {
                     oauth2 = new
                     {
                         Type = "OAuth2",
-                        Flows = new
-                        {
-                            Password = new
-                            {
-                                AuthorizationUrl = $"https://localhost:{_stsPort}/connect/authorize",
-                                TokenUrl = $"https://localhost:{_stsPort}/connect/token",
-                                Scopes = new
-                                {
-                                    roles = "Roles scope",
-                                    api = "API scope"
-                                }
-                            },
-                            AuthorizationCode = new
-                            {
-                                AuthorizationUrl = $"https://localhost:{_stsPort}/connect/authorize",
-                                TokenUrl = $"https://localhost:{_stsPort}/connect/token",
-                                RefreshUrl = (string)null,
-                                Scopes = new
-                                {
-                                    roles = "Roles scope",
-                                    api = "API scope"
-                                }
-                            }
-                        }
+                        Flows = new Dictionary<string, object>()
                     }
-                });
+                };
+                settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes = securitySchemes;
             }
 
-            if (settings.SwaggerUI.OAuthConfigObject == null)
+            foreach (var scheme in _swaggerSchemes)
             {
-                settings.SwaggerUI.OAuthConfigObject = JObject.FromObject(new
+                securitySchemes.oauth2.Flows[scheme.SchemeName] = new
                 {
-                    ClientId = "ResourceOwner_Client / Auth_Code_Client",
+                    scheme.AuthorizationUrl,
+                    scheme.RefreshUrl,
+                    scheme.TokenUrl,
+                    scheme.Scopes
+                };
+            }
+
+            dynamic oauthConfigObj = settings.SwaggerUI.OAuthConfigObject;
+            if (oauthConfigObj == null)
+            {
+                oauthConfigObj = JObject.FromObject(new
+                {
+                    ClientId = _swaggerSchemes.OrderByDescending(k => k.Priority).FirstOrDefault()?.ClientId ?? string.Empty,
                     ClientSecret = (string)null,
                     AppName = _template.OutputTarget.Application.Name,
                     UsePkceWithAuthorizationCodeGrant = true,
                     ScopeSeparator = " "
                 });
+                settings.SwaggerUI.OAuthConfigObject = oauthConfigObj;
+            }
+
+            if (_swaggerSchemes.Select(s => s.ClientId).Contains((string)oauthConfigObj.ClientId))
+            {
+                oauthConfigObj.ClientId = _swaggerSchemes.OrderByDescending(k => k.Priority).FirstOrDefault()?.ClientId ?? string.Empty;
             }
         }
     }

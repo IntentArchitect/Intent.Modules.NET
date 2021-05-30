@@ -45,5 +45,7 @@
     <application id="28f15199-9072-4b20-be3f-ad7815489182" name="AspNetCore.Swashbuckle.Interop.JWT" relativePath="Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT/AspNetCore.Swashbuckle.Interop.JWT.application.config" />
     <application id="e3a56af9-4953-4fde-a283-50674146b91e" name="Intent.Application.MediatR.CRUD" relativePath="Intent.Application.MediatR.CRUD/Intent.Application.MediatR.CRUD.application.config" />
     <application id="8467c2d6-6442-4d8b-9ebe-353556099f59" name="Intent.Modules.AspNetCore.Cors" relativePath="Intent.Modules.AspNetCore.Cors/Intent.Modules.AspNetCore.Cors.application.config" />
+    <application id="4e32b942-7b13-4e32-84f0-77384573f25c" name="IdentityServer4.STS.Interop.Swashbuckle.JWT" relativePath="Intent.Modules.IdentityServer4.STS.Interop.Swashbuckle.JWT/IdentityServer4.STS.Interop.Swashbuckle.JWT.application.config" />
+    <application id="9ae3f429-8cd5-4090-8a8b-f5dec3f95704" name="IdentityServer4.UI.Interop.Swashbuckle.JWT" relativePath="Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/IdentityServer4.UI.Interop.Swashbuckle.JWT.application.config" />
   </applications>
 </solution>
