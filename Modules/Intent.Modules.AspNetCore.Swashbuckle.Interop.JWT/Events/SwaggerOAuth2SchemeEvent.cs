@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Events
 {
+    public static class SchemeEventConstants
+    {
+        public const string STS_Port_Tag = "{sts_port}";
+    }
+
     public class SwaggerOAuth2SchemeEvent
     {
         public SwaggerOAuth2SchemeEvent(

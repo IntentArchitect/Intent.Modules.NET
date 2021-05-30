@@ -19,19 +19,12 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT.Decorators
 
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
-        private string _stsPort = "{sts_port}";
 
         [IntentManaged(Mode.Merge)]
         public InteropSwashbuckleAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-            _application.EventDispatcher.Subscribe<SecureTokenServiceHostedEvent>(Handle); // This is just temporary. Need to store these settings in a solution-wide accessible space for each app.
-        }
-
-        private void Handle(SecureTokenServiceHostedEvent @event)
-        {
-            _stsPort = @event.Port;
         }
 
         public void BeforeTemplateExecution()
@@ -40,8 +33,8 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT.Decorators
                 schemeName: "AuthorizationCode",
                 priority: 20,
                 clientId: "Auth_Code_Client",
-                authUrl: $"https://localhost:{_stsPort}/connect/authorize",
-                tokenUrl: $"https://localhost:{_stsPort}/connect/token",
+                authUrl: $"https://localhost:{SchemeEventConstants.STS_Port_Tag}/connect/authorize",
+                tokenUrl: $"https://localhost:{SchemeEventConstants.STS_Port_Tag}/connect/token",
                 refreshUrl: null,
                 scopes: new Dictionary<string, string> { { "roles", "Roles Scope" }, { "api", "API Scope" } }));
         }

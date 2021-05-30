@@ -24,6 +24,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
         private readonly List<SwaggerOAuth2SchemeEvent> _swaggerSchemes;
+        private string _stsPort = SchemeEventConstants.STS_Port_Tag;
 
         [IntentManaged(Mode.Merge)]
         public InteropAppSettingsDecorator(AppSettingsTemplate template, IApplication application)
@@ -31,12 +32,18 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
             _template = template;
             _application = application;
             _application.EventDispatcher.Subscribe<SwaggerOAuth2SchemeEvent>(Handle);
+            _application.EventDispatcher.Subscribe<SecureTokenServiceHostedEvent>(Handle); // This is just temporary. Need to store these settings in a solution-wide accessible space for each app.
             _swaggerSchemes = new List<SwaggerOAuth2SchemeEvent>();
         }
 
         private void Handle(SwaggerOAuth2SchemeEvent @event)
         {
             _swaggerSchemes.Add(@event);
+        }
+
+        private void Handle(SecureTokenServiceHostedEvent @event)
+        {
+            _stsPort = @event.Port;
         }
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
@@ -59,13 +66,13 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
 
             foreach (var scheme in _swaggerSchemes)
             {
-                securitySchemes.oauth2.Flows[scheme.SchemeName] = new
+                securitySchemes.oauth2.Flows[scheme.SchemeName] = JObject.FromObject(new
                 {
-                    scheme.AuthorizationUrl,
-                    scheme.RefreshUrl,
-                    scheme.TokenUrl,
+                    AuthorizationUrl = scheme.AuthorizationUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
+                    RefreshUrl= scheme.RefreshUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
+                    TokenUrl = scheme.TokenUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
                     scheme.Scopes
-                };
+                });
             }
 
             dynamic oauthConfigObj = settings.SwaggerUI.OAuthConfigObject;
@@ -82,7 +89,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
                 settings.SwaggerUI.OAuthConfigObject = oauthConfigObj;
             }
 
-            if (_swaggerSchemes.Select(s => s.ClientId).Contains((string)oauthConfigObj.ClientId))
+            if (_swaggerSchemes.Select(s => s.ClientId).Contains((string)oauthConfigObj.ClientId)
+                || oauthConfigObj.ClientId == null
+                || oauthConfigObj.ClientId == string.Empty)
             {
                 oauthConfigObj.ClientId = _swaggerSchemes.OrderByDescending(k => k.Priority).FirstOrDefault()?.ClientId ?? string.Empty;
             }
