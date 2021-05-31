@@ -31,12 +31,12 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
             return new[] { "Microsoft.AspNetCore.Authentication.JwtBearer" };
         }
 
-        public override void UpdateOperationAuhtorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
+        public override void UpdateOperationAuthorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
         {
             authorizationModel.AuthenticationSchemesExpression = "JwtBearerDefaults.AuthenticationScheme";
         }
 
-        public override void UpdateServiceAuhtorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
+        public override void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
         {
             authorizationModel.AuthenticationSchemesExpression = "JwtBearerDefaults.AuthenticationScheme";
         }

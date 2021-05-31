@@ -77,7 +77,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 // We can extend this later (if desired) to have multiple Secure stereotypes create
                 // multiple Authorization Models.
                 var authModel = new AuthorizationModel();
-                GetDecorators().ToList().ForEach(x => x.UpdateServiceAuhtorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
+                GetDecorators().ToList().ForEach(x => x.UpdateServiceAuthorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
                 attributes.Add(GetAuthorizationAttribute(authModel));
             }
             attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
@@ -96,7 +96,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     // We can extend this later (if desired) to have multiple Secure stereotypes create
                     // multiple Authorization Models.
                     var authModel = new AuthorizationModel();
-                    GetDecorators().ToList().ForEach(x => x.UpdateOperationAuhtorization(authModel, new OperationSecureModel(o, o.GetSecured())));
+                    GetDecorators().ToList().ForEach(x => x.UpdateOperationAuthorization(authModel, new OperationSecureModel(o, o.GetSecured())));
                     attributes.Add(GetAuthorizationAttribute(authModel));
                 }
                 else if (o.HasUnsecured())
