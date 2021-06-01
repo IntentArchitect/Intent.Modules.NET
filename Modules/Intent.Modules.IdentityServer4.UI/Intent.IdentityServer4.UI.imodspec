@@ -24,7 +24,7 @@
       <role>Distribution</role>
       <location>Controllers/Account</location>
     </template>
-    <template id="Intent.IdentityServer4.UI.ZipFileContent" externalReference="7bcc66d0-4ecc-47c3-87e2-b310dbc750a3">
+    <template id="Intent.IdentityServer4.UI.QuickStartContent" externalReference="7bcc66d0-4ecc-47c3-87e2-b310dbc750a3">
       <role>Distribution</role>
     </template>
   </templates>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Intent.Modules.IdentityServer4.UI.Templates.ZipFileContent
+namespace Intent.Modules.IdentityServer4.UI.Templates.QuickStartContent
 {
     class ZipEntry
     {

@@ -13,17 +13,18 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.IdentityServer4.UI.Templates.ZipFileContent
+namespace Intent.Modules.IdentityServer4.UI.Templates.QuickStartContent
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class ZipFileContentTemplate : IntentTemplateBase<object>
+    partial class QuickStartContentTemplate : IntentTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.IdentityServer4.UI.ZipFileContent";
+        public const string TemplateId = "Intent.IdentityServer4.UI.QuickStartContent";
+
         private ZipEntry _zipEntry;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public ZipFileContentTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public QuickStartContentTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             _zipEntry = (ZipEntry)model;
         }

@@ -15,19 +15,19 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.IdentityServer4.UI.Templates.ZipFileContent
+namespace Intent.Modules.IdentityServer4.UI.Templates.QuickStartContent
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ZipFileContentTemplateRegistration : ITemplateRegistration
+    public class QuickStartContentTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public ZipFileContentTemplateRegistration(IMetadataManager metadataManager)
+        public QuickStartContentTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public string TemplateId => ZipFileContentTemplate.TemplateId;
+        public string TemplateId => QuickStartContentTemplate.TemplateId;
 
         [IntentManaged(Mode.Ignore)]
         private static readonly IReadOnlyCollection<string> TargetFolders = new string[]
@@ -60,7 +60,7 @@ namespace Intent.Modules.IdentityServer4.UI.Templates.ZipFileContent
                 {
                     if (FilesToIgnore.Contains(entry.FullName)) { continue; }
 
-                    registery.Register(TemplateId, project => new ZipFileContentTemplate(project, new ZipEntry
+                    registery.Register(TemplateId, project => new QuickStartContentTemplate(project, new ZipEntry
                     {
                         FullFileNamePath = entry.FullName
                             .Replace(ResourceHelper.QuickstartFileName + "/", string.Empty)

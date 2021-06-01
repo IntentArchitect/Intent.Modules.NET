@@ -149,14 +149,14 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</CorrelationId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/ZipFileContent/ZipFileContentTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>ZipFileContent/ZipFileContentTemplatePartial.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/QuickStartContent/QuickStartContentTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>QuickStartContent/QuickStartContentTemplatePartial.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</CorrelationId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/ZipFileContent/ZipFileContentTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>ZipFileContent/ZipFileContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/QuickStartContent/QuickStartContentTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>QuickStartContent/QuickStartContentTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
