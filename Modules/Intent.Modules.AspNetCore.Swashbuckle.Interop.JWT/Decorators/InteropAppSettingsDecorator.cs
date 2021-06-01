@@ -53,14 +53,14 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
             dynamic securitySchemes = settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes;
             if (securitySchemes == null)
             {
-                securitySchemes = new
+                securitySchemes = JObject.FromObject(new
                 {
                     oauth2 = new
                     {
                         Type = "OAuth2",
                         Flows = new Dictionary<string, object>()
                     }
-                };
+                });
                 settings.SwaggerGen.SwaggerGeneratorOptions.SecuritySchemes = securitySchemes;
             }
 
