@@ -7,23 +7,23 @@
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/AuthenticationSchemesDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>AuthenticationSchemesDecorator.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/AuthenticationSchemesDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>AuthenticationSchemesDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/ConfigurationJWTAuthenticationLocalApiBearerTokenDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthenticationLocalApiBearerTokenDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/LocalApiBearerTokenStartupDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>LocalApiBearerTokenStartupDecorator.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/ControllerAuthenticationSchemesDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerAuthenticationSchemesDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/LocalApiBearerTokenStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>LocalApiBearerTokenStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.BearerToken.Interop.IdentityServer4/Decorators/ControllerAuthenticationSchemesDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerAuthenticationSchemesDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e695d66c-d375-42a5-9b24-636b6ef61e6b" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>ConfigurationSettingsJWTDecorator</name>
-  <display>ConfigurationSettingsJWTDecorator: AppSettingsDecorator</display>
+<class id="27254a54-ff9b-4c8e-b1cf-abb220d2bf94" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>ConfigurationJWTAuthenticationDefaultDecorator</name>
+  <display>ConfigurationJWTAuthenticationDefaultDecorator: JWTAuthenticationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>2</order>
   <genericTypes />
-  <typeReference id="8f229869-d600-430c-a3e0-fb6a139d58d6">
-    <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>
+  <typeReference id="b3980447-2ccf-4ec5-972c-4f52f924d3ed">
+    <typeId>a2e4d2a1-f6d1-4098-88e3-7a3f32a79c42</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.VisualStudio.Projects</typePackageName>
-    <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+    <typePackageName>Intent.Security.JWT</typePackageName>
+    <typePackageId>dc5bde69-a694-4347-9683-d746710568e7</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

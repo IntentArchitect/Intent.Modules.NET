@@ -12,14 +12,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
 {
-    [Description(AuthenticationSchemesDecorator.DecoratorId)]
-    public class AuthenticationSchemesDecoratorRegistration : DecoratorRegistration<ControllerTemplate, ControllerDecorator>
+    [Description(ControllerAuthenticationSchemesDecorator.DecoratorId)]
+    public class ControllerAuthenticationSchemesDecoratorRegistration : DecoratorRegistration<ControllerTemplate, ControllerDecorator>
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new AuthenticationSchemesDecorator(template, application);
+            return new ControllerAuthenticationSchemesDecorator(template, application);
         }
 
-        public override string DecoratorId => AuthenticationSchemesDecorator.DecoratorId;
+        public override string DecoratorId => ControllerAuthenticationSchemesDecorator.DecoratorId;
     }
 }

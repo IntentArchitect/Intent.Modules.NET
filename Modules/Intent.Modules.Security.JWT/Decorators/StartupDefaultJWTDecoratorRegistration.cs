@@ -10,16 +10,16 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
-namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
+namespace Intent.Modules.Security.JWT.Decorators
 {
-    [Description(LocalApiBearerTokenStartupDecorator.DecoratorId)]
-    public class LocalApiBearerTokenStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
+    [Description(StartupDefaultJWTDecorator.DecoratorId)]
+    public class StartupDefaultJWTDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new LocalApiBearerTokenStartupDecorator(template, application);
+            return new StartupDefaultJWTDecorator(template, application);
         }
 
-        public override string DecoratorId => LocalApiBearerTokenStartupDecorator.DecoratorId;
+        public override string DecoratorId => StartupDefaultJWTDecorator.DecoratorId;
     }
 }

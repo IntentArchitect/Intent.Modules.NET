@@ -12,15 +12,16 @@ using Intent.Engine;
 namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class AuthenticationSchemesDecorator : ControllerDecorator, IDeclareUsings
+    public class ControllerAuthenticationSchemesDecorator : ControllerDecorator, IDeclareUsings
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.Security.BearerToken.Interop.IdentityServer4.AuthenticationSchemesDecorator";
+        public const string DecoratorId = "Intent.Security.BearerToken.Interop.IdentityServer4.ControllerAuthenticationSchemesDecorator";
 
         private readonly ControllerTemplate _template;
         private readonly IApplication _application;
 
-        public AuthenticationSchemesDecorator(ControllerTemplate template, IApplication application)
+        [IntentManaged(Mode.Merge)]
+        public ControllerAuthenticationSchemesDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;

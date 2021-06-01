@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.Security.JWT.Events;
+using Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -11,15 +12,16 @@ using Intent.Modules.Security.JWT.Events;
 namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class LocalApiBearerTokenStartupDecorator : StartupDecorator, IDeclareUsings, IDecoratorExecutionHooks
+    public class ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator : JWTAuthenticationDecorator, IDeclareUsings, IDecoratorExecutionHooks
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.Security.BearerToken.Interop.IdentityServer4.LocalApiBearerTokenStartupDecorator";
+        public const string DecoratorId = "Intent.Security.BearerToken.Interop.IdentityServer4.ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator";
 
-        private readonly StartupTemplate _template;
+        private readonly ConfigurationJWTAuthenticationTemplate _template;
         private readonly IApplication _application;
 
-        public LocalApiBearerTokenStartupDecorator(StartupTemplate template, IApplication application)
+        [IntentManaged(Mode.Merge)]
+        public ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator(ConfigurationJWTAuthenticationTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
@@ -31,11 +33,6 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
             _application.EventDispatcher.Publish(new OverrideBearerTokenConfigurationEvent());
         }
 
-        public override string ConfigureServices()
-        {
-            return @"ConfigureAuthentication(services);";
-        }
-
         public IEnumerable<string> DeclareUsings()
         {
             return new[]
@@ -45,20 +42,14 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
             };
         }
 
-        public override string Methods()
+        public override string GetConfigurationCode()
         {
             return @"
-private void ConfigureAuthentication(IServiceCollection services)
-{
-    JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
-    
-    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddLocalApi(JwtBearerDefaults.AuthenticationScheme, opt => 
-        {
-            opt.SaveToken = true;
-        });
-}";
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddLocalApi(JwtBearerDefaults.AuthenticationScheme, opt => 
+            {
+                opt.SaveToken = true;
+            });";
         }
-
     }
 }
