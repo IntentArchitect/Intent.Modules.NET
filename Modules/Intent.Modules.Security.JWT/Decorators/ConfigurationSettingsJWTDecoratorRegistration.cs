@@ -13,14 +13,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Security.JWT.Decorators
 {
-    [Description(JWTConfigurationSettingsDecorator.DecoratorId)]
-    public class JWTConfigurationSettingsDecoratorRegistration : DecoratorRegistration<AppSettingsTemplate, AppSettingsDecorator>
+
+    [Description(ConfigurationSettingsJWTDecorator.DecoratorId)]
+    public class ConfigurationSettingsJWTDecoratorRegistration : DecoratorRegistration<AppSettingsTemplate, AppSettingsDecorator>
     {
         public override AppSettingsDecorator CreateDecoratorInstance(AppSettingsTemplate template, IApplication application)
         {
-            return new JWTConfigurationSettingsDecorator(template, application);
+            return new ConfigurationSettingsJWTDecorator(template, application);
         }
 
-        public override string DecoratorId => JWTConfigurationSettingsDecorator.DecoratorId;
+        public override string DecoratorId => ConfigurationSettingsJWTDecorator.DecoratorId;
     }
 }

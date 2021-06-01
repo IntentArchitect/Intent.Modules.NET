@@ -7,23 +7,23 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTConfigurationSettingsDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTConfigurationSettingsDecorator.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/ConfigurationSettingsJWTDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationSettingsJWTDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTConfigurationSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTConfigurationSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/ConfigurationSettingsJWTDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationSettingsJWTDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTStartupDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTStartupDecorator.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/StartupJWTDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>StartupJWTDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/StartupJWTDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>StartupJWTDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>

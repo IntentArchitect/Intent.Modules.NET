@@ -15,16 +15,17 @@ using Intent.Modules.Security.JWT.Events;
 namespace Intent.Modules.Security.JWT.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class JWTStartupDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
+    public class StartupJWTDecorator : StartupDecorator, IDeclareUsings, IHasNugetDependencies
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.Security.JWT.JWTStartupDecorator";
+        public const string DecoratorId = "Intent.Security.JWT.StartupJWTDecorator";
 
         private readonly StartupTemplate _template;
         private readonly IApplication _application;
         private bool _overrideBearerTokenConfiguration;
 
-        public JWTStartupDecorator(StartupTemplate template, IApplication application)
+        [IntentManaged(Mode.Merge)]
+        public StartupJWTDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
             _application = application;

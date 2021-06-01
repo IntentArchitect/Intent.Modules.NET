@@ -14,17 +14,18 @@ using Intent.Modules.Security.JWT.Events;
 namespace Intent.Modules.Security.JWT.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class JWTConfigurationSettingsDecorator : AppSettingsDecorator
+    public class ConfigurationSettingsJWTDecorator : AppSettingsDecorator
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.Security.JWT.JWTConfigurationSettingsDecorator";
+        public const string DecoratorId = "Intent.Security.JWT.ConfigurationSettingsJWTDecorator";
 
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
         private bool _stsIsSelfHostedInThisApplication;
         private string _stsPort = "{sts_port}";
 
-        public JWTConfigurationSettingsDecorator(AppSettingsTemplate template, IApplication application)
+        [IntentManaged(Mode.Merge)]
+        public ConfigurationSettingsJWTDecorator(AppSettingsTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
