@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>3.0.5</version>
+  <version>3.0.6</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Entity Framework Core implementation.</summary>
   <description>Entity Framework Core implementation.</description>
@@ -44,23 +44,23 @@
     </detect>
     <detect id="Intent.DomainEvents">
       <install>
-        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.0.3" />
+        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.0.5" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.0.5" />
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.0.7" />
       </install>
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Modelers.Domain" version="3.0.3" />
-    <dependency id="Intent.Common.CSharp" version="3.0.9" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.0.2" />
-    <dependency id="Intent.Entities" version="3.0.5" />
+    <dependency id="Intent.Modelers.Domain" version="3.0.4" />
+    <dependency id="Intent.Common.CSharp" version="3.0.10" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.0.3" />
+    <dependency id="Intent.Entities" version="3.0.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1" />
-    <dependency id="Intent.Common" version="3.0.4" />
-    <dependency id="Intent.Common.Types" version="3.0.3" />
+    <dependency id="Intent.Common" version="3.0.6" />
+    <dependency id="Intent.Common.Types" version="3.0.5" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
