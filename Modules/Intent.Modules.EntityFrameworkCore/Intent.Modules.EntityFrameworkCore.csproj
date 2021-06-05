@@ -1,8 +1,8 @@
-
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>3.0.3</Version>
+    <Version>3.0.6</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
@@ -37,7 +37,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConfigurationsTemplate.cs</LastGenOutput>
     </None>
-  
     <None Update="Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EntityTypeConfigurationTemplate.cs</LastGenOutput>
@@ -64,7 +63,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DbMigrationsReadMeTemplate.tt</DependentUpon>
     </Compile>
-  
     <Compile Update="Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
