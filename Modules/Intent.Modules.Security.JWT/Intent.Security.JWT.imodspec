@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>3.0.2</version>
+  <version>3.0.3</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>For generating code to secure your API services using the JWT bearer tokens</summary>
   <description>For generating code to secure your API services using the JWT bearer tokens</description>
