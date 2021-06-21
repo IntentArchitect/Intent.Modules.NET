@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="27254a54-ff9b-4c8e-b1cf-abb220d2bf94" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>ConfigurationJWTAuthenticationDefaultDecorator</name>
+  <display>ConfigurationJWTAuthenticationDefaultDecorator: JWTAuthenticationDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="b3980447-2ccf-4ec5-972c-4f52f924d3ed">
+    <typeId>a2e4d2a1-f6d1-4098-88e3-7a3f32a79c42</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Security.JWT</typePackageName>
+    <typePackageId>dc5bde69-a694-4347-9683-d746710568e7</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>dc5bde69-a694-4347-9683-d746710568e7</parentFolderId>
+  <packageId>dc5bde69-a694-4347-9683-d746710568e7</packageId>
+  <packageName>Intent.Security.JWT</packageName>
+  <stereotypes />
+  <childElements />
+</class>

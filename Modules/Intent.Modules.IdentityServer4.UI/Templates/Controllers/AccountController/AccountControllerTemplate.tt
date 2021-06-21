@@ -213,6 +213,12 @@ namespace IdentityServerHost.Quickstart.UI
 
             if (User?.Identity.IsAuthenticated == true)
             {
+                // Ensure that any ASPNET cookies are also removed so that we're
+                // not mistakenly still logged in
+                Response.Cookies.Delete(".AspNetCore.Identity.Application");
+                Response.Cookies.Delete("idserv.external");
+                Response.Cookies.Delete("idserv.session");
+
                 // delete local authentication cookie
                 await HttpContext.SignOutAsync();
 

@@ -1,0 +1,30 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object, Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication.JWTAuthenticationDecorator>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public static class <#= ClassName #>
+    {
+        // Use '[IntentManaged(Mode.Ignore)]' on this method should you want to deviate from the standard JWT token approach
+        public static IServiceCollection ConfigureJWTAuthentication(this IServiceCollection services, IConfiguration configuration)
+        {
+            JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+            <#= base.GetDecoratorsOutput(p => p.GetConfigurationCode()) #>
+
+            return services;
+        }
+    }
+}

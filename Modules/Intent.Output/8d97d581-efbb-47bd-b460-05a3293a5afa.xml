@@ -7,23 +7,33 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTConfigurationSettingsDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTConfigurationSettingsDecorator.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/ConfigurationJWTAuthenticationDefaultDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthenticationDefaultDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTConfigurationSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTConfigurationSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/ConfigurationJWTAuthenticationDefaultDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthenticationDefaultDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTStartupDecorator.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTStartupDecorator.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/ConfigurationSettingsJWTDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationSettingsJWTDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/JWTStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>JWTStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/ConfigurationSettingsJWTDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationSettingsJWTDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/StartupDefaultJWTDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>StartupDefaultJWTDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Decorators/StartupDefaultJWTDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>StartupDefaultJWTDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
@@ -39,6 +49,31 @@
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplateRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.Security.JWT/Templates/ConfigurationJWTAuthentication/JWTAuthenticationDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationJWTAuthentication/JWTAuthenticationDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
   </FileLogs>
 </outputLog>

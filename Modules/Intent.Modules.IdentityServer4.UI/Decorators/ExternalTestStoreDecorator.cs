@@ -20,6 +20,7 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
         private readonly IApplication _application;
         private bool _overridden;
 
+        [IntentManaged(Mode.Merge)]
         public ExternalTestStoreDecorator(ExternalControllerTemplate template, IApplication application)
         {
             _template = template;

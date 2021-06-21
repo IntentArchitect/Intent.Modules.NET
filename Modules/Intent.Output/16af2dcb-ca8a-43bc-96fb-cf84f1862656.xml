@@ -4,133 +4,159 @@
   <FileLogs>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorbe287863-aec7-4c58-bf04-07aaaacd6fb1</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/AccountTestStoreDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>AccountTestStoreDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistrationbe287863-aec7-4c58-bf04-07aaaacd6fb1</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/AccountTestStoreDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>AccountTestStoreDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratora5200d0f-be1c-4792-b365-c804b036c1b6</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/ExternalTestStoreDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ExternalTestStoreDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistrationa5200d0f-be1c-4792-b365-c804b036c1b6</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/ExternalTestStoreDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ExternalTestStoreDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator4c1f3227-41a7-4947-9517-903f7d7911da</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/MVCControllerEndpointStartupDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>MVCControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration4c1f3227-41a7-4947-9517-903f7d7911da</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/MVCControllerEndpointStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>MVCControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorf3f7aef4-8f6e-4233-b6af-cdde542f70f6</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/RazorPageControllerStartupDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>RazorPageControllerStartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistrationf3f7aef4-8f6e-4233-b6af-cdde542f70f6</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/RazorPageControllerStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>RazorPageControllerStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator71190011-f577-4fc1-a964-11b24e07ef39</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/StaticFilesStartupDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>StaticFilesStartupDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration71190011-f577-4fc1-a964-11b24e07ef39</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Decorators/StaticFilesStartupDecoratorRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>StaticFilesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>52bc9867-295e-4bd1-bb24-5de690a89bb5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtensionc2836371-2d1f-4565-ae1a-a29c6c999789</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/FactoryExtensions/IdentityServerQuickstartExtractorFactoryExtension.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServerQuickstartExtractorFactoryExtension.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Intent.IdentityServer4.UI.imodspec</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.UI.imodspec</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProjectba65ea8f-9c7c-4acc-bb47-4e80763dc120</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Intent.Modules.IdentityServer4.UI.csproj</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.UI.csproj</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/README.txt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContractcddac3d6-bb33-4fbd-8a21-00e4fd833225</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountAuthProviderDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountAuthProviderDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplate.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplate.tt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplate.tt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplatePartial.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplatePartial.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/AccountController/AccountControllerTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContractcfb67386-2b94-40e7-b2e9-fa47a2148d35</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalAuthProviderDecorator.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalAuthProviderDecorator.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessedf619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplate.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplate.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatef619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplate.tt</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplate.tt</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartialf619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplatePartial.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplatePartial.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModelf619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
       <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/Controllers/ExternalController/ExternalControllerTemplateRegistration.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/ZipFileContent/ZipFileContentTemplatePartial.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>ZipFileContent/ZipFileContentTemplatePartial.cs</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</CorrelationId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/QuickStartContent/QuickStartContentTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>QuickStartContent/QuickStartContentTemplatePartial.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
-      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/ZipFileContent/ZipFileContentTemplateRegistration.cs</SolutionRelativeFilePath>
-      <ProjectRelativeFilePath>ZipFileContent/ZipFileContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</CorrelationId>
+      <SolutionRelativeFilePath>../Intent.Modules.IdentityServer4.UI/Templates/QuickStartContent/QuickStartContentTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>QuickStartContent/QuickStartContentTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>

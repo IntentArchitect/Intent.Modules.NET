@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e695d66c-d375-42a5-9b24-636b6ef61e6b" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>JWTConfigurationSettingsDecorator</name>
-  <display>JWTConfigurationSettingsDecorator: AppSettingsDecorator</display>
+  <name>ConfigurationSettingsJWTDecorator</name>
+  <display>ConfigurationSettingsJWTDecorator: AppSettingsDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>3</order>
   <genericTypes />
   <typeReference id="8f229869-d600-430c-a3e0-fb6a139d58d6">
     <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="ea59acfd-4fa7-4419-8714-a9355fd5a9b3" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>JWTStartupDecorator</name>
-  <display>JWTStartupDecorator: StartupDecorator</display>
+  <name>StartupDefaultJWTDecorator</name>
+  <display>StartupDefaultJWTDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>4</order>
   <genericTypes />
   <typeReference id="4622f957-77ee-4674-83d7-af36a6b2c5a2">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

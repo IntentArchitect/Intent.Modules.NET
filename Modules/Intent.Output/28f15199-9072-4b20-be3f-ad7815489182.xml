@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationId>28f15199-9072-4b20-be3f-ad7815489182</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>e7eda44b-a6c9-4614-ad36-e1cc42c07fe4</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT/Decorators/InteropAppSettingsDecorator.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InteropAppSettingsDecorator.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7eda44b-a6c9-4614-ad36-e1cc42c07fe4</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT/Decorators/InteropAppSettingsDecoratorRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>InteropAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>802e028a-5950-4627-a9c5-dce94951767b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT/Intent.AspNetCore.Swashbuckle.Interop.JWT.imodspec</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Swashbuckle.Interop.JWT.imodspec</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>802e028a-5950-4627-a9c5-dce94951767b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT/Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.csproj</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.csproj</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>802e028a-5950-4627-a9c5-dce94951767b</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT/README.txt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <SolutionRelativeFilePath>../Intent.Modules.NET.sln</SolutionRelativeFilePath>
+    </FileLog>
+  </FileLogs>
+</outputLog>

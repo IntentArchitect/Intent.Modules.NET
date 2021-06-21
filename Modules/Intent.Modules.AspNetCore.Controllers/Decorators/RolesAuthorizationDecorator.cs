@@ -25,12 +25,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
             _template = template;
         }
 
-        public override void UpdateServiceAuhtorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
+        public override void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
         {
             UpdateRoles(authorizationModel, secureModel.Stereotype.Roles() ?? string.Empty);
         }
 
-        public override void UpdateOperationAuhtorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
+        public override void UpdateOperationAuthorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
         {
             UpdateRoles(authorizationModel, secureModel.Stereotype.Roles() ?? string.Empty);
         }
@@ -47,4 +47,4 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
         }
         private readonly IApplication _application;
     }
-}z
+}

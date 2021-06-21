@@ -55,11 +55,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return null;
         }
 
-        public virtual void UpdateServiceAuhtorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
+        public virtual void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
         {
         }
 
-        public virtual void UpdateOperationAuhtorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
+        public virtual void UpdateOperationAuthorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
         {
         }
     }
