@@ -18,11 +18,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
         public const string DecoratorId = "Intent.AspNetCore.Controllers.RolesAuthorizationDecorator";
 
         private readonly ControllerTemplate _template;
+        private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]
         public RolesAuthorizationDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
         }
 
         public override void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
@@ -45,6 +47,5 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
                 authorizationModel.RolesExpression = $@"""{interimExpression}""";
             }
         }
-        private readonly IApplication _application;
     }
 }
