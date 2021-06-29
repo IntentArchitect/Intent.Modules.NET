@@ -12,8 +12,8 @@
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -50,15 +50,15 @@ namespace <#= Namespace #>
             AddRange(results);
         }
 
-        public static async Task<<#= PagedResultInterfaceName #><T>> CreateAsync(IQueryable<T> source, int pageNo, int pageSize)
+        public static async Task<<#= PagedResultInterfaceName #><T>> CreateAsync(IQueryable<T> source, int pageNo, int pageSize, CancellationToken cancellationToken = default)
         {
-            var count = await source.CountAsync();
+            var count = await source.CountAsync(cancellationToken);
             var skip = ((pageNo - 1) * pageSize);
             var results = await source
                 .Skip(skip)
                 .Take(pageSize)
-                .ToListAsync();
-            return new <#= ClassName #><T>(totalCount: count, pageNo: pageNo, pageSize: pageSize, results: results);
+                .ToListAsync(cancellationToken);
+            return new <#= ClassName #><T>(count, pageNo, pageSize, results);
         }
 
         private int GetPageCount(int pageSize, int totalCount)

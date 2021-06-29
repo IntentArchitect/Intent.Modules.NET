@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel;
+using Intent.Engine;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Entities.Templates.DomainEntity;
-using Intent.Engine;
-using Intent.Templates;
 
 namespace Intent.Modules.Entities.DDD.Decorators
 {

@@ -42,7 +42,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge)]\r\n\tpublic class ");
+            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge)]\r\n    public class ");
             
             #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

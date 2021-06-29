@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEntityState;
-using Intent.Configuration;
-using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common.CSharp;
 using Intent.Plugins;
-using Intent.Templates;
 
 namespace Intent.Modules.Entities.DDD.Decorators
 {
@@ -26,13 +21,11 @@ namespace Intent.Modules.Entities.DDD.Decorators
 
         private const string ValueObjectBaseClassSetting = "Value Object Base Class";
 
-        private const string DefaultBaseClassSetting = "Default Base Class";
+        private string _aggregateRootBaseClass;
 
-        private string _aggregateRootBaseClass = null;
+        private string _entityBaseClass;
 
-        private string _entityBaseClass = null;
-
-        private string _valueObjectBaseClass = null;
+        private string _valueObjectBaseClass;
 
         public DDDEntityStateDecorator(DomainEntityStateTemplate template) : base(template)
         {
@@ -57,11 +50,6 @@ namespace Intent.Modules.Entities.DDD.Decorators
 
         public override string ConvertAttributeType(AttributeModel attribute)
         {
-            //var @namespace = attribute.Type.GetStereotypeProperty<string>("CommonType", "Namespace");
-            //if (@namespace != null)
-            //{
-            //    return @namespace + "." + attribute.TypeName();
-            //}
             var domainType = attribute.GetStereotypeProperty<string>("DomainType", "Type");
             if (domainType != null)
             {
@@ -101,7 +89,7 @@ namespace Intent.Modules.Entities.DDD.Decorators
             }
             return base.GetBaseClass(@class);
         }
-        
+
         public override string AssociationAfter(AssociationEndModel associationEnd)
         {
             if (!associationEnd.IsNavigable)
@@ -109,9 +97,10 @@ namespace Intent.Modules.Entities.DDD.Decorators
                 return base.AssociationAfter(associationEnd);
             }
 
-            var t = CSharpTypeSource.Create(Template.ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>");
+            var name = Template.Types.InContext(DomainEntityStateTemplate.InterfaceContext).Get(associationEnd).Name;
+
             return $@"
-        {Template.NormalizeNamespace(t.GetType(associationEnd).Name)} I{associationEnd.OtherEnd().Class.Name}.{associationEnd.Name().ToPascalCase()} => {associationEnd.Name().ToPascalCase()};
+        {Template.NormalizeNamespace(name)} I{associationEnd.OtherEnd().Class.Name}.{associationEnd.Name().ToPascalCase()} => {associationEnd.Name().ToPascalCase()};
 ";
         }
     }
