@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Registrations;
-using Intent.SoftwareFactory;
 using Intent.Engine;
-using Intent.Modelers.Domain;
+using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.Registrations;
 using Intent.Templates;
-
 
 namespace Intent.Modules.Entities.Templates.DomainEntityState
 {
     [Description(DomainEntityStateTemplate.TemplateId)]
-    public class DomainEntityStateTemplateRegistrations : ModelTemplateRegistrationBase<ClassModel>
+    public class DomainEntityStateTemplateRegistrations : FilePerModelTemplateRegistration<ClassModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -23,12 +19,12 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
 
         public override string TemplateId => DomainEntityStateTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IProject project, ClassModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
-            return new DomainEntityStateTemplate(model, project, _metadataManager);
+            return new DomainEntityStateTemplate(model, outputTarget);
         }
 
-        public override IEnumerable<ClassModel> GetModels(Engine.IApplication application)
+        public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels();
         }
