@@ -1,30 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using Intent.Engine;
-using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.EntityFramework.Repositories.Templates.PagedList;
 using Intent.Templates;
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
+namespace Intent.Modules.EntityFramework.Repositories.Templates.PagedList
 {
     [Description(PagedListTemplate.Identifier)]
-    public class PagedListTemplateRegistration : NoModelTemplateRegistrationBase
+    public class PagedListTemplateRegistration : SingleFileTemplateRegistration
     {
-        private readonly IMetadataManager _metadataManager;
-
-        public PagedListTemplateRegistration(IMetadataManager metadataManager)
-        {
-            _metadataManager = metadataManager;
-        }
-
         public override string TemplateId => PagedListTemplate.Identifier;
-        public override ITemplate CreateTemplateInstance(IProject project)
+
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new PagedListTemplate(project);
+            return new PagedListTemplate(outputTarget);
         }
     }
 }

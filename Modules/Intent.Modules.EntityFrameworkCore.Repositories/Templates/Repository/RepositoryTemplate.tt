@@ -23,7 +23,7 @@ using Microsoft.EntityFrameworkCore;
 namespace <#= Namespace #>
 {
     [IntentManaged(Mode.Merge)]
-	public class <#= ClassName #> : RepositoryBase<<#= EntityInterfaceName #>, <#= EntityName #>, <#= DbContextName #>>, <#= RepositoryContractName #>
+    public class <#= ClassName #> : RepositoryBase<<#= EntityInterfaceName #>, <#= EntityName #>, <#= DbContextName #>>, <#= RepositoryContractName #>
     {
         public <#= ClassName #>(<#= DbContextName #> dbContext) : base (dbContext)
         {
