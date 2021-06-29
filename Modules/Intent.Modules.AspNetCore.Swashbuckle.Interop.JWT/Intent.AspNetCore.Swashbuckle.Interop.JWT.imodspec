@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle.Interop.JWT</id>
-  <version>3.0.3</version>
+  <version>3.0.4</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
@@ -17,8 +17,8 @@
     <dependency id="Intent.Common.Types" version="3.0.5" />
     <dependency id="Intent.VisualStudio.Projects" version="3.0.8" />
     <dependency id="Intent.AspNetCore" version="3.0.5" />
-    <dependency id="Intent.AspNetCore.Swashbuckle" version="3.0.5" />
-    <dependency id="Intent.Security.JWT" version="3.0.2" />
+    <dependency id="Intent.AspNetCore.Swashbuckle" version="3.0.6" />
+    <dependency id="Intent.Security.JWT" version="3.0.3" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

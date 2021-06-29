@@ -39,7 +39,7 @@
     </detect>
     <detect id="Intent.Application.Dtos">
       <install>
-        <package id="Intent.Application.Dtos.AutoMapper" version="3.0.3" />
+        <package id="Intent.Application.Dtos.AutoMapper" version="3.0.4" />
       </install>
     </detect>
   </interoperability>

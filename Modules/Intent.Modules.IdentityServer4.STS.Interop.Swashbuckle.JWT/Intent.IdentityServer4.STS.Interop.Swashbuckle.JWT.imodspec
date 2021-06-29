@@ -17,7 +17,7 @@
     <dependency id="Intent.Common.Types" version="3.0.5" />
     <dependency id="Intent.VisualStudio.Projects" version="3.0.8" />
     <dependency id="Intent.IdentityServer4.SecureTokenServer" version="3.0.3" />
-    <dependency id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.0.3" />
+    <dependency id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.0.4" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

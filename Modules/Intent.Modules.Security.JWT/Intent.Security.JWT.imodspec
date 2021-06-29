@@ -34,7 +34,7 @@
   <interoperability>
     <detect id="Intent.IdentityServer4.SecureTokenServer">
       <install>
-        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.0.4" />
+        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.0.5" />
       </install>
     </detect>
   </interoperability>

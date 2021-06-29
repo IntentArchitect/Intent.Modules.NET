@@ -42,7 +42,7 @@
   <interoperability>
     <detect id="Intent.Security.JWT">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.0.3" />
+        <package id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.0.4" />
       </install>
     </detect>
   </interoperability>
