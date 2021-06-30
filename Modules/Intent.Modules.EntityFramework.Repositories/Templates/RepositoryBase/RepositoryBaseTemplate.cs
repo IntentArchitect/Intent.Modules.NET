@@ -75,22 +75,26 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
                     "angesAsync();\r\n        }\r\n\r\n        public Task<int> SaveChangesAsync(Cancellati" +
                     "onToken cancellationToken)\r\n        {\r\n            return _dbContext.SaveChanges" +
                     "Async(cancellationToken);\r\n        }\r\n\r\n        public virtual async Task<TDomai" +
-                    "n> FindAsync(Expression<Func<TPersistence, bool>> filterExpression)\r\n        {\r\n" +
-                    "            return await QueryInternal(filterExpression).SingleOrDefaultAsync<TD" +
-                    "omain>();\r\n        }\r\n\r\n        public virtual async Task<List<TDomain>> FindAll" +
-                    "Async()\r\n        {\r\n            return await QueryInternal(x => true).ToListAsyn" +
-                    "c<TDomain>();\r\n        }\r\n        \r\n        public virtual async Task<List<TDoma" +
-                    "in>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression)\r\n      " +
-                    "  {\r\n            return await QueryInternal(filterExpression).ToListAsync<TDomai" +
-                    "n>();\r\n        }\r\n\r\n        public virtual async Task<List<TDomain>> FindAllAsyn" +
-                    "c(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersis" +
-                    "tence>, IQueryable<TPersistence>> linq)\r\n        {\r\n            return await Que" +
-                    "ryInternal(filterExpression, linq).ToListAsync<TDomain>();\r\n        }\r\n\r\n       " +
-                    " public virtual async Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int p" +
-                    "ageSize)\r\n        {\r\n            var query = QueryInternal(x => true);\r\n        " +
-                    "    return await ");
+                    "n> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, Cancellation" +
+                    "Token cancellationToken = default)\r\n        {\r\n            return await QueryInt" +
+                    "ernal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);\r\n     " +
+                    "   }\r\n\r\n        public virtual async Task<List<TDomain>> FindAllAsync(Cancellati" +
+                    "onToken cancellationToken = default)\r\n        {\r\n            return await QueryI" +
+                    "nternal(x => true).ToListAsync<TDomain>(cancellationToken);\r\n        }\r\n        " +
+                    "\r\n        public virtual async Task<List<TDomain>> FindAllAsync(Expression<Func<" +
+                    "TPersistence, bool>> filterExpression, CancellationToken cancellationToken = def" +
+                    "ault)\r\n        {\r\n            return await QueryInternal(filterExpression).ToLis" +
+                    "tAsync<TDomain>(cancellationToken);\r\n        }\r\n\r\n        \r\n        public virtu" +
+                    "al async Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> f" +
+                    "ilterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, " +
+                    "CancellationToken cancellationToken = default)\r\n        {\r\n            return aw" +
+                    "ait QueryInternal(filterExpression, linq).ToListAsync<TDomain>(cancellationToken" +
+                    ");\r\n        }\r\n\r\n        public virtual async Task<IPagedResult<TDomain>> FindAl" +
+                    "lAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default)\r" +
+                    "\n        {\r\n            var query = QueryInternal(x => true);\r\n            retur" +
+                    "n await ");
             
-            #line 81 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 82 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
@@ -101,12 +105,12 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
                 pageSize);
         }
         
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize)
+        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression);
             return await ");
             
-            #line 90 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
@@ -114,40 +118,44 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
             this.Write(@"<TDomain>.CreateAsync(
                 query,
                 pageNo,
-                pageSize);
+                pageSize,
+                cancellationToken);
         }
 
-        public virtual async Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq)
+                public virtual async Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression, linq);
             return await ");
             
-            #line 99 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 101 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
             #line hidden
             this.Write("<TDomain>.CreateAsync(\r\n                query,\r\n                pageNo,\r\n        " +
-                    "        pageSize);\r\n        }\r\n\r\n        public virtual async Task<int> CountAsy" +
-                    "nc(Expression<Func<TPersistence, bool>> filterExpression)\r\n        {\r\n          " +
-                    "  return await QueryInternal(filterExpression).CountAsync();\r\n        }\r\n\r\n     " +
-                    "   public bool Any(Expression<Func<TPersistence, bool>> filterExpression)\r\n     " +
-                    "   {\r\n            return QueryInternal(filterExpression).Any();\r\n        }\r\n\r\n  " +
-                    "      public virtual async Task<bool> AnyAsync(Expression<Func<TPersistence, boo" +
-                    "l>> filterExpression)\r\n        {\r\n            return await QueryInternal(filterE" +
-                    "xpression).AnyAsync();\r\n        }\r\n\r\n        protected virtual IQueryable<TPersi" +
-                    "stence> QueryInternal(Expression<Func<TPersistence, bool>> filterExpression)\r\n  " +
-                    "      {\r\n            var queryable = CreateQuery();\r\n            if (filterExpre" +
-                    "ssion != null)\r\n            {\r\n                queryable = queryable.Where(filte" +
-                    "rExpression);\r\n            }\r\n            return queryable;\r\n        }\r\n\r\n      " +
-                    "  protected virtual IQueryable<TResult> QueryInternal<TResult>(Expression<Func<T" +
-                    "Persistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<" +
-                    "TResult>> linq)\r\n        {\r\n            var queryable = CreateQuery();\r\n        " +
-                    "    queryable = queryable.Where(filterExpression);\r\n\r\n            var result = l" +
-                    "inq(queryable);\r\n            return result;\r\n        }\r\n\r\n        protected virt" +
-                    "ual IQueryable<TPersistence> CreateQuery()\r\n        {\r\n            return GetSet" +
-                    "();\r\n        }\r\n\r\n        protected virtual DbSet<TPersistence> GetSet()\r\n      " +
-                    "  {\r\n            return _dbContext.Set<TPersistence>();\r\n        }\r\n    }\r\n}\r\n");
+                    "        pageSize,\r\n                cancellationToken);\r\n        }\r\n\r\n        pub" +
+                    "lic virtual async Task<int> CountAsync(Expression<Func<TPersistence, bool>> filt" +
+                    "erExpression, CancellationToken cancellationToken = default)\r\n        {\r\n       " +
+                    "     return await QueryInternal(filterExpression).CountAsync(cancellationToken);" +
+                    "\r\n        }\r\n\r\n        public bool Any(Expression<Func<TPersistence, bool>> filt" +
+                    "erExpression)\r\n        {\r\n            return QueryInternal(filterExpression).Any" +
+                    "();\r\n        }\r\n\r\n        public virtual async Task<bool> AnyAsync(Expression<Fu" +
+                    "nc<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = " +
+                    "default)\r\n        {\r\n            return await QueryInternal(filterExpression).An" +
+                    "yAsync(cancellationToken);\r\n        }\r\n\r\n        protected virtual IQueryable<TP" +
+                    "ersistence> QueryInternal(Expression<Func<TPersistence, bool>> filterExpression)" +
+                    "\r\n        {\r\n            var queryable = CreateQuery();\r\n            if (filterE" +
+                    "xpression != null)\r\n            {\r\n                queryable = queryable.Where(f" +
+                    "ilterExpression);\r\n            }\r\n            return queryable;\r\n        }\r\n\r\n  " +
+                    "      protected virtual IQueryable<TResult> QueryInternal<TResult>(Expression<Fu" +
+                    "nc<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQuerya" +
+                    "ble<TResult>> linq)\r\n        {\r\n            var queryable = CreateQuery();\r\n    " +
+                    "        queryable = queryable.Where(filterExpression);\r\n\r\n            var result" +
+                    " = linq(queryable);\r\n            return result;\r\n        }\r\n\r\n        protected " +
+                    "virtual IQueryable<TPersistence> CreateQuery()\r\n        {\r\n            return Ge" +
+                    "tSet();\r\n        }\r\n\r\n        protected virtual DbSet<TPersistence> GetSet()\r\n  " +
+                    "      {\r\n            return _dbContext.Set<TPersistence>();\r\n        }\r\n    }\r\n}" +
+                    "\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

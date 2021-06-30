@@ -40,7 +40,7 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         public override string ConfigureServices()
         {
-            return @"services.ConfigureJWTAuthentication(services, Configuration);";
+            return @"services.ConfigureJWTAuthentication(Configuration);";
         }
     }
 }

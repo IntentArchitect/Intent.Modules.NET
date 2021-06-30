@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Constants;
-using Intent.Modules.EntityFramework.Repositories.Templates.EntityCompositionVisitor;
-using Intent.Modules.EntityFramework.Templates.DbContext;
-using Intent.Engine;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.EntityFramework.Repositories.Templates.EntityCompositionVisitor;
+using Intent.Modules.EntityFramework.Templates.DbContext;
 using Intent.Templates;
 
 namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
@@ -26,8 +22,8 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
         private ITemplateDependency _dbContextTemplateDependency;
         private ITemplateDependency _deleteVisitorTemplateDependency;
 
-        public RepositoryTemplate(ClassModel model, IProject project)
-            : base(Identifier, project, model)
+        public RepositoryTemplate(ClassModel model, IOutputTarget outputTarget)
+            : base(Identifier, outputTarget, model)
         {
         }
 
@@ -73,7 +69,17 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
 
         public string DeleteVisitorName => Project.FindTemplateInstance<IClassProvider>(_deleteVisitorTemplateDependency)?.ClassName ?? $"{Model.Application.Name}DeleteVisitor";
 
-        public string PrimaryKeyType => GetTypeName(Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Type) ?? "Guid";
+        public string PrimaryKeyType
+        {
+            get
+            {
+                var typeReference = Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Type;
+
+                return typeReference != null
+                    ? GetTypeName(typeReference)
+                    : "Guid";
+            }
+        }
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 
@@ -83,7 +89,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
                 className: $"{Model.Name}Repository",
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
-        
+
         public override IEnumerable<ITemplateDependency> GetTemplateDependencies()
         {
             // GCB - Looks like an old way of doing things (comment as at V3.0):

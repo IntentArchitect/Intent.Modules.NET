@@ -26,7 +26,7 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"ConfigureJWTAuthentication",
+                className: $"JWTAuthenticationConfiguration",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

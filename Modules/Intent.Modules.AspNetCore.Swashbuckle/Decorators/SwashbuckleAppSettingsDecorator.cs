@@ -62,7 +62,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
                         DefaultModelsExpandDepth = -1,
                         DefaultModelExpandDepth = 2,
                         DefaultModelRendering = "model",
-                        DocExpansion = "full",
+                        DocExpansion = "list",
                         Filter = string.Empty,
                         ShowExtensions = true
                     }

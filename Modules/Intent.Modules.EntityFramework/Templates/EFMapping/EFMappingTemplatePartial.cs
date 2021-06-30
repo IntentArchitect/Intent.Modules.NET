@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.Engine;
-using Intent.Metadata.Models;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Templates;
 
@@ -15,12 +14,14 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
     partial class EFMappingTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasTemplateDependencies, IHasNugetDependencies, IHasDecorators<IEFMappingTemplateDecorator>, ITemplatePostCreationHook
     {
         public const string Identifier = "Intent.EntityFramework.EFMapping";
-        private IList<IEFMappingTemplateDecorator> _decorators = new List<IEFMappingTemplateDecorator>();
+        private readonly IList<IEFMappingTemplateDecorator> _decorators = new List<IEFMappingTemplateDecorator>();
+        private readonly AttributeModel[] _explicitPrimaryKeys;
 
-        public EFMappingTemplate(ClassModel model, IProject project)
-            : base (Identifier, project, model)
+        public EFMappingTemplate(ClassModel model, IOutputTarget outputTarget)
+            : base(Identifier, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.EntityFramework);
+            _explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToArray();
         }
 
         public string GetEntityName(ClassModel model)
@@ -32,9 +33,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
         {
             get
             {
-                string useForeignKeysString;
-                bool useForeignKeys;
-                if (GetMetadata().CustomMetadata.TryGetValue("Use Foreign Keys", out useForeignKeysString) && bool.TryParse(useForeignKeysString, out useForeignKeys))
+                if (GetMetadata().CustomMetadata.TryGetValue("Use Foreign Keys", out var useForeignKeysString) && bool.TryParse(useForeignKeysString, out var useForeignKeys))
                 {
                     return useForeignKeys;
                 }
@@ -46,9 +45,7 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
         {
             get
             {
-                string useForeignKeysString;
-                bool useForeignKeys;
-                if (GetMetadata().CustomMetadata.TryGetValue("Implicit Surrogate Key", out useForeignKeysString) && bool.TryParse(useForeignKeysString, out useForeignKeys))
+                if (GetMetadata().CustomMetadata.TryGetValue("Implicit Surrogate Key", out var useForeignKeysString) && bool.TryParse(useForeignKeysString, out var useForeignKeys))
                 {
                     return useForeignKeys;
                 }
@@ -128,17 +125,22 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             return string.Empty;
         }
 
-        private string GetForeignKeyLambda(AssociationEndModel associationEnd)
+        private static string GetForeignKeyLambda(AssociationEndModel associationEnd)
         {
-            var columns = associationEnd.Element.GetStereotypeProperty("Foreign Key", "Column Name", associationEnd.OtherEnd().Name().ToPascalCase() + "Id")
+            var foreignKeys = GetForeignKeys(associationEnd);
+            if (foreignKeys.Length == 1)
+            {
+                return $"x => x.{foreignKeys.Single()}";
+            }
+            return $"x => new {{ {string.Join(", ", foreignKeys.Select(x => "x." + x))}}}";
+        }
+
+        private static string[] GetForeignKeys(AssociationEndModel associationEnd)
+        {
+            return associationEnd.Element.GetStereotypeProperty("Foreign Key", "Column Name", associationEnd.OtherEnd().Name().ToPascalCase() + "Id")
                 .Split(',')
                 .Select(x => x.Trim())
-                .ToList();
-            if (columns.Count() == 1)
-            {
-                return $"x => x.{columns.Single()}";
-            }
-            return $"x => new {{ {string.Join(", ", columns.Select(x => "x." + x))}}}";
+                .ToArray();
         }
 
         private static bool RequiresForeignKeyOnAssociatedEnd(AssociationEndModel associationEnd)
@@ -146,6 +148,42 @@ namespace Intent.Modules.EntityFramework.Templates.EFMapping
             return associationEnd.Multiplicity == Multiplicity.Many
                 &&
                 (associationEnd.Association.AssociationType == AssociationType.Composition || associationEnd.OtherEnd().IsNavigable);
+        }
+
+        private bool UsesImplicitId()
+        {
+            return Model.ParentClass == null && !_explicitPrimaryKeys.Any();
+        }
+
+        private string GetHasKeyLambda()
+        {
+            var primaryKeys = _explicitPrimaryKeys
+                .Select(x => x.Name.ToPascalCase())
+                .ToList();
+
+            if (!primaryKeys.Any())
+            {
+                primaryKeys.Add("Id");
+            }
+
+            var compositionalParentAssociation = Model.AssociatedClasses
+                .SingleOrDefault(associationEndModel =>
+                    associationEndModel.Association.AssociationType == AssociationType.Composition &&
+                    associationEndModel.OtherEnd().IsCollection &&
+                    !associationEndModel.OtherEnd().IsNullable &&
+                    ReferenceEquals(associationEndModel.Association.SourceEnd, associationEndModel));
+
+            if (compositionalParentAssociation != null)
+            {
+                primaryKeys.AddRange(GetForeignKeys(compositionalParentAssociation.OtherEnd()));
+            }
+
+            if (primaryKeys.Count == 1)
+            {
+                return $"x => x.{primaryKeys.Single()}";
+            }
+
+            return $"x => new {{ {string.Join(", ", primaryKeys.Select(primaryKey => $"x.{primaryKey}"))} }}";
         }
     }
 

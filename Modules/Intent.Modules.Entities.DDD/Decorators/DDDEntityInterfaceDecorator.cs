@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
+﻿using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
-using Intent.Templates;
+using Intent.Modules.Entities.Templates.DomainEntityState;
 using AssociationEndModel = Intent.Modelers.Domain.Api.AssociationEndModel;
 
-namespace Intent.Modules.Entities.Decorators
+namespace Intent.Modules.Entities.DDD.Decorators
 {
     public class DDDEntityInterfaceDecorator : DomainEntityInterfaceDecoratorBase
     {
@@ -21,11 +19,6 @@ namespace Intent.Modules.Entities.Decorators
 
         public override string ConvertAttributeType(AttributeModel attribute)
         {
-            //var @namespace = attribute.Type.GetStereotypeProperty<string>("CommonType", "Namespace");
-            //if (@namespace != null)
-            //{
-            //    return @namespace + "." + attribute.TypeName();
-            //}
             var domainType = attribute.GetStereotypeProperty<string>("DomainType", "Type");
             if (domainType != null)
             {
@@ -50,9 +43,11 @@ namespace Intent.Modules.Entities.Decorators
             {
                 return base.PropertyBefore(associationEnd);
             }
-            var t = CSharpTypeSource.Create(Template.ExecutionContext, DomainEntityInterfaceTemplate.Identifier);
+
+            var name = Template.Types.InContext(DomainEntityInterfaceTemplate.InterfaceContext).Get(associationEnd).Name;
+
             return $@"
-        {Template.NormalizeNamespace(t.GetType(associationEnd).Name)} {associationEnd.Name().ToPascalCase()} {{ get; }}
+        {Template.NormalizeNamespace(name)} {associationEnd.Name().ToPascalCase()} {{ get; }}
 ";
         }
     }

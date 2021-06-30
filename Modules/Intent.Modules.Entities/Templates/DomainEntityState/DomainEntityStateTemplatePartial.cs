@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Templates.DomainEntity;
-using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Templates;
 
@@ -19,17 +15,17 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
 {
     partial class DomainEntityStateTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityStateDecoratorBase>, ITemplatePostCreationHook
     {
-        private readonly IMetadataManager _metadataManager;
         public const string TemplateId = "Intent.Entities.DomainEntityState";
+        public const string InterfaceContext = "Interface";
 
         private readonly IList<DomainEntityStateDecoratorBase> _decorators = new List<DomainEntityStateDecoratorBase>();
 
-        public DomainEntityStateTemplate(ClassModel model, IProject project, IMetadataManager metadataManager)
-            : base(TemplateId, project, model)
+        public DomainEntityStateTemplate(ClassModel model, IOutputTarget outputTarget)
+            : base(TemplateId, outputTarget, model)
         {
-            _metadataManager = metadataManager;
             AddTypeSource(TemplateId, "ICollection<{0}>");
             AddTypeSource(DomainEnumTemplate.TemplateId, "ICollection<{0}>");
+            Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"), InterfaceContext);
         }
 
         public string EntityInterfaceName => Project.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel(DomainEntityInterfaceTemplate.Identifier, Model))?.ClassName
