@@ -69,7 +69,17 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
 
         public string DeleteVisitorName => Project.FindTemplateInstance<IClassProvider>(_deleteVisitorTemplateDependency)?.ClassName ?? $"{Model.Application.Name}DeleteVisitor";
 
-        public string PrimaryKeyType => GetTypeName(Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Type) ?? "Guid";
+        public string PrimaryKeyType
+        {
+            get
+            {
+                var typeReference = Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Type;
+
+                return typeReference != null
+                    ? GetTypeName(typeReference)
+                    : "Guid";
+            }
+        }
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 
