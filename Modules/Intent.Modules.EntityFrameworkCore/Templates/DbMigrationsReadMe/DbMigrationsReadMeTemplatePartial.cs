@@ -10,6 +10,7 @@ using Intent.Templates;
 using Intent.Metadata.Models;
 using Intent.RoslynWeaver.Attributes;
 using System;
+using Intent.Modules.Common.CSharp.VisualStudio;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -28,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         }
 
         public string BoundedContextName => OutputTarget.ApplicationName();
-        public string MigrationProject => OutputTarget.Name;
+        public string MigrationProject => OutputTarget.GetProject().Name;
         public string StartupProject => OutputTarget.Application.OutputTargets.FirstOrDefault(x => x.Type == VisualStudioProjectTypeIds.CoreWebApp)?.Name ?? "UNKNOWN";
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
