@@ -1,3 +1,7 @@
+# We let the build continue on failure to try publish NuGet packages if possible because if one of
+# the projects depends on a NuGet package in the same solution, which hasn't yet been built and
+# published, then it can't do the restore, which means it can't build package to publish it to
+# fix the build.
 trigger:
   batch: true
   branches:
@@ -7,7 +11,8 @@ trigger:
 variables:
   vstsFeed: '4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/intentarchitect-feed'
   targetsToBuild: '**/*.sln'
-  targetsToPack: '' # See 'Intent.Modules' for multi line example
+  targetsToPack: |
+    ;**/Intent.Modules.VisualStudio.Projects.csproj
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -30,6 +35,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
+  condition: succeededOrFailed()
   env:
     DOTNET_NOLOGO: 1
   inputs:
@@ -48,7 +54,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet pack'
-  condition: and(succeeded(), ne(variables['targetsToPack'], ''))
+  condition: and(succeededOrFailed(), ne(variables['targetsToPack'], ''))
   env:
     DOTNET_NOLOGO: '1'
   inputs:
@@ -58,7 +64,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
-  condition: and(succeeded(), ne(variables['targetsToPack'], ''))
+  condition: and(succeededOrFailed(), ne(variables['targetsToPack'], ''))
   inputs:
       command: 'push'
       feedsToUse: 'select'

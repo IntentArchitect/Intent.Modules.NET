@@ -33,9 +33,9 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.PagedList
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System.Collections.Generic;\r\nusing System.Data.Entity;\r\nusing System.Linq;\r" +
-                    "\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n" +
-                    "\r\nnamespace ");
+            this.Write("using System.Collections.Generic;\r\nusing System.Linq;\r\nusing System.Threading;\r\nu" +
+                    "sing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\n" +
+                    "namespace ");
             
             #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\PagedList\PagedListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
@@ -102,14 +102,14 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.PagedList
             
             #line default
             #line hidden
-            this.Write(@"<T>> CreateAsync(IQueryable<T> source, int pageNo, int pageSize)
+            this.Write(@"<T>> CreateAsync(IQueryable<T> source, int pageNo, int pageSize, CancellationToken cancellationToken = default)
         {
-            var count = await source.CountAsync();
+            var count = await source.CountAsync(cancellationToken);
             var skip = ((pageNo - 1) * pageSize);
             var results = await source
                 .Skip(skip)
                 .Take(pageSize)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
             return new ");
             
             #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\PagedList\PagedListTemplate.tt"
@@ -117,7 +117,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.PagedList
             
             #line default
             #line hidden
-            this.Write(@"<T>(totalCount: count, pageNo: pageNo, pageSize: pageSize, results: results);
+            this.Write(@"<T>(count, pageNo, pageSize, results);
         }
 
         private int GetPageCount(int pageSize, int totalCount)

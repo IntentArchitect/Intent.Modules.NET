@@ -18,7 +18,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
     {
         private readonly IMetadataManager _metadataManager;
         public const string Identifier = "Intent.Entities.DomainEntityInterface";
-        private const string OperationsContext = "Operations";
+        public const string InterfaceContext = "Interface";
 
         private readonly IList<DomainEntityInterfaceDecoratorBase> _decorators = new List<DomainEntityInterfaceDecoratorBase>();
 
@@ -32,7 +32,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityStateTemplate.TemplateId, "ICollection<{0}>"));
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEnumTemplate.TemplateId, "ICollection<{0}>"));
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier), OperationsContext);
+            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, Identifier), InterfaceContext);
         }
 
         protected override CSharpFileConfig DefineFileConfig()
@@ -139,7 +139,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public string GetParametersDefinition(OperationModel operation)
         {
             return operation.Parameters.Any()
-                ? operation.Parameters.Select(x => NormalizeNamespace(Types.InContext(OperationsContext).Get(x.TypeReference).Name) + " " + x.Name.ToCamelCase()).Aggregate((x, y) => x + ", " + y)
+                ? operation.Parameters.Select(x => NormalizeNamespace(Types.InContext(InterfaceContext).Get(x.TypeReference).Name) + " " + x.Name.ToCamelCase()).Aggregate((x, y) => x + ", " + y)
                 : "";
         }
 
@@ -149,7 +149,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             {
                 return o.IsAsync() ? "Task" : "void";
             }
-            return o.IsAsync() ? $"Task<{NormalizeNamespace(Types.InContext(OperationsContext).Get(o.TypeReference).Name)}>" : NormalizeNamespace(Types.InContext(OperationsContext).Get(o.TypeReference).Name);
+            return o.IsAsync() ? $"Task<{NormalizeNamespace(Types.InContext(InterfaceContext).Get(o.TypeReference).Name)}>" : NormalizeNamespace(Types.InContext(InterfaceContext).Get(o.TypeReference).Name);
         }
 
         public IEnumerable<string> DeclareUsings()

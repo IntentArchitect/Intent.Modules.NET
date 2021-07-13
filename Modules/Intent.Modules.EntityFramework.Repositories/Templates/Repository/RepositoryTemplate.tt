@@ -13,9 +13,9 @@
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 using System;
-using System.Data.Entity;
+using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Ignore)]
@@ -23,15 +23,22 @@ using System.Threading.Tasks;
 namespace <#= Namespace #>
 {
     [IntentManaged(Mode.Merge)]
-	public class <#= ClassName #> : RepositoryBase<<#= EntityInterfaceName #>, <#= EntityName #>, <#= DbContextName #>>, <#= RepositoryContractName #>
+    public class <#= ClassName #> : RepositoryBase<<#= EntityInterfaceName #>, <#= EntityName #>, <#= DbContextName #>>, <#= RepositoryContractName #>
     {
         public <#= ClassName #>(<#= DbContextName #> dbContext) : base (dbContext)
         {
         }
 
-        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id)
+        [IntentManaged(Mode.Fully)]
+        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id, CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.<#= PrimaryKeyName #> == id);
+            return await FindAsync(x => x.<#= PrimaryKeyName #> == id, cancellationToken);
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] ids, CancellationToken cancellationToken = default)
+        {
+            return await FindAllAsync(x => ids.Contains(x.<#= PrimaryKeyName #>), cancellationToken);
         }
     }
 }

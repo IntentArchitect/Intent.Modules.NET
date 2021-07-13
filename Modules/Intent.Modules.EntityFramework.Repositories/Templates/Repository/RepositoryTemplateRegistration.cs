@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.SoftwareFactory;
-using Intent.Engine;
-using Intent.Modelers.Domain;
 using Intent.Templates;
-
 
 namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
 {
@@ -39,10 +36,12 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
             return new RepositoryTemplate(model, project);
         }
 
-        public override IEnumerable<ClassModel> GetModels(Engine.IApplication application)
+        public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             var allModels = _metadataManager.Domain(application).GetClassModels();
-            var filteredModels = allModels.Where(p => _stereotypeNames.Any(p.HasStereotype));
+            var filteredModels = allModels
+                .Where(p => _stereotypeNames.Any(p.HasStereotype))
+                .ToArray();
 
             if (!filteredModels.Any())
             {

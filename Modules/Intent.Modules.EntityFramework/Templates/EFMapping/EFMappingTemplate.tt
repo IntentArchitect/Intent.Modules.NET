@@ -1,4 +1,4 @@
-﻿    <#@ template  debug="true" inherits="CSharpTemplateBase<ClassModel>" #>
+﻿<#@ template  debug="true" inherits="CSharpTemplateBase<ClassModel>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
@@ -91,41 +91,32 @@ namespace <#= Namespace #>
             this.Map<<#= subClass.Name.ToPascalCase() #>>(m => m.Requires("DbSpecialization").HasValue((int)<#= Model.Name.ToPascalCase() #>Specialization.<#= subClass.Name.ToPascalCase() #>));
 <#      }
     }
-	bool mapPk = true;
-    //Key Mapping
-    if (Model.ParentClass != null && Model.ParentClass.GetStereotypeProperty<string>("InheritanceMapping", "Type") == "TPH")    
-    {
-		mapPk = false;
-        //No Key mapping required
-    } 
 
-    var explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToList();
-    var addedImplicitKey = false;
-    if (Model.ParentClass == null && !explicitPrimaryKeys.Any()) {
-        addedImplicitKey = true;#>
-            this.HasKey(x => x.Id);
+#>
+            this.HasKey(<#= GetHasKeyLambda() #>);
+<#  if (UsesImplicitId())
+    {#>
             this.Property(x => x.Id).HasColumnName("Id");
-<#  } else {#>
-            this.HasKey(x => <#= (explicitPrimaryKeys.Count() == 1 ? "x." + explicitPrimaryKeys.Single().Name.ToPascalCase() : string.Format("new {{ {0} }}", string.Join(", ", explicitPrimaryKeys.Select(x => "x." + x.Name)))) #>);
 <#  }
+
     foreach (var childClass in Model.ChildClasses) {#>
             this.Map<<#= GetEntityName(childClass) #>>(m => m.Requires("<#= Model.Name #>Type").HasValue("<#= GetEntityName(childClass) #>"));
 <#  }  
     foreach (var attribute in Model.Attributes)
     {
-        if (attribute.Name.ToLower() == "id" && addedImplicitKey)
+        if (attribute.Name.ToLower() == "id" && UsesImplicitId())
         {
                 throw new Exception(string.Format("Surrogate Key is implicit for class {0}. Either remove the 'id' attribute, or disable the 'Implicit Surrogate Key' option for this template", Model.Name));
-	    }#>
+        }#>
             this.Property(x => x.<#= attribute.Name.ToPascalCase()#>)<#
-		if (!string.IsNullOrEmpty(attribute.GetStereotypeProperty<string>("Index", "UniqueKey")))
-		{#>
+        if (!string.IsNullOrEmpty(attribute.GetStereotypeProperty<string>("Index", "UniqueKey")))
+        {#>
                 .HasColumnAnnotation("Index", new IndexAnnotation(new []
                     {
-<#			foreach(var index in attribute.Stereotypes.Where(x => x.Name == "Index")) { #>
+<#            foreach(var index in attribute.Stereotypes.Where(x => x.Name == "Index")) { #>
                         new IndexAttribute("<#= Model.Name.ToPascalCase()#>_<#= index.GetProperty("UniqueKey", "Unique1")#>", <#= index.GetProperty("Order", "1")#>) { IsUnique = <#= index.GetProperty("IsUnique", "false")#> },
 <#
-			}#>
+            }#>
                     }))<#
         }
         if (!attribute.Type.IsNullable){#>
@@ -161,15 +152,15 @@ namespace <#= Namespace #>
         { #>
                 .HasColumnType("<#= GetTypeOverride(attribute) #>")
 <#      } #>
-				;
+                ;
 
 <#  }#>
 <#    foreach (var associationEnd in Model.AssociatedClasses)
     {
 
-		if (!associationEnd.Equals(associationEnd.Association.TargetEnd))
+        if (!associationEnd.Equals(associationEnd.Association.TargetEnd))
         {
-			continue;
+            continue;
         }
 
         switch (associationEnd.Relationship())
@@ -182,26 +173,26 @@ namespace <#= Namespace #>
                 .WithMany(<#= associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : "" #>)
 <#              if (RequiresForeignKeyOnAssociatedEnd(associationEnd.OtherEnd())) {
                     if (UseForeignKeys) { #>
-				.HasForeignKey(<#= GetForeignKeyLambda(associationEnd.OtherEnd()) #>)
-<#				    } else { #>
+                .HasForeignKey(<#= GetForeignKeyLambda(associationEnd.OtherEnd()) #>)
+<#                    } else { #>
                 .Map(m => m.MapKey("<#= associationEnd.Name().ToPascalCase()#>Id"))
-<#				    }
+<#                    }
                 } #>
                 ;
 
 <#                  break;
             case RelationshipType.ManyToOne :#>
             this.HasMany(x => x.<#= associationEnd.Name().ToPascalCase()#>)
-<#				if(RequiresForeignKeyOnAssociatedEnd(associationEnd)) {  #>
+<#                if(RequiresForeignKeyOnAssociatedEnd(associationEnd)) {  #>
                 .<#= string.Format("{0}({1})", !associationEnd.OtherEnd().IsNullable ? "WithRequired" : "WithOptional", "x => x." + associationEnd.OtherEnd().Name().ToPascalCase())#>
-<#				    if (UseForeignKeys) { #>
-				.HasForeignKey(<#= GetForeignKeyLambda(associationEnd) #>)
-<#				    } else { #>
-				.Map(m => m.MapKey("<#= associationEnd.OtherEnd().Name().ToPascalCase()#>Id"))
-<#				    } #>
-<#				    if(associationEnd.Association.AssociationType == AssociationType.Composition) {  #>
-				.WillCascadeOnDelete()
-<#				    }
+<#                    if (UseForeignKeys) { #>
+                .HasForeignKey(<#= GetForeignKeyLambda(associationEnd) #>)
+<#                    } else { #>
+                .Map(m => m.MapKey("<#= associationEnd.OtherEnd().Name().ToPascalCase()#>Id"))
+<#                    } #>
+<#                    if(associationEnd.Association.AssociationType == AssociationType.Composition) {  #>
+                .WillCascadeOnDelete()
+<#                    }
                 } #>
                 ;
 
@@ -240,9 +231,9 @@ public void MapOneToOne(AssociationEndModel associationEnd)
     {#>
             .Map(m => m.MapKey("<#= associationEnd.OtherEnd().Class.GetStereotypeProperty("Foreign Key", "Column Name", associationEnd.Name().ToPascalCase() + "Id")#>"))
 <#+    }#>
-<#+	if(associationEnd.Association.AssociationType == AssociationType.Composition) {  #>
-			.WillCascadeOnDelete()
-<#+	} #>
+<#+    if(associationEnd.Association.AssociationType == AssociationType.Composition) {  #>
+            .WillCascadeOnDelete()
+<#+    } #>
             ;
 <#+    
 }
