@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.0.8</version>
+  <version>3.0.9</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Installs templates for Visual Studio projects that integrate with Intent Architect</summary>
   <description>Installs templates for Visual Studio projects that integrate with Intent Architect</description>
@@ -43,7 +43,7 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.0.6" />
-    <dependency id="Intent.Common.CSharp" version="3.0.10" />
+    <dependency id="Intent.Common.CSharp" version="3.0.13" />
     <dependency id="Intent.Common.Types" version="3.0.5" />
   </dependencies>
   <metadata>
@@ -55,15 +55,7 @@
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
-    <!--<file src="$outDir$/NuGet.Versioning.dll" inspect="false"/>-->
     <file src="$outDir$/Microsoft.Build.dll" inspect="false" />
     <file src="$outDir$/Microsoft.Build.Framework.dll" inspect="false" />
-    <!--<file src="$outDir$/Microsoft.Build.Utilities.Core.dll" inspect="false" />-->
-    <!--<file src="$outDir$/System.Runtime.InteropServices.RuntimeInformation.dll" inspect="false" />-->
-    <!-- Needs fix, see https://github.com/IntentSoftware/IntentArchitect/issues/65 -->
-    <!--<file src="$outDir$/System.Collections.Immutable.dll" inspect="false"/>
-    <file src="$outDir$/System.Runtime.InteropServices.RuntimeInformation.dll" inspect="false"/>
-    <file src="$outDir$/System.Threading.Thread.dll" inspect="false"/>
-    <file src="$outDir$/System.Threading.Tasks.Dataflow.dll" inspect="false"/>-->
   </files>
 </package>

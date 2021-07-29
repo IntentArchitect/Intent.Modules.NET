@@ -113,5 +113,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                     .GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
                     .Select(x => new SQLServerDatabaseProjectModel(x))
                     .ToList();
+
+        public IList<AzureFunctionsProjectModel> AzureFunctionsProjects => _element.ChildElements
+                    .GetElementsOfType(AzureFunctionsProjectModel.SpecializationTypeId)
+                    .Select(x => new AzureFunctionsProjectModel(x))
+                    .ToList();
     }
 }

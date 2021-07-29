@@ -14,6 +14,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/AzureFunctionsProjectModel.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionsProjectModel.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETCoreModel.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ClassLibraryNETCoreModel.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -36,6 +41,11 @@
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/ASPNETWebApplicationNETFrameworkModelExtensions.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ASPNETWebApplicationNETFrameworkModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/AzureFunctionsProjectModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionsProjectModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
