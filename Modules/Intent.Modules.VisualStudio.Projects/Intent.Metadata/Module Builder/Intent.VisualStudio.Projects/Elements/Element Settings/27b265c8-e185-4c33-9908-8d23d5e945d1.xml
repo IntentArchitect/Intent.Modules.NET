@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="00D1A9C2-B5F0-4AF3-8072-F6C62B433612" type="Element Settings" typeId="727577aa-3e07-4b41-be7d-7359bb1e48c8">
-  <name>SQL Server Database Project</name>
-  <display>SQL Server Database Project</display>
+<class id="27b265c8-e185-4c33-9908-8d23d5e945d1" type="Element Settings" typeId="727577aa-3e07-4b41-be7d-7359bb1e48c8">
+  <name>Console App (.NET Core)</name>
+  <display>Console App (.NET Core)</display>
   <isAbstract>false</isAbstract>
-  <order>12</order>
+  <order>7</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
@@ -29,38 +29,38 @@
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
         <property name="5a9277a9-b808-4ade-bb57-840b51b0da3a" display="Save Mode" value="Default" isActive="true" />
-        <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9UlEQVQ4T2NkwAO+f/+e8P///3wGBgYDNGUXGBkZJ3Jyci5gxKX/27dv/dc//CmYdO0bw56nvxhMRVjASk+/+cPgIs3GkKfFxaApwDIBnwH/jTe8ZSjX4WAIkGVDsWfD418MnVd+MJwNEGbAa4Dq6jcMrYacWA2oPv+d4XaoCGEDYFYjewEmBjbg27dv//EFJMgVuADcAB8fH6xqtmzZwkC0AevWrkcxJCg4kIEkA7A5gSQDSHUBHysjJBpBgYgvDDKPfQInJGSAkpAIGcDAwHABb1ImZAAXFxfOxAZyFVYvgMIDFgtkGQDzLygWiDIAX0okZAAAerik+4DNuxEAAAAASUVORK5CYII=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+        <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
         <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
         <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
         <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
         <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
         <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
         <property name="8ad604ab-7edf-4a6c-86a5-e27f0f95dfac" display="Allow Generic Types" value="false" isActive="true" />
-        <property name="ad5ce0fc-72ab-4aa3-92e9-238954c2aedb" display="Allow Sorting" value="true" isActive="true" />
+        <property name="ad5ce0fc-72ab-4aa3-92e9-238954c2aedb" display="Allow Sorting" value="false" isActive="true" />
         <property name="46180320-9a7e-4fe3-8351-f7524612a52c" display="Allow Find in View" value="false" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <childElements>
-    <childElement id="712da516-c5bf-47f7-b941-c4fd0e10a890" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+    <childElement id="a71d2f72-8925-48f9-b15a-e41658393468" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
       <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>00D1A9C2-B5F0-4AF3-8072-F6C62B433612</parentFolderId>
+      <parentFolderId>27b265c8-e185-4c33-9908-8d23d5e945d1</parentFolderId>
       <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
       <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes />
       <childElements>
-        <childElement id="a05ae2fc-244b-451a-a3d3-b7314b2afca3" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="ac7236ee-ac8e-443a-b552-60ff863fe9b4" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>New Folder</name>
           <display>New Folder: Folder</display>
           <isAbstract>false</isAbstract>
           <order>0</order>
           <genericTypes />
-          <typeReference id="8be6969b-7027-4d35-8640-b898e1c39b4b">
+          <typeReference id="ae27b953-f492-4b54-9cf7-c561b38c7b2d">
             <typeId>3407a825-1331-4f3f-89a4-901903ed97ce</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -72,7 +72,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>712da516-c5bf-47f7-b941-c4fd0e10a890</parentFolderId>
+          <parentFolderId>a71d2f72-8925-48f9-b15a-e41658393468</parentFolderId>
           <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
           <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes>
@@ -93,13 +93,13 @@
           </stereotypes>
           <childElements />
         </childElement>
-        <childElement id="f9a5510b-4ada-4473-bacd-b218cb594231" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="40493d19-8cad-4210-8036-b7428f926d28" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Add Template Output</name>
           <display>Add Template Output: Template Output</display>
           <isAbstract>false</isAbstract>
           <order>1</order>
           <genericTypes />
-          <typeReference id="718da20b-31f2-441b-bece-02a3fe0b5332">
+          <typeReference id="d8f6207a-328f-434c-a857-0c9a1c7147f6">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -111,7 +111,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>712da516-c5bf-47f7-b941-c4fd0e10a890</parentFolderId>
+          <parentFolderId>a71d2f72-8925-48f9-b15a-e41658393468</parentFolderId>
           <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
           <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes>
@@ -132,13 +132,13 @@
           </stereotypes>
           <childElements />
         </childElement>
-        <childElement id="1af48c32-0568-4951-832b-995aa78b9976" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="38f9fd52-19d7-438b-b344-e7cca015b828" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Add Role</name>
           <display>Add Role: Role</display>
           <isAbstract>false</isAbstract>
           <order>2</order>
           <genericTypes />
-          <typeReference id="03e8e43f-bbf5-41a4-8802-6f235b5846a4">
+          <typeReference id="b0958523-4704-41a7-b43a-a54540968aa3">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -150,7 +150,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>712da516-c5bf-47f7-b941-c4fd0e10a890</parentFolderId>
+          <parentFolderId>a71d2f72-8925-48f9-b15a-e41658393468</parentFolderId>
           <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
           <packageName>Intent.VisualStudio.Projects</packageName>
           <stereotypes>

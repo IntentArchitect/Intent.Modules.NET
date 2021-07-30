@@ -25,6 +25,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AzureFunctionsProjectTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\CoreConsoleApp\CoreConsoleAppTemplate.tt">
+      <LastGenOutput>CoreConsoleAppTemplate.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
     <None Update="Templates\SqlServerDatabase\SqlProject\SqlProjectTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SqlProjectTemplate.cs</LastGenOutput>
@@ -33,6 +37,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AzureFunctionsProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\CoreConsoleApp\CoreConsoleAppTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreConsoleAppTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\SqlServerDatabase\SqlProject\SqlProjectTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -45,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.13" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
     <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

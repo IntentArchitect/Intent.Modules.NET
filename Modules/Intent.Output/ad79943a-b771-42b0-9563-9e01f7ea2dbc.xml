@@ -29,6 +29,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETCoreModel.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConsoleAppNETCoreModel.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETFrameworkModel.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ConsoleAppNETFrameworkModel.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -56,6 +61,11 @@
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/ClassLibraryNETFrameworkModelExtensions.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ClassLibraryNETFrameworkModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/ConsoleAppNETCoreModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConsoleAppNETCoreModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
