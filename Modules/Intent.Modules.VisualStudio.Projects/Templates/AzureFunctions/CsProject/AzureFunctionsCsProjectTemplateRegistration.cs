@@ -3,13 +3,13 @@ using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctionsProject
+namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.CsProject
 {
-    public class AzureFunctionsProjectTemplateRegistration : ITemplateRegistration
+    public class AzureFunctionsCsProjectTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public AzureFunctionsProjectTemplateRegistration(IMetadataManager metadataManager)
+        public AzureFunctionsCsProjectTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
@@ -21,11 +21,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctionsProject
             foreach (var model in models)
             {
                 var project = application.Projects.Single(x => x.Id == model.Id);
-                registry.Register(TemplateId, project, p => new AzureFunctionsProjectTemplate(p, model));
+                registry.Register(TemplateId, project, p => new AzureFunctionsCsProjectTemplate(p, model));
             }
 
         }
 
-        public string TemplateId => AzureFunctionsProjectTemplate.TemplateId;
+        public string TemplateId => AzureFunctionsCsProjectTemplate.TemplateId;
     }
 }

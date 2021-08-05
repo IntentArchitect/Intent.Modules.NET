@@ -1,15 +1,15 @@
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctionsProject
+namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.CsProject
 {
-    partial class AzureFunctionsProjectTemplate : VisualStudioProjectTemplateBase
+    partial class AzureFunctionsCsProjectTemplate : VisualStudioProjectTemplateBase
     {
         private readonly AzureFunctionsProjectModel _model;
 
-        public const string TemplateId = "Intent.VisualStudio.Projects.AzureFunctionsProject";
+        public const string TemplateId = "Intent.VisualStudio.Projects.AzureFunctions.CsProject";
 
-        public AzureFunctionsProjectTemplate(IOutputTarget outputTarget, AzureFunctionsProjectModel model)
+        public AzureFunctionsCsProjectTemplate(IOutputTarget outputTarget, AzureFunctionsProjectModel model)
             : base(TemplateId, outputTarget, model)
         {
             _model = model;

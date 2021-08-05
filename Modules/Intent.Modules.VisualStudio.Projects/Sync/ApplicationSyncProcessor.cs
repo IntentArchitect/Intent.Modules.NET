@@ -80,6 +80,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                         break;
                     case VisualStudioProjectTypeIds.CoreCSharpLibrary:
                     case VisualStudioProjectTypeIds.CoreWebApp:
+                    case VisualStudioProjectTypeIds.CoreConsoleApp:
+                    case VisualStudioProjectTypeIds.AzureFunctionsProject:
                         new CoreProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(outputEvent.Value);
                         break;
                     default:

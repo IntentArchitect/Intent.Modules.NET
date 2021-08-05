@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctionsProject
+namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.CsProject
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -21,9 +21,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctionsProject
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctionsProject\AzureFunctionsProjectTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class AzureFunctionsProjectTemplate : VisualStudioProjectTemplateBase
+    public partial class AzureFunctionsCsProjectTemplate : VisualStudioProjectTemplateBase
     {
 #line hidden
         /// <summary>
@@ -34,19 +34,33 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctionsProject
             this.Write("\n");
             this.Write("<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n    <TargetFramework>");
             
-            #line 11 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctionsProject\AzureFunctionsProjectTemplate.tt"
+            #line 11 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(";", Model.TargetFrameworkVersion())));
             
             #line default
             #line hidden
             this.Write("</TargetFramework>\r\n    <AzureFunctionsVersion>");
             
-            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctionsProject\AzureFunctionsProjectTemplate.tt"
+            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAzureFunctionsVersion()));
             
             #line default
             #line hidden
-            this.Write("</AzureFunctionsVersion>\r\n  </PropertyGroup>\r\n\r\n</Project>\r\n");
+            this.Write(@"</AzureFunctionsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include=""Microsoft.NET.Sdk.Functions"" Version=""3.0.13"" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update=""host.json"">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
+");
             return this.GenerationEnvironment.ToString();
         }
     }
