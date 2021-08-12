@@ -10,6 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Unity.Templates.PerServiceCallLifetimeManager;
 using Intent.Templates;
+using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 namespace Intent.Modules.Unity.Templates.UnityConfig
 {
@@ -33,7 +34,7 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
             return new CSharpFileConfig(
                 className: "UnityConfig",
                 @namespace: this.GetNamespace(),
-                relativeLocation: this.GetFolderPath());
+                relativeLocation: ModelHasFolderTemplateExtensions.GetFolderPath(this));
         }
 
         public override string DependencyUsings => "";

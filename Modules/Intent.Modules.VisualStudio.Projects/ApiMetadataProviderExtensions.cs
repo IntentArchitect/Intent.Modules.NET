@@ -23,6 +23,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETFrameworkModels())
                 .Concat(metadataManager.VisualStudio(application).GetWCFServiceApplicationModels())
                 .Concat(metadataManager.VisualStudio(application).GetSQLServerDatabaseProjectModels())
+                .Concat(metadataManager.VisualStudio(application).GetAzureFunctionsProjectModels())
+                .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETCoreModels())
                 .ToList();
         }
 
@@ -101,6 +103,20 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         {
             return designer.GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
                 .Select(x => new SQLServerDatabaseProjectModel(x))
+                .ToList();
+        }
+
+        public static IList<AzureFunctionsProjectModel> GetAzureFunctionsProjectModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(AzureFunctionsProjectModel.SpecializationTypeId)
+                .Select(x => new AzureFunctionsProjectModel(x))
+                .ToList();
+        }
+
+        public static IList<ConsoleAppNETCoreModel> GetConsoleAppNETCoreModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(ConsoleAppNETCoreModel.SpecializationTypeId)
+                .Select(x => new ConsoleAppNETCoreModel(x))
                 .ToList();
         }
 

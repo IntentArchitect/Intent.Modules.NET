@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.0.8</Version>
+    <Version>3.0.10</Version>
     <Authors>Intent Architect</Authors>
     <Company>Intent Architect</Company>
     <Product>Intent Architect</Product>
@@ -21,14 +21,43 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Update="Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AzureFunctionsCsProjectTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\CoreConsoleApp\CoreConsoleAppTemplate.tt">
+      <LastGenOutput>CoreConsoleAppTemplate.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
     <None Update="Templates\SqlServerDatabase\SqlProject\SqlProjectTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SqlProjectTemplate.cs</LastGenOutput>
     </None>
+    <Compile Update="Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AzureFunctionsCsProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\CoreConsoleApp\CoreConsoleAppTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreConsoleAppTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\SqlServerDatabase\SqlProject\SqlProjectTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>SqlProjectTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <None Update="Templates\AzureFunctions\HostJson\HostJsonTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HostJsonTemplate.cs</LastGenOutput>
+    </None>
+  
+    <Compile Update="Templates\AzureFunctions\HostJson\HostJsonTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HostJsonTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -36,8 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.10" />
-    <PackageReference Include="Intent.Packager" Version="3.0.3">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
+    <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

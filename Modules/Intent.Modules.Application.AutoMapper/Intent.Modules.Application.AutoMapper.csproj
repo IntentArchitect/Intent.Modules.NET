@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>3.0.2</Version>
+    <Version>3.0.5</Version>
   </PropertyGroup>
   <ItemGroup>
     <None Update="Templates\MapFromInterface\MapFromInterfaceTemplate.tt">
@@ -28,8 +28,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.10" />
-    <PackageReference Include="Intent.Packager" Version="3.0.3">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
+    <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

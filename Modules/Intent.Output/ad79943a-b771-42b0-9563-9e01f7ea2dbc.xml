@@ -14,6 +14,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/AzureFunctionsProjectModel.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionsProjectModel.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETCoreModel.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ClassLibraryNETCoreModel.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -21,6 +26,11 @@
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETFrameworkModel.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ClassLibraryNETFrameworkModel.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETCoreModel.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConsoleAppNETCoreModel.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
@@ -39,6 +49,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/AzureFunctionsProjectModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionsProjectModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/ClassLibraryNETCoreModelExtensions.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ClassLibraryNETCoreModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>
@@ -46,6 +61,11 @@
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/ClassLibraryNETFrameworkModelExtensions.cs</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>ClassLibraryNETFrameworkModelExtensions.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Api/Extensions/ConsoleAppNETCoreModelExtensions.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>ConsoleAppNETCoreModelExtensions.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>5e94c359-e6e5-4b58-a1fc-151de9c10934</ProjectId>
@@ -151,6 +171,26 @@
       <ProjectId>016ab4c9-c75c-49ce-bd58-e13fd43fe847</ProjectId>
       <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/modelers/Visual Studio.designer.config</SolutionRelativeFilePath>
       <ProjectRelativeFilePath>Visual Studio.designer.config</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplate.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/HostJson/HostJsonTemplate.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplate.tt</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/HostJson/HostJsonTemplate.tt</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplatePartial.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/HostJson/HostJsonTemplatePartial.cs</ProjectRelativeFilePath>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <SolutionRelativeFilePath>../Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplateRegistration.cs</SolutionRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/HostJson/HostJsonTemplateRegistration.cs</ProjectRelativeFilePath>
     </FileLog>
     <FileLog>
       <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>

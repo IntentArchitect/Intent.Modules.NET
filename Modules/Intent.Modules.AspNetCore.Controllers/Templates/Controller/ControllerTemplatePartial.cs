@@ -13,6 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
 using Enum = System.Enum;
+using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -36,7 +37,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return new CSharpFileConfig(
                 className: $"{Model.Name.RemoveSuffix("Controller", "Service")}Controller",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                relativeLocation: ModelHasFolderTemplateExtensions.GetFolderPath(this));
         }
 
         public string GetEnterClass()

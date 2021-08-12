@@ -3,7 +3,7 @@
   <name>Solution Folder</name>
   <display>Solution Folder</display>
   <isAbstract>false</isAbstract>
-  <order>9</order>
+  <order>11</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
@@ -93,11 +93,50 @@
           </stereotypes>
           <childElements />
         </childElement>
+        <childElement id="7f1c43a2-d549-470f-a313-c04dac8dc969" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>Azure Functions Project</name>
+          <display>Azure Functions Project: Azure Functions Project</display>
+          <isAbstract>false</isAbstract>
+          <order>1</order>
+          <genericTypes />
+          <typeReference id="3740f362-7be5-4d59-8c50-7a227ccc7d8c">
+            <typeId>73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
+            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cbd02bec-a40c-4ca9-88b6-3e92b00dfd5c</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f4250b35-559d-4c0b-91ee-c3d7aa239814" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" isActive="true" />
+                <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
+                <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" value="AzureFunctionsProject" isActive="true" />
+                <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
+                <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
+                <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
         <childElement id="0220ae4a-7eb7-40ab-a098-cb5cdbfea341" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>Class Library (.NET Core)</name>
           <display>Class Library (.NET Core): Class Library (.NET Core)</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
+          <order>2</order>
           <genericTypes />
           <typeReference id="b47625b6-5005-475b-9c23-6b45976ab45e">
             <typeId>52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</typeId>
@@ -136,7 +175,7 @@
           <name>Class Library (.NET Framework)</name>
           <display>Class Library (.NET Framework): Class Library (.NET Framework)</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
+          <order>3</order>
           <genericTypes />
           <typeReference id="4af95c65-a638-4ee4-8eb4-44b336754984">
             <typeId>0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</typeId>
@@ -175,7 +214,7 @@
           <name>ASP.NET Core Web Application</name>
           <display>ASP.NET Core Web Application: ASP.NET Core Web Application</display>
           <isAbstract>false</isAbstract>
-          <order>3</order>
+          <order>4</order>
           <genericTypes />
           <typeReference id="3b7d2adc-a7f0-46de-8a59-59764a69aaea">
             <typeId>FFD54A85-9362-48AC-B646-C93AB9AC63D2</typeId>
@@ -214,7 +253,7 @@
           <name>ASP.NET Web Application (.NET Framework)</name>
           <display>ASP.NET Web Application (.NET Framework): ASP.NET Web Application (.NET Framework)</display>
           <isAbstract>false</isAbstract>
-          <order>4</order>
+          <order>5</order>
           <genericTypes />
           <typeReference id="c7c4965d-6146-4a1d-9018-f458464787b9">
             <typeId>8AF747CF-58F0-449C-8B95-46080FEFC8C0</typeId>
@@ -253,7 +292,7 @@
           <name>WCF Service Application</name>
           <display>WCF Service Application: WCF Service Application</display>
           <isAbstract>false</isAbstract>
-          <order>5</order>
+          <order>6</order>
           <genericTypes />
           <typeReference id="8efbe19e-8b51-4a1c-bd9b-4f71069019bc">
             <typeId>3CDFF513-03D8-4BAB-9435-160108A086A3</typeId>
@@ -292,10 +331,49 @@
           <name>Console App (.NET Framework)</name>
           <display>Console App (.NET Framework): Console App (.NET Framework)</display>
           <isAbstract>false</isAbstract>
-          <order>6</order>
+          <order>7</order>
           <genericTypes />
           <typeReference id="82231939-428a-415e-8315-75bcc9895113">
             <typeId>673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.VisualStudio.Projects</typePackageName>
+            <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cbd02bec-a40c-4ca9-88b6-3e92b00dfd5c</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f4250b35-559d-4c0b-91ee-c3d7aa239814" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" isActive="true" />
+                <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
+                <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" value="" isActive="true" />
+                <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
+                <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
+                <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
+        <childElement id="c3f996bb-19b0-44e7-84cf-6479095c990b" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>Console App (.NET Core)</name>
+          <display>Console App (.NET Core): Console App (.NET Core)</display>
+          <isAbstract>false</isAbstract>
+          <order>8</order>
+          <genericTypes />
+          <typeReference id="e1192699-f697-47c7-a052-662764a79f59">
+            <typeId>27b265c8-e185-4c33-9908-8d23d5e945d1</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -331,7 +409,7 @@
           <name>SQL Server Database Project</name>
           <display>SQL Server Database Project: SQL Server Database Project</display>
           <isAbstract>false</isAbstract>
-          <order>7</order>
+          <order>9</order>
           <genericTypes />
           <typeReference id="858c465c-1022-4735-940f-7428cdba3185">
             <typeId>00D1A9C2-B5F0-4AF3-8072-F6C62B433612</typeId>

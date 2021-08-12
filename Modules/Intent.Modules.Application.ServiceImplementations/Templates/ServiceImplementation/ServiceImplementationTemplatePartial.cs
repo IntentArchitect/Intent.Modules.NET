@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
@@ -11,6 +10,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Templates;
+using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation
 {
@@ -40,7 +40,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             return new CSharpFileConfig(
                 className: $"{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                relativeLocation: ModelHasFolderTemplateExtensions.GetFolderPath(this));
         }
 
         public override void BeforeTemplateExecution()

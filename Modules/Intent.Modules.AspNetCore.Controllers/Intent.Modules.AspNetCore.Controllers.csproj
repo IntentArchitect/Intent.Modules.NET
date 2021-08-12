@@ -1,10 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>3.0.4</Version>
+    <Version>3.0.7</Version>
   </PropertyGroup>
-
   <ItemGroup>
     <None Update="Templates\Controller\ControllerTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -15,7 +14,6 @@
       <LastGenOutput>ApiControllerBaseTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="Templates\Controller\ControllerTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -23,22 +21,19 @@
       <DependentUpon>ControllerTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.10" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.0.4" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.2" />
-    <PackageReference Include="Intent.Packager" Version="3.0.3">
+    <PackageReference Include="Intent.Packager" Version="3.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0" />
   </ItemGroup>
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
-
 </Project>

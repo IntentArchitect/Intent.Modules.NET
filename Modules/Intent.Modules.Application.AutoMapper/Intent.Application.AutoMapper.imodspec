@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.AutoMapper</id>
-  <version>3.0.4</version>
+  <version>3.0.5</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -35,6 +35,11 @@
     <detect id="Intent.AspNetCore">
       <install>
         <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.0.3" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.Dtos">
+      <install>
+        <package id="Intent.Application.Dtos.AutoMapper" version="3.0.4" />
       </install>
     </detect>
   </interoperability>

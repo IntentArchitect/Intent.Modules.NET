@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Templates;
+using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplementation
 {
@@ -45,7 +46,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+                relativeLocation: ModelHasFolderTemplateExtensions.GetFolderPath(this));
         }
 
         public override void BeforeTemplateExecution()

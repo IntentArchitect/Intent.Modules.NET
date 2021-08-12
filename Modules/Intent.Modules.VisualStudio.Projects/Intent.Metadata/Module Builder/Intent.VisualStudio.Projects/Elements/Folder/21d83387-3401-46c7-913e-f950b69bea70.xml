@@ -3,7 +3,7 @@
   <name>SqlServerDatabase</name>
   <display>SqlServerDatabase</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</parentFolderId>

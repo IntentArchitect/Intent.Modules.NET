@@ -152,7 +152,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             {
                 return;
             }
-            
+
             if (value is bool b)
             {
                 _appSettings[key] = b;
@@ -161,7 +161,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             {
                 _appSettings[key] = i;
             }
-            else if(value is string s)
+            else if (value is string s)
             {
                 _appSettings[key] = s;
             }

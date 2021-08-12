@@ -18,7 +18,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
     public abstract class VisualStudioProjectTemplateBase : IntentFileTemplateBase<IVisualStudioProject>, ITemplate, IVisualStudioProjectTemplate
     {
         private string _fileContent;
-        protected VisualStudioProjectTemplateBase([NotNull]string templateId, [NotNull]IOutputTarget project, [NotNull]IVisualStudioProject model) : base(templateId, project, model)
+        protected VisualStudioProjectTemplateBase([NotNull] string templateId, [NotNull] IOutputTarget project, [NotNull] IVisualStudioProject model) : base(templateId, project, model)
         {
         }
 
@@ -40,7 +40,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
             // Normalize the content of both by parsing with no whitespace and calling .ToString()
             var targetContent = XDocument.Parse(content).ToString();
             var existingContent = LoadContent();
-            
+
             if (existingContent == targetContent)
             {
                 return;
@@ -59,34 +59,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
                 { "Content", content },
             }));
         }
-
-        //public void ChangeOutput(string content)
-        //{
-        //    var change = ExecutionContext.ChangeManager.FindChange(FilePath);
-
-        //    // Normalize the content of both by parsing with no whitespace and calling .ToString()
-        //    var targetContent = XDocument.Parse(content).ToString();
-        //    var existingContent = change != null
-        //        ? XDocument.Parse(change.Content).ToString()
-        //        : XDocument.Load(FilePath).ToString();
-
-        //    if (existingContent == targetContent)
-        //    {
-        //        return;
-        //    }
-
-        //    if (change != null)
-        //    {
-        //        change.ChangeContent(content);
-        //        return;
-        //    }
-
-        //    _sfEventDispatcher.Publish(new SoftwareFactoryEvent(SoftwareFactoryEvents.OverwriteFileCommand, new Dictionary<string, string>
-        //    {
-        //        { "FullFileName", filePath },
-        //        { "Content", content },
-        //    }));
-        //}
 
         public IEnumerable<INugetPackageInfo> RequestedNugetPackages()
         {
@@ -125,6 +97,5 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
 
             return TransformText();
         }
-
     }
 }
