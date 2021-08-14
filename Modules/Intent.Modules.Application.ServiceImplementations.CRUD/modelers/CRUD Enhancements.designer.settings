@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <id>63beeea4-819d-42f9-9baf-a08f8eaf49be</id>
+  <name>CRUD Enhancements</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Create CRUD Operations</text>
+          <icon type="FontAwesome" source="code" />
+          <script>// CREATE:
+var createDTO = createElement("DTO", `${context.name}CreateDTO`, context.getParent().id);
+var createOperation = createElement("Operation", "Create", context.id);
+var createOperationParam = createElement("Parameter", "dto", createOperation.id);
+createOperationParam.typeReference.setType(createDTO.id);
+var stereotype = createOperation.getStereotype("Http Settings");
+stereotype.getProperty("Verb").setValue("POST");
+
+// FIND-BY-ID:
+var findDTO = createElement("DTO", `${context.name}DTO`, context.getParent().id);
+var findByIdOperation = createElement("Operation", "FindById", context.id);
+findByIdOperation.typeReference.setType(findDTO.id);
+var findByIdOperationParam = createElement("Parameter", "id", findByIdOperation.id);
+findByIdOperationParam.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+stereotype = findByIdOperation.getStereotype("Http Settings");
+stereotype.getProperty("Verb").setValue("GET");
+stereotype.getProperty("Route").setValue("{id}");
+
+// FIND-ALL:
+var findByAllOperation = createElement("Operation", "FindAll", context.id);
+findByAllOperation.typeReference.setType(findDTO.id);
+findByAllOperation.typeReference.setIsCollection(true);
+stereotype = findByAllOperation.getStereotype("Http Settings");
+stereotype.getProperty("Verb").setValue("GET");
+
+// UPDATE:
+var updateDTO = createElement("DTO", `${context.name}updateDTO`, context.getParent().id);
+var updateOperation = createElement("Operation", "Update", context.id);
+var updateOperationIdParam = createElement("Parameter", "id", updateOperation.id);
+updateOperationIdParam.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+var updateOperationDtoParam = createElement("Parameter", "dto", updateOperation.id);
+updateOperationDtoParam.typeReference.setType(updateDTO.id);
+stereotype = updateOperation.getStereotype("Http Settings");
+stereotype.getProperty("Verb").setValue("PUT");
+stereotype.getProperty("Route").setValue("{id}");
+
+// DELETE:
+var deleteOperation = createElement("Operation", "Delete", context.id);
+var deleteOperationIdParam = createElement("Parameter", "id", deleteOperation.id);
+deleteOperationIdParam.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+stereotype = deleteOperation.getStereotype("Http Settings");
+stereotype.getProperty("Verb").setValue("DELETE");
+stereotype.getProperty("Route").setValue("{id}");</script>
+        </option>
+      </scriptOptions>
+      <typeOrder />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+</settings>

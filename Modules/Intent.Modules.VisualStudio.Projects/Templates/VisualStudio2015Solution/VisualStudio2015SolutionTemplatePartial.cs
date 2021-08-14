@@ -53,6 +53,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
         //public SolutionFile ExistingSolution { get; }
         public IList<SolutionFolder> SolutionFolders { get; }
 
+        public bool CanRunTemplate()
+        {
+            return true;
+        }
+
         public string RunTemplate()
         {
             string targetFile = GetMetadata().GetFullLocationPathWithFileName();

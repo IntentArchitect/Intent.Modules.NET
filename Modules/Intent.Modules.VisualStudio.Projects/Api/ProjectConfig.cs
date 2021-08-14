@@ -27,7 +27,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string Id => _project.Id;
         public string Type => _project.ProjectTypeId;
         public string Name => _project.Name;
-        public string RelativeLocation => string.IsNullOrWhiteSpace(_project.RelativeLocation) ? _project.Name : Path.Combine(_project.RelativeLocation, _project.Name);
+        public string RelativeLocation => string.IsNullOrWhiteSpace(_project.RelativeLocation) ? _project.Name : _project.RelativeLocation;
         public string ParentId => null;
 
         public IEnumerable<string> SupportedFrameworks => _project.TargetFrameworkVersion()

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
-  <version>3.0.5</version>
+  <version>3.1.0</version>
   <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
   <summary>Autocomplete implementations by using convention based naming.</summary>
   <description>
@@ -26,4 +26,8 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
+  <moduleSettings />
+  <metadata>
+    <install target="Services" src="modelers/CRUD Enhancements.designer.settings" externalReference="63beeea4-819d-42f9-9baf-a08f8eaf49be" />
+  </metadata>
 </package>
