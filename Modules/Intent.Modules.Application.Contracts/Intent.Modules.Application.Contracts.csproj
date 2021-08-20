@@ -9,7 +9,7 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.2" />
-    <PackageReference Include="Intent.Packager" Version="3.0.1">
+    <PackageReference Include="Intent.Packager" Version="3.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
