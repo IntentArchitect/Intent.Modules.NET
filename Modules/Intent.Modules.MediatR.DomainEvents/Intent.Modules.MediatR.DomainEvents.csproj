@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <Version>3.0.4</Version>
   </PropertyGroup>
+
   <ItemGroup>
     <None Update="Templates\DomainEvent\DomainEventTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -22,6 +23,7 @@
       <LastGenOutput>DomainEventNotificationTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Templates\DomainEventHandler\DomainEventHandlerTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -44,6 +46,7 @@
       <DependentUpon>DomainEventNotificationTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
@@ -55,10 +58,13 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
 </Project>

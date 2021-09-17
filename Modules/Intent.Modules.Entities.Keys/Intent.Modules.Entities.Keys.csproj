@@ -1,10 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <Version>3.0.4</Version>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.0.2" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.1.0" />
@@ -13,19 +14,23 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
     <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <None Update="Templates\IdentityGenerator\IdentityGeneratorTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>IdentityGeneratorTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
+
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Templates\IdentityGenerator\IdentityGeneratorTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -33,4 +38,5 @@
       <DependentUpon>IdentityGeneratorTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
 </Project>

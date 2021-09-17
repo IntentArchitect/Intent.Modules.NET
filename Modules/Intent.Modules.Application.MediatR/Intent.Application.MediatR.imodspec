@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>3.0.5</version>
-  <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
+  <version>3.1.0</version>
+  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
   <authors>Intent.Modules.Net</authors>
@@ -38,23 +38,23 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.6" />
-    <dependency id="Intent.Common.Types" version="3.0.5" />
-    <dependency id="Intent.Common.CSharp" version="3.0.10" />
-    <dependency id="Intent.Modelers.Services.CQRS" version="3.0.2" />
-    <dependency id="Intent.Application.Dtos" version="3.0.4" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.2" />
-    <dependency id="Intent.Modelers.Services" version="3.0.3" />
+    <dependency id="Intent.Common" version="3.1.0" />
+    <dependency id="Intent.Common.Types" version="3.1.0" />
+    <dependency id="Intent.Common.CSharp" version="3.1.0" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="3.1.0" />
+    <dependency id="Intent.Application.Dtos" version="3.1.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.0" />
+    <dependency id="Intent.Modelers.Services" version="3.1.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Interop.MediatR" version="3.0.4" />
+        <package id="Intent.AspNetCore.Controllers.Interop.MediatR" version="3.1.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.0.3" />
+        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.1.0" />
       </install>
     </detect>
   </interoperability>

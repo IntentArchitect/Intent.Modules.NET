@@ -33,8 +33,8 @@
   </templates>
   <decorators />
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.0-beta.5" />
+    <dependency id="Intent.Common" version="3.1.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

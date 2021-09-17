@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.UI</id>
-  <version>3.0.2</version>
-  <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
+  <version>3.1.0</version>
+  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
   <summary>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</summary>
   <description>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</description>
   <authors>Intent.Modules.NET</authors>
@@ -39,21 +39,21 @@
     <factoryExtension id="Intent.IdentityServer4.UI.IdentityServerQuickstartExtractorFactoryExtension" externalReference="c2836371-2d1f-4565-ae1a-a29c6c999789" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.6" />
-    <dependency id="Intent.Common.Types" version="3.0.5" />
-    <dependency id="Intent.AspNetCore" version="3.0.5" />
-    <dependency id="Intent.Common.CSharp" version="3.0.10" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.2" />
+    <dependency id="Intent.Common" version="3.1.0" />
+    <dependency id="Intent.Common.Types" version="3.1.0" />
+    <dependency id="Intent.AspNetCore" version="3.1.0" />
+    <dependency id="Intent.Common.CSharp" version="3.1.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.IdentityServer4.Identity.EFCore">
       <install>
-        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="3.0.1" />
+        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="3.1.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
       <install>
-        <package id="Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT" version="3.0.1" />
+        <package id="Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT" version="3.1.0" />
       </install>
     </detect>
   </interoperability>

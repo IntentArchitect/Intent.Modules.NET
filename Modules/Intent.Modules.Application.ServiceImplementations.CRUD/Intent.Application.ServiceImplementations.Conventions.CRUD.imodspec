@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
   <version>3.1.0</version>
-  <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
   <summary>Autocomplete implementations by using convention based naming.</summary>
   <description>
     Wire up the code for adding/removing/editing entities by matching service names 
@@ -16,11 +16,11 @@
     <decorator id="Intent.Conventions.ServiceImplementations.Decorator" enabled="true"></decorator>
   </decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.0.6" />
-    <dependency id="Intent.Common.Types" version="3.0.5" />
-    <dependency id="Intent.Application.ServiceImplementations" version="3.0.5" />
-    <dependency id="Intent.Entities.Repositories.Api" version="3.0.6" />
-    <dependency id="Intent.Application.AutoMapper" version="3.0.5" />
+    <dependency id="Intent.Common" version="3.1.0" />
+    <dependency id="Intent.Common.Types" version="3.1.0" />
+    <dependency id="Intent.Application.ServiceImplementations" version="3.1.0" />
+    <dependency id="Intent.Entities.Repositories.Api" version="3.1.0" />
+    <dependency id="Intent.Application.AutoMapper" version="3.1.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

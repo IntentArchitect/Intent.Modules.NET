@@ -1,10 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <Version>3.0.5</Version>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
@@ -15,9 +16,11 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.0.0" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <None Update="Templates\Program\ProgramTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -28,9 +31,11 @@
       <LastGenOutput>StartupTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
+
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Templates\Program\ProgramTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -43,4 +48,5 @@
       <DependentUpon>StartupTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
 </Project>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Entities</id>
   <version>3.1.0</version>
-  <supportedClientVersions>[3.0.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
   <summary>Create domain entities and related artifacts.</summary>
   <description></description>
   <authors>Intent Architect</authors>
@@ -12,14 +12,14 @@
       <role>Domain.Entities</role>
       <location>Entities</location>
       <config>
-        <add key="Namespace" description="Namespace"/>
+        <add key="Namespace" description="Namespace" />
       </config>
     </template>
     <template id="Intent.Entities.DomainEntityState">
       <role>Domain.Entities</role>
       <location>Entities</location>
       <config>
-        <add key="Namespace" description="Namespace"/>
+        <add key="Namespace" description="Namespace" />
         <add key="Depends On" description="Make this output a code behind file for" default="${Model.Name}.cs" />
       </config>
     </template>
@@ -49,26 +49,26 @@
   <interoperability>
     <detect id="Intent.EntityFramework">
       <install>
-        <package id="Intent.Entities.Keys" version="3.0.2"/>
+        <package id="Intent.Entities.Keys" version="3.1.0" />
       </install>
     </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Entities.Keys" version="3.0.2"/>
+        <package id="Intent.Entities.Keys" version="3.1.0" />
       </install>
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Modelers.Domain" version="3.0.3"/>
-    <dependency id="Intent.Common.CSharp" version="3.0.7"/>
-    <dependency id="Intent.Common.Types" version="3.0.3"/>
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.0.1"/>
+    <dependency id="Intent.Modelers.Domain" version="3.1.0" />
+    <dependency id="Intent.Common.CSharp" version="3.1.0" />
+    <dependency id="Intent.Common.Types" version="3.1.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.0" />
   </dependencies>
   <files>
-    <file src="$outDir$/$id$.dll"/>
-    <file src="$outDir$/$id$.pdb"/>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata>
-    <install target="Domain" src="metadata/Intent.Entities"/>
+    <install target="Domain" src="metadata/Intent.Entities" />
   </metadata>
 </package>

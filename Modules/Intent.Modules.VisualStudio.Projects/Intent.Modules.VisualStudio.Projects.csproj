@@ -1,5 +1,5 @@
-﻿
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -13,6 +13,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Templates\NodeJSProjectFile\**" />
     <EmbeddedResource Remove="Templates\NodeJSProjectFile\**" />
@@ -48,21 +49,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SqlProjectTemplate.tt</DependentUpon>
     </Compile>
-  
+
     <None Update="Templates\AzureFunctions\HostJson\HostJsonTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HostJsonTemplate.cs</LastGenOutput>
     </None>
-  
+
     <Compile Update="Templates\AzureFunctions\HostJson\HostJsonTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>HostJsonTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
     <Folder Include="Api\Extensions\" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.15" />
@@ -77,11 +80,13 @@
     <PackageReference Include="NuGet.Versioning" Version="5.6.0" />
     <PackageReference Include="System.CodeDom" Version="4.7.0" />
   </ItemGroup>
+
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
+
   <ItemGroup>
     <None Update="Templates\AssemblyInfo\AssemblyInfoTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -108,9 +113,11 @@
       <LastGenOutput>VisualStudio2015SolutionTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
+
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Templates\AssemblyInfo\AssemblyInfoTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -143,4 +150,5 @@
       <DependentUpon>VisualStudio2015SolutionTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
 </Project>

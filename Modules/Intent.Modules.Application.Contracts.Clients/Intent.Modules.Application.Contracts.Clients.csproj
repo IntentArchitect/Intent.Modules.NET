@@ -1,11 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <UserSecretsId>41679098-8b9f-485e-92f8-cc67d283717f</UserSecretsId>
     <Version>3.0.3</Version>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.0.2" />
@@ -15,8 +16,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
+
 </Project>

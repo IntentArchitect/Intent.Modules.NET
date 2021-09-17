@@ -1,10 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <Version>3.0.7</Version>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.0.3" />
@@ -13,9 +14,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <None Update="Templates\AutofacConfig\AutofacConfigTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -38,9 +41,11 @@
       <LastGenOutput>DomainEntityTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
+
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Templates\AutofacConfig\AutofacConfigTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -68,4 +73,5 @@
       <DependentUpon>DomainEnumTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
 </Project>
