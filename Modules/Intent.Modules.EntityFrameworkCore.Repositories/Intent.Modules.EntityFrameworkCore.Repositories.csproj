@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.0.6" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.0.3" />
-    <PackageReference Include="Intent.Packager" Version="3.0.4">
+    <PackageReference Include="Intent.Packager" Version="3.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
