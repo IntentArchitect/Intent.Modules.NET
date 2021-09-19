@@ -7,6 +7,7 @@ using Intent.Modules.Common.Templates;
 using System.Collections.Generic;
 using Intent.Modules.Application.Dtos.Templates;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Common;
 using Intent.Modules.Entities.Templates.DomainEnum;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]

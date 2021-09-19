@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.AutoMapper;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEntity;

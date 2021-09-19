@@ -8,6 +8,7 @@ using Intent.Modules.Common.Templates;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.MediatR.FluentValidation.Api;
+using Intent.Modules.Common;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
