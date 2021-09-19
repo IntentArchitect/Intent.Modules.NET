@@ -2,7 +2,7 @@
 <package>
   <id>Intent.EntityFramework.Interop.Unity</id>
   <version>3.1.0</version>
-  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Entity Framework registrations for Unity DI container.</summary>
   <description>Entity Framework registrations for Unity DI container.</description>
   <authors>Intent Architect</authors>

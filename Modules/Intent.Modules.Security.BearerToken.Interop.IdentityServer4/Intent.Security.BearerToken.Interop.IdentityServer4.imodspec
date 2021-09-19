@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Security.BearerToken.Interop.IdentityServer4</id>
   <version>3.1.0</version>
-  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>The module that bridges the gap to allow API Services and Identity Server 4 to be hosted together</summary>
   <description>The module that bridges the gap to allow API Services and Identity Server 4 to be hosted together</description>
   <authors>Intent.Modules.NET</authors>

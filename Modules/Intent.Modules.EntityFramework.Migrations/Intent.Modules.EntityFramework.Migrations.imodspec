@@ -2,7 +2,7 @@
 <package>
   <id>Intent.EntityFramework.Migrations</id>
   <version>3.1.0</version>
-  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Entity Framework migrations setup with README file containing useful commands</summary>
   <description>Entity Framework migrations setup with README file containing useful commands</description>
   <authors>Intent Architect</authors>

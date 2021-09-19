@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.0.5</Version>
+    <Version>3.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.0.14" />
-    <PackageReference Include="Intent.Packager" Version="3.0.5">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.1.0" />
+    <PackageReference Include="Intent.Packager" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -31,10 +31,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnityServiceProviderTemplate.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.IdentityServer4.X509CertSigning</id>
   <version>3.1.0</version>
-  <supportedClientVersions>[3.1.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Support the capability of using PFX files or the Windows Certificate Store to sign tokens</summary>
   <description>Support the capability of using PFX files or the Windows Certificate Store to sign tokens</description>
   <authors>Intent.Modules</authors>
