@@ -5,6 +5,8 @@ using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
+using OperationModelExtensions = Intent.Metadata.WebApi.Api.OperationModelExtensions;
+using ServiceModelExtensions = Intent.Metadata.WebApi.Api.ServiceModelExtensions;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorContract", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Ignore)]

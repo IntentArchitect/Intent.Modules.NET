@@ -165,10 +165,10 @@ namespace <#= Namespace #>
 
         switch (associationEnd.Relationship())
         {
-            case RelationshipType.OneToOne :
+            case Intent.Modules.EntityFramework.Templates.RelationshipType.OneToOne :
                 MapOneToOne(associationEnd);
                 break;
-            case RelationshipType.OneToMany :#>
+            case Intent.Modules.EntityFramework.Templates.RelationshipType.OneToMany :#>
             <#= string.Format("this.{0}(x => x.{1})", !associationEnd.IsNullable ? "HasRequired" : "HasOptional", associationEnd.Name().ToPascalCase())#>
                 .WithMany(<#= associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : "" #>)
 <#              if (RequiresForeignKeyOnAssociatedEnd(associationEnd.OtherEnd())) {
@@ -181,7 +181,7 @@ namespace <#= Namespace #>
                 ;
 
 <#                  break;
-            case RelationshipType.ManyToOne :#>
+            case Intent.Modules.EntityFramework.Templates.RelationshipType.ManyToOne :#>
             this.HasMany(x => x.<#= associationEnd.Name().ToPascalCase()#>)
 <#                if(RequiresForeignKeyOnAssociatedEnd(associationEnd)) {  #>
                 .<#= string.Format("{0}({1})", !associationEnd.OtherEnd().IsNullable ? "WithRequired" : "WithOptional", "x => x." + associationEnd.OtherEnd().Name().ToPascalCase())#>
@@ -197,7 +197,7 @@ namespace <#= Namespace #>
                 ;
 
 <#                  break;
-            case RelationshipType.ManyToMany :#>
+            case Intent.Modules.EntityFramework.Templates.RelationshipType.ManyToMany :#>
             this.HasMany(x => x.<#= associationEnd.Name().ToPascalCase()#>)
                 .WithMany(<#= associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : "" #>)
                 .Map(m => 
