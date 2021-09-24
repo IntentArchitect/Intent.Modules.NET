@@ -22,6 +22,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Dtos.AutoMapper.MappingExtensions";
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public MappingExtensionsTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AutoMapper);

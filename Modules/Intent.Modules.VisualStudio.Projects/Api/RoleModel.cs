@@ -78,4 +78,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class RoleModelExtensions
+    {
+
+        public static bool IsRoleModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == RoleModel.SpecializationTypeId;
+        }
+
+        public static RoleModel AsRoleModel(this ICanBeReferencedType type)
+        {
+            return type.IsRoleModel() ? new RoleModel((IElement)type) : null;
+        }
+    }
 }

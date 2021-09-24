@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<stereotypeDefinition id="21cd7c00-cf82-4526-8539-8685dfca3791">
+<stereotypeDefinition id="21cd7c00-cf82-4526-8539-8685dfca3791" version="3.1.0">
   <name>.NET Framework Version Settings</name>
   <targetMode>of-type</targetMode>
-  <targetElements>
-    <element id="6453c4bd-78b8-4589-a223-9f57a348a1a1">.NET Framework Version</element>
-  </targetElements>
+  <targetTypes>
+    <type id="6453c4bd-78b8-4589-a223-9f57a348a1a1">.NET Framework Version</type>
+  </targetTypes>
+  <targetReferenceTypes />
   <applyMode>always</applyMode>
   <icon type="FontAwesome" source="cogs" />
   <displayIcon>false</displayIcon>

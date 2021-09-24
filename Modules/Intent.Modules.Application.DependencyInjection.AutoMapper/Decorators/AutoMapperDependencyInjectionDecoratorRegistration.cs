@@ -14,7 +14,7 @@ namespace Intent.Modules.Application.DependencyInjection.AutoMapper.Decorators
     {
         public override DependencyInjectionDecorator CreateDecoratorInstance(DependencyInjectionTemplate template, IApplication application)
         {
-            return new AutoMapperDependencyInjectionDecorator(template);
+            return new AutoMapperDependencyInjectionDecorator(template, application);
         }
 
         public override string DecoratorId => AutoMapperDependencyInjectionDecorator.DecoratorId;

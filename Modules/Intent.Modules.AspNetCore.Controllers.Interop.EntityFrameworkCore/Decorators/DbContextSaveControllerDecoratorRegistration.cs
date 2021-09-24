@@ -14,7 +14,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new DbContextSaveControllerDecorator(template);
+            return new DbContextSaveControllerDecorator(template, application);
         }
 
         public override string DecoratorId => DbContextSaveControllerDecorator.DecoratorId;

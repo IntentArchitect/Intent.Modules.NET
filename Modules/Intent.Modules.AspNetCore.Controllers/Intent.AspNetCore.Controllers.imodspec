@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
   <version>3.1.0</version>
@@ -36,4 +36,5 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Controllers/Intent.AspNetCore.Controllers.pkg.config" externalReference="2e47c1f8-bb68-45ad-aa23-385a4faadc92" />
   </metadata>
+  <moduleSettings />
 </package>

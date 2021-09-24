@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>a4d94df0-a3d7-4f52-aed0-b0d693ffa062</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4b3f8fa7-db3a-499c-b4c2-5b076d6eae97</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#d0c21268-d82e-42dd-bcd8-e036de3e41a5</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/AngularStartupDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AngularStartupDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4b3f8fa7-db3a-499c-b4c2-5b076d6eae97</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#d0c21268-d82e-42dd-bcd8-e036de3e41a5</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/AngularStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AngularStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

@@ -108,4 +108,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return (_element != null ? _element.GetHashCode() : 0);
         }
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class ConsoleAppNETCoreModelExtensions
+    {
+
+        public static bool IsConsoleAppNETCoreModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == ConsoleAppNETCoreModel.SpecializationTypeId;
+        }
+
+        public static ConsoleAppNETCoreModel AsConsoleAppNETCoreModel(this ICanBeReferencedType type)
+        {
+            return type.IsConsoleAppNETCoreModel() ? new ConsoleAppNETCoreModel((IElement)type) : null;
+        }
+    }
 }

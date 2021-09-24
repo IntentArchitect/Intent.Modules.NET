@@ -110,4 +110,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class WCFServiceApplicationModelExtensions
+    {
+
+        public static bool IsWCFServiceApplicationModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == WCFServiceApplicationModel.SpecializationTypeId;
+        }
+
+        public static WCFServiceApplicationModel AsWCFServiceApplicationModel(this ICanBeReferencedType type)
+        {
+            return type.IsWCFServiceApplicationModel() ? new WCFServiceApplicationModel((IElement)type) : null;
+        }
+    }
 }

@@ -12,16 +12,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
     [Description(QueryHandlerCrudDecorator.DecoratorId)]
     public class QueryHandlerCrudDecoratorRegistration : DecoratorRegistration<QueryHandlerTemplate, QueryHandlerDecorator>
     {
-        private readonly IMetadataManager _metadataManager;
-
-        public QueryHandlerCrudDecoratorRegistration(IMetadataManager metadataManager)
-        {
-            _metadataManager = metadataManager;
-        }
-
         public override QueryHandlerDecorator CreateDecoratorInstance(QueryHandlerTemplate template, IApplication application)
         {
-            return new QueryHandlerCrudDecorator(template, application, _metadataManager);
+            return new QueryHandlerCrudDecorator(template, application);
         }
 
         public override string DecoratorId => QueryHandlerCrudDecorator.DecoratorId;

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.UI</id>
   <version>3.1.0</version>
@@ -64,4 +64,5 @@
   <metadata>
     <install src="Intent.Metadata/Module Builder/Intent.IdentityServer4.UI/Intent.IdentityServer4.UI.pkg.config" externalReference="cd56af70-eebc-4a8c-9a59-65b917e4e434" target="Module Builder" />
   </metadata>
+  <moduleSettings />
 </package>

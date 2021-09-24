@@ -14,7 +14,7 @@ namespace Intent.Modules.AspNetCore.Interop.Angular.Decorators
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new AngularStartupDecorator(template);
+            return new AngularStartupDecorator(template, application);
         }
 
         public override string DecoratorId => AngularStartupDecorator.DecoratorId;

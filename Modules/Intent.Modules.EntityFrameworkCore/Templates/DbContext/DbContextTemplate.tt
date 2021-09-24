@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true" inherits="CSharpTemplateBase<IList<ClassModel>, DbContextDecoratorBase>"#>
+<#@ template  debug="true" inherits="CSharpTemplateBase<IList<Intent.Modelers.Domain.Api.ClassModel>, Intent.Modules.EntityFrameworkCore.Templates.DbContext.DbContextDecoratorBase>"#>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>

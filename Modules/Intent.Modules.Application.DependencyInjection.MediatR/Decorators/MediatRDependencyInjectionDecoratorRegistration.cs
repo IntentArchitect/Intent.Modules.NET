@@ -15,7 +15,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.Decorators
     {
         public override DependencyInjectionDecorator CreateDecoratorInstance(DependencyInjectionTemplate template, IApplication application)
         {
-            return new MediatRDependencyInjectionDecorator(template);
+            return new MediatRDependencyInjectionDecorator(template, application);
         }
 
         public override string DecoratorId => MediatRDependencyInjectionDecorator.DecoratorId;

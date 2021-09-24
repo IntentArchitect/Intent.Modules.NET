@@ -7,6 +7,7 @@ using Intent.Modules.DomainEvents.Templates.DomainEventBase;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -19,6 +20,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.DomainEvents.DomainEvent";
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DomainEventTemplate(IOutputTarget outputTarget, DomainEventModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(DomainEventTemplate.TemplateId);

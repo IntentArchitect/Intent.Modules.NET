@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -15,10 +16,13 @@ namespace Intent.Modules.Application.DependencyInjection.FluentValidation.Decora
         public const string DecoratorId = "Intent.Application.DependencyInjection.FluentValidation.FluentValidationDependencyInjectionDecorator";
 
         private readonly DependencyInjectionTemplate _template;
+        private readonly IApplication _application;
 
-        public FluentValidationDependencyInjectionDecorator(DependencyInjectionTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        public FluentValidationDependencyInjectionDecorator(DependencyInjectionTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             _template.AddNugetDependency("FluentValidation.DependencyInjectionExtensions", "9.3.0");
         }
 

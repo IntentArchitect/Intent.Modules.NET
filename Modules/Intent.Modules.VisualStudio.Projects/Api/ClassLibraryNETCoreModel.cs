@@ -114,4 +114,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string Comment => _element.Comment;
 
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class ClassLibraryNETCoreModelExtensions
+    {
+
+        public static bool IsClassLibraryNETCoreModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == ClassLibraryNETCoreModel.SpecializationTypeId;
+        }
+
+        public static ClassLibraryNETCoreModel AsClassLibraryNETCoreModel(this ICanBeReferencedType type)
+        {
+            return type.IsClassLibraryNETCoreModel() ? new ClassLibraryNETCoreModel((IElement)type) : null;
+        }
+    }
 }

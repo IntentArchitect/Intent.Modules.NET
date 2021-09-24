@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -17,10 +18,13 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Decorators
         public const string DecoratorId = "Intent.Infrastructure.DependencyInjection.ApplicationStartupDecorator";
 
         private readonly StartupTemplate _template;
+        private readonly IApplication _application;
 
-        public ApplicationStartupDecorator(StartupTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Fully)]
+        public ApplicationStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
         }
 
         public override string ConfigureServices()

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</id>
   <version>3.1.0</version>
@@ -22,4 +22,5 @@
     <decorator id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerDecorator" externalReference="4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe" />
   </decorators>
   <metadata />
+  <moduleSettings />
 </package>

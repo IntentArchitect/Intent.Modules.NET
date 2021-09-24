@@ -71,4 +71,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class NETFrameworkVersionModelExtensions
+    {
+
+        public static bool IsNETFrameworkVersionModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == NETFrameworkVersionModel.SpecializationTypeId;
+        }
+
+        public static NETFrameworkVersionModel AsNETFrameworkVersionModel(this ICanBeReferencedType type)
+        {
+            return type.IsNETFrameworkVersionModel() ? new NETFrameworkVersionModel((IElement)type) : null;
+        }
+    }
 }

@@ -14,7 +14,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
     {
         public override DtoModelDecorator CreateDecoratorInstance(DtoModelTemplate template, IApplication application)
         {
-            return new AutoMapperDtoDecorator(template);
+            return new AutoMapperDtoDecorator(template, application);
         }
 
         public override string DecoratorId => AutoMapperDtoDecorator.DecoratorId;

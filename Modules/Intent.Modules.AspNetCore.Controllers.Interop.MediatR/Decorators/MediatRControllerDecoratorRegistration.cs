@@ -14,7 +14,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new MediatRControllerDecorator(template);
+            return new MediatRControllerDecorator(template, application);
         }
 
         public override string DecoratorId => MediatRControllerDecorator.DecoratorId;

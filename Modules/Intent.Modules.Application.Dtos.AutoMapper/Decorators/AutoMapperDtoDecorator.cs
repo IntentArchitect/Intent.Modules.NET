@@ -10,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -24,9 +25,11 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         private readonly DtoModelTemplate _template;
 
-        public AutoMapperDtoDecorator(DtoModelTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Fully)]
+        public AutoMapperDtoDecorator(DtoModelTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
         }
 
         private DomainEntityStateTemplate _entityTemplate;
@@ -89,5 +92,6 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
                 .Where(x => x.Specialization != GeneralizationModel.SpecializationType)
                 .Select(x => x.Specialization == OperationModel.SpecializationType ? $"{x.Name.ToPascalCase()}()" : x.Name.ToPascalCase()));
         }
+        private readonly IApplication _application;
     }
 }

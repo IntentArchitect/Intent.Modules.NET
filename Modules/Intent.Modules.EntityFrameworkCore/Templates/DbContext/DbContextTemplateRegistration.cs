@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> models)
         {
-            return new DbContextTemplate(models, outputTarget);
+            return new DbContextTemplate(outputTarget, models);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

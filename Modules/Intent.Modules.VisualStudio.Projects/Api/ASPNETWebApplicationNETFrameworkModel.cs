@@ -110,4 +110,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class ASPNETWebApplicationNETFrameworkModelExtensions
+    {
+
+        public static bool IsASPNETWebApplicationNETFrameworkModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == ASPNETWebApplicationNETFrameworkModel.SpecializationTypeId;
+        }
+
+        public static ASPNETWebApplicationNETFrameworkModel AsASPNETWebApplicationNETFrameworkModel(this ICanBeReferencedType type)
+        {
+            return type.IsASPNETWebApplicationNETFrameworkModel() ? new ASPNETWebApplicationNETFrameworkModel((IElement)type) : null;
+        }
+    }
 }

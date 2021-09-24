@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos</id>
   <version>3.1.0</version>
@@ -33,4 +33,5 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Application.Dtos/Intent.Application.Dtos.pkg.config" externalReference="7c10c085-173e-4ce3-9aa5-3cc261c87b1f" />
   </metadata>
+  <moduleSettings />
 </package>

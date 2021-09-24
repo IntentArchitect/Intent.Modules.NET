@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>e4d9754f-9a44-441e-bc46-454f4441b184</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edf1ca39-2211-451d-ae91-39d4615a58bc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#6d5ff42a-a539-462b-80f4-780205286b81</CorrelationId>
+      <ApplicationRelativeFilePath>Api/ServiceExtensionsModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceExtensionsModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Application.ServiceImplementations.Conventions.CRUD.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Application.ServiceImplementations.Conventions.CRUD.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#34e9069c-bc7c-42c3-9357-343439553ad3</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8cbe2686-2cfa-4373-b441-b10cbe419699</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#63beeea4-819d-42f9-9baf-a08f8eaf49be</CorrelationId>
+      <ApplicationRelativeFilePath>modelers/CRUD Enhancements.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CRUD Enhancements.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

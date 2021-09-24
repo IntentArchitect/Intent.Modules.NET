@@ -112,4 +112,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class ASPNETCoreWebApplicationModelExtensions
+    {
+
+        public static bool IsASPNETCoreWebApplicationModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == ASPNETCoreWebApplicationModel.SpecializationTypeId;
+        }
+
+        public static ASPNETCoreWebApplicationModel AsASPNETCoreWebApplicationModel(this ICanBeReferencedType type)
+        {
+            return type.IsASPNETCoreWebApplicationModel() ? new ASPNETCoreWebApplicationModel((IElement)type) : null;
+        }
+    }
 }

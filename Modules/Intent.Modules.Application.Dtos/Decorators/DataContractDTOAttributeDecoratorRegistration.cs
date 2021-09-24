@@ -15,7 +15,7 @@ namespace Intent.Modules.Application.Dtos.Decorators
     {
         public override DtoModelDecorator CreateDecoratorInstance(DtoModelTemplate template, IApplication application)
         {
-            return new DataContractDTOAttributeDecorator(template);
+            return new DataContractDTOAttributeDecorator(template, application);
         }
 
         public override string DecoratorId => DataContractDTOAttributeDecorator.DecoratorId;

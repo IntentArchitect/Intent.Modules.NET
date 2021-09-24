@@ -24,9 +24,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
     {
         public const string Identifier = "Intent.EntityFrameworkCore.DbContextInterface";
 
-
-        public DbContextInterfaceTemplate(IList<ClassModel> models, IOutputTarget outputTarget)
-            : base(Identifier, outputTarget, models)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DbContextInterfaceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(Identifier, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
         }

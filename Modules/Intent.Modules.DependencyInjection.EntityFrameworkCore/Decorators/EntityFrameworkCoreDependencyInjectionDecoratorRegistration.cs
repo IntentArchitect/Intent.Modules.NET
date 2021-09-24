@@ -14,7 +14,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
     {
         public override DependencyInjectionDecorator CreateDecoratorInstance(DependencyInjectionTemplate template, IApplication application)
         {
-            return new EntityFrameworkCoreDependencyInjectionDecorator(template);
+            return new EntityFrameworkCoreDependencyInjectionDecorator(template, application);
         }
 
         public override string DecoratorId => EntityFrameworkCoreDependencyInjectionDecorator.DecoratorId;

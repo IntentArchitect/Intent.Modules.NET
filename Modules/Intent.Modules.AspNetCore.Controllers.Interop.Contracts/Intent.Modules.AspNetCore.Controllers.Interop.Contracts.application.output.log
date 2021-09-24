@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>a06e3830-7ce6-4f92-8c77-efb18f025acb</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>be3eac19-f025-4237-bf60-f728d0163cee</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e2aa353d-4b74-44d4-9653-9af826561d2d</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/ContractDispatchDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContractDispatchDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>be3eac19-f025-4237-bf60-f728d0163cee</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e2aa353d-4b74-44d4-9653-9af826561d2d</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/ContractDispatchDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContractDispatchDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>20fbe779-ac7d-42eb-aeb3-eb066eadd55f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.Controllers.Interop.Contracts.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Controllers.Interop.Contracts.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>20fbe779-ac7d-42eb-aeb3-eb066eadd55f</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#20fbe779-ac7d-42eb-aeb3-eb066eadd55f</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Interop.Contracts.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Interop.Contracts.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>20fbe779-ac7d-42eb-aeb3-eb066eadd55f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

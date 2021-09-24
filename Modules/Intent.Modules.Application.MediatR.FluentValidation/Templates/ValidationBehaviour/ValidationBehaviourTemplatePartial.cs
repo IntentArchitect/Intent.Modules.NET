@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common;
 
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -19,7 +20,8 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.FluentValidation.ValidationBehaviour";
 
-        public ValidationBehaviourTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public ValidationBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.FluentValidation);
         }

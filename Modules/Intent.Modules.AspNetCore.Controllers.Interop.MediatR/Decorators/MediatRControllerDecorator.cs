@@ -10,6 +10,7 @@ using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -22,10 +23,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.MediatR.MediatRControllerDecorator";
         private readonly ControllerTemplate _template;
+        private readonly IApplication _application;
 
-        public MediatRControllerDecorator(ControllerTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        public MediatRControllerDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             _template.AddTypeSource(CommandModelsTemplate.TemplateId);
             _template.AddTypeSource(QueryModelsTemplate.TemplateId);
             _template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");

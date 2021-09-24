@@ -29,7 +29,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates
 
         public override ITemplate CreateTemplateInstance(IOutputTarget project, ServiceProxyDTOModel model)
         {
-            return new DtoModelTemplate(project, model, TemplateId);
+            return new DtoModelTemplate(project, model);
         }
 
         public override IEnumerable<ServiceProxyDTOModel> GetModels(IApplication application)

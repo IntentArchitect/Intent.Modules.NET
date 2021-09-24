@@ -22,15 +22,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
     {
         public const string Identifier = "Intent.EntityFrameworkCore.DbMigrationsReadMe";
 
-
-        public DbMigrationsReadMeTemplate(IOutputTarget project)
-            : base(Identifier, project, null)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(Identifier, outputTarget, null)
         {
         }
 
         public string BoundedContextName => OutputTarget.ApplicationName();
         public string MigrationProject => OutputTarget.GetProject().Name;
-        public string StartupProject => OutputTarget.Application.OutputTargets.FirstOrDefault(x => x.Type == VisualStudioProjectTypeIds.CoreWebApp)?.Name ?? "UNKNOWN";
+        public string StartupProject => ExecutionContext.OutputTargets.FirstOrDefault(x => x.Type == VisualStudioProjectTypeIds.CoreWebApp)?.Name ?? "UNKNOWN";
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override ITemplateFileConfig GetTemplateFileConfig()

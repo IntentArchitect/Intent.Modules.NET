@@ -9,7 +9,7 @@ using Intent.Templates;
 
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBehaviour
 {
@@ -19,7 +19,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.Behaviours.PerformanceBehaviour";
 
-        public PerformanceBehaviourTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public PerformanceBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

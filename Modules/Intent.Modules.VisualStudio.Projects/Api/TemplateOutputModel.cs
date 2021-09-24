@@ -67,4 +67,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class TemplateOutputModelExtensions
+    {
+
+        public static bool IsTemplateOutputModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == TemplateOutputModel.SpecializationTypeId;
+        }
+
+        public static TemplateOutputModel AsTemplateOutputModel(this ICanBeReferencedType type)
+        {
+            return type.IsTemplateOutputModel() ? new TemplateOutputModel((IElement)type) : null;
+        }
+    }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>2f121661-1f9c-49c5-832a-121798b17b84</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8a4708a2-76f1-45c0-b43a-e3ce66c075c1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#1a2b0750-50f6-41a5-849a-3f438cb94cbd</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/MediatRDependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8a4708a2-76f1-45c0-b43a-e3ce66c075c1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#1a2b0750-50f6-41a5-849a-3f438cb94cbd</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/MediatRDependencyInjectionDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRDependencyInjectionDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Application.DependencyInjection.MediatR.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Application.DependencyInjection.MediatR.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#237c143b-3123-4722-bdf6-24a34537c85b</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.Application.DependencyInjection.MediatR.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.MediatR.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

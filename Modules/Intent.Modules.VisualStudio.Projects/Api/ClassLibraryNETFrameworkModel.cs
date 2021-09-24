@@ -110,4 +110,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class ClassLibraryNETFrameworkModelExtensions
+    {
+
+        public static bool IsClassLibraryNETFrameworkModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == ClassLibraryNETFrameworkModel.SpecializationTypeId;
+        }
+
+        public static ClassLibraryNETFrameworkModel AsClassLibraryNETFrameworkModel(this ICanBeReferencedType type)
+        {
+            return type.IsClassLibraryNETFrameworkModel() ? new ClassLibraryNETFrameworkModel((IElement)type) : null;
+        }
+    }
 }

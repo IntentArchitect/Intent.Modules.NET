@@ -4,6 +4,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common;
 
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -17,7 +18,8 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.AutoMapper.MappingProfile";
 
-        public MappingProfileTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public MappingProfileTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AutoMapper);
         }

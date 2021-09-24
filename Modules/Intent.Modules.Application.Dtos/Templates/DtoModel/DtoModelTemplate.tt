@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true"  inherits="CSharpTemplateBase<DTOModel, DtoModelDecorator>" #>
+<#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.DTOModel, Intent.Modules.Application.Dtos.Templates.DtoModel.DtoModelDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>

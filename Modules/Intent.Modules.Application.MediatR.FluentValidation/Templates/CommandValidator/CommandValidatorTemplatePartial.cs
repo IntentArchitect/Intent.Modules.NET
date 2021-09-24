@@ -21,6 +21,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.FluentValidation.CommandValidator";
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public CommandValidatorTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.FluentValidation);

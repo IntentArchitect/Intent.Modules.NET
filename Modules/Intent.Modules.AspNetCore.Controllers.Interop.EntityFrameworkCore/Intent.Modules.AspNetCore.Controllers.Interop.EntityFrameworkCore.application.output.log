@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>3b09cfc6-074a-4486-a81b-de16902d36b0</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6371ca1a-9e96-446d-96ce-565f92ca7a88</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/DbContextSaveControllerDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextSaveControllerDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6371ca1a-9e96-446d-96ce-565f92ca7a88</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/DbContextSaveControllerDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextSaveControllerDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a7d8cbe5-1155-40da-8b0c-cfc0b1e9851c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a7d8cbe5-1155-40da-8b0c-cfc0b1e9851c</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a7d8cbe5-1155-40da-8b0c-cfc0b1e9851c</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a7d8cbe5-1155-40da-8b0c-cfc0b1e9851c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

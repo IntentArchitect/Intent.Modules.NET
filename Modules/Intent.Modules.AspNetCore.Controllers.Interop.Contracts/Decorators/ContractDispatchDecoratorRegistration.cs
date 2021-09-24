@@ -14,7 +14,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new ContractDispatchDecorator(template);
+            return new ContractDispatchDecorator(template, application);
         }
 
         public override string DecoratorId => ContractDispatchDecorator.DecoratorId;

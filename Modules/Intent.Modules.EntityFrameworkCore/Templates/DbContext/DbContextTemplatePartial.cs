@@ -31,10 +31,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         private readonly IList<DbContextDecoratorBase> _decorators = new List<DbContextDecoratorBase>();
         private bool _useDbContextAsOptionsParameter;
 
-        public DbContextTemplate(IList<ClassModel> models, IOutputTarget outputTarget)
-            : base(TemplateId, outputTarget, models)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
-            base.Project.Application.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt =>
+            ExecutionContext.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt =>
             {
                 _useDbContextAsOptionsParameter |= evt.UseDbContextAsOptionsParameter;
             });

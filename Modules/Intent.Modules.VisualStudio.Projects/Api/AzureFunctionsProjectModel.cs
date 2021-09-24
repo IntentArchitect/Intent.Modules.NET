@@ -108,4 +108,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return (_element != null ? _element.GetHashCode() : 0);
         }
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class AzureFunctionsProjectModelExtensions
+    {
+
+        public static bool IsAzureFunctionsProjectModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == AzureFunctionsProjectModel.SpecializationTypeId;
+        }
+
+        public static AzureFunctionsProjectModel AsAzureFunctionsProjectModel(this ICanBeReferencedType type)
+        {
+            return type.IsAzureFunctionsProjectModel() ? new AzureFunctionsProjectModel((IElement)type) : null;
+        }
+    }
 }

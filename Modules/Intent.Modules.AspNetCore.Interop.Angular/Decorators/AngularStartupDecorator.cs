@@ -20,10 +20,13 @@ namespace Intent.Modules.AspNetCore.Interop.Angular.Decorators
         public const string DecoratorId = "Intent.AspNetCore.Interop.Angular.AngularStartupDecorator";
 
         private readonly StartupTemplate _template;
+        private readonly IApplication _application;
 
-        public AngularStartupDecorator(StartupTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        public AngularStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             _template.AddNugetDependency("Microsoft.TypeScript.MsBuild", "3.5.3");
             if (_template.OutputTarget.IsNetCore3App())
             {

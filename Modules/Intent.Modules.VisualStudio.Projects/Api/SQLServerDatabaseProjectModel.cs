@@ -100,4 +100,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new TemplateOutputModel(x))
             .ToList();
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class SQLServerDatabaseProjectModelExtensions
+    {
+
+        public static bool IsSQLServerDatabaseProjectModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == SQLServerDatabaseProjectModel.SpecializationTypeId;
+        }
+
+        public static SQLServerDatabaseProjectModel AsSQLServerDatabaseProjectModel(this ICanBeReferencedType type)
+        {
+            return type.IsSQLServerDatabaseProjectModel() ? new SQLServerDatabaseProjectModel((IElement)type) : null;
+        }
+    }
 }

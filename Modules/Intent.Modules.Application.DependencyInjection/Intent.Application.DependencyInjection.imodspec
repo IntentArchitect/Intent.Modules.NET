@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DependencyInjection</id>
   <version>3.1.0</version>
@@ -33,4 +33,5 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Application.DependencyInjection/Intent.Application.DependencyInjection.pkg.config" externalReference="33084118-5d41-4965-a200-54aa73ba9021" />
   </metadata>
+  <moduleSettings />
 </package>

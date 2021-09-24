@@ -22,14 +22,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         private readonly QueryHandlerTemplate _template;
         private readonly IApplication _application;
         private readonly ICrudImplementationStrategy _implementationStrategy;
-        private readonly IMetadataManager _metadataManager;
 
         [IntentManaged(Mode.Merge)]
-        public QueryHandlerCrudDecorator(QueryHandlerTemplate template, IApplication application, IMetadataManager metadataManager)
+        public QueryHandlerCrudDecorator(QueryHandlerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-            _metadataManager = metadataManager;
 
             if (File.Exists(_template.GetMetadata().GetFilePath()))
             {
@@ -38,8 +36,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
 
             _implementationStrategy = new ICrudImplementationStrategy[]
             {
-                new GetAllImplementationStrategy(_template, _application, _metadataManager), 
-                new GetByIdImplementationStrategy(_template, _application, _metadataManager), 
+                new GetAllImplementationStrategy(_template, _application, _application.MetadataManager),
+                new GetByIdImplementationStrategy(_template, _application, _application.MetadataManager),
             }.SingleOrDefault(x => x.IsMatch());
         }
 

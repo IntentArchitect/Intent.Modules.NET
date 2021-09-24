@@ -23,7 +23,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class AppSettingsTemplate : IntentTemplateBase<object, AppSettingsDecorator>, IHasDecorators<AppSettingsDecorator>
+    partial class AppSettingsTemplate : IntentTemplateBase<object, AppSettingsDecorator>
     {
 
         [IntentManaged(Mode.Fully)]
@@ -31,11 +31,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         private readonly IList<AppSettingRegistrationRequest> _appSettings = new List<AppSettingRegistrationRequest>();
         private readonly IList<ConnectionStringRegistrationRequest> _connectionStrings = new List<ConnectionStringRegistrationRequest>();
 
-        public AppSettingsTemplate(IProject project, IApplicationEventDispatcher eventDispatcher)
-            : base(TemplateId, project, null)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public AppSettingsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, null)
         {
-            eventDispatcher.Subscribe<AppSettingRegistrationRequest>(HandleAppSetting);
-            eventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
+            ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(HandleAppSetting);
+            ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
         }
 
         public override string RunTemplate()

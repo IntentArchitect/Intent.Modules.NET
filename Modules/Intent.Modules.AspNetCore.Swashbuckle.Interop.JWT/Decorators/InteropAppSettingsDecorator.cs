@@ -69,7 +69,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
                 securitySchemes.oauth2.Flows[scheme.SchemeName] = JObject.FromObject(new
                 {
                     AuthorizationUrl = scheme.AuthorizationUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
-                    RefreshUrl= scheme.RefreshUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
+                    RefreshUrl = scheme.RefreshUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
                     TokenUrl = scheme.TokenUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
                     scheme.Scopes
                 });

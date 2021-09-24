@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.SecureTokenServer</id>
   <version>3.1.0</version>
@@ -44,4 +44,5 @@
   <metadata>
     <install src="Intent.Metadata/Module Builder/Intent.IdentityServer4.SecureTokenServer/Intent.IdentityServer4.SecureTokenServer.pkg.config" externalReference="dbcde434-4411-479b-8374-34cb11190cf1" target="Module Builder" />
   </metadata>
+  <moduleSettings />
 </package>

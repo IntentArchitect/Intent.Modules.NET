@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
   <version>3.1.0</version>
@@ -45,4 +45,5 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Security.JWT/Intent.Security.JWT.pkg.config" externalReference="dc5bde69-a694-4347-9683-d746710568e7" />
   </metadata>
+  <moduleSettings />
 </package>

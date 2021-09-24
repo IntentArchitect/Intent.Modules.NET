@@ -14,7 +14,7 @@ namespace Intent.Modules.Application.DependencyInjection.FluentValidation.Decora
     {
         public override DependencyInjectionDecorator CreateDecoratorInstance(DependencyInjectionTemplate template, IApplication application)
         {
-            return new FluentValidationDependencyInjectionDecorator(template);
+            return new FluentValidationDependencyInjectionDecorator(template, application);
         }
 
         public override string DecoratorId => FluentValidationDependencyInjectionDecorator.DecoratorId;

@@ -22,15 +22,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
 
         private readonly CommandHandlerTemplate _template;
         private readonly IApplication _application;
-        private readonly IMetadataManager _metadataManager;
         private readonly ICrudImplementationStrategy _implementationStrategy;
 
         [IntentManaged(Mode.Merge)]
-        public CommandHandlerCrudDecorator(CommandHandlerTemplate template, IApplication application, IMetadataManager metadataManager)
+        public CommandHandlerCrudDecorator(CommandHandlerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-            _metadataManager = metadataManager;
 
             if (File.Exists(_template.GetMetadata().GetFilePath()))
             {
@@ -39,9 +37,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
 
             _implementationStrategy = new ICrudImplementationStrategy[]
             {
-                new CreateImplementationStrategy(_template, _application, _metadataManager),
-                new UpdateImplementationStrategy(_template, _application, _metadataManager),
-                new DeleteImplementationStrategy(_template, _application, _metadataManager),
+                new CreateImplementationStrategy(_template, _application, _application.MetadataManager),
+                new UpdateImplementationStrategy(_template, _application, _application.MetadataManager),
+                new DeleteImplementationStrategy(_template, _application, _application.MetadataManager),
             }.SingleOrDefault(x => x.IsMatch());
         }
 

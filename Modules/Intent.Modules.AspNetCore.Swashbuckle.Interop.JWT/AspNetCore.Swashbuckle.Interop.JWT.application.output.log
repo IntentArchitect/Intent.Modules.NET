@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>28f15199-9072-4b20-be3f-ad7815489182</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7eda44b-a6c9-4614-ad36-e1cc42c07fe4</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#7bde70a3-f321-4505-abbd-bd62b83bc5fa</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/InteropAppSettingsDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InteropAppSettingsDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7eda44b-a6c9-4614-ad36-e1cc42c07fe4</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#7bde70a3-f321-4505-abbd-bd62b83bc5fa</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/InteropAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InteropAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>802e028a-5950-4627-a9c5-dce94951767b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.Swashbuckle.Interop.JWT.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Swashbuckle.Interop.JWT.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>802e028a-5950-4627-a9c5-dce94951767b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#802e028a-5950-4627-a9c5-dce94951767b</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>802e028a-5950-4627-a9c5-dce94951767b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

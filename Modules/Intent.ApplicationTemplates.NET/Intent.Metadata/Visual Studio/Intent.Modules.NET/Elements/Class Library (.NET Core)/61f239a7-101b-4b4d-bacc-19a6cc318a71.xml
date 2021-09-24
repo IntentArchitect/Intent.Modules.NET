@@ -32,20 +32,6 @@
     </stereotype>
   </stereotypes>
   <childElements>
-    <childElement id="e807c049-ef49-4e18-b1dd-e8dbf63657c7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>ApplicationTemplate.Builder.Templates.IatSpecFile</name>
-      <display>ApplicationTemplate.Builder.Templates.IatSpecFile</display>
-      <externalReference>Intent.ApplicationTemplate.Builder</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>0</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>61f239a7-101b-4b4d-bacc-19a6cc318a71</parentFolderId>
-      <packageId>903a0cfd-b65d-4f8d-952c-f2fce3db019d</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
     <childElement id="807831f6-8daa-465a-b0e5-e59d0f75f8c4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>ApplicationTemplate.Builder.Templates.InstallationSettingsFile</name>
       <display>ApplicationTemplate.Builder.Templates.InstallationSettingsFile</display>

@@ -7,6 +7,7 @@ using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -20,10 +21,13 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         public const string DecoratorId = "Intent.DependencyInjection.EntityFrameworkCore.EntityFrameworkCoreDependencyInjectionDecorator";
 
         private readonly DependencyInjectionTemplate _template;
+        private readonly IApplication _application;
 
-        public EntityFrameworkCoreDependencyInjectionDecorator(DependencyInjectionTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        public EntityFrameworkCoreDependencyInjectionDecorator(DependencyInjectionTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
             _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(_template.Project));
             if (_template.Project.IsNet5App())
@@ -31,7 +35,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 _template.AddNugetDependency("Microsoft.Extensions.Configuration.Binder", "5.0.0");
             }
             _template.ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
-                key: "UseInMemoryDatabase", 
+                key: "UseInMemoryDatabase",
                 value: "true"));
             _template.ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                 name: "DefaultConnection",

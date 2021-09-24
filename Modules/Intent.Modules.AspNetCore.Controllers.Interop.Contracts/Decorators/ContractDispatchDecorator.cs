@@ -6,6 +6,7 @@ using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -19,10 +20,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
         public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.Contracts.ContractDispatchDecorator";
 
         private readonly ControllerTemplate _template;
+        private readonly IApplication _application;
 
-        public ContractDispatchDecorator(ControllerTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        public ContractDispatchDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             _template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 

@@ -21,6 +21,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.FluentValidation.QueryValidator";
 
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public QueryValidatorTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.FluentValidation);

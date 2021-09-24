@@ -11,7 +11,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static IDesigner VisualStudio(this IMetadataManager metadataManager, IApplication application)
         {
-            return metadataManager.GetDesigner(application.Id, "Visual Studio");
+            return metadataManager.VisualStudio(application.Id);
+        }
+
+        public static IDesigner VisualStudio(this IMetadataManager metadataManager, string applicationId)
+        {
+            return metadataManager.GetDesigner(applicationId, "Visual Studio");
         }
 
     }

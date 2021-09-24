@@ -14,7 +14,7 @@ namespace Intent.Modules.Application.DependencyInjection.Decorators
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new ApplicationStartupDecorator(template);
+            return new ApplicationStartupDecorator(template, application);
         }
 
         public override string DecoratorId => ApplicationStartupDecorator.DecoratorId;

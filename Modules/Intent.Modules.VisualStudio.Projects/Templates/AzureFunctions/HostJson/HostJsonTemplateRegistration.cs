@@ -21,7 +21,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
         private readonly IMetadataManager _metadataManager;
 
         public string TemplateId => HostJsonTemplate.TemplateId;
-        
+
         public HostJsonTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;

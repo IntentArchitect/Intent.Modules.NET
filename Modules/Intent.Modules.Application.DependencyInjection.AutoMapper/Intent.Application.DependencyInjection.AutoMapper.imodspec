@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DependencyInjection.AutoMapper</id>
   <version>3.1.0</version>
@@ -21,4 +21,5 @@
     <decorator id="Intent.Application.DependencyInjection.AutoMapper.AutoMapperDependencyInjectionDecorator" externalReference="b02246a4-53da-41e2-be7a-afe40ccb87ba" />
   </decorators>
   <metadata />
+  <moduleSettings />
 </package>

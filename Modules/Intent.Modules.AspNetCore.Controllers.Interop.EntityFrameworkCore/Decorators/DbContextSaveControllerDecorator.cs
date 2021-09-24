@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -19,10 +20,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerDecorator";
 
         private readonly ControllerTemplate _template;
+        private readonly IApplication _application;
 
-        public DbContextSaveControllerDecorator(ControllerTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        public DbContextSaveControllerDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
             Priority = 100;
         }
 

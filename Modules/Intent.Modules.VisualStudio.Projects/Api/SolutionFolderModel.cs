@@ -124,4 +124,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                     .Select(x => new ConsoleAppNETCoreModel(x))
                     .ToList();
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class SolutionFolderModelExtensions
+    {
+
+        public static bool IsSolutionFolderModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == SolutionFolderModel.SpecializationTypeId;
+        }
+
+        public static SolutionFolderModel AsSolutionFolderModel(this ICanBeReferencedType type)
+        {
+            return type.IsSolutionFolderModel() ? new SolutionFolderModel((IElement)type) : null;
+        }
+    }
 }

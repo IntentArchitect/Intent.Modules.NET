@@ -5,6 +5,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common;
 
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -18,7 +19,8 @@ namespace Intent.Modules.Application.Identity.Templates.IdentityServiceInterface
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Identity.IdentityServiceInterface";
 
-        public IdentityServiceInterfaceTemplate(IOutputTarget outputTarget, object model) : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public IdentityServiceInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

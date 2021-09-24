@@ -8,5 +8,18 @@
   <isMapped>false</isMapped>
   <parentFolderId>b0ab7936-8875-49d5-8892-af57ee0b9a87</parentFolderId>
   <stereotypes />
-  <childElements />
+  <childElements>
+    <childElement id="89806cca-760a-423a-b989-033054aec673" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.Api.ApiElementModelPartial</name>
+      <display>Intent.ModuleBuilder.Templates.Api.ApiElementModelPartial</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4d7b84d8-a886-487a-a840-fed4199e0201</parentFolderId>
+      <stereotypes />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

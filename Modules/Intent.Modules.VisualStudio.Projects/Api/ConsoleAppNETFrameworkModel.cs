@@ -110,4 +110,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Comment => _element.Comment;
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class ConsoleAppNETFrameworkModelExtensions
+    {
+
+        public static bool IsConsoleAppNETFrameworkModel(this ICanBeReferencedType type)
+        {
+            return type != null && type is IElement element && element.SpecializationTypeId == ConsoleAppNETFrameworkModel.SpecializationTypeId;
+        }
+
+        public static ConsoleAppNETFrameworkModel AsConsoleAppNETFrameworkModel(this ICanBeReferencedType type)
+        {
+            return type.IsConsoleAppNETFrameworkModel() ? new ConsoleAppNETFrameworkModel((IElement)type) : null;
+        }
+    }
 }

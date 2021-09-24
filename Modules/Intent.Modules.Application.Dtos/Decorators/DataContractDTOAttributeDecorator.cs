@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 using DtoModelTemplate = Intent.Modules.Application.Dtos.Templates.DtoModel.DtoModelTemplate;
+using Intent.Engine;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -20,9 +21,11 @@ namespace Intent.Modules.Application.Dtos.Decorators
         public const string DecoratorId = "Intent.Application.Dtos.DataContractDTOAttributeDecorator";
         private readonly DtoModelTemplate _template;
 
-        public DataContractDTOAttributeDecorator(DtoModelTemplate template)
+        [IntentManaged(Mode.Merge, Body = Mode.Fully)]
+        public DataContractDTOAttributeDecorator(DtoModelTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
         }
 
         public override string ClassAttributes(DTOModel dto)
@@ -93,5 +96,6 @@ namespace Intent.Modules.Application.Dtos.Decorators
 
             return null;
         }
+        private readonly IApplication _application;
     }
 }

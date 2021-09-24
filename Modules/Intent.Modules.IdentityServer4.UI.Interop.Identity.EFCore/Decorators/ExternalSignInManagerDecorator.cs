@@ -19,6 +19,7 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.Decorators
         private readonly ExternalControllerTemplate _template;
         private readonly IApplication _application;
 
+        [IntentManaged(Mode.Merge, Body = Mode.Fully)]
         public ExternalSignInManagerDecorator(ExternalControllerTemplate template, IApplication application)
         {
             _template = template;

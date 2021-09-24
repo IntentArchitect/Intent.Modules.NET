@@ -5,6 +5,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modules.Common;
 
 
 [assembly: DefaultIntentManaged(Mode.Merge)]

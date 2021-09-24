@@ -21,8 +21,8 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Dtos.DtoModel";
 
-        public DtoModelTemplate(IOutputTarget project, DTOModel model, string identifier = TemplateId)
-            : base(identifier, project, model)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DtoModelTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
