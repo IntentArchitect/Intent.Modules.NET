@@ -32,7 +32,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityStateTemplate.TemplateId, "ICollection<{0}>"));
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEnumTemplate.TemplateId, "ICollection<{0}>"));
-            Types.AddClassTypeSource(CSharpTypeSource.Create(ExecutionContext, Identifier), InterfaceContext);
+            Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, Identifier, "IEnumerable<{0}>"), InterfaceContext);
         }
 
         protected override CSharpFileConfig DefineFileConfig()

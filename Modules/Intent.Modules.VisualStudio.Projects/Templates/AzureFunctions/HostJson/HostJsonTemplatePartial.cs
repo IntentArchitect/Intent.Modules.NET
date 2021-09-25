@@ -25,6 +25,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
         {
         }
 
+        public override string GetCorrelationId()
+        {
+            return $"{TemplateId}#{OutputTarget.Id}";
+        }
+
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(

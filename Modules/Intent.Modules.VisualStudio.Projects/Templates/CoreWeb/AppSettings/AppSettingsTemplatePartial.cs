@@ -38,6 +38,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
         }
 
+        public override string GetCorrelationId()
+        {
+            return $"{TemplateId}#{OutputTarget.Id}";
+        }
+
         public override string RunTemplate()
         {
             var meta = GetMetadata();

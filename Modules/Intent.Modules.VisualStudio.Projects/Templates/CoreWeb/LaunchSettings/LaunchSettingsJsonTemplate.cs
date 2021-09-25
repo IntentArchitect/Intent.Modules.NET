@@ -26,6 +26,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             applicationEventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
         }
 
+        public override string GetCorrelationId()
+        {
+            return $"{Identifier}#{OutputTarget.Id}";
+        }
+
         public IDictionary<string, Profile> Profiles { get; } = new Dictionary<string, Profile>();
 
         private void Handle(ApplicationEvent @event)

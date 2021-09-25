@@ -174,6 +174,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
         public void ConfigureFileMetadata(IFileMetadata fileMetadata)
         {
             _fileMetadata = fileMetadata;
+            _fileMetadata.CustomMetadata.TryAdd("CorrelationId", $"{Identifier}#{Model.Id}");
         }
 
         public ITemplateFileConfig GetTemplateFileConfig()

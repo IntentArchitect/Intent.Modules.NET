@@ -33,6 +33,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
             eventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
         }
 
+        public override string GetCorrelationId()
+        {
+            return $"{IDENTIFIER}#{OutputTarget.Id}";
+        }
+
         private void HandleAppSetting(AppSettingRegistrationRequest @event)
         {
             if (_appSettings.Any(x => x.Key == @event.Key && x.Value != @event.Value))

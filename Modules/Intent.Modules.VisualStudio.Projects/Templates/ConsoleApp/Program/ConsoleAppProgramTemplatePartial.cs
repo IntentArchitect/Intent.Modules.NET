@@ -16,6 +16,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.Program
         {
         }
 
+        public override string GetCorrelationId()
+        {
+            return $"{Identifier}#{OutputTarget.Id}";
+        }
+
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

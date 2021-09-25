@@ -20,8 +20,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         public DomainEntityTemplate(ClassModel model, IOutputTarget outputTarget)
             : base(Identifier, outputTarget, model)
         {
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier));
-            AddTypeSource(DomainEnumTemplate.TemplateId);
+            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"));
+            AddTypeSource(DomainEnumTemplate.TemplateId).WithCollectionFormat("ICollection<{0}>");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

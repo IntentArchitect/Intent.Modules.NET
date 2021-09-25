@@ -14,6 +14,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AssemblyInfo
         {
         }
 
+        public override string GetCorrelationId()
+        {
+            return $"{Identifier}#{OutputTarget.Id}";
+        }
+
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
