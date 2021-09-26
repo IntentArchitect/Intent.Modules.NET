@@ -1,44 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<outputLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<outputLog>
   <ApplicationId>7decc3ee-90dc-439b-b1f1-a6652711ee7b</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#903a0cfd-b65d-4f8d-952c-f2fce3db019d</CorrelationId>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#fe18fa2b-1214-435e-9273-cf1804f6f21b</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#061e7174-b0ab-4b90-8c32-11cf5de6a081</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#32fc3c15-c98e-4b36-9b7d-dd2f7b8885ed</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#ae95e070-1305-4206-a8ea-e607ffe5f301</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#7e8ada90-678e-4a30-925f-66b864b9918d</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.EmptyVisualStudioSolution/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.EmptyVisualStudioSolution/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#7750957e-3032-41e5-ad31-b33427c4d2fa</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.FullStackWebApi/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.FullStackWebApi/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#61f239a7-101b-4b4d-bacc-19a6cc318a71</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplates.NET.csproj</ProjectRelativeFilePath>
-    </FileLog>
-    <FileLog>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>
