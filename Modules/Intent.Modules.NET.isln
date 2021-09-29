@@ -48,5 +48,7 @@
     <application id="4e32b942-7b13-4e32-84f0-77384573f25c" name="IdentityServer4.STS.Interop.Swashbuckle.JWT" relativePath="Intent.Modules.IdentityServer4.STS.Interop.Swashbuckle.JWT/IdentityServer4.STS.Interop.Swashbuckle.JWT.application.config" />
     <application id="9ae3f429-8cd5-4090-8a8b-f5dec3f95704" name="IdentityServer4.UI.Interop.Swashbuckle.JWT" relativePath="Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/IdentityServer4.UI.Interop.Swashbuckle.JWT.application.config" />
     <application id="e4d9754f-9a44-441e-bc46-454f4441b184" name="Intent.Modules.Application.ServiceImplementations.Conventions.CRUD" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD/Intent.Application.ServiceImplementations.Conventions.CRUD.application.config" />
+    <application id="d6ba688e-4268-46e1-bd64-e86737cfa250" name="Intent.Modules.AspNetCore.Controllers.CQRS" relativePath="Intent.Modules.AspNetCore.Controllers.CQRS/Intent.Modules.AspNetCore.Controllers.CQRS.application.config" />
+    <application id="dab23093-58b2-4f51-a9bf-a935efcd4e47" name="Intent.Modules.Entities.Keys" relativePath="Intent.Modules.Entities.Keys/Intent.Modules.Entities.Keys.application.config" />
   </applications>
 </solution>

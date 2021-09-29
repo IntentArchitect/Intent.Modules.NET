@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>dab23093-58b2-4f51-a9bf-a935efcd4e47</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>41563513-2028-4bbb-bf92-c0e0d899e769</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Entities.Keys.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Entities.Keys.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>41563513-2028-4bbb-bf92-c0e0d899e769</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#41563513-2028-4bbb-bf92-c0e0d899e769</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.Entities.Keys.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Entities.Keys.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>41563513-2028-4bbb-bf92-c0e0d899e769</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>986ba2f8-9bf9-4e92-8c8e-386fcded5325</ProjectId>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

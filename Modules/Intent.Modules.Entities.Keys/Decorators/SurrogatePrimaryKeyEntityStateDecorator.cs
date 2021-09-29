@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Templates;
 using IdentityGeneratorTemplate = Intent.Modules.Entities.Keys.Templates.IdentityGenerator.IdentityGeneratorTemplate;
@@ -18,7 +19,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
 
         public SurrogatePrimaryKeyEntityStateDecorator(DomainEntityStateTemplate template) : base(template)
         {
-            _surrogateKeyType = template.GetSurrogateKeyType() ?? "System.Guid";
+            _surrogateKeyType = template.ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid";
         }
 
         public override string BeforeProperties(ClassModel @class)

@@ -70,28 +70,28 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     {
         internal ServiceSecureModel(
             ServiceModel serviceModel,
-            ServiceModelExtensions.Secured stereotype)
+            ServiceModelStereotypeExtensions.Secured stereotype)
         {
             ServiceModel = serviceModel;
             Stereotype = stereotype;
         }
 
         public ServiceModel ServiceModel { get; }
-        public ServiceModelExtensions.Secured Stereotype { get; }
+        public ServiceModelStereotypeExtensions.Secured Stereotype { get; }
     }
 
     public class OperationSecureModel
     {
         internal OperationSecureModel(
             OperationModel operationModel,
-            OperationModelExtensions.Secured stereotype)
+            OperationModelStereotypeExtensions.Secured stereotype)
         {
             OperationModel = operationModel;
             Stereotype = stereotype;
         }
 
         public OperationModel OperationModel { get; }
-        public OperationModelExtensions.Secured Stereotype { get; }
+        public OperationModelStereotypeExtensions.Secured Stereotype { get; }
     }
 
     public class AuthorizationModel

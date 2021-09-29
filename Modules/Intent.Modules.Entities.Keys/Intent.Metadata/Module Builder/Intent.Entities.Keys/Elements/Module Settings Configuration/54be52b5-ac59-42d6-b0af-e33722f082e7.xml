@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="54be52b5-ac59-42d6-b0af-e33722f082e7" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Entity Key Settings</name>
+  <display>Entity Key Settings</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</parentFolderId>
+  <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+  <packageName>Intent.Entities.Keys</packageName>
+  <stereotypes />
+  <childElements>
+    <childElement id="ef83f85d-bb8d-4b10-8842-9f35f9f54165" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Key Type</name>
+      <display>Key Type</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>54be52b5-ac59-42d6-b0af-e33722f082e7</parentFolderId>
+      <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+      <packageName>Intent.Entities.Keys</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Select the data type to be used for all surrogate and foreign keys." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="System.Guid" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <childElements>
+        <childElement id="7c216890-3f73-4de3-b10d-04dbca2db4a5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>guid</name>
+          <display>guid</display>
+          <isAbstract>false</isAbstract>
+          <value>System.Guid</value>
+          <order>0</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ef83f85d-bb8d-4b10-8842-9f35f9f54165</parentFolderId>
+          <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+          <packageName>Intent.Entities.Keys</packageName>
+          <stereotypes />
+          <childElements />
+        </childElement>
+        <childElement id="155d19d9-6021-4123-ba8e-38d4f088602b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>long</name>
+          <display>long</display>
+          <isAbstract>false</isAbstract>
+          <value>long</value>
+          <order>1</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ef83f85d-bb8d-4b10-8842-9f35f9f54165</parentFolderId>
+          <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+          <packageName>Intent.Entities.Keys</packageName>
+          <stereotypes />
+          <childElements />
+        </childElement>
+        <childElement id="836ace2d-f119-4fc9-9df2-5aba083a5d3b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>int</name>
+          <display>int</display>
+          <isAbstract>false</isAbstract>
+          <value>int</value>
+          <order>2</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ef83f85d-bb8d-4b10-8842-9f35f9f54165</parentFolderId>
+          <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+          <packageName>Intent.Entities.Keys</packageName>
+          <stereotypes />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
