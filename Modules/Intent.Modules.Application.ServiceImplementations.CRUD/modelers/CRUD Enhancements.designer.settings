@@ -13,8 +13,17 @@
         <option>
           <text>Create CRUD Operations</text>
           <icon type="FontAwesome" source="code" />
-          <script>// CREATE:
-var createDTO = createElement("DTO", `${context.name}CreateDTO`, context.getParent().id);
+          <script>function removeSuffix(s, suffix) {
+    while (s.endsWith(suffix)) {
+        s = s.substring(0, s.length - suffix.length);
+    }
+    return s;
+}
+
+var entityName = removeSuffix(removeSuffix(context.name, "Service"), "Controller");
+
+// CREATE:
+var createDTO = createElement("DTO", `${entityName}CreateDTO`, context.getParent().id);
 var createOperation = createElement("Operation", "Create", context.id);
 var createOperationParam = createElement("Parameter", "dto", createOperation.id);
 createOperationParam.typeReference.setType(createDTO.id);
@@ -22,7 +31,7 @@ var stereotype = createOperation.getStereotype("Http Settings");
 stereotype.getProperty("Verb").setValue("POST");
 
 // FIND-BY-ID:
-var findDTO = createElement("DTO", `${context.name}DTO`, context.getParent().id);
+var findDTO = createElement("DTO", `${entityName}DTO`, context.getParent().id);
 var findByIdOperation = createElement("Operation", "FindById", context.id);
 findByIdOperation.typeReference.setType(findDTO.id);
 var findByIdOperationParam = createElement("Parameter", "id", findByIdOperation.id);
@@ -39,7 +48,7 @@ stereotype = findByAllOperation.getStereotype("Http Settings");
 stereotype.getProperty("Verb").setValue("GET");
 
 // UPDATE:
-var updateDTO = createElement("DTO", `${context.name}updateDTO`, context.getParent().id);
+var updateDTO = createElement("DTO", `${entityName}UpdateDTO`, context.getParent().id);
 var updateOperation = createElement("Operation", "Update", context.id);
 var updateOperationIdParam = createElement("Parameter", "id", updateOperation.id);
 updateOperationIdParam.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488");

@@ -13,7 +13,7 @@
       <location>Implementation</location>
       <config>
         <add key="Namespace" description="Namespace" />
-        <add key="ClassName" description="Class name" default="${Model.Name}" />
+        <add key="ClassName" description="Class name" />
       </config>
     </template>
   </templates>
