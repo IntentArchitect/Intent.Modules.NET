@@ -80,8 +80,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         public string GetImplementation()
         {
 
-            return $@"var element = await {_repository.FieldName}.FindAllAsync(cancellationToken);
-            return element.MapTo{_template.GetTypeName(DtoModelTemplate.TemplateId, _dtoToReturn)}List(_mapper);";
+            return $@"var {_foundEntity.Name.ToCamelCase().ToPluralName()} = await {_repository.FieldName}.FindAllAsync(cancellationToken);
+            return {_foundEntity.Name.ToCamelCase().ToPluralName()}.MapTo{_template.GetTypeName(DtoModelTemplate.TemplateId, _dtoToReturn)}List(_mapper);";
         }
     }
 }

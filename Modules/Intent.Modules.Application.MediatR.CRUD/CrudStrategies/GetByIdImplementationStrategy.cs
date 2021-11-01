@@ -93,8 +93,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public string GetImplementation()
         {
-            return $@"var element = await {_repository.FieldName}.FindByIdAsync(request.{_idProperty.Name.ToPascalCase()}, cancellationToken);
-            return element.MapTo{_template.GetTypeName(DtoModelTemplate.TemplateId, _dtoToReturn)}(_mapper);";
+            return $@"var {_foundEntity.Name.ToCamelCase()} = await {_repository.FieldName}.FindByIdAsync(request.{_idProperty.Name.ToPascalCase()}, cancellationToken);
+            return {_foundEntity.Name.ToCamelCase()}.MapTo{_template.GetTypeName(DtoModelTemplate.TemplateId, _dtoToReturn)}(_mapper);";
         }
     }
 }
