@@ -71,7 +71,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             
             #line default
             #line hidden
-            this.Write("\r\n\r\n    public ");
+            this.Write("\r\n\r\n        public ");
             
             #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
@@ -85,14 +85,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             
             #line default
             #line hidden
-            this.Write(")\r\n    {");
+            this.Write(")\r\n        {");
             
             #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorImplementation()));
             
             #line default
             #line hidden
-            this.Write("\r\n    }\r\n\r\n");
+            this.Write("\r\n        }\r\n\r\n");
             
             #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers\Templates\Controller\ControllerTemplate.tt"
   foreach (var operation in Model.Operations)

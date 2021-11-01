@@ -24,9 +24,9 @@ namespace <#= Namespace #>
     public class <#= ClassName #> : <#= GetControllerBase() #>
     {<#= GetEnterClass() #>
 
-    public <#= ClassName #>(<#= GetConstructorParameters() #>)
-    {<#= GetConstructorImplementation() #>
-    }
+        public <#= ClassName #>(<#= GetConstructorParameters() #>)
+        {<#= GetConstructorImplementation() #>
+        }
 
 <#  foreach (var operation in Model.Operations)
     {#>
