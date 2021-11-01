@@ -11,6 +11,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
+using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -37,7 +39,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         public IEnumerable<string> DeclareUsings()
         {
-            if (!_template.Model.IsMapped)
+            if (!_template.Model.HasProjectFromDomainMapping())
             {
                 yield break;
             }
@@ -47,7 +49,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         public override IEnumerable<string> BaseInterfaces()
         {
-            if (!_template.Model.IsMapped)
+            if (!_template.Model.HasProjectFromDomainMapping())
             {
                 return base.BaseInterfaces();
             }
@@ -56,7 +58,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         public override string ExitClass()
         {
-            if (!_template.Model.IsMapped)
+            if (!_template.Model.HasProjectFromDomainMapping())
             {
                 return base.ExitClass();
             }

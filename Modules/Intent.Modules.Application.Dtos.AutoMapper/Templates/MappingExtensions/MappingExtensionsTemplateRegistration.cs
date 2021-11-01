@@ -35,7 +35,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
             return _metadataManager.Services(application).GetDTOModels()
-                .Where(x => x.IsMapped)
+                .Where(x => x.HasProjectFromDomainMapping())
                 .ToList();
         }
     }
