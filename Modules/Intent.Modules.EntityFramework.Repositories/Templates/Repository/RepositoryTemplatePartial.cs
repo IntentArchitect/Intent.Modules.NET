@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFramework.Repositories.Templates.EntityCompositionVisitor;
 using Intent.Modules.EntityFramework.Templates.DbContext;
@@ -77,7 +78,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
 
                 return typeReference != null
                     ? GetTypeName(typeReference)
-                    : "Guid";
+                    : ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid"; ;
             }
         }
 

@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Entities.Keys\Intent.Modules.Entities.Keys.csproj" />
     <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
   </ItemGroup>
 

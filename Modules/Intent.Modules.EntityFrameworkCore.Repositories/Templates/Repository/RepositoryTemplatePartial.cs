@@ -11,6 +11,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Templates;
@@ -61,7 +62,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 
         public string DbContextName => Project.FindTemplateInstance<IClassProvider>(_dbContextTemplateDependency)?.ClassName ?? $"{Model.Application.Name}DbContext";
         
-        public string PrimaryKeyType => Model.Attributes.Any(x => x.HasStereotype("Primary Key")) ? GetTypeName(Model.Attributes.First(x => x.HasStereotype("Primary Key")).Type) : "Guid";
+        public string PrimaryKeyType => Model.Attributes.Any(x => x.HasStereotype("Primary Key")) ? GetTypeName(Model.Attributes.First(x => x.HasStereotype("Primary Key")).Type) : ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid";
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 
