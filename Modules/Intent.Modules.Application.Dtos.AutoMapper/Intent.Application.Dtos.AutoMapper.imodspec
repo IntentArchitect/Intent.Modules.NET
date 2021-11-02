@@ -22,7 +22,7 @@
     <dependency id="Intent.Common.Types" version="3.1.0" />
     <dependency id="Intent.Application.AutoMapper" version="3.1.0" />
     <dependency id="Intent.Application.Dtos" version="3.1.0" />
-    <dependency id="Intent.Common.CSharp" version="3.1.0" />
+    <dependency id="Intent.Common.CSharp" version="3.1.6" />
     <dependency id="Intent.Modelers.Services" version="3.1.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.0" />
   </dependencies>

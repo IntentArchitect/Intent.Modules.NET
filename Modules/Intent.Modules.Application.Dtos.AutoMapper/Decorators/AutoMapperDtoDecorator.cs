@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         public IEnumerable<string> DeclareUsings()
         {
-            if (!_template.Model.HasProjectFromDomainMapping())
+            if (!_template.Model.HasMapFromDomainMapping())
             {
                 yield break;
             }
@@ -49,7 +49,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         public override IEnumerable<string> BaseInterfaces()
         {
-            if (!_template.Model.HasProjectFromDomainMapping())
+            if (!_template.Model.HasMapFromDomainMapping())
             {
                 return base.BaseInterfaces();
             }
@@ -58,7 +58,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         public override string ExitClass()
         {
-            if (!_template.Model.HasProjectFromDomainMapping())
+            if (!_template.Model.HasMapFromDomainMapping())
             {
                 return base.ExitClass();
             }
