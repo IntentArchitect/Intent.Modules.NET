@@ -3,6 +3,13 @@
   <ApplicationId>e3a56af9-4953-4fde-a283-50674146b91e</ApplicationId>
   <FileLogs>
     <FileLog>
+      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#0d6293c6-395b-47f6-99c7-d7111aa66981</CorrelationId>
+      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/ServiceExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2a911c58-aee5-4997-8062-8518345f2a92</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa5d716-3bc4-4a74-828d-d9b7c966ae17</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Decorators/CommandHandlerCrudDecorator.cs</ApplicationRelativeFilePath>
@@ -42,6 +49,13 @@
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3f0ab5fe-e9ef-4069-b690-195694fc1ce5</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Intent.Modules.Application.MediatR.CRUD.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>76922bdc-3562-407e-baa4-e77437a5e6d7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#46410048-55e6-4cc9-8ee0-dcd0e24a8ee2</CorrelationId>
+      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/modelers/MediatR CRUD Extensions.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatR CRUD Extensions.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

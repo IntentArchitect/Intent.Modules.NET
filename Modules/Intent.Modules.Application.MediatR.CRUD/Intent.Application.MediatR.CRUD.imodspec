@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD</id>
-  <version>3.1.0</version>
+  <version>3.1.1</version>
   <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
@@ -14,7 +14,7 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.1.0" />
+    <dependency id="Intent.Common" version="3.1.8" />
     <dependency id="Intent.Common.Types" version="3.1.0" />
     <dependency id="Intent.Application.MediatR" version="3.1.0" />
   </dependencies>
@@ -22,6 +22,9 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <metadata />
+  <metadata>
+    <install src="modelers/MediatR CRUD Extensions.designer.settings" externalReference="46410048-55e6-4cc9-8ee0-dcd0e24a8ee2" target="Services" />
+    <install target="Services" src="../Intent.Application.MediatR.CRUD/Intent.Metadata/Module Builder/Intent.Application.MediatR.CRUD/Intent.Application.MediatR.CRUD.pkg.config" externalReference="4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6" />
+  </metadata>
   <moduleSettings />
 </package>
