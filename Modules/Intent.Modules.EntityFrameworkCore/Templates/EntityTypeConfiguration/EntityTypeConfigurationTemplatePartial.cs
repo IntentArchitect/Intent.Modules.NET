@@ -53,7 +53,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (Model.ParentClass != null)
             {
                 return $@"
-            builder.HasBaseType<{ Model.ParentClass.Name }>();
+            builder.HasBaseType<{GetTypeName(DomainEntityStateTemplate.TemplateId, Model.ParentClass)}>();
 ";
 
             }
