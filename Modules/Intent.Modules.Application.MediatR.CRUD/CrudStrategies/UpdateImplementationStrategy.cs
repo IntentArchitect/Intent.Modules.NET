@@ -86,7 +86,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var sb = new StringBuilder();
             foreach (var property in command.Properties.Where(x => !x.Equals(_idProperty)))
             {
-                var attribute = domainModel.Attributes.FirstOrDefault(p => p.Name.Equals(property.Name, StringComparison.OrdinalIgnoreCase));
+                var attribute = property.Mapping?.Element != null
+                    ? property.Mapping.Element.AsAttributeModel()
+                    : domainModel.Attributes.FirstOrDefault(p => p.Name.Equals(property.Name, StringComparison.OrdinalIgnoreCase));
                 if (attribute == null)
                 {
                     sb.AppendLine($"                #warning No matching field found for {property.Name}");

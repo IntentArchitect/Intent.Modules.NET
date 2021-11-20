@@ -17,6 +17,7 @@
     <dependency id="Intent.Common" version="3.1.8" />
     <dependency id="Intent.Common.Types" version="3.1.0" />
     <dependency id="Intent.Application.MediatR" version="3.1.0" />
+    <dependency id="Intent.Entities.Repositories.Api" version="3.1.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

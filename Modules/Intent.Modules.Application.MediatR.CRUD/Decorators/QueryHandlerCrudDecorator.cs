@@ -29,10 +29,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             _template = template;
             _application = application;
 
-            if (File.Exists(_template.GetMetadata().GetFilePath()))
-            {
-                return;
-            }
+            //if (File.Exists(_template.GetMetadata().GetFilePath()))
+            //{
+            //    return;
+            //}
 
             _implementationStrategy = new ICrudImplementationStrategy[]
             {
