@@ -1,12 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <settings>
   <targetDesignerId>0701433c-36c0-4569-b1f4-9204986b587d</targetDesignerId>
   <createPackages>
-    <package  typeId="07e7b690-a59d-4b72-8440-4308a121d32c" type="Visual Studio Solution">
+    <package typeId="07e7b690-a59d-4b72-8440-4308a121d32c" type="Visual Studio Solution">
       <name>${application.name}</name>
+      <stereotypes />
       <childElements>
         <element typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
           <name>1 - Api</name>
+          <stereotypes />
           <childElements>
             <element typeId="8AF747CF-58F0-449C-8B95-46080FEFC8C0" type="ASP.NET Web Application (.NET Framework)">
               <name>${application.name}.Api</name>
@@ -19,16 +21,116 @@
                     <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="13b3a401-3f7d-491a-83c2-a160c7035bf1" isActive="true" />
                   </properties>
                 </stereotype>
+                <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                  <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                  <properties>
+                    <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+                    <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                  </properties>
+                </stereotype>
               </stereotypes>
               <childElements>
-                <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
-                  <name>FrontEnd</name>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>App_Start</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Autofac</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Context</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Controllers</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Filters</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Unity</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
                 </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Distribution.WebApi</name>
+                  <stereotypes />
+                  <childElements />
+                </element>
+                <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
+                  <name>FrontEnd</name>
+                  <stereotypes />
+                  <childElements />
                 </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Startup</name>
+                  <stereotypes />
+                  <childElements />
                 </element>
               </childElements>
             </element>
@@ -36,6 +138,7 @@
         </element>
         <element typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
           <name>2 - Application</name>
+          <stereotypes />
           <childElements>
             <element typeId="0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D" type="Class Library (.NET Framework)">
               <name>${application.name}.Application</name>
@@ -48,10 +151,50 @@
                     <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="13b3a401-3f7d-491a-83c2-a160c7035bf1" isActive="true" />
                   </properties>
                 </stereotype>
+                <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                  <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                  <properties>
+                    <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+                    <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                  </properties>
+                </stereotype>
               </stereotypes>
               <childElements>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Implementation</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Interfaces</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Application</name>
+                  <stereotypes />
+                  <childElements />
                 </element>
               </childElements>
             </element>
@@ -59,6 +202,7 @@
         </element>
         <element typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
           <name>3 - Domain</name>
+          <stereotypes />
           <childElements>
             <element typeId="0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D" type="Class Library (.NET Framework)">
               <name>${application.name}.Domain</name>
@@ -71,13 +215,84 @@
                     <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="13b3a401-3f7d-491a-83c2-a160c7035bf1" isActive="true" />
                   </properties>
                 </stereotype>
+                <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                  <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                  <properties>
+                    <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+                    <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                  </properties>
+                </stereotype>
               </stereotypes>
               <childElements>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Entities</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements>
+                    <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                      <name>Common</name>
+                      <stereotypes>
+                        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                          <addedByDefault>true</addedByDefault>
+                          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                          <properties>
+                            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                          </properties>
+                        </stereotype>
+                      </stereotypes>
+                      <childElements />
+                    </element>
+                  </childElements>
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Enums</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Repositories</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Domain</name>
+                  <stereotypes />
+                  <childElements />
                 </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Repository.Interface</name>
+                  <stereotypes />
+                  <childElements />
                 </element>
               </childElements>
             </element>
@@ -85,6 +300,7 @@
         </element>
         <element typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
           <name>4 - Infrastructure</name>
+          <stereotypes />
           <childElements>
             <element typeId="0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D" type="Class Library (.NET Framework)">
               <name>${application.name}.Infrastructure</name>
@@ -97,13 +313,69 @@
                     <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="13b3a401-3f7d-491a-83c2-a160c7035bf1" isActive="true" />
                   </properties>
                 </stereotype>
+                <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                  <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                  <properties>
+                    <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+                    <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                  </properties>
+                </stereotype>
               </stereotypes>
               <childElements>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>EFMappings</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Repositories</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
+                <element typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                  <name>Visitor</name>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                      <properties>
+                        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <childElements />
+                </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Infrastructure</name>
+                  <stereotypes />
+                  <childElements />
                 </element>
                 <element typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
                   <name>Repository.Implementation</name>
+                  <stereotypes />
+                  <childElements />
                 </element>
               </childElements>
             </element>
