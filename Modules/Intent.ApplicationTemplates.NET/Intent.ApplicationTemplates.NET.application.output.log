@@ -9,13 +9,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
-      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#fe18fa2b-1214-435e-9273-cf1804f6f21b</CorrelationId>
-      <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack/metadata.iatspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.WebApi.FullStack/metadata.iatspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#061e7174-b0ab-4b90-8c32-11cf5de6a081</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture/metadata.iatspec</ProjectRelativeFilePath>
