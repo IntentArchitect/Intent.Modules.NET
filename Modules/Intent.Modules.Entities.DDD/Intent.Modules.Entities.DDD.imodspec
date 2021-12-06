@@ -20,7 +20,7 @@
     <decorator id="Intent.Entities.DDD.EntityInterfaceDecorator" enabled="true"></decorator>
   </decorators>
   <dependencies>
-    <dependency id="Intent.Entities" version="3.1.0" />
+    <dependency id="Intent.Entities" version="3.1.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
