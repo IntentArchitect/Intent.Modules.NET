@@ -35,7 +35,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             }
 
             var lowerDomainName = domainModel.Name.ToLower();
-            var pluralLowerDomainName = Vocabularies.Default.Pluralize(lowerDomainName);
+            var pluralLowerDomainName = lowerDomainName.Pluralize();
             var lowerOperationName = operationModel.Name.ToLower();
             return new[]
             {
