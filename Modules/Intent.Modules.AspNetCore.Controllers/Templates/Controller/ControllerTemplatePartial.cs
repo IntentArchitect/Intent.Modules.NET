@@ -5,6 +5,7 @@ using System.Text;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -151,17 +152,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 case HttpVerb.POST:
                 case HttpVerb.PUT:
-                    parameters.AddRange(operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
-                    break;
                 case HttpVerb.GET:
                 case HttpVerb.DELETE:
-                    if (operation.Parameters.Any(x => x.TypeReference.Element.SpecializationTypeId != TypeDefinitionModel.SpecializationTypeId &&
-                                                      x.GetParameterSettings().Source().IsDefault()))
-                    {
-                        Logging.Log.Warning($@"Intent.AspNetCore.Controllers: [{Model.Name}.{operation.Name}] Passing objects into HTTP {GetHttpVerb(operation)} operations is not well supported by this module.
-    We recommend using a POST or PUT verb");
-                        // Log warning
-                    }
                     parameters.AddRange(operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
                     break;
                 default:
@@ -191,6 +183,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             if (parameter.GetParameterSettings().Source().IsDefault())
             {
+                if ((operation.GetHttpSettings().Verb().IsGET() || operation.GetHttpSettings().Verb().IsDELETE()) &&
+                    (parameter.TypeReference.Element.IsQueryModel() || parameter.TypeReference.Element.IsCommandModel()))
+                {
+                    return "[FromQuery]";
+                }
+
+                if ((operation.GetHttpSettings().Verb().IsPOST() || operation.GetHttpSettings().Verb().IsPUT()) &&
+                    (parameter.TypeReference.Element.IsQueryModel() || parameter.TypeReference.Element.IsCommandModel()))
+                {
+                    return "[FromBody]";
+                }
                 return "";
             }
 
