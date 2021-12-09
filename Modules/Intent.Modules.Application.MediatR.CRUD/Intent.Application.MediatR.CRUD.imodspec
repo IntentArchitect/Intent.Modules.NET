@@ -19,6 +19,18 @@
     <dependency id="Intent.Application.MediatR" version="3.1.1" />
     <dependency id="Intent.Entities.Repositories.Api" version="3.1.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.EntityFrameworkCore">
+      <install>
+        <package id="Intent.EntityFrameworkCore.Repositories" version="3.1.0" />
+      </install>
+    </detect>
+    <detect id="Intent.EntityFramework">
+      <install>
+        <package id="Intent.EntityFramework.Repositories" version="3.1.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
