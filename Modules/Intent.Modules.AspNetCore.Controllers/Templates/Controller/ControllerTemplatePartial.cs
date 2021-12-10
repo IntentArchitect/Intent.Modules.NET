@@ -184,15 +184,21 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             if (parameter.GetParameterSettings().Source().IsDefault())
             {
                 if ((operation.GetHttpSettings().Verb().IsGET() || operation.GetHttpSettings().Verb().IsDELETE()) &&
-                    (parameter.TypeReference.Element.IsQueryModel() || parameter.TypeReference.Element.IsCommandModel()))
+                    (!parameter.TypeReference.Element.IsTypeDefinitionModel()))
                 {
                     return "[FromQuery]";
                 }
 
                 if ((operation.GetHttpSettings().Verb().IsPOST() || operation.GetHttpSettings().Verb().IsPUT()) &&
-                    (parameter.TypeReference.Element.IsQueryModel() || parameter.TypeReference.Element.IsCommandModel()))
+                    (!parameter.TypeReference.Element.IsTypeDefinitionModel()))
                 {
                     return "[FromBody]";
+                }
+
+                if (parameter.TypeReference.Element.IsTypeDefinitionModel() &&
+                    operation.GetHttpSettings().Route()?.Contains($"{{{parameter.Name}}}") == true)
+                {
+                    return "[FromRoute]";
                 }
                 return "";
             }
