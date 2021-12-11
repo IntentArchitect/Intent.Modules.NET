@@ -29,7 +29,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
 
         public string EntityInterfaceName => GetTypeName(GetMetadata().CustomMetadata["Entity Interface Template Id"], Model); 
 
-        public string PrimaryKeyType => Model.Attributes.Any(x => x.HasStereotype("Primary Key")) ? GetTypeName(Model.Attributes.First(x => x.HasStereotype("Primary Key")).Type) : ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid";
+        public string PrimaryKeyType => Model.Attributes.Any(x => x.HasStereotype("Primary Key")) ? GetTypeName(Model.Attributes.First(x => x.HasStereotype("Primary Key")).Type) : UseType(ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid");
 
         protected override CSharpFileConfig DefineFileConfig()
         {

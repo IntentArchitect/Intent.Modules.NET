@@ -78,7 +78,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
 
                 return typeReference != null
                     ? GetTypeName(typeReference)
-                    : ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid"; ;
+                    : UseType(ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid");
             }
         }
 

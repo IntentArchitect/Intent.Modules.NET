@@ -33,7 +33,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
                     return base.AssociationBefore(associationEnd);
                 }
 
-                var foreignKeyType = associationEnd.Class.GetExplicitSurrogateKeyType(Template.Types) ?? Template.UseType(_foreignKeyType);
+                var foreignKeyType = associationEnd.Class.GetSurrogateKeyType(Template.Types) ?? Template.UseType(_foreignKeyType);
                 return $@"       public {foreignKeyType}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }Id {{ get; set; }}
 ";
             }
