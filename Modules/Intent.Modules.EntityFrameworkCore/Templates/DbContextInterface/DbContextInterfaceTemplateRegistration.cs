@@ -1,14 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common.Registrations;
-using Intent.Templates;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
-using System;
+using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]

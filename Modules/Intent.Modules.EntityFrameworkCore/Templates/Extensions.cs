@@ -6,21 +6,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
 {
     public static class Extensions
     {
-        public static string Name(this AssociationEndModel associationEnd)
-        {
-            //if (string.IsNullOrEmpty(associationEnd.Name))
-            //{
-            //    var className = associationEnd.Class.Name;
-            //    if (associationEnd.MaxMultiplicity == "*" || int.Parse(associationEnd.MaxMultiplicity) > 1)
-            //    {
-            //        return className.EndsWith("y") ? className.Substring(0, className.Length - 1) + "ies" : $"{className}s";
-            //    }
-            //    return associationEnd.Class.Name;
-            //}
-
-            return associationEnd.Name;
-        }
-
         public static RelationshipType GetRelationshipType(this AssociationModel association)
         {
             if ((association.SourceEnd.Multiplicity == Multiplicity.One || association.SourceEnd.Multiplicity == Multiplicity.ZeroToOne) && (association.TargetEnd.Multiplicity == Multiplicity.One || association.TargetEnd.Multiplicity == Multiplicity.ZeroToOne))

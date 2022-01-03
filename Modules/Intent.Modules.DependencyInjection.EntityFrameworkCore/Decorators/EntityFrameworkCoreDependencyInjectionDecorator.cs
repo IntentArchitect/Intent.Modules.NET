@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.VisualStudio;
@@ -7,7 +8,6 @@ using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -20,6 +20,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.DependencyInjection.EntityFrameworkCore.EntityFrameworkCoreDependencyInjectionDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly DependencyInjectionTemplate _template;
         private readonly IApplication _application;
 

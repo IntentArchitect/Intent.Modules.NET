@@ -11,8 +11,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Templates.DomainEntityState;
-using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -24,7 +24,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
     {
         public const string Identifier = "Intent.EntityFrameworkCore.DbContextInterface";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
         public DbContextInterfaceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(Identifier, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));

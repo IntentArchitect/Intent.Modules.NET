@@ -11,11 +11,11 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
-using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
-using Intent.Templates;
-using Intent.RoslynWeaver.Attributes;
 using Intent.Modules.EntityFrameworkCore.Events;
+using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]

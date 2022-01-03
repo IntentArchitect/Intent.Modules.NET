@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
@@ -13,7 +14,6 @@ using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using Intent.Modules.Common;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -146,8 +146,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             switch (associationEnd.Association.GetRelationshipType())
             {
                 case RelationshipType.OneToOne:
-                    statements.Add($"builder.HasOne(x => x.{associationEnd.Name().ToPascalCase()})");
-                    statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name().ToPascalCase()}" : "") })");
+                    statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
+                    statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "") })");
                     statements.Add($".HasForeignKey<{ Model.Name }>({GetForeignKeyLambda(associationEnd.OtherEnd())})");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
@@ -161,14 +161,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                     break;
                 case RelationshipType.ManyToOne:
-                    statements.Add($"builder.HasOne(x => x.{associationEnd.Name().ToPascalCase()})");
-                    statements.Add($".WithMany({ (associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name().ToPascalCase() : "") })");
+                    statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
+                    statements.Add($".WithMany({ (associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "") })");
                     statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd())})");
                     statements.Add($".OnDelete(DeleteBehavior.Restrict)");
                     break;
                 case RelationshipType.OneToMany:
-                    statements.Add($"builder.HasMany(x => x.{associationEnd.Name().ToPascalCase()})");
-                    statements.Add($".WithOne(x => x.{ associationEnd.OtherEnd().Name().ToPascalCase() })");
+                    statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
+                    statements.Add($".WithOne(x => x.{ associationEnd.OtherEnd().Name.ToPascalCase() })");
                     statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd)})");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
@@ -180,7 +180,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 case RelationshipType.ManyToMany:
                     if (Project.GetProject().IsNetCore2App || Project.GetProject().IsNetCore3App)
                     {
-                        statements.Add($"builder.Ignore(x => x.{associationEnd.Name().ToPascalCase()})");
+                        statements.Add($"builder.Ignore(x => x.{associationEnd.Name.ToPascalCase()})");
 
                         Logging.Log.Warning($@"Intent.EntityFrameworkCore: Cannot create mapping relationship from {Model.Name} to {associationEnd.Class.Name}. It has been ignored, and will not be persisted.
     Many-to-Many relationships are not yet supported by EntityFrameworkCore as yet.
@@ -189,8 +189,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     }
                     else // if .NET 5.0 or above...
                     {
-                        statements.Add($"builder.HasMany(x => x.{associationEnd.Name().ToPascalCase()})");
-                        statements.Add($".WithMany(x => x.{associationEnd.OtherEnd().Name().ToPascalCase()})");
+                        statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
+                        statements.Add($".WithMany(x => x.{associationEnd.OtherEnd().Name.ToPascalCase()})");
                         statements.Add($".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
                     }
                     break;
@@ -229,7 +229,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             var columns = ((associationEnd.IsSourceEnd()
                                ? (associationEnd as AssociationSourceEndModel).GetForeignKey()?.ColumnName()
                                : (associationEnd as AssociationTargetEndModel).GetForeignKey()?.ColumnName())
-                           ?? associationEnd.OtherEnd().Name().ToPascalCase() + "Id")
+                           ?? associationEnd.OtherEnd().Name.ToPascalCase() + "Id")
                 .Split(',') // upgrade stereotype to have a selection list.
                 .Select(x => x.Trim())
                 .ToList();
