@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Eventing;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Templates;
@@ -66,6 +67,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
             {
                 return new List<string>();
             }
+
+            public IVisualStudioProject Project { get; }
 
             private class NuGetPackages : INugetPackageInfo
             {

@@ -25,6 +25,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
         public string ProjectId => Model.Id;
         public string Name => Model.Name;
         public string FilePath => GetMetadata().GetFilePath();
+        IVisualStudioProject IVisualStudioProjectTemplate.Project => Model;
 
         public string LoadContent()
         {

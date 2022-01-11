@@ -70,6 +70,68 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<IElement[]>("Target Frameworks") ?? new IElement[0];
             }
 
+            public string RuntimeIdentifiers()
+            {
+                return _stereotype.GetProperty<string>("Runtime Identifiers");
+            }
+
+            public string Configurations()
+            {
+                return _stereotype.GetProperty<string>("Configurations");
+            }
+
+            public string RootNamespace()
+            {
+                return _stereotype.GetProperty<string>("RootNamespace");
+            }
+
+            public string UserSecretsId()
+            {
+                return _stereotype.GetProperty<string>("UserSecretsId");
+            }
+
+            public GenerateRuntimeConfigurationFilesOptions GenerateRuntimeConfigurationFiles()
+            {
+                return new GenerateRuntimeConfigurationFilesOptions(_stereotype.GetProperty<string>("Generate Runtime Configuration Files"));
+            }
+
+            public class GenerateRuntimeConfigurationFilesOptions
+            {
+                public readonly string Value;
+
+                public GenerateRuntimeConfigurationFilesOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public GenerateRuntimeConfigurationFilesOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "false":
+                            return GenerateRuntimeConfigurationFilesOptionsEnum.False;
+                        case "true":
+                            return GenerateRuntimeConfigurationFilesOptionsEnum.True;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsFalse()
+                {
+                    return Value == "false";
+                }
+                public bool IsTrue()
+                {
+                    return Value == "true";
+                }
+            }
+
+            public enum GenerateRuntimeConfigurationFilesOptionsEnum
+            {
+                False,
+                True
+            }
         }
 
         public class AzureFunctionsProjectSettings
