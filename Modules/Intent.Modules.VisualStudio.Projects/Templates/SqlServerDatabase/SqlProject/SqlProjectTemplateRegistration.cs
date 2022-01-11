@@ -6,9 +6,9 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Registrations;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]

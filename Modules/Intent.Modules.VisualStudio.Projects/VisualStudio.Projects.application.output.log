@@ -186,18 +186,21 @@
     </FileLog>
     <FileLog>
       <ProjectId>3ff20de1-253f-4f42-82ca-55a1345f9042</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataDesignerExtensions</CorrelationId>
       <ApplicationRelativeFilePath>ApiMetadataDesignerExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiMetadataDesignerExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3ff20de1-253f-4f42-82ca-55a1345f9042</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataPackageExtensions</CorrelationId>
       <ApplicationRelativeFilePath>ApiMetadataPackageExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiMetadataPackageExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3ff20de1-253f-4f42-82ca-55a1345f9042</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</CorrelationId>
       <ApplicationRelativeFilePath>ApiMetadataProviderExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiMetadataProviderExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -211,7 +214,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3ff20de1-253f-4f42-82ca-55a1345f9042</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.VisualStudio.Projects.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.VisualStudio.Projects.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

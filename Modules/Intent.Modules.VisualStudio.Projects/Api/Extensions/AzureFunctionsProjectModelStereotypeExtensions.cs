@@ -67,7 +67,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
             public IElement[] TargetFrameworks()
             {
-                return _stereotype.GetProperty<IElement[]>("Target Frameworks");
+                return _stereotype.GetProperty<IElement[]>("Target Frameworks") ?? new IElement[0];
             }
 
         }

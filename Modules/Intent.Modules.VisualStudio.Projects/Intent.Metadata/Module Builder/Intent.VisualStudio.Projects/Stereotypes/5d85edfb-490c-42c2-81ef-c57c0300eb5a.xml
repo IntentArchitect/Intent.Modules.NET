@@ -37,7 +37,7 @@
       <controlType>select</controlType>
       <optionsSource>lookup-element</optionsSource>
       <placeholder>(required)</placeholder>
-      <defaultValue>d603dbfd-3361-4406-b5c0-efc2ac6f33fc</defaultValue>
+      <defaultValue>9880b776-9b13-4ff6-87b3-2219cfa66652</defaultValue>
       <valueOptions />
       <lookupTypes>
         <type>65fb2757-ce97-41a8-9c53-b03d53c2c03f</type>

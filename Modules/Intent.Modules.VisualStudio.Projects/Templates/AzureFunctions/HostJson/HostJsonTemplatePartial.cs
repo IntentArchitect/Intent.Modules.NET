@@ -8,7 +8,6 @@ using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 

@@ -4,18 +4,18 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+using Intent.Engine;
+using Intent.Eventing;
+using Intent.Metadata.Models;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Templates.WebConfig;
-using Intent.Engine;
-using Intent.Eventing;
-using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Configuration;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Intent.Metadata.Models;
-using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -32,7 +32,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         private readonly IList<ConnectionStringRegistrationRequest> _connectionStrings = new List<ConnectionStringRegistrationRequest>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public AppSettingsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, null)
+        public AppSettingsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(HandleAppSetting);
             ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
