@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Intent.Engine;
+﻿using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 
@@ -27,9 +24,15 @@ namespace Intent.Modules.VisualStudio.Projects.OutputTargets
                     Register(registry, folder);
                 }
             }
+
+            var solutionFolders = _metadataManager.VisualStudio(application).GetSolutionFolderModels();
+            foreach (var solutionFolder in solutionFolders)
+            {
+                registry.RegisterOutputTarget(solutionFolder.ToOutputTarget());
+            }
         }
 
-        private void Register(IOutputTargetRegistry registry, FolderModel folder)
+        private static void Register(IOutputTargetRegistry registry, FolderModel folder)
         {
             registry.RegisterOutputTarget(folder.ToOutputTargetConfig());
             foreach (var child in folder.Folders)

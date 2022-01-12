@@ -123,6 +123,16 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                     .GetElementsOfType(ConsoleAppNETCoreModel.SpecializationTypeId)
                     .Select(x => new ConsoleAppNETCoreModel(x))
                     .ToList();
+
+        public IList<RoleModel> Roles => _element.ChildElements
+                    .GetElementsOfType(RoleModel.SpecializationTypeId)
+                    .Select(x => new RoleModel(x))
+                    .ToList();
+
+        public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
+                    .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)
+                    .Select(x => new TemplateOutputModel(x))
+                    .ToList();
     }
 
     [IntentManaged(Mode.Fully)]
@@ -137,6 +147,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public static SolutionFolderModel AsSolutionFolderModel(this ICanBeReferencedType type)
         {
             return type.IsSolutionFolderModel() ? new SolutionFolderModel((IElement)type) : null;
+        }
+
+        [IntentManaged(Mode.Ignore)]
+        public static SolutionFolderOutputTarget ToOutputTarget(this SolutionFolderModel solutionFolder)
+        {
+            return new SolutionFolderOutputTarget(solutionFolder);
         }
     }
 }
