@@ -7,25 +7,30 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
 {
     internal class SlnFile
     {
-        public List<Node> Nodes { get; set; } = new();
-
-        public string FilePath { get; set; }
-
-        public override string ToString()
-        {
-            var w = new Writer();
-            foreach (var node in Nodes)
-            {
-                node.Visit(w);
-            }
-
-            return w.ToString();
-        }
+        private readonly string _originalOutput;
 
         public SlnFile(string path, string content)
         {
             FilePath = Path.GetFullPath(path);
             Parse(content);
+            _originalOutput = GetOutput();
+        }
+
+        public List<Node> Nodes { get; set; } = new();
+
+        public string FilePath { get; set; }
+
+        public bool IsChanged => _originalOutput != GetOutput();
+
+        private string GetOutput()
+        {
+            var writer = new Writer();
+            foreach (var node in Nodes)
+            {
+                node.Visit(writer);
+            }
+
+            return writer.ToString();
         }
 
         public void Parse(string content)
@@ -320,5 +325,7 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
 
             return false;
         }
+
+        public override string ToString() => GetOutput();
     }
 }

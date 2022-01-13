@@ -132,6 +132,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     }
                 }
 
+                if (!slnFile.IsChanged)
+                {
+                    continue;
+                }
+
                 change.ChangeContent(slnFile.ToString());
             }
         }
