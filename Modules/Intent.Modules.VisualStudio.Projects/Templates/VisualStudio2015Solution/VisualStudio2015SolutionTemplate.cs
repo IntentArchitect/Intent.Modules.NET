@@ -12,7 +12,7 @@ using Intent.Templates;
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution
 {
     // NB! Solution Project Type guids: http://www.codeproject.com/Reference/720512/List-of-Visual-Studio-Project-Type-GUIDs
-    partial class VisualStudio2015SolutionTemplate : ITemplate, IConfigurableTemplate
+    public class VisualStudio2015SolutionTemplate : ITemplate, IConfigurableTemplate
     {
         public const string Identifier = "Intent.VisualStudio.Projects.VisualStudio2015Solution";
         private static readonly string[] SolutionConfigurationPlatformTypes = { "ActiveCfg", "Build.0" };
