@@ -140,7 +140,8 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
         // For adding files to a solution folder
         public void AddSolutionItem(string solutionFolderName, string filePath)
         {
-            var relativePath = Path.GetRelativePath(FilePath, Path.GetFullPath(filePath)).Replace("/", "\\");
+            // .sln files always use forward slashes
+            var relativePath = Path.GetRelativePath(Path.GetDirectoryName(FilePath), filePath).Replace("/", "\\");
 
             var solutionFolderNode = Nodes
                 .OfType<SolutionItemComplexNode>()
