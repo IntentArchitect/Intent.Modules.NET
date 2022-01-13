@@ -80,7 +80,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             {
                 switch (@event.EventIdentifier)
                 {
-                    case SoftwareFactoryEvents.FileAdded:
+                    case SoftwareFactoryEvents.FileAddedEvent:
                         ProcessAddProjectItem(
                             path: @event.GetValue("Path"),
                             itemType: @event.TryGetValue("ItemType"),
@@ -96,7 +96,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                             copyToOutputDirectory: @event.TryGetValue("CopyToOutputDirectory"),
                             linkSource: @event.GetValue("Include"));
                         break;
-                    case SoftwareFactoryEvents.FileRemoved:
+                    case SoftwareFactoryEvents.FileRemovedEvent:
                         ProcessRemoveProjectItem(
                             path: @event.GetValue("Path"));
                         break;

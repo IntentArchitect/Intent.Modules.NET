@@ -206,6 +206,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6245f87d-116e-4e94-ab51-f6822e944566</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#8b11dd91-de7f-48c0-a4a9-206b1108d703</CorrelationId>
+      <ApplicationRelativeFilePath>FactoryExtensions/VisualStudioSolutionSyncProcessor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VisualStudioSolutionSyncProcessor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3ff20de1-253f-4f42-82ca-55a1345f9042</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3ff20de1-253f-4f42-82ca-55a1345f9042</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Modules.VisualStudio.Projects.csproj</ApplicationRelativeFilePath>

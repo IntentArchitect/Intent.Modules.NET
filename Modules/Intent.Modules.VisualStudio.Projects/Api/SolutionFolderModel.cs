@@ -150,9 +150,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         }
 
         [IntentManaged(Mode.Ignore)]
-        public static SolutionFolderOutputTarget ToOutputTarget(this SolutionFolderModel solutionFolder)
+        public static FolderConfig ToOutputTarget(this SolutionFolderModel solutionFolder)
         {
-            return new SolutionFolderOutputTarget(solutionFolder);
+            return new FolderConfig(solutionFolder);
         }
     }
 }

@@ -1,9 +1,22 @@
-﻿namespace Intent.Modules.Constants
+﻿using System;
+using Intent.SdkEvolutionHelpers;
+
+namespace Intent.Modules.Constants
 {
     public static class SoftwareFactoryEvents
     {
-        public const string FileAdded = "Intent.SoftwareFactory.AddProjectItemEvent";
-        public const string FileRemoved = "Intent.SoftwareFactory.RemoveProjectItemEvent";
+        /// <summary>
+        /// Obsolete, use <see cref="FileAddedEvent"/> instead.
+        /// </summary>
+        [Obsolete(WillBeRemovedIn.Version4)]
+        public const string FileAdded = FileAddedEvent;
+        public const string FileAddedEvent = "Intent.SoftwareFactory.AddProjectItemEvent";
+        /// <summary>
+        /// Obsolete, use <see cref="FileRemovedEvent"/> instead.
+        /// </summary>
+        [Obsolete(WillBeRemovedIn.Version4)]
+        public const string FileRemoved = FileRemovedEvent;
+        public const string FileRemovedEvent = "Intent.SoftwareFactory.RemoveProjectItemEvent";
         public const string AddTargetEvent = "Intent.SoftwareFactory.AddTargetEvent";
         public const string AddTaskEvent = "Intent.SoftwareFactory.AddTaskEvent";
         public const string ChangeProjectItemTypeEvent = "Intent.SoftwareFactory.ChangeProjectItemTypeEvent";

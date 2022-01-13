@@ -11,8 +11,21 @@
     <PackageProjectUrl>https://github.com/IntentSoftware/Intent.Modules.NET</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.2.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.0" />
+    <PackageReference Include="Intent.Packager" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.2.0" />
+    <PackageReference Include="Microsoft.Build" Version="16.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NuGet.Versioning" Version="5.6.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Templates\NodeJSProjectFile\**" />
@@ -49,42 +62,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SqlProjectTemplate.tt</DependentUpon>
     </Compile>
-
     <None Update="Templates\AzureFunctions\HostJson\HostJsonTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HostJsonTemplate.cs</LastGenOutput>
     </None>
-
     <Compile Update="Templates\AzureFunctions\HostJson\HostJsonTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>HostJsonTemplate.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Api\Extensions\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.1.11" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.1.8" />
-    <PackageReference Include="Intent.Packager" Version="3.1.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.0.0" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Build" Version="16.5.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="NuGet.Versioning" Version="5.6.0" />
-    <PackageReference Include="System.CodeDom" Version="4.7.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.CSharp">
-      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -107,10 +93,6 @@
     <None Update="Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CoreWebCSProjectTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\VisualStudio2015Solution\VisualStudio2015SolutionTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>VisualStudio2015SolutionTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -143,11 +125,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CoreWebCSProjectTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\VisualStudio2015Solution\VisualStudio2015SolutionTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>VisualStudio2015SolutionTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

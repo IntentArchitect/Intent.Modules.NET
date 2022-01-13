@@ -1,164 +1,148 @@
-﻿using Intent.Modules.VisualStudio.Projects.Parsing;
-using Intent.Engine;
-using Intent.Templates;
-using Microsoft.Build.Construction;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
+using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Plugins;
+using Intent.Modules.VisualStudio.Projects.SolutionFile;
+using Intent.Templates;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution
 {
-    public class VisualStudio2015SolutionTemplateModel
-    {
-        public VisualStudio2015SolutionTemplateModel(IApplication application)
-        {
-            Application = application;
-        }
-
-        public IApplication Application { get; }
-    }
-
-    // NB! Solution Project Type GUIDS: http://www.codeproject.com/Reference/720512/List-of-Visual-Studio-Project-Type-GUIDs
+    // NB! Solution Project Type guids: http://www.codeproject.com/Reference/720512/List-of-Visual-Studio-Project-Type-GUIDs
     partial class VisualStudio2015SolutionTemplate : ITemplate, IConfigurableTemplate
     {
         public const string Identifier = "Intent.VisualStudio.Projects.VisualStudio2015Solution";
+        private static readonly string[] SolutionConfigurationPlatformTypes = { "ActiveCfg", "Build.0" };
+
         private IFileMetadata _fileMetadata;
 
         public VisualStudio2015SolutionTemplate(IApplication application, VisualStudioSolutionModel model, IEnumerable<IVisualStudioProject> projects)
         {
             Application = application;
             Model = model;
-            //_fileMetadata = CreateMetadata();
             BindingContext = new TemplateBindingContext(new VisualStudio2015SolutionTemplateModel(Application));
             Projects = projects;
-            //ExistingSolution = existingSolution;
-            SolutionFolders = Projects.Where(x => x.ParentFolder != null && x.ParentFolder.Id != Application.Id)
-                .GroupBy(x => x.ParentFolder.Name)
-                .ToDictionary(x => x.Key, x => x.ToList())
-                .Select(x => new SolutionFolder(x.Key, x.Value))
-                .ToList();
         }
 
-        public string Id { get; } = Identifier;
+        public string Id => Identifier;
         public IApplication Application { get; }
         public VisualStudioSolutionModel Model { get; }
-
         public IEnumerable<IVisualStudioProject> Projects { get; }
-        //public SolutionFile ExistingSolution { get; }
-        public IList<SolutionFolder> SolutionFolders { get; }
 
-        public bool CanRunTemplate()
-        {
-            return true;
-        }
+        public bool CanRunTemplate() => true;
 
         public string RunTemplate()
         {
-            string targetFile = GetMetadata().GetFullLocationPathWithFileName();
+            var targetFile = GetMetadata().GetFilePath();
+            var content = File.Exists(targetFile)
+                ? File.ReadAllText(targetFile)
+                : "Microsoft Visual Studio Solution File, Format Version 12.00" + Environment.NewLine +
+                  "# Visual Studio 14" + Environment.NewLine +
+                  "VisualStudioVersion = 14.0.25420.1" + Environment.NewLine +
+                  "MinimumVisualStudioVersion = 10.0.40219.1";
+            var slnFile = new SlnFile(targetFile, content);
 
-            if (!File.Exists(targetFile))
+            slnFile.GetOrCreateGlobalNode("Global", out var globalNode);
+
+            globalNode.GetOrCreateSection(
+                name: "SolutionConfigurationPlatforms",
+                value: "preSolution",
+                childNodes: new List<Node>
+                {
+                    new KeyValueNode("Debug|Any CPU", "Debug|Any CPU"),
+                    new KeyValueNode("Release|Any CPU", "Release|Any CPU")
+                },
+                sectionNode: out var solutionConfigurationPlatforms);
+            globalNode.GetOrCreateSection(
+                name: "ProjectConfigurationPlatforms",
+                value: "postSolution",
+                childNodes: new List<Node>(),
+                sectionNode: out var projectConfigurationPlatforms);
+            globalNode.GetOrCreateSection(
+                name: "SolutionProperties",
+                value: "preSolution",
+                childNodes: new List<Node>
+                {
+                    new KeyValueNode("HideSolutionNode", "FALSE")
+                },
+                sectionNode: out _);
+            globalNode.GetOrCreateSection(
+                name: "NestedProjects",
+                value: "preSolution",
+                childNodes: new List<Node>(),
+                sectionNode: out _);
+
+            SyncProjectsAndFolders(
+                slnFile: slnFile,
+                slnParent: null,
+                modelParent: null,
+                modelFolders: Model.Folders,
+                projectConfigurationPlatforms: projectConfigurationPlatforms.ChildNodes,
+                solutionConfigurationPlatforms: solutionConfigurationPlatforms.ChildNodes
+                    .OfType<KeyValueNode>()
+                    .Select(x => x.Key)
+                    .ToArray());
+
+            return slnFile.ToString();
+        }
+
+        private void SyncProjectsAndFolders(
+            SlnFile slnFile,
+            SolutionItemComplexNode slnParent,
+            SolutionFolderModel modelParent,
+            IEnumerable<SolutionFolderModel> modelFolders,
+            List<Node> projectConfigurationPlatforms,
+            IReadOnlyCollection<string> solutionConfigurationPlatforms)
+        {
+            foreach (var projectModel in Projects.Where(x => x.ParentFolder?.Id == modelParent?.Id))
             {
-                return TransformText();
+                var path = $"{projectModel.ToOutputTargetConfig().RelativeLocation}\\{projectModel.Name}.{projectModel.FileExtension}";
+
+                if (!slnFile.GetOrCreateProjectNode(
+                        typeId: VisualStudioSolution.ProjectTypeIds.CsProject,
+                        name: projectModel.Name,
+                        path: path,
+                        id: projectModel.Id,
+                        parentId: slnParent?.Id,
+                        project: out var slnProject))
+                {
+                    projectConfigurationPlatforms.AddRange(solutionConfigurationPlatforms
+                        .SelectMany(
+                            _ => SolutionConfigurationPlatformTypes,
+                            (platform, platformType) => new KeyValueNode($"{slnProject.Id}.{platform}.{platformType}", platform)));
+                    continue;
+                }
+
+                slnProject.Values[0] = projectModel.Name;
+                slnProject.Values[1] = path;
+                slnFile.SetParent(slnProject, slnParent);
             }
-            else
+
+            foreach (var folderModel in modelFolders)
             {
-                SolutionFile existingSolution = SolutionFile.Parse(targetFile);
-
-                foreach (var solutionFolder in SolutionFolders)
+                if (slnFile.GetOrCreateProjectNode(
+                        typeId: VisualStudioSolution.ProjectTypeIds.SolutionFolder,
+                        name: folderModel.Name,
+                        path: folderModel.Name,
+                        id: folderModel.Id,
+                        parentId: slnParent?.Id,
+                        project: out var slnFolder))
                 {
-                    var existingProject = existingSolution.ProjectsByGuid.FirstOrDefault(x => x.Value.ProjectName == solutionFolder.FolderName && x.Value.ProjectType == SolutionProjectType.SolutionFolder);
-                    if (existingProject.Key != null)
-                    {
-                        solutionFolder.Id = Guid.Parse(existingProject.Key);
-                    }
+                    slnFolder.Values[0] = folderModel.Name;
+                    slnFolder.Values[1] = folderModel.Name;
+                    slnFile.SetParent(slnFolder, slnParent);
                 }
 
-                var existingFolders = existingSolution.ProjectsByGuid.Values.Where(p => p.ProjectType == SolutionProjectType.SolutionFolder).Select(x => x.ProjectName).ToList();
-                var existingProjects = existingSolution.ProjectsByGuid.Values.Where(p => p.ProjectType != SolutionProjectType.SolutionFolder).Select(x => x.ProjectName).ToList();
-
-                var missingSolutionFolders = SolutionFolders.Select(f => f.FolderName).Except(existingFolders);
-                var missingProjects = Projects.Select(f => f.Name).Except(existingProjects);
-
-                var fileContent = File.ReadAllText(targetFile);
-
-                //Missing the condition : If solution folder has changed
-                if (missingSolutionFolders.Count() == 0 && missingProjects.Count() == 0)
-                {
-                    return fileContent;
-                }
-
-                var parser = new EditableParser(new StringBuilder(fileContent));
-
-                //Check all the relevant sections exist in the file, as they are optional
-                var places = parser.FindAndBookmark("Global", "GlobalSection(ProjectConfigurationPlatforms)", "GlobalSection(NestedProjects)", "EndGlobal").ToDictionary(x => x.Token);
-
-                if (!places.ContainsKey("GlobalSection(NestedProjects)"))
-                {
-                    parser.Insert(places["EndGlobal"].Position + 2, "	GlobalSection(NestedProjects) = postSolution\r\n	EndGlobalSection\r\n", true);
-                }
-                if (!places.ContainsKey("GlobalSection(ProjectConfigurationPlatforms)"))
-                {
-                    parser.Insert(places["EndGlobal"].Position + 2, "	GlobalSection(ProjectConfigurationPlatforms) = postSolution\r\n	EndGlobalSection\r\n", true);
-                }
-
-                parser.ChangePos(places["Global"].Position);
-                parser.Consume("\r\n");
-
-                //Add Missing Projects
-                foreach (var projectName in missingProjects)
-                {
-                    var project = Projects.Where(f => f.Name == projectName).First();
-                    var type = project.ProjectTypeId == SQLServerDatabaseProjectModel.SpecializationTypeId
-                        ? SQLServerDatabaseProjectModel.SpecializationTypeId
-                        : "FAE04EC0-301F-11D3-BF4B-00C04F79EFBC"; // CS Project
-                    parser.Insert($"Project(\"{{{type}}}\") = \"{project.Name}\", \"{project.ToOutputTargetConfig().RelativeLocation}\\{project.Name}.{project.FileExtension}\", \"{{{project.Id.ToString().ToUpper()}}}\"\r\nEndProject\r\n");
-                }
-
-                //Add Solution Folders
-                foreach (var solutionFolderName in missingSolutionFolders)
-                {
-                    var solutionFolder = SolutionFolders.Where(f => f.FolderName == solutionFolderName).First();
-                    parser.Insert($"Project(\"{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}\") = \"{solutionFolder.FolderName}\", \"{solutionFolder.FolderName}\", \"{{{solutionFolder.Id.ToString().ToUpper()}}}\"\r\nEndProject\r\n");
-                }
-
-                while (parser.SeekStartsWith("GlobalSection"))
-                {
-                    switch (parser.GetToken())
-                    {
-                        case "GlobalSection(ProjectConfigurationPlatforms)":
-                            parser.Seek("EndGlobalSection");
-                            parser.Consume("\r\n");
-                            foreach (var projectName in missingProjects)
-                            {
-                                var project = Projects.First(f => f.Name == projectName);
-                                parser.Insert($"\t\t{{{project.Id.ToString().ToUpper()}}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n");
-                                parser.Insert($"\t\t{{{project.Id.ToString().ToUpper()}}}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n");
-                                parser.Insert($"\t\t{{{project.Id.ToString().ToUpper()}}}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n");
-                                parser.Insert($"\t\t{{{project.Id.ToString().ToUpper()}}}.Release|Any CPU.Build.0 = Release|Any CPU\r\n");
-                            }
-                            break;
-                        case "GlobalSection(NestedProjects)":
-                            parser.Seek("EndGlobalSection");
-                            parser.Consume("\r\n");
-                            foreach (var projectName in missingProjects)
-                            {
-                                var project = Projects.First(f => f.Name == projectName);
-                                var solutionFolder = SolutionFolders.FirstOrDefault(f => f.FolderName == project.ParentFolder?.Name);
-                                if (solutionFolder != null)
-                                {
-                                    parser.Insert($"\t\t{{{project.Id.ToString().ToUpper()}}} = {{{solutionFolder.Id.ToString().ToUpper()}}}\r\n");
-                                }
-                            }
-                            break;
-                    }
-                }
-                return parser.Content();
+                SyncProjectsAndFolders(
+                    slnFile: slnFile,
+                    slnParent: slnFolder,
+                    modelParent: folderModel,
+                    modelFolders: folderModel.Folders,
+                    projectConfigurationPlatforms: projectConfigurationPlatforms,
+                    solutionConfigurationPlatforms: solutionConfigurationPlatforms);
             }
         }
 
@@ -184,24 +168,19 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                 overwriteBehaviour: OverwriteBehaviour.Always,
                 codeGenType: CodeGenType.UserControlledWeave,
                 fileName: $"{Model.Name}",
-                fileLocation: Application.RootLocation);
+                fileLocation: Application.OutputRootDirectory);
         }
 
         public ITemplateBindingContext BindingContext { get; }
-    }
 
-    public class SolutionFolder
-    {
-        public Guid Id { get; set; }
-        public string FolderName { get; }
-        public List<IVisualStudioProject> AssociatedProjects { get; }
-
-        public SolutionFolder(string folderName, List<IVisualStudioProject> associatedProjects)
+        private class VisualStudio2015SolutionTemplateModel
         {
-            Id = Guid.NewGuid();
-            FolderName = folderName;
-            AssociatedProjects = associatedProjects;
-        }
+            public VisualStudio2015SolutionTemplateModel(IApplication application)
+            {
+                Application = application;
+            }
 
+            public IApplication Application { get; }
+        }
     }
 }

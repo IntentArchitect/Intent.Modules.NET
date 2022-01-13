@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using Intent.Modules.Common.Plugins;
-using Intent.Modules.Constants;
-using Intent.Modules.VisualStudio.Projects.Events;
-using Intent.SoftwareFactory;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common.Plugins;
+using Intent.Modules.Constants;
+using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.Templates;
+using Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution;
 using Intent.Plugins.FactoryExtensions;
+using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
@@ -33,8 +35,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             _actions = new Dictionary<string, List<SoftwareFactoryEvent>>();
             _sfEventDispatcher = sfEventDispatcher;
             //Subscribe to all the project change events
-            _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.FileAdded, Handle);
-            _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.FileRemoved, Handle);
+            _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.FileAddedEvent, Handle);
+            _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.FileRemovedEvent, Handle);
             _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.AddTargetEvent, Handle);
             _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.AddTaskEvent, Handle);
             _sfEventDispatcher.Subscribe(SoftwareFactoryEvents.ChangeProjectItemTypeEvent, Handle);
@@ -60,14 +62,23 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         public void SyncProjectFiles(IApplication application)
         {
-            foreach (var outputEvent in _actions)
+            foreach (var (outputTargetId, events) in _actions)
             {
-                var vsProject = application.OutputTargets.FirstOrDefault(x => x.Id == outputEvent.Key)?.GetTargetPath()[0];
-                if (vsProject == null)
+                var outputTarget = application.OutputTargets.FirstOrDefault(x => x.Id == outputTargetId);
+                if (outputTarget == null)
                 {
-                    //This scenario occurs when projects have been deleted
+                    //This scenario occurs when targets have been deleted
                     continue;
                 }
+
+                if (outputTarget.Metadata == null ||
+                    !outputTarget.Metadata.TryGetValue(ProjectConfig.MetadataKey.IsMatch, out var value) ||
+                    value is not true)
+                {
+                    continue;
+                }
+
+                var vsProject = outputTarget?.GetTargetPath()[0];
 
                 switch (vsProject.Type)
                 {
@@ -76,13 +87,13 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     case VisualStudioProjectTypeIds.NodeJsConsoleApplication:
                     case VisualStudioProjectTypeIds.WcfApplication:
                     case VisualStudioProjectTypeIds.WebApiApplication:
-                        new FrameworkProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(outputEvent.Value);
+                        new FrameworkProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
                         break;
                     case VisualStudioProjectTypeIds.CoreCSharpLibrary:
                     case VisualStudioProjectTypeIds.CoreWebApp:
                     case VisualStudioProjectTypeIds.CoreConsoleApp:
                     case VisualStudioProjectTypeIds.AzureFunctionsProject:
-                        new CoreProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(outputEvent.Value);
+                        new CoreProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
                         break;
                     default:
                         Logging.Log.Warning("No project synchronizer could be found for project: " + vsProject.Name);

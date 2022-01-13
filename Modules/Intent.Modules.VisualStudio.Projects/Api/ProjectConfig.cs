@@ -10,6 +10,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 {
     internal class ProjectConfig : IOutputTargetConfig
     {
+        public static class MetadataKey
+        {
+            internal const string IsMatch = "Intent.Modules.VisualStudio.Projects.ProjectConfig.IsMatch";
+        }
+
         private readonly IVisualStudioProject _project;
 
         public ProjectConfig(IVisualStudioProject project)
@@ -17,9 +22,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             _project = project;
             Metadata = new Dictionary<string, object>()
             {
-                { "Language Version", _project.LanguageVersion },
-                { "Nullable Enabled", _project.NullableEnabled },
-                { "Target Frameworks", _project.TargetFrameworkVersion() }
+                ["Language Version"] = _project.LanguageVersion,
+                ["Nullable Enabled"] = _project.NullableEnabled,
+                ["Target Frameworks"] = _project.TargetFrameworkVersion(),
+                [MetadataKey.IsMatch] = true
             };
         }
 

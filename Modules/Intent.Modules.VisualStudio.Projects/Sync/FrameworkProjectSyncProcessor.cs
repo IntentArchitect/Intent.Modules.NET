@@ -5,12 +5,11 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Intent.Engine;
+using Intent.Eventing;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
-using Intent.SoftwareFactory;
-using Intent.Engine;
-using Intent.Eventing;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
@@ -85,14 +84,14 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             {
                 switch (@event.EventIdentifier)
                 {
-                    case SoftwareFactoryEvents.FileAdded:
+                    case SoftwareFactoryEvents.FileAddedEvent:
                         ProcessAddProjectItem(
                             path: @event.GetValue("Path"),
                             itemType: @event.TryGetValue("ItemType"),
                             dependsOn: @event.TryGetValue("Depends On"),
                             copyToOutputDirectory: @event.TryGetValue("CopyToOutputDirectory"));
                         break;
-                    case SoftwareFactoryEvents.FileRemoved:
+                    case SoftwareFactoryEvents.FileRemovedEvent:
                         ProcessRemoveProjectItem(
                             path: @event.GetValue("Path"));
                         break;

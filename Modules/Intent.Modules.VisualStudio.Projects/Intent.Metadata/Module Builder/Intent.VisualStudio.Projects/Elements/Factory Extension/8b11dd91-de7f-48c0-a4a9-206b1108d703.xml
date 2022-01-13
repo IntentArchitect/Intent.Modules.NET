@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8b11dd91-de7f-48c0-a4a9-206b1108d703" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>VisualStudioSolutionSyncProcessor</name>
+  <display>VisualStudioSolutionSyncProcessor</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f8447e23-743e-44e5-b4d5-154ff14fedc3</parentFolderId>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
+  <stereotypes />
+  <childElements />
+</class>

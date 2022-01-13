@@ -38,13 +38,14 @@
         <add key="Warn On Multiple Versions of Same Package" description="When true, the installer will show warnings if multiple versions of the same NuGet package are installed within the solution. Only applicable when 'Consolidate Package Versions' is set to false. (true | false)" type="boolean" default="true" />
       </config>
     </factoryExtension>
+    <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSyncProcessor" externalReference="8b11dd91-de7f-48c0-a4a9-206b1108d703" />
     <factoryExtension id="Intent.VSProjects.NetCoreProjectFrameworkManager" />
     <factoryExtension id="Intent.VSProjects.NugetDependencyResolver" />
     <factoryExtension id="Intent.VSProjects.ProjectDependencyResolver" />
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.1.11" />
-    <dependency id="Intent.Common.CSharp" version="3.1.8" />
+    <dependency id="Intent.Common.CSharp" version="3.2.0" />
     <dependency id="Intent.Common.Types" version="3.1.1" />
   </dependencies>
   <metadata>
