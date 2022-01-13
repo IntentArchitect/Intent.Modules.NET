@@ -6,7 +6,6 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
@@ -45,16 +44,23 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                             continue;
                         }
 
-                        SyncFrameworks(doc, template);
+                        var hasChange = false;
+
+                        hasChange |= SyncFrameworks(doc, template);
 
                         var settings = template.Project.GetNETCoreSettings();
                         if (settings != null)
                         {
-                            SyncProperty(doc, "Configurations", settings.Configurations());
-                            SyncProperty(doc, "RuntimeIdentifiers", settings.RuntimeIdentifiers());
-                            SyncProperty(doc, "UserSecretsId", settings.UserSecretsId());
-                            SyncProperty(doc, "RootNamespace", settings.RootNamespace());
-                            SyncProperty(doc, "GenerateRuntimeConfigurationFiles", settings.GenerateRuntimeConfigurationFiles().Value);
+                            hasChange |= SyncProperty(doc, "Configurations", settings.Configurations());
+                            hasChange |= SyncProperty(doc, "RuntimeIdentifiers", settings.RuntimeIdentifiers());
+                            hasChange |= SyncProperty(doc, "UserSecretsId", settings.UserSecretsId());
+                            hasChange |= SyncProperty(doc, "RootNamespace", settings.RootNamespace());
+                            hasChange |= SyncProperty(doc, "GenerateRuntimeConfigurationFiles", settings.GenerateRuntimeConfigurationFiles().Value);
+                        }
+
+                        if (!hasChange)
+                        {
+                            continue;
                         }
 
                         template.UpdateContent(doc.ToFormattedProjectString(), _sfEventDispatcher);
@@ -64,15 +70,20 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
         }
 
-        private static void SyncProperty(XDocument doc, string propertyName, string value)
+        /// <returns>True if there was a change.</returns>
+        private static bool SyncProperty(XDocument doc, string propertyName, string value)
         {
             var element = GetPropertyGroupElement(doc, propertyName);
             if (string.IsNullOrWhiteSpace(value))
             {
-                element?.Remove();
-                return;
-            }
+                if (element == null)
+                {
+                    return false;
+                }
 
+                element.Remove();
+                return true;
+            }
 
             if (element == null)
             {
@@ -87,10 +98,17 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 propertyGroupElement.Add(element);
             }
 
+            if (element.Value == value)
+            {
+                return false;
+            }
+
             element.Value = value;
+            return true;
         }
 
-        private static void SyncFrameworks(XDocument doc, IVisualStudioProjectTemplate template)
+        /// <returns>True if there was a change.</returns>
+        private static bool SyncFrameworks(XDocument doc, IVisualStudioProjectTemplate template)
         {
             var element = GetPropertyGroupElement(doc, "TargetFramework") ??
                           GetPropertyGroupElement(doc, "TargetFrameworks");
@@ -102,7 +120,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             var targetFrameworks = string.Join(";", template.GetTargetFrameworks().OrderBy(x => x));
             if (element.Value == targetFrameworks)
             {
-                return;
+                return false;
             }
 
             var elementName = template.GetTargetFrameworks().Count() == 1
@@ -110,6 +128,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 : "TargetFrameworks";
 
             element.ReplaceWith(XElement.Parse($"<{elementName}>{targetFrameworks}</{elementName}>"));
+
+            return true;
         }
 
         private static XElement GetPropertyGroupElement(XDocument doc, string name)
