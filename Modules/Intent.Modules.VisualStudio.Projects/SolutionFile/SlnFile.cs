@@ -270,13 +270,12 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
                 .ToArray();
 
             id = $"{{{id}}}".ToUpperInvariant();
-            var parameter = $"{{{typeId}}}".ToUpperInvariant();
 
             project =
-                childNodes.SingleOrDefault(x => x.Parameter == parameter && x.Id == id) ??
-                childNodes.SingleOrDefault(x => x.Parameter == parameter && x.Values[0] == name) ??
-                projectNodes.SingleOrDefault(x => x.Parameter == parameter && x.Id == id) ??
-                projectNodes.SingleOrDefault(x => x.Parameter == parameter && x.Values[0] == name);
+                childNodes.SingleOrDefault(x => x.Id == id) ??
+                childNodes.SingleOrDefault(x => x.Values[1] == path) ??
+                projectNodes.SingleOrDefault(x => x.Id == id) ??
+                projectNodes.SingleOrDefault(x => x.Values[1] == path);
 
             if (project != null)
             {
@@ -285,7 +284,7 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
 
             project = new SolutionItemComplexNode(
                 name: "Project",
-                parameter: parameter,
+                parameter: $"{{{typeId}}}".ToUpperInvariant(),
                 values: new List<string> { name, path, id },
                 childNodes: new List<Node>());
             SetParent(project, parentNode);
