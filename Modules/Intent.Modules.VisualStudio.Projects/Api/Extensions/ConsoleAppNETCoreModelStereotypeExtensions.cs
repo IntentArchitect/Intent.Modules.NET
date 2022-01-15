@@ -71,12 +71,12 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
             public string RootNamespace()
             {
-                return _stereotype.GetProperty<string>("RootNamespace");
+                return _stereotype.GetProperty<string>("Root Namespace");
             }
 
             public string UserSecretsId()
             {
-                return _stereotype.GetProperty<string>("UserSecretsId");
+                return _stereotype.GetProperty<string>("User Secrets Id");
             }
 
             public GenerateRuntimeConfigurationFilesOptions GenerateRuntimeConfigurationFiles()

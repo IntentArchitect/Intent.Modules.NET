@@ -85,7 +85,7 @@
     </property>
     <property id="3710062e-9beb-40e2-8f33-111efecf43a5">
       <hint />
-      <name>RootNamespace</name>
+      <name>Root Namespace</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
@@ -95,7 +95,7 @@
     </property>
     <property id="f2956d24-b6da-427b-8728-c4f44714ce69">
       <hint />
-      <name>UserSecretsId</name>
+      <name>User Secrets Id</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
