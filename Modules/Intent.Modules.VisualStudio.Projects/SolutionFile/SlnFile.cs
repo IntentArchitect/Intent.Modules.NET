@@ -106,9 +106,10 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
             }
         }
 
+        // For removing files from a solution folder
         public void RemoveSolutionItem(string solutionFolderName, string filePath)
         {
-            var relativePath = Path.GetRelativePath(FilePath, Path.GetFullPath(filePath)).Replace("/", "\\");
+            var relativePath = GetRelativePath(filePath);
 
             var solutionFolderNode = Nodes
                 .OfType<SolutionItemComplexNode>()
@@ -145,8 +146,7 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
         // For adding files to a solution folder
         public void AddSolutionItem(string solutionFolderName, string filePath)
         {
-            // .sln files always use forward slashes
-            var relativePath = Path.GetRelativePath(Path.GetDirectoryName(FilePath), filePath).Replace("/", "\\");
+            var relativePath = GetRelativePath(filePath);
 
             var solutionFolderNode = Nodes
                 .OfType<SolutionItemComplexNode>()
@@ -184,6 +184,12 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
 
                 childNodes.Insert(index, new KeyValueNode(relativePath, relativePath));
             }
+        }
+
+        private string GetRelativePath(string filePath)
+        {
+            // .sln files always use forward slashes
+            return Path.GetRelativePath(Path.GetDirectoryName(FilePath), filePath).Replace("/", "\\");
         }
 
         public IReadOnlyCollection<SolutionItemComplexNode> GetChildrenWithParentOf(SolutionItemComplexNode node)
