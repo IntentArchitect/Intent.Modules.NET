@@ -54,6 +54,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             filename = Path.GetFullPath(filename);
 
             _project.SyncProjectReferences(_doc);
+            _project.SyncFrameworkReferences(_doc);
 
             //run events
             ProcessEvents(events);

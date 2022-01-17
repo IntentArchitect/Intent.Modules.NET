@@ -83,6 +83,51 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
             }
         }
 
+        public static void SyncFrameworkReferences(this IOutputTarget project, XDocument doc)
+        {
+            var frameworkDependencies = project.FrameworkDependencies().ToArray();
+            if (frameworkDependencies.Length == 0)
+            {
+                return;
+            }
+
+            var itemGroupElement = doc.XPathSelectElement("Project/ItemGroup[FrameworkReference]");
+            if (itemGroupElement == null)
+            {
+                itemGroupElement = new XElement("ItemGroup");
+                itemGroupElement.Add(Environment.NewLine);
+                itemGroupElement.Add("  ");
+
+                var projectElement = doc.XPathSelectElement("Project");
+
+                projectElement.Add("  ");
+                projectElement.Add(itemGroupElement);
+                projectElement.Add(Environment.NewLine);
+                projectElement.Add("  ");
+            }
+
+            foreach (var dependency in frameworkDependencies)
+            {
+                var existingItem = doc.XPathSelectElement($"/Project/ItemGroup/FrameworkReference[@Include='{dependency}']");
+                if (existingItem != null)
+                {
+                    continue;
+                }
+
+                /*
+                <FrameworkReference Include="Microsoft.AspNetCore.App" />
+                */
+
+                var item = new XElement(XName.Get("FrameworkReference"));
+                item.Add(new XAttribute("Include", dependency));
+
+                itemGroupElement.Add("  ");
+                itemGroupElement.Add(item);
+                itemGroupElement.Add(Environment.NewLine);
+                itemGroupElement.Add("  ");
+            }
+        }
+
         public static void SyncProjectReferences(this IOutputTarget _project, XDocument doc)
         {
             if (_project.Dependencies().Count <= 0)

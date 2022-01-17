@@ -39,6 +39,7 @@
       </config>
     </factoryExtension>
     <factoryExtension id="Intent.VisualStudio.Projects.VisualStudioSolutionSyncProcessor" externalReference="8b11dd91-de7f-48c0-a4a9-206b1108d703" />
+    <factoryExtension id="Intent.VSProjects.FrameworkDependencyResolver" />
     <factoryExtension id="Intent.VSProjects.NetCoreProjectFrameworkManager" />
     <factoryExtension id="Intent.VSProjects.NugetDependencyResolver" />
     <factoryExtension id="Intent.VSProjects.ProjectDependencyResolver" />
