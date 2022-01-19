@@ -9,9 +9,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.Templates;
-using Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution;
 using Intent.Plugins.FactoryExtensions;
-using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
@@ -27,9 +25,10 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         public override string Id => "Intent.ApplicationSyncProcessor";
 
+        public override int Order { get; set; } = 90;
+
         public ApplicationSyncProcessor(ISoftwareFactoryEventDispatcher sfEventDispatcher, IXmlFileCache fileCache, IChanges changeManager)
         {
-            Order = 90;
             _changeManager = changeManager;
             _fileCache = fileCache;
             _actions = new Dictionary<string, List<SoftwareFactoryEvent>>();
@@ -71,14 +70,13 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     continue;
                 }
 
-                if (outputTarget.Metadata == null ||
-                    !outputTarget.Metadata.TryGetValue(ProjectConfig.MetadataKey.IsMatch, out var value) ||
+                var vsProject = outputTarget.GetTargetPath()[0];
+                if (vsProject.Metadata == null ||
+                    !vsProject.Metadata.TryGetValue(ProjectConfig.MetadataKey.IsMatch, out var value) ||
                     value is not true)
                 {
                     continue;
                 }
-
-                var vsProject = outputTarget?.GetTargetPath()[0];
 
                 switch (vsProject.Type)
                 {
