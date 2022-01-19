@@ -99,7 +99,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
         {
             foreach (var projectModel in Projects.Where(x => x.ParentFolder?.Id == modelParent?.Id))
             {
-                var path = $"{projectModel.ToOutputTargetConfig().RelativeLocation}\\{projectModel.Name}.{projectModel.FileExtension}";
+                var path = $"{projectModel.ToOutputTargetConfig().RelativeLocation}\\{projectModel.Name}.{projectModel.FileExtension}".Replace("/", "\\");
 
                 if (!slnFile.GetOrCreateProjectNode(
                         typeId: VisualStudioSolution.ProjectTypeIds.CsProject,
