@@ -23,6 +23,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceImplem
         public ServiceImplementationTemplate(IOutputTarget project, ServiceModel model)
             : base(Identifier, project, model)
         {
+            SetDefaultTypeCollectionFormat("List<{0}>");
         }
 
         public override void OnCreated()
