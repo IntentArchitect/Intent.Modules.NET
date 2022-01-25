@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
@@ -204,24 +205,62 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetIndexes()
         {
-            var indexes = Model.Attributes
-                .Where(x => x.HasIndex())
-                .GroupBy(x => x.GetIndex().UniqueKey() ?? "IX_" + Model.Name + "_" + x.Name);
+            var indexes = Model.GetIndexes();
+            if (indexes.Count == 0)
+            {
+                return string.Empty;
+            }
 
             var statements = new List<string>();
+
             foreach (var index in indexes)
             {
-                var indexFields = index.Count() == 1
-                    ? "x." + index.Single().Name.ToPascalCase()
-                    : $"new {{ {string.Join(", ", index.OrderBy(x => x.GetIndex().Order() ?? 0).Select(x => "x." + x.Name))} }}";
+                var indexFields = index.KeyColumns.Length == 1
+                    ? GetIndexColumnPropertyName(index.KeyColumns.Single(), "x.")
+                    : $"new {{ {string.Join(", ", index.KeyColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }}";
+
+                var includeProperties = index.IncludedColumns.Length == 0
+                    ? string.Empty
+                    : $@"
+                .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})";
+
+                var filter = index.FilterOption switch
+                {
+                    FilterOption.Default => string.Empty,
+                    FilterOption.None => @"
+                .HasFilter(null)",
+                    FilterOption.Custom => @$"
+                .HasFilter(\""{index.Filter}"")",
+                    _ => throw new ArgumentOutOfRangeException()
+                };
+
+                var isUnique = index.IsUnique
+                    ? @"
+                .IsUnique(true)"
+                    : string.Empty;
+
                 statements.Add($@"
             builder.HasIndex(x => {indexFields})
-                .HasName(""{ index.Key }"")
-                .IsUnique({ index.First().GetIndex().IsUnique().ToString().ToLower() ?? "false" });");
+                .HasDatabaseName(""{ index.Name }""){includeProperties}{filter}{isUnique};");
             }
+
             return statements.Any() ? $@"
 {string.Join(@"
 ", statements)}" : string.Empty;
+        }
+
+        private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
+        {
+            switch (column.Type)
+            {
+                case IndexColumnType.Association:
+                    return $"{prefix}{column.Name.ToPascalCase()}Id";
+                case IndexColumnType.Attribute:
+                case IndexColumnType.Unknown:
+                    return $"{prefix}{column.Name.ToPascalCase()}";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private string GetForeignKeyLambda(AssociationEndModel associationEnd)
