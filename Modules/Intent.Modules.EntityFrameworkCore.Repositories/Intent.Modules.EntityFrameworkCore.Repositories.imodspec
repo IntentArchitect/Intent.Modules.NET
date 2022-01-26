@@ -37,7 +37,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.1.11" />
+    <dependency id="Intent.Common" version="3.2.0" />
     <dependency id="Intent.Common.Types" version="3.1.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.7" />
     <dependency id="Intent.Entities.Repositories.Api" version="3.1.1" />

@@ -39,7 +39,7 @@
     <factoryExtension id="Intent.IdentityServer4.UI.IdentityServerQuickstartExtractorFactoryExtension" externalReference="c2836371-2d1f-4565-ae1a-a29c6c999789" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.1.11" />
+    <dependency id="Intent.Common" version="3.2.0" />
     <dependency id="Intent.Common.Types" version="3.1.1" />
     <dependency id="Intent.AspNetCore" version="3.1.1" />
     <dependency id="Intent.Common.CSharp" version="3.1.8" />

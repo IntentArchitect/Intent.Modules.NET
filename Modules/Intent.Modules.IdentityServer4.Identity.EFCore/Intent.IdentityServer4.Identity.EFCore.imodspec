@@ -16,7 +16,7 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.1.11" />
+    <dependency id="Intent.Common" version="3.2.0" />
     <dependency id="Intent.Common.Types" version="3.1.1" />
     <dependency id="Intent.AspNetCore" version="3.1.1" />
     <dependency id="Intent.EntityFrameworkCore" version="3.1.1" />
