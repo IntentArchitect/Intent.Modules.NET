@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
@@ -203,6 +204,27 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 ", statements)};";
         }
 
+        private string GetCheckConstraints()
+        {
+            var checkConstraints = Model.GetCheckConstraints();
+            if (checkConstraints.Count == 0)
+            {
+                return string.Empty;
+            }
+
+            var sb = new StringBuilder(@"
+            builder");
+
+            foreach (var checkConstraint in checkConstraints)
+            {
+                sb.Append(@$"
+                .HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"")");
+            }
+
+            sb.Append(";");
+            return sb.ToString();
+        }
+
         private string GetIndexes()
         {
             var indexes = Model.GetIndexes();
@@ -219,51 +241,59 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     ? GetIndexColumnPropertyName(index.KeyColumns.Single(), "x.")
                     : $"new {{ {string.Join(", ", index.KeyColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }}";
 
-                var includeProperties = index.IncludedColumns.Length == 0
-                    ? string.Empty
-                    : $@"
-                .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})";
+                var sb = new StringBuilder($@"
+            builder.HasIndex(x => {indexFields})");
 
-                var filter = index.FilterOption switch
+                if (index.IncludedColumns.Length > 0)
                 {
-                    FilterOption.Default => string.Empty,
-                    FilterOption.None => @"
-                .HasFilter(null)",
-                    FilterOption.Custom => @$"
-                .HasFilter(\""{index.Filter}"")",
-                    _ => throw new ArgumentOutOfRangeException()
-                };
+                    sb.Append($@"
+                .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})");
+                }
 
-                var isUnique = index.IsUnique
-                    ? @"
-                .IsUnique(true)"
-                    : string.Empty;
+                switch (index.FilterOption)
+                {
+                    case FilterOption.Default:
+                        break;
+                    case FilterOption.None:
+                        sb.Append(@"
+                .HasFilter(null)");
+                        break;
+                    case FilterOption.Custom:
+                        sb.Append(@$"
+                .HasFilter(\""{index.Filter}"")");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
 
-                statements.Add($@"
-            builder.HasIndex(x => {indexFields})
-                .HasDatabaseName(""{ index.Name }""){includeProperties}{filter}{isUnique};");
+                if (index.IsUnique)
+                {
+                    sb.Append(@"
+                .IsUnique()");
+                }
+
+                if (!index.UseDefaultName)
+                {
+                    sb.Append(@$"
+                .HasDatabaseName(""{index.Name}"")");
+                }
+
+                sb.Append(";");
+
+                statements.Add(sb.ToString());
             }
 
-            return statements.Any() ? $@"
-{string.Join(@"
-", statements)}" : string.Empty;
+            return string.Join(Environment.NewLine, statements);
         }
 
         private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
         {
-            switch (column.Type)
-            {
-                case IndexColumnType.Association:
-                    return $"{prefix}{column.Name.ToPascalCase()}Id";
-                case IndexColumnType.Attribute:
-                case IndexColumnType.Unknown:
-                    return $"{prefix}{column.Name.ToPascalCase()}";
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            return column.SourceType.IsAssociationEndModel()
+                ? $"{prefix}{column.Name.ToPascalCase()}Id"
+                : $"{prefix}{column.Name.ToPascalCase()}";
         }
 
-        private string GetForeignKeyLambda(AssociationEndModel associationEnd)
+        private static string GetForeignKeyLambda(AssociationEndModel associationEnd)
         {
             var columns = ((associationEnd.IsSourceEnd()
                                ? (associationEnd as AssociationSourceEndModel).GetForeignKey()?.ColumnName()
