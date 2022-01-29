@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="192fab82-754d-4a5a-bfb5-48e45ce11495" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>MultiTenancyStartupDecorator</name>
+  <display>MultiTenancyStartupDecorator: StartupDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>4</order>
+  <genericTypes />
+  <typeReference id="1dee069e-c185-4227-a6db-bae85c2788a2">
+    <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AspNetCore</typePackageName>
+    <typePackageId>9d83d9d6-7718-4b4a-b78b-725535182de3</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</parentFolderId>
+  <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+  <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+  <stereotypes />
+  <childElements />
+</class>

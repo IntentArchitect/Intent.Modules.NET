@@ -28,6 +28,10 @@ namespace Intent.Modules.EntityFrameworkCore
             {
                 return "5.0.6";
             }
+            if (project.IsNet6App())
+            {
+                return "6.0.1";
+            }
             return "5.0.6";
         }
     }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -10,22 +10,28 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 {
     partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityInterfaceDecoratorBase>, ITemplatePostCreationHook, IDeclareUsings
     {
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.Entities.DomainEntityInterface";
         private readonly IMetadataManager _metadataManager;
         public const string Identifier = "Intent.Entities.DomainEntityInterface";
         public const string InterfaceContext = "Interface";
 
         private readonly IList<DomainEntityInterfaceDecoratorBase> _decorators = new List<DomainEntityInterfaceDecoratorBase>();
 
-        public DomainEntityInterfaceTemplate(ClassModel model, IOutputTarget outputTarget, IMetadataManager metadataManager)
-            : base(Identifier, outputTarget, model)
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
+        public DomainEntityInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-            _metadataManager = metadataManager;
+            _metadataManager = ExecutionContext.MetadataManager;
         }
 
         public override void OnCreated()

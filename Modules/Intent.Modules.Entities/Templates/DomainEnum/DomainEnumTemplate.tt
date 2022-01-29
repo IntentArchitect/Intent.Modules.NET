@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true"  inherits="CSharpTemplateBase<EnumModel>" #>
+<#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modules.Common.Types.Api.EnumModel>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>

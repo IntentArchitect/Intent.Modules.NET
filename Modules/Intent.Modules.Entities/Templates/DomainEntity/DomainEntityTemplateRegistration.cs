@@ -1,18 +1,24 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modelers.Domain;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.RoslynWeaver.Attributes;
 using Intent.SoftwareFactory;
-using Intent.Engine;
-using Intent.Modelers.Domain;
 using Intent.Templates;
 
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace Intent.Modules.Entities.Templates.DomainEntity
 {
-    [Description(DomainEntityTemplate.Identifier)]
-    public class DomainEntityTemplateRegistration : ModelTemplateRegistrationBase<ClassModel>
+    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
+    public class DomainEntityTemplateRegistration : FilePerModelTemplateRegistration<ClassModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -21,14 +27,15 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => DomainEntityTemplate.Identifier;
+        public override string TemplateId => DomainEntityTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IProject project, ClassModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
-            return new DomainEntityTemplate(model, project);
+            return new DomainEntityTemplate(outputTarget, model);
         }
 
-        public override IEnumerable<ClassModel> GetModels(Engine.IApplication application)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
+        public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels();
         }

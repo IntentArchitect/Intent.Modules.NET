@@ -7,6 +7,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 {
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public abstract class DbContextDecoratorBase : ITemplateDecorator
     {
         public virtual string GetBaseClass() { return null; }

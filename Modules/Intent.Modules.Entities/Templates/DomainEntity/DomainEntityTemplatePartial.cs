@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
@@ -8,17 +8,24 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Entities.Templates.DomainEntity
 {
     partial class DomainEntityTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityDecoratorBase>, ITemplatePostCreationHook, IDeclareUsings
     {
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.Entities.DomainEntity";
         public const string Identifier = "Intent.Entities.DomainEntity";
         private readonly IList<DomainEntityDecoratorBase> _decorators = new List<DomainEntityDecoratorBase>();
 
-        public DomainEntityTemplate(ClassModel model, IOutputTarget outputTarget)
-            : base(Identifier, outputTarget, model)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public DomainEntityTemplate(IOutputTarget outputTarget, ClassModel model)
+: base(TemplateId, outputTarget, model)
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"));
             AddTypeSource(DomainEnumTemplate.TemplateId).WithCollectionFormat("ICollection<{0}>");

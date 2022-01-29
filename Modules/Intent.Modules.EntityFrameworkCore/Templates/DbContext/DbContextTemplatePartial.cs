@@ -104,11 +104,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public string GetDbContextOptionsType()
         {
-            if (_useDbContextAsOptionsParameter)
-            {
-                return $"DbContextOptions<{ClassName}>";
-            }
-            return "DbContextOptions";
+            return $"DbContextOptions<{ClassName}>";
+            //if (_useDbContextAsOptionsParameter)
+            //{
+            //    return $"DbContextOptions<{ClassName}>";
+            //}
+            //return "DbContextOptions";
         }
 
         public string GetMappingClassName(ClassModel model)

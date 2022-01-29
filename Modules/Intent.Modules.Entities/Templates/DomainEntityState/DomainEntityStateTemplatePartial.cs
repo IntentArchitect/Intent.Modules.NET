@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -9,19 +9,24 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Entities.Templates.DomainEntityState
 {
     partial class DomainEntityStateTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityStateDecoratorBase>, ITemplatePostCreationHook
     {
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEntityState";
         public const string InterfaceContext = "Interface";
 
         private readonly IList<DomainEntityStateDecoratorBase> _decorators = new List<DomainEntityStateDecoratorBase>();
 
-        public DomainEntityStateTemplate(ClassModel model, IOutputTarget outputTarget)
-            : base(TemplateId, outputTarget, model)
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
+        public DomainEntityStateTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(TemplateId, "ICollection<{0}>");
             AddTypeSource(DomainEnumTemplate.TemplateId, "ICollection<{0}>");

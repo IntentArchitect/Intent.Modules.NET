@@ -35,6 +35,10 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 _template.AddNugetDependency("Microsoft.Extensions.Configuration.Binder", "5.0.0");
             }
+            if (_template.Project.IsNet6App())
+            {
+                _template.AddNugetDependency("Microsoft.Extensions.Configuration.Binder", "6.0.0");
+            }
             _template.ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                 key: "UseInMemoryDatabase",
                 value: "true"));

@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
-using Intent.Engine;
-using Intent.Templates;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -12,19 +11,22 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 
 namespace Intent.Modules.Entities.Templates.DomainEnum
 {
     partial class DomainEnumTemplate : CSharpTemplateBase<EnumModel>
     {
-        private readonly IMetadataManager _metadataManager;
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEnum";
 
-
-        public DomainEnumTemplate(EnumModel model, IOutputTarget project, IMetadataManager metadataManager)
-            : base(TemplateId, project, model)
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
+        public DomainEnumTemplate(IOutputTarget outputTarget, EnumModel model) : base(TemplateId, outputTarget, model)
         {
-            _metadataManager = metadataManager;
         }
 
         protected override CSharpFileConfig DefineFileConfig()

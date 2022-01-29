@@ -49,5 +49,7 @@
     <application id="9ae3f429-8cd5-4090-8a8b-f5dec3f95704" name="IdentityServer4.UI.Interop.Swashbuckle.JWT" relativePath="Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT/IdentityServer4.UI.Interop.Swashbuckle.JWT.application.config" />
     <application id="e4d9754f-9a44-441e-bc46-454f4441b184" name="Intent.Modules.Application.ServiceImplementations.Conventions.CRUD" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD/Intent.Application.ServiceImplementations.Conventions.CRUD.application.config" />
     <application id="dab23093-58b2-4f51-a9bf-a935efcd4e47" name="Intent.Modules.Entities.Keys" relativePath="Intent.Modules.Entities.Keys/Intent.Modules.Entities.Keys.application.config" />
+    <application id="ac11ad1e-604e-4dbc-81dc-9e56ed1abd30" name="Intent.Modules.Entities" relativePath="Intent.Modules.Entities/Intent.Modules.Entities.application.config" />
+    <application id="ae988c9c-02cf-4669-9529-003c8c1d8851" name="Intent.Modules.AspNetCore.MultiTenancy" relativePath="Intent.Modules.AspNetCore.MultiTenancy/Intent.Modules.AspNetCore.MultiTenancy.application.config" />
   </applications>
 </solution>
