@@ -31,10 +31,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            return new TemplateFileConfig(
+            var config = new TemplateFileConfig(
                 fileName: "host",
-                fileExtension: "json"
-            );
+                fileExtension: "json");
+
+            config.CustomMetadata.Add("ItemType", "None");
+            config.CustomMetadata.Add("CopyToOutputDirectory", "PreserveNewest");
+
+            return config;
         }
     }
 }
