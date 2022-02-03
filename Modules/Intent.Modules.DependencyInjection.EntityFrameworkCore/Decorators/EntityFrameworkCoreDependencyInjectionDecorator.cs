@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
@@ -39,6 +40,11 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 _template.AddNugetDependency("Microsoft.Extensions.Configuration.Binder", "6.0.0");
             }
+            if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
+            {
+                _template.AddNugetDependency("Finbuckle.MultiTenant", "6.5.1");
+            }
+
             _template.ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
                 key: "UseInMemoryDatabase",
                 value: "true"));
@@ -50,6 +56,34 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override string ServiceRegistration()
         {
+            if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
+            {
+                _template.AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
+                return $@"
+            if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
+            {{
+                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>((sp, options) =>
+                {{
+                    var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");
+                    options.UseInMemoryDatabase(tenantInfo.ConnectionString);
+                    options.UseLazyLoadingProxies();
+                }});
+            }}
+            else
+            {{
+                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>((sp, options) =>
+                {{
+                    var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");
+                    options.UseSqlServer(
+                        configuration.GetConnectionString(tenantInfo.ConnectionString),
+                        b => b.MigrationsAssembly(typeof({_template.GetTypeName(DbContextTemplate.TemplateId)}).Assembly.FullName));
+                    options.UseLazyLoadingProxies();
+                }});
+            }}
+
+            services.AddScoped<{_template.GetTypeName(DbContextInterfaceTemplate.Identifier)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
+
+            }
             return $@"
             if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
             {{

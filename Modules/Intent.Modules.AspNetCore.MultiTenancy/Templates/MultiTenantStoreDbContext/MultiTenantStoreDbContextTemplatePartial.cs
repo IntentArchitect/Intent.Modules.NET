@@ -19,6 +19,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbCon
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MultiTenantStoreDbContextTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

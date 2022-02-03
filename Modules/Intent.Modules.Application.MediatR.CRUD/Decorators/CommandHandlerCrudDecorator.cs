@@ -20,6 +20,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Application.MediatR.CRUD.CommandHandlerCrudDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly CommandHandlerTemplate _template;
         private readonly IApplication _application;
         private readonly ICrudImplementationStrategy _implementationStrategy;

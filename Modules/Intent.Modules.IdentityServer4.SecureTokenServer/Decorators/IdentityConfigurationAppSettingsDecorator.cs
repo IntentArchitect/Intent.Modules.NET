@@ -71,7 +71,8 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                         {
                             $"https://localhost:{_sslPort}/authentication/logout-callback"
                         },
-                        AllowPlainTextPkce = false
+                        AllowPlainTextPkce = false,
+                        AllowedCorsOrigins = new string [0]
                     }
                 },
                 ApiScopes = new[]

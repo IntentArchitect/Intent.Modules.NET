@@ -9,7 +9,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
-    [Description(PrepopulatedUsersConfigurationDecorator.DecoratorId)]
     public class PrepopulatedUsersConfigurationDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)

@@ -47,21 +47,24 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         public override string Methods()
         {
             return @"
-[IntentManaged(Mode.Ignore)]
-private static void PrepopulateWithTestUsers(this IIdentityServerBuilder idServerBuilder)
-{
-    idServerBuilder.AddTestUsers(new List<IdentityServer4.Test.TestUser>
-    {
-        new IdentityServer4.Test.TestUser
+        [IntentManaged(Mode.Merge)]
+        private static void PrepopulateWithTestUsers(this IIdentityServerBuilder idServerBuilder)
         {
-            SubjectId = ""admin"",
-            Username = ""admin"",
-            Password = ""P@ssw0rd"",
-            IsActive = true,
-            Claims = new[] { new Claim(""role"", ""MyRole"") }
-        }
-    });
-}";
+            idServerBuilder.AddTestUsers(new List<IdentityServer4.Test.TestUser>
+            {
+                new IdentityServer4.Test.TestUser
+                {
+                    SubjectId = ""admin"",
+                    Username = ""admin"",
+                    Password = ""password"",
+                    IsActive = true,
+                    Claims = new[] { 
+                        new Claim(""role"", ""MyRole""), 
+                        new Claim(""__tenant__"", ""tenant1"") // e.g. if claim-strategy based Multitenancy is installed, set tenant identifier
+                    }
+                }
+            });
+        }";
         }
 
         public IEnumerable<string> DeclareUsings()

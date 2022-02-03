@@ -12,8 +12,8 @@
   <stereotypes />
   <childElements>
     <childElement id="45cea511-c021-43f1-bb47-f35f405a05fc" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Angular</name>
-      <display>Angular</display>
+      <name>Angular (beta)</name>
+      <display>Angular (beta)</display>
       <isAbstract>false</isAbstract>
       <order>0</order>
       <genericTypes />
@@ -103,8 +103,8 @@
       </childElements>
     </childElement>
     <childElement id="73e33c25-6ab2-46c5-bd85-6b300dcb87bf" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Authorisation</name>
-      <display>Authorisation</display>
+      <name>Authorisation (beta)</name>
+      <display>Authorisation (beta)</display>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />

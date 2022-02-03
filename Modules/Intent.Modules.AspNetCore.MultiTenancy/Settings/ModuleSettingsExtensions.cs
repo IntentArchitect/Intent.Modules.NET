@@ -40,26 +40,26 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             {
                 return Value switch
                 {
-                    "Header" => StrategyOptionsEnum.HeaderStrategy,
-                    "Claim" => StrategyOptionsEnum.ClaimStrategy,
-                    "Host" => StrategyOptionsEnum.HostStrategy,
+                    "header" => StrategyOptionsEnum.HeaderStrategy,
+                    "claim" => StrategyOptionsEnum.ClaimStrategy,
+                    "host" => StrategyOptionsEnum.HostStrategy,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
             public bool IsHeaderStrategy()
             {
-                return Value == "Header";
+                return Value == "header";
             }
 
             public bool IsClaimStrategy()
             {
-                return Value == "Claim";
+                return Value == "claim";
             }
 
             public bool IsHostStrategy()
             {
-                return Value == "Host";
+                return Value == "host";
             }
         }
 
@@ -85,26 +85,26 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             {
                 return Value switch
                 {
-                    "EFCore" => StoreOptionsEnum.EntityFrameworkCore,
-                    "InMemory" => StoreOptionsEnum.InMemory,
-                    "Configuration" => StoreOptionsEnum.Configuration,
+                    "in-memory" => StoreOptionsEnum.InMemory,
+                    "efcore" => StoreOptionsEnum.EntityFrameworkCore,
+                    "configuration" => StoreOptionsEnum.Configuration,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
             public bool IsEntityFrameworkCore()
             {
-                return Value == "EFCore";
+                return Value == "efcore";
             }
 
             public bool IsInMemory()
             {
-                return Value == "InMemory";
+                return Value == "in-memory";
             }
 
             public bool IsConfiguration()
             {
-                return Value == "Configuration";
+                return Value == "configuration";
             }
         }
 
@@ -113,6 +113,37 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             EntityFrameworkCore,
             InMemory,
             Configuration
+        }
+
+        public DataIsolationOptions DataIsolation() => new DataIsolationOptions(_groupSettings.GetSetting("be7c671e-bbef-4d75-b42d-a6547de3ae82")?.Value);
+
+        public class DataIsolationOptions
+        {
+            public readonly string Value;
+
+            public DataIsolationOptions(string value)
+            {
+                Value = value;
+            }
+
+            public DataIsolationOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "separate-database" => DataIsolationOptionsEnum.SeparateDatabases,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsSeparateDatabases()
+            {
+                return Value == "separate-database";
+            }
+        }
+
+        public enum DataIsolationOptionsEnum
+        {
+            SeparateDatabases,
         }
     }
 }

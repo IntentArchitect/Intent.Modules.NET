@@ -176,7 +176,7 @@ namespace IdentityServerHost.Quickstart.UI
 
         <#= GetAutoProvisionUserMethodCode() #>
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         private Task<<#= AuthProviderUserType #>> CustomUserProvisionProcess(string provider, string providerUserId, IEnumerable<Claim> claims)
         {
             // this might be where you might initiate a custom workflow for user registration

@@ -30,7 +30,7 @@
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="How the tenant is determined." isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="header" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -39,7 +39,7 @@
           <name>Header Strategy</name>
           <display>Header Strategy</display>
           <isAbstract>false</isAbstract>
-          <value>Header</value>
+          <value>header</value>
           <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
@@ -53,7 +53,7 @@
           <name>Claim Strategy</name>
           <display>Claim Strategy</display>
           <isAbstract>false</isAbstract>
-          <value>Claim</value>
+          <value>claim</value>
           <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
@@ -67,7 +67,7 @@
           <name>Host Strategy</name>
           <display>Host Strategy</display>
           <isAbstract>false</isAbstract>
-          <value>Host</value>
+          <value>host</value>
           <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
@@ -98,16 +98,16 @@
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Store for tenant information." isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="in-memory" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <childElements>
-        <childElement id="95b1c642-b8f4-47f1-8a83-69653c335fb5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Entity Framework Core</name>
-          <display>Entity Framework Core</display>
+        <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>In-Memory</name>
+          <display>In-Memory</display>
           <isAbstract>false</isAbstract>
-          <value>EFCore</value>
+          <value>in-memory</value>
           <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
@@ -117,11 +117,11 @@
           <stereotypes />
           <childElements />
         </childElement>
-        <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>In-Memory</name>
-          <display>In-Memory</display>
+        <childElement id="95b1c642-b8f4-47f1-8a83-69653c335fb5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Entity Framework Core</name>
+          <display>Entity Framework Core</display>
           <isAbstract>false</isAbstract>
-          <value>InMemory</value>
+          <value>efcore</value>
           <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
@@ -135,11 +135,52 @@
           <name>Configuration</name>
           <display>Configuration</display>
           <isAbstract>false</isAbstract>
-          <value>Configuration</value>
+          <value>configuration</value>
           <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e430d7bc-fac3-4528-93e8-e3f38bc0b925</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="be7c671e-bbef-4d75-b42d-a6547de3ae82" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <comment />
+      <name>Data Isolation</name>
+      <display>Data Isolation</display>
+      <isAbstract>false</isAbstract>
+      <order>2</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Set the data isolation." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="separate-database" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <childElements>
+        <childElement id="f92037d9-3aea-4f9c-afca-848b0c71c4f5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Separate Databases</name>
+          <display>Separate Databases</display>
+          <isAbstract>false</isAbstract>
+          <value>separate-database</value>
+          <order>0</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>be7c671e-bbef-4d75-b42d-a6547de3ae82</parentFolderId>
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />

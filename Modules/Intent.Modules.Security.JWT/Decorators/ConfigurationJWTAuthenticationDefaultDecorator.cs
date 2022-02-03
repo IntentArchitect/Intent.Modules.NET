@@ -52,8 +52,8 @@ namespace Intent.Modules.Security.JWT.Decorators
             // JWT tokens (default scheme)
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
             {
-                options.Authority = Configuration.GetSection(""Security.Bearer:Authority"").Get<string>();
-                options.Audience = Configuration.GetSection(""Security.Bearer:Audience"").Get<string>();
+                options.Authority = configuration.GetSection(""Security.Bearer:Authority"").Get<string>();
+                options.Audience = configuration.GetSection(""Security.Bearer:Audience"").Get<string>();
 
                 options.TokenValidationParameters.RoleClaimType = ""role"";
                 options.SaveToken = true;

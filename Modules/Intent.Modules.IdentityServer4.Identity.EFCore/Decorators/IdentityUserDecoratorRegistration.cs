@@ -10,7 +10,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
-    [Description(IdentityUserDecorator.DecoratorId)]
     public class IdentityUserDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
     {
         public override IdentityConfigurationDecorator CreateDecoratorInstance(IdentityServerConfigurationTemplate template, IApplication application)

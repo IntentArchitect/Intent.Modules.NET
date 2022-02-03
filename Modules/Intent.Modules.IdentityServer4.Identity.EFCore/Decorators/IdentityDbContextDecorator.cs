@@ -1,12 +1,13 @@
-using Intent.Modules.Common;
-using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.EntityFrameworkCore.Events;
-using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Intent.RoslynWeaver.Attributes;
 using Intent.Engine;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.EntityFrameworkCore.Events;
+using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -21,6 +22,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
         public const string DecoratorId = "Intent.IdentityServer4.Identity.EFCore.IdentityDbContextDecorator";
 
 
+        [IntentManaged(Mode.Fully)]
         private readonly DbContextTemplate _template;
         private readonly Engine.IApplication _application;
 
@@ -53,7 +55,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
             return new INugetPackageInfo[]
             {
                 NugetPackages.IdentityServer4EntityFramework,
-                NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore
+                NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(_template.OutputTarget.GetProject())
             };
         }
 

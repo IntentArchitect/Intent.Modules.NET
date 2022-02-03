@@ -12,6 +12,7 @@
       <scriptOptions>
         <option>
           <text>Create CRUD Operations</text>
+          <shortcut>ctrl + shift + u</shortcut>
           <icon type="FontAwesome" source="code" />
           <script>let options = element.lookupTypesOf("Class");
 if (options.length == 0) {

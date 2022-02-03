@@ -32,7 +32,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Decorators
         public override string Configuration()
         {
             return @"
-            app.UseMultiTenant();";
+            app.UseMultiTenancy();";
         }
     }
 }

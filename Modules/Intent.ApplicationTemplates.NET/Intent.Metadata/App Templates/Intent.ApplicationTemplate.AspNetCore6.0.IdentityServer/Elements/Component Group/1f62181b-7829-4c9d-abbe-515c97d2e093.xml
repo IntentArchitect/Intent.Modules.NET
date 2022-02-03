@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1f62181b-7829-4c9d-abbe-515c97d2e093" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Front-End</name>
+  <display>Front-End</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</parentFolderId>
+  <packageId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</packageName>
+  <stereotypes />
+  <childElements>
+    <childElement id="78cf90ec-4ae7-48b6-a84b-4525f2db71e0" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Identity UI</name>
+      <display>Identity UI</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1f62181b-7829-4c9d-abbe-515c97d2e093</parentFolderId>
+      <packageId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Using the Quickstart template from IdentityServer4 for hosting the generic identity UI pages (i.e. login, registration, etc.)." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <childElements>
+        <childElement id="a17104c6-07d8-4a39-97f3-7b80a078fad1" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.IdentityServer4.UI</name>
+          <display>Intent.IdentityServer4.UI</display>
+          <isAbstract>false</isAbstract>
+          <order>0</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>78cf90ec-4ae7-48b6-a84b-4525f2db71e0</parentFolderId>
+          <packageId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.2.0" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

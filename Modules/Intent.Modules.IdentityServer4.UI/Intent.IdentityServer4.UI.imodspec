@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.UI</id>
-  <version>3.1.1</version>
-  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
+  <version>3.2.0</version>
+  <supportedClientVersions>[3.2.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</summary>
   <description>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</description>
   <authors>Intent.Modules.NET</authors>
@@ -48,12 +48,12 @@
   <interoperability>
     <detect id="Intent.IdentityServer4.Identity.EFCore">
       <install>
-        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="3.1.1" />
+        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="3.2.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
       <install>
-        <package id="Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT" version="3.1.1" />
+        <package id="Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT" version="3.2.0" />
       </install>
     </detect>
   </interoperability>

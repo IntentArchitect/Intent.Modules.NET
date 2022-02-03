@@ -8,8 +8,11 @@
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
 <#@ import namespace="Intent.Modules.AspNetCore.MultiTenancy.Settings" #>
+using System;
 using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Stores;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,15 +22,14 @@ namespace <#= Namespace #>
 {
     public static class <#= ClassName #>
     {
-        [IntentManaged(Mode.Fully)]
         public static IServiceCollection ConfigureMultiTenancy(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMultiTenant<TenantInfo>()
 <#  if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsEntityFrameworkCore()) { #>
-                .WithEFCoreStore<MultiTenantStoreDbContext, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#efcore-store
+                .WithEFCoreStore<<#= this.GetMultiTenantStoreDbContextName() #>, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#efcore-store
 <#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory()) { #>
                 .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store
-<#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory()) { #>
+<#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { #>
                 .WithConfigurationStore() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#configuration-store
 <#  } #>
 <#  if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHeaderStrategy()) { #>
@@ -39,14 +41,33 @@ namespace <#= Namespace #>
 <#  } #>
             return services;
         }
+
+        public static void UseMultiTenancy(this IApplicationBuilder app)
+        {
+            app.UseMultiTenant();
+<#  if (!ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { #>
+            InitializeStore(app.ApplicationServices);
+<#  } #>
+        }
 <#  if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory()) { #>
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         private static void SetupInMemoryStore(InMemoryStoreOptions<TenantInfo> options)
         {
-            // configure tenants in memory:
-            options.Tenants.Add(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection"});
-            options.Tenants.Add(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection"});
+            // configure in memory store...
+            options.IsCaseSensitive = false;
+        }
+<#  } #>
+<#  if (!ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { #>
+
+        [IntentManaged(Mode.Merge)]
+        public static void InitializeStore(IServiceProvider sp)
+        {
+            var scopeServices = sp.CreateScope().ServiceProvider;
+            var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantInfo>>();
+
+            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection" }).Wait();
+            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection" }).Wait();
         }
 <#  } #>
     }

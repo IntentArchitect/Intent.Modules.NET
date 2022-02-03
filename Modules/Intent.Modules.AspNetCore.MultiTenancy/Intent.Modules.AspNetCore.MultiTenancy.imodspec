@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
   <version>3.2.0</version>
-  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.2.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
   <authors>Intent.Modules.NET</authors>
@@ -35,19 +35,29 @@
         <setting id="e15fe0fb-be28-4cc5-8b85-37a07b7ca160" title="Strategy" type="select">
           <isRequired>true</isRequired>
           <hint>How the tenant is determined.</hint>
+          <defaultValue>header</defaultValue>
           <options>
-            <option value="Header" description="Header Strategy" />
-            <option value="Claim" description="Claim Strategy" />
-            <option value="Host" description="Host Strategy" />
+            <option value="header" description="Header Strategy" />
+            <option value="claim" description="Claim Strategy" />
+            <option value="host" description="Host Strategy" />
           </options>
         </setting>
         <setting id="e430d7bc-fac3-4528-93e8-e3f38bc0b925" title="Store" type="select">
           <isRequired>true</isRequired>
           <hint>Store for tenant information.</hint>
+          <defaultValue>in-memory</defaultValue>
           <options>
-            <option value="EFCore" description="Entity Framework Core" />
-            <option value="InMemory" description="In-Memory" />
-            <option value="Configuration" description="Configuration" />
+            <option value="in-memory" description="In-Memory" />
+            <option value="efcore" description="Entity Framework Core" />
+            <option value="configuration" description="Configuration" />
+          </options>
+        </setting>
+        <setting id="be7c671e-bbef-4d75-b42d-a6547de3ae82" title="Data Isolation" type="select">
+          <isRequired>true</isRequired>
+          <hint>Set the data isolation.</hint>
+          <defaultValue>separate-database</defaultValue>
+          <options>
+            <option value="separate-database" description="Separate Databases" />
           </options>
         </setting>
       </settings>

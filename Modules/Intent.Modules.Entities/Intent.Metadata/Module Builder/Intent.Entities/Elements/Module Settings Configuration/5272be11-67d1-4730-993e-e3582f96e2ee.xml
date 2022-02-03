@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5272be11-67d1-4730-993e-e3582f96e2ee" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Entity Settings</name>
+  <display>Entity Settings</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dcc00891-d339-4864-a22c-24b3ae9fbc67</parentFolderId>
+  <packageId>dcc00891-d339-4864-a22c-24b3ae9fbc67</packageId>
+  <packageName>Intent.Entities</packageName>
+  <stereotypes />
+  <childElements>
+    <childElement id="cbae7b62-5a99-41c5-8ddf-cf21fb797a10" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Separate Business Logic with Partials</name>
+      <display>Separate Business Logic with Partials</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5272be11-67d1-4730-993e-e3582f96e2ee</parentFolderId>
+      <packageId>dcc00891-d339-4864-a22c-24b3ae9fbc67</packageId>
+      <packageName>Intent.Entities</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Checkbox" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="If enabled, will create a partial class for business logic." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

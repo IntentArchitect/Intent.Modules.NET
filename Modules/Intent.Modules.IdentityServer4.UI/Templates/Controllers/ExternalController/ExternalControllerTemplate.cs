@@ -228,7 +228,8 @@ namespace IdentityServerHost.Quickstart.UI
             
             #line default
             #line hidden
-            this.Write("\r\n\r\n        [IntentManaged(Mode.Ignore)]\r\n        private Task<");
+            this.Write("\r\n\r\n        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]\r\n        private Task" +
+                    "<");
             
             #line 180 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.IdentityServer4.UI\Templates\Controllers\ExternalController\ExternalControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthProviderUserType));
