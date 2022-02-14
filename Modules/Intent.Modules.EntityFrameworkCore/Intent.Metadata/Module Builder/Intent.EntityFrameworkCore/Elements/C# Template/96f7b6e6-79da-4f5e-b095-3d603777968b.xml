@@ -3,7 +3,7 @@
   <name>DbContext</name>
   <display>DbContext: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>2</order>
   <genericTypes />
   <typeReference id="d9505bd4-5c80-4566-ac6e-9275441a00b0">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

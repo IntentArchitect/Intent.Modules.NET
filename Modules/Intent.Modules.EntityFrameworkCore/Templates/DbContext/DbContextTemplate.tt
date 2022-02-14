@@ -28,10 +28,10 @@ namespace <#= Namespace #>
         }
 
 <#
-foreach (var model in Model)
+foreach (var typeConfiguration in _entityTypeConfigurations)
 {
 #>
-        public DbSet<<#= GetEntityName(model) #>> <#= GetEntityName(model).ToPluralName()#> { get; set; }
+        public DbSet<<#= GetEntityName(typeConfiguration.Template.Model) #>> <#= GetEntityName(typeConfiguration.Template.Model).ToPluralName()#> { get; set; }
 <#
 }
 #>
@@ -50,8 +50,8 @@ foreach (var model in Model)
 
             ConfigureModel(modelBuilder);
 
-<#  foreach (var model in Model) { #>
-            modelBuilder.ApplyConfiguration(new <#= GetMappingClassName(model) #>());
+<#  foreach (var typeConfiguration in _entityTypeConfigurations) { #>
+            modelBuilder.ApplyConfiguration(new <#= typeConfiguration.Template.ClassName #>());
 <#  } #>
         }
 

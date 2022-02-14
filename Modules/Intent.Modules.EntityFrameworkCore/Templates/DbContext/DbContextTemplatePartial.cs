@@ -28,6 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
+        private readonly IList<EntityTypeConfigurationCreatedEvent> _entityTypeConfigurations = new List<EntityTypeConfigurationCreatedEvent>();
         private readonly IList<DbContextDecoratorBase> _decorators = new List<DbContextDecoratorBase>();
         private bool _useDbContextAsOptionsParameter;
 
@@ -37,6 +38,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             ExecutionContext.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt =>
             {
                 _useDbContextAsOptionsParameter |= evt.UseDbContextAsOptionsParameter;
+            });
+            ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(evt =>
+            {
+                _entityTypeConfigurations.Add(evt);
+                AddTemplateDependency(TemplateDependency.OnTemplate(evt.Template));
             });
         }
 

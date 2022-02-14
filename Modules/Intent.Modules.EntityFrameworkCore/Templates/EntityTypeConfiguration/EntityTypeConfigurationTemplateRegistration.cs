@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -34,7 +35,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels();
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(x => !x.IsAbstract || !application.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType());
         }
     }
 }

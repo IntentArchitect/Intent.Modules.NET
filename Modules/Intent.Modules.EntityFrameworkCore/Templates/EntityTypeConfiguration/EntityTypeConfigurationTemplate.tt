@@ -19,10 +19,10 @@ namespace <#= Namespace #>
     {
         public void Configure(EntityTypeBuilder<<#= GetEntityName() #>> builder)
         {<#= GetTableMapping() #><#= GetKeyMapping() #><#= GetCheckConstraints() #><#= GetDecoratorsOutput(x => x.BeforeAttributes()) #>
-<#  foreach(var attribute in Model.Attributes.Where(x => HasMapping(x))) { #>
+<#  foreach(var attribute in GetAttributes(Model)) { #>
             <#= GetAttributeMapping(attribute) #>
 <#  } #><#= GetDecoratorsOutput(x => x.AfterAttributes()) #>
-<#  foreach(var attribute in Model.AssociatedClasses.Where(x => HasMapping(x))) { #>
+<#  foreach(var attribute in GetAssociations(Model)) { #>
             <#= GetAssociationMapping(attribute) #>
 <#  } #><#= GetIndexes() #>
         }

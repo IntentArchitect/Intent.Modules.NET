@@ -51,28 +51,33 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
             this.Write("\r\n    {\r\n");
             
             #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
-  foreach (var model in Model) { 
+
+foreach (var typeConfiguration in _entityTypeConfigurations)
+{
+
             
             #line default
             #line hidden
             this.Write("        DbSet<");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(model)));
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(typeConfiguration.Template.Model)));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(model).ToPluralName()));
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(typeConfiguration.Template.Model).ToPluralName()));
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n\r\n");
+            this.Write(" { get; set; }\r\n");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
-  } 
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
+
+}
+
             
             #line default
             #line hidden

@@ -5,6 +5,7 @@ using Intent.Modules.DomainEvents.Templates.DomainEventBase;
 using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
 using Intent.Modules.DomainEvents.Templates.HasDomainEventInterface;
 using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
 
@@ -29,6 +30,10 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 
         public override string AfterProperties(ClassModel @class)
         {
+            if (Template.Model.ParentClass != null)
+            {
+                return null;
+            }
             return $@"
 
         public List<{Template.GetTypeName(DomainEventBaseTemplate.TemplateId)}> DomainEvents {{ get; set; }} = new List<{Template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>();";

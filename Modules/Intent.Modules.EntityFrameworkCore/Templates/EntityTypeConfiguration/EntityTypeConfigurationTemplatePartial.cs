@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -22,6 +23,16 @@ using Intent.Utils;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 {
+    public class EntityTypeConfigurationCreatedEvent
+    {
+        public EntityTypeConfigurationCreatedEvent(EntityTypeConfigurationTemplate template)
+        {
+            Template = template;
+        }
+
+        public EntityTypeConfigurationTemplate Template { get; set; }
+    }
+
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, EntityTypeConfigurationDecorator>
     {
@@ -38,6 +49,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(Project));
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(new EntityTypeConfigurationCreatedEvent(this));
+        }
+
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
@@ -52,14 +68,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetTableMapping()
         {
-            if (Model.ParentClass != null)
+            if (Model.ParentClass != null && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
             {
                 return $@"
             builder.HasBaseType<{GetTypeName(DomainEntityStateTemplate.TemplateId, Model.ParentClass)}>();
 ";
-
             }
-            if (Model.HasTable())
+            if (Model.HasTable() || ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerType())
             {
                 return $@"
             builder.ToTable(""{ Model.GetTable()?.Name() ?? Model.Name }"", ""{ Model.GetTable()?.Schema() ?? "dbo" }"");
@@ -71,7 +86,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetKeyMapping()
         {
-            if (Model.ParentClass != null)
+            if (Model.ParentClass != null && (!Model.ParentClass.IsAbstract || !ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType()))
             {
                 return string.Empty;
             }
@@ -309,6 +324,26 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             return $"x => new {{ {string.Join(", ", columns.Select(x => "x." + x))}}}";
+        }
+
+        private IEnumerable<AttributeModel> GetAttributes(ClassModel model)
+        {
+            var attributes = model.Attributes.Where(HasMapping).ToList();
+            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType())
+            {
+                attributes.AddRange(GetAttributes(model.ParentClass));
+            }
+            return attributes;
+        }
+
+        private IEnumerable<AssociationEndModel> GetAssociations(ClassModel model)
+        {
+            var associations = model.AssociatedClasses.Where(HasMapping).ToList();
+            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType())
+            {
+                associations.AddRange(GetAssociations(model.ParentClass));
+            }
+            return associations;
         }
     }
 }

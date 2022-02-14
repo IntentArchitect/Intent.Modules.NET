@@ -1,3 +1,4 @@
+using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 
@@ -21,6 +22,10 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 
         public override string AfterAttributes()
         {
+            if (_template.Model.ParentClass != null && (!_template.Model.ParentClass.IsAbstract || !_template.ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType()))
+            {
+                return null;
+            }
             return @"
             builder.Ignore(e => e.DomainEvents);
 ";

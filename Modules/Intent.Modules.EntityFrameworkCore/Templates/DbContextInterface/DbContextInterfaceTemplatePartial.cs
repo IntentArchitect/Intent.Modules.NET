@@ -11,6 +11,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,11 +24,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
     partial class DbContextInterfaceTemplate : CSharpTemplateBase<IList<ClassModel>>
     {
         public const string Identifier = "Intent.EntityFrameworkCore.DbContextInterface";
+        private readonly IList<EntityTypeConfigurationCreatedEvent> _entityTypeConfigurations = new List<EntityTypeConfigurationCreatedEvent>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
         public DbContextInterfaceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(Identifier, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
+            ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(evt =>
+            {
+                _entityTypeConfigurations.Add(evt);
+            });
         }
 
         public string GetEntityName(ClassModel model)

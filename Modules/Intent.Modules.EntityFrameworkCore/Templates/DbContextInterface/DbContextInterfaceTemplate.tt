@@ -22,10 +22,14 @@ namespace <#= Namespace #>
 {
     public interface <#= ClassName#>
     {
-<#  foreach (var model in Model) { #>
-        DbSet<<#= GetEntityName(model) #>> <#= GetEntityName(model).ToPluralName()#> { get; set; }
-
-<#  } #>
+<#
+foreach (var typeConfiguration in _entityTypeConfigurations)
+{
+#>
+        DbSet<<#= GetEntityName(typeConfiguration.Template.Model) #>> <#= GetEntityName(typeConfiguration.Template.Model).ToPluralName()#> { get; set; }
+<#
+}
+#>
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
