@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Domain.Events.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Common;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
