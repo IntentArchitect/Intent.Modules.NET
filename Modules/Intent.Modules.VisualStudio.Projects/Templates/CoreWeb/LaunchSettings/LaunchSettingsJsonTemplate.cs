@@ -41,6 +41,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                 launchBrowser = bool.TryParse(@event.GetValue(LaunchProfileRegistrationEvent.LaunchBrowserKey), out var launchBrowser) && launchBrowser,
                 launchUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.LaunchUrlKey),
                 applicationUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.ApplicationUrl),
+                publishAllPorts = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.PublishAllPorts), out var publishAllPorts) && publishAllPorts,
+                useSSL = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSSL) && useSSL,
             });
         }
 
@@ -182,6 +184,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
         public EnvironmentVariables environmentVariables { get; set; }
         public string applicationUrl { get; set; }
         public string launchUrl { get; set; }
+        public bool publishAllPorts { get; set; }
+        public bool useSSL { get; set; }
     }
 
     public class EnvironmentVariables

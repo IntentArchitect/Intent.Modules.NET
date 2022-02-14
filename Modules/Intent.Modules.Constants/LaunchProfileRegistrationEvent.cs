@@ -8,5 +8,8 @@
         public const string LaunchBrowserKey = "launchBrowser";
         public const string LaunchUrlKey = "launchUrl";
         public const string ApplicationUrl = "applicationUrl";
+        public const string UseSSL = "useSSL";
+        public const string PublishAllPorts = "publishAllPorts";
+
     }
 }
