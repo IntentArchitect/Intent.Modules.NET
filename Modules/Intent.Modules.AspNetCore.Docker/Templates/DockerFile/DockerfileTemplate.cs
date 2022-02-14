@@ -26,60 +26,78 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
         /// </summary>
         public override string TransformText()
         {
-            this.Write("FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base\r\nWORKDIR /app\r\nEXPOSE 80\r\n\r\n" +
-                    "FROM microsoft/dotnet:2.1-sdk AS build\r\nWORKDIR /src\r\nCOPY [\"");
+            this.Write(@"#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see https://aka.ms/containercompat
+
+FROM ");
             
-            #line 10 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 9 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetRuntime()));
+            
+            #line default
+            #line hidden
+            this.Write(" AS base\r\nWORKDIR /app\r\nEXPOSE 80\r\nEXPOSE 443\r\n\r\nFROM ");
+            
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetSdk()));
+            
+            #line default
+            #line hidden
+            this.Write(" AS build\r\nWORKDIR /src\r\nCOPY [\"");
+            
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
             #line hidden
             this.Write(".csproj\", \"");
             
-            #line 10 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
             #line hidden
             this.Write("/\"]\r\nRUN dotnet restore \"");
             
-            #line 11 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 11 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
             #line hidden
             this.Write(".csproj\"\r\nCOPY . .\r\nWORKDIR \"/src/");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
             #line hidden
             this.Write("\"\r\nRUN dotnet build \"");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
             #line hidden
-            this.Write(".csproj\" -c Release -o /app\r\n\r\nFROM build AS publish\r\nRUN dotnet publish \"");
+            this.Write(".csproj\" -c Release -o /app/build\r\n\r\nFROM build AS publish\r\nRUN dotnet publish \"");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
             #line hidden
-            this.Write(".csproj\" -c Release -o /app\r\n\r\nFROM base AS final\r\nWORKDIR /app\r\nCOPY --from=publ" +
-                    "ish /app .\r\nENTRYPOINT [\"dotnet\", \"");
+            this.Write(".csproj\" -c Release -o /app/publish\r\n\r\nFROM base AS final\r\nWORKDIR /app/publish\r\n" +
+                    "COPY --from=publish /app .\r\nENTRYPOINT [\"dotnet\", \"");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Docker\Templates\DockerFile\DockerfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
