@@ -66,13 +66,16 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
 
             foreach (var scheme in _swaggerSchemes)
             {
-                securitySchemes.oauth2.Flows[scheme.SchemeName] = JObject.FromObject(new
+                if (securitySchemes.oauth2.Flows[scheme.SchemeName] == null)
                 {
-                    AuthorizationUrl = scheme.AuthorizationUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
-                    RefreshUrl = scheme.RefreshUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
-                    TokenUrl = scheme.TokenUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
-                    scheme.Scopes
-                });
+                    securitySchemes.oauth2.Flows[scheme.SchemeName] = JObject.FromObject(new
+                    {
+                        AuthorizationUrl = scheme.AuthorizationUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
+                        RefreshUrl = scheme.RefreshUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
+                        TokenUrl = scheme.TokenUrl?.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort),
+                        scheme.Scopes
+                    });
+                }
             }
 
             dynamic oauthConfigObj = settings.SwaggerUI.OAuthConfigObject;
