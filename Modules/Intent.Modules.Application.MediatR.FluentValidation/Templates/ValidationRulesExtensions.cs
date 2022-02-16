@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.MediatR.FluentValidation.Api;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Utils;
 
 namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
 {
@@ -34,6 +37,23 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
                     if (property.GetStringValidation().HasCustomValidation())
                     {
                         validations.Add($".Must(Validate{property.Name})");
+                    }
+                }
+                else if (property.InternalElement.IsMapped)
+                {
+                    try
+                    {
+                        var attribute = property.InternalElement.MappedElement.Element.AsAttributeModel();
+                        if (attribute.HasStereotype("Text Constraints") &&
+                            attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
+                        {
+                            validations.Add(
+                                $".MaximumLength({attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength")})");
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Logging.Log.Debug("Could not resolve [Text Constraints] stereotype for Domain attribute: " + e.Message);
                     }
                 }
 

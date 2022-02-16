@@ -70,45 +70,51 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             
             #line default
             #line hidden
-            this.Write("\r\n        [IntentInitialGen]\r\n        public ");
+            this.Write("\r\n\r\n        [IntentManaged(Mode.Ignore)]\r\n        public ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCtorParams()));
             
             #line default
             #line hidden
             this.Write(")\r\n        {");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCtorInitializations()));
             
             #line default
             #line hidden
-            this.Write("\r\n        }\r\n\r\n        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n     " +
-                    "   public async Task<");
+            this.Write("\r\n        }\r\n\r\n        [IntentManaged(Mode.Fully, Body = Mode.");
             
             #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(HasImplementation() ? "Fully": "Ignore"));
+            
+            #line default
+            #line hidden
+            this.Write(")]\r\n        public async Task<");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(Model.TypeReference)));
             
             #line default
             #line hidden
             this.Write("> Handle(");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetQueryModelName()));
             
             #line default
             #line hidden
             this.Write(" request, CancellationToken cancellationToken)\r\n        {");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR\Templates\QueryHandler\QueryHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetImplementation()));
             
             #line default

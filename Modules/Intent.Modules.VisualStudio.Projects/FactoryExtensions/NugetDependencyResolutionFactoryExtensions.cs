@@ -25,6 +25,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
         public void OnStep(IApplication application, string step)
         {
+            if (step == ExecutionLifeCycleSteps.AfterTemplateRegistrations)
+            {
+                foreach (var project in application.OutputTargets.Where(x => x.IsVSProject()))
+                {
+                    project.InitializeVSMetadata();
+                }
+            }
             if (step == ExecutionLifeCycleSteps.BeforeTemplateExecution)
             {
                 ResolveNuGetDependencies(application);
@@ -35,11 +42,6 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         {
             // Resolve all dependencies and events
             Logging.Log.Info($"Resolving NuGet Dependencies");
-
-            foreach (var project in application.OutputTargets.Where(x => x.IsVSProject()))
-            {
-                project.InitializeVSMetadata();
-            }
 
             foreach (var outputTarget in application.OutputTargets)
             {

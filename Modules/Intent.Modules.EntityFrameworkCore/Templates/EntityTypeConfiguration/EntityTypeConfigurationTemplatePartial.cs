@@ -74,10 +74,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             builder.HasBaseType<{GetTypeName(DomainEntityStateTemplate.TemplateId, Model.ParentClass)}>();
 ";
             }
-            if (Model.HasTable() || ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerType())
+            if (Model.HasTable() || !ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
             {
                 return $@"
-            builder.ToTable(""{ Model.GetTable()?.Name() ?? Model.Name }"", ""{ Model.GetTable()?.Schema() ?? "dbo" }"");
+            builder.ToTable(""{ Model.GetTable()?.Name() ?? Model.Name }""{(!string.IsNullOrWhiteSpace(Model.GetTable()?.Schema()) ? @$", ""{ Model.GetTable().Schema() ?? "dbo" }""" : "")});
 ";
             }
 
@@ -328,21 +328,24 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private IEnumerable<AttributeModel> GetAttributes(ClassModel model)
         {
-            var attributes = model.Attributes.Where(HasMapping).ToList();
+            var attributes = new List<AttributeModel>();
             if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType())
             {
                 attributes.AddRange(GetAttributes(model.ParentClass));
             }
+
+            attributes.AddRange(model.Attributes.Where(HasMapping).ToList());
             return attributes;
         }
 
         private IEnumerable<AssociationEndModel> GetAssociations(ClassModel model)
         {
-            var associations = model.AssociatedClasses.Where(HasMapping).ToList();
+            var associations = new List<AssociationEndModel>();
             if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType())
             {
                 associations.AddRange(GetAssociations(model.ParentClass));
             }
+            associations.AddRange(model.AssociatedClasses.Where(HasMapping).ToList());
             return associations;
         }
     }

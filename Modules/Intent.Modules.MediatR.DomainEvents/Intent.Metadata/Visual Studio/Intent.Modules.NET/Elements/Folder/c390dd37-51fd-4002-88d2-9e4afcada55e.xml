@@ -3,7 +3,7 @@
   <name>Templates</name>
   <display>Templates</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e70fc8ae-5eff-42c7-8f04-e1f44947b9c0</parentFolderId>
@@ -179,10 +179,12 @@
       <display>Intent.ModuleBuilder.Templates.TemplateExtensions</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>11</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c390dd37-51fd-4002-88d2-9e4afcada55e</parentFolderId>
+      <packageId>1f458c5c-3b9e-4877-b70a-c7a7fd73486e</packageId>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>

@@ -32,15 +32,15 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing FluentValidation;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Me" +
-                    "rge)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing FluentValidation;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fu" +
+                    "lly)]\r\n\r\nnamespace ");
             
             #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge)]\r\n    public class ");
+            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n    public class ");
             
             #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

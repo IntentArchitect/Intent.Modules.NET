@@ -75,6 +75,12 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"_{x.Name.ToCamelCase()} = {x.Name.ToCamelCase()};"))}";
         }
 
+        private bool HasImplementation()
+        {
+            var impl = GetDecoratorsOutput(x => x.GetImplementation());
+            return !string.IsNullOrWhiteSpace(impl);
+        }
+
         private string GetImplementation()
         {
             var impl = GetDecoratorsOutput(x => x.GetImplementation());

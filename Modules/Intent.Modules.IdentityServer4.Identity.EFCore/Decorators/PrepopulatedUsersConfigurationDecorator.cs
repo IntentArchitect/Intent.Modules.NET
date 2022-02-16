@@ -47,20 +47,25 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
         public override string Methods()
         {
             return @"
-[IntentManaged(Mode.Merge)]
-private static void PrepopulateWithIdentityUsers(IApplicationBuilder app)
-{
-    using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-    {
-        var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-        if (!userManager.Users.Any())
+
+        [IntentManaged(Mode.Merge)]
+        private static void PrepopulateWithIdentityUsers(IApplicationBuilder app)
         {
-            var identityUser = new IdentityUser(""admin"");
-            userManager.CreateAsync(identityUser, ""P@ssw0rd"").Wait();
-            userManager.AddClaimsAsync(identityUser, new Claim[] { new Claim(""role"", ""MyRole"") }).Wait();
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                if (!userManager.Users.Any())
+                {
+                    var identityUser = new IdentityUser(""admin"");
+                    userManager.CreateAsync(identityUser, ""P@ssw0rd"").Wait();
+                    userManager.AddClaimsAsync(identityUser, new[] 
+                        {
+                            new Claim(""role"", ""MyRole""), 
+                            new Claim(""__tenant__"", ""tenant1"") // e.g. if claim-strategy based Multitenancy is installed, set tenant identifier
+                        }).Wait();
+                }
+            }
         }
-    }
-}
 ";
         }
     }

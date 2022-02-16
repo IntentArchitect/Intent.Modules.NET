@@ -21,6 +21,7 @@
                     <property name="4756bd10-23e2-473b-9957-d7083759cd42" display="Target Multiple Frameworks" value="false" isActive="true" />
                     <property name="ef3e7b17-ba1d-4818-82a2-5a8ad3875d40" display="Target Framework" value="16d99e3e-7b91-42f8-ae3b-2686edde94b7" isActive="true" />
                     <property name="5215b600-32fc-4a6d-af72-9eb88a6f30e7" display="Target Frameworks" value="" isActive="false" />
+                    <property name="f2956d24-b6da-427b-8728-c4f44714ce69" display="User Secrets Id" value="254b1f62-4be1-4a3a-8e4d-8b1bd2f93976" isActive="true" />
                   </properties>
                 </stereotype>
                 <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -30,7 +31,7 @@
                   <properties>
                     <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
                     <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
-                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="true" isActive="true" />
                   </properties>
                 </stereotype>
               </stereotypes>
@@ -222,7 +223,7 @@
                   <properties>
                     <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
                     <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
-                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="true" isActive="true" />
                   </properties>
                 </stereotype>
               </stereotypes>
@@ -331,7 +332,7 @@
                   <properties>
                     <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
                     <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
-                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="true" isActive="true" />
                   </properties>
                 </stereotype>
               </stereotypes>
@@ -431,7 +432,7 @@
                   <properties>
                     <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
                     <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
-                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+                    <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="true" isActive="true" />
                   </properties>
                 </stereotype>
               </stereotypes>

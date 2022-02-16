@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
@@ -51,11 +52,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             return new CSharpFileConfig(
                 className: $"ApplicationDbContext",
                 @namespace: $"{OutputTarget.GetNamespace()}");
-        }
-
-        public override void BeforeTemplateExecution()
-        {
-
         }
 
         public string GetEntityName(ClassModel model)

@@ -22,12 +22,13 @@ namespace <#= Namespace #>
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : IRequestHandler<<#= GetQueryModelName() #>, <#= GetTypeName(Model.TypeReference) #>>
     {<#= GetFields() #>
-        [IntentInitialGen]
+
+        [IntentManaged(Mode.Ignore)]
         public <#= ClassName #>(<#= GetCtorParams() #>)
         {<#= GetCtorInitializations() #>
         }
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.<#= HasImplementation() ? "Fully": "Ignore" #>)]
         public async Task<<#= GetTypeName(Model.TypeReference) #>> Handle(<#= GetQueryModelName() #> request, CancellationToken cancellationToken)
         {<#= GetImplementation() #>
         }

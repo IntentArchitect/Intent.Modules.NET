@@ -10,11 +10,11 @@
 using System;
 using FluentValidation;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace <#= Namespace #>
 {
-    [IntentManaged(Mode.Merge)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : AbstractValidator<<#= GetCommandModel() #>>
     {
         [IntentManaged(Mode.Fully)]
