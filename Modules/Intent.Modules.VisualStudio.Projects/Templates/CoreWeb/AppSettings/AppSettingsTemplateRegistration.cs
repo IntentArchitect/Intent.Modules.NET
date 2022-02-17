@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
@@ -23,7 +21,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         private readonly IMetadataManager _metadataManager;
         public string TemplateId => AppSettingsTemplate.TemplateId;
 
-
         public AppSettingsTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
@@ -31,12 +28,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var models = _metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels();
+            var aspProjects = _metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels();
 
-            foreach (var model in models)
+            foreach (var aspProject in aspProjects)
             {
-                var project = application.Projects.Single(x => x.Id == model.Id);
-                registry.Register(TemplateId, project, p => new AppSettingsTemplate(p, project.Application.EventDispatcher));
+                var outputTarget = application.OutputTargets.Single(x => x.Id == aspProject.Id);
+
+                registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(aspProject)));
+
+                foreach (var runtimeEnvironment in aspProject.RuntimeEnvironments)
+                {
+                    registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(aspProject, runtimeEnvironment)));
+                }
             }
         }
     }

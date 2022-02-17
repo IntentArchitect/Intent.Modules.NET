@@ -99,6 +99,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .ToList();
         }
 
+        public static IList<RuntimeEnvironmentModel> GetRuntimeEnvironmentModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)
+                .Select(x => new RuntimeEnvironmentModel(x))
+                .ToList();
+        }
+
         public static IList<SQLServerDatabaseProjectModel> GetSQLServerDatabaseProjectModels(this IDesigner designer)
         {
             return designer.GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)

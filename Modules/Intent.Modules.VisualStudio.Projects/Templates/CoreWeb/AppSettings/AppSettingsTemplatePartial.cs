@@ -2,16 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Xml.Linq;
 using Intent.Engine;
-using Intent.Eventing;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
-using Intent.Modules.VisualStudio.Projects.Templates.WebConfig;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Newtonsoft.Json;
@@ -23,7 +19,7 @@ using Newtonsoft.Json.Linq;
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class AppSettingsTemplate : IntentTemplateBase<object, AppSettingsDecorator>
+    partial class AppSettingsTemplate : IntentTemplateBase<AppSettingsModel, AppSettingsDecorator>
     {
 
         [IntentManaged(Mode.Fully)]
@@ -32,7 +28,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         private readonly IList<ConnectionStringRegistrationRequest> _connectionStrings = new List<ConnectionStringRegistrationRequest>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public AppSettingsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public AppSettingsTemplate(IOutputTarget outputTarget, AppSettingsModel model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(HandleAppSetting);
             ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(HandleConnectionString);
@@ -40,7 +36,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 
         public override string GetCorrelationId()
         {
-            return $"{TemplateId}#{OutputTarget.Id}";
+            return $"{TemplateId}-{Model.RuntimeEnvironment?.Name ?? "Default"}#{OutputTarget.Id}";
         }
 
         public override string RunTemplate()
@@ -84,30 +80,61 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
+            var runtimeEnvironment = !string.IsNullOrWhiteSpace(Model.RuntimeEnvironment?.Name)
+                ? $".{Model.RuntimeEnvironment.Name.ToPascalCase()}"
+                : string.Empty;
+
             return new TemplateFileConfig(
                 overwriteBehaviour: OverwriteBehaviour.Always,
                 codeGenType: CodeGenType.Basic,
-                fileName: "appsettings",
+                fileName: $"appsettings{runtimeEnvironment}",
                 fileExtension: "json"
             );
         }
 
         private void HandleAppSetting(AppSettingRegistrationRequest @event)
         {
-            if (_appSettings.Any(x => x.Key == @event.Key && x.Value != @event.Value))
+            if (Model.RuntimeEnvironment?.Name != @event.RuntimeEnvironment)
             {
-                // Throw exception?
                 return;
             }
+
+            if (!string.IsNullOrWhiteSpace(@event.ForProjectWithRole) &&
+                !OutputTarget.GetProject().HasRole(@event.ForProjectWithRole))
+            {
+                return;
+            }
+
+            @event.MarkHandled();
+
+            if (_appSettings.Any(x => x.Key == @event.Key && x.Value != @event.Value))
+            {
+                return;
+            }
+
             _appSettings.Add(@event);
         }
 
         private void HandleConnectionString(ConnectionStringRegistrationRequest @event)
         {
+            if (Model.RuntimeEnvironment?.Name != @event.RuntimeEnvironment)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(@event.ForProjectWithRole) &&
+                !OutputTarget.GetProject().HasRole(@event.ForProjectWithRole))
+            {
+                return;
+            }
+
+            @event.MarkHandled();
+
             if (_connectionStrings.Any(x => x.Name == @event.Name && x.ConnectionString != @event.ConnectionString))
             {
                 throw new Exception($"Misconfiguration in [{GetType().Name}]: ConnectionString with name [{@event.Name}] already defined with different value to [{@event.ConnectionString}].");
             }
+
             _connectionStrings.Add(@event);
         }
     }

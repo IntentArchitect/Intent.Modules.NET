@@ -151,6 +151,13 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#9edf270e-3f38-406c-ac94-07b9737bb531</CorrelationId>
+      <ApplicationRelativeFilePath>Api/RuntimeEnvironmentModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RuntimeEnvironmentModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0dc2b846-c968-49eb-99b7-8776919313a8</CorrelationId>
       <ApplicationRelativeFilePath>Api/SolutionFolderModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SolutionFolderModel.cs</ProjectRelativeFilePath>

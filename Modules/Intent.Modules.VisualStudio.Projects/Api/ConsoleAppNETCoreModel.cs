@@ -85,6 +85,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new RoleModel(x))
             .ToList();
 
+        public IList<RuntimeEnvironmentModel> RuntimeEnvironments => _element.ChildElements
+            .GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)
+            .Select(x => new RuntimeEnvironmentModel(x))
+            .ToList();
+
         public override string ToString()
         {
             return _element.ToString();

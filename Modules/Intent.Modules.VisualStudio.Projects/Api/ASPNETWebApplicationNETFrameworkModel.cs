@@ -101,6 +101,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .GetElementsOfType(FolderModel.SpecializationTypeId)
             .Select(x => new FolderModel(x))
             .ToList();
+
+        public IList<RuntimeEnvironmentModel> RuntimeEnvironments => _element.ChildElements
+            .GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)
+            .Select(x => new RuntimeEnvironmentModel(x))
+            .ToList();
         public const string SpecializationTypeId = "8AF747CF-58F0-449C-8B95-46080FEFC8C0";
 
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
