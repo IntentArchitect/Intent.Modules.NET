@@ -48,23 +48,16 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
             
             #line default
             #line hidden
-            this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n    {\r\n        pr" +
-                    "ivate readonly Stopwatch _timer;\r\n        private readonly ILogger<TRequest> _lo" +
-                    "gger;\r\n        private readonly ");
+            this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
+                    "quest : IRequest<TResponse>\r\n    {\r\n        private readonly Stopwatch _timer;\r\n" +
+                    "        private readonly ILogger<TRequest> _logger;\r\n        private readonly ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
             #line hidden
-            this.Write(" _currentUserService;\r\n        private readonly ");
-            
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityServiceInterface()));
-            
-            #line default
-            #line hidden
-            this.Write(" _identityService;\r\n\r\n        public ");
+            this.Write(" _currentUserService;\r\n\r\n        public ");
             
             #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
@@ -78,20 +71,12 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
             
             #line default
             #line hidden
-            this.Write(" currentUserService,\r\n            ");
-            
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityServiceInterface()));
-            
-            #line default
-            #line hidden
-            this.Write(@" identityService)
+            this.Write(@" currentUserService)
         {
             _timer = new Stopwatch();
 
             _logger = logger;
             _currentUserService = currentUserService;
-            _identityService = identityService;
         }
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
@@ -108,21 +93,19 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
             {
                 var requestName = typeof(TRequest).Name;
                 var userId = _currentUserService.UserId ?? string.Empty;
-                var userName = string.Empty;
+                var userName = _currentUserService.UserName ?? string.Empty;
 
-                if (!string.IsNullOrEmpty(userId))
-                {
-                    userName = await _identityService.GetUserNameAsync(userId);
-                }
-
-                _logger.LogWarning(""CleanArchitecture Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}"",
-                    requestName, elapsedMilliseconds, userId, userName, request);
-            }
-
-            return response;
-        }
-    }
-}");
+                _logger.LogWarning(""");
+            
+            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ExecutionContext.GetApplicationConfig().Name));
+            
+            #line default
+            #line hidden
+            this.Write(" Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@Us" +
+                    "erName} {@Request}\",\r\n                    requestName, elapsedMilliseconds, user" +
+                    "Id, userName, request);\r\n            }\r\n\r\n            return response;\r\n        " +
+                    "}\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

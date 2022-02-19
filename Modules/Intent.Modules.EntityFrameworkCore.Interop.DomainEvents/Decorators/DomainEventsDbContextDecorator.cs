@@ -40,8 +40,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 
         public override string BeforeCallToSaveChangesAsync()
         {
-            return @"
-            await DispatchEvents();";
+            return @"await DispatchEvents();";
         }
 
         public override IEnumerable<string> GetMethods()

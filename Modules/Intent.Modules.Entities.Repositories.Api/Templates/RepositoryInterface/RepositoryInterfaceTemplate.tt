@@ -26,8 +26,6 @@ namespace <#= Namespace #>
     {
         void Add(TDomain entity);
         void Remove(TDomain entity);
-        Task<int> SaveChangesAsync();
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);

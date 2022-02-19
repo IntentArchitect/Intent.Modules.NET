@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.ValidationException;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Common;
-
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -42,6 +41,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
+                .WithPriority(4)
                 .ForConcern("Application")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));

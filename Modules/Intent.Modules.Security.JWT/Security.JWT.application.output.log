@@ -3,6 +3,7 @@
   <ApplicationId>8d97d581-efbb-47bd-b460-05a3293a5afa</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#cba83286-8d23-45ae-b996-ec6009c0f936</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -57,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Security.JWT.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Security.JWT.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -106,6 +107,35 @@
     </FileLog>
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

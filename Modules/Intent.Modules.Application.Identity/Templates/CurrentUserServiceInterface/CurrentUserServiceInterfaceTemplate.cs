@@ -32,21 +32,24 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterf
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\n" +
+                    "namespace ");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\CurrentUserServiceInterface\CurrentUserServiceInterfaceTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\CurrentUserServiceInterface\CurrentUserServiceInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\CurrentUserServiceInterface\CurrentUserServiceInterfaceTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\CurrentUserServiceInterface\CurrentUserServiceInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        string UserId { get; }\r\n    }\r\n}");
+            this.Write("\r\n    {\r\n        string UserId { get; }\r\n        string UserName { get; }\r\n      " +
+                    "  Task<bool> IsInRoleAsync(string role);\r\n        Task<bool> AuthorizeAsync(stri" +
+                    "ng policy);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

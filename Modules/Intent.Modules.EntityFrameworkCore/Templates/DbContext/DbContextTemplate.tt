@@ -36,7 +36,7 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
 }
 #>
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             <#= GetDecoratorsOutput(x => x.BeforeCallToSaveChangesAsync()) #>
             var result = await base.SaveChangesAsync(cancellationToken);

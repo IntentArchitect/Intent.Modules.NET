@@ -3,7 +3,7 @@
   <name>StartupDefaultJWTDecorator</name>
   <display>StartupDefaultJWTDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>5</order>
   <genericTypes />
   <typeReference id="4622f957-77ee-4674-83d7-af36a6b2c5a2">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

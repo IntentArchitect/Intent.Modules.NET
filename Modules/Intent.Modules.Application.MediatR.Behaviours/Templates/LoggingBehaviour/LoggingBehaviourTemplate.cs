@@ -56,57 +56,41 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
             
             #line default
             #line hidden
-            this.Write(" _currentUserService;\r\n        private readonly ");
+            this.Write(" _currentUserService;\r\n\r\n        public ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityServiceInterface()));
-            
-            #line default
-            #line hidden
-            this.Write(" _identityService;\r\n\r\n        public ");
-            
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(ILogger<TRequest> logger, ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
             #line hidden
-            this.Write(" currentUserService, ");
-            
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityServiceInterface()));
-            
-            #line default
-            #line hidden
-            this.Write(@" identityService)
+            this.Write(@" currentUserService)
         {
             _logger = logger;
             _currentUserService = currentUserService;
-            _identityService = identityService;
         }
 
         public async Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
             var userId = _currentUserService.UserId ?? string.Empty;
-            string userName = string.Empty;
+            var userName = _currentUserService.UserName ?? string.Empty;
 
-            if (!string.IsNullOrEmpty(userId))
-            {
-                userName = await _identityService.GetUserNameAsync(userId);
-            }
-
-            _logger.LogInformation(""CleanArchitecture Request: {Name} {@UserId} {@UserName} {@Request}"",
-                requestName, userId, userName, request);
-        }
-    }
-}");
+            _logger.LogInformation(""");
+            
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ExecutionContext.GetApplicationConfig().Name));
+            
+            #line default
+            #line hidden
+            this.Write(" Request: {Name} {@UserId} {@UserName} {@Request}\",\r\n                requestName," +
+                    " userId, userName, request);\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

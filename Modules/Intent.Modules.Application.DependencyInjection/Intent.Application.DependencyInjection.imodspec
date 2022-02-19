@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DependencyInjection</id>
-  <version>3.1.1</version>
-  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
+  <version>3.2.0</version>
+  <supportedClientVersions>[3.2.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
   <authors>Intent.Modules.NET</authors>
@@ -22,9 +22,9 @@
   <factoryExtensions></factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.Types" version="3.1.1" />
-    <dependency id="Intent.Common.CSharp" version="3.1.8" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.7" />
+    <dependency id="Intent.Common.CSharp" version="3.2.7" />
+    <dependency id="Intent.Common.Types" version="3.2.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.2.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

@@ -30,15 +30,11 @@
   </templates>
   <decorators></decorators>
   <interoperability>
-    <detect id="Intent.AspNetCore.Controllers">
-      <install>
-        <package id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore" version="3.1.1" />
-      </install>
-    </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.Types" version="3.2.0" />
+	<dependency id="Intent.Common" version="3.2.0" />
+	<dependency id="Intent.Common.CSharp" version="3.2.7" />
+	<dependency id="Intent.Common.Types" version="3.2.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.2.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="3.2.0" />
     <dependency id="Intent.EntityFrameworkCore" version="3.2.0" />

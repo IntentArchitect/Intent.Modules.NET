@@ -48,22 +48,15 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
             
             #line default
             #line hidden
-            this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n    {\r\n        pr" +
-                    "ivate readonly ");
+            this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
+                    "quest : IRequest<TResponse>\r\n    {\r\n        private readonly ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
             #line hidden
-            this.Write(" _currentUserService;\r\n        private readonly ");
-            
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityServiceInterface()));
-            
-            #line default
-            #line hidden
-            this.Write(" _identityService;\r\n\r\n        public ");
+            this.Write(" _currentUserService;\r\n\r\n        public ");
             
             #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
@@ -77,24 +70,16 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
             
             #line default
             #line hidden
-            this.Write(" currentUserService,\r\n            ");
-            
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIdentityServiceInterface()));
-            
-            #line default
-            #line hidden
-            this.Write(@" identityService)
+            this.Write(@" currentUserService)
         {
             _currentUserService = currentUserService;
-            _identityService = identityService;
         }
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             var authorizeAttributes = request.GetType().GetCustomAttributes<");
             
-            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAuthorizationAttribute()));
             
             #line default
@@ -119,7 +104,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                         var authorized = false;
                         foreach (var role in roles)
                         {
-                            var isInRole = await _identityService.IsInRoleAsync(_currentUserService.UserId, role.Trim());
+                            var isInRole = await _currentUserService.IsInRoleAsync(role.Trim());
                             if (isInRole)
                             {
                                 authorized = true;
@@ -132,7 +117,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                         {
                             throw new ");
             
-            #line 67 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 65 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetForbiddenAccessException()));
             
             #line default
@@ -148,13 +133,13 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                 {
                     foreach(var policy in authorizeAttributesWithPolicies.Select(a => a.Policy))
                     {
-                        var authorized = await _identityService.AuthorizeAsync(_currentUserService.UserId, policy);
+                        var authorized = await _currentUserService.AuthorizeAsync(policy);
 
                         if (!authorized)
                         {
                             throw new ");
             
-            #line 82 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 80 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetForbiddenAccessException()));
             
             #line default

@@ -3,12 +3,13 @@
   <ApplicationId>69f06913-7f0d-4ad1-bf64-0b14901a49cd</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#e0767a23-7d16-400c-85be-cf08853a5e02</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f70df819-b1a1-460c-ad99-567cf48a1a99</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.FluentValidation.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.MediatR.FluentValidation.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -85,6 +86,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

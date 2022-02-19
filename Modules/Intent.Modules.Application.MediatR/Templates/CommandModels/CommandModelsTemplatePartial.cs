@@ -1,14 +1,14 @@
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
-using Intent.Modules.Common.Templates;
-using System.Collections.Generic;
 using Intent.Modules.Application.Dtos.Templates;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -39,7 +39,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
 
         private string GetRequestInterface()
         {
-            return Model.TypeReference.Element != null ? $"IRequest<{GetTypeName(Model.TypeReference)}>" : "IRequest";
+            var interfaces = new List<string>(); 
+            interfaces.Add(Model.TypeReference.Element != null ? $"IRequest<{GetTypeName(Model.TypeReference)}>" : "IRequest");
+            interfaces.Add(this.GetCommandInterfaceName());
+            return string.Join(", ", interfaces);
         }
     }
 }

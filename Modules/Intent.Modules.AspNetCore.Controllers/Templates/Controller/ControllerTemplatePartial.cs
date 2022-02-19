@@ -6,6 +6,7 @@ using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -74,7 +75,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetControllerAttributes()
         {
             var attributes = new List<string>();
-            if (Model.HasSecured())
+            if (IsControllerSecured())
             {
                 // We can extend this later (if desired) to have multiple Secure stereotypes create
                 // multiple Authorization Models.
@@ -87,24 +88,21 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     ", attributes);
         }
 
-        private string GetOperationAttributes(OperationModel o)
+        private string GetOperationAttributes(OperationModel operation)
         {
             var attributes = new List<string>();
-            attributes.Add(GetHttpVerbAndPath(o));
-            if (o.ParentService.HasSecured() != o.HasSecured())
+            attributes.Add(GetHttpVerbAndPath(operation));
+            if (!IsControllerSecured() && operation.HasSecured())
             {
-                if (o.HasSecured())
-                {
-                    // We can extend this later (if desired) to have multiple Secure stereotypes create
-                    // multiple Authorization Models.
-                    var authModel = new AuthorizationModel();
-                    GetDecorators().ToList().ForEach(x => x.UpdateOperationAuthorization(authModel, new OperationSecureModel(o, o.GetSecured())));
-                    attributes.Add(GetAuthorizationAttribute(authModel));
-                }
-                else if (o.HasUnsecured())
-                {
-                    attributes.Add("[AllowAnonymous]");
-                }
+                // We can extend this later (if desired) to have multiple Secure stereotypes create
+                // multiple Authorization Models.
+                var authModel = new AuthorizationModel();
+                GetDecorators().ToList().ForEach(x => x.UpdateOperationAuthorization(authModel, new OperationSecureModel(operation, operation.GetSecured())));
+                attributes.Add(GetAuthorizationAttribute(authModel));
+            }
+            else if (IsControllerSecured() && operation.HasUnsecured())
+            {
+                attributes.Add("[AllowAnonymous]");
             }
             return string.Join(@"
         ", attributes);
@@ -137,6 +135,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             return "[Authorize]";
+        }
+
+        private bool IsControllerSecured()
+        {
+            return Model.HasSecured() || ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().IsSecuredByDefault();
         }
 
         private string GetHttpVerbAndPath(OperationModel o)

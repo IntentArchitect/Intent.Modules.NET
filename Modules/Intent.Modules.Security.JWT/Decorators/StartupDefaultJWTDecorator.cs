@@ -1,14 +1,14 @@
-using Intent.Engine;
-using Intent.Modules.AspNetCore.Templates.Startup;
-using Intent.Modules.Common;
-using Intent.Modules.Common.VisualStudio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Intent.RoslynWeaver.Attributes;
+using Intent.Engine;
+using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Security.JWT.Events;
 using Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -21,6 +21,7 @@ namespace Intent.Modules.Security.JWT.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Security.JWT.StartupDefaultJWTDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
         private readonly IApplication _application;
 
@@ -40,7 +41,7 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         public override string ConfigureServices()
         {
-            return @"services.ConfigureJWTAuthentication(Configuration);";
+            return @"services.ConfigureJWTSecurity(Configuration);";
         }
     }
 }

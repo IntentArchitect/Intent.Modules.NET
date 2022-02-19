@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Security.JWT.Events;
 using Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -17,6 +17,7 @@ namespace Intent.Modules.Security.JWT.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Security.JWT.ConfigurationJWTAuthenticationDefaultDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly ConfigurationJWTAuthenticationTemplate _template;
         private readonly IApplication _application;
         private bool _overrideBearerTokenConfiguration;

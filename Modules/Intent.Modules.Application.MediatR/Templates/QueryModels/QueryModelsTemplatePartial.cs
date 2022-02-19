@@ -39,7 +39,10 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
 
         private string GetRequestInterface()
         {
-            return $"IRequest<{GetTypeName(Model.TypeReference)}>";
+            var interfaces = new List<string>();
+            interfaces.Add($"IRequest<{GetTypeName(Model.TypeReference)}>");
+            interfaces.Add(this.GetQueryInterfaceName());
+            return string.Join(", ", interfaces);
         }
     }
 }

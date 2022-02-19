@@ -45,16 +45,6 @@ namespace <#= Namespace #>
             GetSet().Add((TPersistence)entity);
         }
 
-        public Task<int> SaveChangesAsync()
-        {
-            return _dbContext.SaveChangesAsync();
-        }
-
-        public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
-        {
-            return _dbContext.SaveChangesAsync(cancellationToken);
-        }
-
         public virtual async Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);

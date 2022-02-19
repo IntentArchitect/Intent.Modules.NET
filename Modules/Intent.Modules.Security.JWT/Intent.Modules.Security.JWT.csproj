@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -6,9 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.2.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.1.8" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.0" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.1.2" />
-    <PackageReference Include="Intent.Packager" Version="3.1.0">
+    <PackageReference Include="Intent.Packager" Version="3.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj" />
     <ProjectReference Include="..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj" />
   </ItemGroup>
 
@@ -25,6 +26,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConfigurationJWTAuthenticationTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\CurrentUserService\CurrentUserServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CurrentUserServiceTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +37,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ConfigurationJWTAuthenticationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\CurrentUserService\CurrentUserServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CurrentUserServiceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

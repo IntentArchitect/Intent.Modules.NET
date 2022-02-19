@@ -81,8 +81,8 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
             
             #line default
             #line hidden
-            this.Write("        Task<int> SaveChangesAsync(CancellationToken cancellationToken);\r\n    }\r\n" +
-                    "}");
+            this.Write("        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(" +
+                    "CancellationToken));\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

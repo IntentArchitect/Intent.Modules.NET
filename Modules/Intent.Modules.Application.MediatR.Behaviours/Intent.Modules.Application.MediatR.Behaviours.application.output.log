@@ -3,12 +3,13 @@
   <ApplicationId>5e684d52-7a4c-48fb-b89e-221df0609c32</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#09f8516d-f26a-4a4b-9d39-c3074cba2132</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.Behaviours.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.MediatR.Behaviours.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -113,6 +114,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -143,6 +145,34 @@
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
       <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

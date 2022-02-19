@@ -71,7 +71,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
             #line hidden
             
             #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.DependencyInjection\Templates\DependencyInjection\DependencyInjectionTemplate.tt"
-  foreach(var registration in _registrationRequests) { 
+  foreach(var registration in _registrationRequests.OrderBy(x => x.Priority)) { 
             
             #line default
             #line hidden

@@ -11,8 +11,10 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Templates;
 
@@ -102,6 +104,27 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             //    { "InterfaceTypeTemplateId", _repositoryInterfaceTemplateDependency.TemplateId },
             //    { "ConcreteTypeTemplateId", Identifier }
             //});
+        }
+
+        private string ConstructorImplementation()
+        {
+            if (!IsRepoSupported())
+            {
+                return $@"
+            // The {Model.Name} type's ORM inheritance strategy is set to Table per Concrete Type (TPC).
+            // Table per Concrete Type is not supported in the current version of Entity Framework Core.
+            // Because of this, Intent.EntityFrameworkCore module is only creating tables for the concrete types in this hierarchy.
+            // A repository on this abstract type is therefore not supported.
+            throw new NotSupportedException($""Cannot create a repository for abstract type {Model.Name}."");";
+            }
+
+            return string.Empty;
+        }
+
+        private bool IsRepoSupported()
+        {
+            return !(ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType() && 
+                   Model.IsAbstract && OutputTarget.GetProject().TargetDotNetFrameworks.First().Major <= 6);
         }
     }
 }

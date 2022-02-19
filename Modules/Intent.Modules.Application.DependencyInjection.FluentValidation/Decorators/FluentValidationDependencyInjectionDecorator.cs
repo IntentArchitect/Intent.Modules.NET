@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using Intent.Engine;
 using Intent.Modules.Application.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -15,6 +15,7 @@ namespace Intent.Modules.Application.DependencyInjection.FluentValidation.Decora
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Application.DependencyInjection.FluentValidation.FluentValidationDependencyInjectionDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly DependencyInjectionTemplate _template;
         private readonly IApplication _application;
 

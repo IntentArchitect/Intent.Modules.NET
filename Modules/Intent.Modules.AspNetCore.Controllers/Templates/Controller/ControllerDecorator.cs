@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using OperationModelExtensions = Intent.Metadata.WebApi.Api.OperationModelExtensions;
 using ServiceModelExtensions = Intent.Metadata.WebApi.Api.ServiceModelExtensions;
 

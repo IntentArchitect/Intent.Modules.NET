@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication;
+using Intent.Modules.Security.JWT.Templates.CurrentUserService;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,6 +14,11 @@ namespace Intent.Modules.Security.JWT.Templates
         public static string GetConfigurationJWTAuthenticationName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(ConfigurationJWTAuthenticationTemplate.TemplateId);
+        }
+
+        public static string GetCurrentUserServiceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(CurrentUserServiceTemplate.TemplateId);
         }
 
     }

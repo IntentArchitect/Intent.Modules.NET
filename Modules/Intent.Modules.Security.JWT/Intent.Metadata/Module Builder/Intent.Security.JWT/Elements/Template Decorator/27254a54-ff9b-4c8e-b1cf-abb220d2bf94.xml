@@ -3,7 +3,7 @@
   <name>ConfigurationJWTAuthenticationDefaultDecorator</name>
   <display>ConfigurationJWTAuthenticationDefaultDecorator: JWTAuthenticationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <typeReference id="b3980447-2ccf-4ec5-972c-4f52f924d3ed">
     <typeId>a2e4d2a1-f6d1-4098-88e3-7a3f32a79c42</typeId>

@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 namespace <#= Namespace #>
 {
     public class <#= ClassName #><TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+        where TRequest : IRequest<TResponse>
     {
         private readonly ILogger<TRequest> _logger;
 

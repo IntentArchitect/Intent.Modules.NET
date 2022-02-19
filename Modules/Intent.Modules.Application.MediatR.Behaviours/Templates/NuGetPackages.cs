@@ -4,7 +4,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates
 {
     public class NuGetPackages
     {
-        public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "9.0.*");
-        public static INugetPackageInfo MicrosoftExtensionsLogging = new NugetPackageInfo("Microsoft.Extensions.Logging", "3.0.*");
+        public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "10.0.1");
+        public static INugetPackageInfo MicrosoftExtensionsLogging = new NugetPackageInfo("Microsoft.Extensions.Logging", "6.0.0");
     }
 }

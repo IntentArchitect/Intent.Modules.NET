@@ -49,6 +49,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
             #line default
             #line hidden
             this.Write(@"<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+        where TRequest : IRequest<TResponse>
     {
         private readonly ILogger<TRequest> _logger;
 

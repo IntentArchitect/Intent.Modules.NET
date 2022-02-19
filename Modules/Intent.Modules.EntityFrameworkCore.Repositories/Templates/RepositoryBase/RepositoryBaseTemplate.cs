@@ -84,30 +84,26 @@ namespace ");
                     " void Remove(TDomain entity)\r\n        {\r\n            GetSet().Remove((TPersisten" +
                     "ce)entity);\r\n        }\r\n\r\n        public virtual void Add(TDomain entity)\r\n     " +
                     "   {\r\n            GetSet().Add((TPersistence)entity);\r\n        }\r\n\r\n        publ" +
-                    "ic Task<int> SaveChangesAsync()\r\n        {\r\n            return _dbContext.SaveCh" +
-                    "angesAsync();\r\n        }\r\n\r\n        public Task<int> SaveChangesAsync(Cancellati" +
-                    "onToken cancellationToken)\r\n        {\r\n            return _dbContext.SaveChanges" +
-                    "Async(cancellationToken);\r\n        }\r\n\r\n        public virtual async Task<TDomai" +
-                    "n> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, Cancellation" +
-                    "Token cancellationToken = default)\r\n        {\r\n            return await QueryInt" +
-                    "ernal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);\r\n     " +
-                    "   }\r\n\r\n        public virtual async Task<List<TDomain>> FindAllAsync(Cancellati" +
-                    "onToken cancellationToken = default)\r\n        {\r\n            return await QueryI" +
-                    "nternal(x => true).ToListAsync<TDomain>(cancellationToken);\r\n        }\r\n        " +
-                    "\r\n        public virtual async Task<List<TDomain>> FindAllAsync(Expression<Func<" +
-                    "TPersistence, bool>> filterExpression, CancellationToken cancellationToken = def" +
-                    "ault)\r\n        {\r\n            return await QueryInternal(filterExpression).ToLis" +
-                    "tAsync<TDomain>(cancellationToken);\r\n        }\r\n\r\n        \r\n        public virtu" +
-                    "al async Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> f" +
-                    "ilterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, " +
-                    "CancellationToken cancellationToken = default)\r\n        {\r\n            return aw" +
-                    "ait QueryInternal(filterExpression, linq).ToListAsync<TDomain>(cancellationToken" +
-                    ");\r\n        }\r\n\r\n        public virtual async Task<IPagedResult<TDomain>> FindAl" +
-                    "lAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default)\r" +
-                    "\n        {\r\n            var query = QueryInternal(x => true);\r\n            retur" +
-                    "n await ");
+                    "ic virtual async Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> fi" +
+                    "lterExpression, CancellationToken cancellationToken = default)\r\n        {\r\n     " +
+                    "       return await QueryInternal(filterExpression).SingleOrDefaultAsync<TDomain" +
+                    ">(cancellationToken);\r\n        }\r\n\r\n        public virtual async Task<List<TDoma" +
+                    "in>> FindAllAsync(CancellationToken cancellationToken = default)\r\n        {\r\n   " +
+                    "         return await QueryInternal(x => true).ToListAsync<TDomain>(cancellation" +
+                    "Token);\r\n        }\r\n        \r\n        public virtual async Task<List<TDomain>> F" +
+                    "indAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationT" +
+                    "oken cancellationToken = default)\r\n        {\r\n            return await QueryInte" +
+                    "rnal(filterExpression).ToListAsync<TDomain>(cancellationToken);\r\n        }\r\n\r\n  " +
+                    "      \r\n        public virtual async Task<List<TDomain>> FindAllAsync(Expression" +
+                    "<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQue" +
+                    "ryable<TPersistence>> linq, CancellationToken cancellationToken = default)\r\n    " +
+                    "    {\r\n            return await QueryInternal(filterExpression, linq).ToListAsyn" +
+                    "c<TDomain>(cancellationToken);\r\n        }\r\n\r\n        public virtual async Task<I" +
+                    "PagedResult<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken c" +
+                    "ancellationToken = default)\r\n        {\r\n            var query = QueryInternal(x " +
+                    "=> true);\r\n            return await ");
             
-            #line 82 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
@@ -123,7 +119,7 @@ namespace ");
             var query = QueryInternal(filterExpression);
             return await ");
             
-            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 81 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
@@ -140,7 +136,7 @@ namespace ");
             var query = QueryInternal(filterExpression, linq);
             return await ");
             
-            #line 101 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default

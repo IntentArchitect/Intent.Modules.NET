@@ -1,12 +1,12 @@
-using Intent.Engine;
-using Intent.Modules.AspNetCore.Templates.Startup;
-using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
-using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Security.JWT.Events;
+using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -19,6 +19,7 @@ namespace Intent.Modules.Security.JWT.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Security.JWT.ConfigurationSettingsJWTDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly AppSettingsTemplate _template;
         private readonly IApplication _application;
         private bool _stsIsSelfHostedInThisApplication;

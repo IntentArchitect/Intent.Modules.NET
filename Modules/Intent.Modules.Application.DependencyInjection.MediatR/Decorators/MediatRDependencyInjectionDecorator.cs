@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.Decorators
         {
             _template = template;
             _application = application;
-            _template.AddNugetDependency("MediatR.Extensions.Microsoft.DependencyInjection", "9.0.*");
+            _template.AddNugetDependency("MediatR.Extensions.Microsoft.DependencyInjection", "10.0.1");
         }
 
         public override string ServiceRegistration()

@@ -16,6 +16,7 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
     using Intent.Modules.Common.CSharp.Templates;
     using Intent.Templates;
     using Intent.Metadata.Models;
+    using Intent.Modules.Application.Identity.Templates;
     using System;
     
     /// <summary>
@@ -32,18 +33,20 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing Microsoft.Extensions.Conf" +
-                    "iguration;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: Defaul" +
-                    "tIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+                    "iguration;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing Microsoft.Asp" +
+                    "NetCore.Authorization;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamesp" +
+                    "ace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -51,17 +54,45 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
             this.Write(@"
     {
         // Use '[IntentManaged(Mode.Ignore)]' on this method should you want to deviate from the standard JWT token approach
-        public static IServiceCollection ConfigureJWTAuthentication(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureJWTSecurity(this IServiceCollection services, IConfiguration configuration)
         {
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
-            ");
+            services.AddScoped<");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterfaceName()));
+            
+            #line default
+            #line hidden
+            this.Write(", ");
+            
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceName()));
+            
+            #line default
+            #line hidden
+            this.Write(">();\r\n            services.AddHttpContextAccessor();\r\n            ");
+            
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(base.GetDecoratorsOutput(p => p.GetConfigurationCode())));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\n            return services;\r\n        }\r\n    }\r\n}");
+            this.Write(@"
+            services.AddAuthorization(ConfigureAuthorization);
+
+            return services;
+        }
+
+        [IntentManaged(Mode.Ignore)]
+        private static void ConfigureAuthorization(AuthorizationOptions options)
+        {
+            //Configure policies and other authorization options here. For example:
+            //options.AddPolicy(""EmployeeOnly"", policy => policy.RequireClaim(""role"", ""employee""));
+            //options.AddPolicy(""AdminOnly"", policy => policy.RequireClaim(""role"", ""admin""));
+        }
+    }
+}");
             return this.GenerationEnvironment.ToString();
         }
     }

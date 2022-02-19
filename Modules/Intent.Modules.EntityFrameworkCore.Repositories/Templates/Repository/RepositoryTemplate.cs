@@ -91,8 +91,14 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             
             #line default
             #line hidden
-            this.Write(" dbContext) : base (dbContext)\r\n        {\r\n        }\r\n\r\n        public async Task" +
-                    "<");
+            this.Write(" dbContext) : base (dbContext)\r\n        {");
+            
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ConstructorImplementation()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        }\r\n\r\n        public async Task<");
             
             #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityInterfaceName));

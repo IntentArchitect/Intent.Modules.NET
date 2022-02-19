@@ -3,6 +3,7 @@ using Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationBehav
 using Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehaviour;
 using Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBehaviour;
 using Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExceptionBehaviour;
+using Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBehaviour;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -31,6 +32,11 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates
         public static string GetUnhandledExceptionBehaviourName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(UnhandledExceptionBehaviourTemplate.TemplateId);
+        }
+
+        public static string GetUnitOfWorkBehaviourName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(UnitOfWorkBehaviourTemplate.TemplateId);
         }
 
     }

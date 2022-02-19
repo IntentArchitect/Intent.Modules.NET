@@ -30,6 +30,6 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
 <#
 }
 #>
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

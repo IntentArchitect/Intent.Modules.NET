@@ -125,7 +125,7 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
             #line default
             #line hidden
             this.Write("\r\n        public override async Task<int> SaveChangesAsync(CancellationToken canc" +
-                    "ellationToken = new CancellationToken())\r\n        {\r\n            ");
+                    "ellationToken = default(CancellationToken))\r\n        {\r\n            ");
             
             #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDecoratorsOutput(x => x.BeforeCallToSaveChangesAsync())));

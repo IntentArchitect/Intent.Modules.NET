@@ -1,14 +1,14 @@
-using Intent.Engine;
-using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Application.MediatR.Templates.CommandModels;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
-using Intent.Modules.Common.Templates;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.MediatR.FluentValidation.Api;
+using Intent.Engine;
+using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

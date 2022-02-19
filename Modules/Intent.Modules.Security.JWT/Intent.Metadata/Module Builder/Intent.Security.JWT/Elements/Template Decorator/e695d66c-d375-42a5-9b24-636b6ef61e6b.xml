@@ -3,7 +3,7 @@
   <name>ConfigurationSettingsJWTDecorator</name>
   <display>ConfigurationSettingsJWTDecorator: AppSettingsDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>4</order>
   <genericTypes />
   <typeReference id="8f229869-d600-430c-a3e0-fb6a139d58d6">
     <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>

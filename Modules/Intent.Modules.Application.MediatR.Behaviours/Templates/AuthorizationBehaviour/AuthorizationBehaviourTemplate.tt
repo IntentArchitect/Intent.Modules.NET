@@ -19,16 +19,14 @@ using System.Threading.Tasks;
 namespace <#= Namespace #>
 {
     public class <#= ClassName #><TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+        where TRequest : IRequest<TResponse>
     {
         private readonly <#= this.GetCurrentUserServiceInterface() #> _currentUserService;
-        private readonly <#= this.GetIdentityServiceInterface() #> _identityService;
 
         public <#= ClassName #>(
-            <#= this.GetCurrentUserServiceInterface() #> currentUserService,
-            <#= this.GetIdentityServiceInterface() #> identityService)
+            <#= this.GetCurrentUserServiceInterface() #> currentUserService)
         {
             _currentUserService = currentUserService;
-            _identityService = identityService;
         }
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
@@ -53,7 +51,7 @@ namespace <#= Namespace #>
                         var authorized = false;
                         foreach (var role in roles)
                         {
-                            var isInRole = await _identityService.IsInRoleAsync(_currentUserService.UserId, role.Trim());
+                            var isInRole = await _currentUserService.IsInRoleAsync(role.Trim());
                             if (isInRole)
                             {
                                 authorized = true;
@@ -75,7 +73,7 @@ namespace <#= Namespace #>
                 {
                     foreach(var policy in authorizeAttributesWithPolicies.Select(a => a.Policy))
                     {
-                        var authorized = await _identityService.AuthorizeAsync(_currentUserService.UserId, policy);
+                        var authorized = await _currentUserService.AuthorizeAsync(policy);
 
                         if (!authorized)
                         {

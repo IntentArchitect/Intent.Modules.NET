@@ -50,26 +50,24 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
             #line default
             #line hidden
             this.Write("<TDomain, TPersistence>\r\n    {\r\n        void Add(TDomain entity);\r\n        void R" +
-                    "emove(TDomain entity);\r\n        Task<int> SaveChangesAsync();\r\n        Task<int>" +
-                    " SaveChangesAsync(CancellationToken cancellationToken);\r\n        Task<TDomain> F" +
-                    "indAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToke" +
-                    "n cancellationToken = default);\r\n        Task<List<TDomain>> FindAllAsync(Cancel" +
-                    "lationToken cancellationToken = default);\r\n        Task<List<TDomain>> FindAllAs" +
-                    "ync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken can" +
-                    "cellationToken = default);\r\n        Task<List<TDomain>> FindAllAsync(Expression<" +
-                    "Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQuer" +
-                    "yable<TPersistence>> linq, CancellationToken cancellationToken = default);\r\n    " +
-                    "    Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int pageSize, Cancellat" +
-                    "ionToken cancellationToken = default);\r\n        Task<IPagedResult<TDomain>> Find" +
-                    "AllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int " +
-                    "pageSize, CancellationToken cancellationToken = default);\r\n        Task<IPagedRe" +
-                    "sult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpressio" +
-                    "n, int pageIndex, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersi" +
-                    "stence>> linq, CancellationToken cancellationToken = default);\r\n        Task<int" +
-                    "> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, Cancellation" +
-                    "Token cancellationToken = default);\r\n        Task<bool> AnyAsync(Expression<Func" +
-                    "<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = de" +
-                    "fault);\r\n    }\r\n}");
+                    "emove(TDomain entity);\r\n        Task<TDomain> FindAsync(Expression<Func<TPersist" +
+                    "ence, bool>> filterExpression, CancellationToken cancellationToken = default);\r\n" +
+                    "        Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = d" +
+                    "efault);\r\n        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence," +
+                    " bool>> filterExpression, CancellationToken cancellationToken = default);\r\n     " +
+                    "   Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterE" +
+                    "xpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, Cancel" +
+                    "lationToken cancellationToken = default);\r\n        Task<IPagedResult<TDomain>> F" +
+                    "indAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = defa" +
+                    "ult);\r\n        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersist" +
+                    "ence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cance" +
+                    "llationToken = default);\r\n        Task<IPagedResult<TDomain>> FindAllAsync(Expre" +
+                    "ssion<Func<TPersistence, bool>> filterExpression, int pageIndex, int pageSize, F" +
+                    "unc<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken " +
+                    "cancellationToken = default);\r\n        Task<int> CountAsync(Expression<Func<TPer" +
+                    "sistence, bool>> filterExpression, CancellationToken cancellationToken = default" +
+                    ");\r\n        Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpre" +
+                    "ssion, CancellationToken cancellationToken = default);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

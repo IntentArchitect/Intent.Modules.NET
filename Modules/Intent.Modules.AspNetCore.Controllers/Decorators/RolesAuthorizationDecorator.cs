@@ -1,10 +1,10 @@
-using Intent.Modelers.Services.Api;
-using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
-using Intent.RoslynWeaver.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -17,6 +17,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Controllers.RolesAuthorizationDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly ControllerTemplate _template;
         private readonly IApplication _application;
 
@@ -29,12 +30,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
 
         public override void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
         {
-            UpdateRoles(authorizationModel, secureModel.Stereotype.Roles() ?? string.Empty);
+            UpdateRoles(authorizationModel, secureModel.Stereotype?.Roles() ?? string.Empty);
         }
 
         public override void UpdateOperationAuthorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
         {
-            UpdateRoles(authorizationModel, secureModel.Stereotype.Roles() ?? string.Empty);
+            UpdateRoles(authorizationModel, secureModel.Stereotype?.Roles() ?? string.Empty);
         }
 
         private static void UpdateRoles(AuthorizationModel authorizationModel, string roles)

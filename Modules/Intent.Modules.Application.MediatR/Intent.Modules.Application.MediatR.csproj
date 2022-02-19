@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -36,6 +36,14 @@
     <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnhandledExceptionBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\CommandInterface\CommandInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\QueryInterface\QueryInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>QueryInterfaceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -80,14 +88,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>UnhandledExceptionBehaviourTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\CommandInterface\CommandInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CommandInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\QueryInterface\QueryInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>QueryInterfaceTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.2.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.1.8" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.1.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.1.3" />
-    <PackageReference Include="Intent.Packager" Version="3.1.0">
+    <PackageReference Include="Intent.Packager" Version="3.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

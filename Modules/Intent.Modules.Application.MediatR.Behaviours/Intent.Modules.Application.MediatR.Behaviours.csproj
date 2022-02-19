@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -24,6 +24,10 @@
     <None Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UnitOfWorkBehaviourTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -53,12 +57,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ValidationBehaviourTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UnitOfWorkBehaviourTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.2.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.1.8" />
-    <PackageReference Include="Intent.Packager" Version="3.1.0">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.7" />
+    <PackageReference Include="Intent.Packager" Version="3.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -68,6 +77,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj" />
   </ItemGroup>
 
   <ItemGroup>
