@@ -162,6 +162,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add($".HasColumnName(\"{columnName}\")");
             }
 
+            var computedValueSql = attribute.GetComputedValue()?.SQL();
+            if (!string.IsNullOrWhiteSpace(computedValueSql))
+            {
+                statements.Add($".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
+            }
+
             return $@"
             {string.Join(@"
                 ", statements)};";
