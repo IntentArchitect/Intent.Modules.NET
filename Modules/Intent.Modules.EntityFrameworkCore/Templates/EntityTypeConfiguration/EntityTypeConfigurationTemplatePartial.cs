@@ -146,9 +146,20 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
             var decimalScale = attribute.GetDecimalConstraints()?.Scale();
+            var columnType = attribute.GetColumn()?.Type();
             if (decimalPrecision.HasValue && decimalScale.HasValue)
             {
                 statements.Add($".HasColumnType(\"decimal({ decimalPrecision }, { decimalScale })\")");
+            }
+            else if (!string.IsNullOrWhiteSpace(columnType))
+            {
+                statements.Add($".HasColumnType(\"{columnType}\")");
+            }
+
+            var columnName = attribute.GetColumn()?.Name();
+            if (!string.IsNullOrWhiteSpace(columnName))
+            {
+                statements.Add($".HasColumnName(\"{columnName}\")");
             }
 
             return $@"
