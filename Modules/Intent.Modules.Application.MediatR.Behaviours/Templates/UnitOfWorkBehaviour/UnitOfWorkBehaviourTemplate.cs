@@ -46,8 +46,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
    
     /// <summary>
     /// Ensures that all operations processed as part of handling a <see cref=""ICommand""/> either pass or fail as one unit.
-    /// NB: this behaviour makes it unnessary for developers to call <see cref=""IDataSource.SaveChangesAsync(CancellationToken)""/>
-    /// inside thier business logic (e.g. command handlers), and doing so should be avoided unless absolutely necessary.
+    /// This behaviour makes it unnessary for developers to call SaveChangesAsync() inside thier business 
+    /// logic (e.g. command handlers), and doing so should be avoided unless absolutely necessary.
     /// </summary>
     public class ");
             
@@ -91,21 +91,21 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
                     "/ The pipeline execution is wrapped in a transaction scope to ensure that if any" +
                     " other SaveChanges calls to the datasource (e.g. EF Core)\r\n            // are ca" +
                     "lled, that they are transacted atomically. The isolation is set to ReadCommitted" +
-                    " by default (i.e. read-locks are release, while write-locks\r\n            // are " +
-                    "maintained for the duration of the transaction).\r\n            // Learn more on t" +
-                    "his approach for EF Core: https://docs.microsoft.com/en-us/ef/core/saving/transa" +
-                    "ctions#using-systemtransactions\r\n            using (var transaction = new Transa" +
-                    "ctionScope(TransactionScopeOption.Required, \r\n                new TransactionOpt" +
-                    "ions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncF" +
-                    "lowOption.Enabled))\r\n            {\r\n                var response = await next();" +
-                    "\r\n\r\n                // By calling SaveChanges at the last point in the transacti" +
-                    "on ensures that write-locks in the database are created and then released as qui" +
-                    "ckly as possible.\r\n                // This helps optimize the application handle" +
-                    " a higher degree of concurrency.\r\n                await _dataSource.SaveChangesA" +
-                    "sync(cancellationToken);\r\n\r\n                // Commit transaction if all command" +
-                    "s succeed, transaction will auto-rollback when disposed if anything failed.\r\n   " +
-                    "             transaction.Complete();\r\n                return response;\r\n        " +
-                    "    }\r\n        }\r\n    }\r\n}");
+                    " by default (i.e. read-locks are released, while write-locks\r\n            // are" +
+                    " maintained for the duration of the transaction).\r\n            // Learn more on " +
+                    "this approach for EF Core: https://docs.microsoft.com/en-us/ef/core/saving/trans" +
+                    "actions#using-systemtransactions\r\n            using (var transaction = new Trans" +
+                    "actionScope(TransactionScopeOption.Required, \r\n                new TransactionOp" +
+                    "tions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsync" +
+                    "FlowOption.Enabled))\r\n            {\r\n                var response = await next()" +
+                    ";\r\n\r\n                // By calling SaveChanges at the last point in the transact" +
+                    "ion ensures that write-locks in the database are created and then released as qu" +
+                    "ickly as possible.\r\n                // This helps optimize the application to ha" +
+                    "ndle a higher degree of concurrency.\r\n                await _dataSource.SaveChan" +
+                    "gesAsync(cancellationToken);\r\n\r\n                // Commit transaction if all com" +
+                    "mands succeed, transaction will auto-rollback when disposed if anything failed.\r" +
+                    "\n                transaction.Complete();\r\n                return response;\r\n    " +
+                    "        }\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
