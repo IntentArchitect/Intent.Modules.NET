@@ -42,7 +42,7 @@
         <setting id="061a559a-0d54-4eb1-8c70-ed0baa238a59" title="Default API Security" type="select">
           <isRequired>true</isRequired>
           <hint>Whether a controller is secured or not by default.</hint>
-          <defaultValue>secured</defaultValue>
+          <defaultValue>unsecured</defaultValue>
           <options>
             <option value="secured" description="Secured by default" />
             <option value="unsecured" description="Unsecured by default" />
