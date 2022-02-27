@@ -182,7 +182,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 case RelationshipType.OneToOne:
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
                     statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "") })");
-                    statements.Add($".HasForeignKey<{ Model.Name }>({GetForeignKeyLambda(associationEnd.OtherEnd())})");
+                    // DJVV: We should extend this in the future to allow a different property to facilitate one-to-one
+                    // relationships other than Id.
+                    //statements.Add($".HasForeignKey<{ Model.Name }>({GetForeignKeyLambda(associationEnd.OtherEnd())})");
+                    statements.Add($".HasForeignKey<{ Model.Name }>(x => x.Id)");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
                         statements.Add($".IsRequired()");
