@@ -7,8 +7,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>72ab7e5f-4911-45cd-80d2-038cf0dfb751</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#e165dadd-f1e1-43fa-af83-6bd53abdd78c</CorrelationId>
+      <ApplicationRelativeFilePath>Api/ClassExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>41563513-2028-4bbb-bf92-c0e0d899e769</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Entities.Keys.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Entities.Keys.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -21,6 +28,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3d848b5a-039e-45af-affd-80d5ebd4c4e6</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#b18a7a44-a229-42f6-8ce7-d7191162bb2d</CorrelationId>
+      <ApplicationRelativeFilePath>modelers/Association Key Extension.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Association Key Extension.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>41563513-2028-4bbb-bf92-c0e0d899e769</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
@@ -29,6 +43,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>986ba2f8-9bf9-4e92-8c8e-386fcded5325</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

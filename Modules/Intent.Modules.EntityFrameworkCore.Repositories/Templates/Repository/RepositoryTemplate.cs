@@ -18,6 +18,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
     using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
+    using Intent.Metadata.RDBMS.Api;
     
     /// <summary>
     /// Class to produce the template output
@@ -33,6 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             this.Write("using System;\r\nusing System.Linq;\r\nusing System.Threading;\r\nusing System.Threadin" +
                     "g.Tasks;\r\nusing System.Collections.Generic;\r\nusing Microsoft.EntityFrameworkCore" +
                     ";\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
@@ -98,51 +100,93 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             
             #line default
             #line hidden
-            this.Write("\r\n        }\r\n\r\n        public async Task<");
+            this.Write("\r\n        }\r\n");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+  if (Model.HasSurrogateKey()) { 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        public async Task<");
+            
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityInterfaceName));
             
             #line default
             #line hidden
             this.Write("> FindByIdAsync(");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyType));
             
             #line default
             #line hidden
-            this.Write(" id, CancellationToken cancellationToken = default)\r\n        {\r\n            retur" +
-                    "n await FindAsync(x => x.");
+            this.Write(" ");
             
-            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(", CancellationToken cancellationToken = default)\r\n        {\r\n            return a" +
+                    "wait FindAsync(x => x.");
+            
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName));
             
             #line default
             #line hidden
-            this.Write(" == id, cancellationToken);\r\n        }\r\n\r\n        public async Task<List<");
+            this.Write(" == ");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(", cancellationToken);\r\n        }\r\n\r\n        public async Task<List<");
+            
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityInterfaceName));
             
             #line default
             #line hidden
             this.Write(">> FindByIdsAsync(");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyType));
             
             #line default
             #line hidden
-            this.Write("[] ids, CancellationToken cancellationToken = default)\r\n        {\r\n            re" +
-                    "turn await FindAllAsync(x => ids.Contains(x.");
+            this.Write("[] ");
             
-            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase().Pluralize()));
+            
+            #line default
+            #line hidden
+            this.Write(", CancellationToken cancellationToken = default)\r\n        {\r\n            return a" +
+                    "wait FindAllAsync(x => ");
+            
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase().Pluralize()));
+            
+            #line default
+            #line hidden
+            this.Write(".Contains(x.");
+            
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName));
             
             #line default
             #line hidden
-            this.Write("), cancellationToken);\r\n        }\r\n    }\r\n}");
+            this.Write("), cancellationToken);\r\n        }\r\n");
+            
+            #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            this.Write("    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

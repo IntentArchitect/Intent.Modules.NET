@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1618946b-2ca9-4891-9c78-1584c8ce2539" type="Association Extension" typeId="41cb9c1a-063e-4ff4-889a-7501235351eb">
+  <name>Association Extension</name>
+  <display>Association Extension: Association</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="7b896fd3-ee33-4861-a835-192b80f142ad">
+    <typeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain</typePackageName>
+    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b18a7a44-a229-42f6-8ce7-d7191162bb2d</parentFolderId>
+  <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+  <packageName>Intent.Entities.Keys</packageName>
+  <stereotypes />
+  <childElements>
+    <childElement id="bb33201c-fb34-4d20-9d0c-adef51a48522" type="Association Source End Extension" typeId="66ec1dcd-a0c3-45ac-ad62-f2d9d7064bb3">
+      <name>[source]</name>
+      <display>[source end extension]</display>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1618946b-2ca9-4891-9c78-1584c8ce2539</parentFolderId>
+      <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+      <packageName>Intent.Entities.Keys</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cd7ee9e-614e-4770-a831-d6cdaa56027c" name="Association End Extension Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e7d1e8c5-6748-4f56-8a92-4f413b598412" display="Display Name" isActive="true" />
+            <property name="f957891b-3aef-48b2-9241-71c8a45a8fbb" display="Hint" isActive="true" />
+            <property name="05d63939-2d01-4b12-8bcf-d6751c7c32b8" display="Target Types" isActive="true" />
+            <property name="ced53770-7796-42de-850e-5cd523e368f9" display="Default Type Id" isActive="true" />
+            <property name="585f6851-b6a5-4d39-9804-256cefcb10ab" display="Allow Navigable" value="Inherit" isActive="true" />
+            <property name="c5da195d-90af-4d23-9a62-6aca60a9b304" display="Allow Nullable" value="Inherit" isActive="true" />
+            <property name="558c27e8-dc8b-40ae-8633-fd42f0077268" display="Allow Collection" value="Inherit" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <childElements />
+    </childElement>
+    <childElement id="f5177b7c-35b4-431a-870d-0c8ef569f2c5" type="Association Target End Extension" typeId="1cc6c731-af5f-41a0-9e82-44486f45b903">
+      <name>[destination]</name>
+      <display>[target end extension]</display>
+      <isAbstract>false</isAbstract>
+      <order>2</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1618946b-2ca9-4891-9c78-1584c8ce2539</parentFolderId>
+      <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+      <packageName>Intent.Entities.Keys</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cd7ee9e-614e-4770-a831-d6cdaa56027c" name="Association End Extension Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e7d1e8c5-6748-4f56-8a92-4f413b598412" display="Display Name" isActive="true" />
+            <property name="f957891b-3aef-48b2-9241-71c8a45a8fbb" display="Hint" isActive="true" />
+            <property name="05d63939-2d01-4b12-8bcf-d6751c7c32b8" display="Target Types" isActive="true" />
+            <property name="ced53770-7796-42de-850e-5cd523e368f9" display="Default Type Id" isActive="true" />
+            <property name="585f6851-b6a5-4d39-9804-256cefcb10ab" display="Allow Navigable" value="Inherit" isActive="true" />
+            <property name="c5da195d-90af-4d23-9a62-6aca60a9b304" display="Allow Nullable" value="Inherit" isActive="true" />
+            <property name="558c27e8-dc8b-40ae-8633-fd42f0077268" display="Allow Collection" value="Inherit" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <childElements />
+    </childElement>
+    <childElement id="0ef05a2a-40e6-420b-a562-99b22f40c746" type="Association Event Settings" typeId="1bdee938-8569-4fbf-84b4-8522d2cbee32">
+      <name>[events]</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <order>3</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1618946b-2ca9-4891-9c78-1584c8ce2539</parentFolderId>
+      <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+      <packageName>Intent.Entities.Keys</packageName>
+      <stereotypes />
+      <childElements>
+        <childElement id="b7bf369c-919d-4933-9fee-50e0b39e165d" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <order>0</order>
+          <genericTypes />
+          <typeReference id="fa497120-ac2c-4d79-be01-5c73b6cf5bd4">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0ef05a2a-40e6-420b-a562-99b22f40c746</parentFolderId>
+          <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+          <packageName>Intent.Entities.Keys</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="if (!application || application.getSettings(&quot;Entity Key Settings&quot;).getField(&quot;Create Keys Explicitly&quot;).value == &quot;false&quot;){&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function requiresForeignKey(associationEnd)&#xD;&#xA;{&#xD;&#xA;    return isManyToVariantsOfOne(associationEnd) || isSelfReferencingZeroToOne(associationEnd);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isManyToVariantsOfOne(associationEnd)&#xD;&#xA;{&#xD;&#xA;    return !associationEnd.typeReference.isCollection &amp;&amp; associationEnd.getOtherEnd().typeReference.isCollection;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isSelfReferencingZeroToOne(associationEnd)&#xD;&#xA;{&#xD;&#xA;    return !associationEnd.typeReference.isCollection &amp;&amp; associationEnd.typeReference.isNullable &amp;&amp; &#xD;&#xA;            associationEnd.typeReference.typeId == associationEnd.getOtherEnd().typeReference.typeId;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let sourceType = association.getOtherEnd().typeReference.getType();&#xD;&#xA;let targetType = association.typeReference.getType();&#xD;&#xA;&#xD;&#xA;if (sourceType &amp;&amp; targetType) {&#xD;&#xA;&#xD;&#xA;    if (requiresForeignKey(association)) {&#xD;&#xA;        let pks = targetType.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.getStereotype(&quot;Primary Key&quot;) != null);&#xD;&#xA;        pks.forEach((pk, index) =&gt; {&#xD;&#xA;        let fk = sourceType.getChildren().filter(x =&gt; x.getExternalReference() == association.id)[index] ||&#xD;&#xA;                 createElement(&quot;Attribute&quot;, &quot;&quot;, sourceType.id);&#xD;&#xA;            fk.setName(`${association.getName()}${toPascalCase(pk.getName())}`);&#xD;&#xA;            fk.setExternalReference(association.id);&#xD;&#xA;            fk.typeReference.setType(pk.typeReference.typeId);&#xD;&#xA;            fk.typeReference.setIsNullable(association.typeReference.isNullable);&#xD;&#xA;        });&#xD;&#xA;        sourceType.getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach((x, index) =&gt; {&#xD;&#xA;            if (index &gt;= pks.length)&#xD;&#xA;                x.delete();&#xD;&#xA;        })&#xD;&#xA;        targetType.getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach(x =&gt; x.delete());&#xD;&#xA;    }&#xD;&#xA;    else if (requiresForeignKey(association.getOtherEnd())) {&#xD;&#xA;        let pks = sourceType.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.getStereotype(&quot;Primary Key&quot;) != null);&#xD;&#xA;        pks.forEach((pk, index) =&gt; {&#xD;&#xA;        let fk = targetType.getChildren().filter(x =&gt; x.getExternalReference() == association.id)[index] ||&#xD;&#xA;                 createElement(&quot;Attribute&quot;, &quot;&quot;, targetType.id);&#xD;&#xA;            fk.setName(`${association.getOtherEnd().getName()}${toPascalCase(pk.getName())}`);&#xD;&#xA;            fk.setExternalReference(association.id);&#xD;&#xA;            fk.typeReference.setType(pk.typeReference.typeId);&#xD;&#xA;            fk.typeReference.setIsNullable(association.getOtherEnd().typeReference.isNullable);&#xD;&#xA;        });&#xD;&#xA;        targetType.getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach((x, index) =&gt; {&#xD;&#xA;            if (index &gt;= pks.length)&#xD;&#xA;                x.delete();&#xD;&#xA;        })&#xD;&#xA;        sourceType.getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach(x =&gt; x.delete());&#xD;&#xA;    }&#xD;&#xA;    else { // many-to-many&#xD;&#xA;        targetType.getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach(x =&gt; x.delete());&#xD;&#xA;        sourceType.getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach(x =&gt; x.delete());&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
+        <childElement id="eacfea2b-3cf3-474b-bfe8-169c045c9814" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
+          <name>On Deleted</name>
+          <display>On Deleted: Script</display>
+          <isAbstract>false</isAbstract>
+          <order>1</order>
+          <genericTypes />
+          <typeReference id="380fca7b-a7e0-4330-92e1-0d202a9acccc">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0ef05a2a-40e6-420b-a562-99b22f40c746</parentFolderId>
+          <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
+          <packageName>Intent.Entities.Keys</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="&#xD;&#xA;association.typeReference.getType().getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach(x =&gt; x.delete());&#xD;&#xA;association.getOtherEnd().typeReference.getType().getChildren().filter(x =&gt; x.getExternalReference() == association.id).forEach(x =&gt; x.delete());&#xD;&#xA;" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

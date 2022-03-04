@@ -18,6 +18,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
     using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
+    using Intent.Metadata.RDBMS.Api;
     
     /// <summary>
     /// Class to produce the template output
@@ -33,6 +34,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             
             #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
 
@@ -79,35 +81,63 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
             
             #line default
             #line hidden
-            this.Write(">\r\n    {\r\n        Task<");
+            this.Write(">\r\n    {\r\n");
             
             #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+  if (Model.HasSurrogateKey()) { 
+            
+            #line default
+            #line hidden
+            this.Write("        Task<");
+            
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityInterfaceName));
             
             #line default
             #line hidden
             this.Write("> FindByIdAsync(");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyType));
             
             #line default
             #line hidden
-            this.Write(" id, CancellationToken cancellationToken = default);\r\n        Task<List<");
+            this.Write(" ");
             
             #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(", CancellationToken cancellationToken = default);\r\n        Task<List<");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityInterfaceName));
             
             #line default
             #line hidden
             this.Write(">> FindByIdsAsync(");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyType));
             
             #line default
             #line hidden
-            this.Write("[] ids, CancellationToken cancellationToken = default);\r\n    }\r\n}");
+            this.Write("[] ");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase().Pluralize()));
+            
+            #line default
+            #line hidden
+            this.Write(", CancellationToken cancellationToken = default);\r\n");
+            
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\EntityRepositoryInterface\EntityRepositoryInterfaceTemplate.tt"
+  } 
+            
+            #line default
+            #line hidden
+            this.Write("    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -11,6 +11,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic"#>
+<#@ import namespace="Intent.Metadata.RDBMS.Api" #>
 <#
 
 
@@ -27,7 +28,9 @@ namespace <#= Namespace #>
 {
     public interface <#= ClassName #> : <#= RepositoryInterfaceName #><<#= EntityInterfaceName #>, <#= EntityStateName #>>
     {
-        Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id, CancellationToken cancellationToken = default);
-        Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] ids, CancellationToken cancellationToken = default);
+<#  if (Model.HasSurrogateKey()) { #>
+        Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> <#= PrimaryKeyName.ToCamelCase() #>, CancellationToken cancellationToken = default);
+        Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] <#= PrimaryKeyName.ToCamelCase().Pluralize() #>, CancellationToken cancellationToken = default);
+<#  } #>
     }
 }

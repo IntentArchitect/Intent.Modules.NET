@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
@@ -27,9 +28,11 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
 
         public string EntityStateName => GetTypeName(GetMetadata().CustomMetadata["Entity Template Id"], Model);
 
-        public string EntityInterfaceName => GetTypeName(GetMetadata().CustomMetadata["Entity Interface Template Id"], Model); 
+        public string EntityInterfaceName => GetTypeName(GetMetadata().CustomMetadata["Entity Interface Template Id"], Model);
 
-        public string PrimaryKeyType => Model.Attributes.Any(x => x.HasStereotype("Primary Key")) ? GetTypeName(Model.Attributes.First(x => x.HasStereotype("Primary Key")).Type) : UseType(ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid");
+        public string PrimaryKeyType => Model.GetExplicitPrimaryKey().Count == 1 ? GetTypeName(Model.GetExplicitPrimaryKey().Single()) : UseType(ExecutionContext.Settings.GetEntityKeySettings()?.KeyType().Value ?? "System.Guid");
+
+        public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 
         protected override CSharpFileConfig DefineFileConfig()
         {
