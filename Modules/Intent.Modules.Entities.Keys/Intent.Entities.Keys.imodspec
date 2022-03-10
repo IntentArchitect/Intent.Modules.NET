@@ -68,6 +68,6 @@
     </group>
   </moduleSettings>
   <metadata>
-    <install target="Domain" src="modelers/Association Key Extension.designer.settings" externalReference="b18a7a44-a229-42f6-8ce7-d7191162bb2d" />
+    <install target="Domain" src="modelers/Key Automation Extensions.designer.settings" externalReference="b18a7a44-a229-42f6-8ce7-d7191162bb2d" />
   </metadata>
 </package>
