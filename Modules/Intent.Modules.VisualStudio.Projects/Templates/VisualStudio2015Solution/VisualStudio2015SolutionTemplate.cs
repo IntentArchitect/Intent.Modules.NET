@@ -102,7 +102,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                 var path = $"{projectModel.ToOutputTargetConfig().RelativeLocation}\\{projectModel.Name}.{projectModel.FileExtension}".Replace("/", "\\");
 
                 if (!slnFile.GetOrCreateProjectNode(
-                        typeId: VisualStudioSolution.ProjectTypeIds.CsProject,
+                        typeId: projectModel.ProjectTypeId,
                         name: projectModel.Name,
                         path: path,
                         id: projectModel.Id,
