@@ -34,6 +34,11 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
 
         public override void Visit(Writer writer)
         {
+            if (ChildNodes.Count == 0)
+            {
+                return;
+            }
+
             writer.WriteLine($"{Name}({SectionName}) = {Value}");
             writer.WriteChildren(ChildNodes);
             writer.WriteLine($"End{Name}");
