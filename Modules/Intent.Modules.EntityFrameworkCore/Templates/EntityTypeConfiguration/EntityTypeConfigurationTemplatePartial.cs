@@ -11,7 +11,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.RoslynWeaver.Attributes;
@@ -63,7 +62,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetEntityName()
         {
-            return GetTypeName(DomainEntityStateTemplate.TemplateId, Model);
+            return GetTypeName("Domain.Entities", Model);
         }
 
         private string GetTableMapping()
@@ -71,7 +70,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (Model.ParentClass != null && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
             {
                 return $@"
-            builder.HasBaseType<{GetTypeName(DomainEntityStateTemplate.TemplateId, Model.ParentClass)}>();
+            builder.HasBaseType<{GetTypeName("Domain.Entities", Model.ParentClass)}>();
 ";
             }
             if (Model.HasTable() || !ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
@@ -330,13 +329,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private static string GetForeignKeyLambda(AssociationEndModel associationEnd)
         {
-            var columns = ((associationEnd.IsSourceEnd()
-                               ? (associationEnd as AssociationSourceEndModel).GetForeignKey()?.ColumnName()
-                               : (associationEnd as AssociationTargetEndModel).GetForeignKey()?.ColumnName())
-                           ?? associationEnd.OtherEnd().Name.ToPascalCase() + "Id")
-                .Split(',') // upgrade stereotype to have a selection list.
-                .Select(x => x.Trim())
-                .ToList();
+            var columns = new List<string>();
+            if (associationEnd.HasForeignKey() && !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
+            {
+                columns.AddRange(associationEnd.GetForeignKey().ColumnName()
+                    .Split(',') // upgrade stereotype to have a selection list.
+                    .Select(x => x.Trim()));
+            }
+            else if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
+            {
+                columns.AddRange(associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x => $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"));
+            }
+            else // implicit Id
+            {
+                columns.Add($"{associationEnd.OtherEnd().Name.ToPascalCase()}Id");
+            }
 
             if (columns.Count == 1)
             {
