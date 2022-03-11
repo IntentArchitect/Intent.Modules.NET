@@ -10,7 +10,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -38,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
 
         public string GetEntityName(ClassModel model)
         {
-            return GetTypeName(DomainEntityStateTemplate.TemplateId, model);
+            return GetTypeName("Domain.Entities", model);
         }
 
         protected override CSharpFileConfig DefineFileConfig()

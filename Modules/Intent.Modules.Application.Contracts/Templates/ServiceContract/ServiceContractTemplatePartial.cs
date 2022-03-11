@@ -15,7 +15,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
-using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -41,7 +40,7 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
             return new CSharpFileConfig(
                 className: $"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: ModelHasFolderTemplateExtensions.GetFolderPath(this));
+                relativeLocation: this.GetFolderPath());
         }
 
         public string FolderBasedNamespace => string.Join(".", new[] { OutputTarget.GetNamespace() }.Concat(GetNamespaceParts()));
