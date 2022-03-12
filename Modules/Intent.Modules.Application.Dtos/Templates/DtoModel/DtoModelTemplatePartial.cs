@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -71,6 +72,14 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         public string ConstructorParameters()
         {
             var parameters = new List<string>();
+            //if (Model.HasMapFromDomainMapping())
+            //{
+            //    if (GetTemplate<ITemplate>("Domain.Entities", Model.Mapping.ElementId).GetMetadata().CustomMetadata
+            //        .TryGetValue("Surrogate Key Type", out var entitySurrogateKeyType))
+            //    {
+            //        parameters.Add($"{UseType(entitySurrogateKeyType)} id");
+            //    }
+            //}
             foreach (var field in Model.Fields)
             {
                 parameters.Add($"{GetTypeName(field.TypeReference)} {field.Name.ToParameterName()}");

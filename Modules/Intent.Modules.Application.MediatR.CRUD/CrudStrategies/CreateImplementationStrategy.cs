@@ -10,7 +10,6 @@ using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -64,7 +63,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public string GetImplementation()
         {
-            var entityName = _template.GetTypeName(DomainEntityStateTemplate.TemplateId, _foundEntity, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+            var entityName = _template.GetTypeName("Domain.Entities", _foundEntity, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
             var impl = $@"var new{_foundEntity.Name} = new {entityName ?? _foundEntity.Name}
                 {{
 {GetPropertyAssignments(_foundEntity, _template.Model)}

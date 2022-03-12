@@ -6,7 +6,6 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFramework.Repositories.Templates.EntityCompositionVisitor;
 using Intent.Modules.EntityFramework.Templates.DbContext;
@@ -70,17 +69,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
 
         public string DeleteVisitorName => Project.FindTemplateInstance<IClassProvider>(_deleteVisitorTemplateDependency)?.ClassName ?? $"{Model.Application.Name}DeleteVisitor";
 
-        public string PrimaryKeyType
-        {
-            get
-            {
-                var typeReference = Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Type;
-
-                return typeReference != null
-                    ? GetTypeName(typeReference)
-                    : UseType(ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid");
-            }
-        }
+        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entities", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 

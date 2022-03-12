@@ -47,8 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.2.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.8" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.2.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain.Events" Version="3.2.0" />
     <PackageReference Include="Intent.Packager" Version="3.2.0">
@@ -57,10 +56,6 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
