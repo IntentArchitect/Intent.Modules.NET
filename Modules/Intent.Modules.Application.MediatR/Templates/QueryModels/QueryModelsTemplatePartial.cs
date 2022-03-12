@@ -6,7 +6,6 @@ using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,7 +25,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         {
             AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource(DomainEnumTemplate.TemplateId, "List<{0}>");
+            AddTypeSource("Domain.Enums", "List<{0}>");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

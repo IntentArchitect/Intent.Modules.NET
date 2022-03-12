@@ -11,9 +11,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
-using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
@@ -28,8 +26,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
     partial class RepositoryTemplate : CSharpTemplateBase<ClassModel>
     {
         public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.Repository";
-        private ITemplateDependency _entityStateTemplateDependency;
-        private ITemplateDependency _entityInterfaceTemplateDependency;
         private ITemplateDependency _repositoryInterfaceTemplateDependency;
         private ITemplateDependency _dbContextTemplateDependency;
 
@@ -42,35 +38,20 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         public override void OnCreated()
         {
             base.OnCreated();
-            _entityStateTemplateDependency = TemplateDependency.OnModel<ClassModel>(GetMetadata().CustomMetadata["Entity Template Id"], (to) => to.Id == Model.Id);
-            _entityInterfaceTemplateDependency = TemplateDependency.OnModel<ClassModel>(GetMetadata().CustomMetadata["Entity Interface Template Id"], (to) => to.Id == Model.Id);
             _repositoryInterfaceTemplateDependency = TemplateDependency.OnModel(EntityRepositoryInterfaceTemplate.Identifier, Model);
             _dbContextTemplateDependency = TemplateDependency.OnTemplate(DbContextTemplate.TemplateId);
         }
 
-        public string EntityInterfaceName
-        {
-            get
-            {
-                var template = Project.FindTemplateInstance<IClassProvider>(_entityInterfaceTemplateDependency);
-                return template != null ? NormalizeNamespace($"{template.Namespace}.{template.ClassName}") : $"{Model.Name}";
-            }
-        }
+        public string EntityName => GetTypeName("Domain.Entities", Model);
 
-        public string EntityName
-        {
-            get
-            {
-                var template = Project.FindTemplateInstance<IClassProvider>(_entityStateTemplateDependency);
-                return template != null ? NormalizeNamespace($"{template.Namespace}.{template.ClassName}") : $"{Model.Name}";
-            }
-        }
+        public string EntityInterfaceName => GetTypeName("Domain.Entities.Interfaces", Model);
 
-        public string RepositoryContractName => Project.FindTemplateInstance<IClassProvider>(_repositoryInterfaceTemplateDependency)?.ClassName ?? $"I{ClassName}";
+        public string RepositoryContractName => TryGetTypeName(EntityRepositoryInterfaceTemplate.Identifier, Model) ?? $"I{ClassName}";
 
-        public string DbContextName => Project.FindTemplateInstance<IClassProvider>(_dbContextTemplateDependency)?.ClassName ?? $"{Model.Application.Name}DbContext";
+        public string DbContextName => TryGetTypeName(DbContextTemplate.TemplateId) ?? $"{Model.Application.Name}DbContext";
 
-        public string PrimaryKeyType => Model.Attributes.Any(x => x.HasStereotype("Primary Key")) ? GetTypeName(Model.Attributes.First(x => x.HasStereotype("Primary Key")).Type) : UseType(ExecutionContext.Settings.GetEntityKeySettings()?.KeyType().Value ?? "System.Guid");
+        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entities", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
+        //public string PrimaryKeyType => Model.Attributes.Any(x => x.HasStereotype("Primary Key")) ? GetTypeName(Model.Attributes.First(x => x.HasStereotype("Primary Key")).Type) : UseType(ExecutionContext.Settings.GetEntityKeySettings()?.KeyType().Value ?? "System.Guid");
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 
@@ -86,8 +67,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         {
             return new[]
             {
-                _entityStateTemplateDependency,
-                _entityInterfaceTemplateDependency,
                 _repositoryInterfaceTemplateDependency,
                 _dbContextTemplateDependency,
             };
