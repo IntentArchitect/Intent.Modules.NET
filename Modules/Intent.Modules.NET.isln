@@ -51,5 +51,6 @@
     <application id="dab23093-58b2-4f51-a9bf-a935efcd4e47" name="Intent.Modules.Entities.Keys" relativePath="Intent.Modules.Entities.Keys/Intent.Modules.Entities.Keys.application.config" />
     <application id="ac11ad1e-604e-4dbc-81dc-9e56ed1abd30" name="Intent.Modules.Entities" relativePath="Intent.Modules.Entities/Intent.Modules.Entities.application.config" />
     <application id="ae988c9c-02cf-4669-9529-003c8c1d8851" name="Intent.Modules.AspNetCore.MultiTenancy" relativePath="Intent.Modules.AspNetCore.MultiTenancy/Intent.Modules.AspNetCore.MultiTenancy.application.config" />
+    <application id="95c39cbb-fdbb-46ee-806b-2392da2438bd" name="Intent.Modules.EntityFrameworkCore.Repositories" relativePath="Intent.Modules.EntityFrameworkCore.Repositories/Intent.Modules.EntityFrameworkCore.Repositories.application.config" />
   </applications>
 </solution>
