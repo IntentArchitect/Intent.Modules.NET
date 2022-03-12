@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
@@ -10,22 +10,29 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase
 {
-    partial class RepositoryBaseTemplate : CSharpTemplateBase, ITemplate, IHasTemplateDependencies, ITemplatePostCreationHook, ITemplateBeforeExecutionHook
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    partial class RepositoryBaseTemplate : CSharpTemplateBase<object>
     {
-        public const string Identifier = "Intent.EntityFrameworkCore.Repositories.BaseRepository";
+        public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.RepositoryBase";
 
-        public RepositoryBaseTemplate(IProject project)
-            : base(Identifier, project)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public RepositoryBaseTemplate(IOutputTarget outputTarget, object model = null)
+            : base(TemplateId, outputTarget, model)
         {
         }
 
         public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.Identifier);
-        public string PagedListClassName => GetTypeName(PagedListTemplate.Identifier);
+        public string PagedListClassName => GetTypeName(PagedListTemplate.TemplateId);
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

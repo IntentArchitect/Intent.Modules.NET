@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Modules.Common;
 using Intent.Modules.Entities.Templates;
@@ -14,7 +15,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
 {
     public class ForeignKeyEntityInterfaceDecorator : DomainEntityInterfaceDecoratorBase
     {
-        private readonly string _foreignKeyType = "System.Guid";
+        private readonly string _implicitForeignKeyType;
 
         public const string Identifier = "Intent.Entities.Keys.ForeignKeyEntityInterfaceDecorator";
 
@@ -23,7 +24,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
         public ForeignKeyEntityInterfaceDecorator(DomainEntityInterfaceTemplate template) : base(template)
         {
             Priority = -100;
-            _foreignKeyType = template.ExecutionContext.Settings.GetEntityKeySettings()?.KeyType ?? "System.Guid";
+            _implicitForeignKeyType = template.ExecutionContext.Settings.GetEntityKeySettings()?.KeyType().Value ?? "System.Guid";
         }
 
         public override string PropertyBefore(AssociationEndModel associationEnd)
@@ -35,9 +36,18 @@ namespace Intent.Modules.Entities.Keys.Decorators
                     return base.PropertyBefore(associationEnd);
                 }
 
-                var foreignKeyType = associationEnd.Class.GetSurrogateKeyType(Template.Types) ?? Template.UseType(_foreignKeyType);
-                return $@"
-{foreignKeyType}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }Id {{ get; }}";
+                if (associationEnd.Class.GetExplicitPrimaryKey().Any())
+                {
+                    return string.Join(Environment.NewLine, associationEnd.Class.GetExplicitPrimaryKey()
+                        .Where(x => associationEnd.OtherEnd().Class.Attributes.All(a => !a.Name.Equals($"{ associationEnd.Name().ToPascalCase() }{x.Name.ToPascalCase()}")))
+                        .Select(x => $"{Template.GetTypeName(x.TypeReference)}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }{x.Name.ToPascalCase()} {{ get; }}"));
+                }
+                else
+                {
+                    return $@"
+{Template.UseType(_implicitForeignKeyType)}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }Id {{ get; }}";
+                }
+
             }
             return base.PropertyBefore(associationEnd);
         }

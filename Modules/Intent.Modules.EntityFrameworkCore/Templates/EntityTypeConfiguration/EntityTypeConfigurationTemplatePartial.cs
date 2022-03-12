@@ -92,10 +92,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (!_explicitPrimaryKeys.Any())
             {
                 return $@"
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id)
-                   .UsePropertyAccessMode(PropertyAccessMode.Property)
-                   .ValueGeneratedNever();";
+            builder.HasKey(x => x.Id);";
+                //    return $@"
+                //builder.HasKey(x => x.Id);
+                //builder.Property(x => x.Id)
+                //       .UsePropertyAccessMode(PropertyAccessMode.Property)
+                //       .ValueGeneratedNever();";
             }
             else
             {
