@@ -18,7 +18,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
             AddNugetDependency(new NugetPackageInfo("EntityFramework", "6.2.0"));
         }
 
-        public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.Identifier);
+        public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
         public string PagedListClassName => GetTypeName(PagedListTemplate.Identifier);
 
         protected override CSharpFileConfig DefineFileConfig()

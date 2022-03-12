@@ -64,7 +64,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
         {
-            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.Identifier, targetEntity);
+            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, targetEntity);
             return new[]
             {
                 new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),

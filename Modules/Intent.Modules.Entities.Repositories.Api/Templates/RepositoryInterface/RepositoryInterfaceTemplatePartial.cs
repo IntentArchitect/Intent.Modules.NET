@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
@@ -8,18 +8,26 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
 {
-    partial class RepositoryInterfaceTemplate : CSharpTemplateBase, ITemplate, IHasTemplateDependencies, ITemplatePostCreationHook
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    partial class RepositoryInterfaceTemplate : CSharpTemplateBase<object>
     {
-        public const string Identifier = "Intent.Entities.Repositories.Api.BaseInterface";
+        public const string TemplateId = "Intent.Entities.Repositories.Api.RepositoryInterface";
 
-        public RepositoryInterfaceTemplate(IProject project)
-            : base(Identifier, project)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public RepositoryInterfaceTemplate(IOutputTarget outputTarget, object model = null)
+            : base(TemplateId, outputTarget, model)
         {
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
