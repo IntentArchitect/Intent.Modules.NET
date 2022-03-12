@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
         {
         }
 
-        public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.Identifier);
+        public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
         public string PagedListClassName => GetTypeName(PagedListTemplate.TemplateId);
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

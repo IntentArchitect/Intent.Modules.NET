@@ -52,5 +52,6 @@
     <application id="ac11ad1e-604e-4dbc-81dc-9e56ed1abd30" name="Intent.Modules.Entities" relativePath="Intent.Modules.Entities/Intent.Modules.Entities.application.config" />
     <application id="ae988c9c-02cf-4669-9529-003c8c1d8851" name="Intent.Modules.AspNetCore.MultiTenancy" relativePath="Intent.Modules.AspNetCore.MultiTenancy/Intent.Modules.AspNetCore.MultiTenancy.application.config" />
     <application id="95c39cbb-fdbb-46ee-806b-2392da2438bd" name="Intent.Modules.EntityFrameworkCore.Repositories" relativePath="Intent.Modules.EntityFrameworkCore.Repositories/Intent.Modules.EntityFrameworkCore.Repositories.application.config" />
+    <application id="7e643458-afc1-4a0b-ad59-87d9d682cbc0" name="Intent.Modules.Entities.Repositories.Api" relativePath="Intent.Modules.Entities.Repositories.Api/Intent.Modules.Entities.Repositories.Api.application.config" />
   </applications>
 </solution>

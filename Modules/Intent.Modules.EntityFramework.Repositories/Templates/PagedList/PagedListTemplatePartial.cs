@@ -15,7 +15,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.PagedList
         {
         }
 
-        public string PagedResultInterfaceName => GetTypeName(PagedResultInterfaceTemplate.Identifier);
+        public string PagedResultInterfaceName => GetTypeName(PagedResultInterfaceTemplate.TemplateId);
 
         protected override CSharpFileConfig DefineFileConfig()
         {

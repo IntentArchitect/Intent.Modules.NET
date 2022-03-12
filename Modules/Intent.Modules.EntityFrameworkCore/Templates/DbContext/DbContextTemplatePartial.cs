@@ -36,6 +36,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Infrastructure.Data.DbContext");
             ExecutionContext.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt =>
             {
                 _useDbContextAsOptionsParameter |= evt.UseDbContextAsOptionsParameter;
