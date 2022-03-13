@@ -44,7 +44,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
             }
 
             @event.MarkHandled();
-            
+
             if (_registrationRequestsByKey.TryGetValue(@event.Key, out var value))
             {
                 Logging.Log.Warning($"A request already existed for {@event.Key}{Environment.NewLine}" +
