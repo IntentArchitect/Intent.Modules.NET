@@ -74,7 +74,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
         public override void OnCreated()
         {
             base.OnCreated();
-            Project.Application.EventDispatcher.Publish(new VisualStudioProjectCreatedEvent(Project.Id, this));
+            ExecutionContext.EventDispatcher.Publish(new VisualStudioProjectCreatedEvent(Project.Id, this));
+            ExecutionContext.EventDispatcher.Publish(new VisualStudioSolutionProjectCreatedEvent(OutputTarget.Id, GetMetadata().GetFilePath()));
         }
 
         public override ITemplateFileConfig GetTemplateFileConfig()
