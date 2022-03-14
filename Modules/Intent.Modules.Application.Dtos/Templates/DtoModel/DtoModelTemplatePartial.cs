@@ -26,8 +26,8 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource("Domain.Enums", "List<{0}>");
-            FulfillsRole("Application.Contracts.Dtos");
+            AddTypeSource("Domain.Enum", "List<{0}>");
+            FulfillsRole("Application.Contract.Dto");
         }
 
         protected override CSharpFileConfig DefineFileConfig()
@@ -74,7 +74,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             var parameters = new List<string>();
             //if (Model.HasMapFromDomainMapping())
             //{
-            //    if (GetTemplate<ITemplate>("Domain.Entities", Model.Mapping.ElementId).GetMetadata().CustomMetadata
+            //    if (GetTemplate<ITemplate>("Domain.Entity", Model.Mapping.ElementId).GetMetadata().CustomMetadata
             //        .TryGetValue("Surrogate Key Type", out var entitySurrogateKeyType))
             //    {
             //        parameters.Add($"{UseType(entitySurrogateKeyType)} id");

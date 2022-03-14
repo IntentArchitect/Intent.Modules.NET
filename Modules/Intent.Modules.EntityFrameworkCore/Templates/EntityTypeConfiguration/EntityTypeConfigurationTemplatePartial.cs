@@ -62,7 +62,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetEntityName()
         {
-            return GetTypeName("Domain.Entities", Model);
+            return GetTypeName("Domain.Entity", Model);
         }
 
         private string GetTableMapping()
@@ -70,7 +70,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (Model.ParentClass != null && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
             {
                 return $@"
-            builder.HasBaseType<{GetTypeName("Domain.Entities", Model.ParentClass)}>();
+            builder.HasBaseType<{GetTypeName("Domain.Entity", Model.ParentClass)}>();
 ";
             }
             if (Model.HasTable() || !ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())

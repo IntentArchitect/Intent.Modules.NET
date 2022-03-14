@@ -69,7 +69,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
 
         public string DeleteVisitorName => Project.FindTemplateInstance<IClassProvider>(_deleteVisitorTemplateDependency)?.ClassName ?? $"{Model.Application.Name}DeleteVisitor";
 
-        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entities", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
+        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entity", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 

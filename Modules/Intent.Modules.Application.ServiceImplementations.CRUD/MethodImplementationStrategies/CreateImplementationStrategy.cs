@@ -50,7 +50,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            var entityName = _decorator.Template.GetTypeName("Domain.Entities", domainModel, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+            var entityName = _decorator.Template.GetTypeName("Domain.Entity", domainModel, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
             var impl = $@"var new{domainModel.Name} = new {entityName ?? domainModel.Name}
                 {{
 {GetPropertyAssignments(domainModel, operationModel.Parameters.First())}

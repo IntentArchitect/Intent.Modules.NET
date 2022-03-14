@@ -29,11 +29,11 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
 
         public string RepositoryInterfaceName => GetTypeName(RepositoryInterfaceTemplate.TemplateId);
 
-        public string EntityStateName => GetTypeName("Domain.Entities", Model);
+        public string EntityStateName => GetTypeName("Domain.Entity", Model);
 
-        public string EntityInterfaceName => GetTypeName("Domain.Entities.Interfaces", Model);
+        public string EntityInterfaceName => GetTypeName("Domain.Entity.Interface", Model);
 
-        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entities", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
+        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entity", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()

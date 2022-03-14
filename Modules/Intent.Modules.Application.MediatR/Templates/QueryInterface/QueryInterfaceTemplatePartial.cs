@@ -11,6 +11,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.Templates.QueryInterface
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class QueryInterfaceTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
@@ -21,6 +22,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryInterface
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

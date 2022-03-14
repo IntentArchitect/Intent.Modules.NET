@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
@@ -32,7 +31,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             _application = application;
             _template.AddTypeSource(CommandModelsTemplate.TemplateId);
             _template.AddTypeSource(QueryModelsTemplate.TemplateId);
-            _template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
+            _template.AddTypeSource("Application.Contract.Dto", "List<{0}>");
         }
 
         public override string EnterClass()
@@ -98,11 +97,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 x.Type.Element.SpecializationTypeId == QueryModel.SpecializationTypeId);
         }
 
-        public IList<ParameterModel> GetMappedParameters(OperationModel operationModel)
-        {
-            return operationModel.Parameters.Where(x => x.InternalElement.IsMapped).ToList();
-        }
-
         private string GetMappedPayload(OperationModel operationModel)
         {
             var mappedElement = operationModel.InternalElement.MappedElement;
@@ -111,6 +105,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 return $"new {_template.GetTypeName(mappedElement)} {{ {string.Join(", ", GetMappedParameters(operationModel).Select(x => x.InternalElement.MappedElement.Element.Name.ToPascalCase() + " = " + x.Name))}}}";
             }
             return $"new {_template.GetTypeName(mappedElement)}()";
+        }
+
+        public IList<ParameterModel> GetMappedParameters(OperationModel operationModel)
+        {
+            return operationModel.Parameters.Where(x => x.InternalElement.IsMapped).ToList();
         }
 
         public IEnumerable<string> DeclareUsings()
