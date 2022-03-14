@@ -41,15 +41,15 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
-        public string EntityName => GetTypeName("Domain.Entities", Model);
+        public string EntityName => GetTypeName("Domain.Entity", Model);
 
-        public string EntityInterfaceName => GetTypeName("Domain.Entities.Interfaces", Model);
+        public string EntityInterfaceName => GetTypeName("Domain.Entity.Interface", Model);
 
         public string RepositoryContractName => TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, Model) ?? $"I{ClassName}";
 
         public string DbContextName => TryGetTypeName("Infrastructure.Data.DbContext") ?? $"{Model.Application.Name}DbContext";
 
-        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entities", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
+        public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entity", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id";
 

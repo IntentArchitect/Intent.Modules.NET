@@ -63,7 +63,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public string GetImplementation()
         {
-            var entityName = _template.GetTypeName("Domain.Entities", _foundEntity, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+            var entityName = _template.GetTypeName("Domain.Entity", _foundEntity, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
             var impl = $@"var new{_foundEntity.Name} = new {entityName ?? _foundEntity.Name}
                 {{
 {GetPropertyAssignments(_foundEntity, _template.Model)}

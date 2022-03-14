@@ -23,7 +23,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         public DomainEventTemplate(IOutputTarget outputTarget, DomainEventModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(DomainEventTemplate.TemplateId);
-            AddTypeSource("Domain.Entities");
+            AddTypeSource("Domain.Entity");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

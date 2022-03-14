@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -111,10 +111,6 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.Dtos\Intent.Modules.Application.Dtos.csproj" />
   </ItemGroup>
 
   <ItemGroup>

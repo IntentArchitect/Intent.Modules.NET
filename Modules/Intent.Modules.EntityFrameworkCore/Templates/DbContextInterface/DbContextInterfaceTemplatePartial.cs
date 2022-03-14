@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
 
         public string GetEntityName(ClassModel model)
         {
-            return GetTypeName("Domain.Entities", model);
+            return GetTypeName("Domain.Entity", model);
         }
 
         protected override CSharpFileConfig DefineFileConfig()

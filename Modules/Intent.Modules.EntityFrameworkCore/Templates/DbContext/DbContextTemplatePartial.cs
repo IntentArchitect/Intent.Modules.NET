@@ -57,7 +57,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public string GetEntityName(ClassModel model)
         {
-            return GetTypeName("Domain.Entities", model);
+            return GetTypeName("Domain.Entity", model);
         }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()

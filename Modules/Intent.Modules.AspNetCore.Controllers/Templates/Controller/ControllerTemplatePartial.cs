@@ -96,6 +96,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 // We can extend this later (if desired) to have multiple Secure stereotypes create
                 // multiple Authorization Models.
+                // NOTE: GCB - the following is an anti-pattern imo @Dandre. Passing in an object to some method which results in mutations is
+                // bad programming practice. It forces us to break encapsulation to determine what is in fact going on. I will replace this with a 
+                // better approach at a later stage.
                 var authModel = new AuthorizationModel();
                 GetDecorators().ToList().ForEach(x => x.UpdateOperationAuthorization(authModel, new OperationSecureModel(operation, operation.GetSecured())));
                 attributes.Add(GetAuthorizationAttribute(authModel));

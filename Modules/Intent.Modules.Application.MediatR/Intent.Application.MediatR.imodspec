@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>3.2.0</version>
-  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
+  <version>3.2.1</version>
+  <supportedClientVersions>[3.2.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
   <authors>Intent.Modules.Net</authors>
@@ -13,14 +13,14 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application</role>
+      <role>Application.Command.Handler</role>
     </template>
     <template id="Intent.Application.MediatR.CommandInterface" externalReference="373cd97c-cf6b-4864-94f5-a0931bf01bb6">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application</role>
+      <role>Application.Command.Interface</role>
       <location>Common/Interfaces</location>
     </template>
     <template id="Intent.Application.MediatR.CommandModels" externalReference="6fe47b20-09e5-4a25-8675-746c403d0158">
@@ -28,21 +28,21 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application</role>
+      <role>Application.Command</role>
     </template>
     <template id="Intent.Application.MediatR.QueryHandler" externalReference="3a8eb772-0533-42c8-9767-a87c67884d46">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application</role>
+      <role>Application.Query.Handler</role>
     </template>
     <template id="Intent.Application.MediatR.QueryInterface" externalReference="0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application</role>
+      <role>Application.Query.Interface</role>
       <location>Common/Interfaces</location>
     </template>
     <template id="Intent.Application.MediatR.QueryModels" externalReference="7b686f14-b047-44e4-9065-4de3b48e6048">
@@ -50,13 +50,12 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application</role>
+      <role>Application.Query</role>
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Application.Dtos" version="3.1.1" />
-    <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.CSharp" version="3.2.0" />
+    <dependency id="Intent.Common" version="3.2.2" />
+    <dependency id="Intent.Common.CSharp" version="3.2.8" />
     <dependency id="Intent.Common.Types" version="3.2.0" />
     <dependency id="Intent.Modelers.Services" version="3.1.3" />
     <dependency id="Intent.Modelers.Services.CQRS" version="3.1.6" />

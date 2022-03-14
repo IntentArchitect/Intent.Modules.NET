@@ -32,7 +32,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public DomainEntityInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             _metadataManager = ExecutionContext.MetadataManager;
-            FulfillsRole("Domain.Entities.Interfaces");
+            FulfillsRole("Domain.Entity.Interface");
         }
 
         public override void OnCreated()
