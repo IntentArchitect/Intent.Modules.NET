@@ -29,7 +29,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            outputTarget.Application.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleServiceRegistration);
+            ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleServiceRegistration);
             //eventDispatcher.Subscribe(ContainerRegistrationForDbContextEvent.EventId, HandleDbContextRegistration);
             //eventDispatcher.Subscribe(ServiceConfigurationRequiredEvent.EventId, HandleServiceConfiguration);
             //eventDispatcher.Subscribe(InitializationRequiredEvent.EventId, HandleInitialization);
