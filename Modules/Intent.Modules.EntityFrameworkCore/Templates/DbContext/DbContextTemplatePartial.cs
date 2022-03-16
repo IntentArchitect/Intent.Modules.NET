@@ -96,8 +96,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
             try
             {
-                var baseClass = NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext");
-                return $"{baseClass}, {GetTypeName(DbContextInterfaceTemplate.Identifier)}";
+                var baseTypes = new List<string>();
+                baseTypes.Add(NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
+                var dbContextInterface = TryGetTypeName(DbContextInterfaceTemplate.Identifier);
+                if (dbContextInterface != null)
+                {
+                    baseTypes.Add(dbContextInterface);
+                }
+                baseTypes.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
+                return string.Join(", ", baseTypes);
             }
             catch (InvalidOperationException)
             {
