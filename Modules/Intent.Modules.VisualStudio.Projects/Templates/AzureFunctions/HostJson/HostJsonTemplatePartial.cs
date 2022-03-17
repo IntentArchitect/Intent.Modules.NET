@@ -112,7 +112,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
                 field = split[index];
 
                 // Don't do the last entry
-                if (index == split.Length)
+                if (index == split.Length - 1)
                 {
                     break;
                 }
