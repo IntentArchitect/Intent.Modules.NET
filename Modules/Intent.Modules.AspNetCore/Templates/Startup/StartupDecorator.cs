@@ -11,6 +11,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
     {
         public virtual string ConfigureServices() => @"";
         public virtual string Configuration() => @"";
+        public virtual string EndPointMappings() => @"";
         public virtual string Methods() => @"";
 
         public virtual int Priority { get; set; } = 0;

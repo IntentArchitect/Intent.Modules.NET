@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
             AddTypeSource("Domain.Enum", "List<{0}>");
+            FulfillsRole("Application.Contract.Query");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

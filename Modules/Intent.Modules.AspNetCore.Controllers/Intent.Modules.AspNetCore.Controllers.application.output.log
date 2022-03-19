@@ -9,6 +9,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e45547aa-aaf9-40a3-8709-d4e627b9a43e</CorrelationId>
       <ApplicationRelativeFilePath>Decorators/RolesAuthorizationDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RolesAuthorizationDecorator.cs</ProjectRelativeFilePath>

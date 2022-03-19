@@ -21,23 +21,31 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
         {
             _template = template;
             _application = application;
-            Priority = 20;
+            Priority = 0;
         }
 
-        public override string Configuration()
-        {
-            if (_template.IsNetCore2App())
-            {
-                return "app.UseMvc();";
-            }
+//        public override string Configuration()
+//        {
+//            if (_template.IsNetCore2App())
+//            {
+//                return "app.UseMvc();";
+//            }
 
+//            return @"
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//        name: ""default"",
+//        pattern: ""{controller}/{action=Index}/{id?}"");
+//});";
+//        }
+
+        public override string EndPointMappings()
+        {
             return @"
-app.UseEndpoints(endpoints =>
-{
     endpoints.MapControllerRoute(
         name: ""default"",
-        pattern: ""{controller}/{action=Index}/{id?}"");
-});";
+        pattern: ""{controller=Home}/{action=Index}/{id?}"");";
         }
     }
 }

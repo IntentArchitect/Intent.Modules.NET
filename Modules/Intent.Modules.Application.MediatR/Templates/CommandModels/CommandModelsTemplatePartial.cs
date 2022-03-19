@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
             AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
             AddTypeSource("Domain.Enum", "List<{0}>");
+            FulfillsRole("Application.Contract.Command");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

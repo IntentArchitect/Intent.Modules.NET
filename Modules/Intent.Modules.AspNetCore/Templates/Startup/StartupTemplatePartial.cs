@@ -66,9 +66,24 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                 appConfigElements.Add(("app.UseAuthorization();", -5));
             }
 
+            appConfigElements.Add(($@"
+app.UseEndpoints(endpoints =>
+{{
+    { GetEndPointMappings() }
+}});", 0));
+
             appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));
 
             return GetCodeInNeatLines(appConfigElements, baseIndent);
+        }
+
+        private string GetEndPointMappings()
+        {
+            var endpointMappings = new List<(string Code, int Priority)>();
+
+            endpointMappings.AddRange(GetDecorators().Select(s => (s.EndPointMappings(), s.Priority)));
+
+            return GetCodeInNeatLines(endpointMappings, "                ");
         }
 
         private string GetCodeInNeatLines(List<(string Code, int Priority)> codeSections, string baseIndent)
@@ -361,5 +376,6 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         //        TemplateDependancy = templateDependency;
         //    }
         //}
+
     }
 }

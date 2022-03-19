@@ -7,16 +7,16 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Decorators
+namespace Intent.Modules.AspNetCore.Controllers.Decorators
 {
-    [Description(DefaultControllerEndpointStartupDecorator.DecoratorId)]
-    public class DefaultControllerEndpointStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
+    [Description(DefaultControllerServicesStartupDecorator.DecoratorId)]
+    public class DefaultControllerServicesStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new DefaultControllerEndpointStartupDecorator(template, application);
+            return new DefaultControllerServicesStartupDecorator(template, application);
         }
 
-        public override string DecoratorId => DefaultControllerEndpointStartupDecorator.DecoratorId;
+        public override string DecoratorId => DefaultControllerServicesStartupDecorator.DecoratorId;
     }
 }
