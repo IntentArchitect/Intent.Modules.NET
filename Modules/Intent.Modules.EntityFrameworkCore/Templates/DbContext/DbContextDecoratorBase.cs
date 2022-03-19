@@ -12,6 +12,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
     {
         public virtual string GetBaseClass() { return null; }
 
+        public virtual string GetBaseInterfaces() { return null; }
+
         public virtual IEnumerable<string> GetPrivateFields() => null;
 
         public virtual IEnumerable<string> GetConstructorParameters() => null;

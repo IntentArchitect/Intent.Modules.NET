@@ -27,6 +27,7 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEnumTemplate(IOutputTarget outputTarget, EnumModel model) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Domain.Enum");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

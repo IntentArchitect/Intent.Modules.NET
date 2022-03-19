@@ -1,12 +1,9 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Application.Dtos.Templates;
-using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -25,10 +22,11 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource(DomainEnumTemplate.TemplateId, "List<{0}>");
+            AddTypeSource("Application.Contract.Dto", "List<{0}>");
+            AddTypeSource("Domain.Enum", "List<{0}>");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

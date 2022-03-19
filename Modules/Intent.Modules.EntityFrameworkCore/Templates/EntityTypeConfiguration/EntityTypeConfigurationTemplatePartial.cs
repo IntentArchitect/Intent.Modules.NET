@@ -11,7 +11,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.RoslynWeaver.Attributes;
@@ -63,7 +62,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetEntityName()
         {
-            return GetTypeName(DomainEntityStateTemplate.TemplateId, Model);
+            return GetTypeName("Domain.Entity", Model);
         }
 
         private string GetTableMapping()
@@ -71,7 +70,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (Model.ParentClass != null && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
             {
                 return $@"
-            builder.HasBaseType<{GetTypeName(DomainEntityStateTemplate.TemplateId, Model.ParentClass)}>();
+            builder.HasBaseType<{GetTypeName("Domain.Entity", Model.ParentClass)}>();
 ";
             }
             if (Model.HasTable() || !ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
@@ -93,10 +92,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (!_explicitPrimaryKeys.Any())
             {
                 return $@"
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id)
-                   .UsePropertyAccessMode(PropertyAccessMode.Property)
-                   .ValueGeneratedNever();";
+            builder.HasKey(x => x.Id);";
+                //    return $@"
+                //builder.HasKey(x => x.Id);
+                //builder.Property(x => x.Id)
+                //       .UsePropertyAccessMode(PropertyAccessMode.Property)
+                //       .ValueGeneratedNever();";
             }
             else
             {
@@ -182,7 +183,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 case RelationshipType.OneToOne:
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
                     statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "") })");
-                    statements.Add($".HasForeignKey<{ Model.Name }>({GetForeignKeyLambda(associationEnd.OtherEnd())})");
+                    // DJVV: We should extend this in the future to allow a different property to facilitate one-to-one
+                    // relationships other than Id.
+                    //statements.Add($".HasForeignKey<{ Model.Name }>({GetForeignKeyLambda(associationEnd.OtherEnd())})");
+                    statements.Add($".HasForeignKey<{ Model.Name }>(x => x.Id)");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
                         statements.Add($".IsRequired()");

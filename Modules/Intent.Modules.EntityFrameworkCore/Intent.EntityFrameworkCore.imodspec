@@ -11,7 +11,7 @@
   <tags>EntityFrameworkCore EF EntityFramework Core</tags>
   <templates>
     <template id="Intent.EntityFrameworkCore.DbContext" externalReference="96f7b6e6-79da-4f5e-b095-3d603777968b">
-      <role>Infrastructure.Data</role>
+      <role>Infrastructure.Data.DbContext</role>
       <location>Persistence</location>
       <config>
         <add key="Entity Template Id" description="The template Id for the template producing the Domain Entities" default="Intent.Entities.DomainEntityState" />
@@ -54,7 +54,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.2.0" />
+    <dependency id="Intent.Common" version="3.2.2" />
     <dependency id="Intent.Common.CSharp" version="3.2.5" />
     <dependency id="Intent.Common.Types" version="3.2.0" />
     <dependency id="Intent.Metadata.RDBMS" version="3.2.3" />

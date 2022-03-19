@@ -5,7 +5,6 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,7 +23,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         public DomainEventTemplate(IOutputTarget outputTarget, DomainEventModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(DomainEventTemplate.TemplateId);
-            AddTypeSource(DomainEntityStateTemplate.TemplateId);
+            AddTypeSource("Domain.Entity");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

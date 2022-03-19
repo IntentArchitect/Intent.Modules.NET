@@ -34,7 +34,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
 
         private string GetValidationException()
         {
-            return GetTypeName(ValidationExceptionTemplate.TemplateId);
+            return TryGetTypeName(ValidationExceptionTemplate.TemplateId) ?? "ValidationException";
         }
 
         public override void BeforeTemplateExecution()

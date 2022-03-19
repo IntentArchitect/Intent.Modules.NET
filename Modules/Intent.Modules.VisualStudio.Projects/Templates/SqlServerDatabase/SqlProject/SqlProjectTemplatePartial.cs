@@ -6,8 +6,10 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Microsoft.Build.Evaluation;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -32,6 +34,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
                 fileExtension: "sqlproj",
                 overwriteBehaviour: OverwriteBehaviour.OnceOff
             );
+        }
+
+        public override void OnCreated()
+        {
+            base.OnCreated();
+            ExecutionContext.EventDispatcher.Publish(new VisualStudioSolutionProjectCreatedEvent(OutputTarget.Id, GetMetadata().GetFilePath()));
         }
     }
 }

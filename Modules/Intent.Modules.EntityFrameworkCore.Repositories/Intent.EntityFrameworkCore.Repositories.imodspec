@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
   <version>3.3.0</version>
@@ -10,7 +10,11 @@
   <projectUrl>https://intentarchitect.com/</projectUrl>
   <tags>EntityFrameworkCore Repositories EntityFramework Core</tags>
   <templates>
-    <template id="Intent.EntityFrameworkCore.Repositories.Implementation">
+    <template id="Intent.EntityFrameworkCore.Repositories.PagedList" externalReference="09506297-8b03-44b4-9f6b-09c0cdeaa5ef">
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.EntityFrameworkCore.Repositories.Repository" externalReference="a78eb6c0-6400-436f-87d7-1b9cf35effa9">
       <role>Repository.Implementation</role>
       <location>Repositories</location>
       <config>
@@ -19,28 +23,26 @@
         <add key="Create On Stereotype" description="Limits Repository creation only on Entities marked with the 'Aggregate Root' or 'Repository' stereotype (if present). Pipe delimited." default="Aggregate Root|Repository" />
       </config>
     </template>
-    <template id="Intent.EntityFrameworkCore.Repositories.BaseRepository">
-      <role>Repository.Implementation</role>
-      <location>Repositories</location>
-    </template>
-    <template id="Intent.EntityFrameworkCore.Repositories.PagedList">
+    <template id="Intent.EntityFrameworkCore.Repositories.RepositoryBase" externalReference="2a48f0f3-d711-4fb4-8e94-b4c0696ba706">
       <role>Repository.Implementation</role>
       <location>Repositories</location>
     </template>
   </templates>
   <decorators></decorators>
-  <interoperability>
-  </interoperability>
+  <interoperability></interoperability>
   <dependencies>
-	<dependency id="Intent.Common" version="3.2.0" />
-	<dependency id="Intent.Common.CSharp" version="3.2.7" />
-	<dependency id="Intent.Common.Types" version="3.2.0" />
+    <dependency id="Intent.Common" version="3.2.2" />
+    <dependency id="Intent.Common.CSharp" version="3.2.8" />
+    <dependency id="Intent.Common.Types" version="3.2.0" />
+    <dependency id="Intent.Entities.Repositories.Api" version="3.2.1" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.2.7" />
+    <dependency id="Intent.Modelers.Domain" version="3.2.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.2.0" />
-    <dependency id="Intent.Entities.Repositories.Api" version="3.2.0" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.2.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
+  <moduleSettings />
+  <metadata />
 </package>

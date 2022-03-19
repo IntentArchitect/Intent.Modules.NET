@@ -4,7 +4,6 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -81,7 +80,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
 
             return $@"var {_foundEntity.Name.ToCamelCase().ToPluralName()} = await {_repository.FieldName}.FindAllAsync(cancellationToken);
-            return {_foundEntity.Name.ToCamelCase().ToPluralName()}.MapTo{_template.GetTypeName(DtoModelTemplate.TemplateId, _dtoToReturn)}List(_mapper);";
+            return {_foundEntity.Name.ToCamelCase().ToPluralName()}.MapTo{_template.GetTypeName("Application.Contract.Dto", _dtoToReturn)}List(_mapper);";
         }
     }
 }

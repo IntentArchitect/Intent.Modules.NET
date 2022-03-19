@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.2.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.2.2" />
     <PackageReference Include="Intent.Packager" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
     <ProjectReference Include="..\Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

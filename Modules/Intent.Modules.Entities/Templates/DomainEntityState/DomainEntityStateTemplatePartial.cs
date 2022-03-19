@@ -31,6 +31,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             AddTypeSource(TemplateId, "ICollection<{0}>");
             AddTypeSource(DomainEnumTemplate.TemplateId, "ICollection<{0}>");
             Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"), InterfaceContext);
+            FulfillsRole("Domain.Entity");
         }
 
         public string EntityInterfaceName => Project.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel(DomainEntityInterfaceTemplate.Identifier, Model))?.ClassName

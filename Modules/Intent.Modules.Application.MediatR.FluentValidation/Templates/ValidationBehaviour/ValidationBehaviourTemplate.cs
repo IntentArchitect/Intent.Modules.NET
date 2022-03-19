@@ -72,12 +72,15 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
                 if (failures.Count != 0)
-                    throw new ValidationException(failures);
-            }
-            return await next();
-        }
-    }
-}");
+                    throw new ");
+            
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetValidationException()));
+            
+            #line default
+            #line hidden
+            this.Write("(failures);\r\n            }\r\n            return await next();\r\n        }\r\n    }\r\n}" +
+                    "");
             return this.GenerationEnvironment.ToString();
         }
     }

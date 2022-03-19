@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,7 +26,8 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource(DomainEnumTemplate.TemplateId, "List<{0}>");
+            AddTypeSource("Domain.Enum", "List<{0}>");
+            FulfillsRole("Application.Contract.Dto");
         }
 
         protected override CSharpFileConfig DefineFileConfig()
@@ -70,11 +71,22 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
         public string ConstructorParameters()
         {
-            return Model.Fields.Any()
-                ? Model.Fields
-                    .Select(x => "\r\n            " + GetTypeName(x.TypeReference) + " " + x.Name.ToCamelCase(reservedWordEscape: true))
-                    .Aggregate((x, y) => x + ", " + y)
-                : "";
+            var parameters = new List<string>();
+            //if (Model.HasMapFromDomainMapping())
+            //{
+            //    if (GetTemplate<ITemplate>("Domain.Entity", Model.Mapping.ElementId).GetMetadata().CustomMetadata
+            //        .TryGetValue("Surrogate Key Type", out var entitySurrogateKeyType))
+            //    {
+            //        parameters.Add($"{UseType(entitySurrogateKeyType)} id");
+            //    }
+            //}
+            foreach (var field in Model.Fields)
+            {
+                parameters.Add($"{GetTypeName(field.TypeReference)} {field.Name.ToParameterName()}");
+            }
+            return $@"
+            {string.Join(@",
+            ", parameters)}";
         }
 
         public string GenericTypes => Model.GenericTypes.Any() ? $"<{ string.Join(", ", Model.GenericTypes) }>" : "";

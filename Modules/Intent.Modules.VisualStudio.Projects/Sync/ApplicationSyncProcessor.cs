@@ -8,7 +8,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
-using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 
@@ -21,7 +20,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         private readonly IChanges _changeManager;
         private readonly IXmlFileCache _fileCache;
         private readonly Dictionary<string, List<SoftwareFactoryEvent>> _actions;
-        private readonly IDictionary<string, IVisualStudioProjectTemplate> _projectRegistry = new Dictionary<string, IVisualStudioProjectTemplate>();
+        private readonly Dictionary<string, string> _projectFilePathMap = new();
 
         public override string Id => "Intent.ApplicationSyncProcessor";
 
@@ -51,7 +50,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         {
             if (step == ExecutionLifeCycleSteps.BeforeTemplateRegistrations)
             {
-                application.EventDispatcher.Subscribe<VisualStudioProjectCreatedEvent>(HandleEvent);
+                application.EventDispatcher.Subscribe<VisualStudioSolutionProjectCreatedEvent>(HandleEvent);
             }
             if (step == ExecutionLifeCycleSteps.AfterTemplateExecution)
             {
@@ -85,13 +84,16 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     case VisualStudioProjectTypeIds.NodeJsConsoleApplication:
                     case VisualStudioProjectTypeIds.WcfApplication:
                     case VisualStudioProjectTypeIds.WebApiApplication:
-                        new FrameworkProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
+                        new FrameworkProjectSyncProcessor(_projectFilePathMap[vsProject.Id], _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
                         break;
                     case VisualStudioProjectTypeIds.CoreCSharpLibrary:
                     case VisualStudioProjectTypeIds.CoreWebApp:
                     case VisualStudioProjectTypeIds.CoreConsoleApp:
                     case VisualStudioProjectTypeIds.AzureFunctionsProject:
-                        new CoreProjectSyncProcessor(_projectRegistry[vsProject.Id].FilePath, _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
+                        new CoreProjectSyncProcessor(_projectFilePathMap[vsProject.Id], _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
+                        break;
+                    case VisualStudioProjectTypeIds.SQLServerDatabaseProject:
+                        new SqlProjectSyncProcessor(_projectFilePathMap[vsProject.Id], _sfEventDispatcher, _fileCache, _changeManager).Process(events);
                         break;
                     default:
                         Logging.Log.Warning("No project synchronizer could be found for project: " + vsProject.Name);
@@ -102,13 +104,13 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             _actions.Clear();
         }
 
-        private void HandleEvent(VisualStudioProjectCreatedEvent @event)
+        private void HandleEvent(VisualStudioSolutionProjectCreatedEvent @event)
         {
-            if (_projectRegistry.ContainsKey(@event.ProjectId))
+            if (_projectFilePathMap.ContainsKey(@event.ProjectId))
             {
-                throw new Exception($"Attempted to add project with same project Id [{@event.ProjectId}] (location: {@event.TemplateInstance.FilePath})");
+                throw new Exception($"Attempted to add project with same project Id [{@event.ProjectId}] (location: {@event.FilePath})");
             }
-            _projectRegistry.Add(@event.ProjectId, @event.TemplateInstance);
+            _projectFilePathMap.Add(@event.ProjectId, @event.FilePath);
         }
 
         public void Handle(SoftwareFactoryEvent @event)

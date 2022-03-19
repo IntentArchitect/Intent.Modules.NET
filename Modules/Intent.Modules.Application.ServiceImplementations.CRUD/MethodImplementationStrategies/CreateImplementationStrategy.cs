@@ -9,7 +9,6 @@ using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImpleme
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
@@ -51,7 +50,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            var entityName = _decorator.Template.GetTypeName(DomainEntityStateTemplate.TemplateId, domainModel, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+            var entityName = _decorator.Template.GetTypeName("Domain.Entity", domainModel, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
             var impl = $@"var new{domainModel.Name} = new {entityName ?? domainModel.Name}
                 {{
 {GetPropertyAssignments(domainModel, operationModel.Parameters.First())}
@@ -71,7 +70,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
         {
-            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.Identifier, targetEntity);
+            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, targetEntity);
             return new[]
             {
                 new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),

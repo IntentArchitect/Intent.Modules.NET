@@ -36,6 +36,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Infrastructure.Data.DbContext");
             ExecutionContext.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt =>
             {
                 _useDbContextAsOptionsParameter |= evt.UseDbContextAsOptionsParameter;
@@ -56,7 +57,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public string GetEntityName(ClassModel model)
         {
-            return GetTypeName(GetMetadata().CustomMetadata["Entity Template Id"], model);
+            return GetTypeName("Domain.Entity", model);
         }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -95,8 +96,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
             try
             {
-                var baseClass = NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext");
-                return $"{baseClass}, {GetTypeName(DbContextInterfaceTemplate.Identifier)}";
+                var baseTypes = new List<string>();
+                baseTypes.Add(NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
+                var dbContextInterface = TryGetTypeName(DbContextInterfaceTemplate.Identifier);
+                if (dbContextInterface != null)
+                {
+                    baseTypes.Add(dbContextInterface);
+                }
+                baseTypes.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
+                return string.Join(", ", baseTypes);
             }
             catch (InvalidOperationException)
             {

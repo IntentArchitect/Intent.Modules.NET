@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true"  inherits="CSharpTemplateBase<ClassModel>" #>
+<#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
@@ -31,12 +31,16 @@ namespace <#= Namespace #>
         }
 <#  if (Model.HasSurrogateKey()) { #>
 
-        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> <#= PrimaryKeyName.ToCamelCase() #>, CancellationToken cancellationToken = default)
+
+        [IntentManaged(Mode.Fully)]
+        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.<#= PrimaryKeyName #> == <#= PrimaryKeyName.ToCamelCase() #>, cancellationToken);
         }
 
-        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] <#= PrimaryKeyName.ToCamelCase().Pluralize() #>, CancellationToken cancellationToken = default)
+
+        [IntentManaged(Mode.Fully)]
+        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] ids, CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => <#= PrimaryKeyName.ToCamelCase().Pluralize() #>.Contains(x.<#= PrimaryKeyName #>), cancellationToken);
         }

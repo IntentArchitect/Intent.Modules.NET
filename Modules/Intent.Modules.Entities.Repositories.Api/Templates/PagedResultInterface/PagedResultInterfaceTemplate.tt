@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true"  inherits="CSharpTemplateBase" #>
+<#@ template  debug="true"  inherits="CSharpTemplateBase<object>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
