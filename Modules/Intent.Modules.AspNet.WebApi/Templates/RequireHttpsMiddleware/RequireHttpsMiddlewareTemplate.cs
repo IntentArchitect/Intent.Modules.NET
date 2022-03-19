@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.RequireHttpsMiddleware
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\RequireHttpsMiddleware\RequireHttpsMiddlewareTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\RequireHttpsMiddleware\RequireHttpsMiddlewareTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class RequireHttpsMiddlewareTemplate : CSharpTemplateBase<object>
     {
@@ -35,7 +35,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.RequireHttpsMiddleware
             this.Write(" \r\n\r\nusing Microsoft.Owin;\r\nusing System.Threading.Tasks;\r\nusing System.Web;\r\n\r\n[" +
                     "assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 20 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\RequireHttpsMiddleware\RequireHttpsMiddlewareTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\RequireHttpsMiddleware\RequireHttpsMiddlewareTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default

@@ -22,7 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.Program
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class ConsoleAppProgramTemplate : CSharpTemplateBase<object>
     {
@@ -35,7 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.Program
             this.Write(" \r\n");
             this.Write(" \r\n");
             
-            #line 14 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
 
 
 
@@ -46,14 +46,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.Program
             this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.IO;\r\nusing System." +
                     "Linq;\r\nusing System.Threading.Tasks;\r\n");
             
-            #line 23 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DependencyUsings));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 27 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\ConsoleApp\Program\ConsoleAppProgramTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default

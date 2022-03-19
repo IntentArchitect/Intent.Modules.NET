@@ -33,7 +33,6 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\n");
             this.Write(@"using System;
 using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Stores;
@@ -46,14 +45,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -62,14 +61,14 @@ namespace ");
                     "viceCollection services, IConfiguration configuration)\r\n        {\r\n            s" +
                     "ervices.AddMultiTenant<TenantInfo>()\r\n");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsEntityFrameworkCore()) { 
             
             #line default
             #line hidden
             this.Write("                .WithEFCoreStore<");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetMultiTenantStoreDbContextName()));
             
             #line default
@@ -77,7 +76,7 @@ namespace ");
             this.Write(", TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#e" +
                     "fcore-store\r\n");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory()) { 
             
             #line default
@@ -85,7 +84,7 @@ namespace ");
             this.Write("                .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuck" +
                     "le.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store\r\n");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { 
             
             #line default
@@ -93,13 +92,13 @@ namespace ");
             this.Write("                .WithConfigurationStore() // See https://www.finbuckle.com/MultiT" +
                     "enant/Docs/v6.5.1/Stores#configuration-store\r\n");
             
-            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } 
             
             #line default
             #line hidden
             
-            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHeaderStrategy()) { 
             
             #line default
@@ -107,7 +106,7 @@ namespace ");
             this.Write("                .WithHeaderStrategy(\"X-Tenant-Identifier\"); // See https://www.fi" +
                     "nbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#header-strategy\r\n");
             
-            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHostStrategy()) { 
             
             #line default
@@ -116,7 +115,7 @@ namespace ");
                     "ps://tenantidentifier.example.com). See https://www.finbuckle.com/MultiTenant/Do" +
                     "cs/v6.5.1/Strategies#host-strategy\r\n");
             
-            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsClaimStrategy()) { 
             
             #line default
@@ -125,7 +124,7 @@ namespace ");
                     ". See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#claim-strateg" +
                     "y\r\n");
             
-            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } 
             
             #line default
@@ -134,21 +133,21 @@ namespace ");
                     "ancy(this IApplicationBuilder app)\r\n        {\r\n            app.UseMultiTenant();" +
                     "\r\n");
             
-            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   if (!ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { 
             
             #line default
             #line hidden
             this.Write("            InitializeStore(app.ApplicationServices);\r\n");
             
-            #line 49 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } 
             
             #line default
             #line hidden
             this.Write("        }\r\n");
             
-            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory()) { 
             
             #line default
@@ -158,13 +157,13 @@ namespace ");
                     "ure in memory store...\r\n            options.IsCaseSensitive = false;\r\n        }\r" +
                     "\n");
             
-            #line 59 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 60 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } 
             
             #line default
             #line hidden
             
-            #line 60 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   if (!ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { 
             
             #line default
@@ -181,7 +180,7 @@ namespace ");
         }
 ");
             
-            #line 71 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
+            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } 
             
             #line default

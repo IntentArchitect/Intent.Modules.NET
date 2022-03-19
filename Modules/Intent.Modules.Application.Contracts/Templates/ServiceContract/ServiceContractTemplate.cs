@@ -26,7 +26,7 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
     
     #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts\Templates\ServiceContract\ServiceContractTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class ServiceContractTemplate : CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, ServiceContractDecorator>
+    public partial class ServiceContractTemplate : CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, Intent.Modules.Application.Contracts.Templates.ServiceContract.ServiceContractDecorator>
     {
 #line hidden
         /// <summary>

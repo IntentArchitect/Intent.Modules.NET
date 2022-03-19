@@ -21,7 +21,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AssemblyInfo
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class AssemblyInfoTemplate : IntentFileTemplateBase<object>
     {
@@ -43,7 +43,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle(""");
             
-            #line 20 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
@@ -51,7 +51,7 @@ using System.Runtime.InteropServices;
             this.Write("\")]\r\n[assembly: AssemblyDescription(\"\")]\r\n[assembly: AssemblyConfiguration(\"\")]\r\n" +
                     "[assembly: AssemblyCompany(\"\")]\r\n[assembly: AssemblyProduct(\"");
             
-            #line 24 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.Name));
             
             #line default
@@ -69,7 +69,7 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid(""");
             
-            #line 35 "C:\Dev\Intent.Modules\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AssemblyInfo\AssemblyInfoTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Guid.NewGuid()));
             
             #line default

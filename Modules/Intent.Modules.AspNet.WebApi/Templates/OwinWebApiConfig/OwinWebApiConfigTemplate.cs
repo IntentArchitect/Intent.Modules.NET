@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.OwinWebApiConfig
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class OwinWebApiConfigTemplate : CSharpTemplateBase<object>
     {
@@ -34,7 +34,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.OwinWebApiConfig
         {
             this.Write(" \r\n");
             
-            #line 14 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
 
 
 
@@ -45,14 +45,14 @@ namespace Intent.Modules.AspNet.WebApi.Templates.OwinWebApiConfig
             this.Write("using Newtonsoft.Json;\r\nusing Newtonsoft.Json.Serialization;\r\nusing Owin;\r\nusing " +
                     "System.Web.Http;\r\n");
             
-            #line 22 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DependencyUsings));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n[assembly: DefaultIntentManaged(Mode.Merge)]\r\n\r\nnamespace ");
             
-            #line 26 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -85,7 +85,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.OwinWebApiConfig
 
 ");
             
-            #line 52 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+            #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
 
     foreach (var item in ConfigureItems)
     {
@@ -95,14 +95,14 @@ namespace Intent.Modules.AspNet.WebApi.Templates.OwinWebApiConfig
             #line hidden
             this.Write("            ");
             
-            #line 56 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+            #line 56 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 57 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
 
     }
 
@@ -113,7 +113,7 @@ namespace Intent.Modules.AspNet.WebApi.Templates.OwinWebApiConfig
                     "\t\tpublic static void AddCustomConfiguration(HttpConfiguration config) \r\n\t\t{\r\n\r\n\t" +
                     "\t}\r\n\r\n");
             
-            #line 69 "C:\Dev\Intent.Modules\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
+            #line 69 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNet.WebApi\Templates\OwinWebApiConfig\OwinWebApiConfigTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Methods()));
             
             #line default

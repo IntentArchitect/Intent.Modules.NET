@@ -33,20 +33,19 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\n");
             this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing Microsoft.Extensions.Conf" +
                     "iguration;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing Microsoft.Asp" +
                     "NetCore.Authorization;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamesp" +
                     "ace ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -59,21 +58,21 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddScoped<");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterfaceName()));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceName()));
             
             #line default
             #line hidden
             this.Write(">();\r\n            services.AddHttpContextAccessor();\r\n            ");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Security.JWT\Templates\ConfigurationJWTAuthentication\ConfigurationJWTAuthenticationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(base.GetDecoratorsOutput(p => p.GetConfigurationCode())));
             
             #line default
