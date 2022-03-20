@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.2.6</Version>
+    <Version>3.2.7</Version>
     <Authors>Intent Architect</Authors>
     <Company>Intent Architect</Company>
     <Product>Intent Architect</Product>
@@ -15,12 +15,12 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.2.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.8" />
-    <PackageReference Include="Intent.Packager" Version="3.1.0">
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.9" />
+    <PackageReference Include="Intent.Packager" Version="3.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.2.0" />
     <PackageReference Include="Microsoft.Build" Version="16.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

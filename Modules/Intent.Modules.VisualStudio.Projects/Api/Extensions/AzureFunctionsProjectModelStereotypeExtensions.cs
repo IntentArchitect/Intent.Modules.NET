@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
@@ -95,6 +97,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new GenerateRuntimeConfigurationFilesOptions(_stereotype.GetProperty<string>("Generate Runtime Configuration Files"));
             }
 
+            public GenerateDocumentationFileOptions GenerateDocumentationFile()
+            {
+                return new GenerateDocumentationFileOptions(_stereotype.GetProperty<string>("Generate Documentation File"));
+            }
+
             public class GenerateRuntimeConfigurationFilesOptions
             {
                 public readonly string Value;
@@ -128,6 +135,43 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             }
 
             public enum GenerateRuntimeConfigurationFilesOptionsEnum
+            {
+                False,
+                True
+            }
+            public class GenerateDocumentationFileOptions
+            {
+                public readonly string Value;
+
+                public GenerateDocumentationFileOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public GenerateDocumentationFileOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "false":
+                            return GenerateDocumentationFileOptionsEnum.False;
+                        case "true":
+                            return GenerateDocumentationFileOptionsEnum.True;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsFalse()
+                {
+                    return Value == "false";
+                }
+                public bool IsTrue()
+                {
+                    return Value == "true";
+                }
+            }
+
+            public enum GenerateDocumentationFileOptionsEnum
             {
                 False,
                 True

@@ -56,6 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                             hasChange |= SyncProperty(doc, "UserSecretsId", settings.UserSecretsId());
                             hasChange |= SyncProperty(doc, "RootNamespace", settings.RootNamespace());
                             hasChange |= SyncProperty(doc, "GenerateRuntimeConfigurationFiles", settings.GenerateRuntimeConfigurationFiles().Value);
+                            hasChange |= SyncProperty(doc, "GenerateDocumentationFile", settings.GenerateDocumentationFile().Value);
                         }
 
                         if (!hasChange)

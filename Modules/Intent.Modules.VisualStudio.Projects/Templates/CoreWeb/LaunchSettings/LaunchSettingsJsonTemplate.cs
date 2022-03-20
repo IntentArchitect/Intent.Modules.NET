@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,8 @@ using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Configuration;
+using Intent.Modules.Common.CSharp.Configuration;
+using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,11 +21,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
     {
         private int _randomPort;
         private int _randomSslPort;
+        private ICollection<EnvironmentVariableRegistrationRequest> _environmentVariables = new List<EnvironmentVariableRegistrationRequest>();
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
         public LaunchSettingsJsonTemplate(IProject project, IApplicationEventDispatcher applicationEventDispatcher)
             : base(Identifier, project, null)
         {
+            ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
             applicationEventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
         }
 
@@ -33,8 +38,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
 
         public IDictionary<string, Profile> Profiles { get; } = new Dictionary<string, Profile>();
 
+        [FixFor_Version4("Convert to object based event")]
         private void Handle(ApplicationEvent @event)
         {
+            // TODO: Align this file with the schema: http://json.schemastore.org/launchsettings.json
             Profiles.Add(@event.GetValue(LaunchProfileRegistrationEvent.ProfileNameKey), new Profile
             {
                 commandName = @event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey),
@@ -44,6 +51,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                 publishAllPorts = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.PublishAllPorts), out var publishAllPorts) && publishAllPorts,
                 useSSL = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSSL) && useSSL,
             });
+        }
+
+        private void HandleEnvironmentVariable(EnvironmentVariableRegistrationRequest request)
+        {
+            _environmentVariables.Add(request);
         }
 
         public override void BeforeTemplateExecution()
@@ -92,20 +104,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                             {
                                 commandName = "IISExpress",
                                 launchBrowser = true,
-                                environmentVariables = new EnvironmentVariables()
-                                {
-                                    ASPNETCORE_ENVIRONMENT = "Development"
-                                }
                             }
                         },
                         { Project.Name, new Profile()
                             {
                                 commandName = "Project",
                                 launchBrowser = true,
-                                environmentVariables = new EnvironmentVariables()
-                                {
-                                    ASPNETCORE_ENVIRONMENT = "Development"
-                                },
                                 applicationUrl = $"http://localhost:{_randomPort}/"
                             }
                         }
@@ -136,6 +140,20 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                         Formatting = Formatting.Indented,
                         NullValueHandling = NullValueHandling.Ignore
                     }));
+                }
+            }
+
+            // In case has not been set through an event, sets this be default.
+            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT", "Development", new []{ "IIS Express", Project.Name }));
+
+            foreach (var environmentVariable in _environmentVariables)
+            {
+                foreach (var profile in (config.profiles as IEnumerable<dynamic>)
+                    .Where(x => environmentVariable.TargetProfiles == null || environmentVariable.TargetProfiles.Any(p => config.profiles[p] != null))
+                    .Select(x => x.Value))
+                {
+                    profile.environmentVariables ??= JObject.FromObject(new EnvironmentVariables());
+                    ((dynamic) profile.environmentVariables)[environmentVariable.Key] ??= environmentVariable.Value;
                 }
             }
 
@@ -181,7 +199,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
     {
         public string commandName { get; set; }
         public bool launchBrowser { get; set; }
-        public EnvironmentVariables environmentVariables { get; set; }
+        public object environmentVariables { get; set; }
         public string applicationUrl { get; set; }
         public string launchUrl { get; set; }
         public bool publishAllPorts { get; set; }
