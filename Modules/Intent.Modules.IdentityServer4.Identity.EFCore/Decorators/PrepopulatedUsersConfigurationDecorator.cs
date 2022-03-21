@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.Modules.IdentityServer4.SecureTokenServer.Events;
+using Intent.Modules.IdentityServer4.SecureTokenServer.Settings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -18,6 +19,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]
@@ -25,7 +27,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
         {
             _template = template;
             _application = application;
-            Priority = 30;
+            Priority = 100;
         }
 
         public void BeforeTemplateExecution()
@@ -35,21 +37,35 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 
         public override string Configuration()
         {
-            return "PrepopulateWithIdentityUsers(app);";
+            if (!_application.Settings.GetIdentityServerSettings().CreateTestUsers())
+            {
+                return base.Configuration();
+            }
+            return "CreateTestUsers(app);";
         }
 
         public IEnumerable<string> DeclareUsings()
         {
+            if (!_application.Settings.GetIdentityServerSettings().CreateTestUsers())
+            {
+                yield break;
+            }
             yield return "Microsoft.AspNetCore.Identity";
             yield return "System.Security.Claims";
         }
 
         public override string Methods()
         {
+            if (!_application.Settings.GetIdentityServerSettings().CreateTestUsers())
+            {
+                return base.Methods();
+            }
+
             return @"
 
-        [IntentManaged(Mode.Merge)]
-        private static void PrepopulateWithIdentityUsers(IApplicationBuilder app)
+        // The creation of test users can be disabled in Intent Architect's application settings.
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private void CreateTestUsers(IApplicationBuilder app)
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {

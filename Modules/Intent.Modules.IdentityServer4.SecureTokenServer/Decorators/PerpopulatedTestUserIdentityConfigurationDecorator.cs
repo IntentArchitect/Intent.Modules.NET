@@ -1,10 +1,11 @@
+using System;
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.IdentityServer4.SecureTokenServer.Events;
+using Intent.Modules.IdentityServer4.SecureTokenServer.Settings;
 using Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentityServerConfiguration;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -17,7 +18,9 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.PerpopulatedTestUserIdentityConfigurationDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly IdentityServerConfigurationTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private bool _prepopulatedUsersSpecified;
 
@@ -37,18 +40,23 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
 
         public override string ConfigureServices()
         {
-            if (!_prepopulatedUsersSpecified)
+            if (_prepopulatedUsersSpecified || !_application.Settings.GetIdentityServerSettings().CreateTestUsers())
             {
-                return "idServerBuilder.PrepopulateWithTestUsers();";
+                return base.ConfigureServices();
             }
-            return string.Empty;
+            return "idServerBuilder.AddTestUsers();";
         }
 
         public override string Methods()
         {
+            if (_prepopulatedUsersSpecified || !_application.Settings.GetIdentityServerSettings().CreateTestUsers())
+            {
+                return base.Methods();
+            }
+
             return @"
-        [IntentManaged(Mode.Merge)]
-        private static void PrepopulateWithTestUsers(this IIdentityServerBuilder idServerBuilder)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private static void AddTestUsers(this IIdentityServerBuilder idServerBuilder)
         {
             idServerBuilder.AddTestUsers(new List<IdentityServer4.Test.TestUser>
             {
@@ -56,7 +64,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                 {
                     SubjectId = ""admin"",
                     Username = ""admin"",
-                    Password = ""password"",
+                    Password = ""P@ssw0rd"",
                     IsActive = true,
                     Claims = new[] { 
                         new Claim(""role"", ""MyRole""), 

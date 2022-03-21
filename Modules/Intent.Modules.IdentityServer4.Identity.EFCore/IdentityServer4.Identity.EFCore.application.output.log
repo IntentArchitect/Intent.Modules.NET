@@ -8,6 +8,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>64125731-fa3b-4750-a9fd-a97ebe34821c</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#04e12b51-ed12-42a3-9667-a6aa81bb6d10</CorrelationId>
+      <ApplicationRelativeFilePath>Api/Extensions/ClassModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#02c9e515-9bea-4d09-a4ee-104006a6133d</CorrelationId>
       <ApplicationRelativeFilePath>Decorators/AspNetIdentityUserDecorator.cs</ApplicationRelativeFilePath>

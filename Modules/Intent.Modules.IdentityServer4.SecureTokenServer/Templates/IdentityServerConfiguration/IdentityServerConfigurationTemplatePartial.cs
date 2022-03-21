@@ -10,7 +10,6 @@ using Intent.Modules.IdentityServer4.SecureTokenServer.Events;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
@@ -34,6 +33,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentitySer
             });
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

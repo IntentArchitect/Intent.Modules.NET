@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.BearerToken.Interop.IdentityServer4</id>
-  <version>3.1.1</version>
+  <version>3.2.0</version>
   <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>The module that bridges the gap to allow API Services and Identity Server 4 to be hosted together</summary>
   <description>The module that bridges the gap to allow API Services and Identity Server 4 to be hosted together</description>
@@ -10,7 +10,6 @@
   <templates></templates>
   <decorators>
     <decorator id="Intent.Security.BearerToken.Interop.IdentityServer4.ControllerAuthenticationSchemesDecorator" externalReference="6f1fd1fc-9e8b-419a-b9e5-767211e3e5ae" />
-    <decorator id="Intent.Security.BearerToken.Interop.IdentityServer4.ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator" externalReference="a9c456eb-f641-4bdd-a0ed-1b646fcf7002" />
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>

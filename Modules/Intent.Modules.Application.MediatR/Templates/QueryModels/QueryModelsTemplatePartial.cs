@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Intent.Application.MediatR.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
@@ -41,6 +43,26 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
             interfaces.Add($"IRequest<{GetTypeName(Model.TypeReference)}>");
             interfaces.Add(this.GetQueryInterfaceName());
             return string.Join(", ", interfaces);
+        }
+
+        private string GetQueryAttributes()
+        {
+            if (Model.HasAuthorize())
+            {
+                var rolesPolicies = new List<string>();
+                if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Roles()))
+                {
+                    rolesPolicies.Add($"Roles = \"{Model.GetAuthorize().Roles()}\"");
+                }
+                if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Policy()))
+                {
+                    rolesPolicies.Add($"Policy = \"{Model.GetAuthorize().Policy()}\"");
+                }
+                return $@"[{TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize"}{(rolesPolicies.Any() ? $"({string.Join(", ", rolesPolicies)})" : "")}]
+    ";
+            }
+
+            return string.Empty;
         }
     }
 }

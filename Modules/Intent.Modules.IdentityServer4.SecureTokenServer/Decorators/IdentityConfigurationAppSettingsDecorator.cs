@@ -15,7 +15,9 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.IdentityConfigurationAppSettingsDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly AppSettingsTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private readonly string _appName;
         private string _sslPort = "client_port";

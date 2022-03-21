@@ -20,6 +20,7 @@ namespace Intent.Modules.Application.Identity.Templates.AuthorizeAttribute
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AuthorizeAttributeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole("Application.Identity.AuthorizeAttribute");
         }
 
         protected override CSharpFileConfig DefineFileConfig()

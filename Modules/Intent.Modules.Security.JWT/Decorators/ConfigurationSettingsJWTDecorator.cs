@@ -44,13 +44,20 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
         {
-            if (_stsIsSelfHostedInThisApplication) { return; }
+            //if (_stsIsSelfHostedInThisApplication) { return; }
 
-            appSettings.AddPropertyIfNotExists("Security.Bearer", new
+            if (((string)appSettings.GetProperty("Security.Bearer")?["Authority"])?.Contains("{sts_port}") == true && _stsPort != "{sts_port}")
             {
-                Authority = $"https://localhost:{_stsPort}",
-                Audience = "api"
-            });
+                appSettings.GetProperty("Security.Bearer")["Authority"] = $"https://localhost:{_stsPort}";
+            }
+            else
+            {
+                appSettings.AddPropertyIfNotExists("Security.Bearer", new
+                {
+                    Authority = $"https://localhost:{_stsPort}",
+                    Audience = "api"
+                });
+            }
         }
     }
 }
