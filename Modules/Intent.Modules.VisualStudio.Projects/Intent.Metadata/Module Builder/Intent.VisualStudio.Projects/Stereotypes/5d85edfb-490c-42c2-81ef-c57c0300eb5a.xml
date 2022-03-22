@@ -109,7 +109,20 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
+      <placeholder>(unspecified)</placeholder>
+      <valueOptions>
+        <option>false</option>
+        <option>true</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="6111c054-9a40-4f92-9f7c-3a8372af14b8">
+      <hint />
+      <name>Generate Documentation File</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unspecified)</placeholder>
       <valueOptions>
         <option>false</option>
         <option>true</option>
