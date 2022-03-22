@@ -32,7 +32,7 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.2.0" />
+    <dependency id="Intent.Application.Identity" version="3.2.1" />
     <dependency id="Intent.AspNetCore" version="3.1.1" />
     <dependency id="Intent.Common" version="3.2.0" />
     <dependency id="Intent.Common.CSharp" version="3.2.0" />
@@ -43,7 +43,7 @@
   <interoperability>
     <detect id="Intent.IdentityServer4.SecureTokenServer">
       <install>
-        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.1.1" />
+        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.2.0" />
       </install>
     </detect>
   </interoperability>
