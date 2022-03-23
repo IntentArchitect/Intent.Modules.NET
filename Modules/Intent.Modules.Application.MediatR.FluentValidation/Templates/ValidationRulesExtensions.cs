@@ -74,7 +74,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
 
                     if (!string.IsNullOrWhiteSpace(property.GetValidations().Predicate()))
                     {
-                        var message = !string.IsNullOrWhiteSpace(property.GetValidations().PredicateMessage()) ? $".WithMessage(\"{property.GetValidations().PredicateMessage()}\")" : string.Empty
+                        var message = !string.IsNullOrWhiteSpace(property.GetValidations().PredicateMessage()) ? $".WithMessage(\"{property.GetValidations().PredicateMessage()}\")" : string.Empty;
                         validations.Add($".Must({property.GetValidations().Predicate()}){message}");
                     }
                     if (property.GetValidations().HasCustomValidation())
