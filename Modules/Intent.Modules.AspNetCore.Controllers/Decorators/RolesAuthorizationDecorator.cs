@@ -19,6 +19,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly ControllerTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

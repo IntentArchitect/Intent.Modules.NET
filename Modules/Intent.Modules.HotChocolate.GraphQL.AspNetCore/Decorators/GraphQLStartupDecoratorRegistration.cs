@@ -7,16 +7,16 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Decorators
+namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Decorators
 {
-    [Description(DefaultControllerServicesStartupDecorator.DecoratorId)]
-    public class DefaultControllerServicesStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
+    [Description(GraphQLStartupDecorator.DecoratorId)]
+    public class GraphQLStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new DefaultControllerServicesStartupDecorator(template, application);
+            return new GraphQLStartupDecorator(template, application);
         }
 
-        public override string DecoratorId => DefaultControllerServicesStartupDecorator.DecoratorId;
+        public override string DecoratorId => GraphQLStartupDecorator.DecoratorId;
     }
 }

@@ -7,34 +7,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d363704e-ee26-4402-9905-3a42532dd44e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>4ed421bb-c577-4eb0-bfc5-801f66f5ab52</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.AspNetCore.imodspec</ApplicationRelativeFilePath>

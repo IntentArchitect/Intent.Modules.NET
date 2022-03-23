@@ -6,47 +6,46 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Decorators
+namespace Intent.Modules.AspNetCore.Controllers.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class DefaultControllerEndpointStartupDecorator : StartupDecorator
+    public class DefaultControllerServicesStartupDecorator : StartupDecorator
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.AspNetCore.DefaultControllerEndpointStartupDecorator";
+        public const string DecoratorId = "Intent.AspNetCore.Controllers.DefaultControllerServicesStartupDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private bool _overrideDefaultController;
 
         [IntentManaged(Mode.Merge)]
-        public DefaultControllerEndpointStartupDecorator(StartupTemplate template, IApplication application)
+        public DefaultControllerServicesStartupDecorator(StartupTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
+            Priority = -30;
             application.EventDispatcher.Subscribe<OverrideDefaultControllerEvent>(evt =>
             {
                 _overrideDefaultController = true;
             });
-            Priority = 20;
         }
 
-        public override string Configuration()
-        {
-            if (_overrideDefaultController)
-            {
-                return string.Empty;
-            }
+        //public override string ConfigureServices()
+        //{
+        //    if (_overrideDefaultController)
+        //    {
+        //        return string.Empty;
+        //    }
 
-            if (_template.IsNetCore2App())
-            {
-                return "app.UseMvc();";
-            }
+        //    if (_template.IsNetCore2App())
+        //    {
+        //        return "services.AddMvc();";
+        //    }
 
-            return @"
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});";
-        }
+        //    return "services.AddControllers();";
+        //}
+
     }
 }
