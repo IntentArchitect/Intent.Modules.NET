@@ -8,6 +8,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Utils;
 
 namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
@@ -23,18 +24,60 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
                 {
                     validations.Add(".NotNull()");
                 }
-
-                if (property.HasStringValidation())
+                if (property.TypeReference.Element.IsEnumModel())
                 {
-                    if (property.GetStringValidation().NotEmpty())
+                    validations.Add(".IsInEnum()");
+                }
+
+                if (property.HasValidations())
+                {
+                    if (property.GetValidations().NotEmpty())
                     {
                         validations.Add(".NotEmpty()");
                     }
-                    if (property.GetStringValidation().MaxLength() != null)
+
+                    if (!string.IsNullOrWhiteSpace(property.GetValidations().Equal()))
                     {
-                        validations.Add($".MaximumLength({property.GetStringValidation().MaxLength()})");
+                        validations.Add($".Equal({property.GetValidations().Equal()})");
                     }
-                    if (property.GetStringValidation().HasCustomValidation())
+                    if (!string.IsNullOrWhiteSpace(property.GetValidations().NotEqual()))
+                    {
+                        validations.Add($".NotEqual({property.GetValidations().NotEqual()})");
+                    }
+
+                    if (property.GetValidations().MinLength() != null && property.GetValidations().MaxLength() != null)
+                    {
+                        validations.Add($".Length({property.GetValidations().MinLength()}, {property.GetValidations().MaxLength()})");
+                    }
+                    else if (property.GetValidations().MinLength() != null)
+                    {
+                        validations.Add($".MinimumLength({property.GetValidations().MinLength()})");
+                    }
+                    else if (property.GetValidations().MaxLength() != null)
+                    {
+                        validations.Add($".MaximumLength({property.GetValidations().MaxLength()})");
+                    }
+
+                    if (property.GetValidations().Min() != null && property.GetValidations().Max() != null && 
+                        int.TryParse(property.GetValidations().Min(), out var min) && int.TryParse(property.GetValidations().Max(), out var max))
+                    {
+                        validations.Add($".InclusiveBetween({min}, {max})");
+                    }
+                    else if (!string.IsNullOrWhiteSpace(property.GetValidations().Min()))
+                    {
+                        validations.Add($".GreaterThanOrEqualTo({property.GetValidations().Min()})");
+                    }
+                    else if (!string.IsNullOrWhiteSpace(property.GetValidations().Max()))
+                    {
+                        validations.Add($".LessThanOrEqualTo({property.GetValidations().Max()})");
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(property.GetValidations().Predicate()))
+                    {
+                        var message = !string.IsNullOrWhiteSpace(property.GetValidations().PredicateMessage()) ? $".WithMessage(\"{property.GetValidations().PredicateMessage()}\")" : string.Empty
+                        validations.Add($".Must({property.GetValidations().Predicate()}){message}");
+                    }
+                    if (property.GetValidations().HasCustomValidation())
                     {
                         validations.Add($".Must(Validate{property.Name})");
                     }
@@ -45,10 +88,10 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
                     {
                         var attribute = property.InternalElement.MappedElement.Element.AsAttributeModel();
                         if (attribute.HasStereotype("Text Constraints") &&
-                            attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
+                            attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0 &&
+                            property.GetValidations()?.MaxLength() == null)
                         {
-                            validations.Add(
-                                $".MaximumLength({attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength")})");
+                            validations.Add($".MaximumLength({attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength")})");
                         }
                     }
                     catch (Exception e)

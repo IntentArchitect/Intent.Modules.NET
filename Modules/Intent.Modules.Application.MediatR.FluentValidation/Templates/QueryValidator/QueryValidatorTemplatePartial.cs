@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
             AddNugetDependency(NuGetPackages.FluentValidation);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
@@ -49,7 +50,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
         {
             foreach (var property in Model.Properties)
             {
-                if (property.HasStringValidation() && property.GetStringValidation().HasCustomValidation())
+                if (property.HasValidations() && property.GetValidations().HasCustomValidation())
                 {
                     yield return $@"
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]

@@ -8,6 +8,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c56c5e75-11bc-4246-a6bd-c3372ab0c175</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#7baed1fd-469b-4980-8fd9-4cefb8331eb2</CorrelationId>
+      <ApplicationRelativeFilePath>Api/Extensions/DTOFieldModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DTOFieldModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f70df819-b1a1-460c-ad99-567cf48a1a99</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.FluentValidation.imodspec</ApplicationRelativeFilePath>

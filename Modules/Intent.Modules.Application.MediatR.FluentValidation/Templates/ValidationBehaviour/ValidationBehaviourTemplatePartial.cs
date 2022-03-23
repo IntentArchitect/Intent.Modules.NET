@@ -25,6 +25,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
             AddNugetDependency(NuGetPackages.FluentValidation);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
