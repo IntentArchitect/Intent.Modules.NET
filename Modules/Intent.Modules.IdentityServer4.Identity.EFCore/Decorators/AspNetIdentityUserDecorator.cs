@@ -19,6 +19,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly IdentityServerConfigurationTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]
@@ -31,7 +32,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 
         public override string ConfigureServices()
         {
-            return "idServerBuilder.AddAspNetIdentity<IdentityUser>();";
+            return $"idServerBuilder.AddAspNetIdentity<{_template.GetIdentityUserClass()}>();";
         }
 
         public IEnumerable<string> DeclareUsings()

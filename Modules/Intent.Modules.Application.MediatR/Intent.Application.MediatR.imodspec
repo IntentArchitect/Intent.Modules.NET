@@ -64,7 +64,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Interop.MediatR" version="3.1.1" />
+        <package id="Intent.AspNetCore.Controllers.Interop.MediatR" version="3.2.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
@@ -78,7 +78,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata>
-    <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Application.MediatR/Intent.Application.MediatR.pkg.config" externalReference="e92495db-1b26-4389-bf06-cc1b375520b1" />
+    <install target="Module Builder;Services" src="Intent.Metadata/Module Builder/Intent.Application.MediatR/Intent.Application.MediatR.pkg.config" externalReference="e92495db-1b26-4389-bf06-cc1b375520b1" />
   </metadata>
   <moduleSettings />
 </package>

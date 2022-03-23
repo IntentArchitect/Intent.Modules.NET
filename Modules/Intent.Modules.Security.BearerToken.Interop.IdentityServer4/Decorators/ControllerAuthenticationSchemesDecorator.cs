@@ -34,11 +34,13 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
 
         public override void UpdateOperationAuthorization(AuthorizationModel authorizationModel, OperationSecureModel secureModel)
         {
+            // Specifying this scheme explicitly is required when running IdentityServer4 alongside JWT auth as IdentityServer4 seems to override the default auth scheme (probably changing it to be cookie based).
             authorizationModel.AuthenticationSchemesExpression = "JwtBearerDefaults.AuthenticationScheme";
         }
 
         public override void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
         {
+            // Specifying this scheme explicitly is required when running IdentityServer4 alongside JWT auth as IdentityServer4 seems to override the default auth scheme (probably changing it to be cookie based).
             authorizationModel.AuthenticationSchemesExpression = "JwtBearerDefaults.AuthenticationScheme";
         }
     }

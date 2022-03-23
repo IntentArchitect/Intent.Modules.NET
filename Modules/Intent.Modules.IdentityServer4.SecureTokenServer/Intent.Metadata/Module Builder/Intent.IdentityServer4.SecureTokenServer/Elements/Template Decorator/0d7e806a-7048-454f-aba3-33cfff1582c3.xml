@@ -3,7 +3,7 @@
   <name>PerpopulatedTestUserIdentityConfigurationDecorator</name>
   <display>PerpopulatedTestUserIdentityConfigurationDecorator: IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>5</order>
   <genericTypes />
   <typeReference id="664ed272-9901-42f6-869f-528ad1d9f4eb">
     <typeId>7ab8228e-f35b-4587-a807-4ce75bf09375</typeId>

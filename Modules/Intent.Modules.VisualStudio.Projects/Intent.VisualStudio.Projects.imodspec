@@ -14,6 +14,7 @@
     <template id="Intent.VisualStudio.Projects.CoreLibrary.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.AppSettings" externalReference="cc3f8b62-c026-49c9-bef2-52cdd44f0ebd" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.CSProject" />
+    <template id="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
     <template id="Intent.VisualStudio.Projects.SqlServerDatabase.SqlProject" externalReference="90bf72bb-3741-4c8e-8954-2a9a65d37740" />
     <template id="Intent.VisualStudio.Projects.VisualStudio2015Solution" />
     <template id="Intent.VisualStudio.Projects.WebApiServiceCSProjectFile">

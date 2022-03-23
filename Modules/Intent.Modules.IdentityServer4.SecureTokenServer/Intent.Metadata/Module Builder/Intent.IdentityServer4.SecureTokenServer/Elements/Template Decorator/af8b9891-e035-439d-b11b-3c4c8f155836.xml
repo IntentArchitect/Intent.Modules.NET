@@ -3,7 +3,7 @@
   <name>IdentityConfigurationAppSettingsDecorator</name>
   <display>IdentityConfigurationAppSettingsDecorator: AppSettingsDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <typeReference id="e9f17196-d593-4659-b341-825ada630d58">
     <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>

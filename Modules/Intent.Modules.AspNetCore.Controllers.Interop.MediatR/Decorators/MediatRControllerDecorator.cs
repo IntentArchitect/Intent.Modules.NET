@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,11 +84,23 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
 
         public override string ExitOperationBody(OperationModel operationModel)
         {
-            return operationModel.ReturnType == null
-                ? $@"
-            return NoContent();"
-                : $@"
-            return result;";
+            switch (_template.GetHttpVerb(operationModel))
+            {
+                case ControllerTemplate.HttpVerb.GET:
+                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
+                    break;
+                case ControllerTemplate.HttpVerb.POST:
+                    return operationModel.ReturnType == null ? $@"return Created(string.Empty, null);" : $@"return Created(string.Empty, result);";
+                    break;
+                case ControllerTemplate.HttpVerb.PUT:
+                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
+                    break;
+                case ControllerTemplate.HttpVerb.DELETE:
+                    return operationModel.ReturnType == null ? $@"return Ok();" : $@"return Ok(result);";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private ParameterModel GetPayloadParameter(OperationModel operationModel)

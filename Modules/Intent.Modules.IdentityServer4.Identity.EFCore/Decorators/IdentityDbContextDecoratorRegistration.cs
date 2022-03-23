@@ -12,6 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
+    [Description(IdentityDbContextDecorator.DecoratorId)]
     public class IdentityDbContextDecoratorRegistration : DecoratorRegistration<DbContextTemplate, DbContextDecoratorBase>
     {
         public override DbContextDecoratorBase CreateDecoratorInstance(DbContextTemplate template, IApplication application)

@@ -3,7 +3,7 @@
   <name>IdentityServerStartupDecorator</name>
   <display>IdentityServerStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>4</order>
   <genericTypes />
   <typeReference id="117924aa-fe70-4f9c-83ae-7724678eb172">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

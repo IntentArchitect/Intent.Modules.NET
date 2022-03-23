@@ -20,6 +20,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly IdentityServerConfigurationTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]
@@ -35,15 +36,14 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
             var dbContextTemplate = _application.FindTemplateInstance<IClassProvider>(DbContextTemplate.TemplateId);
 
             return $@"
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<{dbContextTemplate.FullTypeName()}>();";
+            services.AddIdentity<{_template.GetIdentityUserClass()}, {_template.GetIdentityRoleClass()}>()
+                .AddEntityFrameworkStores<{_template.GetTypeName("Infrastructure.Data.IdentityDbContext")}>();";
         }
 
         public IEnumerable<string> DeclareUsings()
         {
             return new[]
             {
-                "Microsoft.AspNetCore.Identity",
                 "Microsoft.AspNetCore.Identity.EntityFrameworkCore"
             };
         }

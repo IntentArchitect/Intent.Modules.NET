@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.SecureTokenServer</id>
-  <version>3.2.0</version>
+  <version>3.2.1</version>
   <supportedClientVersions>[3.2.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>The main module responsible for IdentityServer4 hosting</summary>
   <description>The main module responsible for IdentityServer4 hosting</description>
@@ -23,12 +23,12 @@
     <decorator id="Intent.IdentityServer4.SecureTokenServer.PerpopulatedTestUserIdentityConfigurationDecorator" externalReference="0d7e806a-7048-454f-aba3-33cfff1582c3" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.Types" version="3.1.1" />
     <dependency id="Intent.AspNetCore" version="3.1.1" />
+    <dependency id="Intent.Common" version="3.2.0" />
+    <dependency id="Intent.Common.CSharp" version="3.2.0" />
+    <dependency id="Intent.Common.Types" version="3.2.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.2.0" />
     <dependency id="Intent.VisualStudio.Projects" version="3.1.2" />
-    <dependency id="Intent.Common.CSharp" version="3.1.8" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.1.7" />
   </dependencies>
   <interoperability>
     <detect id="Intent.AspNetCore.Swashbuckle">
@@ -44,5 +44,15 @@
   <metadata>
     <install src="Intent.Metadata/Module Builder/Intent.IdentityServer4.SecureTokenServer/Intent.IdentityServer4.SecureTokenServer.pkg.config" externalReference="dbcde434-4411-479b-8374-34cb11190cf1" target="Module Builder" />
   </metadata>
-  <moduleSettings />
+  <moduleSettings>
+    <group id="2540e7d3-58b4-4e0d-9187-f614bf834837" title="Identity Server Settings" externalReference="2540e7d3-58b4-4e0d-9187-f614bf834837">
+      <settings>
+        <setting id="e31ca033-a677-4674-aeca-126633e3e097" title="Create Test Users" type="checkbox">
+          <isRequired>false</isRequired>
+          <hint>If checked, will create test users for Identity Server.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
 </package>

@@ -8,20 +8,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#a9c456eb-f641-4bdd-a0ed-1b646fcf7002</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationJWTAuthenticationLocalApiBearerTokenDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#a9c456eb-f641-4bdd-a0ed-1b646fcf7002</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/ConfigurationJWTAuthenticationLocalApiBearerTokenDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationJWTAuthenticationLocalApiBearerTokenDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#6f1fd1fc-9e8b-419a-b9e5-767211e3e5ae</CorrelationId>
       <ApplicationRelativeFilePath>Decorators/ControllerAuthenticationSchemesDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ControllerAuthenticationSchemesDecorator.cs</ProjectRelativeFilePath>

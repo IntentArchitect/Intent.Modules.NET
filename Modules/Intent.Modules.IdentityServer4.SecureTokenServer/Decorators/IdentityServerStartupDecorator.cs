@@ -1,9 +1,9 @@
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentityServerConfiguration;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -16,7 +16,9 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.IdentityServerStartupDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

@@ -26,12 +26,14 @@ using System.Threading.Tasks;
 
 namespace <#= Namespace #>
 {
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface <#= ClassName #> : <#= RepositoryInterfaceName #><<#= EntityInterfaceName #>, <#= EntityStateName #>>
     {
 <#  if (Model.HasSurrogateKey()) { #>
-        Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> <#= PrimaryKeyName.ToCamelCase() #>, CancellationToken cancellationToken = default);
-        Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] <#= PrimaryKeyName.ToCamelCase().Pluralize() #>, CancellationToken cancellationToken = default);
-<#  } #>
+        [IntentManaged(Mode.Fully)]
+		Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> <#= PrimaryKeyName.ToCamelCase() #>, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+		Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] <#= PrimaryKeyName.ToCamelCase().Pluralize() #>, CancellationToken cancellationToken = default);<#  } #>
 <#  } #>
     }
 }

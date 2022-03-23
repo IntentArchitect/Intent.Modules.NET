@@ -67,6 +67,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return GetDecorators().Aggregate(x => x.ExitOperationBody(o));
         }
 
+        public HttpVerb GetHttpVerb(OperationModel operation)
+        {
+            var verb = operation.GetHttpSettings().Verb();
+            return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
+        }
+
+
         private string GetControllerBase()
         {
             return GetDecorators().Select(x => x.BaseClass()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x)) ?? "ControllerBase";
@@ -92,13 +99,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             var attributes = new List<string>();
             attributes.Add(GetHttpVerbAndPath(operation));
-            if (!IsControllerSecured() && operation.HasSecured())
+            if ((!IsControllerSecured() && operation.HasSecured()) || !string.IsNullOrWhiteSpace(operation.GetSecured()?.Roles()))
             {
                 // We can extend this later (if desired) to have multiple Secure stereotypes create
                 // multiple Authorization Models.
                 // NOTE: GCB - the following is an anti-pattern imo @Dandre. Passing in an object to some method which results in mutations is
                 // bad programming practice. It forces us to break encapsulation to determine what is in fact going on. I will replace this with a 
                 // better approach at a later stage.
+                // TODO: GCB - convert the auth system to use a generic role/policy based system that decouples it from WebApi module.
                 var authModel = new AuthorizationModel();
                 GetDecorators().ToList().ForEach(x => x.UpdateOperationAuthorization(authModel, new OperationSecureModel(operation, operation.GetSecured())));
                 attributes.Add(GetAuthorizationAttribute(authModel));
@@ -238,12 +246,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetConstructorImplementation()
         {
             return GetDecorators().Aggregate(x => x.ConstructorImplementation());
-        }
-
-        private HttpVerb GetHttpVerb(OperationModel operation)
-        {
-            var verb = operation.GetHttpSettings().Verb();
-            return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
         }
 
         public enum HttpVerb
