@@ -258,8 +258,8 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
             return Nodes.OfType<SolutionItemComplexNode>().SingleOrDefault(x => x.Id == parentId);
         }
 
-        /// <returns>True if the project already existed.</returns>
-        public bool GetOrCreateProjectNode(string typeId, string name, string path, string id, string parentId, out SolutionItemComplexNode project)
+        /// <returns><see langword="true"/> if the project already existed.</returns>
+        public bool GetOrCreateProjectNode(string typeId, string name, string path, string id, string parentId, out SolutionItemProjectNode project)
         {
             var parentNode = Nodes.OfType<SolutionItemComplexNode>().SingleOrDefault(x => x.Id == parentId);
             var childNodes = GetChildrenWithParentOf(parentNode);
@@ -271,29 +271,27 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
 
             id = $"{{{id}}}".ToUpperInvariant();
 
-            project =
+            var node =
                 childNodes.SingleOrDefault(x => x.Id == id) ??
-                childNodes.SingleOrDefault(x => x.Values[1] == path) ??
+                childNodes.SingleOrDefault(x => new SolutionItemProjectNode(x).HasPath(path)) ??
                 projectNodes.SingleOrDefault(x => x.Id == id) ??
-                projectNodes.SingleOrDefault(x => x.Values[1] == path);
+                projectNodes.SingleOrDefault(x => new SolutionItemProjectNode(x).HasPath(path));
 
-            if (project != null)
+            if (node != null)
             {
+                project = new SolutionItemProjectNode(node);
                 return true;
             }
 
-            project = new SolutionItemComplexNode(
-                name: "Project",
-                parameter: $"{{{typeId}}}".ToUpperInvariant(),
-                values: new List<string> { name, path, id },
-                childNodes: new List<Node>());
-            SetParent(project, parentNode);
+            project = new SolutionItemProjectNode(typeId, name, path, id);
+
+            SetParent(project.UnderlyingNode, parentNode);
 
             if (projectNodes.Length != 0)
             {
                 Nodes.Insert(
                     index: Nodes.IndexOf(projectNodes[projectNodes.Length - 1]) + 1,
-                    item: project);
+                    item: project.UnderlyingNode);
 
                 return false;
             }
@@ -305,12 +303,12 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
             {
                 Nodes.Insert(
                     index: Nodes.IndexOf(lastLeadingNode) + 1,
-                    item: project);
+                    item: project.UnderlyingNode);
 
                 return false;
             }
 
-            Nodes.Insert(0, project);
+            Nodes.Insert(0, project.UnderlyingNode);
             return false;
         }
 

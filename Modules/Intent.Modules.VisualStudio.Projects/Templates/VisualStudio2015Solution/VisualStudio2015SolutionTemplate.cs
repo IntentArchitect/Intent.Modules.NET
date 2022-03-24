@@ -116,9 +116,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                     continue;
                 }
 
-                slnProject.Values[0] = projectModel.Name;
-                slnProject.Values[1] = path;
-                slnFile.SetParent(slnProject, slnParent);
+                slnProject.Name = projectModel.Name;
+                slnProject.Path = path;
+                slnFile.SetParent(slnProject.UnderlyingNode, slnParent);
             }
 
             foreach (var folderModel in modelFolders)
@@ -131,14 +131,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                         parentId: slnParent?.Id,
                         project: out var slnFolder))
                 {
-                    slnFolder.Values[0] = folderModel.Name;
-                    slnFolder.Values[1] = folderModel.Name;
-                    slnFile.SetParent(slnFolder, slnParent);
+                    slnFolder.Name = folderModel.Name;
+                    slnFolder.Path = folderModel.Name;
+                    slnFile.SetParent(slnFolder.UnderlyingNode, slnParent);
                 }
 
                 SyncProjectsAndFolders(
                     slnFile: slnFile,
-                    slnParent: slnFolder,
+                    slnParent: slnFolder.UnderlyingNode,
                     modelParent: folderModel,
                     modelFolders: folderModel.Folders,
                     projectConfigurationPlatforms: projectConfigurationPlatforms,
