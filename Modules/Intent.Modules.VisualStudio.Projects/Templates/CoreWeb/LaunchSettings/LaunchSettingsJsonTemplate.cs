@@ -208,6 +208,5 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
 
     public class EnvironmentVariables
     {
-        public string ASPNETCORE_ENVIRONMENT { get; set; }
     }
 }
