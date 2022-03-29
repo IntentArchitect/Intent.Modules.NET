@@ -1,15 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
 using Newtonsoft.Json;
@@ -28,6 +27,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             : base(Identifier, project, null)
         {
             ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
+            ExecutionContext.EventDispatcher.Subscribe<LaunchProfileRegistrationRequest>(HandleLaunchProfileRegistration);
             applicationEventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
         }
 
@@ -38,7 +38,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
 
         public IDictionary<string, Profile> Profiles { get; } = new Dictionary<string, Profile>();
 
-        [FixFor_Version4("Convert to object based event")]
+        /// <summary>
+        /// Will be retired in favour of <see cref="HandleLaunchProfileRegistration"/>.
+        /// </summary>
+        [FixFor_Version4(WillBeRemovedIn.Version4)]
         private void Handle(ApplicationEvent @event)
         {
             // TODO: Align this file with the schema: http://json.schemastore.org/launchsettings.json
@@ -53,8 +56,41 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             });
         }
 
+        private void HandleLaunchProfileRegistration(LaunchProfileRegistrationRequest request)
+        {
+            if (!request.IsApplicableTo(this))
+            {
+                return;
+            }
+
+            Profiles.Add(request.Name, new Profile
+            {
+                commandName = request.CommandName,
+                launchBrowser = request.LaunchBrowser,
+                applicationUrl = request.ApplicationUrl,
+                launchUrl = request.LaunchUrl,
+                publishAllPorts = request.PublishAllPorts,
+                useSSL = request.UseSsl
+            });
+
+            if (request.EnvironmentVariables?.Count > 0)
+            {
+                var targetProfiles = new[] { request.Name };
+
+                foreach (var (key, value) in request.EnvironmentVariables)
+                {
+                    _environmentVariables.Add(new EnvironmentVariableRegistrationRequest(key, value, targetProfiles));
+                }
+            }
+        }
+
         private void HandleEnvironmentVariable(EnvironmentVariableRegistrationRequest request)
         {
+            if (!request.IsApplicableTo(this))
+            {
+                return;
+            }
+
             _environmentVariables.Add(request);
         }
 
@@ -74,8 +110,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                     appSettings["iisSettings"]?["iisExpress"]?["applicationUrl"]?.ToString().Split(new[] { ':', '/' }, StringSplitOptions.RemoveEmptyEntries).Any(x => int.TryParse(x, out _randomPort)) == true)
                 {
                     ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
-                        applicationUrl: appSettings["iisSettings"]["iisExpress"]["applicationUrl"].ToString(), 
-                        port: _randomPort, 
+                        applicationUrl: appSettings["iisSettings"]["iisExpress"]["applicationUrl"].ToString(),
+                        port: _randomPort,
                         sslPort: _randomSslPort));
                 }
             }
@@ -144,7 +180,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             }
 
             // In case has not been set through an event, sets this be default.
-            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT", "Development", new []{ "IIS Express", Project.Name }));
+            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT", "Development", new[] { "IIS Express", Project.Name }));
 
             foreach (var environmentVariable in _environmentVariables)
             {
@@ -153,7 +189,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                     .Select(x => x.Value))
                 {
                     profile.environmentVariables ??= JObject.FromObject(new EnvironmentVariables());
-                    ((dynamic) profile.environmentVariables)[environmentVariable.Key] ??= environmentVariable.Value;
+                    ((dynamic)profile.environmentVariables)[environmentVariable.Key] ??= environmentVariable.Value;
                 }
             }
 

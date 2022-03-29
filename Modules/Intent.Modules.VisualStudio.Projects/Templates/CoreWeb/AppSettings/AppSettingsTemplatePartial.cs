@@ -99,8 +99,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 return;
             }
 
-            if (!string.IsNullOrWhiteSpace(@event.ForProjectWithRole) &&
-                !OutputTarget.GetProject().HasRole(@event.ForProjectWithRole))
+            if (!@event.IsApplicableTo(this))
             {
                 return;
             }
@@ -122,8 +121,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 return;
             }
 
-            if (!string.IsNullOrWhiteSpace(@event.ForProjectWithRole) &&
-                !OutputTarget.GetProject().HasRole(@event.ForProjectWithRole))
+            if (!@event.IsApplicableTo(this))
             {
                 return;
             }
