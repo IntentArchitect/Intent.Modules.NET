@@ -97,8 +97,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
         private void Apply(HostSettingRegistrationRequest request, JToken jToken)
         {
-            if (!string.IsNullOrWhiteSpace(request.ForProjectWithRole) &&
-                !OutputTarget.GetProject().HasRole(request.ForProjectWithRole))
+            if (!request.IsApplicableTo(this))
             {
                 return;
             }
@@ -145,8 +144,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
                 string primitive => primitive,
                 _ => JObject.FromObject(request.Value)
             };
-
-            request.MarkHandled();
         }
     }
 }

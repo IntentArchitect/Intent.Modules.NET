@@ -1,5 +1,13 @@
-﻿namespace Intent.Modules.Constants
+﻿using System;
+using Intent.Modules.Common.CSharp.Configuration;
+using Intent.SdkEvolutionHelpers;
+
+namespace Intent.Modules.Constants
 {
+    /// <summary>
+    /// Obsolete. Use <see cref="LaunchProfileRegistrationRequest"/> instead.
+    /// </summary>
+    [Obsolete(WillBeRemovedIn.Version4)]
     public static class LaunchProfileRegistrationEvent
     {
         public const string EventId = nameof(LaunchProfileRegistrationEvent);
