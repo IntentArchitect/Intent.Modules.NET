@@ -1,6 +1,7 @@
 using System;
 using Intent.Configuration;
 using Intent.Engine;
+using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
