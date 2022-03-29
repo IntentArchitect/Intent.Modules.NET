@@ -17,6 +17,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEntityState
 {
+    [IntentManaged(Mode.Ignore, Body = Mode.Merge)]
     partial class DomainEntityStateTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityStateDecoratorBase>, ITemplatePostCreationHook
     {
         [IntentManaged(Mode.Fully)]
@@ -38,6 +39,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
                                              ?? $"I{Model.Name}";
 
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

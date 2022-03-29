@@ -1,9 +1,9 @@
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.IdentityServer4.UI.Events;
 using Intent.Modules.IdentityServer4.UI.Templates.Controllers.ExternalController;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -16,7 +16,9 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.UI.ExternalTestStoreDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly ExternalControllerTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private bool _overridden;
 

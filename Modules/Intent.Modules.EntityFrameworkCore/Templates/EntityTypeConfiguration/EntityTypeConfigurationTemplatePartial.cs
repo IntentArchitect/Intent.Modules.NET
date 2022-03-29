@@ -53,6 +53,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             ExecutionContext.EventDispatcher.Publish(new EntityTypeConfigurationCreatedEvent(this));
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

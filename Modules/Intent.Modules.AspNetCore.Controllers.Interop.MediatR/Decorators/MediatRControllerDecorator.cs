@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
@@ -10,7 +11,6 @@ using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -22,7 +22,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.MediatR.MediatRControllerDecorator";
+        [IntentManaged(Mode.Fully)]
         private readonly ControllerTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore)]

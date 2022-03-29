@@ -23,6 +23,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

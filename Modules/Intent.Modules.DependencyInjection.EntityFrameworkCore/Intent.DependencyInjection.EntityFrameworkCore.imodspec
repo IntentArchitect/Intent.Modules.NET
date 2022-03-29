@@ -15,7 +15,7 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.2.0" />
     <dependency id="Intent.Common.Types" version="3.2.0" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.2.0" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.2.7" />
     <dependency id="Intent.Infrastructure.DependencyInjection" version="3.1.1" />
   </dependencies>
   <files>

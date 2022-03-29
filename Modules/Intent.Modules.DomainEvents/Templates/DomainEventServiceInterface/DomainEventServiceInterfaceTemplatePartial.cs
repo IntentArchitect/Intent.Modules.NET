@@ -23,6 +23,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

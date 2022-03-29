@@ -13,10 +13,11 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
+    <dependency id="Intent.AspNetCore" version="3.1.1" />
+    <dependency id="Intent.AspNetCore.Controllers" version="3.2.1" />
     <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.Types" version="3.1.1" />
-    <dependency id="Intent.Security.JWT" version="3.1.1" />
-    <dependency id="Intent.AspNetCore.Controllers" version="3.1.1" />
+    <dependency id="Intent.Common.Types" version="3.2.0" />
+    <dependency id="Intent.Security.JWT" version="3.2.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

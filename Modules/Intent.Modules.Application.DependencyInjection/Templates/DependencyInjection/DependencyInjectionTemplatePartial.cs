@@ -42,6 +42,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
             }
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

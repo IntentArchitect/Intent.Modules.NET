@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -17,7 +17,9 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Infrastructure.DependencyInjection.ApplicationStartupDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge, Body = Mode.Fully)]

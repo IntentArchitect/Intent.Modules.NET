@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>228fb0c1-fd82-4968-9870-ac63aea0eecd</parentFolderId>
   <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-  <packageName>Intent.Modules.Net</packageName>
+  <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
       <addedByDefault>true</addedByDefault>
@@ -23,6 +23,7 @@
         <property name="3710062e-9beb-40e2-8f33-111efecf43a5" display="Root Namespace" isActive="true" />
         <property name="f2956d24-b6da-427b-8728-c4f44714ce69" display="User Secrets Id" isActive="true" />
         <property name="42cdb74e-d5fd-4969-94ca-585d0527b862" display="Generate Runtime Configuration Files" isActive="true" />
+        <property name="6111c054-9a40-4f92-9f7c-3a8372af14b8" display="Generate Documentation File" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -46,7 +47,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -60,7 +61,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -73,7 +74,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -87,7 +88,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -101,7 +102,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -115,7 +116,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -128,7 +129,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -141,7 +142,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -154,7 +155,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -167,7 +168,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -180,7 +181,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -193,7 +194,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -206,7 +207,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -219,7 +220,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>
@@ -232,7 +233,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8de7db33-7d69-403f-ad45-3b3d753705f2</parentFolderId>
       <packageId>09f8516d-f26a-4a4b-9d39-c3074cba2132</packageId>
-      <packageName>Intent.Modules.Net</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <childElements />
     </childElement>

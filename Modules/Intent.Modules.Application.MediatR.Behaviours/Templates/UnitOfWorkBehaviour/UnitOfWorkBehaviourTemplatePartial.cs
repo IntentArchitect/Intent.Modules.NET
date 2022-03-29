@@ -12,6 +12,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBehaviour
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class UnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
@@ -22,6 +23,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

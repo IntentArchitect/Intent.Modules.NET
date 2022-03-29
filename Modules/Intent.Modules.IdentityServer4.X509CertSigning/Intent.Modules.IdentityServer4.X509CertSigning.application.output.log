@@ -3,6 +3,7 @@
   <ApplicationId>d0170c2a-3918-4877-bc3c-7ae70a4885e0</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#4c9a9332-6dff-4586-b9b4-d1924b5afab2</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -36,7 +37,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.IdentityServer4.X509CertSigning.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.X509CertSigning.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -85,6 +86,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9db0a5a2-cab2-4e7b-b224-47f0c6af8587</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

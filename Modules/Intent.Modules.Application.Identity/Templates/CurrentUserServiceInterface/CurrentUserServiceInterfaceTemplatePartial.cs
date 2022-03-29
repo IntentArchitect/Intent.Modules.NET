@@ -22,6 +22,7 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterf
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

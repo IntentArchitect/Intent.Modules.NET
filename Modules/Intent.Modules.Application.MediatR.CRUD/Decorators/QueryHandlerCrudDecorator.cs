@@ -21,6 +21,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly QueryHandlerTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private readonly ICrudImplementationStrategy _implementationStrategy;
 

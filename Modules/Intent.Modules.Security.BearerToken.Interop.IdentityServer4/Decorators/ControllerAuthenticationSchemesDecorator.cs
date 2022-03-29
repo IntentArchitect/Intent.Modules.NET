@@ -1,10 +1,10 @@
-using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
-using Intent.Modules.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Intent.RoslynWeaver.Attributes;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.Common;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -17,7 +17,9 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Security.BearerToken.Interop.IdentityServer4.ControllerAuthenticationSchemesDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly ControllerTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

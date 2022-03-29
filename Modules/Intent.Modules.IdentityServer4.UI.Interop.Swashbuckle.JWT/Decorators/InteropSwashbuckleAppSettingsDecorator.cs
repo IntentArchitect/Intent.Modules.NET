@@ -1,10 +1,10 @@
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Events;
 using Intent.Modules.Common;
 using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -17,7 +17,9 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT.InteropSwashbuckleAppSettingsDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly AppSettingsTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

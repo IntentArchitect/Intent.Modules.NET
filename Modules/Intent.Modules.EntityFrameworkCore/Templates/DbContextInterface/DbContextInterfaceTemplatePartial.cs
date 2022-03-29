@@ -40,6 +40,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
             return GetTypeName("Domain.Entity", model);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

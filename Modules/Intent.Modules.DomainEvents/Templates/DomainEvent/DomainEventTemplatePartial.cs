@@ -26,6 +26,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
             AddTypeSource("Domain.Entity");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

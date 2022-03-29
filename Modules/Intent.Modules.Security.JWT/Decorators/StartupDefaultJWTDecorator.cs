@@ -23,6 +23,7 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

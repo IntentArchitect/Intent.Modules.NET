@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 
 namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfiguration
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class MultiTenancyConfigurationTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
@@ -51,6 +52,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
             }
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

@@ -13,7 +13,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Swashbuckle.SwashbuckleAppSettingsDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly AppSettingsTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

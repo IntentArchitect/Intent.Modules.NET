@@ -19,7 +19,7 @@ using Intent.Templates;
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class RepositoryTemplateRegistration : FilePerModelTemplateRegistration<ClassModel>, ISupportsConfiguration
+    public class RepositoryTemplateRegistration : FilePerModelTemplateRegistration<ClassModel>
     {
         private readonly IMetadataManager _metadataManager;
         private IEnumerable<string> _stereotypeNames;

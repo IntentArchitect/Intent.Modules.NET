@@ -21,6 +21,7 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly AppSettingsTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private bool _stsIsSelfHostedInThisApplication;
         private string _stsPort = "{sts_port}";

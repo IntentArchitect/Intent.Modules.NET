@@ -18,6 +18,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 {
+    [IntentManaged(Mode.Ignore, Body = Mode.Merge)]
     partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityInterfaceDecoratorBase>, ITemplatePostCreationHook, IDeclareUsings
     {
         [IntentManaged(Mode.Fully)]
@@ -42,6 +43,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, Identifier, "IEnumerable<{0}>"), InterfaceContext);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

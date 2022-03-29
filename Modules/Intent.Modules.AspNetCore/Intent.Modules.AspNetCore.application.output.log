@@ -3,12 +3,13 @@
   <ApplicationId>27e8a783-da35-4755-af82-e7f54eff0eb2</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b934e701-e930-440b-9d23-2be9380c2987</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4ed421bb-c577-4eb0-bfc5-801f66f5ab52</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.AspNetCore.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -92,6 +93,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

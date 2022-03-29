@@ -14,7 +14,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
     {
         public override DbContextDecoratorBase CreateDecoratorInstance(DbContextTemplate template, IApplication application)
         {
-            return new DomainEventsDbContextDecorator(template);
+            return new DomainEventsDbContextDecorator(template, application);
         }
 
         public override string DecoratorId => DomainEventsDbContextDecorator.DecoratorId;

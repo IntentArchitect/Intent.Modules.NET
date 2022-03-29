@@ -1,14 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Events;
+using Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Events;
+using Intent.Modules.Common.Configuration;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using Intent.RoslynWeaver.Attributes;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using Intent.Modules.AspNetCore.Events;
-using Intent.Modules.Common.Configuration;
-using Intent.Modules.Common.CSharp.Configuration;
-using Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Events;
-using System;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -21,7 +21,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Swashbuckle.Interop.JWT.InteropAppSettingsDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly AppSettingsTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private readonly List<SwaggerOAuth2SchemeEvent> _swaggerSchemes;
         private string _stsPort = SchemeEventConstants.STS_Port_Tag;

@@ -19,6 +19,7 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         [IntentManaged(Mode.Fully)]
         private readonly ConfigurationJWTAuthenticationTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
         private bool _overrideBearerTokenConfiguration;
 

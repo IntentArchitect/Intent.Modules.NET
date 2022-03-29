@@ -30,6 +30,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             FulfillsRole("Application.Contract.Dto");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

@@ -48,6 +48,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             });
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

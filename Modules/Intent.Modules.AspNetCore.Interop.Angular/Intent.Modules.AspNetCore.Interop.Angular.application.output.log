@@ -3,6 +3,7 @@
   <ApplicationId>a4d94df0-a3d7-4f52-aed0-b0d693ffa062</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -22,7 +23,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -3,6 +3,7 @@
   <ApplicationId>6cb69650-5f1b-432a-af9d-09ad2c0569e9</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#1c908d16-e0d4-4593-8ef0-850d5481a767</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -29,7 +30,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

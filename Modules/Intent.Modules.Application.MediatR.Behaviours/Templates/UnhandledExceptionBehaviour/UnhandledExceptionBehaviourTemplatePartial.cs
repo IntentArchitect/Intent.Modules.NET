@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsLogging);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

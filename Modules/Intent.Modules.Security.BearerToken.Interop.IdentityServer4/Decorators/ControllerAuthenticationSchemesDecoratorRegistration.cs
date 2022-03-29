@@ -1,10 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Text;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.Registrations;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]

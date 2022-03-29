@@ -15,7 +15,9 @@ namespace Intent.Modules.IdentityServer4.X509CertSigning.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.X509CertSigning.X509CertSigningIdentityConfigurationDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly IdentityServerConfigurationTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

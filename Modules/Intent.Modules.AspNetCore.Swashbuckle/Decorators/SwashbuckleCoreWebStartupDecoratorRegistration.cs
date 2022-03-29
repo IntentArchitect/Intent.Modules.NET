@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Intent.Modules.Common.Registrations;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common.Registrations;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 

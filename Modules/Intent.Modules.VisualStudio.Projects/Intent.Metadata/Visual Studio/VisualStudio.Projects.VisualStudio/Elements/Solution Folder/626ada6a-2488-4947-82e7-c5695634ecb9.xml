@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="626ada6a-2488-4947-82e7-c5695634ecb9" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Common</name>
+  <display>Common</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</parentFolderId>
+  <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
+  <packageName>VisualStudio.Projects.VisualStudio</packageName>
+  <stereotypes />
+  <childElements />
+</class>

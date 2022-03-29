@@ -3,10 +3,10 @@
   <name>Intent.Modules.Application.AutoMapper</name>
   <display>Intent.Modules.Application.AutoMapper</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>67bbd2be-4fe1-4309-a20b-8a9ad4720cd1</parentFolderId>
+  <parentFolderId>94090007-1b70-4044-a590-1251498b81df</parentFolderId>
   <packageId>67bbd2be-4fe1-4309-a20b-8a9ad4720cd1</packageId>
   <packageName>Intent.Modules.Net</packageName>
   <stereotypes>
@@ -18,6 +18,12 @@
         <property name="4756bd10-23e2-473b-9957-d7083759cd42" display="Target Multiple Frameworks" value="false" isActive="true" />
         <property name="ef3e7b17-ba1d-4818-82a2-5a8ad3875d40" display="Target Framework" value="d603dbfd-3361-4406-b5c0-efc2ac6f33fc" isActive="true" />
         <property name="5215b600-32fc-4a6d-af72-9eb88a6f30e7" display="Target Frameworks" value="[]" isActive="false" />
+        <property name="7bfda3d8-b249-488e-b7d4-315d5f2b25f4" display="Runtime Identifiers" isActive="true" />
+        <property name="bb694bf2-6758-492d-ae65-5a8626704786" display="Configurations" isActive="true" />
+        <property name="3710062e-9beb-40e2-8f33-111efecf43a5" display="Root Namespace" isActive="true" />
+        <property name="f2956d24-b6da-427b-8728-c4f44714ce69" display="User Secrets Id" isActive="true" />
+        <property name="42cdb74e-d5fd-4969-94ca-585d0527b862" display="Generate Runtime Configuration Files" isActive="true" />
+        <property name="6111c054-9a40-4f92-9f7c-3a8372af14b8" display="Generate Documentation File" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -32,6 +38,20 @@
     </stereotype>
   </stereotypes>
   <childElements>
+    <childElement id="fbe171ba-8b23-4acd-ae50-b4aef90d103b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.IModSpecFile</name>
+      <display>Intent.ModuleBuilder.IModSpecFile</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>6</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>34f467f9-4a45-43ad-8fe7-5dcb850e724a</parentFolderId>
+      <packageId>67bbd2be-4fe1-4309-a20b-8a9ad4720cd1</packageId>
+      <packageName>Intent.Modules.Net</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
     <childElement id="233320d5-90a2-4e14-b664-10d3220d3064" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.ReadMe</name>
       <display>Intent.ModuleBuilder.ReadMe</display>
@@ -164,18 +184,6 @@
       <parentFolderId>34f467f9-4a45-43ad-8fe7-5dcb850e724a</parentFolderId>
       <packageId>67bbd2be-4fe1-4309-a20b-8a9ad4720cd1</packageId>
       <packageName>Intent.Modules.Net</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
-    <childElement id="fbe171ba-8b23-4acd-ae50-b4aef90d103b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.IModSpecFile</name>
-      <display>Intent.ModuleBuilder.IModSpecFile</display>
-      <externalReference>Intent.ModuleBuilder</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>0</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>34f467f9-4a45-43ad-8fe7-5dcb850e724a</parentFolderId>
       <stereotypes />
       <childElements />
     </childElement>

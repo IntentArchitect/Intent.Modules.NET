@@ -11,6 +11,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbContext
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class MultiTenantStoreDbContextTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
@@ -22,6 +23,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbCon
             AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

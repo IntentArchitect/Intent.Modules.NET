@@ -38,7 +38,8 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
 
         public string PrimaryKeyName => Model.Attributes.FirstOrDefault(x => x.HasStereotype("Primary Key"))?.Name.ToPascalCase() ?? "Id";
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]        protected override CSharpFileConfig DefineFileConfig()
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
                 className: $"I{Model.Name}Repository",

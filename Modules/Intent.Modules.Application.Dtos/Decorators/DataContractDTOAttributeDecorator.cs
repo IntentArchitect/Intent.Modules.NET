@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
@@ -7,7 +8,6 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 using DtoModelTemplate = Intent.Modules.Application.Dtos.Templates.DtoModel.DtoModelTemplate;
-using Intent.Engine;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -19,6 +19,7 @@ namespace Intent.Modules.Application.Dtos.Decorators
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Application.Dtos.DataContractDTOAttributeDecorator";
+        [IntentManaged(Mode.Fully)]
         private readonly DtoModelTemplate _template;
 
         [IntentManaged(Mode.Merge, Body = Mode.Fully)]
@@ -96,6 +97,7 @@ namespace Intent.Modules.Application.Dtos.Decorators
 
             return null;
         }
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
     }
 }

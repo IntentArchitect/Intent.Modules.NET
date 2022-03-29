@@ -32,7 +32,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             : base(TemplateId, outputTarget, model)
         {
         }
-        
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {

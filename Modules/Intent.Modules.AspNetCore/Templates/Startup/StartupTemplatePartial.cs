@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Constants;
+using System.Text;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
-using System.Text;
+using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -278,6 +278,7 @@ app.UseEndpoints(endpoints =>
             }
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

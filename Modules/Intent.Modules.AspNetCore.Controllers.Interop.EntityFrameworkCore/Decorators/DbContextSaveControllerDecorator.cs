@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
@@ -6,7 +7,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Engine;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -19,7 +19,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly ControllerTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore)]

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
@@ -17,6 +19,16 @@ namespace Intent.Modules.Application.Contracts.Api
             return stereotype != null ? new Asynchronous(stereotype) : null;
         }
 
+        public static IReadOnlyCollection<Asynchronous> GetAsynchronouss(this OperationModel model)
+        {
+            var stereotypes = model
+                .GetStereotypes("Asynchronous")
+                .Select(stereotype => new Asynchronous(stereotype))
+                .ToArray();
+
+            return stereotypes;
+        }
+
         public static bool HasAsynchronous(this OperationModel model)
         {
             return model.HasStereotype("Asynchronous");
@@ -26,6 +38,16 @@ namespace Intent.Modules.Application.Contracts.Api
         {
             var stereotype = model.GetStereotype("Synchronous");
             return stereotype != null ? new Synchronous(stereotype) : null;
+        }
+
+        public static IReadOnlyCollection<Synchronous> GetSynchronouss(this OperationModel model)
+        {
+            var stereotypes = model
+                .GetStereotypes("Synchronous")
+                .Select(stereotype => new Synchronous(stereotype))
+                .ToArray();
+
+            return stereotypes;
         }
 
         public static bool HasSynchronous(this OperationModel model)

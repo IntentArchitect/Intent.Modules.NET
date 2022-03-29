@@ -15,7 +15,9 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.UI.RazorPageControllerStartupDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

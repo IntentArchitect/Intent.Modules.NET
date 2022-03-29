@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.AutoMapper.Templates.MapFromInterface;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Engine;
-using Intent.Modelers.Services.Api;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -25,6 +25,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Application.Dtos.AutoMapper.AutoMapperDtoDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly DtoModelTemplate _template;
 
         [IntentManaged(Mode.Merge, Body = Mode.Fully)]
@@ -94,6 +95,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
                 .Where(x => x.Specialization != GeneralizationModel.SpecializationType)
                 .Select(x => x.Specialization == OperationModel.SpecializationType ? $"{x.Name.ToPascalCase()}()" : x.Name.ToPascalCase()));
         }
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
     }
 }

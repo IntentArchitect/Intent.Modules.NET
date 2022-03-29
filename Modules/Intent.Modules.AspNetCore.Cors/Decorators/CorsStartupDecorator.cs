@@ -14,7 +14,9 @@ namespace Intent.Modules.AspNetCore.Cors.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Modules.AspNetCore.Cors.CorsStartupDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

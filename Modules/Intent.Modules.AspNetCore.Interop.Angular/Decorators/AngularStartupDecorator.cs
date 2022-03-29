@@ -19,7 +19,9 @@ namespace Intent.Modules.AspNetCore.Interop.Angular.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Interop.Angular.AngularStartupDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore)]

@@ -11,6 +11,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Security.JWT.Templates.CurrentUserService
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class CurrentUserServiceTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
@@ -22,6 +23,7 @@ namespace Intent.Modules.Security.JWT.Templates.CurrentUserService
             AddNugetDependency(NugetPackages.IdentityModel);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

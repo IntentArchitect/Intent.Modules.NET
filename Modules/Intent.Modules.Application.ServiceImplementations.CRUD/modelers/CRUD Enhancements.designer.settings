@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<settings>
+<settings version="3.1.1">
   <id>63beeea4-819d-42f9-9baf-a08f8eaf49be</id>
   <name>CRUD Enhancements</name>
   <designerReferences />
@@ -108,7 +108,9 @@ if (options.length == 0) {
         </option>
       </scriptOptions>
       <typeOrder />
+      <mappingSettings />
     </elementExtension>
   </elementExtensions>
   <associationSettings />
+  <associationExtensions />
 </settings>

@@ -1,10 +1,8 @@
-using Intent.Modules.Constants;
-using Intent.Engine;
-using Intent.Templates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using System.Runtime.InteropServices;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
@@ -14,7 +12,9 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -35,6 +35,7 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
             SetDefaultTypeCollectionFormat("List<{0}>");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

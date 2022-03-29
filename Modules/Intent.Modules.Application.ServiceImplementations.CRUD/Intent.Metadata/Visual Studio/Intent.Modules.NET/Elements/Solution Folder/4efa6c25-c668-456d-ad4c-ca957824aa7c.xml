@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4efa6c25-c668-456d-ad4c-ca957824aa7c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>NET Standard</name>
+  <display>NET Standard</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ae4ec4fe-85f4-4a3a-b32d-554a42cba9f5</parentFolderId>
+  <packageId>ae4ec4fe-85f4-4a3a-b32d-554a42cba9f5</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <childElements />
+</class>

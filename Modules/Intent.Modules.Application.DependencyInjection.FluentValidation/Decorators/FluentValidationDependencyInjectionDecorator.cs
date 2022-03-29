@@ -17,6 +17,7 @@ namespace Intent.Modules.Application.DependencyInjection.FluentValidation.Decora
 
         [IntentManaged(Mode.Fully)]
         private readonly DependencyInjectionTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore)]

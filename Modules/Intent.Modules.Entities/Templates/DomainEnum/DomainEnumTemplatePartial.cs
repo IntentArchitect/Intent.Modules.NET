@@ -19,6 +19,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Entities.Templates.DomainEnum
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class DomainEnumTemplate : CSharpTemplateBase<EnumModel>
     {
         [IntentManaged(Mode.Fully)]
@@ -30,6 +31,7 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
             FulfillsRole("Domain.Enum");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

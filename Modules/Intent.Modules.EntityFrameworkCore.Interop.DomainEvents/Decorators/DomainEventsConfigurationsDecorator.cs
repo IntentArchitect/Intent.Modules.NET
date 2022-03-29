@@ -1,3 +1,4 @@
+using Intent.Engine;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
@@ -13,11 +14,16 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsConfigurationsDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly EntityTypeConfigurationTemplate _template;
+        [IntentManaged(Mode.Fully)]
+        private readonly IApplication _application;
 
-        public DomainEventsConfigurationsDecorator(EntityTypeConfigurationTemplate template)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public DomainEventsConfigurationsDecorator(EntityTypeConfigurationTemplate template, IApplication application)
         {
             _template = template;
+            _application = application;
         }
 
         public override string AfterAttributes()

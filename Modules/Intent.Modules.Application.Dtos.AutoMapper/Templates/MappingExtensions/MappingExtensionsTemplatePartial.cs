@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
             AddNugetDependency(NugetPackages.AutoMapper);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

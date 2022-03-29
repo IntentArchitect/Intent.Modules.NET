@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorContract", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Ignore)]

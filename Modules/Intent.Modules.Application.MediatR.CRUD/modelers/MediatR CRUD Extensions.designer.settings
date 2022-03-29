@@ -167,4 +167,5 @@ if (options.length == 0) {
     </elementExtension>
   </elementExtensions>
   <associationSettings />
+  <associationExtensions />
 </settings>

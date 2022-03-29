@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="68687d0d-9411-47be-91c7-95b320c026da" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>NET Core</name>
+  <display>NET Core</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4fecac07-b610-4d0c-b17b-be56e2c3c400</parentFolderId>
+  <packageId>4fecac07-b610-4d0c-b17b-be56e2c3c400</packageId>
+  <packageName>Intent.Modules.Net</packageName>
+  <stereotypes />
+  <childElements />
+</class>

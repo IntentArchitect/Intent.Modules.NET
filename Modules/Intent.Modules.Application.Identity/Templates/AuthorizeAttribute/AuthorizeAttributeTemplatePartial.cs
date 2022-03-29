@@ -23,6 +23,7 @@ namespace Intent.Modules.Application.Identity.Templates.AuthorizeAttribute
             FulfillsRole("Application.Identity.AuthorizeAttribute");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(

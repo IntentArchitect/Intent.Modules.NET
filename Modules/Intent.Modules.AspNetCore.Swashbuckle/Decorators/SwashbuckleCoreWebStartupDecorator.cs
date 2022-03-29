@@ -1,9 +1,9 @@
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -16,7 +16,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Swashbuckle.SwashbuckleCoreWebStartupDecorator";
 
+        [IntentManaged(Mode.Fully)]
         private readonly StartupTemplate _template;
+        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]

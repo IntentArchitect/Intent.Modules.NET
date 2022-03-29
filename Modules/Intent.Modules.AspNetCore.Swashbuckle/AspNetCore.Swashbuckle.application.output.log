@@ -3,6 +3,7 @@
   <ApplicationId>24057b1c-2a88-4c71-b21a-74baaa302412</ApplicationId>
   <FileLogs>
     <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#227d4e76-cb57-44bc-a802-3ae35ccbcb12</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -36,7 +37,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModeSpecFile</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Swashbuckle.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.Swashbuckle.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -113,6 +114,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

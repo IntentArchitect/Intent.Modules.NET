@@ -23,6 +23,7 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
