@@ -37,20 +37,6 @@
     </stereotype>
   </stereotypes>
   <childElements>
-    <childElement id="4c1bb413-5785-47d5-b8a2-cabc15c0e5c0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.IModeSpecFile</name>
-      <display>Intent.ModuleBuilder.IModeSpecFile</display>
-      <externalReference>Intent.ModuleBuilder</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>6</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b0ab7936-8875-49d5-8892-af57ee0b9a87</parentFolderId>
-      <packageId>9f6101a2-d01a-4c9f-98ba-a868950ec466</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
     <childElement id="f2193653-77a5-4f4a-91e1-0ab70797f35e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.IModSpecFile</name>
       <display>Intent.ModuleBuilder.IModSpecFile</display>

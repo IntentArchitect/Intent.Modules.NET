@@ -32,20 +32,6 @@
     </stereotype>
   </stereotypes>
   <childElements>
-    <childElement id="2ae6b2fd-c412-43ff-97aa-e6df9bc1d709" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.IModeSpecFile</name>
-      <display>Intent.ModuleBuilder.IModeSpecFile</display>
-      <externalReference>Intent.ModuleBuilder</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>6</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f2270b39-91aa-4126-b3a5-48b2c0cabe0b</parentFolderId>
-      <packageId>eb67f929-a28f-41da-8549-2380fc2589af</packageId>
-      <packageName>Intent.Modules.Net</packageName>
-      <stereotypes />
-      <childElements />
-    </childElement>
     <childElement id="ad807c2d-b87a-427e-be87-943597260242" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.ReadMe</name>
       <display>Intent.ModuleBuilder.ReadMe</display>
@@ -178,6 +164,18 @@
       <parentFolderId>f2270b39-91aa-4126-b3a5-48b2c0cabe0b</parentFolderId>
       <packageId>eb67f929-a28f-41da-8549-2380fc2589af</packageId>
       <packageName>Intent.Modules.Net</packageName>
+      <stereotypes />
+      <childElements />
+    </childElement>
+    <childElement id="39b236b3-a39b-4087-a1ab-24b3ee97161c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.IModSpecFile</name>
+      <display>Intent.ModuleBuilder.IModSpecFile</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f2270b39-91aa-4126-b3a5-48b2c0cabe0b</parentFolderId>
       <stereotypes />
       <childElements />
     </childElement>
