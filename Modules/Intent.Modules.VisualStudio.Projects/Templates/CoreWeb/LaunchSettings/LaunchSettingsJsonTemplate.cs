@@ -149,7 +149,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             foreach (var environmentVariable in _environmentVariables)
             {
                 foreach (var profile in (config.profiles as IEnumerable<dynamic>)
-                    .Where(x => environmentVariable.TargetProfiles == null || environmentVariable.TargetProfiles.Any(p => config.profiles[p] != null))
+                    .Where(x => environmentVariable.TargetProfiles == null || environmentVariable.TargetProfiles.Any(p => p == ((JProperty)x).Name))
                     .Select(x => x.Value))
                 {
                     profile.environmentVariables ??= JObject.FromObject(new EnvironmentVariables());
