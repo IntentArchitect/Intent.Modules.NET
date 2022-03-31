@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>3.1.1</version>
-  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
+  <version>3.3.0</version>
+  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Implements Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Implements Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
   <authors>Intent Architect</authors>
@@ -32,17 +32,17 @@
     <decorator id="Intent.AspNetCore.Swashbuckle.SwashbuckleCoreWebStartupDecorator" externalReference="ff189556-1a54-46dc-9cfb-e86ba6f4e67b" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.1.1" />
-    <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.CSharp" version="3.2.0" />
-    <dependency id="Intent.Common.Types" version="3.2.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.2.0" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.1.2" />
+    <dependency id="Intent.AspNetCore" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.0" />
+    <dependency id="Intent.Common.Types" version="3.3.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.3.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.Security.JWT">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.1.1" />
+        <package id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.3.0" />
       </install>
     </detect>
   </interoperability>

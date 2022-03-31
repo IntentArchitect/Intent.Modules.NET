@@ -5,14 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.2.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.2.8" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.0" />
     <PackageReference Include="Intent.Packager" Version="3.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.2.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.2" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
@@ -25,7 +25,7 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MultiTenancyConfigurationTemplate.cs</LastGenOutput>
     </None>
-  
+
     <None Update="Templates\MultiTenantStoreDbContext\MultiTenantStoreDbContextTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MultiTenantStoreDbContextTemplate.cs</LastGenOutput>
@@ -38,7 +38,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>MultiTenancyConfigurationTemplate.tt</DependentUpon>
     </Compile>
-  
+
     <Compile Update="Templates\MultiTenantStoreDbContext\MultiTenantStoreDbContextTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
-  <version>3.2.0</version>
-  <supportedClientVersions>[3.2.0-pre.0,4.0.0)</supportedClientVersions>
+  <version>3.3.0</version>
+  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
   <authors>Intent.Modules.NET</authors>
@@ -64,11 +64,11 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.1.1" />
-    <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.CSharp" version="3.2.0" />
-    <dependency id="Intent.Common.Types" version="3.2.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.2.0" />
+    <dependency id="Intent.AspNetCore" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.0" />
+    <dependency id="Intent.Common.Types" version="3.3.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

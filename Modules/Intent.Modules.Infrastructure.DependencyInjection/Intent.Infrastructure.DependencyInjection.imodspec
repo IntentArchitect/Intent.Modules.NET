@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Infrastructure.DependencyInjection</id>
-  <version>3.1.1</version>
-  <supportedClientVersions>[3.1.0-pre.0, 4.0.0)</supportedClientVersions>
+  <version>3.3.0</version>
+  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
   <authors>Intent.Modules.NET</authors>
@@ -20,11 +20,11 @@
     <decorator id="Intent.Infrastructure.DependencyInjection.ApplicationStartupDecorator" externalReference="cb9eb16c-8c36-4146-8572-d72ffb812051" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.1.1" />
-    <dependency id="Intent.Common" version="3.2.0" />
-    <dependency id="Intent.Common.CSharp" version="3.2.0" />
-    <dependency id="Intent.Common.Types" version="3.2.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.2.0" />
+    <dependency id="Intent.AspNetCore" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.0" />
+    <dependency id="Intent.Common.Types" version="3.3.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
