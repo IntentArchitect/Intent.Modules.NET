@@ -842,6 +842,9 @@
     <elementSetting type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <icon type="FontAwesome" source="file-code-o" />
       <saveAsOwnFile>false</saveAsOwnFile>
+      <validateFunction>if (getMetadata("status") == "unassigned") {
+    return "This Template Output is unassigned. Please drag it into the project or folder in which it should be outputted."
+}</validateFunction>
       <allowRename>false</allowRename>
       <allowAbstract>false</allowAbstract>
       <allowGenericTypes>false</allowGenericTypes>
@@ -856,6 +859,16 @@
       <creationOptions />
       <scriptOptions />
       <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>console.log(element.getParent().specialization);
+if (element.getParent().specialization == "Visual Studio Solution") {
+    element.setMetadata("status", "unassigned");
+} else {
+    element.setMetadata("status", "assigned");
+}</script>
+        </macro>
+      </macros>
       <childElementSettings />
     </elementSetting>
     <elementSetting type="WCF Service Application" typeId="3CDFF513-03D8-4BAB-9435-160108A086A3">

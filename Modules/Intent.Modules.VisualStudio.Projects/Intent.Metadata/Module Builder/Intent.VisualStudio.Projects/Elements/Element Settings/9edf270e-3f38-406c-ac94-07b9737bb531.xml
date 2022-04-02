@@ -34,6 +34,7 @@
         <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
         <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
         <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
         <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
         <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
         <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
@@ -44,6 +45,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="d0b2f06d-6d6e-4a30-bcb3-5c4ec373cc62" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
@@ -56,6 +58,7 @@
       <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
       <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

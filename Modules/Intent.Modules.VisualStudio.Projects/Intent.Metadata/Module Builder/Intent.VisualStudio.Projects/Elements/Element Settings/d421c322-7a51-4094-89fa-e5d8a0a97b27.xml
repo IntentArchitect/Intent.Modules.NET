@@ -34,6 +34,7 @@
         <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;file-code-o&quot;,&quot;type&quot;:2,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
         <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
         <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="if (getMetadata(&quot;status&quot;) == &quot;unassigned&quot;) {&#xD;&#xA;    return &quot;This Template Output is unassigned. Please drag it into the project or folder in which it should be outputted.&quot;&#xD;&#xA;}" isActive="true" />
         <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="false" isActive="true" />
         <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
         <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
@@ -44,6 +45,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="7af07e23-ccbc-4ccc-898e-416113441f7a" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
@@ -56,7 +58,57 @@
       <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
       <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
+    </childElement>
+    <childElement id="1ffd0c69-7e48-4805-8397-14dbc3da07f4" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d421c322-7a51-4094-89fa-e5d8a0a97b27</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="92aa900a-ab3b-4d26-a5d0-eb1528316d44" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <order>0</order>
+          <genericTypes />
+          <typeReference id="1c53830c-514d-415b-8750-3ecb3ad6f2f8">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1ffd0c69-7e48-4805-8397-14dbc3da07f4</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="console.log(element.getParent().specialization);&#xD;&#xA;if (element.getParent().specialization == &quot;Visual Studio Solution&quot;) {&#xD;&#xA;    element.setMetadata(&quot;status&quot;, &quot;unassigned&quot;);&#xD;&#xA;} else {&#xD;&#xA;    element.setMetadata(&quot;status&quot;, &quot;assigned&quot;);&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

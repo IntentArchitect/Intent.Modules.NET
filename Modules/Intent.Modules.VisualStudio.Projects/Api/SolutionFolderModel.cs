@@ -103,36 +103,36 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public const string SpecializationTypeId = "0dc2b846-c968-49eb-99b7-8776919313a8";
 
         public IList<ConsoleAppNETFrameworkModel> ConsoleAppNETFrameworks => _element.ChildElements
-                    .Where(x => x.SpecializationType == ConsoleAppNETFrameworkModel.SpecializationType)
-                    .Select(x => new ConsoleAppNETFrameworkModel(x))
-                    .ToList();
+            .GetElementsOfType(ConsoleAppNETFrameworkModel.SpecializationTypeId)
+            .Select(x => new ConsoleAppNETFrameworkModel(x))
+            .ToList();
 
         public string Comment => _element.Comment;
 
         public IList<SQLServerDatabaseProjectModel> SQLServerDatabaseProjects => _element.ChildElements
-                    .GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
-                    .Select(x => new SQLServerDatabaseProjectModel(x))
-                    .ToList();
+            .GetElementsOfType(SQLServerDatabaseProjectModel.SpecializationTypeId)
+            .Select(x => new SQLServerDatabaseProjectModel(x))
+            .ToList();
 
         public IList<AzureFunctionsProjectModel> AzureFunctionsProjects => _element.ChildElements
-                    .GetElementsOfType(AzureFunctionsProjectModel.SpecializationTypeId)
-                    .Select(x => new AzureFunctionsProjectModel(x))
-                    .ToList();
+            .GetElementsOfType(AzureFunctionsProjectModel.SpecializationTypeId)
+            .Select(x => new AzureFunctionsProjectModel(x))
+            .ToList();
 
         public IList<ConsoleAppNETCoreModel> ConsoleAppNETCores => _element.ChildElements
-                    .GetElementsOfType(ConsoleAppNETCoreModel.SpecializationTypeId)
-                    .Select(x => new ConsoleAppNETCoreModel(x))
-                    .ToList();
+            .GetElementsOfType(ConsoleAppNETCoreModel.SpecializationTypeId)
+            .Select(x => new ConsoleAppNETCoreModel(x))
+            .ToList();
 
         public IList<RoleModel> Roles => _element.ChildElements
-                    .GetElementsOfType(RoleModel.SpecializationTypeId)
-                    .Select(x => new RoleModel(x))
-                    .ToList();
+            .GetElementsOfType(RoleModel.SpecializationTypeId)
+            .Select(x => new RoleModel(x))
+            .ToList();
 
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
-                    .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)
-                    .Select(x => new TemplateOutputModel(x))
-                    .ToList();
+            .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)
+            .Select(x => new TemplateOutputModel(x))
+            .ToList();
     }
 
     [IntentManaged(Mode.Fully)]

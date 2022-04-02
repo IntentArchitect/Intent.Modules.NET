@@ -34,6 +34,7 @@
         <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
         <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
         <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
         <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
         <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
         <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
@@ -44,6 +45,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="fb9868e7-5c5f-4dcd-bcbf-2c9391d95e17" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
@@ -56,6 +58,7 @@
       <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
       <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes />
+      <metadata />
       <childElements>
         <childElement id="a21a5103-03d2-4560-a365-8219b96dc336" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>New Folder</name>
@@ -94,6 +97,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="ed94b732-bb12-454f-8fd8-aa9f91e509bf" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -133,6 +137,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="b5a14b4c-2393-43ad-a718-6f8e750eb3ff" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -172,6 +177,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="c7440d66-ebaa-486d-8051-c35b6d001e9d" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -211,6 +217,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

@@ -34,6 +34,7 @@
         <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;./img/icons/uml/Folder_02_256x.png&quot;}" isActive="true" />
         <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;./img/icons/uml/FolderOpen_02_256x.png&quot;}" isActive="true" />
         <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
         <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
         <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
         <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
@@ -44,6 +45,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="cbd02bec-a40c-4ca9-88b6-3e92b00dfd5c" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
@@ -56,6 +58,7 @@
       <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
       <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes />
+      <metadata />
       <childElements>
         <childElement id="f8c5ebb3-d081-4b0a-b07b-3b6172ba39ab" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>New Folder</name>
@@ -94,6 +97,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="7f1c43a2-d549-470f-a313-c04dac8dc969" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -133,6 +137,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="0220ae4a-7eb7-40ab-a098-cb5cdbfea341" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -172,6 +177,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="1afd22cf-9896-4daa-b250-7b08eede918d" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -211,6 +217,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="1048818d-fb87-45c0-b268-1e9e4576ad3c" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -250,6 +257,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="927b4c8a-5494-43c9-8b01-2ed25bd6c450" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -289,6 +297,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="228c4171-994c-495a-b998-e8a97b6264f1" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -328,6 +337,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="b28e2ff1-318a-483e-aa5c-a27d606e3d2e" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -367,6 +377,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="c3f996bb-19b0-44e7-84cf-6479095c990b" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -406,6 +417,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="4a667a60-a2d6-4b34-a737-c8a723bbfa83" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -445,6 +457,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="b0a38ffd-586a-4a1d-a570-6f101c394e38" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -484,6 +497,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="9ae92fb3-a694-45c7-afb4-befe32682931" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -523,6 +537,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

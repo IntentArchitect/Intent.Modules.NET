@@ -34,6 +34,7 @@
         <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAdhwAAHYcBj+XxZQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAATGSURBVFiF7Zd9aJVVHMc/53me+7o5N3e9V13DOTWF/RH5ApuzBbokS8opRlZEEAVR/5X0hwQRCA4iDQzDQkPoxdockymlWZorUUPLaSZzM7e2e/d22+7rc+/zcvpj29X5MnZHZJA/eODhd15+n3PO9/c7HPi/m0gkEvJuAih3MziANvqzZs2afzVwU1MT8B/YgXsA9wC0mx376xsAEEIgFIGiKAgxto+UIG0by7KzDrhufc34AACqqqBq6h0nEQJQVFRNxbJsbMtCTrKcjQEIBAI4nBpiZMmXBg3qryY4EdIJJixMKZnpVanwu1lX4mWRz4mqKiiKwDTMSUFkAAKBALW1tQghGEjZbDoV5sv2OPbIpFUz3cQNm5M9KU72pHivZYjVxR7er5jGfTkamkObFEQGYPPmzfh8Pi4PGtR828u1qMkz83I505fCowq+fjRA0pSU1XUxf6qDsgIHH1+OUXkgSF21n6XTXWgODSNtZgWQyYLS0lL6dZu1R3rp023qqv1sWZJPW8TgxYVTAPBoglfLpnCmL8Vbi/I5vDqALWHdkV7aIyZCiHG1My4AwOunwlyLmexaXsjqYg/HgzqWhEeK3Jk+60ty0C3J4T+TlPtdNKwKEDEkr/00AAwLOBvLHEFL2KCuPQ7AC8f72X7BiW7Z5DkEZ/vTtEUMVCGwpGSWV+XDS1EOdiT5IaRj2JJjQZ2jXUlWFnlQVWXCKZoBqLsaRwJfVfvpjluc7NVp6kgSMyTPft93y8BQ0iJu2Dw528OKWR6eP9bPvvYEK4s8CEWBbAGOB3Xm5jl4vNgDwEsLc1l2IMhin5PtFYVEjesTbmuJsLc1xum1szK+cr+LH3t0gFsK13iWObDuhMWcKWMFlLQkHk1BFZDvVMZ8SWtsvpXmaXTGLUw7uzzMACRNm8GUTeuQkWnM0cSYlY9aT9Ki0HVdbN0Ji664iS0lw+EnvgWZIyjK0fi5P80D+7spzdMo97sZ0G2uRk3Oh9PkOxWcqiBpSlojBkLAlnODNPekaA4NZ4vfo+JQBDKLapQBKPe7OB9Os61iGp2xYRGGkhbXYibljcHbDt7xW5Ryv4t3Fhfw9tlBKvwugKyqYQZgQ6mXXb9H6YiZbFlSAMDe1hivNA/QsCqAAkQMm1DC4o1TYXZX+Xh6bg4A2y9EMGxJTYkXANue+C2ZOcjKgJvlM9x8cDHK6b4UAFUz3EggYdhUFw1fQD1JizyHyAS7PGiw9dchFuQ7WD8nByklMgshjrkNdyybRlVTiI3f9VFX7efBQidlBQ6aOpOsLfGStiWfXonxVGkOLlVwJWKw4Wgfuin56CEfqoA9ez6hvr4++x0AuH+qgy9WTCdmSKoPhdj6yxCPFXtp+CPOYNpmX1ucYMLiufm57LwUpfJAiM64ye6HfSzxOWlvb6exsXHCweEOL6OLfxm8fKKfcwNpVAGWhCdme2kJp+mKWzhVQcywWZDvYGdlIeUj4puM3fFpZkk42JHgs7Y4zSGdcGpYWAVOhaXTnWycl0tNiRenkkXZux3AzQ4ppUvX9U1SyjeB3FF/JG1jM1wRb7CoEKLW7Xa/K4RI/SMAN4DkJRKJjUKIVcAiwD/S1AuclVJ+4/V6PxdCRCcTeNT+Bl+3EBrjY6K7AAAAAElFTkSuQmCC&quot;}" isActive="true" />
         <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
         <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
         <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
         <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
         <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
@@ -44,6 +45,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="893002c2-8155-42ea-b79e-4e4d2ffb2e6e" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
@@ -56,6 +58,7 @@
       <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
       <packageName>Intent.VisualStudio.Projects</packageName>
       <stereotypes />
+      <metadata />
       <childElements>
         <childElement id="32c5368d-8c07-4544-98c9-2d2fe49990c2" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>New Folder</name>
@@ -94,6 +97,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="ce1f4d6c-74cb-40ff-a0bb-15c5a753a0a5" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -133,6 +137,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="7ddf0d51-46c6-4dae-acc5-fdb75e147428" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -172,6 +177,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="a1e375f2-a4e3-4bd1-b8c2-434115014178" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
@@ -211,6 +217,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

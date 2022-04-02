@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Humanizer.Inflections;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;

@@ -104,9 +104,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         }
 
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
-                    .Where(x => x.SpecializationType == TemplateOutputModel.SpecializationType)
-                    .Select(x => new TemplateOutputModel(x))
-                    .ToList();
+            .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)
+            .Select(x => new TemplateOutputModel(x))
+            .ToList();
 
         public string Comment => _element.Comment;
     }
