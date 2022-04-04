@@ -87,7 +87,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             Dictionary<string, string> additionalData,
             IReadOnlyCollection<(string FileExtension, string ItemType)> fallbacks)
         {
-            if (additionalData.TryGetValue("ItemType", out var itemType) &&
+            if ((
+                    additionalData.TryGetValue("ItemType", out var itemType) ||
+                    additionalData.TryGetValue("BuildAction", out itemType) ||
+                    additionalData.TryGetValue("Build Action", out itemType)
+                 ) &&
                 !string.IsNullOrWhiteSpace(itemType))
             {
                 return itemType;
