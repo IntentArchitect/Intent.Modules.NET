@@ -78,6 +78,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj" />
     <ProjectReference Include="..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 
   <ItemGroup>

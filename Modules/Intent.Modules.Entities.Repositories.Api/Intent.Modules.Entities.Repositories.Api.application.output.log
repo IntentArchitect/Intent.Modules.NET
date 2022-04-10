@@ -119,5 +119,33 @@
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#b7874537-f6f7-431c-91fc-e6beb0a58825</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkInterface/UnitOfWorkInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#b7874537-f6f7-431c-91fc-e6beb0a58825</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkInterface/UnitOfWorkInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b7874537-f6f7-431c-91fc-e6beb0a58825</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkInterface/UnitOfWorkInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b7874537-f6f7-431c-91fc-e6beb0a58825</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/UnitOfWorkInterface/UnitOfWorkInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkInterface/UnitOfWorkInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

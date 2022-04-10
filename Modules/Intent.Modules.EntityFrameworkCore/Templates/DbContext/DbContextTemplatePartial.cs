@@ -2,18 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Eventing;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
-using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Events;
-using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -79,7 +74,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public bool UseLazyLoadingProxies => !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
 
-
         public string GetMethods()
         {
             var code = string.Join(Environment.NewLine + Environment.NewLine,
@@ -99,7 +93,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             {
                 var baseTypes = new List<string>();
                 baseTypes.Add(NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
-                var dbContextInterface = TryGetTypeName(DbContextInterfaceTemplate.Identifier);
+                var dbContextInterface = TryGetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface);
                 if (dbContextInterface != null)
                 {
                     baseTypes.Add(dbContextInterface);
@@ -116,11 +110,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public string GetDbContextOptionsType()
         {
             return $"DbContextOptions<{ClassName}>";
-            //if (_useDbContextAsOptionsParameter)
-            //{
-            //    return $"DbContextOptions<{ClassName}>";
-            //}
-            //return "DbContextOptions";
         }
 
         public string GetMappingClassName(ClassModel model)

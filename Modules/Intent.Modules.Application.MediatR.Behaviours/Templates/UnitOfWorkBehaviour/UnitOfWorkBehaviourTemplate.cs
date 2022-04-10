@@ -17,6 +17,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
     using Intent.Templates;
     using Intent.Metadata.Models;
     using Intent.Modules.Application.MediatR.Templates;
+    using Intent.Modules.Constants;
     using System;
     
     /// <summary>
@@ -33,10 +34,11 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\nusing System.Transactions" +
                     ";\r\nusing MediatR;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -51,7 +53,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
     /// </summary>
     public class ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -59,29 +61,29 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
                     "quest : IRequest<TResponse>, ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCommandInterfaceName()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        private readonly ");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetTypeName("Intent.EntityFrameworkCore.DbContextInterface")));
+            #line 29 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface)));
             
             #line default
             #line hidden
             this.Write(" _dataSource;\r\n\r\n        public ");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetTypeName("Intent.EntityFrameworkCore.DbContextInterface")));
+            #line 31 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface)));
             
             #line default
             #line hidden

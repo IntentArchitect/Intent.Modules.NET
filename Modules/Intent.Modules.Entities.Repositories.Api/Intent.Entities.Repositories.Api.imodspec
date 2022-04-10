@@ -25,6 +25,14 @@
       <role>Repository.Interface</role>
       <location>Repositories</location>
     </template>
+    <template id="Intent.Entities.Repositories.Api.UnitOfWorkInterface" externalReference="b7874537-f6f7-431c-91fc-e6beb0a58825">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common</role>
+      <location>Common/Interfaces</location>
+    </template>
   </templates>
   <decorators></decorators>
   <dependencies>

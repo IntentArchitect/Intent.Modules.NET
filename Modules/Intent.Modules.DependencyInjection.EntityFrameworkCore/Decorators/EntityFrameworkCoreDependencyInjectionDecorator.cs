@@ -3,10 +3,10 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
-using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
 using Intent.RoslynWeaver.Attributes;
 
@@ -82,7 +82,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 }});
             }}
 
-            services.AddScoped<{_template.GetTypeName(DbContextInterfaceTemplate.Identifier)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
+            services.AddScoped<{_template.GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
 
             }
             return $@"
@@ -105,7 +105,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 }});
             }}
 
-            services.AddScoped<{_template.GetTypeName(DbContextInterfaceTemplate.Identifier)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
+            services.AddScoped<{_template.GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
         }
 
         public IEnumerable<string> DeclareUsings()

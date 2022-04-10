@@ -3,6 +3,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
+using Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +32,11 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates
         public static string GetRepositoryInterfaceName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(RepositoryInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetUnitOfWorkInterfaceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(UnitOfWorkInterfaceTemplate.TemplateId);
         }
 
     }

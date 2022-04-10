@@ -35,6 +35,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RepositoryInterfaceTemplate.cs</LastGenOutput>
     </None>
+  
+    <None Update="Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UnitOfWorkInterfaceTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +61,12 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>RepositoryInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UnitOfWorkInterfaceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

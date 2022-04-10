@@ -8,6 +8,7 @@
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
 <#@ import namespace="Intent.Modules.Application.MediatR.Templates" #>
+<#@ import namespace="Intent.Modules.Constants" #>
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -26,9 +27,9 @@ namespace <#= Namespace #>
     public class <#= ClassName #><TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>, <#= this.GetCommandInterfaceName() #>
     {
-        private readonly <#= this.GetTypeName("Intent.EntityFrameworkCore.DbContextInterface") #> _dataSource;
+        private readonly <#= GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface) #> _dataSource;
 
-        public <#= ClassName #>(<#= this.GetTypeName("Intent.EntityFrameworkCore.DbContextInterface") #> dataSource)
+        public <#= ClassName #>(<#= GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface) #> dataSource)
         {
             _dataSource = dataSource;
         }
