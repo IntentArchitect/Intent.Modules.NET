@@ -48,7 +48,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             #line default
             #line hidden
             this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge)]\r\n    [DefaultIntentManaged(Mode.Merge, Signa" +
-                    "ture = Mode.Merge, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifier" +
+                    "ture = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifier" +
                     "s = AccessModifiers.Public)]\r\n    public partial class ");
             
             #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\DomainEntity\DomainEntityTemplate.tt"
