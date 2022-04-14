@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6d0beed8-d7eb-41f7-8103-79900de9376d" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment />
+  <name>J_MultipleAggregate</name>
+  <display>J_MultipleAggregate</display>
+  <isAbstract>false</isAbstract>
+  <order>17</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8ca37b32-c4a3-4856-919f-e2190fa2d337</parentFolderId>
+  <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <childElements />
+</class>

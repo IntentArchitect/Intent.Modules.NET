@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8de7b370-59dc-49a1-b829-aa6e486e2428">
+  <sourceEnd id="85437f50-7107-4d76-aa66-4ca2b3d11a4f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>E_RequiredCompositeNav</name>
+    <display>E_RequiredCompositeNav: E_RequiredCompositeNav</display>
+    <order>0</order>
+    <typeReference id="2cc641c4-ec7c-4295-b599-e8769be0116d">
+      <typeId>cf08ba2a-9eaa-4dfe-89b1-a7dec3c7d57d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+  </sourceEnd>
+  <targetEnd id="8de7b370-59dc-49a1-b829-aa6e486e2428" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>E_RequiredDependent</name>
+    <display>E_RequiredDependent: E_RequiredDependent</display>
+    <order>0</order>
+    <typeReference id="ae5c6572-58a9-4f36-bf0f-dd74a73403d3">
+      <typeId>e34e4ec8-83a2-41d5-8cc4-cd57892cfff3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
