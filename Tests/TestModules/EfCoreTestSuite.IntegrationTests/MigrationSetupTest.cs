@@ -20,9 +20,7 @@ public class MigrationSetupTest : SharedDatabaseFixture
     [Fact]
     public void RunMigrationsTest()
     {
-        using (var context = CreateContext())
-        {
-            context.Database.Migrate();
-        }
+        using var context = CreateContext();
+        context.Database.Migrate();
     }
 }
