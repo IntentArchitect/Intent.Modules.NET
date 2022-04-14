@@ -217,7 +217,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     break;
                 case RelationshipType.OneToMany:
                     statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add($".WithOne(x => x.{ associationEnd.OtherEnd().Name.ToPascalCase() })");
+                    statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "") })");
                     statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd)})");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {

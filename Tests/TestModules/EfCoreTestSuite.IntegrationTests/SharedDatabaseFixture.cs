@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
+// https://stackoverflow.com/q/65360948/802755
+// As long as we stick to just testing the migrations in one test we should be fine
 public abstract class SharedDatabaseFixture : IDisposable
 {
     private static readonly object _lock = new object();

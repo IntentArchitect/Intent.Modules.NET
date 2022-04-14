@@ -19,6 +19,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="aa99f10e-302e-4fd2-b82e-f1cf6d2811fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.DbContext</name>
@@ -32,6 +33,7 @@
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
       <packageName>EfCoreTestSuite</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="6ce64a18-90ea-4b08-8557-233fc081072b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -46,6 +48,7 @@
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
       <packageName>EfCoreTestSuite</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="99794744-8cb5-4187-af65-9c20d615b5be" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -60,6 +63,7 @@
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
       <packageName>EfCoreTestSuite</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="166ac364-53a4-4661-9b03-43e063bd06b2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -74,6 +78,7 @@
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
       <packageName>EfCoreTestSuite</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

@@ -17,7 +17,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
 
             builder.HasMany(x => x.C_MultipleDependents)
-                .WithOne(x => x.C_RequiredComposite)
+                .WithOne()
                 .HasForeignKey(x => x.C_RequiredCompositeId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
