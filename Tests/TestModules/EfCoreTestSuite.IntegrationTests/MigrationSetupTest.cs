@@ -21,8 +21,7 @@ public class MigrationSetupTest : IDisposable
     private static bool _databaseInitialized;
     private static string _DatabaseName = "Database.Server.Local";
 
-    [Fact]
-    public void RunMigrationsTest()
+    public MigrationSetupTest()
     {
         var connectionStringBuilder = new SqlConnectionStringBuilder
         {
@@ -36,8 +35,17 @@ public class MigrationSetupTest : IDisposable
         var connectionString = connectionStringBuilder.ToString();
         Connection = new SqlConnection(connectionString);
 
-        CreateEmptyDatabaseAndSeedData();
+        CreateEmptyDatabase();
         Connection.Open();
+    }
+    
+    [Fact]
+    public void RunMigrationsTest()
+    {
+        using (var context = CreateContext())
+        {
+            context.Database.Migrate();
+        }
     }
 
     private static string Filename =>
@@ -131,7 +139,7 @@ public class MigrationSetupTest : IDisposable
         return context;
     }
     
-    private void CreateEmptyDatabaseAndSeedData()
+    private void CreateEmptyDatabase()
     {
         lock (_lock)
         {
