@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="44b3acd9-2233-42f9-b216-564fe9f907c4" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>B_OptionalDependent</name>
+  <display>B_OptionalDependent</display>
+  <isAbstract>false</isAbstract>
+  <order>4</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8ca37b32-c4a3-4856-919f-e2190fa2d337</parentFolderId>
+  <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <childElements />
+</class>

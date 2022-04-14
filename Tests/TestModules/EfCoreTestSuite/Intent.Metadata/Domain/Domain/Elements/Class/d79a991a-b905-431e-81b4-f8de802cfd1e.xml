@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d79a991a-b905-431e-81b4-f8de802cfd1e" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>C_RequiredComposite</name>
+  <display>C_RequiredComposite</display>
+  <isAbstract>false</isAbstract>
+  <order>6</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8ca37b32-c4a3-4856-919f-e2190fa2d337</parentFolderId>
+  <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <childElements />
+</class>

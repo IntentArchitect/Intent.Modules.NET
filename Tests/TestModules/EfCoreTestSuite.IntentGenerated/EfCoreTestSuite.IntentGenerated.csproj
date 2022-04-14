@@ -1,0 +1,200 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\A_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_RequiredCompositeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\B_OptionalAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\B_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\C_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\C_RequiredCompositeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\D_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\D_OptionalAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\E_RequiredCompositeNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\E_RequiredDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\F_OptionalAggregateNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\F_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\G_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\G_RequiredCompositeNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\H_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\H_OptionalAggregateNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\J_MultipleAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_MultipleAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\J_RequiredDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_RequiredComposite.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IB_OptionalAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IB_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IC_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IC_RequiredComposite.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ID_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ID_OptionalAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IE_RequiredCompositeNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IE_RequiredDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IF_OptionalAggregateNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IF_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IG_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IG_RequiredCompositeNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IH_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IH_OptionalAggregateNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IJ_MultipleAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_MultipleAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IJ_RequiredDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_RequiredDependent.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2" />
+    <PackageReference Include="RT.Comb" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>

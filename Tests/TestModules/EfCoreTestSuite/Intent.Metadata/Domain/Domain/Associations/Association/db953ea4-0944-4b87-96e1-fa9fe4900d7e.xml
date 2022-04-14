@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="db953ea4-0944-4b87-96e1-fa9fe4900d7e">
+  <sourceEnd id="1c726789-3a7c-4fcc-a8e4-09f7b70a4b2f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>M_SelfReferenceBiNavs</name>
+    <display>M_SelfReferenceBiNavs: M_SelfReferenceBiNav[*]</display>
+    <order>1</order>
+    <typeReference id="82329e3e-06aa-4329-81b4-319b1eddf50a">
+      <typeId>ce2a9afd-5a97-43db-a8a6-57e1dfddf129</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+  </sourceEnd>
+  <targetEnd id="db953ea4-0944-4b87-96e1-fa9fe4900d7e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>M_SelfReferenceBiNav</name>
+    <display>M_SelfReferenceBiNav: M_SelfReferenceBiNav</display>
+    <order>0</order>
+    <typeReference id="53b65624-fbe2-465c-8d71-07b597d58e31">
+      <typeId>ce2a9afd-5a97-43db-a8a6-57e1dfddf129</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
