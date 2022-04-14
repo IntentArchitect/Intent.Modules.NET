@@ -35,9 +35,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
-        //public DbSet<K_SelfReference> K_SelfReferences { get; set; }
-        public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
-        //public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -71,9 +68,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new H_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new J_MultipleAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
-            //modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
-            modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
-            //modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

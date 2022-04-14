@@ -95,11 +95,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>J_RequiredDependent.cs</DependentUpon>
     </Compile>
-    <Compile Update="Entities\L_SelfReferenceMultipleState.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
-    </Compile>
     <Compile Update="Entities\IA_OptionalDependent.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -190,11 +185,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>J_RequiredDependent.cs</DependentUpon>
     </Compile>
-    <Compile Update="Entities\IL_SelfReferenceMultiple.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -205,43 +195,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2" />
     <PackageReference Include="RT.Comb" Version="2.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Core\M_SelfReferenceBiNavConfiguration.cs" />
-    <None Include="Core\M_SelfReferenceBiNavConfiguration.cs" />
-    <Compile Remove="Entities\K_SelfReference.cs" />
-    <None Include="Entities\K_SelfReference.cs" />
-    <Compile Remove="Entities\IK_SelfReference.cs" />
-    <None Include="Entities\IK_SelfReference.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>K_SelfReference.cs</DependentUpon>
-    </None>
-    <Compile Remove="Entities\K_SelfReferenceState.cs" />
-    <None Include="Entities\K_SelfReferenceState.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>K_SelfReference.cs</DependentUpon>
-    </None>
-    <Compile Remove="Entities\L_SelfReferenceMultiple.cs" />
-    <None Include="Entities\L_SelfReferenceMultiple.cs" />
-    <Compile Remove="Entities\M_SelfReferenceBiNav.cs" />
-    <None Include="Entities\M_SelfReferenceBiNav.cs" />
-    <Compile Remove="Entities\IM_SelfReferenceBiNav.cs" />
-    <None Include="Entities\IM_SelfReferenceBiNav.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
-    </None>
-    <Compile Remove="Core\K_SelfReferenceConfiguration.cs" />
-    <None Include="Core\K_SelfReferenceConfiguration.cs" />
-    <Compile Remove="Entities\M_SelfReferenceBiNavState.cs" />
-    <None Include="Entities\M_SelfReferenceBiNavState.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
-    </None>
   </ItemGroup>
 
 </Project>

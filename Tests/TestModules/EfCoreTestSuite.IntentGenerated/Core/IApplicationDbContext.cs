@@ -29,9 +29,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
         DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
-        //DbSet<K_SelfReference> K_SelfReferences { get; set; }
-        DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
-        //DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }
