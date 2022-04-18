@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.RoslynWeaver.Attributes;
@@ -134,10 +132,22 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add(".UseSqlServerIdentityColumn()");
             }
 
-            if (attribute.GetDefaultConstraint()?.Value() != null)
+            if (attribute.HasDefaultConstraint())
             {
-                var defaultValue = attribute.GetDefaultConstraint().Value();
-                statements.Add($".HasDefaultValueSql({(attribute.Type.Element.Name == "string" ? $"\"{ defaultValue }\"" : defaultValue)})");
+                var treatAsSqlExpression = attribute.GetDefaultConstraint().TreatAsSQLExpression();
+                var defaultValue = attribute.GetDefaultConstraint()?.Value() ?? string.Empty;
+
+                if (!treatAsSqlExpression &&
+                    !defaultValue.TrimStart().StartsWith("\"") &&
+                    attribute.Type.Element.Name == "string")
+                {
+                    defaultValue = $"\"{defaultValue}\"";
+                }
+                var method = treatAsSqlExpression
+                    ? "HasDefaultValueSql"
+                    : "HasDefaultValue";
+
+                statements.Add($".{method}({defaultValue})");
             }
 
             var maxLength = attribute.GetTextConstraints()?.MaxLength();
