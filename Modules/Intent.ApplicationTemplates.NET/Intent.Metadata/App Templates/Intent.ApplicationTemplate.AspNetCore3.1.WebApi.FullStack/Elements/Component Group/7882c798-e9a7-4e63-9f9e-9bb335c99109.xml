@@ -10,6 +10,7 @@
   <packageId>32fc3c15-c98e-4b36-9b7d-dd2f7b8885ed</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="42a3e209-cd91-41ba-9ffd-b80da0bcc182" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Identity Server 4</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="884e3a5e-8daf-434f-9712-1ae1d018cf61" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.IdentityServer4.SecureTokenServer</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="1cf45442-9918-4df4-a06c-754c4a07f8cc" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -76,6 +79,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="8762b546-baf1-4322-9213-f227d971d3d5" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -98,6 +102,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="e0ee2d5f-fef0-4b7d-a594-9cd5806b419a" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -120,6 +125,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

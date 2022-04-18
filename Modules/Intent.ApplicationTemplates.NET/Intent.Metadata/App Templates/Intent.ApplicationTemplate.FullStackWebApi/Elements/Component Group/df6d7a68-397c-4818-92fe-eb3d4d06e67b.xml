@@ -10,6 +10,7 @@
   <packageId>7750957e-3032-41e5-ad31-b33427c4d2fa</packageId>
   <packageName>Intent.ApplicationTemplate.FullStackWebApi</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="89273ec1-d6d1-42b3-96de-c1a176f18507" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Visual Studio Integration</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="e5814636-07b4-49f9-8db0-813e458c721e" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.VisualStudio.Projects</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

@@ -10,6 +10,7 @@
   <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
   <packageName>Intent.AspNetCore.Controllers</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="061a559a-0d54-4eb1-8c70-ed0baa238a59" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
       <name>Default API Security</name>
@@ -34,6 +35,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="5138dee8-5f1e-4b81-ae3c-08278a850f33" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Secured by default</name>
@@ -47,6 +49,7 @@
           <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
           <packageName>Intent.AspNetCore.Controllers</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="8c7f54b2-aedb-4c1a-8334-f020d185f4c0" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -61,6 +64,7 @@
           <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
           <packageName>Intent.AspNetCore.Controllers</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

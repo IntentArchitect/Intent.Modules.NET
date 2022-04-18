@@ -10,6 +10,7 @@
   <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="45cea511-c021-43f1-bb47-f35f405a05fc" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Angular (beta)</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="bf5e94b1-49f9-49be-9b2d-8882b309adfe" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Angular</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="0b222106-279e-4393-b584-eecb5dfe3aaf" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -76,6 +79,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="4881eee1-6bdb-477e-95ba-3eab16ca6bf0" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -98,6 +102,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -124,6 +129,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="199bae46-aab8-4e90-b76f-99a8d5c86aec" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Angular.ApiAuthorization</name>
@@ -145,6 +151,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

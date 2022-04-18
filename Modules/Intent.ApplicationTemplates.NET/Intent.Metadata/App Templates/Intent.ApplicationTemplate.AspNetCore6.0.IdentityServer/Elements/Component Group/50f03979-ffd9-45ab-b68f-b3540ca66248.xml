@@ -10,6 +10,7 @@
   <packageId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="284a4a7e-a76c-4bab-a971-38f7d05865cc" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Visual Studio Integration</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="ed156a58-4814-4e32-96fa-b547ac338867" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.VisualStudio.Projects</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

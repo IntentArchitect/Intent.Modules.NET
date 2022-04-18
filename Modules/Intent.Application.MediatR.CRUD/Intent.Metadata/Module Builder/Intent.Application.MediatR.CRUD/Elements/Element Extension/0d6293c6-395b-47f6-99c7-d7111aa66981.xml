@@ -36,6 +36,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="b03de4cd-ac32-48f8-af0c-8df938845d98" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
@@ -48,6 +49,7 @@
       <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
       <packageName>Intent.Application.MediatR.CRUD</packageName>
       <stereotypes />
+      <metadata />
       <childElements>
         <childElement id="f68e3c40-be00-44d0-9a67-196dc1d96eae" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
           <name>Create CRUD Operations</name>
@@ -92,6 +94,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

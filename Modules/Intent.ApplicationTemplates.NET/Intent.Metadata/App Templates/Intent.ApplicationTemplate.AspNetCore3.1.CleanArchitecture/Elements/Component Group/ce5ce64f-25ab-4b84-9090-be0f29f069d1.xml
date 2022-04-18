@@ -10,6 +10,7 @@
   <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="289b7b10-5376-43f3-8364-61351a8c02bf" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>MediatR</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="134938bd-55fc-412b-bf87-bde2c4ba2cfc" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.MediatR</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="8f0ae23b-38b4-411f-ba78-49641b158b31" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -76,6 +79,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -102,6 +106,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="adf7e561-9681-4c62-ba0a-bc8d47e0a29f" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.AutoMapper</name>
@@ -123,6 +128,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="c2e90ac2-16a1-478d-b029-7f6727f9b821" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -145,6 +151,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="e6f6a4eb-90aa-4114-bad5-2f7118fca308" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -167,6 +174,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -193,6 +201,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="210cdff6-7a60-4d83-8799-e0e8dae8973a" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.MediatR.FluentValidation</name>
@@ -214,6 +223,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="9702a081-bb94-42dc-95a0-724abb2b8345" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -236,6 +246,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -262,6 +273,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="46ac2f5f-21da-4247-bc57-b04776cfeff0" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.MediatR.CRUD</name>
@@ -283,6 +295,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

@@ -19,6 +19,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="f96fb240-21f3-43d9-8b25-2b0f03ca226a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel</name>
@@ -32,6 +33,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="1fa4968b-a145-4835-b742-ff106967b7a9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -46,6 +48,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="ddb03825-0088-400c-a25c-edd30998efd1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -60,6 +63,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="fbdceead-8255-4622-bb30-cf99687cf451" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -74,6 +78,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="fb42818e-c6d3-429a-be8e-749105a0e07e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -88,6 +93,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="4d2386c1-2518-49d7-b594-144318ba5208" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -101,6 +107,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="116d5987-597e-43c8-8b07-47e46b1c24fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -114,6 +121,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="596f1191-dc2f-438f-867d-df183a93c27e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -127,6 +135,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="3a74dccd-7621-4a95-b921-8bd475402def" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -140,6 +149,7 @@
       <packageId>8cb0d95f-0ce9-4ed4-be42-18d89ef82045</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

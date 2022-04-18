@@ -10,6 +10,7 @@
   <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
   <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="e15fe0fb-be28-4cc5-8b85-37a07b7ca160" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
       <name>Strategy</name>
@@ -34,6 +35,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="7b1cd76c-3922-418a-810f-2cfad870ac7a" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Header Strategy</name>
@@ -47,6 +49,7 @@
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="b2a6a3f1-0c4e-4ea7-8088-b4999c98d9f8" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -61,6 +64,7 @@
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="06aa040a-ac95-46ab-966f-dd4015abfa9c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -75,6 +79,7 @@
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -102,6 +107,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In-Memory</name>
@@ -115,6 +121,7 @@
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="95b1c642-b8f4-47f1-8a83-69653c335fb5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -129,6 +136,7 @@
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="bb464b86-aaa7-471f-a048-ec33966ce7b2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -143,6 +151,7 @@
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -171,6 +180,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="f92037d9-3aea-4f9c-afca-848b0c71c4f5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Separate Databases</name>
@@ -184,6 +194,7 @@
           <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
           <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

@@ -33,7 +33,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public DomainEntityInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             _metadataManager = ExecutionContext.MetadataManager;
-            FulfillsRole("Domain.Entity.Interface");
         }
 
         public override void OnCreated()
@@ -48,7 +47,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         {
             return new CSharpFileConfig(
                 className: $"I{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         public void AddDecorator(DomainEntityInterfaceDecoratorBase decorator)

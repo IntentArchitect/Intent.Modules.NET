@@ -10,6 +10,7 @@
   <packageId>7750957e-3032-41e5-ad31-b33427c4d2fa</packageId>
   <packageName>Intent.ApplicationTemplate.FullStackWebApi</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="ac5d119a-5549-4d54-bc8a-0b6ebb83ce25" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Entity Framework</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="0dc4052b-c6ea-448a-b2d9-55bb7f929981" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFramework</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="137b07b6-0d6f-43ff-8fe1-16039c2b5838" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFramework.Repositories</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

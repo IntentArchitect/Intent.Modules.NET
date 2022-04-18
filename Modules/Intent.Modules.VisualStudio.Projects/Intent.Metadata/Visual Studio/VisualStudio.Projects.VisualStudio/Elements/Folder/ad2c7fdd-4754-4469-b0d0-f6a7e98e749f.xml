@@ -33,7 +33,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

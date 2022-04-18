@@ -38,7 +38,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}Repository",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         public string EntityName => GetTypeName("Domain.Entity", Model);

@@ -28,7 +28,6 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEnumTemplate(IOutputTarget outputTarget, EnumModel model) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole("Domain.Enum");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -36,7 +35,8 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         private string GetEnumLiterals(IEnumerable<EnumLiteralModel> literals)

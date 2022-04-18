@@ -37,6 +37,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="807831f6-8daa-465a-b0e5-e59d0f75f8c4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>ApplicationTemplate.Builder.Templates.InstallationSettingsFile</name>
@@ -49,6 +50,7 @@
       <packageId>903a0cfd-b65d-4f8d-952c-f2fce3db019d</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="b6bffaf5-c094-4296-a26a-f9e2ec7a1792" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -63,6 +65,7 @@
       <packageId>903a0cfd-b65d-4f8d-952c-f2fce3db019d</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="08d79dd4-31bb-42a5-8d43-4a95dd0297b5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -77,6 +80,7 @@
       <packageId>903a0cfd-b65d-4f8d-952c-f2fce3db019d</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="184852fc-8e19-4ce6-aa07-e126af415edc" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
@@ -90,6 +94,7 @@
       <packageId>903a0cfd-b65d-4f8d-952c-f2fce3db019d</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

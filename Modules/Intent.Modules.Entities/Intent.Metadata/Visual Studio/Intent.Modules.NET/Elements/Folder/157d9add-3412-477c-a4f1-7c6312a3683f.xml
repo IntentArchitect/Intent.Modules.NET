@@ -19,6 +19,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="f8335866-1502-425e-ac10-82ed86dbeb04" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions</name>
@@ -32,6 +33,7 @@
       <packageId>381ec2e1-c1c5-4d86-828b-b85b4927cec6</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

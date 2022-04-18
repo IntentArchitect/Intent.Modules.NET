@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
         {
             return new CSharpFileConfig(
                 className: $"RepositoryBase",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}");
         }
     }
 }

@@ -33,7 +33,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="d7334000-2170-47d2-bf60-ca5e418eeace" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -48,7 +50,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="255c8965-d8e5-4ad7-b6f4-a415b044bee3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -63,7 +67,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="ca18333a-29ee-495c-a228-4e51527fec3a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -77,7 +83,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="ef5eb819-99a0-4cbf-8a13-84b022345116" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -91,7 +99,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="65c769fd-94b6-4430-a168-406a9c8a6e29" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -105,7 +115,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="855ef9c5-4d37-414b-8d3a-95422fa97b8f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -119,7 +131,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="c4d82466-2b5d-4d92-8cfe-0cacbd055f3f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -133,7 +147,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="936c05fd-0b61-40b3-8087-880641bb10d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -147,7 +163,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="3ce2ba29-1ee2-493b-9536-f88a27725d62" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -161,7 +179,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="abcf2844-0b25-4cb9-9b17-33db96d29bdb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -176,7 +196,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="cc13fda9-2780-490c-9b1e-3ca29be6486d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -191,7 +213,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="9cb5b408-953e-4464-b0f0-cfa0b401e07a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -205,7 +229,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="a0d483be-e2e3-4c52-8fe6-e8bfd9064976" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -219,7 +245,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="439eeca4-19f4-4151-9d82-c23944b7630a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -233,7 +261,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="9460f009-871b-4ba5-81fd-7d672e99f19c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -247,7 +277,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

@@ -21,5 +21,6 @@
   <packageId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</packageId>
   <packageName>Intent.DependencyInjection.EntityFrameworkCore</packageName>
   <stereotypes />
+  <metadata />
   <childElements />
 </class>

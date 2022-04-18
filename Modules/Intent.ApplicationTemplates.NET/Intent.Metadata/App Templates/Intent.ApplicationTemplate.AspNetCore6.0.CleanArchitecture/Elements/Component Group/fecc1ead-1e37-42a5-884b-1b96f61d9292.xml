@@ -10,6 +10,7 @@
   <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="e3db92fd-b51e-4a27-979c-658226d75ffd" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Multitenancy (Finbuckle)</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="705173b6-b605-4144-8188-bcc4f6d3d982" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Modules.AspNetCore.MultiTenancy</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

@@ -33,7 +33,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
         {
             return new CSharpFileConfig(
                 className: $"PagedList",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}");
         }
     }
 }

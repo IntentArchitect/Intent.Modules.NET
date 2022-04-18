@@ -37,6 +37,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="cba7b7d5-4977-4b1d-bc50-409998c0a94d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.IModeSpecFile</name>
@@ -49,6 +50,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="d025e080-5a0c-4cdb-874f-65861be9daa4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -63,6 +65,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="a3ebac06-445f-4c9d-b74b-8fa557c43c89" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -76,6 +79,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="1d495369-9a66-412f-954d-7a368ad91f91" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -90,6 +94,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="cf6d4ed9-d2d4-42f4-a539-8435e068a85a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -104,6 +109,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="a054fcd7-4c5c-4266-9ca5-66f0d65266ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -118,6 +124,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="5d6be835-0a33-4715-8317-7cbb781a42c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -132,6 +139,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="f6747dc7-6aba-4885-a7c7-ae6690f1b95e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -145,6 +153,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="1b5d1056-fcfc-4e63-9061-8c47060be861" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -158,6 +167,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="b7dd023c-03e4-4bef-8771-b5d33dd073e1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -171,6 +181,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="07e37039-a666-495d-b955-4be0716d6a61" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
@@ -184,6 +195,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="23508ee4-1e3a-45c0-b968-aecd4f8c5200" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
@@ -197,6 +209,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="eca7af69-cb9d-498b-8c11-ef2b7720d499" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
@@ -210,6 +223,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="2315063a-7a3c-4450-84c3-dc4b621f8081" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
@@ -223,6 +237,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="925330c4-dd13-4ddc-95ca-64c8db124b92" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
@@ -236,6 +251,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

@@ -10,6 +10,7 @@
   <packageId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="78cf90ec-4ae7-48b6-a84b-4525f2db71e0" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Identity UI</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="a17104c6-07d8-4a39-97f3-7b80a078fad1" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.IdentityServer4.UI</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

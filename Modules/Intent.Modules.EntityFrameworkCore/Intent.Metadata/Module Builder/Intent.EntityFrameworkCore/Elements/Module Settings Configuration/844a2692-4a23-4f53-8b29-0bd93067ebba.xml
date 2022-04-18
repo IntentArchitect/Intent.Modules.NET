@@ -10,6 +10,7 @@
   <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
   <packageName>Intent.EntityFrameworkCore</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="68f03894-248b-4569-bc76-52c67499bf7c" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
       <name>Inheritance Strategy</name>
@@ -34,6 +35,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="b2e92951-4653-4260-8f07-824fe4d67743" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Table Per Hierarchy</name>
@@ -47,6 +49,7 @@
           <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
           <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="fdd5be95-4045-427f-b51d-132cbcd9147f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -61,6 +64,7 @@
           <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
           <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="3e3ba2d0-b32b-4710-9c92-a84c3437d7df" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -75,6 +79,7 @@
           <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
           <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

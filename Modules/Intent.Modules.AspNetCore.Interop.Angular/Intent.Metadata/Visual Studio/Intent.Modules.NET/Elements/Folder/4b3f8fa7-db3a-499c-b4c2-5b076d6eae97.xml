@@ -19,6 +19,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="9129101f-5a69-44e5-8c18-7cdf4994e7f1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.DecoratorRegistration.Template</name>
@@ -31,6 +32,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="2c324dc1-fe88-4fba-bf76-1e6ff7335196" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -44,6 +46,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="23230982-6ff2-4519-b480-feb5720b7695" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -58,6 +61,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="49070c71-fcd7-47cd-b61e-79b4dcc060ac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -72,6 +76,7 @@
       <packageId>f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

@@ -10,6 +10,7 @@
   <packageId>7750957e-3032-41e5-ad31-b33427c4d2fa</packageId>
   <packageName>Intent.ApplicationTemplate.FullStackWebApi</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="1cec808c-1372-4f40-8cd4-38d5f7c6fe7a" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Basic Service Implementation</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="33dda127-7074-4a75-b1f9-eb37ac1ad210" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.ServiceImplementations</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

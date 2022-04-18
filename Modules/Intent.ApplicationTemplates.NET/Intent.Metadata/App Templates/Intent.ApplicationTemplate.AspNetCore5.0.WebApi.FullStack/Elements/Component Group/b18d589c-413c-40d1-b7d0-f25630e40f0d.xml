@@ -10,6 +10,7 @@
   <packageId>ae95e070-1305-4206-a8ea-e607ffe5f301</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="cd253dd2-6c74-482b-8c6e-5398ddc4d6a5" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Visual Studio Integration</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="7e6649b8-2ed8-4269-b7d6-f85b20e59e3b" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.VisualStudio.Projects</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="c0ba34f9-79c8-4437-ae16-40e9212e6214" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Docker</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

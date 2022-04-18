@@ -10,6 +10,7 @@
   <packageId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="21c6930b-efb8-4742-9a30-835c73bbbea9" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Entity Framework Core</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="b66a689f-f04d-4fbe-a6a8-db3afb1e6b4d" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.IdentityServer4.Identity.EFCore</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

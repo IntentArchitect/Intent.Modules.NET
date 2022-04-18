@@ -10,6 +10,7 @@
   <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="8a0b6f82-0901-4d4a-b9f6-4b5b1092ae3c" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Entities</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="2f6e0073-0130-4d24-bfba-24141708fa82" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Entities</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="0bf001dd-ccaf-4e94-abc2-d325fb442279" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.DomainEvents</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="b9f3ba59-86cc-44a7-a4a3-77c6081ea715" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -123,6 +128,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

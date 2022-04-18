@@ -32,7 +32,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
         {
             return new CSharpFileConfig(
                 className: $"IRepository",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}");
         }
     }
 }

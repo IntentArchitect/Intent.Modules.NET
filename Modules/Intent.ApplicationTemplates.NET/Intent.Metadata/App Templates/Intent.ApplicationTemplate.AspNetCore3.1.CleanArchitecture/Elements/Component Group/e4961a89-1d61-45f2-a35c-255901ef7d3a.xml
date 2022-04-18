@@ -10,6 +10,7 @@
   <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="32cad5a6-555c-44f6-a818-68f5b1a8bb86" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Entities</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="c78271ae-3f5f-4e29-adf9-f3784dd5c179" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Entities</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="cad4bc99-3341-42d1-aa5b-6f29bcad33d6" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.DomainEvents</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="81eb179b-bbe3-43cf-a252-2404dc24a2a6" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -123,6 +128,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -149,6 +155,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="ce53e0ad-ff65-4789-a0f9-bdaa66bb32ba" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Entities.DDD</name>
@@ -170,6 +177,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

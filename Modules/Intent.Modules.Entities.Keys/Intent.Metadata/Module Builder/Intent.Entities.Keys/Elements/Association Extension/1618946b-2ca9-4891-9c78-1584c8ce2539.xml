@@ -21,6 +21,7 @@
   <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
   <packageName>Intent.Entities.Keys</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="bb33201c-fb34-4d20-9d0c-adef51a48522" type="Association Source End Extension" typeId="66ec1dcd-a0c3-45ac-ad62-f2d9d7064bb3">
       <name>[source]</name>
@@ -48,6 +49,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="f5177b7c-35b4-431a-870d-0c8ef569f2c5" type="Association Target End Extension" typeId="1cc6c731-af5f-41a0-9e82-44486f45b903">
@@ -76,6 +78,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements />
     </childElement>
     <childElement id="0ef05a2a-40e6-420b-a562-99b22f40c746" type="Association Event Settings" typeId="1bdee938-8569-4fbf-84b4-8522d2cbee32">
@@ -89,6 +92,7 @@
       <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
       <packageName>Intent.Entities.Keys</packageName>
       <stereotypes />
+      <metadata />
       <childElements>
         <childElement id="b7bf369c-919d-4933-9fee-50e0b39e165d" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
           <name>On Changed</name>
@@ -121,6 +125,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="eacfea2b-3cf3-474b-bfe8-169c045c9814" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
@@ -154,6 +159,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

@@ -10,6 +10,7 @@
   <packageId>ae95e070-1305-4206-a8ea-e607ffe5f301</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="b9a4a927-1c56-45f9-830f-49031166a885" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Basic Service Implementation</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="e1a9ec39-5602-40bd-8425-ff9d9ec994d0" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.ServiceImplementations</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="d7819869-ba02-4fd3-972b-49cd0deaf1e8" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.AutoMapper</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="f110ddd8-4850-473a-8c31-75b789fc30d4" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -123,6 +128,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="e59db851-bbed-49b3-a8ce-33624c01b904" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -145,6 +151,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

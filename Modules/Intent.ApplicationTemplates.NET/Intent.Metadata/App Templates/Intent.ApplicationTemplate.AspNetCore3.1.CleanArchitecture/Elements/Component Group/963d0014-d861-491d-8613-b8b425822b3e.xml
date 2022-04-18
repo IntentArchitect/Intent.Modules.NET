@@ -10,6 +10,7 @@
   <packageId>061e7174-b0ab-4b90-8c32-11cf5de6a081</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore3.1.CleanArchitecture</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="168b480e-7ace-4336-a401-9aba02b890a3" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Entity Framework Core</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="4674530a-1c78-48f7-941f-4623611566e5" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFrameworkCore</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="162fe530-50c1-4b47-a332-1737599e9096" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.EntityFrameworkCore.Repositories</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

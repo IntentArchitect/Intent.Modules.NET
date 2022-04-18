@@ -22,7 +22,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class UnitOfWorkInterfaceTemplate : CSharpTemplateBase<object>
     {
@@ -35,14 +35,14 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface
             this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultInten" +
                     "tManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET.Alt\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

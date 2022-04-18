@@ -10,6 +10,7 @@
   <packageId>7750957e-3032-41e5-ad31-b33427c4d2fa</packageId>
   <packageName>Intent.ApplicationTemplate.FullStackWebApi</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="51e22ae4-b0bf-46ea-b216-e167b8a34a6b" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Autofac</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="879f918e-b4ca-453a-bb4d-8495fba59c04" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Autofac</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="0f64b469-95a4-4b62-8c7d-62a4dad39c32" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Unity</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

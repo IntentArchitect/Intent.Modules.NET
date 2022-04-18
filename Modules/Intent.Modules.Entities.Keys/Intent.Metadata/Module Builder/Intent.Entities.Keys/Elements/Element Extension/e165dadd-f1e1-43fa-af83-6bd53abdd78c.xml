@@ -36,6 +36,7 @@
       </properties>
     </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="90095713-2ed6-4ad7-ae76-7d36bad8d92c" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
       <name>NewElementEventSettings</name>
@@ -48,6 +49,7 @@
       <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
       <packageName>Intent.Entities.Keys</packageName>
       <stereotypes />
+      <metadata />
       <childElements>
         <childElement id="a1e5d4be-773b-4388-bf8f-ddf15c591b1a" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Created</name>
@@ -80,6 +82,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

@@ -21,5 +21,6 @@
   <packageId>01be688b-cbcb-4f94-8e14-c74fe55c499c</packageId>
   <packageName>Intent.Security.BearerToken.Interop.IdentityServer4</packageName>
   <stereotypes />
+  <metadata />
   <childElements />
 </class>

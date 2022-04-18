@@ -10,6 +10,7 @@
   <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
   <packageName>Intent.Entities.Keys</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="ef83f85d-bb8d-4b10-8842-9f35f9f54165" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
       <name>Key Type</name>
@@ -34,6 +35,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="7c216890-3f73-4de3-b10d-04dbca2db4a5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>guid</name>
@@ -47,6 +49,7 @@
           <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
           <packageName>Intent.Entities.Keys</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="155d19d9-6021-4123-ba8e-38d4f088602b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -61,6 +64,7 @@
           <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
           <packageName>Intent.Entities.Keys</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="836ace2d-f119-4fc9-9df2-5aba083a5d3b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
@@ -75,6 +79,7 @@
           <packageId>2a720378-6deb-4e28-b1bb-95dbcd16e01b</packageId>
           <packageName>Intent.Entities.Keys</packageName>
           <stereotypes />
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -102,6 +107,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

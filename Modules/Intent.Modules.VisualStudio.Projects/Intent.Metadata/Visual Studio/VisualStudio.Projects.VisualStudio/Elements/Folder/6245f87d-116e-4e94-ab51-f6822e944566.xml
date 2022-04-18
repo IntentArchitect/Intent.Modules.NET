@@ -33,7 +33,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="72f48caa-0c6d-4950-a304-26b9bb53a867" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -47,7 +49,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

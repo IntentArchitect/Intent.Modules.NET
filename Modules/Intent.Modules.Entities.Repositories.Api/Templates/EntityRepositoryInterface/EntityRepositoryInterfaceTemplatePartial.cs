@@ -43,7 +43,8 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         {
             return new CSharpFileConfig(
                 className: $"I{Model.Name}Repository",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
     }
 }

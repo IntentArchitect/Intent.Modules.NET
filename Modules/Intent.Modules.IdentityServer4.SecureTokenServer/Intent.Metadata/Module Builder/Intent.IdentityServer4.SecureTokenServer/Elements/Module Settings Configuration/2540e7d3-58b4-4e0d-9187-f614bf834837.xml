@@ -10,6 +10,7 @@
   <packageId>dbcde434-4411-479b-8374-34cb11190cf1</packageId>
   <packageName>Intent.IdentityServer4.SecureTokenServer</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="e31ca033-a677-4674-aeca-126633e3e097" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
       <name>Create Test Users</name>
@@ -34,6 +35,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

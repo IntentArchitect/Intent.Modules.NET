@@ -10,6 +10,7 @@
   <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="1e9c6845-4337-44a6-bdd4-1e09bbbfec06" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>ASP.NET Core RESTful Api</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="a592bd7d-a7cd-4956-bf58-99d4e58a3156" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="54321b0e-6606-432e-acda-65215a1ef3df" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -76,6 +79,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
         <childElement id="54b17467-cfe5-447c-8ced-ca88eaaf9459" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
@@ -98,6 +102,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -124,6 +129,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="d5c125be-399e-4794-a968-093a498f34ad" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Security.JWT</name>
@@ -145,6 +151,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -171,6 +178,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="37ab8280-1acd-4b2e-aff4-342af15c67e9" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Swashbuckle</name>
@@ -192,6 +200,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

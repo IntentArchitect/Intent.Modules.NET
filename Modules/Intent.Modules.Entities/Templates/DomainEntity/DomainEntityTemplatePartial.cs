@@ -21,12 +21,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEntity";
-        public const string Identifier = "Intent.Entities.DomainEntity";
+
         private readonly IList<DomainEntityDecoratorBase> _decorators = new List<DomainEntityDecoratorBase>();
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public DomainEntityTemplate(IOutputTarget outputTarget, ClassModel model)
-: base(TemplateId, outputTarget, model)
+        public DomainEntityTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"));
             AddTypeSource(DomainEnumTemplate.TemplateId).WithCollectionFormat("ICollection<{0}>");
@@ -37,7 +36,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         public void AddDecorator(DomainEntityDecoratorBase decorator)

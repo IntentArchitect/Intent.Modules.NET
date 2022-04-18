@@ -33,7 +33,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="1f869c28-9545-41e9-83a7-6923e2353bbc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -48,7 +50,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="ad3d62ed-ec4f-4814-90f6-cd6dcb8e00d4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -62,7 +66,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="ab8902e5-62ca-46fb-b742-f91f6eb23500" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -76,7 +82,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="2e1051ef-6c8a-498b-b582-0c6c47b77096" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -90,7 +98,9 @@
       <packageId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</packageId>
       <packageName>VisualStudio.Projects.VisualStudio</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

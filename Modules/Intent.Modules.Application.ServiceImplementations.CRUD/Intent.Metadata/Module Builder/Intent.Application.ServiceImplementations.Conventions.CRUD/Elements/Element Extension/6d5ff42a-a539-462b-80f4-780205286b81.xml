@@ -35,7 +35,17 @@
         <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+      </properties>
+    </stereotype>
   </stereotypes>
+  <metadata />
   <childElements>
     <childElement id="4308bf3e-d678-4d3b-b433-f4837f806555" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
@@ -48,6 +58,7 @@
       <packageId>d6896515-75f1-4dee-9b72-7523b5948b2b</packageId>
       <packageName>Intent.Application.ServiceImplementations.Conventions.CRUD</packageName>
       <stereotypes />
+      <metadata />
       <childElements>
         <childElement id="b3a65f78-055d-4edc-b0b5-3bfbf921ecb3" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
           <name>Create CRUD Operations</name>
@@ -92,6 +103,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

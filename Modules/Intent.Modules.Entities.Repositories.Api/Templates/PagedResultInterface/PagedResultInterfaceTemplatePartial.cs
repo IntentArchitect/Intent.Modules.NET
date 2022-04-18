@@ -29,7 +29,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
         {
             return new CSharpFileConfig(
                 className: $"IPagedResult",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}");
         }
     }
 }

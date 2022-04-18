@@ -10,6 +10,7 @@
   <packageId>32fc3c15-c98e-4b36-9b7d-dd2f7b8885ed</packageId>
   <packageName>Intent.ApplicationTemplate.AspNetCore3.1.WebApi.FullStack</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="4d166f11-8351-4c63-adb5-94a83cf39d90" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Entities</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="80c272d3-fbec-485c-81b8-f6982b5d6652" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Entities</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
@@ -80,6 +83,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="039efd72-81eb-4ce5-997e-94c6a5d905ec" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Entities.DDD</name>
@@ -101,6 +105,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>

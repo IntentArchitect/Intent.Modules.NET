@@ -10,6 +10,7 @@
   <packageId>7e8ada90-678e-4a30-925f-66b864b9918d</packageId>
   <packageName>Intent.ApplicationTemplate.EmptyVisualStudioSolution</packageName>
   <stereotypes />
+  <metadata />
   <childElements>
     <childElement id="af859152-4664-4696-88cf-b81622c7b618" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Visual Studio Integration</name>
@@ -33,6 +34,7 @@
           </properties>
         </stereotype>
       </stereotypes>
+      <metadata />
       <childElements>
         <childElement id="e974013c-d20b-40a1-87ff-06bf673732e4" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.VisualStudio.Projects</name>
@@ -54,6 +56,7 @@
               </properties>
             </stereotype>
           </stereotypes>
+          <metadata />
           <childElements />
         </childElement>
       </childElements>
