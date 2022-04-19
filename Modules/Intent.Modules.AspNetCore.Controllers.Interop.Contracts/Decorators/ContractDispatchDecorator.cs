@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
@@ -65,7 +66,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
             if (operationModel.ReturnType != null)
             {
                 return $@"
-            result = await _appService.{operationModel.Name.ToPascalCase()}({_template.GetArguments(operationModel.Parameters)});";
+            result = await _appService.{operationModel.Name.ToPascalCase()}({_template.GetArguments(operationModel.Parameters)});
+";
             }
             return $@"
             await _appService.{operationModel.Name.ToPascalCase()}({_template.GetArguments(operationModel.Parameters)});";
@@ -73,14 +75,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
 
         public override string ExitOperationBody(OperationModel operationModel)
         {
-            if (operationModel.ReturnType == null)
+            switch (_template.GetHttpVerb(operationModel))
             {
-                return $@"
-            return NoContent();";
+                case ControllerTemplate.HttpVerb.GET:
+                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
+                case ControllerTemplate.HttpVerb.POST:
+                    return operationModel.ReturnType == null ? $@"return Created(string.Empty, null);" : $@"return Created(string.Empty, result);";
+                case ControllerTemplate.HttpVerb.PUT:
+                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
+                case ControllerTemplate.HttpVerb.DELETE:
+                    return operationModel.ReturnType == null ? $@"return Ok();" : $@"return Ok(result);";
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-
-            return $@"
-            return Ok(result);";
         }
     }
 }

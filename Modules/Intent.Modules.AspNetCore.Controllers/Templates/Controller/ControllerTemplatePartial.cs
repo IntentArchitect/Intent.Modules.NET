@@ -95,6 +95,53 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     ", attributes);
         }
 
+        private string GetOperationComments(OperationModel operation)
+        {
+            var lines = new List<string>();
+            lines.Add($"/// <summary>");
+            if (!string.IsNullOrWhiteSpace(operation.Comment))
+            {
+                foreach (var commentLine in operation.Comment.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    lines.Add($"/// {commentLine}");
+                }
+            }
+            lines.Add($"/// </summary>");
+            switch (GetHttpVerb(operation))
+            {
+                case HttpVerb.GET:
+                    lines.Add($"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
+                    break;
+                case HttpVerb.POST:
+                    lines.Add($"/// <response code=\"201\">Successfully created.</response>");
+                    break;
+                case HttpVerb.PUT:
+                    lines.Add($"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
+                    break;
+                case HttpVerb.DELETE:
+                    lines.Add($"/// <response code=\"200\">Successfully deleted.</response>");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (operation.Parameters.Any())
+            {
+                lines.Add($"/// <response code=\"400\">One or more validation errors have occurred.</response>");
+            }
+            if (!IsControllerSecured() || !operation.HasUnsecured())
+            {
+                lines.Add($"/// <response code=\"401\">Unauthorized request.</response>");
+                lines.Add($"/// <response code=\"403\">Forbidden request.</response>");
+            }
+            if (GetHttpVerb(operation) == HttpVerb.GET && operation.ReturnType?.IsCollection == false)
+            {
+                lines.Add($"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
+            }
+            return string.Join(@"
+        ", lines);
+        }
+
         private string GetOperationAttributes(OperationModel operation)
         {
             var attributes = new List<string>();
@@ -115,6 +162,41 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 attributes.Add("[AllowAnonymous]");
             }
+            var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : $"";
+            switch (GetHttpVerb(operation))
+            {
+                case HttpVerb.GET:
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
+                    break;
+                case HttpVerb.POST:
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]");
+                    break;
+                case HttpVerb.PUT:
+                    attributes.Add(operation.ReturnType != null
+                        ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
+                        : $@"[ProducesResponseType(StatusCodes.Status204NoContent)]");
+                    break;
+                case HttpVerb.DELETE:
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (operation.Parameters.Any())
+            {
+                attributes.Add(@"[ProducesResponseType(StatusCodes.Status400BadRequest)]");
+            }
+            if (!IsControllerSecured() || !operation.HasUnsecured())
+            {
+                attributes.Add(@"[ProducesResponseType(StatusCodes.Status401Unauthorized)]");
+                attributes.Add(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]");
+            }
+            if (GetHttpVerb(operation) == HttpVerb.GET && operation.ReturnType?.IsCollection == false)
+            {
+                attributes.Add($@"[ProducesResponseType(StatusCodes.Status404NotFound)]");
+            }
+            attributes.Add(@"[ProducesResponseType(StatusCodes.Status500InternalServerError)]");
             return string.Join(@"
         ", attributes);
         }
