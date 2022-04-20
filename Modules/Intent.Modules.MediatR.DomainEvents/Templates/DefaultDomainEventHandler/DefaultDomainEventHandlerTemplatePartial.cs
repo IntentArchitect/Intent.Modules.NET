@@ -12,16 +12,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
+namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandler
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class DomainEventHandlerTemplate : CSharpTemplateBase<DomainEventModel>
+    partial class DefaultDomainEventHandlerTemplate : CSharpTemplateBase<DomainEventModel>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.MediatR.DomainEvents.DomainEventHandler";
+        public const string TemplateId = "Intent.MediatR.DomainEvents.DefaultDomainEventHandler";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public DomainEventHandlerTemplate(IOutputTarget outputTarget, DomainEventModel model) : base(TemplateId, outputTarget, model)
+        public DefaultDomainEventHandlerTemplate(IOutputTarget outputTarget, DomainEventModel model) : base(TemplateId, outputTarget, model)
         {
         }
 

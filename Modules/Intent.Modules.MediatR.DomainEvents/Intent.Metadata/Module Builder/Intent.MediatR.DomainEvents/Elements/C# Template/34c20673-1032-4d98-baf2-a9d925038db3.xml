@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="7a160dcd-41c6-4e89-a6fc-f237f5ce15d7" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>DomainEventHandler</name>
-  <display>DomainEventHandler: File Per Model</display>
+<class id="34c20673-1032-4d98-baf2-a9d925038db3" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>DefaultDomainEventHandler</name>
+  <display>DefaultDomainEventHandler: File Per Model</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <order>2</order>
   <genericTypes />
-  <typeReference id="afe254ba-2a21-4109-af11-86c4108206c2">
+  <typeReference id="237287e0-8609-4a5e-b4f2-6bb425a1fc34">
     <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

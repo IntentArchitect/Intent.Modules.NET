@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -20,6 +20,16 @@
     <None Update="Templates\DomainEventNotification\DomainEventNotificationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventNotificationTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\AggregateManager\AggregateManagerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AggregateManagerTemplate.cs</LastGenOutput>
+    </None>
+  
+    <None Update="Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DefaultDomainEventHandlerTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -43,6 +53,18 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEventNotificationTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\AggregateManager\AggregateManagerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AggregateManagerTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <Compile Update="Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefaultDomainEventHandlerTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

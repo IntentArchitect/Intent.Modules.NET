@@ -30,30 +30,58 @@
     </FileLog>
     <FileLog>
       <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#7a160dcd-41c6-4e89-a6fc-f237f5ce15d7</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DomainEventHandler/DomainEventHandlerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventHandler/DomainEventHandlerTemplate.cs</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#ff98665d-e846-4b08-a5c8-cf0f4afd9093</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AggregateManager/AggregateManagerTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateManager/AggregateManagerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#7a160dcd-41c6-4e89-a6fc-f237f5ce15d7</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DomainEventHandler/DomainEventHandlerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventHandler/DomainEventHandlerTemplate.tt</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#ff98665d-e846-4b08-a5c8-cf0f4afd9093</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AggregateManager/AggregateManagerTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateManager/AggregateManagerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7a160dcd-41c6-4e89-a6fc-f237f5ce15d7</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DomainEventHandler/DomainEventHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventHandler/DomainEventHandlerTemplatePartial.cs</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ff98665d-e846-4b08-a5c8-cf0f4afd9093</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AggregateManager/AggregateManagerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateManager/AggregateManagerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#7a160dcd-41c6-4e89-a6fc-f237f5ce15d7</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DomainEventHandler/DomainEventHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventHandler/DomainEventHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#ff98665d-e846-4b08-a5c8-cf0f4afd9093</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AggregateManager/AggregateManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateManager/AggregateManagerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#34c20673-1032-4d98-baf2-a9d925038db3</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#34c20673-1032-4d98-baf2-a9d925038db3</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDomainEventHandler/DefaultDomainEventHandlerTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#34c20673-1032-4d98-baf2-a9d925038db3</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDomainEventHandler/DefaultDomainEventHandlerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#34c20673-1032-4d98-baf2-a9d925038db3</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DefaultDomainEventHandler/DefaultDomainEventHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDomainEventHandler/DefaultDomainEventHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

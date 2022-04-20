@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
+namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandler
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,9 +22,9 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class DomainEventHandlerTemplate : CSharpTemplateBase<Intent.Modelers.Domain.Events.Api.DomainEventModel>
+    public partial class DefaultDomainEventHandlerTemplate : CSharpTemplateBase<Intent.Modelers.Domain.Events.Api.DomainEventModel>
     {
 #line hidden
         /// <summary>
@@ -35,50 +35,50 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
             this.Write("using MediatR;\r\nusing System;\r\nusing System.Threading;\r\nusing System.Threading.Ta" +
                     "sks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Merge)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n    public class ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : INotificationHandler<");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventNotificationType()));
             
             #line default
             #line hidden
             this.Write("<");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventType()));
             
             #line default
             #line hidden
             this.Write(">>\r\n    {\r\n        [IntentInitialGen]\r\n        public ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("()\r\n        {\r\n        }\r\n\r\n        [IntentManaged(Mode.Merge, Signature = Mode.F" +
-                    "ully)]\r\n        public Task Handle(");
+            this.Write("()\r\n        {\r\n        }\r\n\r\n        [IntentManaged(Mode.Fully, Body = Mode.Ignore" +
+                    ")]\r\n        public Task Handle(");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventNotificationType()));
             
             #line default
             #line hidden
             this.Write("<");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DomainEventHandler\DomainEventHandlerTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\DefaultDomainEventHandler\DefaultDomainEventHandlerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEventType()));
             
             #line default

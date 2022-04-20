@@ -13,29 +13,33 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
+namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandler
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class DomainEventHandlerTemplateRegistration : FilePerModelTemplateRegistration<DomainEventModel>
+    public class DefaultDomainEventHandlerTemplateRegistration : FilePerModelTemplateRegistration<DomainEventModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public DomainEventHandlerTemplateRegistration(IMetadataManager metadataManager)
+        public DefaultDomainEventHandlerTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => DomainEventHandlerTemplate.TemplateId;
+        [IntentManaged(Mode.Fully)]
+        public override string TemplateId => DefaultDomainEventHandlerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DomainEventModel model)
         {
-            return new DomainEventHandlerTemplate(outputTarget, model);
+            return new DefaultDomainEventHandlerTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DomainEventModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetDomainEventModels();
+            return _metadataManager.Domain(application).GetDomainEventModels()
+                .Where(x => !x.AssociatedClasses().Any()) // only create default if no AggregateManagers are specified.
+                .ToList();
         }
     }
 }

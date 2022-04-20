@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler;
+using Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager;
+using Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandler;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService;
 using Intent.RoslynWeaver.Attributes;
@@ -12,14 +13,24 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDomainEventHandlerName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Events.Api.DomainEventModel
+        public static string GetAggregateManagerName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
-            return template.GetTypeName(DomainEventHandlerTemplate.TemplateId, template.Model);
+            return template.GetTypeName(AggregateManagerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainEventHandlerName(this IntentTemplateBase template, Intent.Modelers.Domain.Events.Api.DomainEventModel model)
+        public static string GetAggregateManagerName(this IntentTemplateBase template, Intent.Modelers.Domain.Api.ClassModel model)
         {
-            return template.GetTypeName(DomainEventHandlerTemplate.TemplateId, model);
+            return template.GetTypeName(AggregateManagerTemplate.TemplateId, model);
+        }
+
+        public static string GetDefaultDomainEventHandlerName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Events.Api.DomainEventModel
+        {
+            return template.GetTypeName(DefaultDomainEventHandlerTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDefaultDomainEventHandlerName(this IntentTemplateBase template, Intent.Modelers.Domain.Events.Api.DomainEventModel model)
+        {
+            return template.GetTypeName(DefaultDomainEventHandlerTemplate.TemplateId, model);
         }
 
         public static string GetDomainEventNotificationName<T>(this IntentTemplateBase<T> template)
