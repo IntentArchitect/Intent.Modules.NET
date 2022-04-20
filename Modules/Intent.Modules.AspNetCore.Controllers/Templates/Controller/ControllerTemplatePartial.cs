@@ -5,7 +5,6 @@ using System.Text;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
