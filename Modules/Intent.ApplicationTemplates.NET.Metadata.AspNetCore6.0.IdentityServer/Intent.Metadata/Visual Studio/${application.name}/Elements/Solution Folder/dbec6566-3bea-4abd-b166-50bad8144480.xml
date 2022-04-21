@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dbec6566-3bea-4abd-b166-50bad8144480" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Infrastructure</name>
+  <display>2 - Infrastructure</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2a163ff4-f39a-4c62-94ac-20b510ffbcbd</parentFolderId>
+  <packageId>2a163ff4-f39a-4c62-94ac-20b510ffbcbd</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
