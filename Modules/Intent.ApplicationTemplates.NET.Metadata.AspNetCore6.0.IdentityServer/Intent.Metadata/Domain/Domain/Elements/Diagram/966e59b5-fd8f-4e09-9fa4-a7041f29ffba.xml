@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="966e59b5-fd8f-4e09-9fa4-a7041f29ffba" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8826c4e3-dd7a-4eb5-8d09-0235ac555a4d</parentFolderId>
+  <packageId>8826c4e3-dd7a-4eb5-8d09-0235ac555a4d</packageId>
+  <packageName>Domain</packageName>
+  <diagram>
+    <targetPackageId>8826c4e3-dd7a-4eb5-8d09-0235ac555a4d</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
