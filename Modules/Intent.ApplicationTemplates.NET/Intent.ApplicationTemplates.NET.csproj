@@ -11,10 +11,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack\content\visual-studio-projects.installation.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-    </None>
-  </ItemGroup>
-
 </Project>
