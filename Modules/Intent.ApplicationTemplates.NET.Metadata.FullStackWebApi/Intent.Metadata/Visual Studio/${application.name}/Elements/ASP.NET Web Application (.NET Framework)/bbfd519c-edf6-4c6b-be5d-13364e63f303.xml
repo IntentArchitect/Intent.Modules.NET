@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bbfd519c-edf6-4c6b-be5d-13364e63f303" type="ASP.NET Web Application (.NET Framework)" typeId="8AF747CF-58F0-449C-8B95-46080FEFC8C0">
+  <name>${application.name}.Api</name>
+  <display>${application.name}.Api</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>65b1391f-bec3-405a-834d-7a9c768f5c71</parentFolderId>
+  <packageId>974f936a-42ea-4bfd-8b16-2191c5f17b33</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f3fcc35a-4bb2-44e7-aca2-d721e047a4c9" name=".NET Framework Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="13b3a401-3f7d-491a-83c2-a160c7035bf1" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+        <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="1c93f665-34bc-49c0-89a9-35b02bfe5180" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Distribution.WebApi</name>
+      <display>Distribution.WebApi</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bbfd519c-edf6-4c6b-be5d-13364e63f303</parentFolderId>
+      <packageId>974f936a-42ea-4bfd-8b16-2191c5f17b33</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="26b18e68-e8eb-4350-aaab-01e4bfadcecb" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>FrontEnd</name>
+      <display>FrontEnd</display>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bbfd519c-edf6-4c6b-be5d-13364e63f303</parentFolderId>
+      <packageId>974f936a-42ea-4bfd-8b16-2191c5f17b33</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="055576a5-9b0f-467a-82ec-4493ce79d975" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Startup</name>
+      <display>Startup</display>
+      <isAbstract>false</isAbstract>
+      <order>2</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bbfd519c-edf6-4c6b-be5d-13364e63f303</parentFolderId>
+      <packageId>974f936a-42ea-4bfd-8b16-2191c5f17b33</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

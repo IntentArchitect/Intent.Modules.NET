@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5cf1caae-9024-4b8e-bc11-7e84adc84ffe" type="Class Library (.NET Framework)" typeId="0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D">
+  <name>${application.name}.Infrastructure</name>
+  <display>${application.name}.Infrastructure</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5e22e867-4b82-4b80-9df9-e34ddfa60f90</parentFolderId>
+  <packageId>974f936a-42ea-4bfd-8b16-2191c5f17b33</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f3fcc35a-4bb2-44e7-aca2-d721e047a4c9" name=".NET Framework Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="13b3a401-3f7d-491a-83c2-a160c7035bf1" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
+        <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="4311bff7-2a56-4fab-9636-d70270aef438" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Infrastructure</name>
+      <display>Infrastructure</display>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5cf1caae-9024-4b8e-bc11-7e84adc84ffe</parentFolderId>
+      <packageId>974f936a-42ea-4bfd-8b16-2191c5f17b33</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b69cd40e-51c1-491b-9e19-e5cdd5092f4e" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Repository.Implementation</name>
+      <display>Repository.Implementation</display>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5cf1caae-9024-4b8e-bc11-7e84adc84ffe</parentFolderId>
+      <packageId>974f936a-42ea-4bfd-8b16-2191c5f17b33</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
