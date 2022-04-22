@@ -115,6 +115,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     switch (Value)
                     {
+                        case "(unspecified)":
+                            return GenerateRuntimeConfigurationFilesOptionsEnum.Unspecified;
                         case "false":
                             return GenerateRuntimeConfigurationFilesOptionsEnum.False;
                         case "true":
@@ -122,6 +124,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+                }
+
+                public bool IsUnspecified()
+                {
+                    return Value == "(unspecified)";
                 }
 
                 public bool IsFalse()
@@ -136,6 +143,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
             public enum GenerateRuntimeConfigurationFilesOptionsEnum
             {
+                Unspecified,
                 False,
                 True
             }
@@ -152,6 +160,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     switch (Value)
                     {
+                        case "(unspecified)":
+                            return GenerateDocumentationFileOptionsEnum.Unspecified;
                         case "false":
                             return GenerateDocumentationFileOptionsEnum.False;
                         case "true":
@@ -159,6 +169,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+                }
+
+                public bool IsUnspecified()
+                {
+                    return Value == "(unspecified)";
                 }
 
                 public bool IsFalse()
@@ -173,6 +188,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
             public enum GenerateDocumentationFileOptionsEnum
             {
+                Unspecified,
                 False,
                 True
             }

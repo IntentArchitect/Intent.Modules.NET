@@ -55,8 +55,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                             hasChange |= SyncProperty(doc, "RuntimeIdentifiers", settings.RuntimeIdentifiers());
                             hasChange |= SyncProperty(doc, "UserSecretsId", settings.UserSecretsId());
                             hasChange |= SyncProperty(doc, "RootNamespace", settings.RootNamespace());
-                            hasChange |= SyncProperty(doc, "GenerateRuntimeConfigurationFiles", settings.GenerateRuntimeConfigurationFiles().Value);
-                            hasChange |= SyncProperty(doc, "GenerateDocumentationFile", settings.GenerateDocumentationFile().Value);
+                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", settings.GenerateRuntimeConfigurationFiles().Value);
+                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", settings.GenerateDocumentationFile().Value);
                         }
 
                         if (!hasChange)
@@ -69,6 +69,46 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                     break;
             }
+        }
+
+        /// <summary>
+        /// For when <paramref name="value"/> is one of the following:
+        /// <list type="table">
+        /// <item>
+        /// <term><see langword="null"/></term>
+        /// <description>The property's value us "unmanaged" by Intent and should not be changed, added, or removed.</description>
+        /// </item>
+        /// <item>
+        /// <term>"(unspecified)"</term>
+        /// <description>The property should be removed from the <c>.csproj</c> file.</description>
+        /// </item>
+        /// <item>
+        /// <term><see langword="false"/></term>
+        /// <description>The property's value should be set to <c>false</c>.</description>
+        /// </item>
+        /// <item>
+        /// <term><see langword="true"/></term>
+        /// <description>The property's value should be set to <c>true</c>.</description>
+        /// </item>
+        /// </list>
+        /// </summary>
+        /// <returns>True if there was a change.</returns>
+        private static bool SyncManageableBooleanProperty(XDocument doc, string propertyName, string value)
+        {
+            if (!string.IsNullOrWhiteSpace(value) &&
+                value is not "(unspecified)" &&
+                value is not "true" &&
+                value is not "false")
+            {
+                throw new ArgumentOutOfRangeException(nameof(value), value);
+            }
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return false;
+            }
+
+            return SyncProperty(doc, propertyName, value == "(unspecified)" ? null : value);
         }
 
         /// <returns>True if there was a change.</returns>

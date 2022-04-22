@@ -109,8 +109,9 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder>(unspecified)</placeholder>
+      <placeholder>(unmanaged)</placeholder>
       <valueOptions>
+        <option>(unspecified)</option>
         <option>false</option>
         <option>true</option>
       </valueOptions>
@@ -122,8 +123,9 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder>(unspecified)</placeholder>
+      <placeholder>(unmanaged)</placeholder>
       <valueOptions>
+        <option>(unspecified)</option>
         <option>false</option>
         <option>true</option>
       </valueOptions>
