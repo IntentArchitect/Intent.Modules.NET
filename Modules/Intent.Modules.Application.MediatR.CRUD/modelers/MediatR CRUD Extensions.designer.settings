@@ -4,7 +4,167 @@
   <name>MediatR CRUD Extensions</name>
   <designerReferences />
   <packageSettings />
-  <packageExtensions />
+  <packageExtensions>
+    <packageExtension type="Services Package" typeId="df45eaf6-9202-4c25-8dd5-677e9ba1e906">
+      <requiredPackages />
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Create CRUD Service</text>
+          <shortcut>ctrl + shift + u</shortcut>
+          <icon type="FontAwesome" source="code" />
+          <script>let options = lookupTypesOf("Class");
+if (options.length == 0) {
+    await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package.");
+} else {
+    let classId = await dialogService.lookupFromOptions(options);
+    let entity = lookup(classId);
+    if (entity != null) {
+        let entityName = entity.name;
+        let service = createElement("Service", pluralize(entity.getName()) + 'Service', element.id);
+
+        // SET UP FOLDER:
+        var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entityName));
+        var folder = existing || createElement("Folder", pluralize(entityName), service.getParent().id);
+
+        // CREATE:
+        if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
+        {
+            let command = createElement("Command", `Create${entityName}Command`, folder.id);
+            command.setMapping(entity.id);
+            for(let attribute of entity.getChildren("Attribute")) {
+                let field = createElement("DTO-Field", attribute.name, command.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+            command.collapse();
+            let operation = createElement("Operation", "Post", service.id);
+            operation.setMapping(command.id);
+            let stereotype = operation.getStereotype("Http Settings");
+            stereotype.getProperty("Verb").setValue("POST");
+
+            let param = createElement("Parameter", "command", operation.id);
+            param.typeReference.setType(command.id);
+            operation.collapse();
+        }
+
+        // UPDATE:
+        if (!folder.getChildren().some(x =&gt; x.name == `Update${entityName}Command`))
+        {
+            let command = createElement("Command", `Update${entityName}Command`, folder.id);
+            command.setMapping(entity.id);
+            
+            let idField = createElement("DTO-Field", "id", command.id);
+            idField.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488")
+
+            for(let attribute of entity.getChildren("Attribute")) {
+                let field = createElement("DTO-Field", attribute.name, command.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+            command.collapse();
+
+            let operation = createElement("Operation", "Put", service.id);
+            operation.setMapping(command.id);
+            let stereotype = operation.getStereotype("Http Settings");
+            stereotype.getProperty("Verb").setValue("PUT");
+            stereotype.getProperty("Route").setValue("{id}");
+            
+            let idParam = createElement("Parameter", "id", operation.id);
+            idParam.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+            idParam.setMapping(idField.id);
+            
+            let commandParam = createElement("Parameter", "command", operation.id);
+            commandParam.typeReference.setType(command.id);
+            operation.collapse();
+        }
+
+        // DELETE:
+        if (!folder.getChildren().some(x =&gt; x.name == `Delete${entityName}Command`))
+        {
+            let command = createElement("Command", `Delete${entityName}Command`, folder.id);
+            
+            let idField = createElement("DTO-Field", "id", command.id);
+            idField.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488")
+            command.collapse();
+
+            let operation = createElement("Operation", "Delete", service.id);
+            operation.setMapping(command.id);
+            let stereotype = operation.getStereotype("Http Settings");
+            stereotype.getProperty("Verb").setValue("DELETE");
+            stereotype.getProperty("Route").setValue("{id}");
+            
+            let idParam = createElement("Parameter", "id", operation.id);
+            idParam.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+            idParam.setMapping(idField.id);
+            operation.collapse();
+        }
+
+        // DTO:
+        if (!folder.getChildren().some(x =&gt; x.name == `${entityName}DTO`))
+        {
+            var dto = createElement("DTO", `${entityName}DTO`, folder.id);
+            dto.setMapping(entity.id);
+            
+            let idField = createElement("DTO-Field", "id", dto.id);
+            idField.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488")
+
+            for(let attribute of entity.getChildren("Attribute")) {
+                let field = createElement("DTO-Field", attribute.name, dto.id);
+                field.typeReference.setType(attribute.typeReference.typeId);
+                field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+                field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+                field.setMapping(attribute.id);
+            }
+            dto.collapse();
+        }
+        // Get BY ID:
+        if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
+        {
+            let query = createElement("Query", `Get${entityName}ByIdQuery`, folder.id);
+            query.typeReference.setType(dto.id)
+            
+            let idField = createElement("DTO-Field", "id", query.id);
+            idField.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488")
+            query.collapse();
+
+            let operation = createElement("Operation", "Get", service.id);
+            operation.setMapping(query.id);
+            let stereotype = operation.getStereotype("Http Settings");
+            stereotype.getProperty("Verb").setValue("GET");
+            stereotype.getProperty("Route").setValue("{id}");
+            
+            let idParam = createElement("Parameter", "id", operation.id);
+            idParam.typeReference.setType("6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+            idParam.setMapping(idField.id);
+            operation.collapse();
+        }
+
+        // Get All:
+        if (!folder.getChildren().some(x =&gt; x.name == `Get${pluralize(entityName)}Query`))
+        {
+            let query = createElement("Query", `Get${pluralize(entityName)}Query`, folder.id);
+            query.typeReference.setType(dto.id)
+            query.typeReference.setIsCollection(true);
+            query.collapse();
+            
+            let operation = createElement("Operation", "Get", service.id);
+            operation.setMapping(query.id);
+            let stereotype = operation.getStereotype("Http Settings");
+            stereotype.getProperty("Verb").setValue("GET");
+            stereotype.getProperty("Route").setValue("");
+            operation.collapse();
+        }
+    }
+    else {
+        await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);
+    }
+}</script>
+        </option>
+      </scriptOptions>
+      <typeOrder />
+    </packageExtension>
+  </packageExtensions>
   <elementSettings />
   <elementExtensions>
     <elementExtension type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">

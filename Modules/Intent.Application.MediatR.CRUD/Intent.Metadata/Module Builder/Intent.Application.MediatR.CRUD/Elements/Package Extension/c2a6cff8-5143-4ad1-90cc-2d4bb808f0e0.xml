@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c2a6cff8-5143-4ad1-90cc-2d4bb808f0e0" type="Package Extension" typeId="ab4152df-3add-4a08-81b6-0fefc7cbb204">
+  <name>Package Extension</name>
+  <display>Package Extension: Services Package</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="254649e1-f199-44e1-a1ea-12dc64370280">
+    <typeId>df45eaf6-9202-4c25-8dd5-677e9ba1e906</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Services</typePackageName>
+    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>46410048-55e6-4cc9-8ee0-dcd0e24a8ee2</parentFolderId>
+  <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+  <packageName>Intent.Application.MediatR.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="dc5f9bff-67e5-4ad5-9c2d-7503f6f9372c" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <order>1</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c2a6cff8-5143-4ad1-90cc-2d4bb808f0e0</parentFolderId>
+      <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+      <packageName>Intent.Application.MediatR.CRUD</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="06e7e36a-f462-45f0-97bd-e173e6dcaa94" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Create CRUD Service</name>
+          <display>Create CRUD Service: Script</display>
+          <isAbstract>false</isAbstract>
+          <order>0</order>
+          <genericTypes />
+          <typeReference id="30b41c7d-f906-4c48-be15-f8ab507e32ef">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>dc5f9bff-67e5-4ad5-9c2d-7503f6f9372c</parentFolderId>
+          <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+          <packageName>Intent.Application.MediatR.CRUD</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let options = lookupTypesOf(&quot;Class&quot;);&#xD;&#xA;if (options.length == 0) {&#xD;&#xA;    await dialogService.info(&quot;No Domain types could be found. Please ensure that you have a reference to the Domain package.&quot;);&#xD;&#xA;} else {&#xD;&#xA;    let classId = await dialogService.lookupFromOptions(options);&#xD;&#xA;    let entity = lookup(classId);&#xD;&#xA;    if (entity != null) {&#xD;&#xA;        let entityName = entity.name;&#xD;&#xA;        let service = createElement(&quot;Service&quot;, pluralize(entity.getName()) + 'Service', element.id);&#xD;&#xA;&#xD;&#xA;        // SET UP FOLDER:&#xD;&#xA;        var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entityName));&#xD;&#xA;        var folder = existing || createElement(&quot;Folder&quot;, pluralize(entityName), service.getParent().id);&#xD;&#xA;&#xD;&#xA;        // CREATE:&#xD;&#xA;        if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))&#xD;&#xA;        {&#xD;&#xA;            let command = createElement(&quot;Command&quot;, `Create${entityName}Command`, folder.id);&#xD;&#xA;            command.setMapping(entity.id);&#xD;&#xA;            for(let attribute of entity.getChildren(&quot;Attribute&quot;)) {&#xD;&#xA;                let field = createElement(&quot;DTO-Field&quot;, attribute.name, command.id);&#xD;&#xA;                field.typeReference.setType(attribute.typeReference.typeId)&#xD;&#xA;                field.setMapping(attribute.id);&#xD;&#xA;            }&#xD;&#xA;            command.collapse();&#xD;&#xA;            let operation = createElement(&quot;Operation&quot;, &quot;Post&quot;, service.id);&#xD;&#xA;            operation.setMapping(command.id);&#xD;&#xA;            let stereotype = operation.getStereotype(&quot;Http Settings&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Verb&quot;).setValue(&quot;POST&quot;);&#xD;&#xA;&#xD;&#xA;            let param = createElement(&quot;Parameter&quot;, &quot;command&quot;, operation.id);&#xD;&#xA;            param.typeReference.setType(command.id);&#xD;&#xA;            operation.collapse();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        // UPDATE:&#xD;&#xA;        if (!folder.getChildren().some(x =&gt; x.name == `Update${entityName}Command`))&#xD;&#xA;        {&#xD;&#xA;            let command = createElement(&quot;Command&quot;, `Update${entityName}Command`, folder.id);&#xD;&#xA;            command.setMapping(entity.id);&#xD;&#xA;            &#xD;&#xA;            let idField = createElement(&quot;DTO-Field&quot;, &quot;id&quot;, command.id);&#xD;&#xA;            idField.typeReference.setType(&quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;)&#xD;&#xA;&#xD;&#xA;            for(let attribute of entity.getChildren(&quot;Attribute&quot;)) {&#xD;&#xA;                let field = createElement(&quot;DTO-Field&quot;, attribute.name, command.id);&#xD;&#xA;                field.typeReference.setType(attribute.typeReference.typeId)&#xD;&#xA;                field.setMapping(attribute.id);&#xD;&#xA;            }&#xD;&#xA;            command.collapse();&#xD;&#xA;&#xD;&#xA;            let operation = createElement(&quot;Operation&quot;, &quot;Put&quot;, service.id);&#xD;&#xA;            operation.setMapping(command.id);&#xD;&#xA;            let stereotype = operation.getStereotype(&quot;Http Settings&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Verb&quot;).setValue(&quot;PUT&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Route&quot;).setValue(&quot;{id}&quot;);&#xD;&#xA;            &#xD;&#xA;            let idParam = createElement(&quot;Parameter&quot;, &quot;id&quot;, operation.id);&#xD;&#xA;            idParam.typeReference.setType(&quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;);&#xD;&#xA;            idParam.setMapping(idField.id);&#xD;&#xA;            &#xD;&#xA;            let commandParam = createElement(&quot;Parameter&quot;, &quot;command&quot;, operation.id);&#xD;&#xA;            commandParam.typeReference.setType(command.id);&#xD;&#xA;            operation.collapse();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        // DELETE:&#xD;&#xA;        if (!folder.getChildren().some(x =&gt; x.name == `Delete${entityName}Command`))&#xD;&#xA;        {&#xD;&#xA;            let command = createElement(&quot;Command&quot;, `Delete${entityName}Command`, folder.id);&#xD;&#xA;            &#xD;&#xA;            let idField = createElement(&quot;DTO-Field&quot;, &quot;id&quot;, command.id);&#xD;&#xA;            idField.typeReference.setType(&quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;)&#xD;&#xA;            command.collapse();&#xD;&#xA;&#xD;&#xA;            let operation = createElement(&quot;Operation&quot;, &quot;Delete&quot;, service.id);&#xD;&#xA;            operation.setMapping(command.id);&#xD;&#xA;            let stereotype = operation.getStereotype(&quot;Http Settings&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Verb&quot;).setValue(&quot;DELETE&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Route&quot;).setValue(&quot;{id}&quot;);&#xD;&#xA;            &#xD;&#xA;            let idParam = createElement(&quot;Parameter&quot;, &quot;id&quot;, operation.id);&#xD;&#xA;            idParam.typeReference.setType(&quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;);&#xD;&#xA;            idParam.setMapping(idField.id);&#xD;&#xA;            operation.collapse();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        // DTO:&#xD;&#xA;        if (!folder.getChildren().some(x =&gt; x.name == `${entityName}DTO`))&#xD;&#xA;        {&#xD;&#xA;            var dto = createElement(&quot;DTO&quot;, `${entityName}DTO`, folder.id);&#xD;&#xA;            dto.setMapping(entity.id);&#xD;&#xA;            &#xD;&#xA;            let idField = createElement(&quot;DTO-Field&quot;, &quot;id&quot;, dto.id);&#xD;&#xA;            idField.typeReference.setType(&quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;)&#xD;&#xA;&#xD;&#xA;            for(let attribute of entity.getChildren(&quot;Attribute&quot;)) {&#xD;&#xA;                let field = createElement(&quot;DTO-Field&quot;, attribute.name, dto.id);&#xD;&#xA;                field.typeReference.setType(attribute.typeReference.typeId);&#xD;&#xA;                field.typeReference.setIsNullable(attribute.typeReference.isNullable);&#xD;&#xA;                field.typeReference.setIsCollection(attribute.typeReference.isCollection);&#xD;&#xA;                field.setMapping(attribute.id);&#xD;&#xA;            }&#xD;&#xA;            dto.collapse();&#xD;&#xA;        }&#xD;&#xA;        // Get BY ID:&#xD;&#xA;        if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))&#xD;&#xA;        {&#xD;&#xA;            let query = createElement(&quot;Query&quot;, `Get${entityName}ByIdQuery`, folder.id);&#xD;&#xA;            query.typeReference.setType(dto.id)&#xD;&#xA;            &#xD;&#xA;            let idField = createElement(&quot;DTO-Field&quot;, &quot;id&quot;, query.id);&#xD;&#xA;            idField.typeReference.setType(&quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;)&#xD;&#xA;            query.collapse();&#xD;&#xA;&#xD;&#xA;            let operation = createElement(&quot;Operation&quot;, &quot;Get&quot;, service.id);&#xD;&#xA;            operation.setMapping(query.id);&#xD;&#xA;            let stereotype = operation.getStereotype(&quot;Http Settings&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Verb&quot;).setValue(&quot;GET&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Route&quot;).setValue(&quot;{id}&quot;);&#xD;&#xA;            &#xD;&#xA;            let idParam = createElement(&quot;Parameter&quot;, &quot;id&quot;, operation.id);&#xD;&#xA;            idParam.typeReference.setType(&quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;);&#xD;&#xA;            idParam.setMapping(idField.id);&#xD;&#xA;            operation.collapse();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        // Get All:&#xD;&#xA;        if (!folder.getChildren().some(x =&gt; x.name == `Get${pluralize(entityName)}Query`))&#xD;&#xA;        {&#xD;&#xA;            let query = createElement(&quot;Query&quot;, `Get${pluralize(entityName)}Query`, folder.id);&#xD;&#xA;            query.typeReference.setType(dto.id)&#xD;&#xA;            query.typeReference.setIsCollection(true);&#xD;&#xA;            query.collapse();&#xD;&#xA;            &#xD;&#xA;            let operation = createElement(&quot;Operation&quot;, &quot;Get&quot;, service.id);&#xD;&#xA;            operation.setMapping(query.id);&#xD;&#xA;            let stereotype = operation.getStereotype(&quot;Http Settings&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Verb&quot;).setValue(&quot;GET&quot;);&#xD;&#xA;            stereotype.getProperty(&quot;Route&quot;).setValue(&quot;&quot;);&#xD;&#xA;            operation.collapse();&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;        await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" value="ctrl + shift + u" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

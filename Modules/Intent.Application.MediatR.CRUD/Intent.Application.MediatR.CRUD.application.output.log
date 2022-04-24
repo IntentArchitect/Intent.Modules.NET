@@ -4,6 +4,13 @@
   <FileLogs>
     <FileLog>
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#c2a6cff8-5143-4ad1-90cc-2d4bb808f0e0</CorrelationId>
+      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/PackageExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PackageExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#0d6293c6-395b-47f6-99c7-d7111aa66981</CorrelationId>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/ServiceExtensionModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceExtensionModel.cs</ProjectRelativeFilePath>
