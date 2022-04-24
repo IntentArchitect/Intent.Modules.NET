@@ -8,20 +8,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>72ab7e5f-4911-45cd-80d2-038cf0dfb751</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#7068225a-1996-44c5-be4e-6c9796f2c45a</CorrelationId>
-      <ApplicationRelativeFilePath>Api/AttributeExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AttributeExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>72ab7e5f-4911-45cd-80d2-038cf0dfb751</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#e165dadd-f1e1-43fa-af83-6bd53abdd78c</CorrelationId>
-      <ApplicationRelativeFilePath>Api/ClassExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>41563513-2028-4bbb-bf92-c0e0d899e769</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Entities.Keys.imodspec</ApplicationRelativeFilePath>
@@ -36,24 +22,10 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3d848b5a-039e-45af-affd-80d5ebd4c4e6</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#b18a7a44-a229-42f6-8ce7-d7191162bb2d</CorrelationId>
-      <ApplicationRelativeFilePath>modelers/Key Automation Extensions.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Key Automation Extensions.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>41563513-2028-4bbb-bf92-c0e0d899e769</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>986ba2f8-9bf9-4e92-8c8e-386fcded5325</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#2a720378-6deb-4e28-b1bb-95dbcd16e01b</CorrelationId>
-      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

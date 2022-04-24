@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Metadata.RDBMS.Settings;
 

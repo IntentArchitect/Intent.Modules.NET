@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Templates;
 using IdentityGeneratorTemplate = Intent.Modules.Entities.Keys.Templates.IdentityGenerator.IdentityGeneratorTemplate;
 
 namespace Intent.Modules.Entities.Keys.Decorators

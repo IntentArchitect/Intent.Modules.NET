@@ -1,6 +1,5 @@
 ﻿using Intent.Modules.Entities.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityState;
-using Intent.Configuration;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins;

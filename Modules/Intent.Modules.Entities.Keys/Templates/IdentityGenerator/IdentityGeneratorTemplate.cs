@@ -9,15 +9,8 @@
 // ------------------------------------------------------------------------------
 namespace Intent.Modules.Entities.Keys.Templates.IdentityGenerator
 {
-    using Intent.Modelers.Domain.Api;
-    using Intent.Modules.Common.Templates;
     using Intent.Modules.Common.CSharp.Templates;
     using System;
-    using System.IO;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Collections;
-    using System.Collections.Generic;
     
     /// <summary>
     /// Class to produce the template output
@@ -34,7 +27,7 @@ namespace Intent.Modules.Entities.Keys.Templates.IdentityGenerator
         public override string TransformText()
         {
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
+            #line 6 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
 
 
 
@@ -44,21 +37,21 @@ namespace Intent.Modules.Entities.Keys.Templates.IdentityGenerator
             #line hidden
             this.Write("using System;\r\nusing System.Runtime.InteropServices;\r\n");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
+            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DependencyUsings));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)] \r\n\r\nnamespace ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Keys\Templates\IdentityGenerator\IdentityGeneratorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

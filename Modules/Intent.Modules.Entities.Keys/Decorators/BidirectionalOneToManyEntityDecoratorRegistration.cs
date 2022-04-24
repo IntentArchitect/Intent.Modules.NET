@@ -2,9 +2,6 @@
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Engine;
-using Intent.Modules.Entities.Templates.DomainEntity;
-using Intent.Registrations;
-using Intent.Templates;
 
 namespace Intent.Modules.Entities.Keys.Decorators
 {

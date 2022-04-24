@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Modules.Common;
 using Intent.Modules.Entities.Templates;
 using Intent.Modules.Entities.Templates.DomainEntityState;
-using Intent.Configuration;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Plugins;
 
 namespace Intent.Modules.Entities.Keys.Decorators
 {

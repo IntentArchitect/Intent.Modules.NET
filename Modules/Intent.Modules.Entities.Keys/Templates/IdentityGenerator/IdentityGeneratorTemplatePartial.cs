@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.Engine;
-using Intent.Modules.Common.CSharp;
+﻿using Intent.Engine;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Templates;
 
