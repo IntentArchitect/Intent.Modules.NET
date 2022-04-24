@@ -2,6 +2,7 @@ using System;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,24 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.EntityFrameworkCore.Settings
 {
-    public static class ModuleSettingsExtensions
+
+    public static class DatabaseSettingsExtensions
     {
-        public static EntityFrameworkCoreSettings GetEntityFrameworkCoreSettings(this IApplicationSettingsProvider settings)
-        {
-            return new EntityFrameworkCoreSettings(settings.GetGroup("844a2692-4a23-4f53-8b29-0bd93067ebba"));
-        }
-    }
 
-    public class EntityFrameworkCoreSettings
-    {
-        private readonly IGroupSettings _groupSettings;
-
-        public EntityFrameworkCoreSettings(IGroupSettings groupSettings)
-        {
-            _groupSettings = groupSettings;
-        }
-
-        public InheritanceStrategyOptions InheritanceStrategy() => new InheritanceStrategyOptions(_groupSettings.GetSetting("68f03894-248b-4569-bc76-52c67499bf7c")?.Value);
+        public static InheritanceStrategyOptions InheritanceStrategy(this DatabaseSettings groupSettings) => new InheritanceStrategyOptions(groupSettings.GetSetting("68f03894-248b-4569-bc76-52c67499bf7c")?.Value);
 
         public class InheritanceStrategyOptions
         {

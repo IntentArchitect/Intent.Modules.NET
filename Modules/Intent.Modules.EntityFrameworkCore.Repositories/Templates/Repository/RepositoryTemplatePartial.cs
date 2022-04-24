@@ -14,6 +14,7 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -84,7 +85,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 
         private bool IsRepoSupported()
         {
-            return !(ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType() &&
+            return !(ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType() &&
                    Model.IsAbstract && OutputTarget.GetProject().TargetDotNetFrameworks.First().Major <= 6);
         }
     }

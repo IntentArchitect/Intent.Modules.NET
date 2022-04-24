@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
   <version>3.3.0</version>
@@ -64,8 +64,9 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.EntityFrameworkCore/Intent.EntityFrameworkCore.pkg.config" externalReference="a9d2a398-04e4-4300-9fbb-768568c65f9e" />
   </metadata>
-  <moduleSettings>
-    <group id="844a2692-4a23-4f53-8b29-0bd93067ebba" title="Entity Framework Core Settings" externalReference="844a2692-4a23-4f53-8b29-0bd93067ebba">
+  <moduleSettings />
+  <moduleSettingsExtensions>
+    <groupExtension id="bc792686-00cd-43b2-97bf-d91127604c95" groupId="ac0a788e-d8b3-4eea-b56d-538608f1ded9" externalReference="bc792686-00cd-43b2-97bf-d91127604c95">
       <settings>
         <setting id="68f03894-248b-4569-bc76-52c67499bf7c" title="Inheritance Strategy" type="select">
           <isRequired>false</isRequired>
@@ -78,6 +79,6 @@
           </options>
         </setting>
       </settings>
-    </group>
-  </moduleSettings>
+    </groupExtension>
+  </moduleSettingsExtensions>
 </package>

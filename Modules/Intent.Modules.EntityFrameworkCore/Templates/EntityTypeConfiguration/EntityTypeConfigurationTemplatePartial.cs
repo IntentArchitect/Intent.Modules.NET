@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
@@ -66,13 +67,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetTableMapping()
         {
-            if (Model.ParentClass != null && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
+            if (Model.ParentClass != null && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerHierarchy())
             {
                 return $@"
             builder.HasBaseType<{GetTypeName("Domain.Entity", Model.ParentClass)}>();
 ";
             }
-            if (Model.HasTable() || !ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerHierarchy())
+            if (Model.HasTable() || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerHierarchy())
             {
                 return $@"
             builder.ToTable(""{ Model.GetTable()?.Name() ?? Model.Name }""{(!string.IsNullOrWhiteSpace(Model.GetTable()?.Schema()) ? @$", ""{ Model.GetTable().Schema() ?? "dbo" }""" : "")});
@@ -84,7 +85,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetKeyMapping()
         {
-            if (Model.ParentClass != null && (!Model.ParentClass.IsAbstract || !ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType()))
+            if (Model.ParentClass != null && (!Model.ParentClass.IsAbstract || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType()))
             {
                 return string.Empty;
             }
@@ -108,12 +109,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private bool HasMapping(AttributeModel attribute)
+        private bool RequiresConfiguration(AttributeModel attribute)
         {
-            return _explicitPrimaryKeys.Any() || !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase);
+            return _explicitPrimaryKeys.All(key => !key.Equals(attribute)) && !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase);
         }
 
-        private bool HasMapping(AssociationEndModel associationEnd)
+        private bool RequiresConfiguration(AssociationEndModel associationEnd)
         {
             return associationEnd.IsTargetEnd();
         }
@@ -217,7 +218,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     break;
                 case RelationshipType.OneToMany:
                     statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "") })");
+                    statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"") })");
                     statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd)})");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
@@ -239,7 +240,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     else // if .NET 5.0 or above...
                     {
                         statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                        statements.Add($".WithMany(x => x.{associationEnd.OtherEnd().Name.ToPascalCase()})");
+                        statements.Add($".WithMany({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"") })");
                         statements.Add($".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
                     }
                     break;
@@ -369,23 +370,23 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private IEnumerable<AttributeModel> GetAttributes(ClassModel model)
         {
             var attributes = new List<AttributeModel>();
-            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType())
+            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
             {
                 attributes.AddRange(GetAttributes(model.ParentClass));
             }
 
-            attributes.AddRange(model.Attributes.Where(HasMapping).ToList());
+            attributes.AddRange(model.Attributes.Where(RequiresConfiguration).ToList());
             return attributes;
         }
 
         private IEnumerable<AssociationEndModel> GetAssociations(ClassModel model)
         {
             var associations = new List<AssociationEndModel>();
-            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetEntityFrameworkCoreSettings().InheritanceStrategy().IsTablePerConcreteType())
+            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
             {
                 associations.AddRange(GetAssociations(model.ParentClass));
             }
-            associations.AddRange(model.AssociatedClasses.Where(HasMapping).ToList());
+            associations.AddRange(model.AssociatedClasses.Where(RequiresConfiguration).ToList());
             return associations;
         }
     }

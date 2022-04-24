@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="844a2692-4a23-4f53-8b29-0bd93067ebba" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
-  <name>Entity Framework Core Settings</name>
-  <display>Entity Framework Core Settings</display>
+<class id="bc792686-00cd-43b2-97bf-d91127604c95" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Database Settings Extension</name>
+  <display>Database Settings Extension: Database Settings</display>
   <isAbstract>false</isAbstract>
   <order>1</order>
   <genericTypes />
+  <typeReference id="a0af07dc-ed8e-4db0-aeab-70d9d5d07b57">
+    <typeId>ac0a788e-d8b3-4eea-b56d-538608f1ded9</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Metadata.RDBMS</typePackageName>
+    <typePackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
   <isMapped>false</isMapped>
   <parentFolderId>a9d2a398-04e4-4300-9fbb-768568c65f9e</parentFolderId>
   <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
@@ -16,10 +27,10 @@
       <name>Inheritance Strategy</name>
       <display>Inheritance Strategy</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>844a2692-4a23-4f53-8b29-0bd93067ebba</parentFolderId>
+      <parentFolderId>bc792686-00cd-43b2-97bf-d91127604c95</parentFolderId>
       <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
       <packageName>Intent.EntityFrameworkCore</packageName>
       <stereotypes>

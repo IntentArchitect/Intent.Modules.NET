@@ -30,7 +30,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>fed3139b-f756-4f55-a155-e374d2965abf</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#a9d2a398-04e4-4300-9fbb-768568c65f9e</CorrelationId>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
