@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
+using Intent.Modules.Metadata.RDBMS.Settings;
 
 namespace Intent.Modules.Entities.Keys.Decorators
 {
@@ -19,7 +20,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
 
         public SurrogatePrimaryKeyInterfaceDecorator(DomainEntityInterfaceTemplate template) : base(template)
         {
-            _surrogateKeyType = template.ExecutionContext.Settings.GetEntityKeySettings()?.KeyType().Value ?? "System.Guid";
+            _surrogateKeyType = template.ExecutionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "System.Guid";
         }
 
         public override string BeforeProperties(ClassModel @class)

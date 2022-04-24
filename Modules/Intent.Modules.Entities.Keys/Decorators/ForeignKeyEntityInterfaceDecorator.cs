@@ -9,6 +9,7 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Keys.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins;
 
 namespace Intent.Modules.Entities.Keys.Decorators
@@ -24,7 +25,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
         public ForeignKeyEntityInterfaceDecorator(DomainEntityInterfaceTemplate template) : base(template)
         {
             Priority = -100;
-            _implicitForeignKeyType = template.ExecutionContext.Settings.GetEntityKeySettings()?.KeyType().Value ?? "System.Guid";
+            _implicitForeignKeyType = template.ExecutionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "System.Guid";
         }
 
         public override string PropertyBefore(AssociationEndModel associationEnd)

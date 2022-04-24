@@ -2,6 +2,7 @@
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Configuration;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins;
 
 namespace Intent.Modules.Entities.Keys.Decorators
@@ -16,14 +17,9 @@ namespace Intent.Modules.Entities.Keys.Decorators
 
         public override string AssociationBefore(AssociationEndModel associationEnd)
         {
-            if (!associationEnd.IsNavigable && associationEnd.Multiplicity == Multiplicity.One && associationEnd.OtherEnd().Multiplicity == Multiplicity.Many)
-            {
-                return $@"       public virtual { Template.GetTypeName(associationEnd) } { associationEnd.Name() } {{ get; set; }}
-";
-            }
             if (!associationEnd.IsNavigable && associationEnd.Multiplicity == Multiplicity.Many && associationEnd.OtherEnd().Multiplicity == Multiplicity.Many)
             {
-                return $@"       public virtual { Template.GetTypeName(associationEnd) } { associationEnd.Name() } {{ get; set; }}
+                return $@"       protected virtual { Template.GetTypeName(associationEnd) } { associationEnd.Name().ToPascalCase() } {{ get; set; }}
 ";
             }
             return base.AssociationBefore(associationEnd);

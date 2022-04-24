@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Keys.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Templates;
 using IdentityGeneratorTemplate = Intent.Modules.Entities.Keys.Templates.IdentityGenerator.IdentityGeneratorTemplate;
 
@@ -24,7 +25,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
             var explicitKeys = template.Model.Attributes.Where(x => x.Name.Equals("Id", StringComparison.InvariantCultureIgnoreCase) || x.HasPrimaryKey()).ToArray();
             if (!explicitKeys.Any())
             {
-                _surrogateKeyType = template.ExecutionContext.Settings.GetEntityKeySettings()?.KeyType().Value ?? "System.Guid";
+                _surrogateKeyType = template.ExecutionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "System.Guid";
                 _requiresImplicitKey = template.Model.ParentClass == null;
                 template.FileMetadata.CustomMetadata.TryAdd("Surrogate Key Type", _surrogateKeyType);
             } else if (explicitKeys.Length == 1)

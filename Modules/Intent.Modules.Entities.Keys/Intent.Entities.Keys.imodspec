@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Keys</id>
   <version>3.3.0</version>
@@ -47,26 +47,33 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <moduleSettings>
-    <group id="54be52b5-ac59-42d6-b0af-e33722f082e7" title="Entity Key Settings" externalReference="54be52b5-ac59-42d6-b0af-e33722f082e7">
+  <moduleSettings />
+  <moduleSettingsExtensions>
+    <groupExtension id="b02758e3-c6c0-401c-bb02-dba6291be1a9" groupId="ac0a788e-d8b3-4eea-b56d-538608f1ded9" externalReference="b02758e3-c6c0-401c-bb02-dba6291be1a9">
       <settings>
         <setting id="ef83f85d-bb8d-4b10-8842-9f35f9f54165" title="Key Type" type="select">
           <isRequired>false</isRequired>
           <hint>Select the data type to be used for all surrogate and foreign keys.</hint>
           <defaultValue>System.Guid</defaultValue>
           <options>
-            <option value="System.Guid" description="guid" />
+            <option value="guid" description="guid" />
             <option value="long" description="long" />
             <option value="int" description="int" />
           </options>
         </setting>
-        <setting id="5aca6e0c-1b64-425b-9046-f0bc81c44311" title="Create Keys Explicitly" type="switch">
+        <setting id="5aca6e0c-1b64-425b-9046-f0bc81c44311" title="Key Creation Mode" type="select">
           <isRequired>false</isRequired>
-          <defaultValue>false</defaultValue>
+          <hint>If and how the designer should create and manage the PKs and FKs</hint>
+          <defaultValue>Manual</defaultValue>
+          <options>
+            <option value="manual" description="Manual" />
+            <option value="implicit" description="Implicit" />
+            <option value="explicit" description="Explicit" />
+          </options>
         </setting>
       </settings>
-    </group>
-  </moduleSettings>
+    </groupExtension>
+  </moduleSettingsExtensions>
   <metadata>
     <install target="Domain" src="modelers/Key Automation Extensions.designer.settings" externalReference="b18a7a44-a229-42f6-8ce7-d7191162bb2d" />
   </metadata>
