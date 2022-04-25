@@ -49,25 +49,28 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
             
             #line default
             #line hidden
-            this.Write("<TDomain, TPersistence>\r\n    {\r\n        void Add(TDomain entity);\r\n        void R" +
-                    "emove(TDomain entity);\r\n        Task<TDomain> FindAsync(Expression<Func<TPersist" +
-                    "ence, bool>> filterExpression, CancellationToken cancellationToken = default);\r\n" +
-                    "        Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = d" +
-                    "efault);\r\n        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence," +
-                    " bool>> filterExpression, CancellationToken cancellationToken = default);\r\n     " +
-                    "   Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterE" +
-                    "xpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, Cancel" +
-                    "lationToken cancellationToken = default);\r\n        Task<IPagedResult<TDomain>> F" +
-                    "indAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = defa" +
-                    "ult);\r\n        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersist" +
-                    "ence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cance" +
-                    "llationToken = default);\r\n        Task<IPagedResult<TDomain>> FindAllAsync(Expre" +
-                    "ssion<Func<TPersistence, bool>> filterExpression, int pageIndex, int pageSize, F" +
-                    "unc<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken " +
-                    "cancellationToken = default);\r\n        Task<int> CountAsync(Expression<Func<TPer" +
-                    "sistence, bool>> filterExpression, CancellationToken cancellationToken = default" +
-                    ");\r\n        Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpre" +
-                    "ssion, CancellationToken cancellationToken = default);\r\n    }\r\n}");
+            this.Write("<TDomain, TPersistence> : ");
+            
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\RepositoryInterface\RepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetUnitOfWorkInterfaceName()));
+            
+            #line default
+            #line hidden
+            this.Write(@"
+    {
+        void Add(TDomain entity);
+        void Remove(TDomain entity);
+        Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
+        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);
+        Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageIndex, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);
+        Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+    }
+}");
             return this.GenerationEnvironment.ToString();
         }
     }

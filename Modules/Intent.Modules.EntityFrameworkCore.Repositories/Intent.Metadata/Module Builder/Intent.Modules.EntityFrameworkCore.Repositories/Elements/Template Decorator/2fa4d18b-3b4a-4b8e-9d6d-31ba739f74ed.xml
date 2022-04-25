@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>EntityFrameworkCoreRepositoryDecorator</name>
+  <display>EntityFrameworkCoreRepositoryDecorator: DbContextDecoratorBase</display>
+  <isAbstract>false</isAbstract>
+  <order>4</order>
+  <genericTypes />
+  <typeReference id="7915fc39-78cb-4e56-b61b-654588a324ec">
+    <typeId>c35164c7-3797-476e-89ba-c98b96de3176</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.EntityFrameworkCore</typePackageName>
+    <typePackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>5869084c-2a08-4e40-a5c9-ff26220470c8</parentFolderId>
+  <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
+  <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -7,8 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Constants;
-using Intent.Modules.EntityFrameworkCore.Events;
+using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -25,22 +24,27 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
         private readonly IList<EntityTypeConfigurationCreatedEvent> _entityTypeConfigurations = new List<EntityTypeConfigurationCreatedEvent>();
-        private readonly IList<DbContextDecoratorBase> _decorators = new List<DbContextDecoratorBase>();
-        private bool _useDbContextAsOptionsParameter;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole("Infrastructure.Data.DbContext");
-            ExecutionContext.EventDispatcher.Subscribe<OverrideDbContextOptionsEvent>(evt =>
-            {
-                _useDbContextAsOptionsParameter |= evt.UseDbContextAsOptionsParameter;
-            });
+
             ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(evt =>
             {
                 _entityTypeConfigurations.Add(evt);
                 AddTemplateDependency(TemplateDependency.OnTemplate(evt.Template));
             });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            foreach (var decorator in GetDecorators())
+            {
+                decorator.OnBeforeTemplateExecution();
+            }
+
+            base.BeforeTemplateExecution();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -93,11 +97,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             {
                 var baseTypes = new List<string>();
                 baseTypes.Add(NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
-                var dbContextInterface = TryGetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface);
-                if (dbContextInterface != null)
-                {
-                    baseTypes.Add(dbContextInterface);
-                }
+                baseTypes.Add(this.GetDbContextInterfaceName());
                 baseTypes.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
                 return string.Join(", ", baseTypes);
             }

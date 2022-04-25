@@ -138,5 +138,10 @@ namespace <#= Namespace #>
         {
             return _dbContext.Set<TPersistence>();
         }
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await _dbContext.SaveChangesAsync(cancellationToken);
+        }
     }
 }

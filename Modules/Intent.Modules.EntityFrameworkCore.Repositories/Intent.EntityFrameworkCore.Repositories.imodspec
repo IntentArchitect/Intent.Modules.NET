@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
   <version>3.3.0</version>
@@ -28,7 +28,9 @@
       <location>Repositories</location>
     </template>
   </templates>
-  <decorators></decorators>
+  <decorators>
+    <decorator id="Intent.EntityFrameworkCore.Repositories.EntityFrameworkCoreRepositoryDecorator" externalReference="2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed" />
+  </decorators>
   <interoperability></interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.1" />

@@ -8,6 +8,20 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c61839e6-1add-422e-8e22-7d280b166bc1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreRepositoryDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityFrameworkCoreRepositoryDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c61839e6-1add-422e-8e22-7d280b166bc1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.EntityFrameworkCore.Repositories.imodspec</ApplicationRelativeFilePath>

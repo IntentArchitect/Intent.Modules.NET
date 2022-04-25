@@ -163,8 +163,10 @@ namespace ");
                     " = linq(queryable);\r\n            return result;\r\n        }\r\n\r\n        protected " +
                     "virtual IQueryable<TPersistence> CreateQuery()\r\n        {\r\n            return Ge" +
                     "tSet();\r\n        }\r\n\r\n        protected virtual DbSet<TPersistence> GetSet()\r\n  " +
-                    "      {\r\n            return _dbContext.Set<TPersistence>();\r\n        }\r\n    }\r\n}" +
-                    "\r\n");
+                    "      {\r\n            return _dbContext.Set<TPersistence>();\r\n        }\r\n\r\n      " +
+                    "  public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = " +
+                    "default(CancellationToken))\r\n        {\r\n            return await _dbContext.Save" +
+                    "ChangesAsync(cancellationToken);\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

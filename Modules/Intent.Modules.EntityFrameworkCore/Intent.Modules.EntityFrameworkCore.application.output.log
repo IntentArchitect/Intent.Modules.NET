@@ -72,6 +72,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed#8dca43ad-a912-4d76-aca9-4eaf77d6127a</CorrelationId>
       <ApplicationRelativeFilePath>Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbMigrationsReadMe/DbMigrationsReadMeTemplate.cs</ProjectRelativeFilePath>

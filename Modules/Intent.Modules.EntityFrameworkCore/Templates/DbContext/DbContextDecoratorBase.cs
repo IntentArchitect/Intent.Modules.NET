@@ -26,6 +26,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public virtual IEnumerable<string> GetMethods() { return new List<string>(); }
 
+        public virtual void OnBeforeTemplateExecution() { }
+
         public int Priority { get; set; } = 0;
     }
 }

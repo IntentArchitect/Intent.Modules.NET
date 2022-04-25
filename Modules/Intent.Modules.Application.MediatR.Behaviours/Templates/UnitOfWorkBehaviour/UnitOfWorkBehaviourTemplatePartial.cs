@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -18,9 +19,17 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour";
 
+        private string _unitOfWorkTypeName;
+
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public UnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _unitOfWorkTypeName) ||
+                   TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out _unitOfWorkTypeName);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

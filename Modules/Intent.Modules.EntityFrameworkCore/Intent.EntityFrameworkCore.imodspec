@@ -18,6 +18,14 @@
         <add key="Use Lazy-Loading Proxies" description="Whether EF should be configured to use lazy-loading proxies" type="boolean" default="true" />
       </config>
     </template>
+    <template id="Intent.EntityFrameworkCore.DbContextInterface" externalReference="b74d885c-a582-4101-9d92-c4edb7e67844">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common</role>
+      <location>Common/Interfaces</location>
+    </template>
     <template id="Intent.EntityFrameworkCore.DbMigrationsReadMe" enabled="true" externalReference="8dca43ad-a912-4d76-aca9-4eaf77d6127a">
       <role>Infrastructure.Data</role>
       <location>Persistence</location>

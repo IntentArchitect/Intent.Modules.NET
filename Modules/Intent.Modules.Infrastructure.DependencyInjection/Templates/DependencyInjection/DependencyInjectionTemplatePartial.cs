@@ -1,11 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -51,31 +49,39 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
         private string DefineServiceRegistration(ContainerRegistrationRequest x)
         {
-            if (x.ConcreteType.StartsWith("typeof("))
+            var registrationType = x.Lifetime switch
             {
-                return x.InterfaceType != null
-                    ? $"services.{RegistrationType(x)}({(x.InterfaceType)}, {(x.ConcreteType)});"
-                    : $"services.{RegistrationType(x)}({(x.ConcreteType)});";
-            }
-            return x.InterfaceType != null
-                ? $"services.{RegistrationType(x)}<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>();"
-                : $"services.{RegistrationType(x)}<{NormalizeNamespace(x.ConcreteType)}>();";
-        }
+                ContainerRegistrationRequest.LifeTime.Singleton => "AddSingleton",
+                ContainerRegistrationRequest.LifeTime.PerServiceCall => "AddScoped",
+                ContainerRegistrationRequest.LifeTime.Transient => "AddTransient",
+                _ => "AddTransient"
+            };
 
-        private string RegistrationType(ContainerRegistrationRequest registration)
-        {
-            switch (registration.Lifetime)
+            var usesGenerics = !x.ConcreteType.StartsWith("typeof(");
+            var hasInterface = x.InterfaceType != null;
+            var useProvider = x.ResolveFromContainer;
+
+            var concreteType = usesGenerics
+                ? NormalizeNamespace(x.ConcreteType)
+                : x.ConcreteType;
+            var interfaceType = usesGenerics && hasInterface
+                ? NormalizeNamespace(x.InterfaceType)
+                : x.InterfaceType;
+
+            // ReSharper disable ConditionIsAlwaysTrueOrFalse
+            return useProvider switch
             {
-                case ContainerRegistrationRequest.LifeTime.Singleton:
-                    return "AddSingleton";
-                case ContainerRegistrationRequest.LifeTime.PerServiceCall:
-                    return "AddScoped";
-                case ContainerRegistrationRequest.LifeTime.Transient:
-                    return "AddTransient";
-                default:
-                    return "AddTransient";
-            }
+                false when !hasInterface && !usesGenerics => $"services.{registrationType}({concreteType});",
+                false when !hasInterface && usesGenerics => $"services.{registrationType}<{concreteType}>();",
+                false when hasInterface && !usesGenerics => $"services.{registrationType}({interfaceType}, {concreteType});",
+                false when hasInterface && usesGenerics => $"services.{registrationType}<{interfaceType}, {concreteType}>();",
+                true when !hasInterface && !usesGenerics => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
+                true when !hasInterface && usesGenerics => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
+                true when hasInterface && !usesGenerics => $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
+                true when hasInterface && usesGenerics => $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
+                _ => throw new InvalidOperationException()
+            };
+            // ReSharper restore ConditionIsAlwaysTrueOrFalse
         }
-
     }
 }

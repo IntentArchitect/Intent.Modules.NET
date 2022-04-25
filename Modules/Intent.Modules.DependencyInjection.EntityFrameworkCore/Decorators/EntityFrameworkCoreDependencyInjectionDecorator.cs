@@ -3,10 +3,9 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Constants;
 using Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore;
-using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
 using Intent.RoslynWeaver.Attributes;
 
@@ -51,7 +50,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 value: "true"));
             _template.ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                 name: "DefaultConnection",
-                connectionString: $"Server=.;Initial Catalog={ _template.OutputTarget.Application.Name };Integrated Security=true;MultipleActiveResultSets=True",
+                connectionString: $"Server=.;Initial Catalog={ _template.OutputTarget.ApplicationName() };Integrated Security=true;MultipleActiveResultSets=True",
                 providerName: "System.Data.SqlClient"));
         }
 
@@ -63,7 +62,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 return $@"
             if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
             {{
-                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>((sp, options) =>
+                services.AddDbContext<{_template.GetDbContextName()}>((sp, options) =>
                 {{
                     var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");
                     options.UseInMemoryDatabase(tenantInfo.ConnectionString);
@@ -72,40 +71,40 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             }}
             else
             {{
-                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>((sp, options) =>
+                services.AddDbContext<{_template.GetDbContextName()}>((sp, options) =>
                 {{
                     var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");
                     options.UseSqlServer(
                         configuration.GetConnectionString(tenantInfo.ConnectionString),
-                        b => b.MigrationsAssembly(typeof({_template.GetTypeName(DbContextTemplate.TemplateId)}).Assembly.FullName));
+                        b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));
                     options.UseLazyLoadingProxies();
                 }});
             }}
 
-            services.AddScoped<{_template.GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
+            services.AddScoped<{_template.GetDbContextInterfaceName()}>(provider => provider.GetService<{_template.GetDbContextName()}>());";
 
             }
             return $@"
             if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
             {{
-                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>(options =>
+                services.AddDbContext<{_template.GetDbContextName()}>(options =>
                 {{
-                    options.UseInMemoryDatabase(""{_template.OutputTarget.Application.Name}"");
+                    options.UseInMemoryDatabase(""{_template.OutputTarget.ApplicationName()}"");
                     options.UseLazyLoadingProxies();
                 }});
             }}
             else
             {{
-                services.AddDbContext<{_template.GetTypeName(DbContextTemplate.TemplateId)}>(options =>
+                services.AddDbContext<{_template.GetDbContextName()}>(options =>
                 {{
                     options.UseSqlServer(
                         configuration.GetConnectionString(""DefaultConnection""),
-                        b => b.MigrationsAssembly(typeof({_template.GetTypeName(DbContextTemplate.TemplateId)}).Assembly.FullName));
+                        b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));
                     options.UseLazyLoadingProxies();
                 }});
             }}
 
-            services.AddScoped<{_template.GetTypeName(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface)}>(provider => provider.GetService<{_template.GetTypeName(DbContextTemplate.TemplateId)}>());";
+            services.AddScoped<{_template.GetDbContextInterfaceName()}>(provider => provider.GetService<{_template.GetDbContextName()}>());";
         }
 
         public IEnumerable<string> DeclareUsings()

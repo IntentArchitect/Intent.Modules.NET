@@ -3,7 +3,6 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -20,7 +19,6 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public UnitOfWorkInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole(TemplateFulfillingRoles.Persistence.UnitOfWorkInterface);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="aba7dad6-c66b-4476-9470-0ab8786b5b4d" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>EntityTypeConfiguration</name>
-  <display>EntityTypeConfiguration: File Per Model</display>
+<class id="b74d885c-a582-4101-9d92-c4edb7e67844" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>DbContextInterface</name>
+  <display>DbContextInterface: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>3</order>
   <genericTypes />
-  <typeReference id="7c9091f9-6452-4b5c-bd92-545ea9d7121e">
-    <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
+  <typeReference id="d1553d82-e60b-4dba-8fcb-2d644bf0c73c">
+    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -30,8 +30,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="6ab29b31-27af-4f56-a67c-986d82097d63" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="04e12b51-ed12-42a3-9667-a6aa81bb6d10" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Infrastructure.Data" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Persistence/Configurations" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Common.DbContextInterface" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Common/Interfaces" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">

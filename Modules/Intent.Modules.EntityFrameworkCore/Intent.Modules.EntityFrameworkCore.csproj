@@ -64,9 +64,9 @@
       <DependentUpon>ConfigurationsTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\DbContextInterface\DbContextInterfaceTemplate.cs">
-      <DependentUpon>DbContextInterfaceTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DependentUpon>DbContextInterfaceTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\DbContext\DbContextTemplate.cs">
       <DesignTime>True</DesignTime>
