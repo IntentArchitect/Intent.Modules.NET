@@ -14,7 +14,7 @@
     <decorator id="Intent.AspNet.Swashbuckle.WebApiConfigDecorator" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
     <dependency id="Intent.AspNet.WebApi" version="3.3.0" />
   </dependencies>

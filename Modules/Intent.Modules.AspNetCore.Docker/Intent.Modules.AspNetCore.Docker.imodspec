@@ -17,8 +17,8 @@
   </templates>
   <decorators />
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

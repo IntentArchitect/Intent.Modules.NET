@@ -14,7 +14,7 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.1" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
     <dependency id="Intent.IdentityServer4.Identity.EFCore" version="3.3.0" />
     <dependency id="Intent.IdentityServer4.UI" version="3.3.0" />

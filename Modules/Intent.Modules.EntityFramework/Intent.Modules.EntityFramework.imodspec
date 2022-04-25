@@ -39,7 +39,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Modelers.Domain" version="3.3.0" />
-    <dependency id="Intent.Common" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.1" />
     <dependency id="Intent.Metadata.RDBMS" version="3.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
   </dependencies>

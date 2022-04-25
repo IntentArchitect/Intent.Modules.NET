@@ -15,7 +15,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="3.3.0" />
     <dependency id="Intent.AspNetCore.Swashbuckle" version="3.3.0" />
-    <dependency id="Intent.Common" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.1" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
     <dependency id="Intent.Security.JWT" version="3.3.0" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.0" />
