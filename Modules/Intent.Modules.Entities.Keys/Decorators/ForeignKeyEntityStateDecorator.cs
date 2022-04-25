@@ -19,7 +19,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
         public ForeignKeyEntityStateDecorator(DomainEntityStateTemplate template) : base(template)
         {
             Priority = -100;
-            _implicitForeignKeyType = template.ExecutionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "System.Guid";
+            _implicitForeignKeyType = template.GetSurrogateKeyType();
         }
 
         public override string AssociationBefore(AssociationEndModel associationEnd)

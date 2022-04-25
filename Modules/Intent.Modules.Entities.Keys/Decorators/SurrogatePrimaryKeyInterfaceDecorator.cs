@@ -17,7 +17,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
 
         public SurrogatePrimaryKeyInterfaceDecorator(DomainEntityInterfaceTemplate template) : base(template)
         {
-            _surrogateKeyType = template.ExecutionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "System.Guid";
+            _surrogateKeyType = template.GetSurrogateKeyType();
         }
 
         public override string BeforeProperties(ClassModel @class)
