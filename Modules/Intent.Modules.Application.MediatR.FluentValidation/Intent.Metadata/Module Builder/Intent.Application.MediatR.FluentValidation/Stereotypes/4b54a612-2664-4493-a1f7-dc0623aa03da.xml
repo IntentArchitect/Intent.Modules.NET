@@ -18,6 +18,7 @@ return "";</displayFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
   <parentFolderId>19ac3196-c353-44e0-ba44-2e1930175b1f</parentFolderId>
   <order>0</order>
   <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
