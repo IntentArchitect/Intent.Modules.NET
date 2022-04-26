@@ -73,7 +73,6 @@ if (options.length == 0) {
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
                 let idField = createElement("DTO-Field", "id", command.id);
                 idField.typeReference.setType(getSurrogateKeyType())
-                idField.setMapping(attribute.id);
                             
                 let idParam = createElement("Parameter", "id", operation.id);
                 idParam.typeReference.setType(getSurrogateKeyType());
@@ -171,7 +170,6 @@ if (options.length == 0) {
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
                 let idField = createElement("DTO-Field", "id", query.id);
                 idField.typeReference.setType(getSurrogateKeyType())
-                idField.setMapping(attribute.id);
                             
                 let idParam = createElement("Parameter", "id", operation.id);
                 idParam.typeReference.setType(getSurrogateKeyType());
@@ -285,7 +283,6 @@ if (options.length == 0) {
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
                 let idField = createElement("DTO-Field", "id", command.id);
                 idField.typeReference.setType(getSurrogateKeyType())
-                idField.setMapping(attribute.id);
                             
                 let idParam = createElement("Parameter", "id", operation.id);
                 idParam.typeReference.setType(getSurrogateKeyType());
@@ -383,7 +380,6 @@ if (options.length == 0) {
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
                 let idField = createElement("DTO-Field", "id", query.id);
                 idField.typeReference.setType(getSurrogateKeyType())
-                idField.setMapping(attribute.id);
                             
                 let idParam = createElement("Parameter", "id", operation.id);
                 idParam.typeReference.setType(getSurrogateKeyType());
