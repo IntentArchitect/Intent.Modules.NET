@@ -11,6 +11,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Intent.Modules.Entities.Repositories.Api.Templates" #>
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -34,6 +35,8 @@ namespace <#= Namespace #>
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
+
+        public <#= this.GetUnitOfWorkInterfaceName() #> UnitOfWork => _dbContext;
 
         public virtual void Remove(TDomain entity)
         {

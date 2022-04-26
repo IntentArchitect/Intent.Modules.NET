@@ -69,8 +69,14 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
         Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageIndex, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);
         Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
-    }
-}");
+        ");
+            
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\RepositoryInterface\RepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetUnitOfWorkInterfaceName()));
+            
+            #line default
+            #line hidden
+            this.Write(" UnitOfWork { get; }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

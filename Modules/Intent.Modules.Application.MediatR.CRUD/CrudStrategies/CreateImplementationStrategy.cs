@@ -74,7 +74,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             if (_template.Model.TypeReference.Element != null)
             {
                 impl += $@"
-                await {_repository.FieldName}.SaveChangesAsync(cancellationToken);
+                await {_repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);
                 return new{_foundEntity.Name}.Id;";
             }
             else

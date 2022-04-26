@@ -18,6 +18,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
     using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
+    using Intent.Modules.Entities.Repositories.Api.Templates;
     
     /// <summary>
     /// Class to produce the template output
@@ -33,6 +34,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.Data.Entity;\r\nusin" +
                     "g System.Linq;\r\nusing System.Linq.Expressions;\r\nusing System.Threading;\r\nusing S" +
                     "ystem.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamesp" +
@@ -67,34 +69,40 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
             #line default
             #line hidden
             this.Write("(TDbContext dbContext)\r\n        {\r\n            _dbContext = dbContext ?? throw ne" +
-                    "w ArgumentNullException(nameof(dbContext));\r\n        }\r\n\r\n        public virtual" +
-                    " void Remove(TDomain entity)\r\n        {\r\n            GetSet().Remove((TPersisten" +
-                    "ce)entity);\r\n        }\r\n\r\n        public virtual void Add(TDomain entity)\r\n     " +
-                    "   {\r\n            GetSet().Add((TPersistence)entity);\r\n        }\r\n\r\n        publ" +
-                    "ic Task<int> SaveChangesAsync()\r\n        {\r\n            return _dbContext.SaveCh" +
-                    "angesAsync();\r\n        }\r\n\r\n        public Task<int> SaveChangesAsync(Cancellati" +
-                    "onToken cancellationToken)\r\n        {\r\n            return _dbContext.SaveChanges" +
-                    "Async(cancellationToken);\r\n        }\r\n\r\n        public virtual async Task<TDomai" +
-                    "n> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, Cancellation" +
-                    "Token cancellationToken = default)\r\n        {\r\n            return await QueryInt" +
-                    "ernal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);\r\n     " +
-                    "   }\r\n\r\n        public virtual async Task<List<TDomain>> FindAllAsync(Cancellati" +
-                    "onToken cancellationToken = default)\r\n        {\r\n            return await QueryI" +
-                    "nternal(x => true).ToListAsync<TDomain>(cancellationToken);\r\n        }\r\n        " +
-                    "\r\n        public virtual async Task<List<TDomain>> FindAllAsync(Expression<Func<" +
-                    "TPersistence, bool>> filterExpression, CancellationToken cancellationToken = def" +
-                    "ault)\r\n        {\r\n            return await QueryInternal(filterExpression).ToLis" +
-                    "tAsync<TDomain>(cancellationToken);\r\n        }\r\n\r\n        \r\n        public virtu" +
-                    "al async Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> f" +
-                    "ilterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, " +
-                    "CancellationToken cancellationToken = default)\r\n        {\r\n            return aw" +
-                    "ait QueryInternal(filterExpression, linq).ToListAsync<TDomain>(cancellationToken" +
-                    ");\r\n        }\r\n\r\n        public virtual async Task<IPagedResult<TDomain>> FindAl" +
-                    "lAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default)\r" +
-                    "\n        {\r\n            var query = QueryInternal(x => true);\r\n            retur" +
-                    "n await ");
+                    "w ArgumentNullException(nameof(dbContext));\r\n        }\r\n\r\n        public ");
             
-            #line 82 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetUnitOfWorkInterfaceName()));
+            
+            #line default
+            #line hidden
+            this.Write(" UnitOfWork => _dbContext;\r\n\r\n        public virtual void Remove(TDomain entity)\r" +
+                    "\n        {\r\n            GetSet().Remove((TPersistence)entity);\r\n        }\r\n\r\n   " +
+                    "     public virtual void Add(TDomain entity)\r\n        {\r\n            GetSet().Ad" +
+                    "d((TPersistence)entity);\r\n        }\r\n\r\n        public Task<int> SaveChangesAsync" +
+                    "()\r\n        {\r\n            return _dbContext.SaveChangesAsync();\r\n        }\r\n\r\n " +
+                    "       public Task<int> SaveChangesAsync(CancellationToken cancellationToken)\r\n " +
+                    "       {\r\n            return _dbContext.SaveChangesAsync(cancellationToken);\r\n  " +
+                    "      }\r\n\r\n        public virtual async Task<TDomain> FindAsync(Expression<Func<" +
+                    "TPersistence, bool>> filterExpression, CancellationToken cancellationToken = def" +
+                    "ault)\r\n        {\r\n            return await QueryInternal(filterExpression).Singl" +
+                    "eOrDefaultAsync<TDomain>(cancellationToken);\r\n        }\r\n\r\n        public virtua" +
+                    "l async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = d" +
+                    "efault)\r\n        {\r\n            return await QueryInternal(x => true).ToListAsyn" +
+                    "c<TDomain>(cancellationToken);\r\n        }\r\n        \r\n        public virtual asyn" +
+                    "c Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterEx" +
+                    "pression, CancellationToken cancellationToken = default)\r\n        {\r\n           " +
+                    " return await QueryInternal(filterExpression).ToListAsync<TDomain>(cancellationT" +
+                    "oken);\r\n        }\r\n\r\n        \r\n        public virtual async Task<List<TDomain>> " +
+                    "FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQuerya" +
+                    "ble<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellatio" +
+                    "nToken = default)\r\n        {\r\n            return await QueryInternal(filterExpre" +
+                    "ssion, linq).ToListAsync<TDomain>(cancellationToken);\r\n        }\r\n\r\n        publ" +
+                    "ic virtual async Task<IPagedResult<TDomain>> FindAllAsync(int pageNo, int pageSi" +
+                    "ze, CancellationToken cancellationToken = default)\r\n        {\r\n            var q" +
+                    "uery = QueryInternal(x => true);\r\n            return await ");
+            
+            #line 84 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
@@ -110,7 +118,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
             var query = QueryInternal(filterExpression);
             return await ");
             
-            #line 91 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 93 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
@@ -127,7 +135,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
             var query = QueryInternal(filterExpression, linq);
             return await ");
             
-            #line 101 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            #line 103 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PagedListClassName));
             
             #line default
