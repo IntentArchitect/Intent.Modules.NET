@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace <#= Namespace #>
 {
-    public interface <#= ClassName #><TDomain, TPersistence> : <#= this.GetUnitOfWorkInterfaceName() #>
+    public interface <#= ClassName #><TDomain, TPersistence>
     {
         void Add(TDomain entity);
         void Remove(TDomain entity);

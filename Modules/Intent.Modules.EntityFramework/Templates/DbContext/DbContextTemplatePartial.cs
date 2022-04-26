@@ -86,7 +86,13 @@ namespace Intent.Modules.EntityFramework.Templates.DbContext
         {
             try
             {
-                return NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "System.Data.Entity.DbContext");
+                var baseTypes = new List<string>();
+                baseTypes.Add(NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "System.Data.Entity.DbContext"));
+                if (TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkInterface))
+                {
+                    baseTypes.Add(unitOfWorkInterface);
+                }
+                return string.Join(", ", baseTypes);
             }
             catch (InvalidOperationException)
             {

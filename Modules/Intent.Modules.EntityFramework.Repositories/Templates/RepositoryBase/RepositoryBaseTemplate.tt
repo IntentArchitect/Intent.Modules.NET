@@ -25,7 +25,7 @@ using System.Threading.Tasks;
 namespace <#= Namespace #>
 {
     public class <#= ClassName #><TDomain, TPersistence, TDbContext> : <#= RepositoryInterfaceName #><TDomain, TPersistence>
-        where TDbContext : DbContext
+        where TDbContext : DbContext, <#= this.GetUnitOfWorkInterfaceName() #>
         where TPersistence : class, TDomain
         where TDomain : class
     {

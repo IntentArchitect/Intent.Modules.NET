@@ -59,9 +59,15 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.RepositoryBase
             
             #line default
             #line hidden
-            this.Write("<TDomain, TPersistence>\r\n        where TDbContext : DbContext\r\n        where TPer" +
-                    "sistence : class, TDomain\r\n        where TDomain : class\r\n    {\r\n        private" +
-                    " readonly TDbContext _dbContext;\r\n\r\n        public ");
+            this.Write("<TDomain, TPersistence>\r\n        where TDbContext : DbContext, ");
+            
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetUnitOfWorkInterfaceName()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        where TPersistence : class, TDomain\r\n        where TDomain : class\r\n   " +
+                    " {\r\n        private readonly TDbContext _dbContext;\r\n\r\n        public ");
             
             #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.Repositories\Templates\RepositoryBase\RepositoryBaseTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
