@@ -7,6 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.0" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -62,5 +63,6 @@
     <application id="0def8ea1-c20e-429c-bfc4-3e44bd7041d1" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore5.0.WebApi.FullStack" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore5.0.WebApi.FullStack/Intent.ApplicationTemplates.NET.Metadata.AspNetCore5.0.WebApi.FullStack.application.config" />
     <application id="37e998f1-a36d-4036-a5af-f4c126280df0" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture/Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture.application.config" />
     <application id="9f716012-fac8-4345-916f-20f06cd58527" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer/Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer.application.config" />
+    <application id="cf054ca4-89ca-4c22-8bbe-3f15409ae0ec" name="Intent.Modules.AspNetCore.Logging.Serilog" relativePath="Intent.Modules.AspNetCore.Logging.Serilog/Intent.Modules.AspNetCore.Logging.Serilog.application.config" />
   </applications>
 </solution>

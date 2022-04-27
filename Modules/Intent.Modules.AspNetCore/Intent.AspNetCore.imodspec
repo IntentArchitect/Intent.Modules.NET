@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
   <version>3.3.0</version>
@@ -39,4 +39,5 @@
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore/Intent.AspNetCore.pkg.config" externalReference="9d83d9d6-7718-4b4a-b78b-725535182de3" />
   </metadata>
   <moduleSettings />
+  <moduleSettingsExtensions />
 </package>
