@@ -149,7 +149,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 _doc = _xmlFileCache.GetFile(_relativeProjectPath);
                 if (_doc == null)
                 {
-                    throw new Exception($"Trying to sync project file, but unable to find csproj content. {_relativeProjectPath}");
+                    throw new Exception($"Trying to sync project file, but unable to find file content. {_relativeProjectPath}");
                 }
             }
             else

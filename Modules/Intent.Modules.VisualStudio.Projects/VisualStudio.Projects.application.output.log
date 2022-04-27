@@ -165,6 +165,13 @@
     </FileLog>
     <FileLog>
       <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#e96716fe-877e-47e5-8b50-f5087cbe8482</CorrelationId>
+      <ApplicationRelativeFilePath>Api/SQLCMDVariableModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SQLCMDVariableModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341f2475-429b-48fd-aaaa-3748947e6633</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#00D1A9C2-B5F0-4AF3-8072-F6C62B433612</CorrelationId>
       <ApplicationRelativeFilePath>Api/SQLServerDatabaseProjectModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SQLServerDatabaseProjectModel.cs</ProjectRelativeFilePath>

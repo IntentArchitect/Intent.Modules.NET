@@ -95,6 +95,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new RoleModel(x))
             .ToList();
 
+        public IList<SQLCMDVariableModel> SQLCMDVariables => _element.ChildElements
+            .GetElementsOfType(SQLCMDVariableModel.SpecializationTypeId)
+            .Select(x => new SQLCMDVariableModel(x))
+            .ToList();
+
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
             .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)
             .Select(x => new TemplateOutputModel(x))

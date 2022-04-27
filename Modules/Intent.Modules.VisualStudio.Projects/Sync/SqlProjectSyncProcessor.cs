@@ -34,6 +34,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 return;
             }
 
+            if (additionalData.ContainsKey("ExcludeFromProject"))
+            {
+                return;
+            }
+
             AddProjectItem(
                 path: path,
                 itemType: DetermineItemType(path, additionalData, Fallbacks),
