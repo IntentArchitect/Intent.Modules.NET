@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
@@ -80,16 +79,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
-            var runtimeEnvironment = !string.IsNullOrWhiteSpace(Model.RuntimeEnvironment?.Name)
-                ? $".{Model.RuntimeEnvironment.Name.ToPascalCase()}"
-                : string.Empty;
+            var (runtimeEnvironment, dependsOn) = !string.IsNullOrWhiteSpace(Model.RuntimeEnvironment?.Name)
+                ? ($".{Model.RuntimeEnvironment.Name.ToPascalCase()}", "appsettings.json")
+                : (null, null);
 
             return new TemplateFileConfig(
-                overwriteBehaviour: OverwriteBehaviour.Always,
-                codeGenType: CodeGenType.Basic,
                 fileName: $"appsettings{runtimeEnvironment}",
-                fileExtension: "json"
-            );
+                fileExtension: "json")
+                    .WithDependsOn(dependsOn);
         }
 
         private void HandleAppSetting(AppSettingRegistrationRequest @event)

@@ -7,7 +7,10 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.SdkEvolutionHelpers;
+using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
@@ -289,6 +292,91 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
 
             return value;
+        }
+
+        /// <remarks>
+        /// Ultimately all sync processors should derive from this class, hence putting it here
+        /// but as internal static for now. It can later be changed to private.
+        /// </remarks>
+        internal static FileAddedData GetFileAddedData(IDictionary<string, string> input)
+        {
+            var data = new FileAddedData();
+
+            foreach (var (key, value) in input)
+            {
+                if (key.StartsWith(CustomMetadataKeys.ElementPrefix))
+                {
+                    data.Elements.Add(key[CustomMetadataKeys.ElementPrefix.Length..], value);
+                }
+
+                if (key.StartsWith(CustomMetadataKeys.AttributePrefix))
+                {
+                    data.Attributes.Add(key[CustomMetadataKeys.AttributePrefix.Length..], value);
+                }
+
+                if (key == CustomMetadataKeys.ItemType)
+                {
+                    data.ItemType = value;
+                }
+
+                if (key == CustomMetadataKeys.AlwaysGenerateProjectItem)
+                {
+                    data.AlwaysGenerateProjectItem = true.ToString().Equals(value, StringComparison.OrdinalIgnoreCase);
+                }
+            }
+
+            if (data.ItemType == null)
+            {
+                ApplyLegacyCompatibility(data, input);
+            }
+
+            // Fallback value
+            data.ItemType ??= "Content";
+
+            return data;
+        }
+
+        [FixFor_Version4("Remove this method and its uses")]
+        private static void ApplyLegacyCompatibility(FileAddedData data, IDictionary<string, string> input)
+        {
+            if (input.ContainsKey("ItemType"))
+            {
+                data.ItemType = input["ItemType"];
+            }
+
+            var path = input["Path"];
+            switch (Path.GetExtension(path))
+            {
+                case ".cs":
+                    data.ItemType ??= "Compile";
+                    break;
+                case ".tt":
+                    data.ItemType ??= "None";
+                    data.AlwaysGenerateProjectItem = true;
+                    data.Elements.Add("Generator", "TextTemplatingFilePreprocessor");
+                    data.Elements.Add("LastGenOutput", $"{Path.GetFileNameWithoutExtension(path)}.cs");
+                    break;
+            }
+
+            foreach (var (key, value) in input)
+            {
+                switch (key)
+                {
+                    case "Depends On":
+                        // Automatically adding "DesignTime" and "AutoGen" just because "Depends
+                        // On" was set is very wrong, but it's the way it used to work prior to
+                        // 3.3.1 and module builder .tt files relied on this.
+                        data.Elements.Add("DesignTime", "True");
+                        data.Elements.Add("AutoGen", "True");
+                        data.Elements.Add("DependentUpon", value);
+                        break;
+                    case "CopyToOutputDirectory":
+                        data.Elements.Add(key, value);
+                        break;
+                    default:
+                        continue;
+                }
+            }
         }
     }
 }

@@ -66,7 +66,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 currentProjectFileContent = currentProjectFile.ToString();
             }
             var outputContent = _doc.ToString();
-            //trying to do a schemantic comparision as VS does inconsistence formatting 
+
+            // Perform a semantic comparision as VS does inconsistent formatting 
             if (currentProjectFileContent != outputContent)
             {
                 Logging.Log.Debug($"Syncing changes to Project File {filename}");
@@ -82,20 +83,22 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 switch (@event.EventIdentifier)
                 {
                     case SoftwareFactoryEvents.FileAddedEvent:
-                        ProcessAddProjectItem(
-                            path: @event.GetValue("Path"),
-                            itemType: @event.TryGetValue("ItemType"),
-                            dependsOn: @event.TryGetValue("Depends On"),
-                            copyToOutputDirectory: @event.TryGetValue("CopyToOutputDirectory"),
-                            linkSource: null);
+                        {
+                            var data = ProjectSyncProcessorBase.GetFileAddedData(@event.AdditionalInfo);
+                            ProcessAddProjectItem(@event.GetValue("Path"), data);
+                        }
                         break;
                     case CsProjectEvents.AddContentFile:
-                        ProcessAddProjectItem(
-                            path: Path.Combine(Path.GetDirectoryName(_projectPath), @event.GetValue("Link")),
-                            itemType: "Content",
-                            dependsOn: null,
-                            copyToOutputDirectory: @event.TryGetValue("CopyToOutputDirectory"),
-                            linkSource: @event.GetValue("Include"));
+                        {
+                            var data = ProjectSyncProcessorBase.GetFileAddedData(@event.AdditionalInfo);
+
+                            data.ItemType = "Content";
+                            data.Attributes.Add("Update", null);
+                            data.Attributes.Add("Link", Path.Combine(Path.GetDirectoryName(_projectPath)!, @event.GetValue("Link")));
+                            data.Attributes.Add("Include", @event.GetValue("Include"));
+
+                            ProcessAddProjectItem(@event.GetValue("Path"), data);
+                        }
                         break;
                     case SoftwareFactoryEvents.FileRemovedEvent:
                         ProcessRemoveProjectItem(
@@ -146,7 +149,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             else
             {
                 _doc = XDocument.Parse(change.Content, LoadOptions.PreserveWhitespace);
-                _syncProjectFile = (f, c) => change.ChangeContent(c);
+                _syncProjectFile = (_, c) => change.ChangeContent(c);
             }
 
             if (_doc.Root == null)
@@ -216,144 +219,106 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         private void ProcessRemoveProjectItem(string path)
         {
-            var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_projectPath), path));
+            var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_projectPath)!, path));
 
             var projectItem = GetProjectItem(relativeFileName);
             projectItem?.Remove();
         }
 
-        private void ProcessAddProjectItem(string path, string itemType, string dependsOn, string copyToOutputDirectory, string linkSource)
+        private void ProcessAddProjectItem(string path, FileAddedData data)
         {
-            var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_projectPath), path));
-            dependsOn = NormalizePath(dependsOn);
-            linkSource = NormalizePath(linkSource);
-
-            if (string.IsNullOrWhiteSpace(itemType))
-                itemType = null;
-
-            if (string.IsNullOrWhiteSpace(copyToOutputDirectory))
-                copyToOutputDirectory = null;
-
-            if (string.IsNullOrWhiteSpace(dependsOn))
-                dependsOn = null;
+            var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_projectPath)!, path));
 
             if (string.IsNullOrWhiteSpace(relativeFileName))
+            {
                 throw new Exception("relativeFileName is null");
-
-            var extension = !string.IsNullOrEmpty(Path.GetExtension(relativeFileName))
-                ? Path.GetExtension(relativeFileName).Substring(1) //remove the '.'
-                : null;
-
-            var metadata = new Dictionary<string, string>();
-
-            if (copyToOutputDirectory != null)
-            {
-                metadata.Add("CopyToOutputDirectory", copyToOutputDirectory);
             }
 
-            if (dependsOn != null)
+            var itemElement = GetFileItem(relativeFileName);
+            if (itemElement?.Attribute("IntentIgnore")?.Value.Equals(true.ToString(), StringComparison.OrdinalIgnoreCase) == true)
             {
-                metadata.Add("DesignTime", "True");
-                metadata.Add("AutoGen", "True");
-                metadata.Add("DependentUpon", dependsOn);
+                return;
             }
 
-            // Setup defaults, not the best kind of extensibility unfortunately.
-            bool implicitlyPresent;
-            switch (extension)
+            if (!data.AlwaysGenerateProjectItem &&
+                data.Attributes.Count == 0 &&
+                data.Elements.Count == 0)
             {
-                case "cs":
-                    itemType = itemType ?? "Compile";
-
-                    implicitlyPresent =
-                        linkSource == null &&
-                        itemType == "Compile" &&
-                        !metadata.Any();
-                    break;
-                case "tt":
-                    itemType = itemType ?? "None";
-                    metadata.Add("Generator", "TextTemplatingFilePreprocessor");
-                    metadata.Add("LastGenOutput", Path.GetFileNameWithoutExtension(relativeFileName) + ".cs");
-
-                    implicitlyPresent = false;
-                    break;
-                case "config":
-                    itemType = itemType ?? "Content";
-                    //metadata["CopyToOutputDirectory"] = "PreserveNewest"; // Why is this needed? I've taken out.
-
-                    implicitlyPresent =
-                        linkSource == null &&
-                        itemType == "Content" &&
-                        !metadata.Any();
-                    break;
-                default:
-                    itemType = itemType ?? "Content";
-
-                    implicitlyPresent =
-                        linkSource == null &&
-                        itemType == "Content" &&
-                        !metadata.Any();
-                    break;
+                itemElement?.Remove();
+                return;
             }
 
-            var itemElement = GetFileItem(linkSource ?? relativeFileName);
-            if (itemElement?.Attribute("IntentIgnore")?.Value.ToLower() != "true")
+            if (itemElement == null)
             {
-                if (implicitlyPresent)
+                var targetElement = GetOrCreateItemGroupFor(data.ItemType);
+                var content = new object[]
                 {
-                    itemElement?.Remove();
-                    return;
+                    $"{Environment.NewLine}    ",
+                    itemElement = new XElement(XName.Get(data.ItemType, _namespace.NamespaceName))
+                };
+
+                var lastElement = targetElement.Elements().LastOrDefault();
+                if (lastElement != null)
+                {
+                    lastElement.AddAfterSelf(content);
                 }
-
-                if (itemElement == null)
+                else
                 {
-                    var targetElement = GetOrCreateItemGroupFor(itemType);
-                    targetElement.Add(
-                        Environment.NewLine,
-                        "    ",
-                        itemElement = new XElement(XName.Get(itemType, _namespace.NamespaceName)),
-                        Environment.NewLine,
-                        "  ");
+                    targetElement.AddFirst(content);
                 }
+            }
 
-                if (itemElement.Name.LocalName != itemType)
+            if (itemElement.Name.LocalName != data.ItemType)
+            {
+                itemElement.Name = XName.Get(data.ItemType, itemElement.Name.NamespaceName);
+            }
+
+            itemElement.SetAttributeValue(XName.Get("Update", _namespace.NamespaceName), relativeFileName);
+
+            foreach (var (key, value) in data.Attributes)
+            {
+                itemElement.SetAttributeValue(XName.Get(key, _namespace.NamespaceName), value);
+            }
+
+            foreach (var (key, value) in data.Elements)
+            {
+                var subElement = itemElement.Elements().SingleOrDefault(x => x.Name == XName.Get(key, _namespace.NamespaceName));
+                if (subElement == null)
                 {
-                    itemElement.Name = XName.Get(itemType, itemElement.Name.NamespaceName);
-                }
-
-                itemElement.SetAttributeValue(XName.Get("Update", _namespace.NamespaceName), linkSource == null ? relativeFileName : null);
-                itemElement.SetAttributeValue(XName.Get("Link", _namespace.NamespaceName), linkSource != null ? relativeFileName : null);
-                itemElement.SetAttributeValue(XName.Get("Include", _namespace.NamespaceName), linkSource);
-
-                var subelementWasAdded = false;
-                foreach (var item in metadata)
-                {
-                    var subElement = itemElement.Elements().SingleOrDefault(x => x.Name == XName.Get(item.Key, _namespace.NamespaceName));
-                    if (subElement == null)
+                    var content = new object[]
                     {
-                        subelementWasAdded = true;
-                        itemElement.Add(
-                            Environment.NewLine,
-                            "      ",
-                            subElement = new XElement(XName.Get(item.Key, _namespace.NamespaceName)));
-                    }
+                        $"{Environment.NewLine}      ",
+                        subElement = new XElement(XName.Get(key, _namespace.NamespaceName))
+                    };
 
-                    subElement.Value = item.Value;
+                    var lastElement = itemElement.Elements().LastOrDefault();
+                    if (lastElement != null)
+                    {
+                        lastElement.AddAfterSelf(content);
+                    }
+                    else
+                    {
+                        itemElement.AddFirst(content);
+                        itemElement.Add($"{Environment.NewLine}    ");
+                    }
                 }
 
-                if (subelementWasAdded)
+                subElement.Value = value;
+            }
+
+            foreach (var element in itemElement.Elements())
+            {
+                if (!data.Elements.ContainsKey(element.Name.LocalName))
                 {
-                    itemElement.Add(
-                        Environment.NewLine,
-                        "    ");
+                    element.Remove();
                 }
             }
         }
 
         private XElement CreateElement(string name, string value = null, IEnumerable<XAttribute> attributes = null, IEnumerable<XElement> subElements = null)
         {
-            attributes = attributes ?? new XAttribute[0];
-            subElements = subElements ?? new XElement[0];
+            attributes ??= Enumerable.Empty<XAttribute>();
+            subElements ??= Enumerable.Empty<XElement>();
 
             var newElement = new XElement(XName.Get(name, _namespace.NamespaceName));
             if (value != null)
@@ -384,7 +349,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             // .csproj and solution files use backslashes even on Mac
             value = value.Replace("/", @"\");
 
-            // Replace double occurrences of folder seperators with single seperator. IE, turn a path like Dev\\Folder to Dev\Folder
+            // Replace double occurrences of folder separators with single separator. IE, turn a path like Dev\\Folder to Dev\Folder
             while (value.Contains(@"\\"))
                 value = value.Replace(@"\\", @"\");
 
