@@ -23,11 +23,11 @@
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.2" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
     <dependency id="Intent.IdentityServer4.SecureTokenServer" version="3.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.3.0" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.3.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

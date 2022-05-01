@@ -13,7 +13,7 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.0" />
+    <dependency id="Intent.AspNetCore" version="3.3.1" />
     <dependency id="Intent.AspNetCore.Controllers" version="3.3.0" />
     <dependency id="Intent.Common" version="3.3.1" />
     <dependency id="Intent.Common.Types" version="3.3.0" />

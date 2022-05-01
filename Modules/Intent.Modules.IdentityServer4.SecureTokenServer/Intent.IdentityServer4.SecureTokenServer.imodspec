@@ -23,12 +23,12 @@
     <decorator id="Intent.IdentityServer4.SecureTokenServer.PerpopulatedTestUserIdentityConfigurationDecorator" externalReference="0d7e806a-7048-454f-aba3-33cfff1582c3" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.0" />
+    <dependency id="Intent.AspNetCore" version="3.3.1" />
     <dependency id="Intent.Common" version="3.3.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.2" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.3.0" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.3.1" />
   </dependencies>
   <interoperability>
     <detect id="Intent.AspNetCore.Swashbuckle">
