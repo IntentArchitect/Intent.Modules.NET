@@ -128,7 +128,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 lines.Add($"/// <response code=\"400\">One or more validation errors have occurred.</response>");
             }
-            if (!IsControllerSecured() || !operation.HasUnsecured())
+            if (IsOperationSecured(operation))
             {
                 lines.Add($"/// <response code=\"401\">Unauthorized request.</response>");
                 lines.Add($"/// <response code=\"403\">Forbidden request.</response>");
@@ -186,7 +186,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status400BadRequest)]");
             }
-            if (!IsControllerSecured() || !operation.HasUnsecured())
+            if (IsOperationSecured(operation))
             {
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status401Unauthorized)]");
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]");
@@ -232,6 +232,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private bool IsControllerSecured()
         {
             return Model.HasSecured() || ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().IsSecuredByDefault();
+        }
+
+        private bool IsOperationSecured(OperationModel operation)
+        {
+            return (IsControllerSecured() || operation.HasSecured()) && !operation.HasUnsecured();
         }
 
         private string GetHttpVerbAndPath(OperationModel o)

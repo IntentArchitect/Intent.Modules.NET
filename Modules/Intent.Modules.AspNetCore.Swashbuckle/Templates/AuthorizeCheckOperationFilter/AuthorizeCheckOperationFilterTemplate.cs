@@ -58,9 +58,6 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperatio
 
             if (hasAuthorize)
             {
-                operation.Responses.Add(""401"", new OpenApiResponse { Description = ""Unauthorized"" });
-                operation.Responses.Add(""403"", new OpenApiResponse { Description = ""Forbidden"" });
-
                 operation.Security = new List<OpenApiSecurityRequirement>
                 {
                     new OpenApiSecurityRequirement

@@ -39,6 +39,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators
             _template.ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(_template)
                 .ForInterface(_template.GetTemplate<IClassProvider>(UnitOfWorkInterfaceTemplate.TemplateId))
+                .ForConcern("Infrastructure")
                 .WithResolveFromContainer()
                 .WithPerServiceCallLifeTime());
         }

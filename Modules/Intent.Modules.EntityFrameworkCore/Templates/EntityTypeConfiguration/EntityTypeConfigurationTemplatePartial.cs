@@ -198,7 +198,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     // DJVV: We should extend this in the future to allow a different property to facilitate one-to-one
                     // relationships other than Id.
                     //statements.Add($".HasForeignKey<{ Model.Name }>({GetForeignKeyLambda(associationEnd.OtherEnd())})");
-                    statements.Add($".HasForeignKey<{ Model.Name }>(x => x.Id)");
+                    if (associationEnd.IsNullable)
+                    {
+                        statements.Add($".HasForeignKey<{ associationEnd.Class.Name }>(x => x.Id)");
+                    }
+                    else
+                    {
+                        statements.Add($".HasForeignKey<{ Model.Name }>(x => x.Id)");
+                    }
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
                         statements.Add($".IsRequired()");
