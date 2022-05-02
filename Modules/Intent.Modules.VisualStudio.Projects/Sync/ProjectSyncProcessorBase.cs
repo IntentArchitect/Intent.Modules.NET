@@ -325,10 +325,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 }
             }
 
-            if (data.ItemType == null)
-            {
-                ApplyLegacyCompatibility(data, input);
-            }
+            ApplyLegacyCompatibility(data, input);
 
             // Fallback value
             data.ItemType ??= "Content";
@@ -339,7 +336,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         [FixFor_Version4("Remove this method and its uses")]
         private static void ApplyLegacyCompatibility(FileAddedData data, IDictionary<string, string> input)
         {
-            if (input.ContainsKey("ItemType"))
+            if (data.ItemType == null &&
+                input.ContainsKey("ItemType"))
             {
                 data.ItemType = input["ItemType"];
             }
