@@ -336,10 +336,27 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         [FixFor_Version4("Remove this method and its uses")]
         private static void ApplyLegacyCompatibility(FileAddedData data, IDictionary<string, string> input)
         {
-            if (data.ItemType == null &&
-                input.ContainsKey("ItemType"))
+            foreach (var (key, value) in input)
             {
-                data.ItemType = input["ItemType"];
+                switch (key)
+                {
+                    case "CopyToOutputDirectory":
+                        data.Elements.Add(key, value);
+                        break;
+                    case "Depends On":
+                        // Automatically adding "DesignTime" and "AutoGen" just because "Depends
+                        // On" was set is very wrong, but it's the way it used to work prior to
+                        // 3.3.1 and module builder .tt files relied on this.
+                        data.Elements.Add("DesignTime", "True");
+                        data.Elements.Add("AutoGen", "True");
+                        data.Elements.Add("DependentUpon", value);
+                        break;
+                    case "ItemType":
+                        data.ItemType ??= value;
+                        break;
+                    default:
+                        continue;
+                }
             }
 
             var path = input["Path"];
@@ -354,26 +371,6 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     data.Elements.Add("Generator", "TextTemplatingFilePreprocessor");
                     data.Elements.Add("LastGenOutput", $"{Path.GetFileNameWithoutExtension(path)}.cs");
                     break;
-            }
-
-            foreach (var (key, value) in input)
-            {
-                switch (key)
-                {
-                    case "Depends On":
-                        // Automatically adding "DesignTime" and "AutoGen" just because "Depends
-                        // On" was set is very wrong, but it's the way it used to work prior to
-                        // 3.3.1 and module builder .tt files relied on this.
-                        data.Elements.Add("DesignTime", "True");
-                        data.Elements.Add("AutoGen", "True");
-                        data.Elements.Add("DependentUpon", value);
-                        break;
-                    case "CopyToOutputDirectory":
-                        data.Elements.Add(key, value);
-                        break;
-                    default:
-                        continue;
-                }
             }
         }
     }
