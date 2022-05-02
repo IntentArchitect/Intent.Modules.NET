@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="94473a8a-cf47-43ec-9314-f0230649aebb" type="Application Template Settings Configuration" typeId="69000b7e-8bc8-49d0-80f5-eb65a6f7653a">
+  <name>Basic Settings</name>
+  <display>Basic Settings</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
+  <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6162946d-3299-4552-8564-431ef4efb5b4" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
+      <name>Target Framework</name>
+      <display>Target Framework</display>
+      <isAbstract>false</isAbstract>
+      <value>target-framework</value>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>94473a8a-cf47-43ec-9314-f0230649aebb</parentFolderId>
+      <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="97f6fe89-5973-447c-93b8-ac18fe446047" name="Settings Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="ad6b372c-58e6-4fe0-b6fe-aa7d70f95ebc" display="Control Type" value="Select" isActive="true" />
+            <property name="f0689c97-cb23-4ae1-8bb1-8b6af69b1504" display="Is Required" value="true" isActive="true" />
+            <property name="95738255-b024-4b7f-b789-26eb8c30665f" display="Hint" isActive="true" />
+            <property name="980bae71-ac8a-4a52-9888-9bac41f126ba" display="Default Value" value="16d99e3e-7b91-42f8-ae3b-2686edde94b7" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ba122af4-114d-457f-9dbe-1b01cf97981e" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 6.0</name>
+          <display>.NET 6.0</display>
+          <isAbstract>false</isAbstract>
+          <value>16d99e3e-7b91-42f8-ae3b-2686edde94b7</value>
+          <order>0</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6162946d-3299-4552-8564-431ef4efb5b4</parentFolderId>
+          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6ce50a89-32d9-4831-ae75-e36fe134b945" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 5.0</name>
+          <display>.NET 5.0</display>
+          <isAbstract>false</isAbstract>
+          <value>9880b776-9b13-4ff6-87b3-2219cfa66652</value>
+          <order>1</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6162946d-3299-4552-8564-431ef4efb5b4</parentFolderId>
+          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="821bb3af-844e-4e1f-8b08-76b3f5e92da9" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET Core 3.1</name>
+          <display>.NET Core 3.1</display>
+          <isAbstract>false</isAbstract>
+          <value>d603dbfd-3361-4406-b5c0-efc2ac6f33fc</value>
+          <order>2</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6162946d-3299-4552-8564-431ef4efb5b4</parentFolderId>
+          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

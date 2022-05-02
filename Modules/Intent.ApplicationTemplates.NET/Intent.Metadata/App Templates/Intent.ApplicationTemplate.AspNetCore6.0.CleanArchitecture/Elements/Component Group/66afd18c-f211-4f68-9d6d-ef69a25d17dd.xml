@@ -3,7 +3,7 @@
   <name>Application</name>
   <display>Application</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
@@ -309,7 +309,7 @@
             <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Best-effort implementations for CRUD services based on conventions." isActive="true" />
             <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
             <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;3a5d478d-7b99-422f-8e44-c7c21b01c0a3&quot;,&quot;1c1be665-9040-4bbd-ab1d-0ce4b004d2c5&quot;,&quot;76b582cd-c96a-4da4-a3d0-312ef16edfc4&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

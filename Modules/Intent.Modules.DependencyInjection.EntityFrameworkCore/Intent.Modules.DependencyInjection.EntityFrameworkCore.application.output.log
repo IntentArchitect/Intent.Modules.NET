@@ -42,5 +42,12 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>becf4998-d344-4774-a4b1-74ba42fe14c8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</CorrelationId>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

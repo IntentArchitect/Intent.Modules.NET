@@ -86,7 +86,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.1" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -115,7 +115,7 @@
             <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Apply JWT bearer token authorisation to your API services" isActive="true" />
             <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
             <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;e1d44707-ff25-4efd-b4c0-e422a8c4e4e9&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -166,7 +166,7 @@
             <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="OpenAPI support using the Swashbuckle." isActive="true" />
             <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
             <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;e1d44707-ff25-4efd-b4c0-e422a8c4e4e9&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -188,7 +188,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.1" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

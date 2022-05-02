@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -7,6 +8,7 @@ using Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -30,8 +32,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         {
             _template = template;
             _application = application;
-            _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
-            _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(_template.Project));
+
             if (_template.Project.IsNet5App())
             {
                 _template.AddNugetDependency("Microsoft.Extensions.Configuration.Binder", "5.0.0");
@@ -40,14 +41,27 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 _template.AddNugetDependency("Microsoft.Extensions.Configuration.Binder", "6.0.0");
             }
+
+            // TODO: GCB - These need to be registered here, otherwise it doesn't work. Look to understand why...
+            switch (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
+            {
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
+                    _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(_template.Project));
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
+                    _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
+                    _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
+                    break;
+            }
+
             if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
             {
                 _template.AddNugetDependency("Finbuckle.MultiTenant", "6.5.1");
+                _template.AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
             }
 
-            _template.ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(
-                key: "UseInMemoryDatabase",
-                value: "true"));
             _template.ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                 name: "DefaultConnection",
                 connectionString: $"Server=.;Initial Catalog={ _template.OutputTarget.ApplicationName() };Integrated Security=true;MultipleActiveResultSets=True",
@@ -56,55 +70,53 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override string ServiceRegistration()
         {
+            var connection = "\"DefaultConnection\"";
+            var statements = new List<string>();
             if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
             {
-                _template.AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
-                return $@"
-            if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
-            {{
-                services.AddDbContext<{_template.GetDbContextName()}>((sp, options) =>
-                {{
-                    var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");
-                    options.UseInMemoryDatabase(tenantInfo.ConnectionString);
-                    options.UseLazyLoadingProxies();
-                }});
-            }}
-            else
-            {{
-                services.AddDbContext<{_template.GetDbContextName()}>((sp, options) =>
-                {{
-                    var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");
-                    options.UseSqlServer(
-                        configuration.GetConnectionString(tenantInfo.ConnectionString),
-                        b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));
-                    options.UseLazyLoadingProxies();
-                }});
-            }}
-
-            services.AddScoped<{_template.GetDbContextInterfaceName()}>(provider => provider.GetService<{_template.GetDbContextName()}>());";
-
+                statements.Add($@"var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");");
+                connection = "tenantInfo.ConnectionString";
             }
-            return $@"
-            if (configuration.GetValue<bool>(""UseInMemoryDatabase""))
+            statements.Add($@"services.AddDbContext<{_template.GetDbContextName()}>((sp, options) =>
             {{
-                services.AddDbContext<{_template.GetDbContextName()}>(options =>
-                {{
-                    options.UseInMemoryDatabase(""{_template.OutputTarget.ApplicationName()}"");
-                    options.UseLazyLoadingProxies();
-                }});
-            }}
-            else
-            {{
-                services.AddDbContext<{_template.GetDbContextName()}>(options =>
-                {{
-                    options.UseSqlServer(
-                        configuration.GetConnectionString(""DefaultConnection""),
-                        b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));
-                    options.UseLazyLoadingProxies();
-                }});
-            }}
+                {GetDbContextOptions(connection)}
+            }});");
 
-            services.AddScoped<{_template.GetDbContextInterfaceName()}>(provider => provider.GetService<{_template.GetDbContextName()}>());";
+            return string.Join(@"
+            ", statements);
+        }
+
+        private string GetDbContextOptions(string connection)
+        {
+            var statements = new List<string>();
+
+            switch (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
+            {
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
+                    _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(_template.Project));
+                    statements.Add($@"options.UseInMemoryDatabase({connection});");
+                    statements.Add($@"options.UseLazyLoadingProxies();");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
+                    _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
+                    statements.Add($@"options.UseSqlServer(
+                    configuration.GetConnectionString({connection}),
+                    b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));");
+                    statements.Add($@"options.UseLazyLoadingProxies();");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
+                    _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
+                    statements.Add($@"options.UseNpgsql(
+                    configuration.GetConnectionString({connection}),
+                    b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));");
+                    statements.Add($@"options.UseLazyLoadingProxies();");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(null, "Database Provider has not been set to a valid value. Please fix in the Database Settings.");
+            }
+
+            return string.Join(@"
+                    ", statements);
         }
 
         public IEnumerable<string> DeclareUsings()

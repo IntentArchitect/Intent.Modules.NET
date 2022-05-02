@@ -44,7 +44,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             _explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToList();
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
-            AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(Project));
+            //AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(Project));
         }
 
         public override void BeforeTemplateExecution()
@@ -151,22 +151,56 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add($".{method}({defaultValue})");
             }
 
-            var maxLength = attribute.GetTextConstraints()?.MaxLength();
-            if (maxLength.HasValue && attribute.Type.Element.Name == "string")
+            if (attribute.GetTextConstraints()?.SQLDataType().IsDEFAULT() == true)
             {
-                statements.Add($".HasMaxLength({maxLength.Value})");
-            }
+                var maxLength = attribute.GetTextConstraints().MaxLength();
+                if (maxLength.HasValue && attribute.Type.Element.Name == "string")
+                {
+                    statements.Add($".HasMaxLength({maxLength.Value})");
+                }
 
-            var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
-            var decimalScale = attribute.GetDecimalConstraints()?.Scale();
-            var columnType = attribute.GetColumn()?.Type();
-            if (decimalPrecision.HasValue && decimalScale.HasValue)
-            {
-                statements.Add($".HasColumnType(\"decimal({ decimalPrecision }, { decimalScale })\")");
+                //var isUnicode = attribute.GetTextConstraints().SQLDataType().IsVARCHAR() == true;
+                //if (isUnicode)
+                //{
+                //    statements.Add($".IsUnicode(false)");
+                //}
             }
-            else if (!string.IsNullOrWhiteSpace(columnType))
+            else if (attribute.HasTextConstraints())
             {
-                statements.Add($".HasColumnType(\"{columnType}\")");
+                var maxLength = attribute.GetTextConstraints().MaxLength();
+                switch (attribute.GetTextConstraints().SQLDataType().AsEnum())
+                {
+                    case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR:
+                        statements.Add($".HasColumnType(\"varchar({maxLength?.ToString() ?? "max"})\")");
+                        break;
+                    case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR:
+                        statements.Add($".HasColumnType(\"nvarchar({maxLength?.ToString() ?? "max"})\")");
+                        break;
+                    case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
+                        Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                        statements.Add($".HasColumnType(\"text\")");
+                        break;
+                    case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT:
+                        Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                        statements.Add($".HasColumnType(\"ntext\")");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+            else
+            {
+                var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
+                var decimalScale = attribute.GetDecimalConstraints()?.Scale();
+                var columnType = attribute.GetColumn()?.Type();
+                if (decimalPrecision.HasValue && decimalScale.HasValue)
+                {
+                    statements.Add($".HasColumnType(\"decimal({ decimalPrecision }, { decimalScale })\")");
+                }
+                else if (!string.IsNullOrWhiteSpace(columnType))
+                {
+                    statements.Add($".HasColumnType(\"{columnType}\")");
+                }
             }
 
             var columnName = attribute.GetColumn()?.Name();

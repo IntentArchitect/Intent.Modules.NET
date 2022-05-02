@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,6 +25,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
             _metadataManager = metadataManager;
         }
         public override string TemplateId => DbContextInterfaceTemplate.TemplateId;
+
+        // This is a bit of a hack, and is an indicator that this template should not exist in this module:
+        public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
+        {
+            if (application.InstalledModules.Any(x => x.ModuleId == "Intent.Entities.Repositories.Api"))
+            {
+                return;
+            }
+            base.DoRegistration(registry, application);
+        }
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
         {

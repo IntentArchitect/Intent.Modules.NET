@@ -53,7 +53,7 @@
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.0" />
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.1" />
       </install>
     </detect>
   </interoperability>

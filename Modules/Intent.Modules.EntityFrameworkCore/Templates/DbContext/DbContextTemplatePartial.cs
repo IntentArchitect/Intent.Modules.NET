@@ -4,9 +4,11 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
@@ -44,6 +46,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                 decorator.OnBeforeTemplateExecution();
             }
 
+            if (!TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkInterface))
+            {
+                ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                    .ToRegister(this)
+                    .ForInterface(GetTemplate<IClassProvider>(DbContextInterfaceTemplate.TemplateId))
+                    .ForConcern("Infrastructure")
+                    .WithResolveFromContainer()
+                    .WithPerServiceCallLifeTime());
+            }
             base.BeforeTemplateExecution();
         }
 
@@ -97,7 +108,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             {
                 var baseTypes = new List<string>();
                 baseTypes.Add(NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
-                baseTypes.Add(this.GetDbContextInterfaceName());
+                if (TryGetTypeName(DbContextInterfaceTemplate.TemplateId, out var dbContextInterface))
+                {
+                    baseTypes.Add(dbContextInterface);
+                }
                 baseTypes.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
                 return string.Join(", ", baseTypes);
             }
