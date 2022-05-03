@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.SecureTokenServer</id>
-  <version>3.3.0</version>
+  <version>3.3.1</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>The main module responsible for IdentityServer4 hosting</summary>
   <description>The main module responsible for IdentityServer4 hosting</description>
@@ -33,7 +33,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Swashbuckle">
       <install>
-        <package id="Intent.IdentityServer4.STS.Interop.Swashbuckle.JWT" version="3.3.0" />
+        <package id="Intent.IdentityServer4.STS.Interop.Swashbuckle.JWT" version="3.3.1" />
       </install>
     </detect>
   </interoperability>
