@@ -2,10 +2,9 @@
 <associationVisual id="db953ea4-0944-4b87-96e1-fa9fe4900d7e" zIndex="32">
   <targetPrefPoint x="200" y="40" />
   <fixedPoints>
-    <point x="1220" y="701" />
-    <point x="1383" y="701" />
-    <point x="1383" y="796" />
-    <point x="1131" y="796" />
-    <point x="1131" y="739" />
+    <point x="1220" y="700" />
+    <point x="1460" y="700" />
+    <point x="1460" y="795" />
+    <point x="1131" y="795" />
   </fixedPoints>
 </associationVisual>

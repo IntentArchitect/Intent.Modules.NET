@@ -16,6 +16,7 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <metadata />
   </sourceEnd>
   <targetEnd id="d3d30343-9bdb-4dce-86e2-f49f8012feb3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>F_OptionalDependent</name>
@@ -33,6 +34,7 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <metadata />
   </targetEnd>
   <associationType>Association</associationType>
   <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>

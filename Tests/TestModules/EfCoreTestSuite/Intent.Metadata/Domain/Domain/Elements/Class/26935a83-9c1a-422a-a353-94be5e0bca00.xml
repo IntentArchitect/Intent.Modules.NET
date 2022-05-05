@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="26935a83-9c1a-422a-a353-94be5e0bca00" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <comment />
   <name>L_SelfReferenceMultiple</name>
   <display>L_SelfReferenceMultiple</display>
   <isAbstract>false</isAbstract>

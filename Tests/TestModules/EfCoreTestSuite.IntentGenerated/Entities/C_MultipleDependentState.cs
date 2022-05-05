@@ -27,7 +27,6 @@ namespace EfCoreTestSuite.IntentGenerated.Entities
 
 
         public Guid C_RequiredCompositeId { get; set; }
-        public virtual C_RequiredComposite C_RequiredComposite { get; set; }
 
     }
 }

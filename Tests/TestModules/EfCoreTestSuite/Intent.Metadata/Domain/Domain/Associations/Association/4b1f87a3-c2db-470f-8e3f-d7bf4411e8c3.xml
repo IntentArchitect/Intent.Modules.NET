@@ -16,10 +16,11 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <metadata />
   </sourceEnd>
   <targetEnd id="4b1f87a3-c2db-470f-8e3f-d7bf4411e8c3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
-    <name>K_SelfReference</name>
-    <display>K_SelfReference: K_SelfReference?</display>
+    <name>K_SelfReferenceAssociation</name>
+    <display>K_SelfReferenceAssociation: K_SelfReference?</display>
     <order>0</order>
     <typeReference id="edbbf7c6-4f5b-4afe-86f5-3294f5cbccb6">
       <typeId>b8353eea-e647-47f0-a017-4533953f4e91</typeId>
@@ -33,6 +34,7 @@
       <genericTypeParameters />
     </typeReference>
     <stereotypes />
+    <metadata />
   </targetEnd>
   <associationType>Association</associationType>
   <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>

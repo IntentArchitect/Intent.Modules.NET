@@ -12,25 +12,27 @@ using Microsoft.Extensions.Configuration;
 namespace EfCoreTestSuite.IntegrationTests;
 
 // https://stackoverflow.com/q/65360948/802755
-// As long as we stick to just testing the migrations in one test we should be fine
+
 public abstract class SharedDatabaseFixture : IDisposable
 {
-    private static readonly object _lock = new object();
+    private static readonly object Lock = new object();
     private static bool _databaseInitialized;
     private static string _DatabaseName = "Database.Server.Local";
-    private static IConfigurationRoot config;
+    private static IConfigurationRoot _config;
+    private static bool _initialized;
 
-    public SharedDatabaseFixture()
+    protected SharedDatabaseFixture()
     {
-        config = new ConfigurationBuilder()
-            .AddJsonFile($"appsettings.json", false, true)
-            .Build();
-
-        var test = config.GetValue<string>("DataSource");
+        if (!_initialized)
+        {
+            _config = new ConfigurationBuilder()
+                .AddJsonFile($"appsettings.json", false, true)
+                .Build();
+        }
 
         var connectionStringBuilder = new SqlConnectionStringBuilder
         {
-            DataSource = config.GetValue<string>("DataSource"),
+            DataSource = _config.GetValue<string>("DataSource"),
             InitialCatalog = _DatabaseName,
             IntegratedSecurity = true,
         };
@@ -38,17 +40,27 @@ public abstract class SharedDatabaseFixture : IDisposable
         var connectionString = connectionStringBuilder.ToString();
         Connection = new SqlConnection(connectionString);
 
-        CreateEmptyDatabaseAndSeedData();
+        if (!_initialized)
+        {
+            CreateEmptyDatabaseAndSeedData();
+        }
+        
         Connection.Open();
+        _initialized = true;
+    }
+    
+    public virtual void Dispose()
+    {
+        Connection.Dispose();
     }
 
-    public bool ShouldSeedActualData { get; set; } = true;
     public DbConnection Connection { get; set; }
 
     public ApplicationDbContext CreateContext(DbTransaction transaction = null)
     {
-        var context =
-            new ApplicationDbContext(new DbContextOptionsBuilder<ApplicationDbContext>().UseSqlServer(Connection)
+        var context = new ApplicationDbContext(
+            new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseSqlServer(Connection)
                 .Options);
 
         if (transaction != null)
@@ -75,20 +87,20 @@ public abstract class SharedDatabaseFixture : IDisposable
 
     private static SqlConnectionStringBuilder Master => new SqlConnectionStringBuilder
     {
-        DataSource = config.GetValue<string>("DataSource"),
+        DataSource = _config.GetValue<string>("DataSource"),
         InitialCatalog = "master",
         IntegratedSecurity = true
     };
 
     private static string Filename =>
-        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture).GetTypeInfo().Assembly.Location),
+        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture).GetTypeInfo().Assembly.Location)!,
             $"{_DatabaseName}.mdf");
 
     private static string LogFilename =>
-        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture).GetTypeInfo().Assembly.Location),
+        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture).GetTypeInfo().Assembly.Location)!,
             $"{_DatabaseName}_log.ldf");
 
-    private static void CreateDatabaseRawSQL()
+    private static void CreateDatabaseRawSql()
     {
         ExecuteSqlCommand(Master,
             $@"IF(db_id(N'{_DatabaseName}') IS NULL) BEGIN CREATE DATABASE [{_DatabaseName}] ON (NAME = '{_DatabaseName}', FILENAME = '{Filename}') END");
@@ -120,7 +132,7 @@ public abstract class SharedDatabaseFixture : IDisposable
         return result;
     }
 
-    private static void DestroyDatabaseRawSQL()
+    private static void DestroyDatabaseRawSql()
     {
         var fileNames = ExecuteSqlQuery(Master,
             $@"SELECT [physical_name] FROM [sys].[master_files] WHERE [database_id] = DB_ID('{_DatabaseName}')",
@@ -142,37 +154,20 @@ public abstract class SharedDatabaseFixture : IDisposable
 
     private void CreateEmptyDatabaseAndSeedData()
     {
-        lock (_lock)
+        lock (Lock)
         {
             if (!_databaseInitialized)
             {
                 using (var context = CreateContext())
                 {
-                    try
-                    {
-                        DestroyDatabaseRawSQL();
-                    }
-                    catch (Exception)
-                    {
-                    }
+                    DestroyDatabaseRawSql();
 
-                    try
-                    {
-                        CreateDatabaseRawSQL();
-                        context.Database.EnsureCreated();
-                    }
-                    catch (Exception)
-                    {
-                    }
+                    CreateDatabaseRawSql();
+                    context.Database.EnsureCreated();
                 }
 
                 _databaseInitialized = true;
             }
         }
-    }
-
-    public void Dispose()
-    {
-        Connection.Dispose();
     }
 }
