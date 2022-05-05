@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="db953ea4-0944-4b87-96e1-fa9fe4900d7e">
-  <sourceEnd id="1c726789-3a7c-4fcc-a8e4-09f7b70a4b2f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
-    <name>M_SelfReferenceBiNavsSrc</name>
-    <display>M_SelfReferenceBiNavsSrc: M_SelfReferenceBiNav[*]</display>
+<association id="76a3e8df-508f-4b65-8eee-7f5aee398546">
+  <sourceEnd id="2ad9e954-9d49-4e4c-987a-c1f78c6ecaf2" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>M_SelfReferenceBiNavs</name>
+    <display>M_SelfReferenceBiNavs: M_SelfReferenceBiNav[*]</display>
     <order>1</order>
-    <typeReference id="82329e3e-06aa-4329-81b4-319b1eddf50a">
+    <typeReference id="c1078b7c-23e7-46e4-b2f8-e65f78b1cdec">
       <typeId>ce2a9afd-5a97-43db-a8a6-57e1dfddf129</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
@@ -18,14 +18,14 @@
     <stereotypes />
     <metadata />
   </sourceEnd>
-  <targetEnd id="db953ea4-0944-4b87-96e1-fa9fe4900d7e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
-    <name>M_SelfReferenceBiNavDest</name>
-    <display>M_SelfReferenceBiNavDest: M_SelfReferenceBiNav</display>
+  <targetEnd id="76a3e8df-508f-4b65-8eee-7f5aee398546" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>M_SelfReferenceBiNavDst</name>
+    <display>M_SelfReferenceBiNavDst: M_SelfReferenceBiNav?</display>
     <order>0</order>
-    <typeReference id="53b65624-fbe2-465c-8d71-07b597d58e31">
+    <typeReference id="8f979be8-6e2e-4ec6-b36f-3df3cced8337">
       <typeId>ce2a9afd-5a97-43db-a8a6-57e1dfddf129</typeId>
       <isNavigable>true</isNavigable>
-      <isNullable>false</isNullable>
+      <isNullable>true</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
       <typePackageName>Domain</typePackageName>

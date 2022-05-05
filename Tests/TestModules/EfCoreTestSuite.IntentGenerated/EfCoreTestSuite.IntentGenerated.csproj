@@ -185,6 +185,36 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>J_RequiredDependent.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\K_SelfReferenceState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>K_SelfReference.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\L_SelfReferenceMultipleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\M_SelfReferenceBiNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IK_SelfReference.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>K_SelfReference.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IL_SelfReferenceMultiple.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IM_SelfReferenceBiNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

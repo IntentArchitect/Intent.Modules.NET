@@ -86,7 +86,7 @@ public class MigrationSetupTest : SharedDatabaseFixture
             new C_MultipleDependent()
         };
 
-        dstList.ForEach(x => src.C_MultipleDependents.Add(x));
+        src.C_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.C_RequiredComposites.SingleOrDefault(p => p.Id == src.Id));
@@ -113,7 +113,7 @@ public class MigrationSetupTest : SharedDatabaseFixture
             new D_MultipleDependent()
         };
 
-        dstList.ForEach(x => src.D_MultipleDependents.Add(x));
+        src.D_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.D_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
@@ -189,7 +189,7 @@ public class MigrationSetupTest : SharedDatabaseFixture
             new G_MultipleDependent()
         };
 
-        dstList.ForEach(x => src.G_MultipleDependents.Add(x));
+        src.G_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.G_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id));
@@ -216,7 +216,7 @@ public class MigrationSetupTest : SharedDatabaseFixture
             new H_MultipleDependent()
         };
 
-        dstList.ForEach(x => src.H_MultipleDependents.Add(x));
+        src.H_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.H_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
@@ -246,10 +246,10 @@ public class MigrationSetupTest : SharedDatabaseFixture
             x.J_RequiredDependent = dst;
         });
         DbContext.SaveChanges();
-        
+
         Assert.NotNull(DbContext.J_RequiredDependents.SingleOrDefault(p => p.Id == dst.Id));
         Assert.Equal(srcList.Count, DbContext.J_MultipleAggregates.Count(p => srcList.Contains(p)));
-        
+
         Assert.Throws<DbUpdateException>(() =>
         {
             var orphan = new J_MultipleAggregate();
@@ -258,5 +258,86 @@ public class MigrationSetupTest : SharedDatabaseFixture
         });
     }
 
-    // TODO: Self reference tests - once ready
+    [Fact(Skip = SkipMessage)]
+    public void Test_K_Unidirectional_Many_To_0to1_Association()
+    {
+        var root = new K_SelfReference();
+        DbContext.K_SelfReferences.Add(root);
+        DbContext.SaveChanges();
+
+        var children = new List<K_SelfReference>
+        {
+            new K_SelfReference(),
+            new K_SelfReference()
+        };
+        children.ForEach(x =>
+        {
+            DbContext.K_SelfReferences.Add(x);
+            x.K_SelfReferenceAssociation = root;
+        });
+        DbContext.SaveChanges();
+
+        Assert.NotNull(DbContext.K_SelfReferences.SingleOrDefault(p => p.Id == root.Id));
+        Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => children.Contains(p)));
+        Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => p.K_SelfReferenceAssociationId == root.Id));
+    }
+
+    [Fact(Skip = SkipMessage)]
+    public void Test_L_Unidirectional_Many_To_Many_Association()
+    {
+        var listA = new List<L_SelfReferenceMultiple>
+        {
+            new L_SelfReferenceMultiple()
+        };
+        var listB = new List<L_SelfReferenceMultiple>
+        {
+            new L_SelfReferenceMultiple(),
+            new L_SelfReferenceMultiple()
+        };
+        var listC = new List<L_SelfReferenceMultiple>
+        {
+            new L_SelfReferenceMultiple(),
+            new L_SelfReferenceMultiple(),
+            new L_SelfReferenceMultiple()
+        };
+
+        listA.First().L_SelfReferenceMultiplesDst.AddRange(listB);
+        listB.First().L_SelfReferenceMultiplesDst.AddRange(listA);
+        listB.Last().L_SelfReferenceMultiplesDst.AddRange(listC);
+        listC.ForEach(x => x.L_SelfReferenceMultiplesDst.AddRange(listB));
+
+        DbContext.L_SelfReferenceMultiples.AddRange(listA);
+        DbContext.L_SelfReferenceMultiples.AddRange(listB);
+        DbContext.L_SelfReferenceMultiples.AddRange(listC);
+        DbContext.SaveChanges();
+
+        Assert.Equal(listB.Count, listA.First().L_SelfReferenceMultiplesDst.Count);
+        Assert.Equal(listA.Count, listB.First().L_SelfReferenceMultiplesDst.Count);
+        Assert.Equal(listC.Count, listB.Last().L_SelfReferenceMultiplesDst.Count);
+        Assert.Equal(listB.Count * listC.Count, listC.Sum(x => x.L_SelfReferenceMultiplesDst.Count));
+    }
+
+    [Fact(Skip = SkipMessage)]
+    public void Test_M_Bidirectional_Many_To_0to1_Association()
+    {
+        var root = new M_SelfReferenceBiNav();
+        DbContext.M_SelfReferenceBiNavs.Add(root);
+        DbContext.SaveChanges();
+
+        var children = new List<M_SelfReferenceBiNav>
+        {
+            new M_SelfReferenceBiNav(),
+            new M_SelfReferenceBiNav()
+        };
+        children.ForEach(x =>
+        {
+            DbContext.M_SelfReferenceBiNavs.Add(x);
+            x.M_SelfReferenceBiNavDst = root;
+        });
+        DbContext.SaveChanges();
+
+        Assert.NotNull(DbContext.M_SelfReferenceBiNavs.SingleOrDefault(p => p.Id == root.Id));
+        Assert.Equal(children.Count, DbContext.M_SelfReferenceBiNavs.Count(p => children.Contains(p)));
+        Assert.Equal(children.Count, root.M_SelfReferenceBiNavs.Count);
+    }
 }
