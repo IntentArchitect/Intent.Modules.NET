@@ -224,6 +224,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var statements = new List<string>();
 
+            if (associationEnd.Class.Id.Equals(associationEnd.OtherEnd().Class.Id) 
+                && associationEnd.Name.Equals(associationEnd.Class.Name))
+            {
+                Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
+            }
+            
             switch (associationEnd.Association.GetRelationshipType())
             {
                 case RelationshipType.OneToOne:
