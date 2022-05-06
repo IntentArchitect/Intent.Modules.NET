@@ -18,7 +18,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
             builder.HasOne(x => x.B_OptionalDependent)
                 .WithOne()
-                .HasForeignKey<B_OptionalDependent>(x => x.Id)
+                .HasForeignKey<B_OptionalAggregate>(x => x.B_OptionalDependentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

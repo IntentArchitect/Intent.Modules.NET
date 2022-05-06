@@ -14,8 +14,8 @@ public class MigrationSetupTest : SharedDatabaseFixture
 
     private ApplicationDbContext DbContext { get; set; }
 
-    //public const string SkipMessage = null;
-    public const string SkipMessage = "CI/CD not ready";
+    public const string SkipMessage = null;
+    //public const string SkipMessage = "CI/CD not ready";
 
     public MigrationSetupTest()
     {
@@ -65,12 +65,14 @@ public class MigrationSetupTest : SharedDatabaseFixture
 
         Assert.NotNull(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.B_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
+        Assert.Equal(1, DbContext.B_OptionalAggregates.Count(p => p.B_OptionalDependentId == dst.Id));
 
         src.B_OptionalDependent = null;
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.B_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
+        Assert.Equal(0, DbContext.B_OptionalAggregates.Count(p => p.B_OptionalDependentId == dst.Id));
     }
 
     [Fact(Skip = SkipMessage)]
