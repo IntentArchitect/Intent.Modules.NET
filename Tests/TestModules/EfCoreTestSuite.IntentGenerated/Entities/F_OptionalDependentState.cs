@@ -38,7 +38,5 @@ namespace EfCoreTestSuite.IntentGenerated.Entities
                 _f_OptionalAggregateNav = value;
             }
         }
-
-
     }
 }

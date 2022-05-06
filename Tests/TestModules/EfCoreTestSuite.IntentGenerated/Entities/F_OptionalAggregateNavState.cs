@@ -39,6 +39,6 @@ namespace EfCoreTestSuite.IntentGenerated.Entities
             }
         }
 
-
+        public Guid? F_OptionalDependentId { get; set; }
     }
 }

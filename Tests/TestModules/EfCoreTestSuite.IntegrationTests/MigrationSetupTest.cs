@@ -65,14 +65,14 @@ public class MigrationSetupTest : SharedDatabaseFixture
 
         Assert.NotNull(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.B_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
-        Assert.Equal(1, DbContext.B_OptionalAggregates.Count(p => p.B_OptionalDependentId == dst.Id));
+        Assert.Equal(dst, DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id)?.B_OptionalDependent);
 
         src.B_OptionalDependent = null;
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.B_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
-        Assert.Equal(0, DbContext.B_OptionalAggregates.Count(p => p.B_OptionalDependentId == dst.Id));
+        Assert.Null(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.B_OptionalDependentId == dst.Id));
     }
 
     [Fact(Skip = SkipMessage)]
@@ -170,12 +170,16 @@ public class MigrationSetupTest : SharedDatabaseFixture
 
         Assert.NotNull(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
+        Assert.Equal(dst, DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id)?.F_OptionalDependent);
+        Assert.Equal(src, DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.F_OptionalAggregateNav);
 
         src.F_OptionalDependent = null;
         DbContext.SaveChanges();
-
+        
         Assert.NotNull(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
+        Assert.Null(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id)?.F_OptionalDependent);
+        Assert.Null(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.F_OptionalAggregateNav);
     }
 
     [Fact(Skip = SkipMessage)]
