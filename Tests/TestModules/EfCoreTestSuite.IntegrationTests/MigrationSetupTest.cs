@@ -14,8 +14,8 @@ public class MigrationSetupTest : SharedDatabaseFixture
 
     private ApplicationDbContext DbContext { get; set; }
 
-    public const string SkipMessage = null;
-    //public const string SkipMessage = "CI/CD not ready";
+    //public const string SkipMessage = null;
+    public const string SkipMessage = "CI/CD not ready";
 
     public MigrationSetupTest()
     {
