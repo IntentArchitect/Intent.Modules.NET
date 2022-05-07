@@ -6,11 +6,11 @@ using Intent.Plugins;
 
 namespace Intent.Modules.Entities.Keys.Decorators
 {
-    public class BidirectionalOneToManyEntityStateDecorator : DomainEntityStateDecoratorBase, ISupportsConfiguration
+    public class UnidirectionalManyToManyEntityStateDecorator : DomainEntityStateDecoratorBase, ISupportsConfiguration
     {
-        public const string Identifier = "Intent.Entities.Keys.BidirectionalOneToManyEntityDecorator";
+        public const string Identifier = "Intent.Entities.Keys.UnidirectionalManyToManyEntityStateDecorator";
 
-        public BidirectionalOneToManyEntityStateDecorator(DomainEntityStateTemplate template) : base(template)
+        public UnidirectionalManyToManyEntityStateDecorator(DomainEntityStateTemplate template) : base(template)
         {
         }
 

@@ -40,7 +40,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
+        public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId,
+            outputTarget, model)
         {
             _explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToList();
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
@@ -67,16 +68,19 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetTableMapping()
         {
-            if (Model.ParentClass != null && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerHierarchy())
+            if (Model.ParentClass != null && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
+                    .IsTablePerHierarchy())
             {
                 return $@"
             builder.HasBaseType<{GetTypeName("Domain.Entity", Model.ParentClass)}>();
 ";
             }
-            if (Model.HasTable() || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerHierarchy())
+
+            if (Model.HasTable() || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
+                    .IsTablePerHierarchy())
             {
                 return $@"
-            builder.ToTable(""{ Model.GetTable()?.Name() ?? Model.Name }""{(!string.IsNullOrWhiteSpace(Model.GetTable()?.Schema()) ? @$", ""{ Model.GetTable().Schema() ?? "dbo" }""" : "")});
+            builder.ToTable(""{Model.GetTable()?.Name() ?? Model.Name}""{(!string.IsNullOrWhiteSpace(Model.GetTable()?.Schema()) ? @$", ""{Model.GetTable().Schema() ?? "dbo"}""" : "")});
 ";
             }
 
@@ -85,10 +89,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetKeyMapping()
         {
-            if (Model.ParentClass != null && (!Model.ParentClass.IsAbstract || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType()))
+            if (Model.ParentClass != null && (!Model.ParentClass.IsAbstract || !ExecutionContext.Settings
+                    .GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType()))
             {
                 return string.Empty;
             }
+
             if (!_explicitPrimaryKeys.Any())
             {
                 return $@"
@@ -111,7 +117,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private bool RequiresConfiguration(AttributeModel attribute)
         {
-            return _explicitPrimaryKeys.All(key => !key.Equals(attribute)) && !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase);
+            return _explicitPrimaryKeys.All(key => !key.Equals(attribute)) &&
+                   !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase);
         }
 
         private bool RequiresConfiguration(AssociationEndModel associationEnd)
@@ -122,7 +129,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private string GetAttributeMapping(AttributeModel attribute)
         {
             var statements = new List<string>();
-            statements.Add($"builder.Property(x => x.{ attribute.Name.ToPascalCase() })");
+            statements.Add($"builder.Property(x => x.{attribute.Name.ToPascalCase()})");
             if (!attribute.Type.IsNullable)
             {
                 statements.Add(".IsRequired()");
@@ -144,6 +151,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     defaultValue = $"\"{defaultValue}\"";
                 }
+
                 var method = treatAsSqlExpression
                     ? "HasDefaultValueSql"
                     : "HasDefaultValue";
@@ -177,11 +185,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         statements.Add($".HasColumnType(\"nvarchar({maxLength?.ToString() ?? "max"})\")");
                         break;
                     case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
-                        Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                        Logging.Log.Warning(
+                            $"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
                         statements.Add($".HasColumnType(\"text\")");
                         break;
                     case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT:
-                        Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                        Logging.Log.Warning(
+                            $"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
                         statements.Add($".HasColumnType(\"ntext\")");
                         break;
                     default:
@@ -195,7 +205,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 var columnType = attribute.GetColumn()?.Type();
                 if (decimalPrecision.HasValue && decimalScale.HasValue)
                 {
-                    statements.Add($".HasColumnType(\"decimal({ decimalPrecision }, { decimalScale })\")");
+                    statements.Add($".HasColumnType(\"decimal({decimalPrecision}, {decimalScale})\")");
                 }
                 else if (!string.IsNullOrWhiteSpace(columnType))
                 {
@@ -212,7 +222,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             var computedValueSql = attribute.GetComputedValue()?.SQL();
             if (!string.IsNullOrWhiteSpace(computedValueSql))
             {
-                statements.Add($".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
+                statements.Add(
+                    $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
             }
 
             return $@"
@@ -224,28 +235,37 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var statements = new List<string>();
 
-            if (associationEnd.Class.Id.Equals(associationEnd.OtherEnd().Class.Id) 
+            if (associationEnd.Class.Id.Equals(associationEnd.OtherEnd().Class.Id)
                 && associationEnd.Name.Equals(associationEnd.Class.Name))
             {
-                Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
+                Logging.Log.Warning(
+                    $"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
             }
-            
+
             switch (associationEnd.Association.GetRelationshipType())
             {
                 case RelationshipType.OneToOne:
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "") })");
-                    // DJVV: We should extend this in the future to allow a different property to facilitate one-to-one
-                    // relationships other than Id.
-                    //statements.Add($".HasForeignKey<{ Model.Name }>({GetForeignKeyLambda(associationEnd.OtherEnd())})");
+                    statements.Add(
+                        $".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
+
                     if (associationEnd.IsNullable)
                     {
-                        statements.Add($".HasForeignKey<{ associationEnd.Class.Name }>(x => x.Id)");
+                        if (associationEnd.OtherEnd().IsNullable)
+                        {
+                            statements.Add(
+                                $".HasForeignKey<{associationEnd.OtherEnd().Class.Name}>(x => x.{associationEnd.Name.ToPascalCase()}Id)");
+                        }
+                        else
+                        {
+                            statements.Add($".HasForeignKey<{associationEnd.Class.Name}>(x => x.Id)");
+                        }
                     }
                     else
                     {
-                        statements.Add($".HasForeignKey<{ Model.Name }>(x => x.Id)");
+                        statements.Add($".HasForeignKey<{Model.Name}>(x => x.Id)");
                     }
+
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
                         statements.Add($".IsRequired()");
@@ -259,13 +279,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     break;
                 case RelationshipType.ManyToOne:
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add($".WithMany({ (associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "") })");
+                    statements.Add(
+                        $".WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
                     statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd())})");
                     statements.Add($".OnDelete(DeleteBehavior.Restrict)");
                     break;
                 case RelationshipType.OneToMany:
                     statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add($".WithOne({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"") })");
+                    statements.Add(
+                        $".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
                     statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd)})");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
@@ -279,7 +301,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         statements.Add($"builder.Ignore(x => x.{associationEnd.Name.ToPascalCase()})");
 
-                        Logging.Log.Warning($@"Intent.EntityFrameworkCore: Cannot create mapping relationship from {Model.Name} to {associationEnd.Class.Name}. It has been ignored, and will not be persisted.
+                        Logging.Log.Warning(
+                            $@"Intent.EntityFrameworkCore: Cannot create mapping relationship from {Model.Name} to {associationEnd.Class.Name}. It has been ignored, and will not be persisted.
     Many-to-Many relationships are not yet supported by EntityFrameworkCore as yet.
     Either upgrade your solution to .NET 5.0 or create a joining-table entity (e.g. [{Model.Name}] 1 --> * [{Model.Name}{associationEnd.Class.Name}] * --> 1 [{associationEnd.Class.Name}])
     For more information, please see https://github.com/aspnet/EntityFrameworkCore/issues/1368");
@@ -287,13 +310,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     else // if .NET 5.0 or above...
                     {
                         statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                        statements.Add($".WithMany({ (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"") })");
-                        statements.Add($".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
+                        statements.Add(
+                            $".WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
+                        statements.Add(
+                            $".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
                     }
+
                     break;
                 default:
-                    throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
+                    throw new Exception(
+                        $"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
+
             return $@"
             {string.Join(@"
                 ", statements)};";
@@ -391,7 +419,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private static string GetForeignKeyLambda(AssociationEndModel associationEnd)
         {
             var columns = new List<string>();
-            if (associationEnd.HasForeignKey() && !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
+            if (associationEnd.HasForeignKey() &&
+                !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
             {
                 columns.AddRange(associationEnd.GetForeignKey().ColumnName()
                     .Split(',') // upgrade stereotype to have a selection list.
@@ -399,7 +428,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
             else if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
             {
-                columns.AddRange(associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x => $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"));
+                columns.AddRange(associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
+                    $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"));
             }
             else // implicit Id
             {
@@ -417,7 +447,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private IEnumerable<AttributeModel> GetAttributes(ClassModel model)
         {
             var attributes = new List<AttributeModel>();
-            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
+            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings
+                    .GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
             {
                 attributes.AddRange(GetAttributes(model.ParentClass));
             }
@@ -429,10 +460,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private IEnumerable<AssociationEndModel> GetAssociations(ClassModel model)
         {
             var associations = new List<AssociationEndModel>();
-            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
+            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings
+                    .GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
             {
                 associations.AddRange(GetAssociations(model.ParentClass));
             }
+
             associations.AddRange(model.AssociatedClasses.Where(RequiresConfiguration).ToList());
             return associations;
         }
