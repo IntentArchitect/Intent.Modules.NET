@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
@@ -5,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
 
@@ -35,18 +37,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         public override string EnterClass()
         {
             return $@"
-        private readonly {_template.GetTypeName(DbContextTemplate.TemplateId)} _dbContext;";
+        private readonly {GetUnitOfWork()} _unitOfWork;";
         }
 
         public override IEnumerable<string> ConstructorParameters()
         {
-            return new[] { $"{_template.GetTypeName(DbContextTemplate.TemplateId)} dbContext" };
+            return new[] { $"{GetUnitOfWork()} unitOfWork" };
         }
 
         public override string ConstructorImplementation()
         {
             return $@"
-            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));";
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));";
         }
 
         public override string MidOperationBody(OperationModel operationModel)
@@ -56,7 +58,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
                 return string.Empty;
             }
             return $@"
-            await _dbContext.SaveChangesAsync(cancellationToken);";
+            await _unitOfWork.SaveChangesAsync(cancellationToken);";
+        }
+
+        private string GetUnitOfWork()
+        {
+            if (_template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||
+                _template.TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWork) ||
+                _template.TryGetTypeName(DbContextTemplate.TemplateId, out unitOfWork))
+            {
+                return unitOfWork;
+            }
+            throw new Exception($"A unit of work interface could not be resolved. Please ensure an interface with the role [{TemplateFulfillingRoles.Domain.UnitOfWork}] exists.");
         }
     }
 }

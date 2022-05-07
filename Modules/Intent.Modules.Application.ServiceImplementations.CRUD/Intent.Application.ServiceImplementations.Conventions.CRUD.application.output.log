@@ -15,6 +15,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>edf1ca39-2211-451d-ae91-39d4615a58bc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#aec8e629-5885-41a9-9f49-eca762a554de</CorrelationId>
+      <ApplicationRelativeFilePath>Api/ServicesPackageExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServicesPackageExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Application.ServiceImplementations.Conventions.CRUD.imodspec</ApplicationRelativeFilePath>

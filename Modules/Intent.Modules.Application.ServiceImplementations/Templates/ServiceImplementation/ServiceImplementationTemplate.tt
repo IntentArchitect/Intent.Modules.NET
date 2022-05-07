@@ -20,19 +20,20 @@ using System.Threading.Tasks;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace <#=Namespace#>
 {
+    [IntentManaged(Mode.Merge)]
     public class <#=ClassName#> : <#= NormalizeNamespace(GetServiceInterfaceName()) #>
     {
 <#	var parameters = GetConstructorDependencies(); 
 	foreach (var parameter in parameters)
 	{ #>
-		private <#= NormalizeNamespace(parameter.ParameterType) #> _<#= parameter.ParameterName #>;
+		private readonly <#= NormalizeNamespace(parameter.ParameterType) #> _<#= parameter.ParameterName #>;
 <#	} #>
 
-		[IntentInitialGen]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public <#=ClassName#>(<#= string.Join(", ", parameters.Select(s => string.Format("{0} {1}", NormalizeNamespace(s.ParameterType), s.ParameterName))) #>)
         {
 <#	foreach (var parameter in parameters)
@@ -43,7 +44,7 @@ namespace <#=Namespace#>
 
 <#  foreach (var o in Model.Operations) 
 	{ #>
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public <#= GetOperationReturnType(o) #> <#= o.Name.ToPascalCase() #>(<#= GetOperationDefinitionParameters(o) #>)
         {<#= GetImplementation(o) #>		
         }

@@ -71,7 +71,7 @@ if (options.length == 0) {
             stereotype.getProperty("Route").setValue("{id}");
 
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", command.id);
+                let idField = createElement("DTO-Field", "Id", command.id);
                 idField.typeReference.setType(getSurrogateKeyType())
                             
                 let idParam = createElement("Parameter", "id", operation.id);
@@ -114,7 +114,7 @@ if (options.length == 0) {
             stereotype.getProperty("Route").setValue("{id}");
 
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", command.id);
+                let idField = createElement("DTO-Field", "Id", command.id);
                 idField.typeReference.setType(getSurrogateKeyType())
                             
                 let idParam = createElement("Parameter", "id", operation.id);
@@ -142,7 +142,7 @@ if (options.length == 0) {
             dto.setMapping(entity.id);
             
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", dto.id);
+                let idField = createElement("DTO-Field", "Id", dto.id);
                 idField.typeReference.setType(getSurrogateKeyType())
             }
             
@@ -168,7 +168,7 @@ if (options.length == 0) {
             stereotype.getProperty("Route").setValue("{id}");
             
             if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", query.id);
+                let idField = createElement("DTO-Field", "Id", query.id);
                 idField.typeReference.setType(getSurrogateKeyType())
                             
                 let idParam = createElement("Parameter", "id", operation.id);
