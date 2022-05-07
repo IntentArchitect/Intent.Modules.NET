@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -129,7 +130,70 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private string GetAttributeMapping(AttributeModel attribute)
         {
             var statements = new List<string>();
-            statements.Add($"builder.Property(x => x.{attribute.Name.ToPascalCase()})");
+
+            if (!IsValueObjectAttribute(attribute))
+            {
+                statements.Add($"builder.Property(x => x.{attribute.Name.ToPascalCase()})");
+                ProvideAttributeMappingStatements(statements, attribute);
+                return GetAttributeMappingOutput(statements);
+            }
+
+            var valueObjectAttributes = GetValueObjectAttributes(attribute);
+            if (!valueObjectAttributes.Any())
+            {
+                statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
+                return GetAttributeMappingOutput(statements);
+            }
+
+            var stringBuilder = new StringBuilder();
+            var subStatements = new List<string>();
+            foreach (var valueObjectAttribute in valueObjectAttributes)
+            {
+                statements.Clear();
+                subStatements.Clear();
+                statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
+                statements.Add($".Property(x => x.{valueObjectAttribute.Name.ToPascalCase()})");
+
+                ProvideAttributeMappingStatements(subStatements, valueObjectAttribute);
+                if (subStatements.Count == 0)
+                {
+                    continue;
+                }
+
+                statements.AddRange(subStatements);
+
+                stringBuilder.AppendLine(GetAttributeMappingOutput(statements));
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        private string GetAttributeMappingOutput(List<string> statements)
+        {
+            return $@"
+            {string.Join(@"
+                ", statements)};";
+        }
+
+        private bool IsValueObjectAttribute(AttributeModel attributeAsValueObject)
+        {
+            return TryGetTypeName("Domain.ValueObject", attributeAsValueObject.TypeReference.Element.Id,
+                out var typename);
+        }
+
+        private List<AttributeModel> GetValueObjectAttributes(AttributeModel attributeAsValueObject)
+        {
+            var valueObjectElement = attributeAsValueObject.InternalElement.TypeReference.Element as IElement;
+            return valueObjectElement.ChildElements.Select(s => s.AsAttributeModel()).ToList();
+        }
+
+        private string GetValueObjectTypeName(AttributeModel attributeAsValueObject)
+        {
+            return GetTypeName("Domain.ValueObject", attributeAsValueObject);
+        }
+
+        private void ProvideAttributeMappingStatements(List<string> statements, AttributeModel attribute)
+        {
             if (!attribute.Type.IsNullable)
             {
                 statements.Add(".IsRequired()");
@@ -225,10 +289,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add(
                     $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
             }
-
-            return $@"
-            {string.Join(@"
-                ", statements)};";
         }
 
         private string GetAssociationMapping(AssociationEndModel associationEnd)
