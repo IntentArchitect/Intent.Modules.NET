@@ -134,65 +134,36 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (!IsValueObjectAttribute(attribute))
             {
                 statements.Add($"builder.Property(x => x.{attribute.Name.ToPascalCase()})");
-                ProvideAttributeMappingStatements(statements, attribute);
-                return GetAttributeMappingOutput(statements);
+                statements.AddRange(GetAttributeMappingStatements(attribute));
+
+                return $@"
+            {string.Join(@"
+                ", statements)};";
+
             }
 
-            var valueObjectAttributes = GetValueObjectAttributes(attribute);
-            var stringBuilder = new StringBuilder(1024);
-            var subStatements = new List<string>();
+            var valueObjectAttributes = ((IElement)attribute.TypeReference.Element).ChildElements
+                .Where(x => x.IsAttributeModel())
+                .Select(x => x.AsAttributeModel()).ToList();
 
             foreach (var valueObjectAttribute in valueObjectAttributes)
             {
                 statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
                 statements.Add($".Property(x => x.{valueObjectAttribute.Name.ToPascalCase()})");
 
-                ProvideAttributeMappingStatements(subStatements, valueObjectAttribute);
-                if (subStatements.Any())
-                {
-                    statements.AddRange(subStatements);
-                    stringBuilder.AppendLine(GetAttributeMappingOutput(statements));
-                }
-
-                statements.Clear();
-                subStatements.Clear();
-            }
-
-            if (stringBuilder.Length > 0)
-            {
-                return stringBuilder.ToString();
+                statements.AddRange(GetAttributeMappingStatements(valueObjectAttribute));
+                statements.Add(string.Empty); // new line
             }
 
             statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
-            return GetAttributeMappingOutput(statements);
-        }
-
-        private string GetAttributeMappingOutput(List<string> statements)
-        {
             return $@"
             {string.Join(@"
                 ", statements)};";
         }
 
-        private bool IsValueObjectAttribute(AttributeModel attributeAsValueObject)
+        private List<string> GetAttributeMappingStatements(AttributeModel attribute)
         {
-            return TryGetTypeName("Domain.ValueObject", attributeAsValueObject.TypeReference.Element.Id,
-                out var typename);
-        }
-
-        private List<AttributeModel> GetValueObjectAttributes(AttributeModel attributeAsValueObject)
-        {
-            var valueObjectElement = attributeAsValueObject.InternalElement.TypeReference.Element as IElement;
-            return valueObjectElement.ChildElements.Select(s => s.AsAttributeModel()).ToList();
-        }
-
-        private string GetValueObjectTypeName(AttributeModel attributeAsValueObject)
-        {
-            return GetTypeName("Domain.ValueObject", attributeAsValueObject);
-        }
-
-        private void ProvideAttributeMappingStatements(List<string> statements, AttributeModel attribute)
-        {
+            var statements = new List<string>();
             if (!attribute.Type.IsNullable)
             {
                 statements.Add(".IsRequired()");
@@ -288,6 +259,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add(
                     $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
             }
+
+            return statements;
         }
 
         private string GetAssociationMapping(AssociationEndModel associationEnd)
@@ -466,6 +439,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             return string.Join(Environment.NewLine, statements);
+        }
+
+        private bool IsValueObjectAttribute(AttributeModel attributeAsValueObject)
+        {
+            return TryGetTypeName("Domain.ValueObject", attributeAsValueObject.TypeReference.Element.Id,
+                out var typename);
         }
 
         private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
