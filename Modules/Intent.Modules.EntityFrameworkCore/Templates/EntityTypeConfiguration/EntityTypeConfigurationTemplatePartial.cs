@@ -139,33 +139,32 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             var valueObjectAttributes = GetValueObjectAttributes(attribute);
-            if (!valueObjectAttributes.Any())
-            {
-                statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
-                return GetAttributeMappingOutput(statements);
-            }
-
-            var stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder(1024);
             var subStatements = new List<string>();
+
             foreach (var valueObjectAttribute in valueObjectAttributes)
             {
-                statements.Clear();
-                subStatements.Clear();
                 statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
                 statements.Add($".Property(x => x.{valueObjectAttribute.Name.ToPascalCase()})");
 
                 ProvideAttributeMappingStatements(subStatements, valueObjectAttribute);
-                if (subStatements.Count == 0)
+                if (subStatements.Any())
                 {
-                    continue;
+                    statements.AddRange(subStatements);
+                    stringBuilder.AppendLine(GetAttributeMappingOutput(statements));
                 }
 
-                statements.AddRange(subStatements);
-
-                stringBuilder.AppendLine(GetAttributeMappingOutput(statements));
+                statements.Clear();
+                subStatements.Clear();
             }
 
-            return stringBuilder.ToString();
+            if (stringBuilder.Length > 0)
+            {
+                return stringBuilder.ToString();
+            }
+
+            statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
+            return GetAttributeMappingOutput(statements);
         }
 
         private string GetAttributeMappingOutput(List<string> statements)
