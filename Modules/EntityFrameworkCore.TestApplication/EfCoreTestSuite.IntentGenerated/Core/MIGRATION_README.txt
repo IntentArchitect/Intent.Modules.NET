@@ -30,7 +30,7 @@ Script-Migration -SourceMigration:{Source} -TargetMigration:{Target} -Script -St
 
 Drop all tables in schema:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-DECLARE @SCHEMA AS varchar(max) = 'EfCoreTestSuite'
+DECLARE @SCHEMA AS varchar(max) = 'EntityFrameworkCore.TestApplication'
 DECLARE @EXECUTE_STATEMENT AS varchar(max) = (SELECT STUFF((SELECT CHAR(13) + CHAR(10) + [Statement] FROM (
     SELECT 'ALTER TABLE ['+@SCHEMA+'].['+[t].[name]+'] DROP CONSTRAINT ['+[fk].[name]+']' AS [Statement] FROM [sys].[foreign_keys] AS [fk] INNER JOIN [sys].[tables] AS [t] ON [t].[object_id] = [fk].[parent_object_id] INNER JOIN [sys].[schemas] AS [s] ON [s].[schema_id] = [t].[schema_id] WHERE [s].[name] = @SCHEMA
     UNION ALL

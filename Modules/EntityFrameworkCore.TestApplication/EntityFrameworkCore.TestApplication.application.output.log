@@ -1,640 +1,640 @@
 <?xml version="1.0" encoding="utf-8"?>
 <outputLog>
-  <ApplicationId>3f53ba2e-ad92-40f3-a658-df0c61bbbfd8</ApplicationId>
+  <ApplicationId>9c8d451f-373a-4c17-b74d-12489ffcd7e3</ApplicationId>
   <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#588bff6c-29fe-4e22-91fc-546041371761</CorrelationId>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
     <FileLog>
       <ProjectId>2c6ff5f9-369c-4301-8a61-a26ec6a8272a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#2c6ff5f9-369c-4301-8a61-a26ec6a8272a</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntegrationTests/EfCoreTestSuite.IntegrationTests.csproj</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntegrationTests/EfCoreTestSuite.IntegrationTests.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfCoreTestSuite.IntegrationTests.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#76c49a29-3df5-40c2-97a6-1881419c70c3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/A_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/A_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>A_OptionalDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5e1b24a8-9c9b-4f8b-a99f-354df92e2ee4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/A_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/A_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>A_RequiredCompositeConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6986c322-2b24-4945-9e7c-7badb3dbdc24</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/B_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/B_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>B_OptionalAggregateConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#44b3acd9-2233-42f9-b216-564fe9f907c4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/B_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/B_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>B_OptionalDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#96a4ca3f-5be8-43af-8e6c-35f85646f1e2</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/C_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/C_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>C_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d79a991a-b905-431e-81b4-f8de802cfd1e</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/C_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/C_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>C_RequiredCompositeConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a769c8f6-2f60-4537-ab66-8f854a9ec719</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/D_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/D_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>D_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#334605d2-7b0a-4deb-928c-1006efc73878</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/D_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/D_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>D_OptionalAggregateConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cf08ba2a-9eaa-4dfe-89b1-a7dec3c7d57d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/E_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/E_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>E_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#e34e4ec8-83a2-41d5-8cc4-cd57892cfff3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/E_RequiredDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/E_RequiredDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>E_RequiredDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/F_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/F_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>F_OptionalAggregateNavConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#921d87ec-c2e6-4135-9d49-c968c2ce6e36</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/F_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/F_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>F_OptionalDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b1739432-87e1-46c3-b88c-969380956639</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/G_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/G_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>G_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#654a828d-d589-4153-9504-dcf419bbfae0</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/G_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/G_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>G_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ac148e9c-6f1f-44e0-9268-5053c13cd511</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/H_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/H_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>H_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9e9a2017-c3f9-409d-82e6-5aba9d64842f</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/H_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/H_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>H_OptionalAggregateNavConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/IApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/IApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6d0beed8-d7eb-41f7-8103-79900de9376d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/J_MultipleAggregateConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/J_MultipleAggregateConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>J_MultipleAggregateConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#06fcf6dc-1f26-45b7-9a0e-d6a4089cdbcf</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/J_RequiredDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/J_RequiredDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>J_RequiredDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b8353eea-e647-47f0-a017-4533953f4e91</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/K_SelfReferenceConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/K_SelfReferenceConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>K_SelfReferenceConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#26935a83-9c1a-422a-a353-94be5e0bca00</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/L_SelfReferenceMultipleConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/L_SelfReferenceMultipleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>L_SelfReferenceMultipleConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ce2a9afd-5a97-43db-a8a6-57e1dfddf129</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/M_SelfReferenceBiNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/M_SelfReferenceBiNavConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>M_SelfReferenceBiNavConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Core/MIGRATION_README.txt</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bf8f742b-f7e7-41f7-b825-84f886e15074</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#bf8f742b-f7e7-41f7-b825-84f886e15074</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/EfCoreTestSuite.IntentGenerated.csproj</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/EfCoreTestSuite.IntentGenerated.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfCoreTestSuite.IntentGenerated.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#76c49a29-3df5-40c2-97a6-1881419c70c3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/A_OptionalDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/A_OptionalDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>A_OptionalDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#76c49a29-3df5-40c2-97a6-1881419c70c3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/A_OptionalDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/A_OptionalDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>A_OptionalDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#5e1b24a8-9c9b-4f8b-a99f-354df92e2ee4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/A_RequiredComposite.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/A_RequiredComposite.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>A_RequiredComposite.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#5e1b24a8-9c9b-4f8b-a99f-354df92e2ee4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/A_RequiredCompositeState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/A_RequiredCompositeState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>A_RequiredCompositeState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#6986c322-2b24-4945-9e7c-7badb3dbdc24</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/B_OptionalAggregate.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/B_OptionalAggregate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>B_OptionalAggregate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#6986c322-2b24-4945-9e7c-7badb3dbdc24</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/B_OptionalAggregateState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/B_OptionalAggregateState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>B_OptionalAggregateState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#44b3acd9-2233-42f9-b216-564fe9f907c4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/B_OptionalDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/B_OptionalDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>B_OptionalDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#44b3acd9-2233-42f9-b216-564fe9f907c4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/B_OptionalDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/B_OptionalDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>B_OptionalDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#96a4ca3f-5be8-43af-8e6c-35f85646f1e2</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/C_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/C_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>C_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#96a4ca3f-5be8-43af-8e6c-35f85646f1e2</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/C_MultipleDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/C_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>C_MultipleDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#d79a991a-b905-431e-81b4-f8de802cfd1e</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/C_RequiredComposite.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/C_RequiredComposite.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>C_RequiredComposite.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#d79a991a-b905-431e-81b4-f8de802cfd1e</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/C_RequiredCompositeState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/C_RequiredCompositeState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>C_RequiredCompositeState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a769c8f6-2f60-4537-ab66-8f854a9ec719</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/D_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/D_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>D_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#a769c8f6-2f60-4537-ab66-8f854a9ec719</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/D_MultipleDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/D_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>D_MultipleDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#334605d2-7b0a-4deb-928c-1006efc73878</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/D_OptionalAggregate.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/D_OptionalAggregate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>D_OptionalAggregate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#334605d2-7b0a-4deb-928c-1006efc73878</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/D_OptionalAggregateState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/D_OptionalAggregateState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>D_OptionalAggregateState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#cf08ba2a-9eaa-4dfe-89b1-a7dec3c7d57d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/E_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/E_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>E_RequiredCompositeNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#cf08ba2a-9eaa-4dfe-89b1-a7dec3c7d57d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/E_RequiredCompositeNavState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/E_RequiredCompositeNavState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>E_RequiredCompositeNavState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#e34e4ec8-83a2-41d5-8cc4-cd57892cfff3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/E_RequiredDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/E_RequiredDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>E_RequiredDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#e34e4ec8-83a2-41d5-8cc4-cd57892cfff3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/E_RequiredDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/E_RequiredDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>E_RequiredDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/F_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/F_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>F_OptionalAggregateNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/F_OptionalAggregateNavState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/F_OptionalAggregateNavState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>F_OptionalAggregateNavState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#921d87ec-c2e6-4135-9d49-c968c2ce6e36</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/F_OptionalDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/F_OptionalDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>F_OptionalDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#921d87ec-c2e6-4135-9d49-c968c2ce6e36</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/F_OptionalDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/F_OptionalDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>F_OptionalDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#b1739432-87e1-46c3-b88c-969380956639</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/G_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/G_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>G_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#b1739432-87e1-46c3-b88c-969380956639</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/G_MultipleDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/G_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>G_MultipleDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#654a828d-d589-4153-9504-dcf419bbfae0</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/G_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/G_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>G_RequiredCompositeNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#654a828d-d589-4153-9504-dcf419bbfae0</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/G_RequiredCompositeNavState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/G_RequiredCompositeNavState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>G_RequiredCompositeNavState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#ac148e9c-6f1f-44e0-9268-5053c13cd511</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/H_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/H_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>H_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#ac148e9c-6f1f-44e0-9268-5053c13cd511</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/H_MultipleDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/H_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>H_MultipleDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#9e9a2017-c3f9-409d-82e6-5aba9d64842f</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/H_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/H_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>H_OptionalAggregateNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#9e9a2017-c3f9-409d-82e6-5aba9d64842f</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/H_OptionalAggregateNavState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/H_OptionalAggregateNavState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>H_OptionalAggregateNavState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#76c49a29-3df5-40c2-97a6-1881419c70c3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IA_OptionalDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IA_OptionalDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IA_OptionalDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#5e1b24a8-9c9b-4f8b-a99f-354df92e2ee4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IA_RequiredComposite.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IA_RequiredComposite.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IA_RequiredComposite.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#6986c322-2b24-4945-9e7c-7badb3dbdc24</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IB_OptionalAggregate.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IB_OptionalAggregate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IB_OptionalAggregate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#44b3acd9-2233-42f9-b216-564fe9f907c4</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IB_OptionalDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IB_OptionalDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IB_OptionalDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#96a4ca3f-5be8-43af-8e6c-35f85646f1e2</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IC_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IC_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IC_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#d79a991a-b905-431e-81b4-f8de802cfd1e</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IC_RequiredComposite.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IC_RequiredComposite.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IC_RequiredComposite.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#a769c8f6-2f60-4537-ab66-8f854a9ec719</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/ID_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ID_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ID_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#334605d2-7b0a-4deb-928c-1006efc73878</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/ID_OptionalAggregate.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ID_OptionalAggregate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ID_OptionalAggregate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IdentityGenerator.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IdentityGenerator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#cf08ba2a-9eaa-4dfe-89b1-a7dec3c7d57d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IE_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IE_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IE_RequiredCompositeNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#e34e4ec8-83a2-41d5-8cc4-cd57892cfff3</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IE_RequiredDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IE_RequiredDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IE_RequiredDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IF_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IF_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IF_OptionalAggregateNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#921d87ec-c2e6-4135-9d49-c968c2ce6e36</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IF_OptionalDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IF_OptionalDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IF_OptionalDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#b1739432-87e1-46c3-b88c-969380956639</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IG_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IG_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IG_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#654a828d-d589-4153-9504-dcf419bbfae0</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IG_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IG_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IG_RequiredCompositeNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#ac148e9c-6f1f-44e0-9268-5053c13cd511</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IH_MultipleDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IH_MultipleDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IH_MultipleDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#9e9a2017-c3f9-409d-82e6-5aba9d64842f</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IH_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IH_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IH_OptionalAggregateNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#6d0beed8-d7eb-41f7-8103-79900de9376d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IJ_MultipleAggregate.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IJ_MultipleAggregate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IJ_MultipleAggregate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#06fcf6dc-1f26-45b7-9a0e-d6a4089cdbcf</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IJ_RequiredDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IJ_RequiredDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IJ_RequiredDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#b8353eea-e647-47f0-a017-4533953f4e91</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IK_SelfReference.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IK_SelfReference.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IK_SelfReference.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#26935a83-9c1a-422a-a353-94be5e0bca00</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IL_SelfReferenceMultiple.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IL_SelfReferenceMultiple.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IL_SelfReferenceMultiple.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#ce2a9afd-5a97-43db-a8a6-57e1dfddf129</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/IM_SelfReferenceBiNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IM_SelfReferenceBiNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IM_SelfReferenceBiNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#6d0beed8-d7eb-41f7-8103-79900de9376d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/J_MultipleAggregate.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/J_MultipleAggregate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>J_MultipleAggregate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#6d0beed8-d7eb-41f7-8103-79900de9376d</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/J_MultipleAggregateState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/J_MultipleAggregateState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>J_MultipleAggregateState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#06fcf6dc-1f26-45b7-9a0e-d6a4089cdbcf</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/J_RequiredDependent.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/J_RequiredDependent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>J_RequiredDependent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#06fcf6dc-1f26-45b7-9a0e-d6a4089cdbcf</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/J_RequiredDependentState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/J_RequiredDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>J_RequiredDependentState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#b8353eea-e647-47f0-a017-4533953f4e91</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/K_SelfReference.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/K_SelfReference.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>K_SelfReference.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#b8353eea-e647-47f0-a017-4533953f4e91</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/K_SelfReferenceState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/K_SelfReferenceState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>K_SelfReferenceState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#26935a83-9c1a-422a-a353-94be5e0bca00</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/L_SelfReferenceMultiple.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/L_SelfReferenceMultiple.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>L_SelfReferenceMultiple.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#26935a83-9c1a-422a-a353-94be5e0bca00</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/L_SelfReferenceMultipleState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/L_SelfReferenceMultipleState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>L_SelfReferenceMultipleState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#ce2a9afd-5a97-43db-a8a6-57e1dfddf129</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/M_SelfReferenceBiNav.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/M_SelfReferenceBiNav.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>M_SelfReferenceBiNav.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#ce2a9afd-5a97-43db-a8a6-57e1dfddf129</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.IntentGenerated/Entities/M_SelfReferenceBiNavState.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/M_SelfReferenceBiNavState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>M_SelfReferenceBiNavState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#588bff6c-29fe-4e22-91fc-546041371761</CorrelationId>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

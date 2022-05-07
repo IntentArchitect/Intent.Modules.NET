@@ -62,5 +62,6 @@
     <application id="37e998f1-a36d-4036-a5af-f4c126280df0" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture/Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture.application.config" />
     <application id="9f716012-fac8-4345-916f-20f06cd58527" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer/Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer.application.config" />
     <application id="cf054ca4-89ca-4c22-8bbe-3f15409ae0ec" name="Intent.Modules.AspNetCore.Logging.Serilog" relativePath="Intent.Modules.AspNetCore.Logging.Serilog/Intent.Modules.AspNetCore.Logging.Serilog.application.config" />
+    <application id="9c8d451f-373a-4c17-b74d-12489ffcd7e3" name="EntityFrameworkCore.TestApplication" relativePath="EntityFrameworkCore.TestApplication/EntityFrameworkCore.TestApplication.application.config" />
   </applications>
 </solution>

@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>bf8f742b-f7e7-41f7-b825-84f886e15074</parentFolderId>
   <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
-  <packageName>EfCoreTestSuite</packageName>
+  <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -31,9 +31,11 @@
       <isMapped>false</isMapped>
       <parentFolderId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</parentFolderId>
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
-      <packageName>EfCoreTestSuite</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="acbfd8ee-9b0a-4f1e-bfc7-8586b65d378d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -46,9 +48,11 @@
       <isMapped>false</isMapped>
       <parentFolderId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</parentFolderId>
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
-      <packageName>EfCoreTestSuite</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="725f368d-e1ca-42f7-a3f0-9c4d0ad1f529" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -61,9 +65,11 @@
       <isMapped>false</isMapped>
       <parentFolderId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</parentFolderId>
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
-      <packageName>EfCoreTestSuite</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="60c2b307-9da7-40ef-8955-e70b7db7062c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -76,9 +82,11 @@
       <isMapped>false</isMapped>
       <parentFolderId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</parentFolderId>
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
-      <packageName>EfCoreTestSuite</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="2d507554-1b84-4355-a0ee-39e55e874f14" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -91,9 +99,11 @@
       <isMapped>false</isMapped>
       <parentFolderId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</parentFolderId>
       <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
-      <packageName>EfCoreTestSuite</packageName>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
-      <metadata />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>
