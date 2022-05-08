@@ -139,7 +139,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 return $@"
             {string.Join(@"
                 ", statements)};";
-
             }
 
             var valueObjectAttributes = ((IElement)attribute.TypeReference.Element).ChildElements
@@ -152,10 +151,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add($".Property(x => x.{valueObjectAttribute.Name.ToPascalCase()})");
 
                 statements.AddRange(GetAttributeMappingStatements(valueObjectAttribute));
-                statements.Add(string.Empty); // new line
+                statements.Add(";");
+            }
+
+            if (statements.Any())
+            {
+                return $@"
+            {string.Join(@"
+                ", statements)}";
             }
 
             statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()})");
+
             return $@"
             {string.Join(@"
                 ", statements)};";
