@@ -82,7 +82,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
                         validations.Add($".Must(Validate{property.Name})");
                     }
                 }
-                else if (property.InternalElement.IsMapped)
+                if (!validations.Any(x => x.StartsWith(".MaximumLength")) && property.InternalElement.IsMapped)
                 {
                     try
                     {
