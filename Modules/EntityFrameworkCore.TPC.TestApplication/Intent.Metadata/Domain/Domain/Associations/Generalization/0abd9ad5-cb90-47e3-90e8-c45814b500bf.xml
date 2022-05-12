@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0abd9ad5-cb90-47e3-90e8-c45814b500bf">
+  <sourceEnd id="193d9e52-fa6f-4620-ae77-36cdcb0a70d9" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <name>DerivedClassForConcrete</name>
+    <display>DerivedClassForConcrete: DerivedClassForConcrete</display>
+    <order>1</order>
+    <typeReference id="e38e5818-2b02-4905-b595-81704e842235">
+      <typeId>e1f1e3cc-004a-48e3-81ca-5f3d44baf5a4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="0abd9ad5-cb90-47e3-90e8-c45814b500bf" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>ConcreteBaseClass</name>
+    <display>ConcreteBaseClass: ConcreteBaseClass</display>
+    <order>1</order>
+    <typeReference id="d06be492-aa93-4651-b69d-76f9772f81fc">
+      <typeId>e932c71a-f7a7-4992-8140-c6a04d3e0bb4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

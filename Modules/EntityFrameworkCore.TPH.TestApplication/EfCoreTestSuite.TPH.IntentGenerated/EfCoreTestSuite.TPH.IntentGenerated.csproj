@@ -33,6 +33,46 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AbstractBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ConcreteBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForConcreteState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAbstractBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IConcreteBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForConcrete.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
     </Compile></ItemGroup>
 
 </Project>

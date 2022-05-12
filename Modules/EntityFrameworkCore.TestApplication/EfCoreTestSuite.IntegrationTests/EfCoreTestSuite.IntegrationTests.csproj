@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\EntityFrameworkCore.TPC.TestApplication\EfCoreTestSuite.TPC.IntentGenerated\EfCoreTestSuite.TPC.IntentGenerated.csproj" />
     <ProjectReference Include="..\..\EntityFrameworkCore.TPH.TestApplication\EfCoreTestSuite.TPH.IntentGenerated\EfCoreTestSuite.TPH.IntentGenerated.csproj" />
+    <ProjectReference Include="..\..\EntityFrameworkCore.TPT.TestApplication\EfCoreTestSuite.TPT.IntentGenerated\EfCoreTestSuite.TPT.IntentGenerated.csproj" />
     <ProjectReference Include="..\EfCoreTestSuite.IntentGenerated\EfCoreTestSuite.IntentGenerated.csproj" />
   </ItemGroup>
 

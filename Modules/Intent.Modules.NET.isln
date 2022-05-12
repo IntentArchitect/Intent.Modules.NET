@@ -64,5 +64,7 @@
     <application id="cf054ca4-89ca-4c22-8bbe-3f15409ae0ec" name="Intent.Modules.AspNetCore.Logging.Serilog" relativePath="Intent.Modules.AspNetCore.Logging.Serilog/Intent.Modules.AspNetCore.Logging.Serilog.application.config" />
     <application id="9c8d451f-373a-4c17-b74d-12489ffcd7e3" name="EntityFrameworkCore.TestApplication" relativePath="EntityFrameworkCore.TestApplication/EntityFrameworkCore.TestApplication.application.config" />
     <application id="918c64eb-2d32-404f-adac-97e76c885346" name="EntityFrameworkCore.TPH.TestApplication" relativePath="EntityFrameworkCore.TPH.TestApplication/EntityFrameworkCore.TPH.TestApplication.application.config" />
+    <application id="61d32320-3962-403d-95b3-fd5d486d1822" name="EntityFrameworkCore.TPT.TestApplication" relativePath="EntityFrameworkCore.TPT.TestApplication/EntityFrameworkCore.TPT.TestApplication.application.config" />
+    <application id="e184c209-f4ce-4ca3-850e-5cf2a2232c28" name="EntityFrameworkCore.TPC.TestApplication" relativePath="EntityFrameworkCore.TPC.TestApplication/EntityFrameworkCore.TPC.TestApplication.application.config" />
   </applications>
 </solution>

@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\BaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AbstractBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ConcreteBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForConcreteState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAbstractBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IConcreteBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForConcrete.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4" />
+    <PackageReference Include="RT.Comb" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>

@@ -17,8 +17,10 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
         {
         }
 
-        public DbSet<BaseClass> BaseClasses { get; set; }
-        public DbSet<DerivedClass> DerivedClasses { get; set; }
+        public DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
+        public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
+        public DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
@@ -35,8 +37,10 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
 
             ConfigureModel(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new BaseClassConfiguration());
-            modelBuilder.ApplyConfiguration(new DerivedClassConfiguration());
+            modelBuilder.ApplyConfiguration(new AbstractBaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForAbstractConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

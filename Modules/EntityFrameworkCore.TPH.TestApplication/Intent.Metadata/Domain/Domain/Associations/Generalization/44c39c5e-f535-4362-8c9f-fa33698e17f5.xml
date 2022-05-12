@@ -2,7 +2,7 @@
 <association id="44c39c5e-f535-4362-8c9f-fa33698e17f5">
   <sourceEnd id="9fbe0163-db33-4c30-973d-88f4ebe52f1d" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>DerivedClass</name>
-    <display>DerivedClass: DerivedClass</display>
+    <display>DerivedClass: DerivedClassForConcrete</display>
     <order>1</order>
     <typeReference id="93316e9e-5959-4516-aee6-46b78dc580dd">
       <typeId>ab9c3435-b5e0-43c7-8b96-4a0f796a831b</typeId>
@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="44c39c5e-f535-4362-8c9f-fa33698e17f5" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>BaseClass</name>
-    <display>BaseClass: BaseClass</display>
+    <display>BaseClass: ConcreteBaseClass</display>
     <order>1</order>
     <typeReference id="791f9505-b034-4741-b44e-5e1b3819a537">
       <typeId>97fab82a-feae-421e-be8c-2bf595bb194c</typeId>

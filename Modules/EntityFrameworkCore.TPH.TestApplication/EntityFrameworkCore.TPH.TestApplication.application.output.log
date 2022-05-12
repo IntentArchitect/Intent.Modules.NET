@@ -9,6 +9,13 @@
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#430a2a8c-f5d5-40dd-94c4-8e9e565444b1</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/AbstractBaseClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AbstractBaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
@@ -17,15 +24,22 @@
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#97fab82a-feae-421e-be8c-2bf595bb194c</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/BaseClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/ConcreteBaseClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConcreteBaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#30f7d442-8658-48d5-b964-e03541cf2df2</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassForAbstractConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForAbstractConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ab9c3435-b5e0-43c7-8b96-4a0f796a831b</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DerivedClassConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassForConcreteConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForConcreteConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -51,37 +65,72 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#430a2a8c-f5d5-40dd-94c4-8e9e565444b1</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/AbstractBaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AbstractBaseClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#430a2a8c-f5d5-40dd-94c4-8e9e565444b1</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/AbstractBaseClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AbstractBaseClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#97fab82a-feae-421e-be8c-2bf595bb194c</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/BaseClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BaseClass.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/ConcreteBaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConcreteBaseClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#97fab82a-feae-421e-be8c-2bf595bb194c</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/BaseClassState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BaseClassState.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/ConcreteBaseClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConcreteBaseClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#30f7d442-8658-48d5-b964-e03541cf2df2</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/DerivedClassForAbstract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForAbstract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#30f7d442-8658-48d5-b964-e03541cf2df2</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/DerivedClassForAbstractState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForAbstractState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#ab9c3435-b5e0-43c7-8b96-4a0f796a831b</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/DerivedClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DerivedClass.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/DerivedClassForConcrete.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForConcrete.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#ab9c3435-b5e0-43c7-8b96-4a0f796a831b</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/DerivedClassState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DerivedClassState.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/DerivedClassForConcreteState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForConcreteState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#430a2a8c-f5d5-40dd-94c4-8e9e565444b1</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IAbstractBaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAbstractBaseClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#97fab82a-feae-421e-be8c-2bf595bb194c</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IBaseClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IBaseClass.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IConcreteBaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IConcreteBaseClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -93,9 +142,16 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#30f7d442-8658-48d5-b964-e03541cf2df2</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IDerivedClassForAbstract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedClassForAbstract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#ab9c3435-b5e0-43c7-8b96-4a0f796a831b</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IDerivedClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IDerivedClass.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IDerivedClassForConcrete.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedClassForConcrete.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

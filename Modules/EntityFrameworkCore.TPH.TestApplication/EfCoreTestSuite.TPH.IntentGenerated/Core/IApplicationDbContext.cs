@@ -11,8 +11,10 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
 {
     public interface IApplicationDbContext
     {
-        DbSet<BaseClass> BaseClasses { get; set; }
-        DbSet<DerivedClass> DerivedClasses { get; set; }
+        DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
+        DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
+        DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="14feee50-08b7-4d3a-a751-1e3f3778fbaf" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>NET Core Tests</name>
+  <display>NET Core Tests</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</parentFolderId>
+  <packageId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
