@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using EfCoreTestSuite.IntentGenerated.Core;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
+using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class MigrationAndSchemaTests : SharedDatabaseFixture<ApplicationDbContext>
+public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
 {
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_A_Unidirectional_1_To_0to1_Association()
@@ -321,5 +322,40 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture<ApplicationDbContex
         Assert.NotNull(DbContext.M_SelfReferenceBiNavs.SingleOrDefault(p => p.Id == root.Id));
         Assert.Equal(children.Count, DbContext.M_SelfReferenceBiNavs.Count(p => children.Contains(p)));
         Assert.Equal(children.Count, root.M_SelfReferenceBiNavs.Count);
+    }
+
+    [Fact(Skip = Helpers.SkipMessage)]
+    public void Test_PK_PrimaryKeyInt()
+    {
+        var pk = new PK_PrimaryKeyInt();
+        DbContext.PK_PrimaryKeyInts.Add(pk);
+        DbContext.SaveChanges();
+        
+        Assert.Equal(1, pk.PrimaryKeyId);
+    }
+    
+    [Fact(Skip = Helpers.SkipMessage)]
+    public void Test_PK_PrimaryKeyLong()
+    {
+        var pk = new PK_PrimaryKeyLong();
+        DbContext.PK_PrimaryKeyLongs.Add(pk);
+        DbContext.SaveChanges();
+        
+        Assert.Equal(1, pk.PrimaryKeyLong);
+    }
+
+    [Fact(Skip = Helpers.SkipMessage)]
+    public void Test_PK_A_CompositeKeys_FK_A_CompositeForeignKeys()
+    {
+        var pk = new PK_A_CompositeKey();
+        pk.CompositeKeyA = Guid.NewGuid();
+        pk.CompositeKeyB = Guid.NewGuid();
+        DbContext.PK_A_CompositeKeys.Add(pk);
+        
+        var fk = new FK_A_CompositeForeignKey();
+        fk.PK_CompositeKey = pk;
+        DbContext.FK_A_CompositeForeignKeys.Add(fk);
+
+        DbContext.SaveChanges();
     }
 }

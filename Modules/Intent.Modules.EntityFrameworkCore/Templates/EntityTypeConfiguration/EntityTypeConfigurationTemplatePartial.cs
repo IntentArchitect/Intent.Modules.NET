@@ -41,8 +41,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId,
-            outputTarget, model)
+        public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             _explicitPrimaryKeys = Model.Attributes.Where(x => x.HasPrimaryKey()).ToList();
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
@@ -110,7 +109,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 var keys = _explicitPrimaryKeys.Count() == 1
                     ? "x." + _explicitPrimaryKeys.Single().Name.ToPascalCase()
-                    : $"new {{ {string.Join(", ", _explicitPrimaryKeys.Select(x => "x." + x.Name))} }}";
+                    : $"new {{ {string.Join(", ", _explicitPrimaryKeys.Select(x => "x." + x.Name.ToPascalCase()))} }}";
                 return $@"
             builder.HasKey(x => {keys});";
             }

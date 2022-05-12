@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="86682f59-803f-4277-bb01-326cf0e690e0" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
-  <name>Associations Diagram</name>
-  <display>Associations Diagram</display>
+<class id="4bb1319c-d75b-42c0-9411-1580b006d32f" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ExplicitKeys</name>
+  <display>ExplicitKeys</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8ca37b32-c4a3-4856-919f-e2190fa2d337</parentFolderId>
   <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
   <packageName>Domain</packageName>
-  <diagram>
-    <targetPackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</targetPackageId>
-  </diagram>
   <stereotypes />
   <metadata />
   <childElements />
