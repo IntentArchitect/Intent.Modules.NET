@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="2c6ff5f9-369c-4301-8a61-a26ec6a8272a" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
-  <name>EfCoreTestSuite.IntegrationTests</name>
-  <display>EfCoreTestSuite.IntegrationTests</display>
+<class id="b82f4816-2cdd-4466-aeb9-20e884208c65" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
+  <name>EfCoreTestSuite.TPH.IntentGenerated</name>
+  <display>EfCoreTestSuite.TPH.IntentGenerated</display>
   <isAbstract>false</isAbstract>
   <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>a319fb02-c635-433c-9446-8a7fb29162de</parentFolderId>
-  <packageId>588bff6c-29fe-4e22-91fc-546041371761</packageId>
+  <parentFolderId>9d2c8464-afe7-447c-880d-a6e41ae13ac9</parentFolderId>
+  <packageId>7ad8594f-b5cd-4aaf-a3ba-aa55d0aebdf3</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
@@ -32,7 +32,7 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
-        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" value="EntityFrameworkCore.TestApplication\EfCoreTestSuite.IntegrationTests" isActive="true" />
+        <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" value="EntityFrameworkCore.TPH.TestApplication\EfCoreTestSuite.TPH.IntentGenerated" isActive="true" />
         <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="true" />
       </properties>
     </stereotype>

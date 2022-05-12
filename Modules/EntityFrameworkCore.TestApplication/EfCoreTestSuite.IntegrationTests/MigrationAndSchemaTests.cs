@@ -2,40 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using EfCoreTestSuite.IntentGenerated.Core;
-using EfCoreTestSuite.IntentGenerated.Entities;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class MigrationAndSchemaTests : SharedDatabaseFixture
+public class MigrationAndSchemaTests : SharedDatabaseFixture<ApplicationDbContext>
 {
-    private static bool _migrationsCompleted;
-
-    private ApplicationDbContext DbContext { get; set; }
-
-    //public const string SkipMessage = null;
-    public const string SkipMessage = "CI/CD not ready";
-
-    public MigrationAndSchemaTests()
-    {
-        DbContext = CreateContext();
-
-        if (!_migrationsCompleted)
-        {
-            DbContext.Database.Migrate();
-            _migrationsCompleted = true;
-        }
-    }
-
-    public override void Dispose()
-    {
-        DbContext.Dispose();
-        base.Dispose();
-    }
-
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_A_Unidirectional_1_To_0to1_Association()
     {
         var src = new A_RequiredComposite();
@@ -50,7 +25,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         Assert.NotNull(DbContext.A_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_B_Unidirectional_0to1_To_0to1_Association()
     {
         var src = new B_OptionalAggregate();
@@ -76,7 +51,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         Assert.Null(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.B_OptionalDependentId == dst.Id));
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_C_Unidirectional_1_To_Many_Association()
     {
         var src = new C_RequiredComposite();
@@ -103,7 +78,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         });
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_D_Unidirectional_0to1_To_Many_Association()
     {
         var src = new D_OptionalAggregate();
@@ -128,7 +103,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         Assert.Equal(dstList.Count, DbContext.D_MultipleDependents.Count(p => dstList.Contains(p)));
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_E_Bidirectional_1_To_1_Association()
     {
         var src = new E_RequiredCompositeNav();
@@ -155,7 +130,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         });
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_F_Bidirectional_0to1_To_0to1_Association()
     {
         var src = new F_OptionalAggregateNav();
@@ -176,14 +151,14 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
 
         src.F_OptionalDependent = null;
         DbContext.SaveChanges();
-        
+
         Assert.NotNull(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
         Assert.Null(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id)?.F_OptionalDependent);
         Assert.Null(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.F_OptionalAggregateNav);
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_G_Bidirectional_1_To_Many_Association()
     {
         var src = new G_RequiredCompositeNav();
@@ -210,7 +185,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         });
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_H_Bidirectional_0to1_To_Many_Association()
     {
         var src = new H_OptionalAggregateNav();
@@ -235,7 +210,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         Assert.Equal(dstList.Count, DbContext.H_MultipleDependents.Count(p => dstList.Contains(p)));
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_J_Unidirectional_Many_To_1_Association()
     {
         var dst = new J_RequiredDependent();
@@ -265,7 +240,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         });
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_K_Unidirectional_Many_To_0to1_Association()
     {
         var root = new K_SelfReference();
@@ -289,7 +264,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => p.K_SelfReferenceAssociationId == root.Id));
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_L_Unidirectional_Many_To_Many_Association()
     {
         var listA = new List<L_SelfReferenceMultiple>
@@ -324,7 +299,7 @@ public class MigrationAndSchemaTests : SharedDatabaseFixture
         Assert.Equal(listB.Count * listC.Count, listC.Sum(x => x.L_SelfReferenceMultiplesDst.Count));
     }
 
-    [Fact(Skip = SkipMessage)]
+    [Fact(Skip = Helpers.SkipMessage)]
     public void Test_M_Bidirectional_Many_To_0to1_Association()
     {
         var root = new M_SelfReferenceBiNav();

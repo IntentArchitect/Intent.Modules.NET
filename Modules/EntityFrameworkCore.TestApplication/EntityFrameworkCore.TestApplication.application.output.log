@@ -8,13 +8,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2c6ff5f9-369c-4301-8a61-a26ec6a8272a</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#2c6ff5f9-369c-4301-8a61-a26ec6a8272a</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntegrationTests/EfCoreTestSuite.IntegrationTests.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EfCoreTestSuite.IntegrationTests.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#76c49a29-3df5-40c2-97a6-1881419c70c3</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/A_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>

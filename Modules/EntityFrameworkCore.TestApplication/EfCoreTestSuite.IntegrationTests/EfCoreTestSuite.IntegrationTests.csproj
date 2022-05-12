@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\EntityFrameworkCore.TPH.TestApplication\EfCoreTestSuite.TPH.IntentGenerated\EfCoreTestSuite.TPH.IntentGenerated.csproj" />
     <ProjectReference Include="..\EfCoreTestSuite.IntentGenerated\EfCoreTestSuite.IntentGenerated.csproj" />
   </ItemGroup>
 

@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Ignore)]

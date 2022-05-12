@@ -81,7 +81,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         private void ConfigureModel(ModelBuilder modelBuilder)
         {
             // Customize Default Schema
-            // modelBuilder.HasDefaultSchema("EfCoreTestSuite");
+            //modelBuilder.HasDefaultSchema("EfCoreTestSuite");
 
             // Seed data
             // https://rehansaeed.com/migrating-to-entity-framework-core-seed-data/
