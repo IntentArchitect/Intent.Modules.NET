@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="86682f59-803f-4277-bb01-326cf0e690e0" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
-  <name>Default Diagram</name>
-  <display>Default Diagram</display>
+  <name>Associations Diagram</name>
+  <display>Associations Diagram</display>
   <isAbstract>false</isAbstract>
-  <order>22</order>
+  <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8ca37b32-c4a3-4856-919f-e2190fa2d337</parentFolderId>

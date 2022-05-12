@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EfCoreTestSuite.IntentGenerated.Entities;
+using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
