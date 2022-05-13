@@ -3,7 +3,7 @@
   <name>PK_PrimaryKeyLong</name>
   <display>PK_PrimaryKeyLong</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bb1319c-d75b-42c0-9411-1580b006d32f</parentFolderId>

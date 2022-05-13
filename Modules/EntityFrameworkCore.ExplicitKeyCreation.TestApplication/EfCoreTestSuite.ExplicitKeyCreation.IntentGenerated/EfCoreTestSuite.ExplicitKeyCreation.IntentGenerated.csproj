@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\FK_ExplicitKeys_CompositeForeignKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_ExplicitKeys_CompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\PK_ExplicitKeys_CompositeKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_ExplicitKeys_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFK_ExplicitKeys_CompositeForeignKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_ExplicitKeys_CompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IPK_ExplicitKeys_CompositeKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_ExplicitKeys_CompositeKey.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4" />
+    <PackageReference Include="RT.Comb" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>

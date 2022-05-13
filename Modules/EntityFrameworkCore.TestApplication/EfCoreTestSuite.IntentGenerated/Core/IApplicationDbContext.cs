@@ -30,6 +30,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
+        DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
         DbSet<G_MultipleDependent> G_MultipleDependents { get; set; }
         DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
@@ -40,6 +41,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
+        DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
         DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));

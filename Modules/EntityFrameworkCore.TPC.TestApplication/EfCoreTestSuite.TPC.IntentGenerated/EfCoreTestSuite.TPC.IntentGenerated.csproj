@@ -65,6 +65,36 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\CompositeConcreteBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForCompositeConcreteState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForCompositeConcrete.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ForeignKeyCompositeConteteState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ForeignKeyCompositeContete.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICompositeConcreteBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForCompositeConcrete.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForCompositeConcrete.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IForeignKeyCompositeContete.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ForeignKeyCompositeContete.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

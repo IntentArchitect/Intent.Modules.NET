@@ -3,7 +3,7 @@
   <name>PK_PrimaryKeyInt</name>
   <display>PK_PrimaryKeyInt</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bb1319c-d75b-42c0-9411-1580b006d32f</parentFolderId>

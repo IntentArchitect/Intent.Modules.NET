@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e75fbb63-3963-4bc6-b617-8f42e01bfeb4">
+  <sourceEnd id="d05c67d4-6527-4eb8-9bcd-37d78dc6e48e" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>FK_ExplicitKeys_CompositeForeignKeys</name>
+    <display>FK_ExplicitKeys_CompositeForeignKeys: FK_ExplicitKeys_CompositeForeignKey[*]</display>
+    <order>2</order>
+    <typeReference id="94b6c1bb-a228-4799-be1b-d7933ccc5f35">
+      <typeId>1c7ed671-864f-4b70-9fde-d6716b0d8aa5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>eadbf8ac-0762-4824-b829-696f9dda0053</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="e75fbb63-3963-4bc6-b617-8f42e01bfeb4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>PK_ExplicitKeys_CompositeKey</name>
+    <display>PK_ExplicitKeys_CompositeKey: PK_ExplicitKeys_CompositeKey</display>
+    <order>3</order>
+    <typeReference id="a882b18a-e977-47fb-9de6-55ab88603334">
+      <typeId>5f0d44e4-2c08-474b-82bc-b05340bf313e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>eadbf8ac-0762-4824-b829-696f9dda0053</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

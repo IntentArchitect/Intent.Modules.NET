@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="3f69120b-3e96-4443-9794-3df7e6696f2b" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>PK_A_CompositeKey</name>
-  <display>PK_A_CompositeKey</display>
+<class id="fb8d55f6-2a75-47b9-95a6-e569e7b97dbf" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>PK_B_CompositeKey</name>
+  <display>PK_B_CompositeKey</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bb1319c-d75b-42c0-9411-1580b006d32f</parentFolderId>
@@ -12,13 +12,13 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="003494ff-a7f0-4a74-9bc3-65df8177dbdc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="c288ec7d-9f54-4bfb-8a9f-342a3cab5a1f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>compositeKeyA</name>
       <display>compositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
       <order>0</order>
       <genericTypes />
-      <typeReference id="7e3b26c5-f384-44ed-b282-1b38e81f0d83">
+      <typeReference id="886779df-73f5-4325-a19b-0181235cd7aa">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -30,7 +30,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>3f69120b-3e96-4443-9794-3df7e6696f2b</parentFolderId>
+      <parentFolderId>fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</parentFolderId>
       <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
       <packageName>Domain</packageName>
       <stereotypes>
@@ -46,13 +46,13 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="54a06902-cb78-4aaa-94c7-e709ca968e21" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="3e4d592d-d25c-4525-8c7a-24975024b81e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>compositeKeyB</name>
       <display>compositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
-      <typeReference id="4c2aa07a-53ef-4a59-9089-83a2c5622448">
+      <typeReference id="9b9c2869-9b56-4211-bb83-627661888498">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -64,7 +64,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>3f69120b-3e96-4443-9794-3df7e6696f2b</parentFolderId>
+      <parentFolderId>fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</parentFolderId>
       <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
       <packageName>Domain</packageName>
       <stereotypes>

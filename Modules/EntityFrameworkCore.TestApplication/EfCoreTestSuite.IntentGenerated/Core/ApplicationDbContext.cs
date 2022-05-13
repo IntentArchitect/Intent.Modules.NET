@@ -36,6 +36,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         public DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
+        public DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
         public DbSet<G_MultipleDependent> G_MultipleDependents { get; set; }
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
@@ -46,6 +47,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
+        public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
         public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
 
@@ -79,6 +81,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new FK_B_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new G_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new G_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new H_MultipleDependentConfiguration());
@@ -89,6 +92,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
         }

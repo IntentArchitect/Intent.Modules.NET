@@ -128,6 +128,13 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#e390052d-6d7f-4f6b-918d-6c6591f3444f</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/FK_B_CompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FK_B_CompositeForeignKeyConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b1739432-87e1-46c3-b88c-969380956639</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/G_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>G_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
@@ -208,6 +215,13 @@
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3f69120b-3e96-4443-9794-3df7e6696f2b</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/PK_A_CompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PK_A_CompositeKeyConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/PK_B_CompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PK_B_CompositeKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -716,6 +730,20 @@
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#e390052d-6d7f-4f6b-918d-6c6591f3444f</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/FK_B_CompositeForeignKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/FK_B_CompositeForeignKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#e390052d-6d7f-4f6b-918d-6c6591f3444f</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/FK_B_CompositeForeignKeyState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/FK_B_CompositeForeignKeyState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/IFK_A_CompositeForeignKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/IFK_A_CompositeForeignKey.cs</ProjectRelativeFilePath>
@@ -723,9 +751,23 @@
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#e390052d-6d7f-4f6b-918d-6c6591f3444f</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/IFK_B_CompositeForeignKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/IFK_B_CompositeForeignKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#3f69120b-3e96-4443-9794-3df7e6696f2b</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/IPK_A_CompositeKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/IPK_A_CompositeKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/IPK_B_CompositeKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/IPK_B_CompositeKey.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -754,6 +796,20 @@
       <CorrelationId>Intent.Entities.DomainEntityState#3f69120b-3e96-4443-9794-3df7e6696f2b</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/PK_A_CompositeKeyState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/PK_A_CompositeKeyState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/PK_B_CompositeKey.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/PK_B_CompositeKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/PK_B_CompositeKeyState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/PK_B_CompositeKeyState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -357,5 +357,28 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         DbContext.FK_A_CompositeForeignKeys.Add(fk);
 
         DbContext.SaveChanges();
+        
+        Assert.Equal(pk, fk.PK_CompositeKey);
+        Assert.Equal(pk.CompositeKeyA, fk.ForeignCompositeKeyA);
+        Assert.Equal(pk.CompositeKeyB, fk.ForeignCompositeKeyB);
+    }
+    
+    [Fact(Skip = Helpers.SkipMessage)]
+    public void Test_PK_B_CompositeKeys_FK_B_CompositeForeignKeys()
+    {
+        var pk = new PK_B_CompositeKey();
+        pk.CompositeKeyA = Guid.NewGuid();
+        pk.CompositeKeyB = Guid.NewGuid();
+        DbContext.PK_B_CompositeKeys.Add(pk);
+        
+        var fk = new FK_B_CompositeForeignKey();
+        fk.PK_CompositeKey = pk;
+        DbContext.FK_B_CompositeForeignKeys.Add(fk);
+
+        DbContext.SaveChanges();
+        
+        Assert.Equal(pk, fk.PK_CompositeKey);
+        Assert.Equal(pk.CompositeKeyA, fk.PK_CompositeKeyCompositeKeyA);
+        Assert.Equal(pk.CompositeKeyB, fk.PK_CompositeKeyCompositeKeyB);
     }
 }
