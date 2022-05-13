@@ -38,8 +38,8 @@
       <childElements />
     </childElement>
     <childElement id="22de584a-e447-42bc-8652-069df78bea49" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
-      <name>CustomIndexName</name>
-      <display>CustomIndexName</display>
+      <name>Index_indexField</name>
+      <display>Index_indexField</display>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />

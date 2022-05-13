@@ -63,8 +63,8 @@
       <childElements />
     </childElement>
     <childElement id="def5ab0b-7927-423e-9c3a-eb9d79fa61bd" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
-      <name>NewIndex</name>
-      <display>NewIndex</display>
+      <name>Index_fieldA_fieldB</name>
+      <display>Index_fieldA_fieldB</display>
       <isAbstract>false</isAbstract>
       <order>2</order>
       <genericTypes />
@@ -96,7 +96,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3367a958-bf5a-4031-a72d-ce44b6bc1ea3" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="66b4e625-5216-463b-9380-3c39a907c954" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>fieldA</name>
           <display>fieldA</display>
           <isAbstract>false</isAbstract>
@@ -126,7 +126,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="61078d96-82b9-44fc-8254-fb56ba6a9f3b" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="1bd9ed84-462d-48da-a37d-bd89d76df1b6" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>fieldB</name>
           <display>fieldB</display>
           <isAbstract>false</isAbstract>

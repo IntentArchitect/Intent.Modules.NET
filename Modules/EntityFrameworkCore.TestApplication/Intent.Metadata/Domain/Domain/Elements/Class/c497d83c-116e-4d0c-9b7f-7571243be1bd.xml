@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="7ca51f87-bc21-4cc8-8c37-aaf3804c6b3d" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
-      <name>NewIndex</name>
-      <display>NewIndex</display>
+      <name>Index_indexField</name>
+      <display>Index_indexField</display>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
@@ -82,7 +82,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ee536c36-4ad7-4a38-b99a-39839b3f810a" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="28cab98b-eafd-4a40-9265-8b70e1a595a9" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>indexField</name>
           <display>indexField</display>
           <isAbstract>false</isAbstract>
