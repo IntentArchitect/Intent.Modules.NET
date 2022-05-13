@@ -65,6 +65,14 @@
     <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion2\packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Remove="NuGet\Data\Lean\HighVersion3.xml" />
+    <Content Include="NuGet\Data\Lean\HighVersion3.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="NuGet\Data\Lean\LowVersion3.xml" />
+    <Content Include="NuGet\Data\Lean\LowVersion3.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

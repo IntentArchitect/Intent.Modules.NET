@@ -11,7 +11,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
     public class LeanSchemeTests
     {
         [Fact]
-        public void GetsInstalledPackages()
+        public void GetsInstalledPackages_Default()
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
@@ -28,9 +28,28 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 Assert.Equal(x.Value.Version, VersionRange.Parse("1.0.0"));
             });
         }
+        
+        [Fact]
+        public void GetsInstalledPackages_NestedVersion()
+        {
+            // Arrange
+            var sut = new LeanSchemeProcessor();
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>());
+            var doc = XDocument.Load(project.FilePath);
+
+            // Act
+            var installedPackages = sut.GetInstalledPackages(project.FilePath, doc);
+
+            // Assert
+            Assert.Collection(installedPackages, x =>
+            {
+                Assert.Equal("TestPackage.Three", x.Key);
+                Assert.Equal(x.Value.Version, VersionRange.Parse("1.0.0"));
+            });
+        }
 
         [Fact]
-        public void InstallsPackage()
+        public void InstallsPackage_Default()
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
@@ -61,9 +80,44 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 </Project>",
                 actual: result);
         }
+        
+        [Fact]
+        public void InstallsPackage_NestedVersion()
+        {
+            // Arrange
+            var sut = new LeanSchemeProcessor();
+            var tracing = new TestTracing();
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
+            {
+                {"PackageToInstall.Id", "1.0.0"}
+            });
+
+            // Act
+            var result = sut.InstallPackages(
+                project.Content,
+                project.RequestedPackages,
+                project.InstalledPackages,
+                project.Name,
+                tracing);
+
+            // Assert
+            Assert.Equal(
+                expected:
+@"<Project Sdk=""Microsoft.NET.Sdk"">
+
+  <ItemGroup>
+    <PackageReference Include=""PackageToInstall.Id"" Version=""1.0.0"" />
+    <PackageReference Include=""TestPackage.Three"">
+      <Version>1.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>",
+                actual: result);
+        }
 
         [Fact]
-        public void UpgradesPackage()
+        public void UpgradesPackage_Default()
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
@@ -88,6 +142,40 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 
   <ItemGroup>
     <PackageReference Include=""TestPackage.One"" Version=""3.0.0"" />
+  </ItemGroup>
+
+</Project>",
+                actual: result);
+        }
+        
+        [Fact]
+        public void UpgradesPackage_NestedVersion()
+        {
+            // Arrange
+            var sut = new LeanSchemeProcessor();
+            var tracing = new TestTracing();
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
+            {
+                { "TestPackage.Three", "3.0.0" }
+            });
+
+            // Act
+            var result = sut.InstallPackages(
+                project.Content,
+                project.RequestedPackages,
+                project.InstalledPackages,
+                project.Name,
+                tracing);
+
+            // Assert
+            Assert.Equal(
+                expected:
+@"<Project Sdk=""Microsoft.NET.Sdk"">
+
+  <ItemGroup>
+    <PackageReference Include=""TestPackage.Three"">
+      <Version>3.0.0</Version>
+    </PackageReference>
   </ItemGroup>
 
 </Project>",

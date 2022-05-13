@@ -19,7 +19,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                 element => element.Attribute("Include")?.Value,
                 element =>
                 {
-                    var version = element.Attribute("Version")?.Value;
+                    var version = GetAttributeOrElementValue(element, "Version");
 
                     var privateAssetsElement = element.XPathSelectElement("PrivateAssets");
                     var privateAssets = privateAssetsElement != null
@@ -105,20 +105,20 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                     includeAssetsElement.SetValue(package.IncludeAssets.Aggregate((x, y) => x + "; " + y));
                 }
 
-                var versionAttribute = packageReferenceElement.Attributes().SingleOrDefault(x => x.Name == "Version");
-                if (versionAttribute == null)
+                var packageVersion = GetAttributeOrElementValue(packageReferenceElement, "Version");
+                if (packageVersion == null)
                 {
                     throw new Exception("Missing version attribute from PackageReference element.");
                 }
 
-                if (VersionRange.Parse(versionAttribute.Value).MinVersion >= package.Version.MinVersion)
+                if (VersionRange.Parse(packageVersion).MinVersion >= package.Version.MinVersion)
                 {
                     continue;
                 }
 
                 tracing.Info(
-                    $"Upgrading {packageId} from {versionAttribute.Value} to {package.Version} in project {projectName}");
-                versionAttribute.SetValue(package.Version.OriginalString);
+                    $"Upgrading {packageId} from {packageVersion} to {package.Version} in project {projectName}");
+                SetAttributeOrElementValue(packageReferenceElement, "Version", package.Version.OriginalString);
             }
 
             SortAlphabetically(packageReferenceItemGroup);
@@ -137,6 +137,24 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                 packageReferenceElement.Remove();
                 packageReferenceItemGroup.Add(packageReferenceElement);
             }
+        }
+
+        private static string GetAttributeOrElementValue(XElement targetElement, string name)
+        {
+            return targetElement.Attribute(name)?.Value
+                   ?? targetElement.Elements(name).SingleOrDefault()?.Value;
+        }
+
+        private void SetAttributeOrElementValue(XElement targetElement, string name, string value)
+        {
+            var nestedElement = targetElement.Elements(name).SingleOrDefault();
+            if (nestedElement?.Value != null)
+            {
+                nestedElement.Value = value;
+                return;
+            }
+
+            targetElement.SetAttributeValue(name, value);
         }
     }
 }

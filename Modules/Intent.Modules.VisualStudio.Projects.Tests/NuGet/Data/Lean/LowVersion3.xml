@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <PackageReference Include="TestPackage.Three">
+            <Version>1.0.0</Version>
+        </PackageReference>
+    </ItemGroup>
+
+</Project>
