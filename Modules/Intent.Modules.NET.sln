@@ -152,6 +152,14 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.Integration
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.IntentGenerated", "EntityFrameworkCore.TestApplication\EfCoreTestSuite.IntentGenerated\EfCoreTestSuite.IntentGenerated.csproj", "{BF8F742B-F7E7-41F7-B825-84F886E15074}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.TPH.IntentGenerated", "EntityFrameworkCore.TPH.TestApplication\EfCoreTestSuite.TPH.IntentGenerated\EfCoreTestSuite.TPH.IntentGenerated.csproj", "{B82F4816-2CDD-4466-AEB9-20E884208C65}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.TPT.IntentGenerated", "EntityFrameworkCore.TPT.TestApplication\EfCoreTestSuite.TPT.IntentGenerated\EfCoreTestSuite.TPT.IntentGenerated.csproj", "{30620F7A-FCC3-406F-93C0-D407F46855FB}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.TPC.IntentGenerated", "EntityFrameworkCore.TPC.TestApplication\EfCoreTestSuite.TPC.IntentGenerated\EfCoreTestSuite.TPC.IntentGenerated.csproj", "{A3505075-B92B-4BE8-BFE1-6908206CC14A}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated", "EntityFrameworkCore.ExplicitKeyCreation.TestApplication\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj", "{1303E57E-1275-42A4-B433-05E88A85E9B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -434,6 +442,22 @@ Global
 		{BF8F742B-F7E7-41F7-B825-84F886E15074}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF8F742B-F7E7-41F7-B825-84F886E15074}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF8F742B-F7E7-41F7-B825-84F886E15074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82F4816-2CDD-4466-AEB9-20E884208C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82F4816-2CDD-4466-AEB9-20E884208C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82F4816-2CDD-4466-AEB9-20E884208C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82F4816-2CDD-4466-AEB9-20E884208C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30620F7A-FCC3-406F-93C0-D407F46855FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30620F7A-FCC3-406F-93C0-D407F46855FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30620F7A-FCC3-406F-93C0-D407F46855FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30620F7A-FCC3-406F-93C0-D407F46855FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3505075-B92B-4BE8-BFE1-6908206CC14A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3505075-B92B-4BE8-BFE1-6908206CC14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3505075-B92B-4BE8-BFE1-6908206CC14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3505075-B92B-4BE8-BFE1-6908206CC14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1303E57E-1275-42A4-B433-05E88A85E9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1303E57E-1275-42A4-B433-05E88A85E9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1303E57E-1275-42A4-B433-05E88A85E9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1303E57E-1275-42A4-B433-05E88A85E9B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -508,6 +532,10 @@ Global
 		{A58A2FC1-5444-4388-8BE7-0231516CE1D2} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{2C6FF5F9-369C-4301-8A61-A26EC6A8272A} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{BF8F742B-F7E7-41F7-B825-84F886E15074} = {A319FB02-C635-433C-9446-8A7FB29162DE}
+		{B82F4816-2CDD-4466-AEB9-20E884208C65} = {A319FB02-C635-433C-9446-8A7FB29162DE}
+		{30620F7A-FCC3-406F-93C0-D407F46855FB} = {A319FB02-C635-433C-9446-8A7FB29162DE}
+		{A3505075-B92B-4BE8-BFE1-6908206CC14A} = {A319FB02-C635-433C-9446-8A7FB29162DE}
+		{1303E57E-1275-42A4-B433-05E88A85E9B1} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

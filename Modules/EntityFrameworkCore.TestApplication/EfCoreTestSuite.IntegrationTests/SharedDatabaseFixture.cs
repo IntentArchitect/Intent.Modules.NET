@@ -4,16 +4,18 @@ using System.Data.Common;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using EfCoreTestSuite.IntentGenerated.Core;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Xunit;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
 // https://stackoverflow.com/q/65360948/802755
 
-public abstract class SharedDatabaseFixture : IDisposable
+[Collection("NoParallelDb")]
+public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
+    where TDbContext : DbContext
 {
     private static readonly object Lock = new object();
     private static bool _databaseInitialized;
@@ -44,24 +46,28 @@ public abstract class SharedDatabaseFixture : IDisposable
         {
             CreateEmptyDatabaseAndSeedData();
         }
-        
+
         Connection.Open();
         _initialized = true;
+
+        DbContext = CreateContext();
+        DbContext.Database.Migrate();
     }
-    
+
     public virtual void Dispose()
     {
+        DbContext?.Dispose();
         Connection.Dispose();
     }
 
-    public DbConnection Connection { get; set; }
+    protected TDbContext DbContext { get; private set; }
 
-    public ApplicationDbContext CreateContext(DbTransaction transaction = null)
+    private DbConnection Connection { get; set; }
+
+    private TDbContext CreateContext(DbTransaction transaction = null)
     {
-        var context = new ApplicationDbContext(
-            new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseSqlServer(Connection)
-                .Options);
+        var context = (TDbContext)Activator.CreateInstance(typeof(TDbContext),
+            new DbContextOptionsBuilder<TDbContext>().UseSqlServer(Connection).Options)!;
 
         if (transaction != null)
         {
@@ -69,6 +75,24 @@ public abstract class SharedDatabaseFixture : IDisposable
         }
 
         return context;
+    }
+
+    private void CreateEmptyDatabaseAndSeedData()
+    {
+        lock (Lock)
+        {
+            if (!_databaseInitialized)
+            {
+                using (var context = CreateContext())
+                {
+                    DestroyDatabaseRawSql();
+                    CreateDatabaseRawSql();
+                    context.Database.EnsureCreated();
+                }
+
+                _databaseInitialized = true;
+            }
+        }
     }
 
     private static void ExecuteSqlCommand(SqlConnectionStringBuilder connectionStringBuilder, string commandText)
@@ -93,11 +117,11 @@ public abstract class SharedDatabaseFixture : IDisposable
     };
 
     private static string Filename =>
-        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture).GetTypeInfo().Assembly.Location)!,
+        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture<TDbContext>).GetTypeInfo().Assembly.Location)!,
             $"{_DatabaseName}.mdf");
 
     private static string LogFilename =>
-        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture).GetTypeInfo().Assembly.Location)!,
+        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture<TDbContext>).GetTypeInfo().Assembly.Location)!,
             $"{_DatabaseName}_log.ldf");
 
     private static void CreateDatabaseRawSql()
@@ -150,24 +174,5 @@ public abstract class SharedDatabaseFixture : IDisposable
 
         if (File.Exists(LogFilename))
             File.Delete(LogFilename);
-    }
-
-    private void CreateEmptyDatabaseAndSeedData()
-    {
-        lock (Lock)
-        {
-            if (!_databaseInitialized)
-            {
-                using (var context = CreateContext())
-                {
-                    DestroyDatabaseRawSql();
-
-                    CreateDatabaseRawSql();
-                    context.Database.EnsureCreated();
-                }
-
-                _databaseInitialized = true;
-            }
-        }
     }
 }

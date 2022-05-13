@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a9e1d378-98a4-4f45-8c9c-8e08a9082edb">
+  <sourceEnd id="ea4574bb-c057-46d2-b5a9-07859996e51d" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <name>FkDerivedClass</name>
+    <display>FkDerivedClass: FkDerivedClass</display>
+    <order>2</order>
+    <typeReference id="fd48922a-4fbe-4800-80ec-d3b35729947b">
+      <typeId>f73264c2-c985-46a7-95a1-f23ab53c192d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>1043a8cb-2ffb-451f-9188-abbb07731684</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="a9e1d378-98a4-4f45-8c9c-8e08a9082edb" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>FkBaseClass</name>
+    <display>FkBaseClass: FkBaseClass</display>
+    <order>0</order>
+    <typeReference id="2e48e8d3-6a5c-45d1-9065-d483e9e2a246">
+      <typeId>a91a1edd-fca8-449a-8712-b60f43c8f44a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>1043a8cb-2ffb-451f-9188-abbb07731684</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

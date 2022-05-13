@@ -2,6 +2,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EfCoreTestSuite.IntentGenerated.Entities;
+using EfCoreTestSuite.IntentGenerated.Entities.Associations;
+using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
+using EfCoreTestSuite.IntentGenerated.Entities.Indexes;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,12 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
         public DbSet<C_MultipleDependent> C_MultipleDependents { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
+        public DbSet<ComplexDefaultIndex> ComplexDefaultIndexes { get; set; }
+        public DbSet<CustomIndex> CustomIndexes { get; set; }
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
+        public DbSet<DefaultIndex> DefaultIndexes { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public DbSet<E_RequiredDependent> E_RequiredDependents { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
+        public DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
+        public DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
         public DbSet<G_MultipleDependent> G_MultipleDependents { get; set; }
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
@@ -38,6 +46,11 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
+        public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
+        public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
+        public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
+        public DbSet<StereotypeIndex> StereotypeIndexes { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -59,12 +72,17 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new C_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
+            modelBuilder.ApplyConfiguration(new ComplexDefaultIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomIndexConfiguration());
             modelBuilder.ApplyConfiguration(new D_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new D_OptionalAggregateConfiguration());
+            modelBuilder.ApplyConfiguration(new DefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalDependentConfiguration());
+            modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new FK_B_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new G_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new G_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new H_MultipleDependentConfiguration());
@@ -74,13 +92,18 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());
+            modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
+            modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]
         private void ConfigureModel(ModelBuilder modelBuilder)
         {
             // Customize Default Schema
-            // modelBuilder.HasDefaultSchema("EfCoreTestSuite");
+            // modelBuilder.HasDefaultSchema("EntityFrameworkCore.TestApplication");
 
             // Seed data
             // https://rehansaeed.com/migrating-to-entity-framework-core-seed-data/

@@ -26,7 +26,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
         {
             if (associationEnd.RequiresForeignKey())
             {
-                if (associationEnd.OtherEnd().Element.HasStereotype("Foreign Key"))
+                if (associationEnd.OtherEnd().HasStereotype("Foreign Key"))
                 {
                     return base.AssociationBefore(associationEnd);
                 }

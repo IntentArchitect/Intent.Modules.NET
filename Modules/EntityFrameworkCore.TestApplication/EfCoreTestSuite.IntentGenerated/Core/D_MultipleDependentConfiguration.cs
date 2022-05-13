@@ -1,5 +1,6 @@
 using System;
 using EfCoreTestSuite.IntentGenerated.Entities;
+using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

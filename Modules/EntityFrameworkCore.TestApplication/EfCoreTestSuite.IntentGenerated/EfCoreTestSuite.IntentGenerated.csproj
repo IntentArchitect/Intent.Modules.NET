@@ -215,6 +215,476 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\Associations\A_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\A_RequiredCompositeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\B_OptionalAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\B_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\C_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\C_RequiredCompositeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\D_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\D_OptionalAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\E_RequiredCompositeNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\E_RequiredDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\F_OptionalAggregateNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\F_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\G_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\G_RequiredCompositeNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\H_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\H_OptionalAggregateNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\J_MultipleAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_MultipleAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\J_RequiredDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\K_SelfReferenceState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>K_SelfReference.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\L_SelfReferenceMultipleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\M_SelfReferenceBiNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IA_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IA_RequiredComposite.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IB_OptionalAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IB_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IC_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IC_RequiredComposite.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\ID_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\ID_OptionalAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IE_RequiredCompositeNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IE_RequiredDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IF_OptionalAggregateNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IF_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IG_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IG_RequiredCompositeNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IH_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IH_OptionalAggregateNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IJ_MultipleAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_MultipleAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IJ_RequiredDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IK_SelfReference.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>K_SelfReference.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IL_SelfReferenceMultiple.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IM_SelfReferenceBiNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\CompositeKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\DestinationClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DestinationClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\PrimaryKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\SourceClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SourceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\ICompositeKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IDestinationClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DestinationClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IPrimaryKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\ISourceClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SourceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\Keys_CompositeKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\Keys_DestinationClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_DestinationClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\Keys_PrimaryKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_PrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\Keys_SourceClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_SourceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IKeys_CompositeKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IKeys_DestinationClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_DestinationClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IKeys_PrimaryKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_PrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IKeys_SourceClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys_SourceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\FK_ManyToOne_DestState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_ManyToOne_Dest.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\FK_ManyToOne_SourceState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_ManyToOne_Source.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\PK_CompositeKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\PK_PrimaryKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_PrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IFK_ManyToOne_Dest.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_ManyToOne_Dest.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IFK_ManyToOne_Source.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_ManyToOne_Source.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IPK_CompositeKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IPK_PrimaryKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_PrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FK_CompositeForeignKeysState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_CompositeForeignKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFK_CompositeForeignKeys.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_CompositeForeignKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\FK_A_CompositeForeignKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_A_CompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\FK_B_CompositeForeignKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_B_CompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\PK_A_CompositeKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_A_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\PK_B_CompositeKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_B_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\PK_PrimaryKeyIntState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_PrimaryKeyInt.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\PK_PrimaryKeyLongState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_PrimaryKeyLong.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IFK_A_CompositeForeignKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_A_CompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IFK_B_CompositeForeignKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FK_B_CompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IPK_A_CompositeKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_A_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IPK_B_CompositeKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_B_CompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IPK_PrimaryKeyInt.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_PrimaryKeyInt.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeys\IPK_PrimaryKeyLong.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PK_PrimaryKeyLong.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ComplexDefaultIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CustomIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\DefaultIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IComplexDefaultIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICustomIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\IDefaultIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\StereotypeIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IStereotypeIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\ComplexDefaultIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\CustomIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\StereotypeIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\IComplexDefaultIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\ICustomIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\IStereotypeIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

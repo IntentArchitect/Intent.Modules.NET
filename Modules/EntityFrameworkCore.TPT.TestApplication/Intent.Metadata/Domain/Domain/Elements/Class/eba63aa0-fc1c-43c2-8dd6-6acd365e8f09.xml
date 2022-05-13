@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eba63aa0-fc1c-43c2-8dd6-6acd365e8f09" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>FkAssociatedClass</name>
+  <display>FkAssociatedClass</display>
+  <isAbstract>false</isAbstract>
+  <order>5</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1043a8cb-2ffb-451f-9188-abbb07731684</parentFolderId>
+  <packageId>1043a8cb-2ffb-451f-9188-abbb07731684</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
