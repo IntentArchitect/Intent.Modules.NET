@@ -50,6 +50,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
         public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
+        public DbSet<StereotypeIndex> StereotypeIndexes { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -95,6 +96,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
+            modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

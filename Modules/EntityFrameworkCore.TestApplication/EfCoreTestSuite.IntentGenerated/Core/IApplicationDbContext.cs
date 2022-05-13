@@ -44,6 +44,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
         DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
+        DbSet<StereotypeIndex> StereotypeIndexes { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

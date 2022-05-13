@@ -645,6 +645,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DefaultIndex.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\StereotypeIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IStereotypeIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

@@ -239,6 +239,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/StereotypeIndexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StereotypeIndexConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>bf8f742b-f7e7-41f7-b825-84f886e15074</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#bf8f742b-f7e7-41f7-b825-84f886e15074</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/EfCoreTestSuite.IntentGenerated.csproj</ApplicationRelativeFilePath>
@@ -880,6 +887,27 @@
       <CorrelationId>Intent.Entities.DomainEntityInterface#c497d83c-116e-4d0c-9b7f-7571243be1bd</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/IDefaultIndex.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/IDefaultIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IStereotypeIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStereotypeIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/StereotypeIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StereotypeIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/StereotypeIndexState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StereotypeIndexState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
