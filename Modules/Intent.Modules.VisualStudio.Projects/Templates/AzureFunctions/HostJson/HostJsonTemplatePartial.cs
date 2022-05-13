@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
