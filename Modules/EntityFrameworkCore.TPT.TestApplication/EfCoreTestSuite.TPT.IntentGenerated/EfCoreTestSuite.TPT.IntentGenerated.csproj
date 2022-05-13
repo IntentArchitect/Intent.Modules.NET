@@ -65,6 +65,36 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\FkAssociatedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkAssociatedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FkBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FkDerivedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkDerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFkAssociatedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkAssociatedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFkBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFkDerivedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkDerivedClass.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

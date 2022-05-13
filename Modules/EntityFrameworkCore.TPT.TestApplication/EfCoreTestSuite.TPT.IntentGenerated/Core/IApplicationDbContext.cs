@@ -15,6 +15,9 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
         DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
         DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
         DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
+        DbSet<FkAssociatedClass> FkAssociatedClasses { get; set; }
+        DbSet<FkBaseClass> FkBaseClasses { get; set; }
+        DbSet<FkDerivedClass> FkDerivedClasses { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

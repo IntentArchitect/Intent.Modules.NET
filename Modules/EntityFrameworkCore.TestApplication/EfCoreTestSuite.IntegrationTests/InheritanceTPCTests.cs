@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using EfCoreTestSuite.TPC.IntentGenerated.Core;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities;
@@ -30,5 +31,22 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
         DbContext.SaveChanges();
         
         Assert.Equal(test, DbContext.DerivedClassForAbstracts.SingleOrDefault(p => p.BaseAttribute == test.BaseAttribute && p.DerivedAttribute == test.DerivedAttribute));
+    }
+
+    [Fact(Skip = Helpers.SkipMessage)]
+    public void Test_Inheritance_CompositeForeignKey()
+    {
+        var derived = new FkDerivedClass();
+        derived.CompositeKeyA = Guid.NewGuid();
+        derived.CompositeKeyB = Guid.NewGuid();
+        DbContext.FkDerivedClasses.Add(derived);
+
+        var associated = new FkAssociatedClass();
+        associated.FkDerivedClass = derived;
+        DbContext.FkAssociatedClasses.Add(associated);
+        DbContext.SaveChanges();
+        
+        Assert.Equal(derived.CompositeKeyA, associated.FkDerivedClassCompositeKeyA);
+        Assert.Equal(derived.CompositeKeyB, associated.FkDerivedClassCompositeKeyB);
     }
 }

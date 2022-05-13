@@ -20,6 +20,9 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
         public DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
         public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
+        public DbSet<FkAssociatedClass> FkAssociatedClasses { get; set; }
+        public DbSet<FkBaseClass> FkBaseClasses { get; set; }
+        public DbSet<FkDerivedClass> FkDerivedClasses { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -38,6 +41,9 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForAbstractConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
+            modelBuilder.ApplyConfiguration(new FkAssociatedClassConfiguration());
+            modelBuilder.ApplyConfiguration(new FkBaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new FkDerivedClassConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

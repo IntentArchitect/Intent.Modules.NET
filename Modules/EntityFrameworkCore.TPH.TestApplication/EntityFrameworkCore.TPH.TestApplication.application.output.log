@@ -44,6 +44,27 @@
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#bfffe5d6-41d3-4506-84be-7a7d59cad374</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/FkAssociatedClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkAssociatedClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3fdfe3ff-2cb4-4642-baaa-6ce3c14bd826</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/FkBaseClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkBaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4ac4980a-ce7d-4871-a7a3-9f6bb874ad0b</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/FkDerivedClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkDerivedClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/IApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
@@ -121,6 +142,48 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#bfffe5d6-41d3-4506-84be-7a7d59cad374</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/FkAssociatedClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkAssociatedClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#bfffe5d6-41d3-4506-84be-7a7d59cad374</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/FkAssociatedClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkAssociatedClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#3fdfe3ff-2cb4-4642-baaa-6ce3c14bd826</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/FkBaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkBaseClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#3fdfe3ff-2cb4-4642-baaa-6ce3c14bd826</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/FkBaseClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkBaseClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#4ac4980a-ce7d-4871-a7a3-9f6bb874ad0b</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/FkDerivedClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkDerivedClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#4ac4980a-ce7d-4871-a7a3-9f6bb874ad0b</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/FkDerivedClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkDerivedClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#430a2a8c-f5d5-40dd-94c4-8e9e565444b1</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IAbstractBaseClass.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAbstractBaseClass.cs</ProjectRelativeFilePath>
@@ -152,6 +215,27 @@
       <CorrelationId>Intent.Entities.DomainEntityInterface#ab9c3435-b5e0-43c7-8b96-4a0f796a831b</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IDerivedClassForConcrete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDerivedClassForConcrete.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#bfffe5d6-41d3-4506-84be-7a7d59cad374</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IFkAssociatedClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFkAssociatedClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#3fdfe3ff-2cb4-4642-baaa-6ce3c14bd826</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IFkBaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFkBaseClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#4ac4980a-ce7d-4871-a7a3-9f6bb874ad0b</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IFkDerivedClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFkDerivedClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
