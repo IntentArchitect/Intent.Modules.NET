@@ -8,9 +8,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Entities
 {
 
-    public partial class PK_ExplicitKeys_CompositeKey : IPK_ExplicitKeys_CompositeKey
+    public partial class ExplicitKeysCompositeKey : IExplicitKeysCompositeKey
     {
-        public PK_ExplicitKeys_CompositeKey()
+        public ExplicitKeysCompositeKey()
         {
         }
 

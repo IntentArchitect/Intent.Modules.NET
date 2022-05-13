@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="1c7ed671-864f-4b70-9fde-d6716b0d8aa5" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>FK_ExplicitKeys_CompositeForeignKey</name>
-  <display>FK_ExplicitKeys_CompositeForeignKey</display>
+  <name>ExplicitKeysCompositeForeignKey</name>
+  <display>ExplicitKeysCompositeForeignKey</display>
   <isAbstract>false</isAbstract>
   <order>1</order>
   <genericTypes />
@@ -48,13 +48,13 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a480caf9-ba81-482a-9d25-94256377b093" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>PkExplicitkeysCompositekeyCompositeKeyA</name>
-      <display>PkExplicitkeysCompositekeyCompositeKeyA: guid</display>
+    <childElement id="17627619-def5-4aa1-ba9d-dddc7f0a433e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ExplicitKeysCompositeKeyCompositeKeyA</name>
+      <display>ExplicitKeysCompositeKeyCompositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
-      <typeReference id="a4678d4b-7103-4c46-9952-f7cc041baee6">
+      <typeReference id="5e414c4a-c9cc-42c3-8630-f236f1db419d">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -78,18 +78,18 @@
         </stereotype>
       </stereotypes>
       <metadata>
-        <entry key="association" value="e75fbb63-3963-4bc6-b617-8f42e01bfeb4" />
+        <entry key="association" value="888e9312-9301-4c6a-b07b-b2db00a204f5" />
         <entry key="is-managed-key" value="true" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="bf7b75dc-5300-4d99-a833-00f04ae97a07" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>PkExplicitkeysCompositekeyCompositeKeyB</name>
-      <display>PkExplicitkeysCompositekeyCompositeKeyB: guid</display>
+    <childElement id="64b7f5b2-5f46-4d53-b326-29c5023a2142" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ExplicitKeysCompositeKeyCompositeKeyB</name>
+      <display>ExplicitKeysCompositeKeyCompositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
       <order>2</order>
       <genericTypes />
-      <typeReference id="b3281251-e00c-4e3c-8de2-6ae1cf7050f1">
+      <typeReference id="ab0d6149-3791-43ea-9303-9351e594b1bc">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -113,7 +113,7 @@
         </stereotype>
       </stereotypes>
       <metadata>
-        <entry key="association" value="e75fbb63-3963-4bc6-b617-8f42e01bfeb4" />
+        <entry key="association" value="888e9312-9301-4c6a-b07b-b2db00a204f5" />
         <entry key="is-managed-key" value="true" />
       </metadata>
       <childElements />

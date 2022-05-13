@@ -9,22 +9,22 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
 {
-    public class FK_ExplicitKeys_CompositeForeignKeyConfiguration : IEntityTypeConfiguration<FK_ExplicitKeys_CompositeForeignKey>
+    public class ExplicitKeysCompositeForeignKeyConfiguration : IEntityTypeConfiguration<ExplicitKeysCompositeForeignKey>
     {
-        public void Configure(EntityTypeBuilder<FK_ExplicitKeys_CompositeForeignKey> builder)
+        public void Configure(EntityTypeBuilder<ExplicitKeysCompositeForeignKey> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.PkExplicitkeysCompositekeyCompositeKeyA)
+            builder.Property(x => x.ExplicitKeysCompositeKeyCompositeKeyA)
                 .IsRequired();
 
-            builder.Property(x => x.PkExplicitkeysCompositekeyCompositeKeyB)
+            builder.Property(x => x.ExplicitKeysCompositeKeyCompositeKeyB)
                 .IsRequired();
 
 
-            builder.HasOne(x => x.PK_ExplicitKeys_CompositeKey)
+            builder.HasOne(x => x.ExplicitKeysCompositeKey)
                 .WithMany()
-                .HasForeignKey(x => new { x.PK_ExplicitKeys_CompositeKeyCompositeKeyA, x.PK_ExplicitKeys_CompositeKeyCompositeKeyB })
+                .HasForeignKey(x => new { x.ExplicitKeysCompositeKeyCompositeKeyA, x.ExplicitKeysCompositeKeyCompositeKeyB })
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

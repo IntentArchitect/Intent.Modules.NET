@@ -25,6 +25,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>PK_ExplicitKeys_CompositeKey.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\ExplicitKeysCompositeForeignKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExplicitKeysCompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeysCompositeKeyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExplicitKeysCompositeKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IExplicitKeysCompositeForeignKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExplicitKeysCompositeForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IExplicitKeysCompositeKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExplicitKeysCompositeKey.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

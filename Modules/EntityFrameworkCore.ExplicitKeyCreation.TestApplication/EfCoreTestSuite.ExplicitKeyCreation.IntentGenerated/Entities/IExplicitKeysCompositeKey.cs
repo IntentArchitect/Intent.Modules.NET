@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Entities
 {
 
-    public partial interface IPK_ExplicitKeys_CompositeKey
+    public partial interface IExplicitKeysCompositeKey
     {
 
         Guid CompositeKeyA { get; set; }

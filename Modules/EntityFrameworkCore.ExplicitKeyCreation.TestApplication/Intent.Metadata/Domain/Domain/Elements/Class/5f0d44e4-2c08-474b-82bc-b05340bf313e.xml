@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="5f0d44e4-2c08-474b-82bc-b05340bf313e" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>PK_ExplicitKeys_CompositeKey</name>
-  <display>PK_ExplicitKeys_CompositeKey</display>
+  <name>ExplicitKeysCompositeKey</name>
+  <display>ExplicitKeysCompositeKey</display>
   <isAbstract>false</isAbstract>
   <order>2</order>
   <genericTypes />

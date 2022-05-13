@@ -11,8 +11,8 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
 {
     public interface IApplicationDbContext
     {
-        DbSet<FK_ExplicitKeys_CompositeForeignKey> FK_ExplicitKeys_CompositeForeignKeys { get; set; }
-        DbSet<PK_ExplicitKeys_CompositeKey> PK_ExplicitKeys_CompositeKeys { get; set; }
+        DbSet<ExplicitKeysCompositeForeignKey> ExplicitKeysCompositeForeignKeys { get; set; }
+        DbSet<ExplicitKeysCompositeKey> ExplicitKeysCompositeKeys { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

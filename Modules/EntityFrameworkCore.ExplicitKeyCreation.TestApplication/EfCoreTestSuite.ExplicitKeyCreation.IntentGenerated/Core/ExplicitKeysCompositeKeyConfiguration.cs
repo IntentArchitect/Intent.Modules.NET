@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
 {
-    public class PK_ExplicitKeys_CompositeKeyConfiguration : IEntityTypeConfiguration<PK_ExplicitKeys_CompositeKey>
+    public class ExplicitKeysCompositeKeyConfiguration : IEntityTypeConfiguration<ExplicitKeysCompositeKey>
     {
-        public void Configure(EntityTypeBuilder<PK_ExplicitKeys_CompositeKey> builder)
+        public void Configure(EntityTypeBuilder<ExplicitKeysCompositeKey> builder)
         {
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
 

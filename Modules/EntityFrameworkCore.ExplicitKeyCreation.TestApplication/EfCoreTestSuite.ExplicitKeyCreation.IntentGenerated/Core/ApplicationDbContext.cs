@@ -17,8 +17,8 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
         {
         }
 
-        public DbSet<FK_ExplicitKeys_CompositeForeignKey> FK_ExplicitKeys_CompositeForeignKeys { get; set; }
-        public DbSet<PK_ExplicitKeys_CompositeKey> PK_ExplicitKeys_CompositeKeys { get; set; }
+        public DbSet<ExplicitKeysCompositeForeignKey> ExplicitKeysCompositeForeignKeys { get; set; }
+        public DbSet<ExplicitKeysCompositeKey> ExplicitKeysCompositeKeys { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -34,8 +34,8 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
 
             ConfigureModel(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new FK_ExplicitKeys_CompositeForeignKeyConfiguration());
-            modelBuilder.ApplyConfiguration(new PK_ExplicitKeys_CompositeKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new ExplicitKeysCompositeForeignKeyConfiguration());
+            modelBuilder.ApplyConfiguration(new ExplicitKeysCompositeKeyConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]
