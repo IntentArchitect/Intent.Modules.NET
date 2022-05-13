@@ -63,8 +63,8 @@
       <childElements />
     </childElement>
     <childElement id="def5ab0b-7927-423e-9c3a-eb9d79fa61bd" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
-      <name>Index_fieldA_fieldB</name>
-      <display>Index_fieldA_fieldB</display>
+      <name>IX_ComplexDefaultIndices_FieldA_FieldB</name>
+      <display>IX_ComplexDefaultIndices_FieldA_FieldB</display>
       <isAbstract>false</isAbstract>
       <order>2</order>
       <genericTypes />

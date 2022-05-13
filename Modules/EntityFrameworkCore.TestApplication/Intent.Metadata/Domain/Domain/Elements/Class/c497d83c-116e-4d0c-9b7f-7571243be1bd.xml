@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="7ca51f87-bc21-4cc8-8c37-aaf3804c6b3d" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
-      <name>Index_indexField</name>
-      <display>Index_indexField</display>
+      <name>IX_DefaultIndices_IndexField</name>
+      <display>IX_DefaultIndices_IndexField</display>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
