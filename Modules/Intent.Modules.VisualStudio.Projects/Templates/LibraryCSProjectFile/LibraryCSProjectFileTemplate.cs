@@ -25,18 +25,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LibraryCSProjectFile
 
         public override string TransformText()
         {
-            var meta = GetMetadata();
-            var fullFileName = Path.Combine(meta.GetFullLocationPath(), meta.FileNameWithExtension());
+            if (!TryGetExistingFileContent(out var content))
+            {
+                content = CreateTemplate();
+            }
 
-            var doc = LoadOrCreate(fullFileName);
+            var doc = XDocument.Parse(content);
             return doc.ToStringUTF8();
-        }
-
-        private XDocument LoadOrCreate(string fullFileName)
-        {
-            return File.Exists(fullFileName)
-                ? XDocument.Load(fullFileName)
-                : XDocument.Parse(CreateTemplate());
         }
 
         private string CreateTemplate()

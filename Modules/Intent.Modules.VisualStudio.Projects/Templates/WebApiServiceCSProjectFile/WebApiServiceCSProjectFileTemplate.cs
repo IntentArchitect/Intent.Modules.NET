@@ -1,15 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.SoftwareFactory;
 using Intent.Engine;
+using Intent.Modules.Common;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Templates;
 using Microsoft.Build.Construction;
 
@@ -19,46 +15,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
     {
         public const string Identifier = "Intent.VisualStudio.Projects.WebApiServiceCSProjectFile";
         private readonly string _sslPort = "";
-        private readonly string _port;
 
         public WebApiServiceCSProjectFileTemplate(IOutputTarget project, IVisualStudioProject model)
             : base(Identifier, project, model)
         {
-            //_port = project.ProjectType.Properties.FirstOrDefault(x => x.Name == "Port")?.Value;
-            //bool.TryParse(project.ProjectType.Properties.FirstOrDefault(x => x.Name == "UseSsl")?.Value, out var useSsl);
-            //if (useSsl)
-            //{
-            //    _sslPort = project.ProjectType.Properties.First(x => x.Name == "SslPort").Value;
-            //}
         }
-        
+
         public override string TransformText()
         {
-            var meta = GetMetadata();
-            var fullFileName = Path.Combine(meta.GetFullLocationPath(), meta.FileNameWithExtension());
+            var doc = TryGetExistingFileContent(out var content)
+                ? XDocument.Parse(content, LoadOptions.PreserveWhitespace)
+                : XDocument.Parse(CreateTemplate());
 
-            var doc = LoadOrCreate(fullFileName);
             foreach (var xmlDecorator in GetDecorators())
             {
                 xmlDecorator.Install(doc, Project);
             }
 
             var text = doc.ToStringUTF8();
-            return text;//.Substring(text.IndexOf("<Project", StringComparison.InvariantCultureIgnoreCase));
-        }
-
-        private XDocument LoadOrCreate(string fullFileName)
-        {
-            XDocument doc;
-            if (File.Exists(fullFileName))
-            {
-                doc = XDocument.Load(fullFileName, LoadOptions.PreserveWhitespace);
-            }
-            else
-            {
-                doc = XDocument.Parse(CreateTemplate());
-            }
-            return doc;
+            return text;
         }
 
         public string CreateTemplate()
@@ -111,27 +86,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
             group.AddProperty("ErrorReport", "prompt");
             group.AddProperty("WarningLevel", "4");
 
-            // references
-            var itemGroup = AddItems(root, "Reference"
-                , "Microsoft.CSharp"
-                , "System"
-                , "System.Configuration"
-                , "System.Data"
-                , "System.Data.DataSetExtensions"
-                , "System.Drawing"
-                , "System.EnterpriseServices"
-                , "System.Transactions"
-                , "System.Web"
-                , "System.Web.ApplicationServices"
-                , "System.Web.DynamicData"
-                , "System.Web.Entity"
-                , "System.Web.Extensions"
-                , "System.Web.Services"
-                , "System.Xml"
-                , "System.Xml.Linq"
-                );
-
-            itemGroup = root.AddItemGroup();
+            var itemGroup = root.AddItemGroup();
 
             foreach (var reference in Project.References())
             {
@@ -164,10 +119,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
       <FlavorProperties GUID=""{{349c5851-65df-11da-9384-00065b846f21}}"">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
-          <AutoAssignPort>{ (!string.IsNullOrWhiteSpace(_port) ? "False" : "True") }</AutoAssignPort>
-          <DevelopmentServerPort>{ _port ?? "0" }</DevelopmentServerPort>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:{  _sslPort }/</IISUrl>
+          <IISUrl>https://localhost:{_sslPort}/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -186,16 +141,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
         private string GetTargetFrameworkVersion()
         {
             return Model.TargetFrameworkVersion().SingleOrDefault() ?? "4.7.2";
-        }
-
-        private static ProjectItemGroupElement AddItems(ProjectRootElement elem, string groupName, params string[] items)
-        {
-            var group = elem.AddItemGroup();
-            foreach (var item in items)
-            {
-                group.AddItem(groupName, item);
-            }
-            return group;
         }
 
         private static void AddItem(ProjectItemGroupElement itemGroup, string groupName, string item, IEnumerable<KeyValuePair<string, string>> metadata)
@@ -217,7 +162,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
         {
             if (FileMetadata.CustomMetadata.TryGetValue("Ignore NuGet Dependencies", out var ignoreNuGet) && ignoreNuGet == "true")
             {
-                return new INugetPackageInfo[0];
+                return Array.Empty<INugetPackageInfo>();
             }
             return new[]
             {
@@ -239,9 +184,5 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
         {
             _decorators.Add(decorator);
         }
-    }
-
-    public interface IWebApiServiceCSProjectDecorator : IXmlDecorator
-    {
     }
 }

@@ -41,9 +41,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
 
         public override string RunTemplate()
         {
-            var content = File.Exists(GetExistingFilePath())
-                ? File.ReadAllText(GetExistingFilePath())
-                : base.RunTemplate();
+            if (!TryGetExistingFileContent(out var content))
+            {
+                content = base.RunTemplate();
+            }
 
             var doc = XDocument.Parse(content, LoadOptions.PreserveWhitespace);
             var namespaces = new XmlNamespaceManager(new NameTable());
