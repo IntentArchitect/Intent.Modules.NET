@@ -1,14 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using Intent.Engine;
-using Intent.Metadata.Models;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -37,13 +31,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
         private void Handle(HostSettingRegistrationRequest @event)
         {
-            if (!string.IsNullOrWhiteSpace(@event.ForProjectWithRole) &&
-                !OutputTarget.GetProject().HasRole(@event.ForProjectWithRole))
+            if (!@event.IsApplicableTo(this))
             {
                 return;
             }
-
-            @event.MarkHandled();
 
             if (_registrationRequestsByKey.TryGetValue(@event.Key, out var value))
             {
@@ -79,71 +70,19 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
         public override string RunTemplate()
         {
-            var jsonText = File.Exists(FileMetadata.GetFullLocationPath())
-                ? File.ReadAllText(FileMetadata.GetFullLocationPath())
-                : File.Exists(GetExistingFilePath())
-                    ? File.ReadAllText(GetExistingFilePath())
-                    : TransformText();
-
-            var json = JsonConvert.DeserializeObject<JObject>(jsonText);
-
-            foreach (var item in _registrationRequestsByKey)
+            if (!TryGetExistingFileContent(out var content))
             {
-                Apply(item.Value.Request, json);
+                content = TransformText();
+            }
+
+            var json = JsonConvert.DeserializeObject<JObject>(content);
+
+            foreach (var request in _registrationRequestsByKey)
+            {
+                json.SetFieldValue(request.Key, request.Value, allowReplacement: false);
             }
 
             return JsonConvert.SerializeObject(json, Formatting.Indented);
-        }
-
-        private void Apply(HostSettingRegistrationRequest request, JToken jToken)
-        {
-            if (!request.IsApplicableTo(this))
-            {
-                return;
-            }
-
-            var @object = jToken;
-            var field = default(string);
-
-            var split = request.Key.Split(':');
-            for (var index = 0; index < split.Length; index++)
-            {
-                field = split[index];
-
-                // Don't do the last entry
-                if (index == split.Length - 1)
-                {
-                    break;
-                }
-
-                @object[field] ??= new JObject();
-                @object = @object[field];
-            }
-
-            // Don't overwrite if already existed
-            if (@object[field!] != null)
-            {
-                return;
-            }
-
-            @object[field!] = request.Value switch
-            {
-                bool primitive => primitive,
-                byte primitive => primitive,
-                sbyte primitive => primitive,
-                char primitive => primitive,
-                decimal primitive => primitive,
-                double primitive => primitive,
-                float primitive => primitive,
-                int primitive => primitive,
-                uint primitive => primitive,
-                long primitive => primitive,
-                ulong primitive => primitive,
-                short primitive => primitive,
-                ushort primitive => primitive,
-                string primitive => primitive,
-                _ => JObject.FromObject(request.Value)
-            };
         }
     }
 }
