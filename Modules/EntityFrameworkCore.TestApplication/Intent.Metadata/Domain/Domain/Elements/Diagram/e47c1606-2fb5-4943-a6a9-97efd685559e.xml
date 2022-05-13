@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="86682f59-803f-4277-bb01-326cf0e690e0" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
-  <name>Associations Diagram</name>
-  <display>Associations Diagram</display>
+<class id="e47c1606-2fb5-4943-a6a9-97efd685559e" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Indexes Diagram</name>
+  <display>Indexes Diagram</display>
   <isAbstract>false</isAbstract>
-  <order>6</order>
+  <order>8</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8ca37b32-c4a3-4856-919f-e2190fa2d337</parentFolderId>

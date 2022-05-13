@@ -1,7 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
+using EfCoreTestSuite.IntentGenerated.Entities;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
+using EfCoreTestSuite.IntentGenerated.Entities.Indexes;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,8 +20,11 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
         DbSet<C_MultipleDependent> C_MultipleDependents { get; set; }
         DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
+        DbSet<ComplexDefaultIndex> ComplexDefaultIndexes { get; set; }
+        DbSet<CustomIndex> CustomIndexes { get; set; }
         DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
+        DbSet<DefaultIndex> DefaultIndexes { get; set; }
         DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         DbSet<E_RequiredDependent> E_RequiredDependents { get; set; }
         DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }

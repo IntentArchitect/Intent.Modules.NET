@@ -615,6 +615,36 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>PK_PrimaryKeyLong.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\ComplexDefaultIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CustomIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\DefaultIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IComplexDefaultIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICustomIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\IDefaultIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DefaultIndex.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

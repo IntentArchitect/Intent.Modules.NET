@@ -1,8 +1,10 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EfCoreTestSuite.IntentGenerated.Entities;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
+using EfCoreTestSuite.IntentGenerated.Entities.Indexes;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,8 +26,11 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
         public DbSet<C_MultipleDependent> C_MultipleDependents { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
+        public DbSet<ComplexDefaultIndex> ComplexDefaultIndexes { get; set; }
+        public DbSet<CustomIndex> CustomIndexes { get; set; }
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
+        public DbSet<DefaultIndex> DefaultIndexes { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public DbSet<E_RequiredDependent> E_RequiredDependents { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
@@ -64,8 +69,11 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new C_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
+            modelBuilder.ApplyConfiguration(new ComplexDefaultIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomIndexConfiguration());
             modelBuilder.ApplyConfiguration(new D_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new D_OptionalAggregateConfiguration());
+            modelBuilder.ApplyConfiguration(new DefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
