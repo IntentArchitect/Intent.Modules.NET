@@ -655,6 +655,36 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>StereotypeIndex.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\Indexes\ComplexDefaultIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\CustomIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\StereotypeIndexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\IComplexDefaultIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComplexDefaultIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\ICustomIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Indexes\IStereotypeIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StereotypeIndex.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

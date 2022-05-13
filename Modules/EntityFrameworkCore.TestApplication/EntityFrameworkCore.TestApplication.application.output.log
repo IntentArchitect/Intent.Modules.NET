@@ -695,34 +695,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ComplexDefaultIndex.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ComplexDefaultIndex.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityState#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ComplexDefaultIndexState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ComplexDefaultIndexState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/CustomIndex.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomIndex.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityState#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/CustomIndexState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomIndexState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/FK_A_CompositeForeignKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/FK_A_CompositeForeignKey.cs</ProjectRelativeFilePath>
@@ -849,23 +821,37 @@
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IComplexDefaultIndex.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IComplexDefaultIndex.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ICustomIndex.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICustomIndex.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IdentityGenerator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/ComplexDefaultIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/ComplexDefaultIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/ComplexDefaultIndexState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/ComplexDefaultIndexState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/CustomIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/CustomIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/CustomIndexState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/CustomIndexState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -884,6 +870,20 @@
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/IComplexDefaultIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/IComplexDefaultIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/ICustomIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/ICustomIndex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#c497d83c-116e-4d0c-9b7f-7571243be1bd</CorrelationId>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/IDefaultIndex.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/IDefaultIndex.cs</ProjectRelativeFilePath>
@@ -892,22 +892,22 @@
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IStereotypeIndex.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IStereotypeIndex.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/IStereotypeIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/IStereotypeIndex.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/StereotypeIndex.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StereotypeIndex.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/StereotypeIndex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/StereotypeIndex.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/StereotypeIndexState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StereotypeIndexState.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/StereotypeIndexState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/StereotypeIndexState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.IntentGenerated.Entities;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.DomainEntityState", Version = "1.0")]
 
-namespace EfCoreTestSuite.IntentGenerated.Entities
+namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 {
 
-    public partial class ComplexDefaultIndex : IComplexDefaultIndex
+    public partial class CustomIndex : ICustomIndex
     {
-        public ComplexDefaultIndex()
+        public CustomIndex()
         {
         }
 
@@ -25,25 +26,14 @@ namespace EfCoreTestSuite.IntentGenerated.Entities
             set { _id = value; }
         }
 
-        private Guid _fieldA;
+        private Guid _indexField;
 
-        public Guid FieldA
+        public Guid IndexField
         {
-            get { return _fieldA; }
+            get { return _indexField; }
             set
             {
-                _fieldA = value;
-            }
-        }
-
-        private Guid _fieldB;
-
-        public Guid FieldB
-        {
-            get { return _fieldB; }
-            set
-            {
-                _fieldB = value;
+                _indexField = value;
             }
         }
 

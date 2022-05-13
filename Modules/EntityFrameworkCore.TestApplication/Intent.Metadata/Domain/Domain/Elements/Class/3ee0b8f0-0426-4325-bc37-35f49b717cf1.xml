@@ -3,10 +3,10 @@
   <name>ComplexDefaultIndex</name>
   <display>ComplexDefaultIndex</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>8ca37b32-c4a3-4856-919f-e2190fa2d337</parentFolderId>
+  <parentFolderId>a7322c0d-8ae7-418f-adf3-2d9b1ed379cf</parentFolderId>
   <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
   <packageName>Domain</packageName>
   <stereotypes />
