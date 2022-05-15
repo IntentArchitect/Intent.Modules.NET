@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
 {
     internal class SqlProjectSyncProcessor : ProjectSyncProcessorBase
     {
-        private static readonly Dictionary<string, string> Children = new();
-        private static readonly IReadOnlyCollection<(string FileExtension, string ItemType)> Fallbacks = new[]
-        {
-            (".sql", "Build")
-        };
-
         public SqlProjectSyncProcessor(
             string projectPath,
             ISoftwareFactoryEventDispatcher sfEventDispatcher,
@@ -27,22 +22,37 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         {
         }
 
-        protected override void AddProjectItem(string path, Dictionary<string, string> additionalData)
+        protected override FileAddedData GetFileAddedDataP(IDictionary<string, string> input)
         {
-            if (Path.GetExtension(path).Equals(".sqlproj", StringComparison.OrdinalIgnoreCase))
+            if (!input.ContainsKey(CustomMetadataKeys.ItemType) && 
+                input.ContainsKey("ExcludeFromProject"))
+            {
+                input[CustomMetadataKeys.ItemType] = "None";
+            }
+
+            if (!input.ContainsKey(CustomMetadataKeys.ItemType) &&
+                ".sql".Equals(Path.GetExtension(input["Path"]), StringComparison.OrdinalIgnoreCase))
+            {
+                input[CustomMetadataKeys.ItemType] = "Build";
+            }
+
+            return base.GetFileAddedDataP(input);
+        }
+
+        protected override void AddProjectItem(string path, FileAddedData fileAddedData)
+        {
+            if (".sqlproj".Equals(Path.GetExtension(path), StringComparison.OrdinalIgnoreCase))
             {
                 return;
             }
 
-            if (additionalData.ContainsKey("ExcludeFromProject"))
+            if (fileAddedData.ItemType == "None")
             {
+                RemoveProjectItem(path);
                 return;
             }
 
-            AddProjectItem(
-                path: path,
-                itemType: DetermineItemType(path, additionalData, Fallbacks),
-                children: Children);
+            base.AddProjectItem(path, fileAddedData);
         }
     }
 }

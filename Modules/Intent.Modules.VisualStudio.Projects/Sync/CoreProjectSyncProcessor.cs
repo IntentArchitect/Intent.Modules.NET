@@ -231,7 +231,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
             if (string.IsNullOrWhiteSpace(relativeFileName))
             {
-                throw new Exception("relativeFileName is null");
+                throw new Exception($"{nameof(relativeFileName)} is null");
             }
 
             var itemElement = GetFileItem(relativeFileName);
@@ -275,20 +275,20 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
             itemElement.SetAttributeValue(XName.Get("Update", _namespace.NamespaceName), relativeFileName);
 
-            foreach (var (key, value) in data.Attributes)
+            foreach (var (name, value) in data.Attributes)
             {
-                itemElement.SetAttributeValue(XName.Get(key, _namespace.NamespaceName), value);
+                itemElement.SetAttributeValue(XName.Get(name, _namespace.NamespaceName), value);
             }
 
-            foreach (var (key, value) in data.Elements)
+            foreach (var (name, value) in data.Elements)
             {
-                var subElement = itemElement.Elements().SingleOrDefault(x => x.Name == XName.Get(key, _namespace.NamespaceName));
+                var subElement = itemElement.Elements().SingleOrDefault(x => x.Name == XName.Get(name, _namespace.NamespaceName));
                 if (subElement == null)
                 {
                     var content = new object[]
                     {
                         $"{Environment.NewLine}      ",
-                        subElement = new XElement(XName.Get(key, _namespace.NamespaceName))
+                        subElement = new XElement(XName.Get(name, _namespace.NamespaceName))
                     };
 
                     var lastElement = itemElement.Elements().LastOrDefault();

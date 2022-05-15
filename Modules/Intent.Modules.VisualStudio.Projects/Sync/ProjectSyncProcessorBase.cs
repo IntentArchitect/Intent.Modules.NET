@@ -10,7 +10,6 @@ using Intent.Eventing;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.SdkEvolutionHelpers;
-using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
@@ -59,18 +58,12 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         {
             foreach (var @event in events)
             {
-                var additionalData = @event.AdditionalInfo is Dictionary<string, string> dictionary
-                    ? dictionary
-                    : @event.AdditionalInfo.ToDictionary(
-                        x => x.Key,
-                        x => x.Value);
-
                 switch (@event.EventIdentifier)
                 {
                     case SoftwareFactoryEvents.FileAddedEvent:
                         AddProjectItem(
                             path: @event.GetValue("Path"),
-                            additionalData: additionalData);
+                            data: GetFileAddedDataP(@event.AdditionalInfo));
                         break;
                     case SoftwareFactoryEvents.FileRemovedEvent:
                         RemoveProjectItem(
@@ -82,8 +75,6 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 }
             }
         }
-
-        protected abstract void AddProjectItem(string path, Dictionary<string, string> additionalData);
 
         protected string DetermineItemType(
             string path,
@@ -206,71 +197,76 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return projectItem;
         }
 
-        private void RemoveProjectItem(string path)
+        protected void RemoveProjectItem(string path)
         {
-            var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_relativeProjectPath), path));
+            var relativeFileName = GetRelativeFileName(path);
 
             var projectItem = GetProjectItem(relativeFileName);
-            projectItem?.Remove();
-        }
-
-        protected void AddProjectItem(string path, string itemType, Dictionary<string, string> children)
-        {
-            if (string.IsNullOrWhiteSpace(itemType))
-            {
-                throw new ArgumentOutOfRangeException(nameof(itemType), itemType, "Cannot be null, empty or whitespace");
-            }
-
-            var relativePath = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_relativeProjectPath), path));
-
-            if (string.IsNullOrWhiteSpace(relativePath))
-            {
-                throw new Exception("relativeFileName is null");
-            }
-
-            var itemGroup = FindItemGroup(itemType) ?? AddItemGroup();
-
-            var projectItem = GetProjectItem(relativePath);
-            if (projectItem?.Attribute("IntentIgnore")?.Value.ToLower() == "true")
+            if (projectItem == null)
             {
                 return;
             }
 
-            if (projectItem == null)
+            var container = projectItem.Parent;
+            projectItem.Remove();
+
+            if (container is { HasElements: false, HasAttributes: false })
             {
-                projectItem = new XElement(
-                    name: XName.Get(itemType, _namespace.NamespaceName),
-                    content: new XAttribute("Include", relativePath));
-                itemGroup.Add(projectItem);
+                container.Remove();
+            }
+        }
+
+        protected string GetRelativeFileName(string path)
+        {
+            return NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_relativeProjectPath)!, path));
+        }
+
+        protected virtual void AddProjectItem(string path, FileAddedData data)
+        {
+            var relativeFileName = GetRelativeFileName(path);
+            if (string.IsNullOrWhiteSpace(relativeFileName))
+            {
+                throw new Exception($"{nameof(relativeFileName)} is null");
             }
 
-            if (projectItem.Name.LocalName != itemType)
+            var itemGroup = FindItemGroup(data.ItemType) ?? AddItemGroup();
+
+            var itemElement = GetProjectItem(relativeFileName);
+            if (itemElement?.Attribute("IntentIgnore")?.Value.ToLower() == "true")
             {
-                projectItem.Name = XName.Get(itemType, projectItem.Name.NamespaceName);
+                return;
             }
 
-            var toRemove = projectItem
-                .Elements()
-                .Where(x => !children.ContainsKey(x.Name.LocalName))
-                .ToArray();
-
-            foreach (var item in toRemove)
+            if (itemElement == null)
             {
-                item.Remove();
+                itemElement = new XElement(
+                    name: XName.Get(data.ItemType, _namespace.NamespaceName),
+                    content: new XAttribute("Include", relativeFileName));
+                itemGroup.Add(itemElement);
             }
 
-            foreach (var (name, value) in children)
+            if (itemElement.Name.LocalName != data.ItemType)
             {
-                var existing = projectItem.Elements().SingleOrDefault(x => x.Name.LocalName == name);
-                if (existing == null)
+                itemElement.Name = XName.Get(data.ItemType, itemElement.Name.NamespaceName);
+            }
+
+            foreach (var (name, value) in data.Elements)
+            {
+                var subElement = itemElement.Elements().SingleOrDefault(x => x.Name.LocalName == name);
+                if (subElement == null)
                 {
-                    existing = new XElement(XName.Get(name, _namespace.NamespaceName), value);
-                    projectItem.Add(existing);
+                    subElement = new XElement(XName.Get(name, _namespace.NamespaceName), value);
+                    itemElement.Add(subElement);
                 }
 
-                if (existing.Value != value)
+                subElement.SetValue(value);
+            }
+
+            foreach (var element in itemElement.Elements())
+            {
+                if (!data.Elements.ContainsKey(element.Name.LocalName))
                 {
-                    existing.SetValue(value);
+                    element.Remove();
                 }
             }
         }
@@ -292,6 +288,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
 
             return value;
+        }
+
+        protected virtual FileAddedData GetFileAddedDataP(IDictionary<string, string> input)
+        {
+            return GetFileAddedData(input);
         }
 
         /// <remarks>
@@ -352,6 +353,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                         data.Elements.Add("DependentUpon", value);
                         break;
                     case "ItemType":
+                    case "BuildAction":
+                    case "Build Action":
                         data.ItemType ??= value;
                         break;
                     default:

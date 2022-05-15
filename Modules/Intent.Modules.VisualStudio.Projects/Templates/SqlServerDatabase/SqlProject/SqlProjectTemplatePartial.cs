@@ -67,7 +67,18 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
                 .ToArray();
             foreach (var item in toRemove)
             {
+                var container = item.Parent;
                 item.Remove();
+
+                if (container is { HasAttributes: false, HasElements: false })
+                {
+                    container.Remove();
+                }
+            }
+
+            if (!Model.SQLCMDVariables.Any())
+            {
+                return;
             }
 
             var itemGroup = doc
