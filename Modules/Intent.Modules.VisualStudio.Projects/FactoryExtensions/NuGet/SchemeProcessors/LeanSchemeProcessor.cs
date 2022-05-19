@@ -145,7 +145,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                    ?? targetElement.Elements(name).SingleOrDefault()?.Value;
         }
 
-        private void SetAttributeOrElementValue(XElement targetElement, string name, string value)
+        private static void SetAttributeOrElementValue(XElement targetElement, string name, string value)
         {
             var nestedElement = targetElement.Elements(name).SingleOrDefault();
             if (nestedElement?.Value != null)
