@@ -50,7 +50,7 @@
       <childElements>
         <childElement id="b2e92951-4653-4260-8f07-824fe4d67743" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Table Per Hierarchy</name>
-          <display>Table Per Hierarchy</display>
+          <display>Table Per Hierarchy = TPH</display>
           <isAbstract>false</isAbstract>
           <value>TPH</value>
           <order>0</order>
@@ -65,7 +65,7 @@
         </childElement>
         <childElement id="fdd5be95-4045-427f-b51d-132cbcd9147f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Table Per Type</name>
-          <display>Table Per Type</display>
+          <display>Table Per Type = TPT</display>
           <isAbstract>false</isAbstract>
           <value>TPT</value>
           <order>1</order>
@@ -80,7 +80,7 @@
         </childElement>
         <childElement id="3e3ba2d0-b32b-4710-9c92-a84c3437d7df" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Table Per Concrete Type</name>
-          <display>Table Per Concrete Type</display>
+          <display>Table Per Concrete Type = TPC</display>
           <isAbstract>false</isAbstract>
           <value>TPC</value>
           <order>2</order>

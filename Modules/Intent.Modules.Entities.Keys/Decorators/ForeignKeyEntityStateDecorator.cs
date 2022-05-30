@@ -34,7 +34,7 @@ namespace Intent.Modules.Entities.Keys.Decorators
                 if (associationEnd.Class.GetExplicitPrimaryKey().Any())
                 {
                     return string.Join(Environment.NewLine, associationEnd.Class.GetExplicitPrimaryKey()
-                        .Where(x => associationEnd.OtherEnd().Class.Attributes.All(a => !a.Name.Equals($"{ associationEnd.Name().ToPascalCase() }{x.Name.ToPascalCase()}")))
+                        .Where(x => associationEnd.OtherEnd().Class.Attributes.All(a => !a.Name.ToPascalCase().Equals($"{ associationEnd.Name().ToPascalCase() }{x.Name.ToPascalCase()}")))
                         .Select(x => $"       public {Template.GetTypeName(x.TypeReference)}{ (associationEnd.IsNullable ? "?" : "") } { associationEnd.Name().ToPascalCase() }{x.Name.ToPascalCase()} {{ get; set; }}"));
                 }
                 else

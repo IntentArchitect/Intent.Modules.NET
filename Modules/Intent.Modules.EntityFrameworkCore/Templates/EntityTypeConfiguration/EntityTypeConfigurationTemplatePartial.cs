@@ -266,6 +266,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
             }
 
+            if (Intent.EntityFrameworkCore.Api.AttributeModelStereotypeExtensions.HasRowVersion(attribute))
+            {
+                statements.Add($".IsRowVersion()");
+            }
+
             return statements;
         }
 
