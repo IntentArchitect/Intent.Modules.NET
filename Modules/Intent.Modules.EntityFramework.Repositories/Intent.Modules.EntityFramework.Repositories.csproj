@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
     <ProjectReference Include="..\Intent.Modules.EntityFramework\Intent.Modules.EntityFramework.csproj" />
   </ItemGroup>
