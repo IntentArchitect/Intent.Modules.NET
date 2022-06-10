@@ -134,7 +134,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                         path: folderModel.Name,
                         id: folderModel.Id,
                         parentId: slnParent?.Id,
-                        project: out var slnFolder))
+                        project: out var slnFolder,
+                        tryMatchOnPathGlobally: false))
                 {
                     slnFolder.Name = folderModel.Name;
                     slnFolder.Path = folderModel.Name;

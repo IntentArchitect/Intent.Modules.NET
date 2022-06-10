@@ -258,8 +258,15 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
             return Nodes.OfType<SolutionItemComplexNode>().SingleOrDefault(x => x.Id == parentId);
         }
 
-        /// <returns><see langword="true"/> if the project already existed.</returns>
-        public bool GetOrCreateProjectNode(string typeId, string name, string path, string id, string parentId, out SolutionItemProjectNode project)
+        /// <returns><see langword="true"/> if the project already existed.</retu,rns>
+        public bool GetOrCreateProjectNode(
+            string typeId,
+            string name,
+            string path,
+            string id,
+            string parentId,
+            out SolutionItemProjectNode project,
+            bool tryMatchOnPathGlobally = true)
         {
             var parentNode = Nodes.OfType<SolutionItemComplexNode>().SingleOrDefault(x => x.Id == parentId);
             var childNodes = GetChildrenWithParentOf(parentNode);
@@ -274,8 +281,12 @@ namespace Intent.Modules.VisualStudio.Projects.SolutionFile
             var node =
                 childNodes.SingleOrDefault(x => x.Id == id) ??
                 childNodes.SingleOrDefault(x => new SolutionItemProjectNode(x).HasPath(path)) ??
-                projectNodes.SingleOrDefault(x => x.Id == id) ??
-                projectNodes.SingleOrDefault(x => new SolutionItemProjectNode(x).HasPath(path));
+                projectNodes.SingleOrDefault(x => x.Id == id);
+
+            if (tryMatchOnPathGlobally)
+            {
+                node ??= projectNodes.SingleOrDefault(x => new SolutionItemProjectNode(x).HasPath(path));
+            }
 
             if (node != null)
             {
