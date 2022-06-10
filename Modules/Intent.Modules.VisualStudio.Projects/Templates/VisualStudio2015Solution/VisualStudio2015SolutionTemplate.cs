@@ -84,20 +84,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                 solutionConfigurationPlatforms: solutionConfigurationPlatforms.ChildNodes
                     .OfType<KeyValueNode>()
                     .Select(x => x.Key)
-                    .ToArray());
+                    .ToArray(),
+                projects: Projects.ToArray());
 
             return slnFile.ToString();
         }
 
-        private void SyncProjectsAndFolders(
+        /// <summary>
+        /// <see langword="internal"/> so can be unit tested.
+        /// </summary>
+        internal static void SyncProjectsAndFolders(
             SlnFile slnFile,
             SolutionItemComplexNode slnParent,
             SolutionFolderModel modelParent,
             IEnumerable<SolutionFolderModel> modelFolders,
             List<Node> projectConfigurationPlatforms,
-            IReadOnlyCollection<string> solutionConfigurationPlatforms)
+            IReadOnlyCollection<string> solutionConfigurationPlatforms,
+            IReadOnlyCollection<IVisualStudioProject> projects)
         {
-            foreach (var projectModel in Projects.Where(x => x.ParentFolder?.Id == modelParent?.Id))
+            foreach (var projectModel in projects.Where(x => x.ParentFolder?.Id == modelParent?.Id))
             {
                 var path = $"{projectModel.ToOutputTargetConfig().RelativeLocation}\\{projectModel.Name}.{projectModel.FileExtension}".Replace("/", "\\");
 
@@ -142,7 +147,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solutio
                     modelParent: folderModel,
                     modelFolders: folderModel.Folders,
                     projectConfigurationPlatforms: projectConfigurationPlatforms,
-                    solutionConfigurationPlatforms: solutionConfigurationPlatforms);
+                    solutionConfigurationPlatforms: solutionConfigurationPlatforms,
+                    projects: projects);
             }
         }
 
