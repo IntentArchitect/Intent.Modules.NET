@@ -50,32 +50,31 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
-        private string DefineServiceRegistration(ContainerRegistrationRequest x)
+        private string DefineServiceRegistration(ContainerRegistrationRequest request)
         {
-            if (x.ConcreteType.StartsWith("typeof("))
+            string UseTypeOf(string type)
             {
-                return x.InterfaceType != null
-                    ? $"services.{RegistrationType(x)}({(x.InterfaceType)}, {(x.ConcreteType)});"
-                    : $"services.{RegistrationType(x)}({(x.ConcreteType)});";
+                var typeName = type.Substring("typeof(".Length, type.Length - "typeof()".Length);
+                return $"typeof({UseType(typeName)})";
             }
-            return x.InterfaceType != null
-                ? $"services.{RegistrationType(x)}<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>();"
-                : $"services.{RegistrationType(x)}<{NormalizeNamespace(x.ConcreteType)}>();";
-        }
 
-        private string RegistrationType(ContainerRegistrationRequest registration)
-        {
-            switch (registration.Lifetime)
+            var registrationType = request.Lifetime switch
             {
-                case ContainerRegistrationRequest.LifeTime.Singleton:
-                    return "AddSingleton";
-                case ContainerRegistrationRequest.LifeTime.PerServiceCall:
-                    return "AddScoped";
-                case ContainerRegistrationRequest.LifeTime.Transient:
-                    return "AddTransient";
-                default:
-                    return "AddTransient";
+                ContainerRegistrationRequest.LifeTime.Singleton => "AddSingleton",
+                ContainerRegistrationRequest.LifeTime.PerServiceCall => "AddScoped",
+                ContainerRegistrationRequest.LifeTime.Transient => "AddTransient",
+                _ => "AddTransient"
+            };
+
+            if (request.ConcreteType.StartsWith("typeof("))
+            {
+                return request.InterfaceType != null
+                    ? $"services.{registrationType}({UseTypeOf(request.InterfaceType)}, {UseTypeOf(request.ConcreteType)});"
+                    : $"services.{registrationType}({UseTypeOf(request.ConcreteType)});";
             }
+            return request.InterfaceType != null
+                ? $"services.{registrationType}<{UseType(request.InterfaceType)}, {UseType(request.ConcreteType)}>();"
+                : $"services.{registrationType}<{UseType(request.ConcreteType)}>();";
         }
     }
 }

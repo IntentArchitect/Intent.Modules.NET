@@ -44,10 +44,10 @@ namespace Intent.Modules.Entities.DDD.Decorators
                 return base.PropertyBefore(associationEnd);
             }
 
-            var name = Template.Types.InContext(DomainEntityInterfaceTemplate.InterfaceContext).Get(associationEnd).Name;
+            var type = Template.Types.InContext(DomainEntityInterfaceTemplate.InterfaceContext).Get(associationEnd);
 
             return $@"
-        {Template.NormalizeNamespace(name)} {associationEnd.Name().ToPascalCase()} {{ get; }}
+        {Template.UseType(type)} {associationEnd.Name().ToPascalCase()} {{ get; }}
 ";
         }
     }

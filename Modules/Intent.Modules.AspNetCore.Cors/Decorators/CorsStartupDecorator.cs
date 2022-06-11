@@ -1,6 +1,8 @@
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Cors.Templates.CorsConfiguration;
 using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -24,7 +26,10 @@ namespace Intent.Modules.AspNetCore.Cors.Decorators
         {
             _template = template;
             _application = application;
+
+            var configurationTemplate = _template.OutputTarget.FindTemplateInstance<IClassProvider>(CorsConfigurationTemplate.TemplateId);
             _template.AddTemplateDependency(CorsConfigurationTemplate.TemplateId);
+            _template.AddUsing(configurationTemplate.Namespace);
             Priority = -2;
         }
 

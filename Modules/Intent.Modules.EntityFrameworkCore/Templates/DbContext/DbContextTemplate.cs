@@ -152,7 +152,7 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
             this.Write("            modelBuilder.ApplyConfiguration(new ");
             
             #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContext\DbContextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(typeConfiguration.Template.ClassName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(typeConfiguration.Template)));
             
             #line default
             #line hidden

@@ -39,137 +39,137 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                     "stem.Threading.Tasks;\r\nusing System.Threading.Tasks;\r\nusing Intent.RoslynWeaver." +
                     "Attributes;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge)]\r\n    public class ");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(NormalizeNamespace(GetServiceInterfaceName())));
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetServiceInterfaceName()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
-	var parameters = GetConstructorDependencies(); 
-	foreach (var parameter in parameters)
-	{ 
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+  var parameters = GetConstructorDependencies(); 
+    foreach (var parameter in parameters)
+    { 
             
             #line default
             #line hidden
-            this.Write("\t\tprivate readonly ");
+            this.Write("        private readonly ");
             
-            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(NormalizeNamespace(parameter.ParameterType)));
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(parameter.ParameterType));
             
             #line default
             #line hidden
             this.Write(" _");
             
-            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.ParameterName));
             
             #line default
             #line hidden
             this.Write(";\r\n");
             
-            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
 	} 
             
             #line default
             #line hidden
             this.Write("\r\n        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]\r\n        public ");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", parameters.Select(s => string.Format("{0} {1}", NormalizeNamespace(s.ParameterType), s.ParameterName)))));
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", parameters.Select(s => $"{s.ParameterType} {s.ParameterName}"))));
             
             #line default
             #line hidden
             this.Write(")\r\n        {\r\n");
             
-            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
-	foreach (var parameter in parameters)
-	{ 
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+  foreach (var parameter in parameters)
+    { 
             
             #line default
             #line hidden
-            this.Write("\t\t\t_");
+            this.Write("            _");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.ParameterName));
             
             #line default
             #line hidden
             this.Write(" = ");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.ParameterName));
             
             #line default
             #line hidden
             this.Write(";\r\n");
             
-            #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
-	} 
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+  } 
             
             #line default
             #line hidden
             this.Write("        }\r\n\r\n");
             
-            #line 45 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
   foreach (var o in Model.Operations) 
-	{ 
+    { 
             
             #line default
             #line hidden
             this.Write("        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]\r\n        public ");
             
-            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationReturnType(o)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationDefinitionParameters(o)));
             
             #line default
             #line hidden
             this.Write(")\r\n        {");
             
-            #line 49 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetImplementation(o)));
             
             #line default
             #line hidden
-            this.Write("\t\t\r\n        }\r\n\r\n");
+            this.Write("\r\n        }\r\n\r\n");
             
-            #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
+            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.ServiceImplementations\Templates\ServiceImplementation\ServiceImplementationTemplate.tt"
   } 
             
             #line default

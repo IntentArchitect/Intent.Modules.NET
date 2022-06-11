@@ -2,7 +2,6 @@
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
-<#@ Assembly Name="Intent.SoftwareFactory" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Modules.Application.Contracts" #> 
@@ -25,28 +24,28 @@ using Intent.RoslynWeaver.Attributes;
 namespace <#=Namespace#>
 {
     [IntentManaged(Mode.Merge)]
-    public class <#=ClassName#> : <#= NormalizeNamespace(GetServiceInterfaceName()) #>
+    public class <#=ClassName#> : <#= GetServiceInterfaceName() #>
     {
-<#	var parameters = GetConstructorDependencies(); 
-	foreach (var parameter in parameters)
-	{ #>
-		private readonly <#= NormalizeNamespace(parameter.ParameterType) #> _<#= parameter.ParameterName #>;
+<#  var parameters = GetConstructorDependencies(); 
+    foreach (var parameter in parameters)
+    { #>
+        private readonly <#= parameter.ParameterType #> _<#= parameter.ParameterName #>;
 <#	} #>
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public <#=ClassName#>(<#= string.Join(", ", parameters.Select(s => string.Format("{0} {1}", NormalizeNamespace(s.ParameterType), s.ParameterName))) #>)
+        public <#=ClassName#>(<#= string.Join(", ", parameters.Select(s => $"{s.ParameterType} {s.ParameterName}")) #>)
         {
-<#	foreach (var parameter in parameters)
-	{ #>
-			_<#= parameter.ParameterName #> = <#= parameter.ParameterName #>;
-<#	} #>
+<#  foreach (var parameter in parameters)
+    { #>
+            _<#= parameter.ParameterName #> = <#= parameter.ParameterName #>;
+<#  } #>
         }
 
 <#  foreach (var o in Model.Operations) 
-	{ #>
+    { #>
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public <#= GetOperationReturnType(o) #> <#= o.Name.ToPascalCase() #>(<#= GetOperationDefinitionParameters(o) #>)
-        {<#= GetImplementation(o) #>		
+        {<#= GetImplementation(o) #>
         }
 
 <#  } #>

@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -26,7 +27,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
         {
             _template = template;
             _application = application;
+            var configurationTemplate = _template.OutputTarget.FindTemplateInstance<IClassProvider>(SwashbuckleConfigurationTemplate.TemplateId);
             _template.AddTemplateDependency(SwashbuckleConfigurationTemplate.TemplateId);
+            _template.AddUsing(configurationTemplate.Namespace);
         }
 
         public override int Priority => 100;

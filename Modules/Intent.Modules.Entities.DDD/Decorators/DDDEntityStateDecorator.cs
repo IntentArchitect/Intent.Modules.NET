@@ -97,10 +97,10 @@ namespace Intent.Modules.Entities.DDD.Decorators
                 return base.AssociationAfter(associationEnd);
             }
 
-            var name = Template.Types.InContext(DomainEntityStateTemplate.InterfaceContext).Get(associationEnd).Name;
+            var typeInfo = Template.Types.InContext(DomainEntityStateTemplate.InterfaceContext).Get(associationEnd);
 
             return $@"
-        {Template.NormalizeNamespace(name)} I{associationEnd.OtherEnd().Class.Name}.{associationEnd.Name().ToPascalCase()} => {associationEnd.Name().ToPascalCase()};
+        {Template.UseType(typeInfo)} I{associationEnd.OtherEnd().Class.Name}.{associationEnd.Name().ToPascalCase()} => {associationEnd.Name().ToPascalCase()};
 ";
         }
     }

@@ -57,8 +57,8 @@ namespace Intent.Modules.Autofac.Templates.AutofacConfig
         private string GetRegistrationString(ContainerRegistrationRequest x)
         {
             return x.InterfaceType != null 
-                ? $"{Environment.NewLine}            builder.RegisterType<{NormalizeNamespace(x.ConcreteType)}>().As<{NormalizeNamespace(x.InterfaceType)}>(){GetLifetimeManager(x)};" 
-                : $"{Environment.NewLine}            builder.RegisterType<{NormalizeNamespace(x.ConcreteType)}>(){GetLifetimeManager(x)};";
+                ? $"{Environment.NewLine}            builder.RegisterType<{UseType(x.ConcreteType)}>().As<{NormalizeNamespace(x.InterfaceType)}>(){GetLifetimeManager(x)};" 
+                : $"{Environment.NewLine}            builder.RegisterType<{UseType(x.ConcreteType)}>(){GetLifetimeManager(x)};";
         }
 
         private string GetLifetimeManager(ContainerRegistrationRequest registration)

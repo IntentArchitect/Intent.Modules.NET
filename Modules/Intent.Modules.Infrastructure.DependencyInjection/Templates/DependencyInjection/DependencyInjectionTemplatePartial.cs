@@ -47,9 +47,15 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
-        private string DefineServiceRegistration(ContainerRegistrationRequest x)
+        private string DefineServiceRegistration(ContainerRegistrationRequest request)
         {
-            var registrationType = x.Lifetime switch
+            string UseTypeOf(string type)
+            {
+                var typeName = type.Substring("typeof(".Length, type.Length - "typeof()".Length);
+                return $"typeof({UseType(typeName)})";
+            }
+
+            var registrationType = request.Lifetime switch
             {
                 ContainerRegistrationRequest.LifeTime.Singleton => "AddSingleton",
                 ContainerRegistrationRequest.LifeTime.PerServiceCall => "AddScoped",
@@ -57,28 +63,31 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                 _ => "AddTransient"
             };
 
-            var usesGenerics = !x.ConcreteType.StartsWith("typeof(");
-            var hasInterface = x.InterfaceType != null;
-            var useProvider = x.ResolveFromContainer;
+            var usesTypeOfFormat = request.ConcreteType.StartsWith("typeof(");
+            var hasInterface = request.InterfaceType != null;
+            var useProvider = request.ResolveFromContainer;
 
-            var concreteType = usesGenerics
-                ? NormalizeNamespace(x.ConcreteType)
-                : x.ConcreteType;
-            var interfaceType = usesGenerics && hasInterface
-                ? NormalizeNamespace(x.InterfaceType)
-                : x.InterfaceType;
+            var concreteType = usesTypeOfFormat
+                ? UseTypeOf(request.ConcreteType)
+                : UseType(request.ConcreteType);
+
+            var interfaceType = hasInterface
+                ? usesTypeOfFormat
+                    ? UseTypeOf(request.InterfaceType)
+                    : UseType(request.InterfaceType)
+                : null;
 
             // ReSharper disable ConditionIsAlwaysTrueOrFalse
             return useProvider switch
             {
-                false when !hasInterface && !usesGenerics => $"services.{registrationType}({concreteType});",
-                false when !hasInterface && usesGenerics => $"services.{registrationType}<{concreteType}>();",
-                false when hasInterface && !usesGenerics => $"services.{registrationType}({interfaceType}, {concreteType});",
-                false when hasInterface && usesGenerics => $"services.{registrationType}<{interfaceType}, {concreteType}>();",
-                true when !hasInterface && !usesGenerics => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
-                true when !hasInterface && usesGenerics => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
-                true when hasInterface && !usesGenerics => $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
-                true when hasInterface && usesGenerics => $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
+                false when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{concreteType}>();",
+                false when !hasInterface && usesTypeOfFormat => $"services.{registrationType}({concreteType});",
+                false when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}, {concreteType}>();",
+                false when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, {concreteType});",
+                true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
+                true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
+                true when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
+                true when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
                 _ => throw new InvalidOperationException()
             };
             // ReSharper restore ConditionIsAlwaysTrueOrFalse

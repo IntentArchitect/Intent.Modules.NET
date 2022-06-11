@@ -72,8 +72,8 @@ namespace Intent.Modules.Unity.Templates.UnityConfig
         private string GetRegistrationString(ContainerRegistrationRequest x)
         {
             return x.InterfaceType != null
-                ? $"{Environment.NewLine}            container.RegisterType<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>({GetLifetimeManager(x)});"
-                : $"{Environment.NewLine}            container.RegisterType<{NormalizeNamespace(x.ConcreteType)}>({GetLifetimeManager(x)});";
+                ? $"{Environment.NewLine}            container.RegisterType<{UseType(x.InterfaceType)}, {UseType(x.ConcreteType)}>({GetLifetimeManager(x)});"
+                : $"{Environment.NewLine}            container.RegisterType<{UseType(x.ConcreteType)}>({GetLifetimeManager(x)});";
         }
 
         private string GetLifetimeManager(ContainerRegistrationRequest registration)

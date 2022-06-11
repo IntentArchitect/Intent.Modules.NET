@@ -71,11 +71,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         public string GetServiceInterfaceName()
         {
-            var serviceContractTemplate = Project.Application.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id));
-            return $"{serviceContractTemplate.Namespace}.{serviceContractTemplate.ClassName}";
+            var serviceContractTemplate = OutputTarget.FindTemplateInstance<IClassProvider>(TemplateDependency.OnModel<ServiceModel>(ServiceContractTemplate.TemplateId, x => x.Id == Model.Id));
+            return GetTypeName(serviceContractTemplate);
         }
 
-        private IEnumerable<ConstructorParameter> GetConstructorDependencies()
+        private IReadOnlyCollection<ConstructorParameter> GetConstructorDependencies()
         {
             var parameters = GetDecorators()
                 .SelectMany(s => s.GetConstructorDependencies())

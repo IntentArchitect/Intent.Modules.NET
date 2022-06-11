@@ -61,7 +61,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             if (operationModel.TypeReference.Element != null)
             {
                 impl += $@"
-                await {domainModel.Name.ToPrivateMember()}Repository.SaveChangesAsync();
+                await {domainModel.Name.ToPrivateMember()}Repository.UnitOfWork.SaveChangesAsync();
                 return new{domainModel.Name}.Id;";
             }
 

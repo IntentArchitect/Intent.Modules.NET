@@ -48,7 +48,7 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
             ConfigureModel(modelBuilder);
 
 <#  foreach (var typeConfiguration in _entityTypeConfigurations) { #>
-            modelBuilder.ApplyConfiguration(new <#= typeConfiguration.Template.ClassName #>());
+            modelBuilder.ApplyConfiguration(new <#= GetTypeName(typeConfiguration.Template) #>());
 <#  } #>
         }
 

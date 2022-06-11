@@ -107,7 +107,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             try
             {
                 var baseTypes = new List<string>();
-                baseTypes.Add(NormalizeNamespace(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
+                baseTypes.Add(UseType(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
                 if (TryGetTypeName(DbContextInterfaceTemplate.TemplateId, out var dbContextInterface))
                 {
                     baseTypes.Add(dbContextInterface);

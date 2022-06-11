@@ -148,7 +148,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public string GetParametersDefinition(OperationModel operation)
         {
             return operation.Parameters.Any()
-                ? operation.Parameters.Select(x => NormalizeNamespace(Types.InContext(InterfaceContext).Get(x.TypeReference).Name) + " " + x.Name.ToCamelCase()).Aggregate((x, y) => x + ", " + y)
+                ? operation.Parameters.Select(x => UseType(Types.InContext(InterfaceContext).Get(x.TypeReference)) + " " + x.Name.ToCamelCase()).Aggregate((x, y) => x + ", " + y)
                 : "";
         }
 
@@ -158,7 +158,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             {
                 return o.IsAsync() ? "Task" : "void";
             }
-            return o.IsAsync() ? $"Task<{NormalizeNamespace(Types.InContext(InterfaceContext).Get(o.TypeReference).Name)}>" : NormalizeNamespace(Types.InContext(InterfaceContext).Get(o.TypeReference).Name);
+            return o.IsAsync() ? $"Task<{UseType(Types.InContext(InterfaceContext).Get(o.TypeReference))}>" : UseType(Types.InContext(InterfaceContext).Get(o.TypeReference));
         }
 
         public IEnumerable<string> DeclareUsings()

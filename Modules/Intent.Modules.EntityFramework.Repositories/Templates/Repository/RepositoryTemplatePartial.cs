@@ -41,7 +41,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
             get
             {
                 var template = Project.FindTemplateInstance<IClassProvider>(TemplateDependency.OnTemplate(EntityCompositionVisitorTemplate.Identifier));
-                return template != null ? NormalizeNamespace($"{template.Namespace}.{template.ClassName}") : null;
+                return template != null ? GetTypeName(template) : null;
             }
         }
 
@@ -50,7 +50,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
             get
             {
                 var template = Project.FindTemplateInstance<IClassProvider>(_entityInterfaceTemplateDependency);
-                return template != null ? NormalizeNamespace($"{template.Namespace}.{template.ClassName}") : $"{Model.Name}";
+                return template != null ? GetTypeName(template) : $"{Model.Name}";
             }
         }
 
@@ -59,7 +59,7 @@ namespace Intent.Modules.EntityFramework.Repositories.Templates.Repository
             get
             {
                 var template = Project.FindTemplateInstance<IClassProvider>(_entityStateTemplateDependency);
-                return template != null ? NormalizeNamespace($"{template.Namespace}.{template.ClassName}") : $"{Model.Name}";
+                return template != null ? GetTypeName(template) : $"{Model.Name}";
             }
         }
 

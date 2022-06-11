@@ -247,20 +247,26 @@ app.UseEndpoints(endpoints =>
 
         //private string DefineDbContextRegistration(DbContextContainerRegistration x)
         //{
-        //    return $"{Environment.NewLine}            services.AddDbContext<{NormalizeNamespace(x.ConcreteType)}>({(x.Options != null ? $"x => x{x.Options}" : string.Empty)});";
+        //    return $"{Environment.NewLine}            services.AddDbContext<{UseType(x.ConcreteType)}>({(x.Options != null ? $"x => x{x.Options}" : string.Empty)});";
         //}
 
         private string DefineServiceRegistration(ContainerRegistrationRequest x)
         {
+            string UseTypeOf(string type)
+            {
+                var typeName = type.Substring("typeof(".Length, type.Length - "typeof()".Length);
+                return $"typeof({UseType(typeName)})";
+            }
+
             if (x.ConcreteType.StartsWith("typeof("))
             {
                 return x.InterfaceType != null
-                    ? $"{Environment.NewLine}            services.{RegistrationType(x)}({NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)});"
-                    : $"{Environment.NewLine}            services.{RegistrationType(x)}({NormalizeNamespace(x.ConcreteType)});";
+                    ? $"{Environment.NewLine}            services.{RegistrationType(x)}({UseTypeOf(x.InterfaceType)}, {UseTypeOf(x.ConcreteType)});"
+                    : $"{Environment.NewLine}            services.{RegistrationType(x)}({UseTypeOf(x.ConcreteType)});";
             }
             return x.InterfaceType != null
-                ? $"{Environment.NewLine}            services.{RegistrationType(x)}<{NormalizeNamespace(x.InterfaceType)}, {NormalizeNamespace(x.ConcreteType)}>();"
-                : $"{Environment.NewLine}            services.{RegistrationType(x)}<{NormalizeNamespace(x.ConcreteType)}>();";
+                ? $"{Environment.NewLine}            services.{RegistrationType(x)}<{UseType(x.InterfaceType)}, {UseType(x.ConcreteType)}>();"
+                : $"{Environment.NewLine}            services.{RegistrationType(x)}<{UseType(x.ConcreteType)}>();";
         }
 
         private string RegistrationType(ContainerRegistrationRequest registration)
