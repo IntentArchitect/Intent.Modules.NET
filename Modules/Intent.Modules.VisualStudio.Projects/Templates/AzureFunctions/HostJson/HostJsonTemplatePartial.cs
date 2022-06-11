@@ -82,7 +82,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
             foreach (var request in _registrationRequestsByKey)
             {
-                json.SetFieldValue(request.Key, request.Value, allowReplacement: false);
+                json.SetFieldValue(request.Key, request.Value.Request, allowReplacement: false);
             }
 
             return JsonConvert.SerializeObject(json, Formatting.Indented);
