@@ -17,8 +17,8 @@
   </templates>
   <decorators />
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.3-alpha.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.4-alpha.1" />
+    <dependency id="Intent.Common" version="3.3.3-alpha.2" />
+    <dependency id="Intent.Common.CSharp" version="3.3.4-alpha.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
   </dependencies>
   <files>
