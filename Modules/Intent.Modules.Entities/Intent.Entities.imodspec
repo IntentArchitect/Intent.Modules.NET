@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
-  <version>3.3.5-alpha.1</version>
+  <version>3.3.5</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Create domain entities and related artifacts.</summary>
   <description></description>
@@ -59,8 +59,8 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.3-alpha.2" />
-    <dependency id="Intent.Common.CSharp" version="3.3.4-alpha.2" />
+    <dependency id="Intent.Common" version="3.3.3" />
+    <dependency id="Intent.Common.CSharp" version="3.3.4" />
     <dependency id="Intent.Common.Types" version="3.3.1" />
     <dependency id="Intent.Modelers.Domain" version="3.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />

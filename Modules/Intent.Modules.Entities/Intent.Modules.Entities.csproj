@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.3.5-alpha.1</Version>
+    <Version>3.3.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.3-alpha.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.4-alpha.2" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.4" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>

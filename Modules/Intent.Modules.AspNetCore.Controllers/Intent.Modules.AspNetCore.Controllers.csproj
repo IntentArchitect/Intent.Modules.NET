@@ -31,8 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.3-alpha.2" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.4-alpha.2" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.4" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
