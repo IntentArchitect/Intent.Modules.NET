@@ -132,5 +132,14 @@
       </valueOptions>
       <lookupTypes />
     </property>
+    <property id="f236ad27-a4ab-490a-92d4-b6faf2d1e033">
+      <name>Assembly Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
   </properties>
 </stereotypeDefinition>

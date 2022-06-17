@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.3.4</version>
+  <version>3.3.5</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Designer and templates for creating .csproj and .sln files</summary>
   <description>Designer and templates for creating .csproj and .sln files</description>

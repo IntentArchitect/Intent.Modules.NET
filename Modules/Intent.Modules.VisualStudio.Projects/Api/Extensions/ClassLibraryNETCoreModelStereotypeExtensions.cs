@@ -91,6 +91,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return new GenerateDocumentationFileOptions(_stereotype.GetProperty<string>("Generate Documentation File"));
             }
 
+            public string AssemblyName()
+            {
+                return _stereotype.GetProperty<string>("Assembly Name");
+            }
+
             public class GenerateRuntimeConfigurationFilesOptions
             {
                 public readonly string Value;
