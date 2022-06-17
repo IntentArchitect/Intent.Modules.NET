@@ -1,9 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates
 {
@@ -55,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
                     var xElement = new XElement("PackageReference",
                         new XAttribute("Include", package.Name),
                         new XAttribute("Version", package.Version));
-                    
+
                     var subElementAdded = false;
                     if (package.PrivateAssets != null && package.PrivateAssets.Any())
                     {
@@ -128,9 +129,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
             }
         }
 
-        public static void SyncProjectReferences(this IOutputTarget _project, XDocument doc)
+        public static void SyncProjectReferences(this IOutputTarget project, XDocument doc)
         {
-            if (_project.Dependencies().Count <= 0)
+            if (project.Dependencies().Count <= 0)
             {
                 return;
             }
@@ -150,9 +151,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
                 projectElement.Add("  ");
             }
 
-            foreach (var dependency in _project.Dependencies())
+            foreach (var dependency in project.Dependencies())
             {
-                var projectUrl = string.Format("..\\{0}\\{0}.csproj", dependency.Name);
+                var projectUrl = Path
+                    .Join(
+                        path1: Path.GetRelativePath(project.Location, dependency.Location),
+                        path2: $"{dependency.Name}.csproj")
+                    .Replace('/', '\\'); // .csproj files always use backslash as a path separator
+
                 var projectReferenceItem = doc.XPathSelectElement($"/Project/ItemGroup/ProjectReference[@Include='{projectUrl}']");
                 if (projectReferenceItem != null)
                 {
