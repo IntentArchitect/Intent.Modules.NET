@@ -48,16 +48,25 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                         hasChange |= SyncFrameworks(doc, template);
 
-                        var settings = template.Project.GetNETCoreSettings();
-                        if (settings != null)
+                        var netCoreSettings = template.Project.GetNETCoreSettings();
+                        if (netCoreSettings != null)
                         {
-                            hasChange |= SyncProperty(doc, "Configurations", settings.Configurations());
-                            hasChange |= SyncProperty(doc, "RuntimeIdentifiers", settings.RuntimeIdentifiers());
-                            hasChange |= SyncProperty(doc, "UserSecretsId", settings.UserSecretsId());
-                            hasChange |= SyncProperty(doc, "RootNamespace", settings.RootNamespace());
-                            hasChange |= SyncProperty(doc, "AssemblyName", settings.AssemblyName());
-                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", settings.GenerateRuntimeConfigurationFiles().Value);
-                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", settings.GenerateDocumentationFile().Value);
+                            hasChange |= SyncProperty(doc, "Configurations", netCoreSettings.Configurations());
+                            hasChange |= SyncProperty(doc, "RuntimeIdentifiers", netCoreSettings.RuntimeIdentifiers());
+                            hasChange |= SyncProperty(doc, "UserSecretsId", netCoreSettings.UserSecretsId());
+                            hasChange |= SyncProperty(doc, "RootNamespace", netCoreSettings.RootNamespace());
+                            hasChange |= SyncProperty(doc, "AssemblyName", netCoreSettings.AssemblyName());
+                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netCoreSettings.GenerateRuntimeConfigurationFiles().Value);
+                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netCoreSettings.GenerateDocumentationFile().Value);
+                        }
+
+                        var projectOptions = template.Project.GetCSharpProjectOptions();
+                        if (projectOptions != null)
+                        {
+                            hasChange |= SyncProperty(doc, "LangVersion", projectOptions.LanguageVersion().IsDefault()
+                                ? null
+                                : projectOptions.LanguageVersion().Value);
+                            hasChange |= SyncProperty(doc, "Nullable", projectOptions.NullableEnabled() ? "enable" : null);
                         }
 
                         if (!hasChange)
