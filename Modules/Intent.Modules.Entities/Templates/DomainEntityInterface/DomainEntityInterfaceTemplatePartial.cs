@@ -40,6 +40,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityStateTemplate.TemplateId, "ICollection<{0}>"));
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEnumTemplate.TemplateId, "ICollection<{0}>"));
             Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, Identifier, "IEnumerable<{0}>"), InterfaceContext);
+
+            if (Model.Operations.Any(x => x.IsAsync()))
+            {
+                AddUsing("System.Threading.Tasks");
+            }
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -159,14 +164,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                 return o.IsAsync() ? "Task" : "void";
             }
             return o.IsAsync() ? $"Task<{UseType(Types.InContext(InterfaceContext).Get(o.TypeReference))}>" : UseType(Types.InContext(InterfaceContext).Get(o.TypeReference));
-        }
-
-        public IEnumerable<string> DeclareUsings()
-        {
-            if (Model.Operations.Any(x => x.IsAsync()))
-            {
-                yield return "System.Threading.Tasks";
-            }
         }
     }
 }

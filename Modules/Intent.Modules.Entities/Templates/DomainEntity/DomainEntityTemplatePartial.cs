@@ -29,6 +29,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"));
             AddTypeSource(DomainEnumTemplate.TemplateId).WithCollectionFormat("ICollection<{0}>");
+
+            if (Model.Operations.Any(x => x.IsAsync()))
+            {
+                AddUsing("System.Threading.Tasks");
+            }
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -67,14 +72,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 return o.IsAsync() ? "async Task" : "void";
             }
             return o.IsAsync() ? $"async Task<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.ReturnType);
-        }
-
-        public IEnumerable<string> DeclareUsings()
-        {
-            if (Model.Operations.Any(x => x.IsAsync()))
-            {
-                yield return "System.Threading.Tasks";
-            }
         }
     }
 }

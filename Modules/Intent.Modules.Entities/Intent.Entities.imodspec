@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
-  <version>3.3.5</version>
+  <version>3.3.6</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Create domain entities and related artifacts.</summary>
   <description></description>
@@ -73,4 +73,5 @@
     <install target="Domain" src="metadata/Intent.Entities" />
   </metadata>
   <moduleSettings />
+  <moduleSettingsExtensions />
 </package>
