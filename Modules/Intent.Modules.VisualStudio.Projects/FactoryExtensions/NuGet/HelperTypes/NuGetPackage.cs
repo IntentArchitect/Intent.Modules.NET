@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Intent.Modules.Common.VisualStudio;
+using JetBrains.Annotations;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
@@ -9,24 +11,34 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
         private NuGetPackage()
         {
         }
+        
+        public VersionRange Version { get; set; }
 
-        public static NuGetPackage Create(INugetPackageInfo nugetPackageInfo, VersionRange version = null)
+        public List<string> PrivateAssets { get; private set; }
+
+        public List<string> IncludeAssets { get; private set; }
+
+        public static NuGetPackage Create(string projectPath, [NotNull] INugetPackageInfo nugetPackageInfo, VersionRange version = null)
         {
+            ValidatePackageInformation(projectPath, nugetPackageInfo.Name, nugetPackageInfo.Version);
+
             return new NuGetPackage
             {
                 Version = version ?? VersionRange.Parse(nugetPackageInfo.Version),
-                IncludeAssets = new List<string>(nugetPackageInfo.IncludeAssets ?? new string[0]),
-                PrivateAssets = new List<string>(nugetPackageInfo.PrivateAssets ?? new string[0])
+                IncludeAssets = new List<string>(nugetPackageInfo.IncludeAssets ?? Array.Empty<string>()),
+                PrivateAssets = new List<string>(nugetPackageInfo.PrivateAssets ?? Array.Empty<string>())
             };
         }
 
-        public static NuGetPackage Create(string version, IEnumerable<string> includeAssets, IEnumerable<string> privateAssets)
+        public static NuGetPackage Create(string projectPath, string packageName, string version, IEnumerable<string> includeAssets, IEnumerable<string> privateAssets)
         {
+            ValidatePackageInformation(projectPath, packageName, version);
+            
             return new NuGetPackage
             {
                 Version = VersionRange.Parse(version),
-                IncludeAssets = new List<string>(includeAssets),
-                PrivateAssets = new List<string>(privateAssets)
+                IncludeAssets = new List<string>(includeAssets ?? Array.Empty<string>()),
+                PrivateAssets = new List<string>(privateAssets ?? Array.Empty<string>())
             };
         }
 
@@ -61,10 +73,12 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
             };
         }
 
-        public VersionRange Version { get; set; }
-
-        public List<string> PrivateAssets { get; private set; }
-
-        public List<string> IncludeAssets { get; private set; }
+        private static void ValidatePackageInformation(string projectPath, string packageName, string version)
+        {
+            if (string.IsNullOrWhiteSpace(version))
+            {
+                throw new InvalidOperationException($"Version is undefined for Package '{packageName}' in '{projectPath}'");
+            }
+        }
     }
 }

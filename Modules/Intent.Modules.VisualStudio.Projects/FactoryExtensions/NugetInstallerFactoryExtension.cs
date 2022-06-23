@@ -278,7 +278,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                 }
                 else
                 {
-                    requestedPackages.Add(package.Name, NuGetPackage.Create(package, highestVersion));
+                    requestedPackages.Add(package.Name, NuGetPackage.Create(project.FilePath, package, highestVersion));
                 }
             }
 

@@ -37,7 +37,9 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                             .Select(y => y.Trim())
                         : new string[0];
 
-                    return NuGetPackage.Create(version, includeAssets, privateAssets);
+                    var name = element.Attribute("Include")?.Value;
+                    
+                    return NuGetPackage.Create(projectPath, name, version, includeAssets, privateAssets);
                 });
         }
 

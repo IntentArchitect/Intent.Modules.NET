@@ -54,7 +54,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                 throw new Exception($"Error reading '{packagesDotConfigPath}', expected all child elements to have both an 'id' and a valid Semantic Version 2.0 'version' value.");
             }
 
-            return nugetPackages.ToDictionary(x => x.Id, x => NuGetPackage.Create(x.Version, new string[0], new string[0]));
+            return nugetPackages.ToDictionary(x => x.Id, x => NuGetPackage.Create(projectPath, x.Id, x.Version, Array.Empty<string>(), Array.Empty<string>()));
         }
 
         public string InstallPackages(
