@@ -36,7 +36,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                         : new string[0];
 
                     var name = element.Attribute("Include")?.Value;
-                    
+
                     return NuGetPackage.Create(projectPath, name, version, includeAssets, privateAssets);
                 });
         }
@@ -143,20 +143,35 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
 
         private static string GetAttributeOrElementValue(XElement targetElement, string name)
         {
-            return targetElement.Attribute(name)?.Value
-                   ?? targetElement.Elements(name).SingleOrDefault()?.Value;
+            return targetElement.Attributes()
+                       .SingleOrDefault(p => p.Name.LocalName.Equals(name, StringComparison.OrdinalIgnoreCase))
+                       ?.Value
+                   ?? targetElement.Elements()
+                       .SingleOrDefault(p => p.Name.LocalName.Equals(name, StringComparison.OrdinalIgnoreCase))
+                       ?.Value;
         }
 
         private static void SetAttributeOrElementValue(XElement targetElement, string name, string value)
         {
-            var nestedElement = targetElement.Elements(name).SingleOrDefault();
+            var nestedElement = targetElement.Elements()
+                .SingleOrDefault(p => p.Name.LocalName.Equals(name, StringComparison.OrdinalIgnoreCase));
+
             if (nestedElement?.Value != null)
             {
                 nestedElement.Value = value;
                 return;
             }
 
-            targetElement.SetAttributeValue(name, value);
+            var attribute = targetElement.Attributes()
+                .SingleOrDefault(p => p.Name.LocalName.Equals(name, StringComparison.OrdinalIgnoreCase));
+            if (attribute == null)
+            {
+                attribute = new XAttribute("Version", value);
+                targetElement.Add(attribute);
+                return;
+            }
+            
+            attribute.SetValue(value);
         }
     }
 }
