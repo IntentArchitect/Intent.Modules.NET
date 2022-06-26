@@ -51,7 +51,7 @@ namespace <#= Namespace #>
         }
 <#  if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory()) { #>
 
-        [IntentManaged(Mode.Merge)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         private static void SetupInMemoryStore(InMemoryStoreOptions<TenantInfo> options)
         {
             // configure in memory store...
@@ -60,7 +60,7 @@ namespace <#= Namespace #>
 <#  } #>
 <#  if (!ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { #>
 
-        [IntentManaged(Mode.Merge)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public static void InitializeStore(IServiceProvider sp)
         {
             var scopeServices = sp.CreateScope().ServiceProvider;

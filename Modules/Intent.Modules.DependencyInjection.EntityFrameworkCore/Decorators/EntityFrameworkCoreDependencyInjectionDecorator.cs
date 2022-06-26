@@ -70,6 +70,18 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override string ServiceRegistration()
         {
+            var statements = new List<string>();
+            statements.Add($@"services.AddDbContext<{_template.GetDbContextName()}>((sp, options) =>
+            {{
+                {GetDbContextOptions()}
+            }});");
+
+            return string.Join(@"
+            ", statements);
+        }
+
+        private string GetDbContextOptions()
+        {
             var connection = "\"DefaultConnection\"";
             var statements = new List<string>();
             if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
@@ -77,18 +89,6 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 statements.Add($@"var tenantInfo = sp.GetService<{_template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {_template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");");
                 connection = "tenantInfo.ConnectionString";
             }
-            statements.Add($@"services.AddDbContext<{_template.GetDbContextName()}>((sp, options) =>
-            {{
-                {GetDbContextOptions(connection)}
-            }});");
-
-            return string.Join(@"
-            ", statements);
-        }
-
-        private string GetDbContextOptions(string connection)
-        {
-            var statements = new List<string>();
 
             switch (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {

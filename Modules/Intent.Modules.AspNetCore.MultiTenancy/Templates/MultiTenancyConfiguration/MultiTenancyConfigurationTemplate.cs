@@ -152,10 +152,14 @@ namespace ");
             
             #line default
             #line hidden
-            this.Write("\r\n        [IntentManaged(Mode.Merge)]\r\n        private static void SetupInMemoryS" +
-                    "tore(InMemoryStoreOptions<TenantInfo> options)\r\n        {\r\n            // config" +
-                    "ure in memory store...\r\n            options.IsCaseSensitive = false;\r\n        }\r" +
-                    "\n");
+            this.Write(@"
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantInfo> options)
+        {
+            // configure in memory store...
+            options.IsCaseSensitive = false;
+        }
+");
             
             #line 60 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.MultiTenancy\Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt"
   } 
@@ -169,7 +173,7 @@ namespace ");
             #line default
             #line hidden
             this.Write(@"
-        [IntentManaged(Mode.Merge)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public static void InitializeStore(IServiceProvider sp)
         {
             var scopeServices = sp.CreateScope().ServiceProvider;
