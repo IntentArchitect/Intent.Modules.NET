@@ -38,6 +38,12 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
             _registrationRequests.Add(@event);
             foreach (var templateDependency in @event.TemplateDependencies)
             {
+                var template = GetTemplate<IClassProvider>(templateDependency);
+                if (template != null)
+                {
+                    AddUsing(template.Namespace);
+                }
+
                 AddTemplateDependency(templateDependency);
             }
         }
