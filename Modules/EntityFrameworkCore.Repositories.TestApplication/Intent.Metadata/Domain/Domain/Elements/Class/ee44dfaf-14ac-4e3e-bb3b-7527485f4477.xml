@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ee44dfaf-14ac-4e3e-bb3b-7527485f4477" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>AggregateRoot1</name>
+  <display>AggregateRoot1</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</parentFolderId>
+  <packageId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

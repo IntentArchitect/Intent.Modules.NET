@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="70d86c7f-23f0-4cbe-8790-ce7b83c472d3">
+  <sourceEnd id="8169d9ed-48b8-4cec-a11c-0a04b17b3c18" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRoot5</name>
+    <display>AggregateRoot5: AggregateRoot5</display>
+    <order>0</order>
+    <typeReference id="3c71503b-8a48-4eea-8aa1-6e66e1f210db">
+      <typeId>17a883c1-a3cb-464e-bbd5-c765b29c564a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="70d86c7f-23f0-4cbe-8790-ce7b83c472d3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggregateRoot5EntityWithRepo</name>
+    <display>AggregateRoot5EntityWithRepo: AggregateRoot5EntityWithRepo</display>
+    <order>0</order>
+    <typeReference id="99c140a5-c7ed-41b5-9488-ae7991a6e942">
+      <typeId>a068d9f3-ebab-4e9f-a31a-cdf0b11dec91</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

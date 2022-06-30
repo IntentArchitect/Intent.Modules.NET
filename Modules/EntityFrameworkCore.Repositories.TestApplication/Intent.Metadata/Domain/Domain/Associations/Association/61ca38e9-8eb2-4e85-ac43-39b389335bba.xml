@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="61ca38e9-8eb2-4e85-ac43-39b389335bba">
+  <sourceEnd id="caf87f17-dbe3-406c-8ca4-2b2053e81966" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRoot2Composition</name>
+    <display>AggregateRoot2Composition: AggregateRoot2Composition</display>
+    <order>0</order>
+    <typeReference id="a30c7acd-9e5d-415d-9959-b61f51f0bc2a">
+      <typeId>e88c2331-5fba-4530-9fa2-d95f95ce96ce</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="61ca38e9-8eb2-4e85-ac43-39b389335bba" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggregateRoot2Single</name>
+    <display>AggregateRoot2Single: AggregateRoot2Single</display>
+    <order>0</order>
+    <typeReference id="17bc8466-925b-4b58-bf1b-017a69276897">
+      <typeId>f077ea5a-e03e-4ddc-b493-77318e283398</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

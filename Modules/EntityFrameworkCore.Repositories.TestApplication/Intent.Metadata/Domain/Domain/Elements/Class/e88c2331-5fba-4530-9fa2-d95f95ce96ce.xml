@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e88c2331-5fba-4530-9fa2-d95f95ce96ce" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>AggregateRoot2Composition</name>
+  <display>AggregateRoot2Composition</display>
+  <isAbstract>false</isAbstract>
+  <order>3</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</parentFolderId>
+  <packageId>9e8e6439-11e5-4113-859b-9cb6dff4d2b0</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

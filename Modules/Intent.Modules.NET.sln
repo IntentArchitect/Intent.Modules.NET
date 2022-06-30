@@ -160,6 +160,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.TPC.IntentG
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated", "EntityFrameworkCore.ExplicitKeyCreation.TestApplication\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj", "{1303E57E-1275-42A4-B433-05E88A85E9B1}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreRepositoryTestSuite.IntentGenerated", "EntityFrameworkCore.Repositories.TestApplication\EfCoreRepositoryTestSuite.IntentGenerated\EfCoreRepositoryTestSuite.IntentGenerated.csproj", "{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -458,6 +460,10 @@ Global
 		{1303E57E-1275-42A4-B433-05E88A85E9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1303E57E-1275-42A4-B433-05E88A85E9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1303E57E-1275-42A4-B433-05E88A85E9B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -536,6 +542,7 @@ Global
 		{30620F7A-FCC3-406F-93C0-D407F46855FB} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{A3505075-B92B-4BE8-BFE1-6908206CC14A} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{1303E57E-1275-42A4-B433-05E88A85E9B1} = {A319FB02-C635-433C-9446-8A7FB29162DE}
+		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
