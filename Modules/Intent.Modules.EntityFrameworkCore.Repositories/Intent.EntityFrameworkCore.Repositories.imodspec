@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
-  <version>3.3.3</version>
+  <version>3.3.4</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Repository Patterns for Entity Framework Core.</summary>
   <description>Repository Patterns for Entity Framework Core.</description>
@@ -20,7 +20,6 @@
       <config>
         <add key="Entity Template Id" description="The template Id for the template producing the Domain Entities" default="Intent.Entities.DomainEntityState" />
         <add key="Entity Interface Template Id" description="The template Id for the template producing the Domain Entity Interfaces" default="Intent.Entities.DomainEntityInterface" />
-        <add key="Create On Stereotype" description="Limits Repository creation only on Entities marked with the 'Aggregate Root' or 'Repository' stereotype (if present). Pipe delimited." default="Aggregate Root|Repository" />
       </config>
     </template>
     <template id="Intent.EntityFrameworkCore.Repositories.RepositoryBase" externalReference="2a48f0f3-d711-4fb4-8e94-b4c0696ba706">

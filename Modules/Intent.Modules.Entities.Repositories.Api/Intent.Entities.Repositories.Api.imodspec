@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Repositories.Api</id>
-  <version>3.3.0</version>
+  <version>3.3.1</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Repository contracts and specifications for Entities.</summary>
   <description>Repository contracts and specifications for Entities.</description>
@@ -13,9 +13,6 @@
     <template id="Intent.Entities.Repositories.Api.EntityRepositoryInterface" externalReference="0adbd5e8-63ad-4b34-b8cf-9b3febeedd99">
       <role>Repository.Interface</role>
       <location>Repositories</location>
-      <config>
-        <add key="Create On Stereotype" description="Limits Repository creation only on Entities marked with the 'Aggregate Root' or 'Repository' stereotype (if present). Pipe delimited." default="Aggregate Root|Repository" />
-      </config>
     </template>
     <template id="Intent.Entities.Repositories.Api.PagedResultInterface" externalReference="97d051af-0bef-4bdd-ac68-ea8d27c6d5fb">
       <role>Repository.Interface</role>
@@ -47,6 +44,8 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <moduleSettings />
-  <metadata />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Entities.Repositories.Api/Intent.Entities.Repositories.Api.pkg.config" externalReference="a059d995-a36f-4647-9c98-18ce340297eb" />
+  </metadata>
   <moduleSettingsExtensions />
 </package>

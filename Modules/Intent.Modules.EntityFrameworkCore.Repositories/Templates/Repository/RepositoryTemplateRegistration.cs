@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
+using Intent.Entities.Repositories.Api.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain;
 using Intent.Modelers.Domain.Api;
@@ -19,10 +20,9 @@ using Intent.Templates;
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Merge)]
-    public class RepositoryTemplateRegistration : FilePerModelTemplateRegistration<ClassModel>, ISupportsConfiguration
+    public class RepositoryTemplateRegistration : FilePerModelTemplateRegistration<ClassModel>
     {
         private readonly IMetadataManager _metadataManager;
-        private IEnumerable<string> _stereotypeNames;
 
         public RepositoryTemplateRegistration(IMetadataManager metadataManager)
         {
@@ -30,12 +30,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         }
 
         public override string TemplateId => RepositoryTemplate.TemplateId;
-
-        public void Configure(IDictionary<string, string> settings)
-        {
-            var createOnStereotypeValues = settings["Create On Stereotype"];
-            _stereotypeNames = createOnStereotypeValues.Split(new[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-        }
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
@@ -46,11 +40,11 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             var allModels = _metadataManager.Domain(application).GetClassModels();
-            var filteredModels = allModels.Where(p => _stereotypeNames.Any(p.HasStereotype));
+            var filteredModels = allModels.Where(p => p.HasRepository() || p.IsAggregateRoot()).ToArray();
 
             if (!filteredModels.Any())
             {
-                return allModels;
+                return Array.Empty<ClassModel>();
             }
 
             return filteredModels;

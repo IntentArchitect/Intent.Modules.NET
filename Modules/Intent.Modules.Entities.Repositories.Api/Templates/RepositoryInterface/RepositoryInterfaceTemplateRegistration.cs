@@ -19,7 +19,6 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
     public class RepositoryInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
-        private IEnumerable<string> _stereotypeNames;
 
         public RepositoryInterfaceTemplateRegistration(IMetadataManager metadataManager)
         {
