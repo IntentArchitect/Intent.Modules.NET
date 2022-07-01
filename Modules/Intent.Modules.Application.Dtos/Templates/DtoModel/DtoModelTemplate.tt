@@ -34,7 +34,7 @@ namespace <#= Namespace #>
         {
         }
 
-        public static <#=ClassName#><#= GenericTypes #> Create<#= GenericTypes #>(<#= ConstructorParameters() #>) 
+        public static <#=ClassName#><#= GenericTypes #> Create(<#= ConstructorParameters() #>) 
         {
             return new <#=ClassName#><#= GenericTypes #>
             {
