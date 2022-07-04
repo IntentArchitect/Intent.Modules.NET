@@ -32,6 +32,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings
                     "in-memory" => DatabaseProviderOptionsEnum.InMemory,
                     "sql-server" => DatabaseProviderOptionsEnum.SQLServer,
                     "postgresql" => DatabaseProviderOptionsEnum.PostgreSQL,
+                    "cosmos" => DatabaseProviderOptionsEnum.CosmosDB,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -50,6 +51,11 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings
             {
                 return Value == "postgresql";
             }
+
+            public bool IsCosmosDB()
+            {
+                return Value == "cosmos";
+            }
         }
 
         public enum DatabaseProviderOptionsEnum
@@ -57,6 +63,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings
             InMemory,
             SQLServer,
             PostgreSQL,
+            CosmosDB,
         }
     }
 }

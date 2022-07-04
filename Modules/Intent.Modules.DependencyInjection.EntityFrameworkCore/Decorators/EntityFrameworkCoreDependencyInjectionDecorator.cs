@@ -54,6 +54,12 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
                     _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
                     break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
+                    _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountEndpoint", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountKey", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:DatabaseName", ""));
+                    break;
             }
 
             if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
@@ -110,6 +116,13 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     configuration.GetConnectionString({connection}),
                     b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));");
                     statements.Add($@"options.UseLazyLoadingProxies();");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
+                    _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
+                    statements.Add($@"options.UseCosmos(
+                    configuration[""Cosmos:AccountEndpoint""],
+                    configuration[""Cosmos:AccountKey""],
+                    configuration[""Cosmos:DatabaseName""]);");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(null, "Database Provider has not been set to a valid value. Please fix in the Database Settings.");

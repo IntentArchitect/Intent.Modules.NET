@@ -50,7 +50,7 @@
       <childElements>
         <childElement id="09badab9-3cfe-4761-8f62-a24565bd8a0b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In Memory</name>
-          <display>In Memory</display>
+          <display>In Memory = in-memory</display>
           <isAbstract>false</isAbstract>
           <value>in-memory</value>
           <order>0</order>
@@ -65,7 +65,7 @@
         </childElement>
         <childElement id="294043e6-783e-4a69-bd63-f68e9dfb9166" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>SQL Server</name>
-          <display>SQL Server</display>
+          <display>SQL Server = sql-server</display>
           <isAbstract>false</isAbstract>
           <value>sql-server</value>
           <order>1</order>
@@ -80,10 +80,25 @@
         </childElement>
         <childElement id="acfd92b8-034b-4b52-9b74-6075d90b6591" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>PostgreSQL</name>
-          <display>PostgreSQL</display>
+          <display>PostgreSQL = postgresql</display>
           <isAbstract>false</isAbstract>
           <value>postgresql</value>
           <order>2</order>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a6441c16-5a85-44be-be0e-118237d45ba0</parentFolderId>
+          <packageId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</packageId>
+          <packageName>Intent.DependencyInjection.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="208aaef4-8d50-4f9b-bf86-cdcac1bb04cf" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Cosmos DB</name>
+          <display>Cosmos DB = cosmos</display>
+          <isAbstract>false</isAbstract>
+          <value>cosmos</value>
+          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6441c16-5a85-44be-be0e-118237d45ba0</parentFolderId>
