@@ -25,6 +25,6 @@ namespace <#= Namespace #>
 <#  foreach(var attribute in GetAssociations(Model)) { #>
             <#= GetAssociationMapping(attribute) #>
 <#  } #><#= GetIndexes() #>
-        }
+        }<#= GetAdditionalMethods() #>
     }
 }

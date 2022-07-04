@@ -141,7 +141,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             
             #line default
             #line hidden
-            this.Write("\r\n        }\r\n    }\r\n}");
+            this.Write("\r\n        }");
+            
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetAdditionalMethods()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
