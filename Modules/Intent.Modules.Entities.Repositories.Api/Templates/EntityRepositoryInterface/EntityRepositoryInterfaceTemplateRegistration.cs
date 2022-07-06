@@ -37,15 +37,9 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            var allModels = _metadataManager.Domain(application).GetClassModels();
-            var filteredModels = allModels.Where(p => p.HasRepository() || p.IsAggregateRoot()).ToArray();
-
-            if (!filteredModels.Any())
-            {
-                return Array.Empty<ClassModel>();
-            }
-            
-            return filteredModels;
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(p => p.HasRepository() || p.IsAggregateRoot())
+                .ToArray();
         }
     }
 }
