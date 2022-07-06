@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9204e067-bdc8-45e7-8970-8a833fdc5253" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
+  <name>PagedResult</name>
+  <display>PagedResult&lt;TData&gt;</display>
+  <isAbstract>false</isAbstract>
+  <order>3</order>
+  <genericTypes>
+    <genericType id="b2e9202d-2fb1-426b-91a9-02b6a3a294bd">
+      <name>TData</name>
+    </genericType>
+  </genericTypes>
+  <isMapped>false</isMapped>
+  <parentFolderId>9baa3476-269d-4a87-a854-34e150a93bc8</parentFolderId>
+  <packageId>9baa3476-269d-4a87-a854-34e150a93bc8</packageId>
+  <packageName>Intent.Application.Dtos.Pagination</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

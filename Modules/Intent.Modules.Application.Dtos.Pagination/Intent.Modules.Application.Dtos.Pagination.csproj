@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\PagedResultDTO\PagedResultDTOTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PagedResultDTOTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\PagedResult\PagedResultTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PagedResultTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PagedResultMappingExtensionsTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\PagedResultDTO\PagedResultDTOTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PagedResultDTOTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\PagedResult\PagedResultTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PagedResultTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PagedResultMappingExtensionsTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.5" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.1" />
+    <PackageReference Include="Intent.Packager" Version="3.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.3" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Application.Dtos\Intent.Modules.Application.Dtos.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

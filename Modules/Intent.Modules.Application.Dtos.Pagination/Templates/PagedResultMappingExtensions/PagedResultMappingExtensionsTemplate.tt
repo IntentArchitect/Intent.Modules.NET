@@ -1,0 +1,45 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<IList<Intent.Modelers.Services.Api.DTOModel>>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+<#
+    if (Model.Count > 0)
+    {
+#>
+using AutoMapper;
+<#
+    }
+#>
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public static class <#= ClassName #>
+    {
+<#
+    foreach (var dto in Model)
+    { 
+#>
+        public static PagedResult<<#= GetDtoModelName(dto) #>> MapToPagedResult(this <#= GetPagedResultInterfaceName() #><<#= GetEntityName(dto) #>> pagedResult, IMapper mapper)
+        {
+            var data = pagedResult.MapTo<#= GetDtoModelName(dto) #>List(mapper);
+
+            return PagedResult<<#= GetDtoModelName(dto) #>>.Create(
+                totalCount: pagedResult.TotalCount,
+                pageCount: pagedResult.PageCount,
+                pageSize: pagedResult.PageSize,
+                pageNumber: pagedResult.PageNo,
+                data: data);
+        }
+
+<#
+    }
+#>
+    }
+}
