@@ -18,13 +18,14 @@ namespace <#= Namespace #>
     public class <#= ClassName #> : IEntityTypeConfiguration<<#= GetEntityName() #>>
     {
         public void Configure(EntityTypeBuilder<<#= GetEntityName() #>> builder)
-        {<#= GetTableMapping() #><#= GetKeyMapping() #><#= GetCheckConstraints() #><#= GetDecoratorsOutput(x => x.BeforeAttributes()) #>
+        {<#= GetTableMapping(Model) #><#= GetKeyMapping(Model) #><#= GetCheckConstraints() #><#= GetDecoratorsOutput(x => x.BeforeAttributes()) #>
 <#  foreach(var attribute in GetAttributes(Model)) { #>
             <#= GetAttributeMapping(attribute) #>
 <#  } #><#= GetDecoratorsOutput(x => x.AfterAttributes()) #>
 <#  foreach(var attribute in GetAssociations(Model)) { #>
             <#= GetAssociationMapping(attribute) #>
-<#  } #><#= GetIndexes() #>
+<#  } #><#= string.Join(@"
+			", GetIndexes(Model)) #>
         }<#= GetAdditionalMethods() #>
     }
 }

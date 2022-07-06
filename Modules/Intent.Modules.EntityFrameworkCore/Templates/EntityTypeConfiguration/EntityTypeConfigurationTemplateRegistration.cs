@@ -37,7 +37,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => !x.IsAbstract || !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType());
+                .Where(x => x.IsAggregateRoot())
+                .Where(x => !x.IsAbstract ||
+                            !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType());
         }
     }
 }

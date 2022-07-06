@@ -65,13 +65,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             this.Write("> builder)\r\n        {");
             
             #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetTableMapping()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTableMapping(Model)));
             
             #line default
             #line hidden
             
             #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyMapping()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyMapping(Model)));
             
             #line default
             #line hidden
@@ -137,13 +137,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             #line hidden
             
             #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetIndexes()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(@"
+			", GetIndexes(Model))));
             
             #line default
             #line hidden
             this.Write("\r\n        }");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAdditionalMethods()));
             
             #line default
