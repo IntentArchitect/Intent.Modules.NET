@@ -51,9 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.Dtos\Intent.Modules.Application.Dtos.csproj" />
     <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
   </ItemGroup>
 
 </Project>

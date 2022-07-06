@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
-using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -36,12 +34,12 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
 
         private string GetDtoModelName(DTOModel dto)
         {
-            return GetTypeName(DtoModelTemplate.TemplateId, dto);
+            return GetTypeName("Application.Contract.Dto", dto);
         }
 
         private string GetEntityName(DTOModel dto)
         {
-            return GetTypeName(DomainEntityInterfaceTemplate.Identifier, dto.Mapping.ElementId);
+            return GetTypeName("Domain.Entity.Interface", dto.Mapping.ElementId);
         }
 
         private string GetPagedResultInterfaceName()
