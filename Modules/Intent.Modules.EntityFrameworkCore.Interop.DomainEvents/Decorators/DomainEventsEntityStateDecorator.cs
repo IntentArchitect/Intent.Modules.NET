@@ -25,12 +25,13 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 
         public override IEnumerable<string> GetInterfaces(ClassModel @class)
         {
-            yield return Template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId);
+            if (@class.IsAggregateRoot())
+                yield return Template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId);
         }
 
         public override string AfterProperties(ClassModel @class)
         {
-            if (Template.Model.ParentClass != null)
+            if (Template.Model.ParentClass != null || !@class.IsAggregateRoot())
             {
                 return null;
             }
