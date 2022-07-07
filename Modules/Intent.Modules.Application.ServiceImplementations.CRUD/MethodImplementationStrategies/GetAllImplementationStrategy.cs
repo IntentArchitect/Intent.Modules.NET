@@ -55,7 +55,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
             var dto = _decorator.FindDTOModel(operationModel.TypeReference.Element.Id);
-            return $@"var elements ={ (operationModel.IsAsync() ? "await" : "") } {domainModel.Name.ToPrivateMember()}Repository.FindAll{ (operationModel.IsAsync() ? "Async" : "") }();
+            return $@"var elements ={ (operationModel.IsAsync() ? " await" : string.Empty) } {domainModel.Name.ToPrivateMember()}Repository.FindAll{ (operationModel.IsAsync() ? "Async" : "") }();
             return elements.MapTo{_decorator.Template.GetTypeName(DtoModelTemplate.TemplateId, dto)}List(_mapper);";
         }
 

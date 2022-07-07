@@ -39,7 +39,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Dec
                 new GetByIdImplementationStrategy(this),
                 new CreateImplementationStrategy(this),
                 new UpdateImplementationStrategy(this),
-                new DeleteImplementationStrategy(this)
+                new DeleteImplementationStrategy(this),
+                new GetAllPaginationImplementationStrategy(this)
             };
             _targetEntity = GetDomainForService(_template.Model);
         }

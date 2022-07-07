@@ -13,7 +13,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Contract.Dto.Pagination</role>
+      <role>Application.Contract.Dto.Pagination.Result</role>
       <location></location>
     </template>
     <template id="Intent.Application.Dtos.Pagination.PagedResultMappingExtensions" externalReference="55b20827-bbff-4c99-bbbc-928b198ba9c6">

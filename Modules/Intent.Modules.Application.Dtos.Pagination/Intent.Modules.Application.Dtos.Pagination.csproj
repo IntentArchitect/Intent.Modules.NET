@@ -18,6 +18,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PagedResultMappingExtensionsTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\PagingCriteria\PagingCriteriaTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PagingCriteriaTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +39,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>PagedResultMappingExtensionsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\PagingCriteria\PagingCriteriaTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PagingCriteriaTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

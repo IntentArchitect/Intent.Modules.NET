@@ -40,6 +40,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             {
                 new GetAllImplementationStrategy(_template, _application, _application.MetadataManager),
                 new GetByIdImplementationStrategy(_template, _application, _application.MetadataManager),
+                new GetAllPaginationImplementationStrategy(_template, _application, _application.MetadataManager)
             }.SingleOrDefault(x => x.IsMatch());
         }
 
