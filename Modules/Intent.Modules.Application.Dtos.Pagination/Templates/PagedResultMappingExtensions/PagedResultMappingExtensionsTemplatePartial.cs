@@ -3,8 +3,6 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -44,7 +42,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
 
         private string GetPagedResultInterfaceName()
         {
-            return GetTypeName(PagedResultInterfaceTemplate.TemplateId);
+            return GetTypeName("Repository.Interface.PagedResult");
         }
     }
 }

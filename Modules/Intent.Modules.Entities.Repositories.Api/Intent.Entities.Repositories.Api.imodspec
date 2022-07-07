@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Repositories.Api</id>
-  <version>3.3.1</version>
+  <version>3.3.2</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Repository contracts and specifications for Entities.</summary>
   <description>Repository contracts and specifications for Entities.</description>
@@ -11,15 +11,15 @@
   <tags>EntityFramework</tags>
   <templates>
     <template id="Intent.Entities.Repositories.Api.EntityRepositoryInterface" externalReference="0adbd5e8-63ad-4b34-b8cf-9b3febeedd99">
-      <role>Repository.Interface</role>
+      <role>Repository.Interface.Entity</role>
       <location>Repositories</location>
     </template>
     <template id="Intent.Entities.Repositories.Api.PagedResultInterface" externalReference="97d051af-0bef-4bdd-ac68-ea8d27c6d5fb">
-      <role>Repository.Interface</role>
+      <role>Repository.Interface.PagedResult</role>
       <location>Repositories</location>
     </template>
     <template id="Intent.Entities.Repositories.Api.RepositoryInterface" externalReference="0ca794e5-a8e2-43c8-a67b-3e4ab606719a">
-      <role>Repository.Interface</role>
+      <role>Repository.Interface.Contract</role>
       <location>Repositories</location>
     </template>
     <template id="Intent.Entities.Repositories.Api.UnitOfWorkInterface" externalReference="b7874537-f6f7-431c-91fc-e6beb0a58825">
