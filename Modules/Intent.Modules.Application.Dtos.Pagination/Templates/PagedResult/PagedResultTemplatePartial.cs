@@ -27,6 +27,10 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResult
 
         public override void BeforeTemplateExecution()
         {
+            // This will ensure that all template instances will know about our new type
+            // and will resolve the namespace correctly. However, this is not the ideal
+            // method and will be relooked in the future using some "Global Type Source"
+            // idea.
             var templates = ExecutionContext
                 .OutputTargets
                 .SelectMany(s => s.TemplateInstances)
