@@ -26,11 +26,11 @@ namespace <#= Namespace #>
     foreach (var dto in Model)
     { 
 #>
-        public static PagedResult<<#= GetDtoModelName(dto) #>> MapToPagedResult(this <#= GetPagedResultInterfaceName() #><<#= GetEntityName(dto) #>> pagedResult, IMapper mapper)
+        public static <#= this.GetPagedResultName() #><<#= GetDtoModelName(dto) #>> MapToPagedResult(this <#= GetPagedResultInterfaceName() #><<#= GetEntityName(dto) #>> pagedResult, IMapper mapper)
         {
             var data = pagedResult.MapTo<#= GetDtoModelName(dto) #>List(mapper);
 
-            return PagedResult<<#= GetDtoModelName(dto) #>>.Create(
+            return <#= this.GetPagedResultName() #><<#= GetDtoModelName(dto) #>>.Create(
                 totalCount: pagedResult.TotalCount,
                 pageCount: pagedResult.PageCount,
                 pageSize: pagedResult.PageSize,

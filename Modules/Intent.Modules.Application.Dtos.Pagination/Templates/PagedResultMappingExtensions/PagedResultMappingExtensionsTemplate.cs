@@ -74,7 +74,14 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             
             #line default
             #line hidden
-            this.Write("        public static PagedResult<");
+            this.Write("        public static ");
+            
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
+            
+            #line default
+            #line hidden
+            this.Write("<");
             
             #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName(dto)));
@@ -102,7 +109,14 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             
             #line default
             #line hidden
-            this.Write("List(mapper);\r\n\r\n            return PagedResult<");
+            this.Write("List(mapper);\r\n\r\n            return ");
+            
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
+            
+            #line default
+            #line hidden
+            this.Write("<");
             
             #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModelName(dto)));

@@ -18,7 +18,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
     private readonly QueryHandlerTemplate _template;
     private readonly IApplication _application;
     private readonly IMetadataManager _metadataManager;
-    private readonly Lazy<(bool IsComplete, RequiredService Repository)> _matchingElementDetails;
+    private readonly Lazy<(bool IsMatch, RequiredService Repository)> _matchingElementDetails;
 
     public GetAllPaginationImplementationStrategy(QueryHandlerTemplate template, IApplication application,
         IMetadataManager metadataManager)
@@ -26,14 +26,14 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
         _template = template;
         _application = application;
         _metadataManager = metadataManager;
-        _matchingElementDetails = new Lazy<(bool IsComplete, RequiredService Repository)>(GetMatchingElementDetails);
+        _matchingElementDetails = new Lazy<(bool IsMatch, RequiredService Repository)>(GetMatchingElementDetails);
     }
 
     public bool IsMatch()
     {
         return _template.Model.Properties.Any(IsPageNumberParam)
                && _template.Model.Properties.Any(IsPageSizeParam)
-               && _matchingElementDetails.Value.IsComplete;
+               && _matchingElementDetails.Value.IsMatch;
     }
 
     public IEnumerable<RequiredService> GetRequiredServices()
@@ -52,39 +52,40 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
         return
             $@"var results = await {_matchingElementDetails.Value.Repository.FieldName}.FindAllAsync(
                 pageNo: request.{pageNumberVar.Name.ToPascalCase()},
-                pageSize: request.{pageSizeVar.Name.ToPascalCase()});
+                pageSize: request.{pageSizeVar.Name.ToPascalCase()},
+                cancellationToken: cancellationToken);
             return results.MapToPagedResult(_mapper);";
     }
 
-    private (bool IsComplete, RequiredService Repository) GetMatchingElementDetails()
+    private (bool IsMatch, RequiredService Repository) GetMatchingElementDetails()
     {
         if (_template.Model.TypeReference.Element.Name != "PagedResult")
         {
-            return (IsComplete: false, Repository: null);
+            return (IsMatch: false, Repository: null);
         }
 
         var nestedDtoModel = _template.Model.TypeReference.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel();
         if (nestedDtoModel == null)
         {
-            return (IsComplete: false, Repository: null);
+            return (IsMatch: false, Repository: null);
         }
 
         var mappedDomainEntity = nestedDtoModel.IsMapped ? nestedDtoModel.Mapping.Element.AsClassModel() : null;
         if (mappedDomainEntity == null)
         {
-            return (IsComplete: false, Repository: null);
+            return (IsMatch: false, Repository: null);
         }
 
         var repositoryInterface = _template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, mappedDomainEntity,
             new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
         if (repositoryInterface == null)
         {
-            return (IsComplete: false, Repository: null);
+            return (IsMatch: false, Repository: null);
         }
 
         var repository = new RequiredService(type: repositoryInterface,
             name: repositoryInterface.Substring(1).ToCamelCase());
-        return (IsComplete: true, Repository: repository);
+        return (IsMatch: true, Repository: repository);
     }
 
     private bool IsPageNumberParam(DTOFieldModel param)

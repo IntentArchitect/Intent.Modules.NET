@@ -20,8 +20,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private readonly IMetadataManager _metadataManager;
 
         private readonly
-            Lazy<(bool IsComplete, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)>
-            _matchingElementDetails;
+            Lazy<(bool IsMatch, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)> _matchingElementDetails;
 
         public GetAllImplementationStrategy(QueryHandlerTemplate template, IApplication application,
             IMetadataManager metadataManager)
@@ -30,7 +29,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             _application = application;
             _metadataManager = metadataManager;
             _matchingElementDetails =
-                new Lazy<(bool IsComplete, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)>(
+                new Lazy<(bool IsMatch, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)>(
                     GetMatchingElementDetails);
         }
 
@@ -41,7 +40,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return false;
             }
 
-            return _matchingElementDetails.Value.IsComplete;
+            return _matchingElementDetails.Value.IsMatch;
         }
 
         public IEnumerable<RequiredService> GetRequiredServices()
@@ -61,7 +60,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return {result.FoundEntity.Name.ToCamelCase().ToPluralName()}.MapTo{_template.GetTypeName("Application.Contract.Dto", result.DtoToReturn)}List(_mapper);";
         }
 
-        private (bool IsComplete, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)
+        private (bool IsMatch, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)
             GetMatchingElementDetails()
         {
             var matchingEntities = _metadataManager.Domain(_application).GetClassModels().Where(x => new[]
@@ -76,7 +75,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             if (matchingEntities.Count() != 1)
             {
-                return (IsComplete: false, FoundEntity: null, DtoToReturn: null, Repository: null);
+                return (IsMatch: false, FoundEntity: null, DtoToReturn: null, Repository: null);
             }
 
             var foundEntity = matchingEntities.Single();
@@ -86,19 +85,19 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 x.Mapping.ElementId == foundEntity.Id);
             if (dtoToReturn == null)
             {
-                return (IsComplete: false, FoundEntity: null, DtoToReturn: null, Repository: null);
+                return (IsMatch: false, FoundEntity: null, DtoToReturn: null, Repository: null);
             }
 
             var repositoryInterface = _template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, foundEntity,
                 new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
             if (repositoryInterface == null)
             {
-                return (IsComplete: false, FoundEntity: null, DtoToReturn: null, Repository: null);
+                return (IsMatch: false, FoundEntity: null, DtoToReturn: null, Repository: null);
             }
 
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
-            return (IsComplete: true, FoundEntity: foundEntity, DtoToReturn: dtoToReturn, Repository: repository);
+            return (IsMatch: true, FoundEntity: foundEntity, DtoToReturn: dtoToReturn, Repository: repository);
         }
     }
 }
