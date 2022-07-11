@@ -1,8 +1,6 @@
 <#@ template  debug="true"  inherits="CSharpTemplateBase<object, Intent.Modules.AspNetCore.Templates.Startup.StartupDecorator>"#>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
-<#@ Assembly Name="System.Windows.Forms" #>
-<#@ Assembly Name="Intent.SoftwareFactory.SDK" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="System" #>

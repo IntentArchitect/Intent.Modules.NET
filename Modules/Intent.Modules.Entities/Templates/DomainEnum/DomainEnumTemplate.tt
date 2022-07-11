@@ -1,8 +1,6 @@
 <#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modules.Common.Types.Api.EnumModel>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
-<#@ Assembly Name="System.Windows.Forms" #>
-<#@ Assembly Name="Intent.SoftwareFactory" #>
 <#@ import namespace="Intent.Modules.Common.Types.Api" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>

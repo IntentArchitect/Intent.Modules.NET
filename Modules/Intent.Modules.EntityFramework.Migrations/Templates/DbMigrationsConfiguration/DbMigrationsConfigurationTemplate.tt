@@ -1,6 +1,5 @@
 ﻿<#@ template  debug="true"  inherits="CSharpTemplateBase" #>
 <#@ output extension=".cs" #>
-<#@ Assembly Name="Intent.SoftwareFactory" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 using System;

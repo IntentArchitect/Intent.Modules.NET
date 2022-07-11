@@ -1,8 +1,6 @@
 <#@ template  debug="true"  inherits="IntentTemplateBase<AppSettingsModel, Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings.AppSettingsDecorator>"#>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
-<#@ Assembly Name="System.Windows.Forms" #>
-<#@ Assembly Name="Intent.SoftwareFactory.SDK" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.VisualStudio" #>
 <#@ import namespace="System" #>
