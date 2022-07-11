@@ -162,6 +162,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.ExplicitKey
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreRepositoryTestSuite.IntentGenerated", "EntityFrameworkCore.Repositories.TestApplication\EfCoreRepositoryTestSuite.IntentGenerated\EfCoreRepositoryTestSuite.IntentGenerated.csproj", "{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -464,6 +466,10 @@ Global
 		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82458406-7D23-41F5-81A0-2083C0B7668D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82458406-7D23-41F5-81A0-2083C0B7668D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82458406-7D23-41F5-81A0-2083C0B7668D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82458406-7D23-41F5-81A0-2083C0B7668D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -543,6 +549,7 @@ Global
 		{A3505075-B92B-4BE8-BFE1-6908206CC14A} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{1303E57E-1275-42A4-B433-05E88A85E9B1} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B} = {A319FB02-C635-433C-9446-8A7FB29162DE}
+		{82458406-7D23-41F5-81A0-2083C0B7668D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

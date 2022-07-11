@@ -69,5 +69,6 @@
     <application id="e4d11b2e-4e93-4ecc-b85c-d290412beaf4" name="EntityFrameworkCore.ExplicitKeyCreation.TestApplication" relativePath="EntityFrameworkCore.ExplicitKeyCreation.TestApplication/EntityFrameworkCore.ExplicitKeyCreation.TestApplication.application.config" />
     <application id="454aab6f-4c66-40ee-8b77-02dcd82f4040" name="EntityFrameworkCore.Repositories.TestApplication" relativePath="EntityFrameworkCore.Repositories.TestApplication/EntityFrameworkCore.Repositories.TestApplication.application.config" />
     <application id="b43e280b-5711-433f-87d1-ba8bba65465c" name="Intent.Modules.Application.ServiceImplementations" relativePath="Intent.Modules.Application.ServiceImplementations/Intent.Modules.Application.ServiceImplementations.application.config" />
+    <application id="411531a2-eb34-4b48-b722-ffd07f1ede61" name="Intent.Modules.AzureFunctions" relativePath="Intent.Modules.AzureFunctions/Intent.Modules.AzureFunctions.application.config" />
   </applications>
 </solution>
