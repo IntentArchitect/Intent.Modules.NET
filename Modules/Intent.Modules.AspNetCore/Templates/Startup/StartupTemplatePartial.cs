@@ -22,14 +22,18 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class StartupTemplate : CSharpTemplateBase<object, StartupDecorator>
     {
-        [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.AspNetCore.Startup";
+        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Startup";
+
         private readonly IList<ContainerRegistrationRequest> _registrations = new List<ContainerRegistrationRequest>();
+
+        private readonly IList<ServiceConfigurationRequest> _serviceConfigurations =
+            new List<ServiceConfigurationRequest>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleServiceRegistration);
+            ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfiguration);
             //eventDispatcher.Subscribe(ContainerRegistrationForDbContextEvent.EventId, HandleDbContextRegistration);
             //eventDispatcher.Subscribe(ServiceConfigurationRequiredEvent.EventId, HandleServiceConfiguration);
             //eventDispatcher.Subscribe(InitializationRequiredEvent.EventId, HandleInitialization);
@@ -40,6 +44,11 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             _registrations.Add(@event);
         }
 
+        private void HandleServiceConfiguration(ServiceConfigurationRequest request)
+        {
+            _serviceConfigurations.Add(request);
+        }
+
         public bool IsNetCore2App()
         {
             return OutputTarget.IsNetCore2App();
@@ -48,8 +57,19 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private string GetServiceConfigurations(string baseIndent)
         {
             var serviceConfigElements = new List<(string Code, int Priority)>();
-            serviceConfigElements.AddRange(GetDecorators().Select(s => (s.ConfigureServices(), s.Priority)));
+            
+            serviceConfigElements.AddRange(GetDecorators()
+                .Select(s => (s.ConfigureServices(), s.Priority)));
+            serviceConfigElements.AddRange(_serviceConfigurations
+                .Select(s => (GetExtensionMethodInvocationStatement(s), s.Priority)));
+
             return GetCodeInNeatLines(serviceConfigElements, baseIndent);
+        }
+
+        private string GetExtensionMethodInvocationStatement(ServiceConfigurationRequest request)
+        {
+            return
+                $"services.{request.ExtensionMethodName}({(request.SupplyConfiguration ? "Configuration" : string.Empty)});";
         }
 
         private string GetApplicationConfigurations(string baseIndent)
@@ -69,7 +89,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             appConfigElements.Add(($@"
 app.UseEndpoints(endpoints =>
 {{
-    { GetEndPointMappings() }
+    {GetEndPointMappings()}
 }});", 0));
 
             appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));
@@ -208,7 +228,7 @@ app.UseEndpoints(endpoints =>
                 ? GetServiceRegistrations().Select(DefineServiceRegistration).Aggregate((x, y) => x + y)
                 : string.Empty;
 
-            return registrations;// + Environment.NewLine + GetDecorators().Aggregate(x => x.Registrations());
+            return registrations; // + Environment.NewLine + GetDecorators().Aggregate(x => x.Registrations());
         }
 
         //public string Methods()
@@ -264,6 +284,7 @@ app.UseEndpoints(endpoints =>
                     ? $"{Environment.NewLine}            services.{RegistrationType(x)}({UseTypeOf(x.InterfaceType)}, {UseTypeOf(x.ConcreteType)});"
                     : $"{Environment.NewLine}            services.{RegistrationType(x)}({UseTypeOf(x.ConcreteType)});";
             }
+
             return x.InterfaceType != null
                 ? $"{Environment.NewLine}            services.{RegistrationType(x)}<{UseType(x.InterfaceType)}, {UseType(x.ConcreteType)}>();"
                 : $"{Environment.NewLine}            services.{RegistrationType(x)}<{UseType(x.ConcreteType)}>();";
@@ -383,6 +404,5 @@ app.UseEndpoints(endpoints =>
         //        TemplateDependancy = templateDependency;
         //    }
         //}
-
     }
 }

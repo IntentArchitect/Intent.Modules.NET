@@ -16,13 +16,11 @@
       <role>Application</role>
     </template>
   </templates>
-  <decorators>
-    <decorator id="Intent.Application.DependencyInjection.ApplicationStartupDecorator" externalReference="175a9d52-e90b-49ab-a26c-e4cf5c9a66cf" />
-  </decorators>
+  <decorators />
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.3" />
-    <dependency id="Intent.Common.CSharp" version="3.3.4" />
+    <dependency id="Intent.Common" version="3.3.6" />
+    <dependency id="Intent.Common.CSharp" version="3.3.12-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
   </dependencies>

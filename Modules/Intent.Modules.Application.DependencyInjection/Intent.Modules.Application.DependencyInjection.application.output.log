@@ -8,20 +8,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0331d7d7-9b7f-4c75-bb88-694f6b85a58c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#175a9d52-e90b-49ab-a26c-e4cf5c9a66cf</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/ApplicationStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0331d7d7-9b7f-4c75-bb88-694f6b85a58c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#175a9d52-e90b-49ab-a26c-e4cf5c9a66cf</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/ApplicationStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>1d15d8ba-269b-4a31-8855-602cddaa651b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Application.DependencyInjection.imodspec</ApplicationRelativeFilePath>

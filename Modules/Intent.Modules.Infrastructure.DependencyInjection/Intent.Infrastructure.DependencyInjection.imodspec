@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Infrastructure.DependencyInjection</id>
   <version>3.3.3-pre.0</version>
@@ -16,12 +16,10 @@
       <role>Infrastructure</role>
     </template>
   </templates>
-  <decorators>
-    <decorator id="Intent.Infrastructure.DependencyInjection.ApplicationStartupDecorator" externalReference="cb9eb16c-8c36-4146-8572-d72ffb812051" />
-  </decorators>
+  <decorators />
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.3" />
-    <dependency id="Intent.Common.CSharp" version="3.3.4" />
+    <dependency id="Intent.Common" version="3.3.6" />
+    <dependency id="Intent.Common.CSharp" version="3.3.12-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
   </dependencies>
@@ -33,4 +31,5 @@
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Infrastructure.DependencyInjection/Intent.Infrastructure.DependencyInjection.pkg.config" externalReference="652850d7-ae15-457c-9c5d-d36266780022" />
   </metadata>
   <moduleSettings />
+  <moduleSettingsExtensions />
 </package>

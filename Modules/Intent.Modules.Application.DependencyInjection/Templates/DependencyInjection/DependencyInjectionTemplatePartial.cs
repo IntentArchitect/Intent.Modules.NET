@@ -19,12 +19,20 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.DependencyInjection.DependencyInjection";
 
-        private readonly IList<ContainerRegistrationRequest> _registrationRequests = new List<ContainerRegistrationRequest>();
+        private readonly IList<ContainerRegistrationRequest> _registrationRequests =
+            new List<ContainerRegistrationRequest>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
+            outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(
+                ServiceConfigurationRequest.ForExtensionMethod("AddApplication", Namespace));
         }
 
         private void HandleEvent(ContainerRegistrationRequest @event)
@@ -78,6 +86,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
                     ? $"services.{registrationType}({UseTypeOf(request.InterfaceType)}, {UseTypeOf(request.ConcreteType)});"
                     : $"services.{registrationType}({UseTypeOf(request.ConcreteType)});";
             }
+
             return request.InterfaceType != null
                 ? $"services.{registrationType}<{UseType(request.InterfaceType)}, {UseType(request.ConcreteType)}>();"
                 : $"services.{registrationType}<{UseType(request.ConcreteType)}>();";
