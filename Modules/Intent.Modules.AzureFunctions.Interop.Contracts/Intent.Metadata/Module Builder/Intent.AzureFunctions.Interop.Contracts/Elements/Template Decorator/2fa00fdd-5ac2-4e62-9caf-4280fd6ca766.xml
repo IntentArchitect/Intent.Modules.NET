@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2fa00fdd-5ac2-4e62-9caf-4280fd6ca766" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>ContractDispatchDecorator</name>
+  <display>ContractDispatchDecorator: AzureFunctionClassDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="143d8b86-dd7b-4ae7-8d87-aa3e2278a64e">
+    <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AzureFunctions</typePackageName>
+    <typePackageId>022dbddc-276c-406b-81e6-5034ad64db72</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>10a41da0-aa10-463f-9181-7fb429e19069</parentFolderId>
+  <packageId>10a41da0-aa10-463f-9181-7fb429e19069</packageId>
+  <packageName>Intent.AzureFunctions.Interop.Contracts</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

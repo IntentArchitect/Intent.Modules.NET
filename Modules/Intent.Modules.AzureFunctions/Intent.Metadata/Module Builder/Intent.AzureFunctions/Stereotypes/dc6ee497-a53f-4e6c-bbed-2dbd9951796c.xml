@@ -37,9 +37,9 @@
       <isRequiredFunction>true</isRequiredFunction>
     </property>
     <property id="8b1d6b10-b9c9-4562-a8cf-bf3eb9123621">
-      <name>Methods</name>
+      <name>Method</name>
       <type>string</type>
-      <controlType>multi-select</controlType>
+      <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder />
       <valueOptions>

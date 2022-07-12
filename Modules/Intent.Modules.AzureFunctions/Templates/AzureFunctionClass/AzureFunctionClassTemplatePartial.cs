@@ -6,6 +6,7 @@ using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -18,7 +19,7 @@ using Intent.Templates;
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class AzureFunctionClassTemplate : CSharpTemplateBase<OperationModel>
+    partial class AzureFunctionClassTemplate : CSharpTemplateBase<OperationModel, AzureFunctionClassDecorator>
     {
         public const string TemplateId = "Intent.AzureFunctions.AzureFunctionClass";
 
@@ -31,6 +32,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection);
             AddNugetDependency(NugetPackages.MicrosoftExtensionsHttp);
             AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions);
+
+            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
 
         public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model, bool hasMultipleServices)
@@ -48,7 +51,133 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 relativeLocation: GetRelativeLocation());
         }
 
-        private string GetDtoType()
+        private string GetRelativeLocation()
+        {
+            return _hasMultipleServices
+                ? Path.Join(this.GetFolderPath(), Model.ParentService.Name)
+                : this.GetFolderPath();
+        }
+
+        private string GetClassEntryDefinitionList()
+        {
+            var definitionList = new List<string>();
+
+            definitionList.AddRange(GetDecorators()
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.GetClassEntryDefinitionList()));
+
+            return string.Join(@"
+        ", definitionList);
+        }
+
+        private string GetConstructorParameterDefinitionList()
+        {
+            var paramList = new List<string>();
+
+            paramList.AddRange(GetDecorators()
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.GetConstructorParameterDefinitionList()));
+
+            const string newLine = @"
+            ";
+            return newLine + string.Join("," + newLine, paramList);
+        }
+
+        private string GetConstructorBodyStatementList()
+        {
+            var statementList = new List<string>();
+
+            statementList.AddRange(GetDecorators()
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.GetConstructorBodyStatementList()));
+
+            const string newLine = @"
+            ";
+            return string.Join(newLine, statementList);
+        }
+
+        private string GetRunMethodParameterDefinitionList()
+        {
+            var paramList = new List<string>();
+
+            if (Model.HasHttpTrigger())
+            {
+                var method = @$"""{Model.GetHttpTrigger().Method().Value.ToLower()}""";
+                var route = !string.IsNullOrWhiteSpace(Model.GetHttpTrigger().Route())
+                    ? $@"""{Model.GetHttpTrigger().Route()}"""
+                    : "null";
+                paramList.Add(
+                    @$"[HttpTrigger(AuthorizationLevel.{Model.GetHttpTrigger().AuthorizationLevel().Value}, {method}, Route = {route})] HttpRequest req");
+            }
+
+            paramList.Add("ILogger log");
+
+            paramList.AddRange(GetDecorators()
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.GetRunMethodParameterDefinitionList()));
+
+            if (paramList.Count == 0)
+            {
+                throw new Exception($"Operation {Model.Name} has no Azure Function Trigger specified");
+            }
+
+            const string newLine = @"
+            ";
+            return newLine + string.Join("," + newLine, paramList);
+        }
+
+        private string GetRunMethodEntryStatementList()
+        {
+            var statementList = new List<string>();
+
+            foreach (var param in GetQueryParams())
+            {
+                statementList.Add(
+                    $@"var {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
+            }
+
+            if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
+            {
+                statementList.Add($@"string requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
+                statementList.Add($@"var dto = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
+            }
+
+            statementList.AddRange(GetDecorators()
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.GetRunMethodEntryStatementList()));
+
+            const string newLine = @"
+            ";
+            return string.Join(newLine, statementList);
+        }
+
+        private string GetRunMethodBodyStatementList()
+        {
+            var statementList = new List<string>();
+
+            statementList.AddRange(GetDecorators()
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.GetRunMethodBodyStatementList()));
+
+            const string newLine = @"
+            ";
+            return string.Join(newLine, statementList);
+        }
+
+        private string GetRunMethodExitStatementList()
+        {
+            var statementList = new List<string>();
+
+            statementList.AddRange(GetDecorators()
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.GetRunMethodExitStatementList()));
+
+            const string newLine = @"
+            ";
+            return string.Join(newLine, statementList);
+        }
+
+        private string GetRequestDtoType()
         {
             var dtoParams = Model.Parameters
                 .Where(p => p.TypeReference.Element.IsDTOModel())
@@ -70,52 +199,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private IReadOnlyCollection<ParameterModel> GetQueryParams()
         {
             return Model.Parameters.Where(p => !p.TypeReference.Element.IsDTOModel()).ToArray();
-        }
-
-        private string GetRelativeLocation()
-        {
-            return _hasMultipleServices
-                ? Path.Join(this.GetFolderPath(), Model.ParentService.Name)
-                : this.GetFolderPath();
-        }
-
-        private string GetRunParameterDefinition()
-        {
-            var paramList = new List<string>();
-
-            if (Model.HasHttpTrigger())
-            {
-                paramList.Add(
-                    @$"[HttpTrigger(AuthorizationLevel.{Model.GetHttpTrigger().AuthorizationLevel().Value}{GetVerbs()}, Route = {GetRoute()})] HttpRequest req");
-            }
-
-            paramList.Add("ILogger log");
-
-            if (paramList.Count == 0)
-            {
-                throw new Exception($"Operation {Model.Name} has no Azure Function Trigger specified");
-            }
-
-            var newLine = $"{Environment.NewLine}            ";
-            return newLine + string.Join("," + newLine, paramList);
-        }
-
-        private string GetVerbs()
-        {
-            var list = new List<string>();
-            list.Add(string.Empty);
-            list.AddRange(Model.GetHttpTrigger().Methods().Select(s => @$"""{s.Value.ToLower()}"""));
-            return string.Join($", ", list);
-        }
-
-        private string GetRoute()
-        {
-            if (!string.IsNullOrWhiteSpace(Model.GetHttpTrigger().Route()))
-            {
-                return Model.GetHttpTrigger().Route();
-            }
-
-            return "null";
         }
     }
 }

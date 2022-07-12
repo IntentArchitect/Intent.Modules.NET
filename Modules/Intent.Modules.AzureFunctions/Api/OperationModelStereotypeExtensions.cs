@@ -42,9 +42,9 @@ namespace Intent.AzureFunctions.Api
                 return new AuthorizationLevelOptions(_stereotype.GetProperty<string>("Authorization Level"));
             }
 
-            public MethodsOptions[] Methods()
+            public MethodOptions Method()
             {
-                return _stereotype.GetProperty<string[]>("Methods")?.Select(x => new MethodsOptions(x)).ToArray() ?? new MethodsOptions[0];
+                return new MethodOptions(_stereotype.GetProperty<string>("Method"));
             }
 
             public string Route()
@@ -110,27 +110,27 @@ namespace Intent.AzureFunctions.Api
                 System,
                 Admin
             }
-            public class MethodsOptions
+            public class MethodOptions
             {
                 public readonly string Value;
 
-                public MethodsOptions(string value)
+                public MethodOptions(string value)
                 {
                     Value = value;
                 }
 
-                public MethodsOptionsEnum AsEnum()
+                public MethodOptionsEnum AsEnum()
                 {
                     switch (Value)
                     {
                         case "GET":
-                            return MethodsOptionsEnum.GET;
+                            return MethodOptionsEnum.GET;
                         case "POST":
-                            return MethodsOptionsEnum.POST;
+                            return MethodOptionsEnum.POST;
                         case "PUT":
-                            return MethodsOptionsEnum.PUT;
+                            return MethodOptionsEnum.PUT;
                         case "DELETE":
-                            return MethodsOptionsEnum.DELETE;
+                            return MethodOptionsEnum.DELETE;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -154,7 +154,7 @@ namespace Intent.AzureFunctions.Api
                 }
             }
 
-            public enum MethodsOptionsEnum
+            public enum MethodOptionsEnum
             {
                 GET,
                 POST,

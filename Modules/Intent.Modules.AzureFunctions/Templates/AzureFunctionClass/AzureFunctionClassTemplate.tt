@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.OperationModel>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.OperationModel, Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.AzureFunctionClassDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
@@ -10,6 +10,7 @@
 <#@ import namespace="Intent.Metadata.Models" #>
 <#@ import namespace="Intent.AzureFunctions.Api" #>
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -24,30 +25,16 @@ using Newtonsoft.Json;
 namespace <#= Namespace #>
 {
     public class <#= ClassName #>
-    {
-        public <#= ClassName #>()
-        {
+    {<#= GetClassEntryDefinitionList() #>
+        public <#= ClassName #>(<#= GetConstructorParameterDefinitionList() #>)
+        {<#= GetConstructorBodyStatementList() #>
         }
 
         [FunctionName("<#= ClassName #>")]
-        public async Task<IActionResult> Run(<#= GetRunParameterDefinition() #>)
-        {
-<#
-    foreach (var param in GetQueryParams())
-    {
-#>
-            var <#= param.Name.ToParameterName() #>Param = req.Query["<#= param.Name.ToCamelCase() #>"];
-<#
-    }
-
-    if (Model.HasHttpTrigger() && !string.IsNullOrWhiteSpace(GetDtoType()))
-    {
-#>
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var dto = JsonConvert.DeserializeObject<<#= GetDtoType() #>>(requestBody);
-<#
-    }
-#>
+        public async Task<IActionResult> Run(<#= GetRunMethodParameterDefinitionList() #>)
+        {<#= GetRunMethodEntryStatementList() #>
+            <#= GetRunMethodBodyStatementList() #>
+            <#= GetRunMethodExitStatementList() #>
         }
     }
 }

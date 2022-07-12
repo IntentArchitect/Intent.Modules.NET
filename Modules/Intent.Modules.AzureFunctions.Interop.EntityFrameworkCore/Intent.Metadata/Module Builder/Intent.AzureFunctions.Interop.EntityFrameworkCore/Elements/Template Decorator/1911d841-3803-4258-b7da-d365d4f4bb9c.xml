@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1911d841-3803-4258-b7da-d365d4f4bb9c" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>DbContextSaveFunctionDecorator</name>
+  <display>DbContextSaveFunctionDecorator: AzureFunctionClassDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="68f6bcb2-2346-4225-9834-8ba4e201a650">
+    <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AzureFunctions</typePackageName>
+    <typePackageId>022dbddc-276c-406b-81e6-5034ad64db72</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>e3120171-ff1e-45b5-abf2-4de6c5feb36f</parentFolderId>
+  <packageId>e3120171-ff1e-45b5-abf2-4de6c5feb36f</packageId>
+  <packageName>Intent.AzureFunctions.Interop.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

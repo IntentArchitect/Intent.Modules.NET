@@ -42,7 +42,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             foreach (var model in models)
             {
                 registry.RegisterTemplate(
-                    templateId: TemplateId, 
+                    templateId: TemplateId,
                     createTemplateInstance: project => new AzureFunctionClassTemplate(project, model, hasMultipleServices));
             }
         }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0a702535-5bc6-45fb-8f1a-07aebd4c8426" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>AzureFunctionClassDecorator</name>
+  <display>AzureFunctionClassDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</parentFolderId>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
