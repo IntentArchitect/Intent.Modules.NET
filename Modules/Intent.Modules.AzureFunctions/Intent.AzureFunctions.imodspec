@@ -16,6 +16,14 @@
       <role>Distribution</role>
       <location></location>
     </template>
+    <template id="Intent.AzureFunctions.Startup" externalReference="4cc2b906-6a28-4d05-9721-548e8a541abd">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>

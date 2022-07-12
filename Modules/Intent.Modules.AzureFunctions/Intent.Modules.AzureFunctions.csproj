@@ -12,8 +12,8 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.5" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.12-alpha.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.1" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
@@ -28,6 +28,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AzureFunctionClassTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\Startup\StartupTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>StartupTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +39,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AzureFunctionClassTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Startup\StartupTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StartupTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
