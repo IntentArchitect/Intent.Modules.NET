@@ -16,6 +16,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
     using Intent.Modules.Common.CSharp.Templates;
     using Intent.Templates;
     using Intent.Metadata.Models;
+    using Intent.AzureFunctions.Api;
     using System;
     
     /// <summary>
@@ -34,40 +35,92 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             this.Write("using System;\r\nusing System.IO;\r\nusing System.Threading.Tasks;\r\nusing Microsoft.AspNetCore.Mvc;\r\nusing Microsoft.AspNetCore.Http;\r\nusing Microsoft.Azure.WebJobs;\r\nusing Microsoft.Azure.WebJobs.Extensions.Http;\r\nusing Microsoft.Extensions.Logging;\r\nusing Newtonsoft.Json;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        public ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("()\r\n        {\r\n        }\r\n\r\n        [FunctionName(\"");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\")]\r\n        public async Task<IActionResult> Run(");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetRunParameterDefinition()));
             
             #line default
             #line hidden
-            this.Write(")\r\n        {\r\n            \r\n        }\r\n    }\r\n}");
+            this.Write(")\r\n        {\r\n");
+            
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+
+    foreach (var param in GetQueryParams())
+    {
+
+            
+            #line default
+            #line hidden
+            this.Write("            var ");
+            
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(param.Name.ToParameterName()));
+            
+            #line default
+            #line hidden
+            this.Write("Param = req.Query[\"");
+            
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(param.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write("\"];\r\n");
+            
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+
+    }
+
+    if (Model.HasHttpTrigger() && !string.IsNullOrWhiteSpace(GetDtoType()))
+    {
+
+            
+            #line default
+            #line hidden
+            this.Write("            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();\r\n            var dto = JsonConvert.DeserializeObject<");
+            
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoType()));
+            
+            #line default
+            #line hidden
+            this.Write(">(requestBody);\r\n");
+            
+            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+
+    }
+
+            
+            #line default
+            #line hidden
+            this.Write("        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

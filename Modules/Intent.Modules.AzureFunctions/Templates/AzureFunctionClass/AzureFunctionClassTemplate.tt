@@ -8,6 +8,7 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+<#@ import namespace="Intent.AzureFunctions.Api" #>
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,7 +32,22 @@ namespace <#= Namespace #>
         [FunctionName("<#= ClassName #>")]
         public async Task<IActionResult> Run(<#= GetRunParameterDefinition() #>)
         {
-            
+<#
+    foreach (var param in GetQueryParams())
+    {
+#>
+            var <#= param.Name.ToParameterName() #>Param = req.Query["<#= param.Name.ToCamelCase() #>"];
+<#
+    }
+
+    if (Model.HasHttpTrigger() && !string.IsNullOrWhiteSpace(GetDtoType()))
+    {
+#>
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var dto = JsonConvert.DeserializeObject<<#= GetDtoType() #>>(requestBody);
+<#
+    }
+#>
         }
     }
 }

@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</CorrelationId>
       <ApplicationRelativeFilePath>Templates/AzureFunctionClass/AzureFunctionClassTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctionClass/AzureFunctionClassTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

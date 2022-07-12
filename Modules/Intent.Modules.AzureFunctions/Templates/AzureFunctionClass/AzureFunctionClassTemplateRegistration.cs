@@ -11,12 +11,12 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class AzureFunctionClassTemplateRegistration : FilePerModelTemplateRegistration<OperationModel>
+    public class AzureFunctionClassTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -25,17 +25,26 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => AzureFunctionClassTemplate.TemplateId;
+        public string TemplateId => AzureFunctionClassTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, OperationModel model)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            return new AzureFunctionClassTemplate(outputTarget, model);
-        }
+            var models = _metadataManager.Services(applicationManager)
+                .GetServiceModels()
+                .SelectMany(s => s.Operations)
+                .ToArray();
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<OperationModel> GetModels(IApplication application)
-        {
-            return _metadataManager.Services(application).GetServiceModels().SelectMany(s => s.Operations);
+            var serviceSet = new HashSet<ServiceModel>();
+            models.ToList().ForEach(x => serviceSet.Add(x.ParentService));
+            var hasMultipleServices = serviceSet.Count > 1;
+
+            foreach (var model in models)
+            {
+                registry.RegisterTemplate(
+                    templateId: TemplateId, 
+                    createTemplateInstance: project => new AzureFunctionClassTemplate(project, model, hasMultipleServices));
+            }
         }
     }
 }
