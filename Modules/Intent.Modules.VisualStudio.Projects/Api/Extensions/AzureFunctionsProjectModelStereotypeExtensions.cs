@@ -232,6 +232,8 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                             return AzureFunctionsVersionOptionsEnum.V2;
                         case "v3":
                             return AzureFunctionsVersionOptionsEnum.V3;
+                        case "v4":
+                            return AzureFunctionsVersionOptionsEnum.V4;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -245,12 +247,17 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     return Value == "v3";
                 }
+                public bool IsV4()
+                {
+                    return Value == "v4";
+                }
             }
 
             public enum AzureFunctionsVersionOptionsEnum
             {
                 V2,
-                V3
+                V3,
+                V4
             }
         }
 

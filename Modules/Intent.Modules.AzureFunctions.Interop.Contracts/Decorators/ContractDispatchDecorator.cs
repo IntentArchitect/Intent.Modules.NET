@@ -47,7 +47,10 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
         public override IEnumerable<string> GetRunMethodEntryStatementList()
         {
-            yield return $"var result = default({_template.GetTypeName(_template.Model.ReturnType)});";
+            if (_template.Model.ReturnType != null)
+            {
+                yield return $"var result = default({_template.GetTypeName(_template.Model.ReturnType)});";
+            }
         }
 
         public override IEnumerable<string> GetRunMethodBodyStatementList()

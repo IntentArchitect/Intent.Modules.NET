@@ -25,10 +25,11 @@
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder />
-      <defaultValue>v3</defaultValue>
+      <defaultValue>v4</defaultValue>
       <valueOptions>
         <option>v2</option>
         <option>v3</option>
+        <option>v4</option>
       </valueOptions>
       <lookupTypes />
     </property>
