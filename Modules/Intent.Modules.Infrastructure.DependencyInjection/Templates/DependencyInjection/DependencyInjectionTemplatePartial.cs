@@ -19,18 +19,21 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Infrastructure.DependencyInjection.DependencyInjection";
 
-        private readonly IList<ContainerRegistrationRequest> _registrationRequests = new List<ContainerRegistrationRequest>();
+        private readonly IList<ContainerRegistrationRequest> _registrationRequests =
+            new List<ContainerRegistrationRequest>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
+            outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(
-                ServiceConfigurationRequest.ForExtensionMethod("AddInfrastructure", Namespace, true));
+                ServiceConfigurationRequest.ForExtensionMethod(this, "AddInfrastructure",
+                    new[] { ServiceConfigurationParameterType.Configuration }));
         }
 
         private void HandleEvent(ContainerRegistrationRequest @event)
@@ -91,12 +94,18 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             {
                 false when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{concreteType}>();",
                 false when !hasInterface && usesTypeOfFormat => $"services.{registrationType}({concreteType});",
-                false when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}, {concreteType}>();",
-                false when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, {concreteType});",
-                true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
-                true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
-                true when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
-                true when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
+                false when hasInterface && !usesTypeOfFormat =>
+                    $"services.{registrationType}<{interfaceType}, {concreteType}>();",
+                false when hasInterface && usesTypeOfFormat =>
+                    $"services.{registrationType}({interfaceType}, {concreteType});",
+                true when !hasInterface && !usesTypeOfFormat =>
+                    $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
+                true when !hasInterface && usesTypeOfFormat =>
+                    $"services.{registrationType}(provider => provider.GetService({concreteType}));",
+                true when hasInterface && !usesTypeOfFormat =>
+                    $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
+                true when hasInterface && usesTypeOfFormat =>
+                    $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
                 _ => throw new InvalidOperationException()
             };
             // ReSharper restore ConditionIsAlwaysTrueOrFalse

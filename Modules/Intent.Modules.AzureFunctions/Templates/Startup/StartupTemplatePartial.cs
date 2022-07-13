@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -27,11 +29,6 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
         }
 
-        private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
-        {
-            _serviceConfigurations.Add(request);
-        }
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
@@ -41,17 +38,68 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            foreach (var request in GetRelevantServiceConfigurationRequests())
+            {
+                this.AddTypeSource(request.SourceConfigurationTemplate.Id);
+                if (this.GetTypeInfo(request.SourceConfigurationTemplate.Id) is CSharpResolvedTypeInfo typeInfo)
+                {
+                    this.AddUsing(typeInfo.Namespace);
+                }
+            }
+        }
+
+        private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
+        {
+            _serviceConfigurations.Add(request);
+        }
+
+        private IEnumerable<ServiceConfigurationRequest> GetRelevantServiceConfigurationRequests()
+        {
+            return _serviceConfigurations
+                .Where(p => !p.IsHandled)
+                .OrderBy(o => o.Priority)
+                .ToArray();
+        }
+
         private string GetServiceConfigurationStatementList()
         {
             var statementList = new List<string>();
 
-            statementList.AddRange(_serviceConfigurations
-                .OrderBy(o => o.Priority)
-                .Select(s => $"builder.Services.{s.ExtensionMethodName}({(s.SupplyConfiguration ? "configuration" : string.Empty)});"));
+            statementList.AddRange(GetRelevantServiceConfigurationRequests()
+                .Select(s => $"builder.Services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});"));
 
             const string newLine = @"
             ";
             return string.Join(newLine, statementList);
+        }
+
+        private string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
+        {
+            if (request.ExtensionMethodParameterList?.Any() != true)
+            {
+                return string.Empty;
+            }
+
+            var paramList = new List<string>();
+
+            foreach (var param in request.ExtensionMethodParameterList)
+            {
+                switch (param)
+                {
+                    case ServiceConfigurationParameterType.Configuration:
+                        paramList.Add("configuration");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(
+                            paramName: nameof(request.ExtensionMethodParameterList),
+                            actualValue: param,
+                            message: "Type specified in parameter list is not known or supported");
+                }
+            }
+
+            return string.Join(", ", paramList);
         }
     }
 }

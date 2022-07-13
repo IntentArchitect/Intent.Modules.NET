@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
@@ -49,6 +50,23 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             _serviceConfigurations.Add(request);
         }
 
+        private IEnumerable<ServiceConfigurationRequest> GetRelevantServiceConfigurationRequests()
+        {
+            return _serviceConfigurations.Where(p => !p.IsHandled).ToArray();
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            foreach (var request in GetRelevantServiceConfigurationRequests())
+            {
+                this.AddTypeSource(request.SourceConfigurationTemplate.Id);
+                if (this.GetTypeInfo(request.SourceConfigurationTemplate.Id) is CSharpResolvedTypeInfo typeInfo)
+                {
+                    this.AddUsing(typeInfo.Namespace);
+                }
+            }
+        }
+
         public bool IsNetCore2App()
         {
             return OutputTarget.IsNetCore2App();
@@ -57,10 +75,10 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private string GetServiceConfigurations(string baseIndent)
         {
             var serviceConfigElements = new List<(string Code, int Priority)>();
-            
+
             serviceConfigElements.AddRange(GetDecorators()
                 .Select(s => (s.ConfigureServices(), s.Priority)));
-            serviceConfigElements.AddRange(_serviceConfigurations
+            serviceConfigElements.AddRange(GetRelevantServiceConfigurationRequests()
                 .Select(s => (GetExtensionMethodInvocationStatement(s), s.Priority)));
 
             return GetCodeInNeatLines(serviceConfigElements, baseIndent);
@@ -68,8 +86,34 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
         private string GetExtensionMethodInvocationStatement(ServiceConfigurationRequest request)
         {
-            return
-                $"services.{request.ExtensionMethodName}({(request.SupplyConfiguration ? "Configuration" : string.Empty)});";
+            return $"services.{request.ExtensionMethodName}({GetExtensionMethodParameterList(request)});";
+        }
+
+        private string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
+        {
+            if (request.ExtensionMethodParameterList?.Any() != true)
+            {
+                return string.Empty;
+            }
+
+            var paramList = new List<string>();
+
+            foreach (var param in request.ExtensionMethodParameterList)
+            {
+                switch (param)
+                {
+                    case ServiceConfigurationParameterType.Configuration:
+                        paramList.Add("Configuration");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(
+                            paramName: nameof(request.ExtensionMethodParameterList),
+                            actualValue: param,
+                            message: "Type specified in parameter list is not known or supported");
+                }
+            }
+
+            return string.Join(", ", paramList);
         }
 
         private string GetApplicationConfigurations(string baseIndent)
