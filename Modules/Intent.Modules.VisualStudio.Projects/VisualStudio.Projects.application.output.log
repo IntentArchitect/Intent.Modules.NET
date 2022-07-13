@@ -277,9 +277,37 @@
     </FileLog>
     <FileLog>
       <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e305389f-befa-46ce-96d3-1f50fe7199ea</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#e305389f-befa-46ce-96d3-1f50fe7199ea</CorrelationId>
       <ApplicationRelativeFilePath>Templates/AzureFunctions/HostJson/HostJsonTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctions/HostJson/HostJsonTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed#bb4e8c29-f58b-4191-b034-61d9d9793637</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template#bb4e8c29-f58b-4191-b034-61d9d9793637</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#bb4e8c29-f58b-4191-b034-61d9d9793637</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#bb4e8c29-f58b-4191-b034-61d9d9793637</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

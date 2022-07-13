@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -70,6 +70,17 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>HostJsonTemplate.tt</DependentUpon>
+    </Compile>
+  
+    <None Update="Templates\AzureFunctions\LocalSettingsJson\LocalSettingsJsonTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LocalSettingsJsonTemplate.cs</LastGenOutput>
+    </None>
+  
+    <Compile Update="Templates\AzureFunctions\LocalSettingsJson\LocalSettingsJsonTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LocalSettingsJsonTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

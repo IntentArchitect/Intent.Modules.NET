@@ -1,0 +1,7 @@
+<#@ template language="C#" inherits="IntentTemplateBase<object>" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+{
+  "IsEncrypted": false,
+  "Values": {
+  }
+}

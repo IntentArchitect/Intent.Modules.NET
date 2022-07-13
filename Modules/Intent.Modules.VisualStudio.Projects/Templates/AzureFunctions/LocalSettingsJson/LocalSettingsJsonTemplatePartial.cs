@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
@@ -16,31 +16,28 @@ using Newtonsoft.Json.Linq;
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
+namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSettingsJson
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class HostJsonTemplate : IntentTemplateBase<object>
+    partial class LocalSettingsJsonTemplate : IntentTemplateBase<object>
     {
-        private readonly Dictionary<string, (HostSettingRegistrationRequest Request, string StackTrace)> _registrationRequestsByKey = new();
-
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.VisualStudio.Projects.AzureFunctions.HostJson";
+        public const string TemplateId = "Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson";
+
+        private readonly Dictionary<string, (AppSettingRegistrationRequest Request, string StackTrace)>
+            _registrationRequestsByKey = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public HostJsonTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public LocalSettingsJsonTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
+            outputTarget, model)
         {
-            ExecutionContext.EventDispatcher.Subscribe<HostSettingRegistrationRequest>(Handle);
-        }
-
-        public override string GetCorrelationId()
-        {
-            return $"{TemplateId}#{OutputTarget.Id}";
+            ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(Handle);
         }
 
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             var config = new TemplateFileConfig(
-                fileName: "host",
+                fileName: "local.settings",
                 fileExtension: "json");
 
             config.CustomMetadata.Add("ItemType", "None");
@@ -48,8 +45,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
             return config;
         }
+
+        public override string GetCorrelationId()
+        {
+            return $"{TemplateId}#{OutputTarget.Id}";
+        }
         
-        private void Handle(HostSettingRegistrationRequest @event)
+        private void Handle(AppSettingRegistrationRequest @event)
         {
             if (!@event.IsApplicableTo(this))
             {
@@ -70,7 +72,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
             _registrationRequestsByKey.Add(@event.Key, (@event, Environment.StackTrace));
         }
-
+        
         public override string RunTemplate()
         {
             if (!TryGetExistingFileContent(out var content))
@@ -79,10 +81,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
             }
 
             var json = JsonConvert.DeserializeObject<JObject>(content);
+            var valuesObj = json["Values"] ??= new JObject();
 
             foreach (var request in _registrationRequestsByKey)
             {
-                json.SetFieldValue(request.Key, request.Value.Request.Value, allowReplacement: false);
+                valuesObj[request.Key] ??= new JValue(request.Value.Request.Value);
             }
 
             return JsonConvert.SerializeObject(json, Formatting.Indented);

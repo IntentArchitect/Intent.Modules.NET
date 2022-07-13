@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
+namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSettingsJson
 {
     using Intent.Modules.Common.Templates;
     using System;
@@ -16,9 +16,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctions\HostJson\HostJsonTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\AzureFunctions\LocalSettingsJson\LocalSettingsJsonTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class HostJsonTemplate : IntentTemplateBase<object>
+    public partial class LocalSettingsJsonTemplate : IntentTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -26,7 +26,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
         /// </summary>
         public override string TransformText()
         {
-            this.Write("{\r\n    \"version\": \"2.0\",\r\n    \"logging\": {\r\n        \"applicationInsights\": {\r\n            \"samplingSettings\": {\r\n                \"isEnabled\": true,\r\n                \"excludedTypes\": \"Request\"\r\n            }\r\n        }\r\n    }\r\n}");
+            this.Write("{\r\n  \"IsEncrypted\": false,\r\n  \"Values\": {\r\n  }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

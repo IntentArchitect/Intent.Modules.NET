@@ -10,6 +10,7 @@
   <templates>
     <template id="Intent.VisualStudio.Projects.AssemblyInfo" />
     <template id="Intent.VisualStudio.Projects.AzureFunctions.HostJson" externalReference="e305389f-befa-46ce-96d3-1f50fe7199ea" />
+    <template id="Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson" externalReference="bb4e8c29-f58b-4191-b034-61d9d9793637" />
     <template id="Intent.VisualStudio.Projects.ConsoleApp.Program" />
     <template id="Intent.VisualStudio.Projects.CoreLibrary.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.AppSettings" externalReference="cc3f8b62-c026-49c9-bef2-52cdd44f0ebd" />

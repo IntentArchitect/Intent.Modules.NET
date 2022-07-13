@@ -10,22 +10,22 @@ using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
+namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSettingsJson
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class HostJsonTemplateRegistration : ITemplateRegistration
+    public class LocalSettingsJsonTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public HostJsonTemplateRegistration(IMetadataManager metadataManager)
+        public LocalSettingsJsonTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public string TemplateId => HostJsonTemplate.TemplateId;
+        public string TemplateId => LocalSettingsJsonTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
@@ -36,7 +36,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
             foreach (var model in models)
             {
                 var project = applicationManager.OutputTargets.First(x => x.Id == model.Id);
-                registry.RegisterTemplate(TemplateId, project, p => new HostJsonTemplate(p));
+                registry.RegisterTemplate(TemplateId, project, p => new LocalSettingsJsonTemplate(p));
             }
         }
     }

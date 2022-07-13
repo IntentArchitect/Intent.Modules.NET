@@ -32,7 +32,9 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(
-                ServiceConfigurationRequest.ForExtensionMethod(this, "AddApplication", null));
+                ServiceConfigurationRequest.ForExtensionMethod(
+                    sourceConfigurationTemplate: this,
+                    extensionMethodName: "AddApplication"));
         }
 
         private void HandleEvent(ContainerRegistrationRequest @event)
