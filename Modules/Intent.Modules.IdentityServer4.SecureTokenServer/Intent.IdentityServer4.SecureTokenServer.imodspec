@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.SecureTokenServer</id>
-  <version>3.3.1</version>
+  <version>3.3.2</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>The main module responsible for IdentityServer4 hosting</summary>
   <description>The main module responsible for IdentityServer4 hosting</description>
@@ -23,9 +23,9 @@
     <decorator id="Intent.IdentityServer4.SecureTokenServer.PerpopulatedTestUserIdentityConfigurationDecorator" externalReference="0d7e806a-7048-454f-aba3-33cfff1582c3" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.1" />
-    <dependency id="Intent.Common" version="3.3.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.2" />
+    <dependency id="Intent.AspNetCore" version="3.3.4" />
+    <dependency id="Intent.Common" version="3.3.6" />
+    <dependency id="Intent.Common.CSharp" version="3.3.12" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.1" />
