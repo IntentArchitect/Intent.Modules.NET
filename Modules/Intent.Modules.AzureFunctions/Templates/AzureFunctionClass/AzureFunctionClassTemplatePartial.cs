@@ -26,7 +26,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private readonly bool _hasMultipleServices;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
+            outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection);
@@ -177,7 +178,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             return string.Join(newLine, statementList);
         }
 
-        private string GetRequestDtoType()
+        private DTOModel GetRequestDtoModel()
         {
             var dtoParams = Model.Parameters
                 .Where(p => p.TypeReference.Element.IsDTOModel())
@@ -189,11 +190,17 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return this.GetDtoModelName(param.TypeReference.Element.AsDTOModel());
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.TypeReference.Element.AsDTOModel();
+                }
             }
+        }
+
+        public string GetRequestDtoType()
+        {
+            var model = GetRequestDtoModel();
+            return model == null ? null : this.GetDtoModelName(model);
         }
 
         private IReadOnlyCollection<ParameterModel> GetQueryParams()
