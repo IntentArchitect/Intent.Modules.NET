@@ -16,22 +16,15 @@
       <role>Application.Validation</role>
       <location></location>
     </template>
-    <template id="Intent.AzureFunctions.FluentValidation.ValidationHandler" externalReference="71da0db0-c00b-4cba-a7c0-bb313b83640b">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Common</role>
-      <location>Common/Handlers</location>
-    </template>
   </templates>
   <decorators>
-    <decorator id="Intent.AzureFunctions.FluentValidation.ValidatorHandlerDecorator" externalReference="1a714685-9797-43a9-9e01-29ae911de8f3" />
+    <decorator id="Intent.AzureFunctions.FluentValidation.ValidationBehaviourDecorator" externalReference="45b28598-7223-4a24-9b2d-7765128dd143" />
   </decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Dtos" version="3.3.1" />
+    <dependency id="Intent.Application.FluentValidation" version="3.3.0" />
     <dependency id="Intent.AzureFunctions" version="3.3.0" />
     <dependency id="Intent.Common" version="3.3.5" />
     <dependency id="Intent.Common.CSharp" version="3.3.6" />

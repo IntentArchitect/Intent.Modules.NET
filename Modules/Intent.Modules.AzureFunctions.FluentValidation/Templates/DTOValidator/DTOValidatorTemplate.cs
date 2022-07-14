@@ -16,6 +16,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.DTOValidator
     using Intent.Modules.Common.CSharp.Templates;
     using Intent.Templates;
     using Intent.Metadata.Models;
+    using Intent.Modules.Application.FluentValidation.Templates;
     using System;
     
     /// <summary>
@@ -34,70 +35,70 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.DTOValidator
         {
             this.Write("using System;\r\nusing FluentValidation;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n    public class ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : AbstractValidator<");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDtoModel()));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n        [IntentManaged(Mode.Fully)]\r\n        public ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("()\r\n        {\r\n");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
   foreach(var fieldRule in this.GetValidationRules(Model.Fields)) { 
             
             #line default
             #line hidden
             this.Write("            ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(fieldRule));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
   } 
             
             #line default
             #line hidden
             this.Write("        }\r\n");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
   foreach(var method in GetCustomValidationMethods()) { 
             
             #line default
             #line hidden
             this.Write("\r\n        ");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(method));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions.FluentValidation\Templates\DTOValidator\DTOValidatorTemplate.tt"
   } 
             
             #line default

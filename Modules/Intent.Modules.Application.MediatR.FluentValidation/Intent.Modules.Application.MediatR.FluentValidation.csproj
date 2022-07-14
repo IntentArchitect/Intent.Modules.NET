@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -47,20 +47,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.5" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.12" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.3.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.2" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.3" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj" />
     <ProjectReference Include="..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj" />
   </ItemGroup>
 

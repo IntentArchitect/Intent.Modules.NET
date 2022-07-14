@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Intent.Modules.AzureFunctions.FluentValidation.Templates.DTOValidator;
-using Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationHandler;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,11 +19,6 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Templates
         public static string GetDTOValidatorName(this IntentTemplateBase template, Intent.Modelers.Services.Api.DTOModel model)
         {
             return template.GetTypeName(DTOValidatorTemplate.TemplateId, model);
-        }
-
-        public static string GetValidationHandlerName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(ValidationHandlerTemplate.TemplateId);
         }
 
     }

@@ -73,5 +73,6 @@
     <application id="1a48b51c-571c-45e5-964a-bd434271a742" name="Intent.Modules.AzureFunctions.Interop.Contracts" relativePath="Intent.Modules.AzureFunctions.Interop.Contracts/Intent.Modules.AzureFunctions.Interop.Contracts.application.config" />
     <application id="eb217aa7-b0ab-48d0-ac8e-73bbb2096769" name="Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore" relativePath="Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore/Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.application.config" />
     <application id="52a5c37c-f870-4e5f-9a02-378a54025932" name="Intent.Modules.AzureFunctions.FluentValidation" relativePath="Intent.Modules.AzureFunctions.FluentValidation/Intent.Modules.AzureFunctions.FluentValidation.application.config" />
+    <application id="20cc8969-8c41-4c7e-a7a8-f4f2a0bf7325" name="Intent.Modules.Application.FluentValidation" relativePath="Intent.Modules.Application.FluentValidation/Intent.Modules.Application.FluentValidation.application.config" />
   </applications>
 </solution>

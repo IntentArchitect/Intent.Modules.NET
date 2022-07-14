@@ -8,24 +8,17 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>b299735b-08b8-4e7e-a338-7ca6ff532e1f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#7baed1fd-469b-4980-8fd9-4cefb8331eb2</CorrelationId>
-      <ApplicationRelativeFilePath>Api/DTOFieldModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DTOFieldModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <ProjectId>273bf5a3-5936-42f0-8a5d-7a4d8c8ade9a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#45b28598-7223-4a24-9b2d-7765128dd143</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/ValidationBehaviourDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationBehaviourDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>273bf5a3-5936-42f0-8a5d-7a4d8c8ade9a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#1a714685-9797-43a9-9e01-29ae911de8f3</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/ValidatorHandlerDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidatorHandlerDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>273bf5a3-5936-42f0-8a5d-7a4d8c8ade9a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#1a714685-9797-43a9-9e01-29ae911de8f3</CorrelationId>
-      <ApplicationRelativeFilePath>Decorators/ValidatorHandlerDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidatorHandlerDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#45b28598-7223-4a24-9b2d-7765128dd143</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/ValidationBehaviourDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationBehaviourDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -82,34 +75,6 @@
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#71da0db0-c00b-4cba-a7c0-bb313b83640b</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/ValidationHandler/ValidationHandlerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationHandler/ValidationHandlerTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#71da0db0-c00b-4cba-a7c0-bb313b83640b</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/ValidationHandler/ValidationHandlerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationHandler/ValidationHandlerTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#71da0db0-c00b-4cba-a7c0-bb313b83640b</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/ValidationHandler/ValidationHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationHandler/ValidationHandlerTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#71da0db0-c00b-4cba-a7c0-bb313b83640b</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/ValidationHandler/ValidationHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationHandler/ValidationHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

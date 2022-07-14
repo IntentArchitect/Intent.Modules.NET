@@ -170,6 +170,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctio
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -488,6 +490,10 @@ Global
 		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -571,6 +577,7 @@ Global
 		{C37E7BEA-8424-4574-9755-E47D2980E0FC} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{39362E67-E432-45BF-8901-84AE3A4DBF08} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Application.MediatR.FluentValidation.Api;
+using Intent.Application.FluentValidation.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.FluentValidation.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;

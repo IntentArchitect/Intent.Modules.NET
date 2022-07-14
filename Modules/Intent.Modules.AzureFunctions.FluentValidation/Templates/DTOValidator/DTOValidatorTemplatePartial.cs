@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Intent.AzureFunctions.FluentValidation.Api;
+using Intent.Application.FluentValidation.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
@@ -47,7 +47,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.DTOValidator
                 {
                     yield return $@"
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        private bool Validate{property.Name}({GetDtoModel()} command, {GetTypeName(property)} value)
+        private bool Validate{property.Name.ToPascalCase()}({GetDtoModel()} model, {GetTypeName(property)} value)
         {{
             throw new NotImplementedException(""Your custom validation rules here..."");
         }}";
