@@ -59,10 +59,20 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         {
             foreach (var request in GetRelevantServiceConfigurationRequests())
             {
-                this.AddTypeSource(request.SourceConfigurationTemplate.Id);
-                if (this.GetTypeInfo(request.SourceConfigurationTemplate.Id) is CSharpResolvedTypeInfo typeInfo)
+                foreach (var templateDependency in request.TemplateDependencies)
                 {
-                    this.AddUsing(typeInfo.Namespace);
+                    var template = GetTemplate<IClassProvider>(templateDependency);
+                    if (template != null)
+                    {
+                        AddUsing(template.Namespace);
+                    }
+
+                    AddTemplateDependency(templateDependency);
+                }
+
+                foreach (var @namespace in request.RequiredNamespaces)
+                {
+                    AddUsing(@namespace);
                 }
             }
         }
@@ -102,7 +112,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             {
                 switch (param)
                 {
-                    case ServiceConfigurationParameterType.Configuration:
+                    case ServiceConfigurationRequest.ParameterType.Configuration:
                         paramList.Add("Configuration");
                         break;
                     default:

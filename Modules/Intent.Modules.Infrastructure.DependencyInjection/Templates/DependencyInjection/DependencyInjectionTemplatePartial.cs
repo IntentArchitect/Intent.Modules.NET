@@ -32,10 +32,10 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(
-                ServiceConfigurationRequest.ForExtensionMethod(
-                    sourceConfigurationTemplate: this,
-                    extensionMethodName: "AddInfrastructure",
-                    ServiceConfigurationParameterType.Configuration));
+                ServiceConfigurationRequest.ToRegister(
+                        extensionMethodName: "AddInfrastructure",
+                        ServiceConfigurationRequest.ParameterType.Configuration)
+                    .HasDependency(this));
         }
 
         private void HandleEvent(ContainerRegistrationRequest @event)
