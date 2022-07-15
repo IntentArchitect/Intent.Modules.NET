@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
@@ -27,6 +28,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
+            AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

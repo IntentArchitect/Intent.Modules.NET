@@ -42,6 +42,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
 
             config.CustomMetadata.Add("ItemType", "None");
             config.CustomMetadata.Add("CopyToOutputDirectory", "PreserveNewest");
+            config.CustomMetadata.Add("CopyToPublishDirectory", "Never");
 
             return config;
         }

@@ -342,6 +342,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 switch (key)
                 {
                     case "CopyToOutputDirectory":
+                    case "CopyToPublishDirectory":
                         data.Elements.Add(key, value);
                         break;
                     case "Depends On":

@@ -26,7 +26,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
         /// </summary>
         public override string TransformText()
         {
-            this.Write("{\r\n  \"IsEncrypted\": false,\r\n  \"Values\": {\r\n  }\r\n}");
+            this.Write("{\r\n  \"IsEncrypted\": false,\r\n  \"Values\": {\r\n    \"AzureWebJobsStorage\": \"UseDevelopmentStorage=true\",\r\n    \"FUNCTIONS_WORKER_RUNTIME\": \"dotnet\"\r\n  }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
