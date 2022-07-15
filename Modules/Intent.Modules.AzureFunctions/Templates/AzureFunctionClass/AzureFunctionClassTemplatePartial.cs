@@ -29,10 +29,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
             outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions);
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection);
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsHttp);
-            AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions);
+            AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
+            AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
+            AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
+            AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
 
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
@@ -52,6 +52,22 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 relativeLocation: GetRelativeLocation());
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            foreach (var block in GetDecorators().SelectMany(s => s.GetExceptionCatchBlocks()))
+            {
+                foreach (var @namespace in block.RequiredNamespaces)
+                {
+                    AddUsing(@namespace);
+                }
+
+                foreach (var package in block.NugetPackages)
+                {
+                    AddNugetDependency(package);
+                }
+            }
+        }
+
         private string GetRelativeLocation()
         {
             return _hasMultipleServices
@@ -64,7 +80,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             var definitionList = new List<string>();
 
             definitionList.AddRange(GetDecorators()
-                .OrderBy(o => o.Priority)
                 .SelectMany(s => s.GetClassEntryDefinitionList()));
 
             return string.Join(@"
@@ -76,7 +91,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             var paramList = new List<string>();
 
             paramList.AddRange(GetDecorators()
-                .OrderBy(o => o.Priority)
                 .SelectMany(s => s.GetConstructorParameterDefinitionList()));
 
             const string newLine = @"
@@ -89,7 +103,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             var statementList = new List<string>();
 
             statementList.AddRange(GetDecorators()
-                .OrderBy(o => o.Priority)
                 .SelectMany(s => s.GetConstructorBodyStatementList()));
 
             const string newLine = @"
@@ -114,7 +127,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             paramList.Add("ILogger log");
 
             paramList.AddRange(GetDecorators()
-                .OrderBy(o => o.Priority)
                 .SelectMany(s => s.GetRunMethodParameterDefinitionList()));
 
             if (paramList.Count == 0)
@@ -144,7 +156,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             }
 
             statementList.AddRange(GetDecorators()
-                .OrderBy(o => o.Priority)
                 .SelectMany(s => s.GetRunMethodEntryStatementList()));
 
             const string newLine = @"
@@ -157,7 +168,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             var statementList = new List<string>();
 
             statementList.AddRange(GetDecorators()
-                .OrderBy(o => o.Priority)
                 .SelectMany(s => s.GetRunMethodBodyStatementList()));
 
             const string newLine = @"
@@ -170,12 +180,33 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             var statementList = new List<string>();
 
             statementList.AddRange(GetDecorators()
-                .OrderBy(o => o.Priority)
                 .SelectMany(s => s.GetRunMethodExitStatementList()));
 
             const string newLine = @"
             ";
             return string.Join(newLine, statementList);
+        }
+
+        private bool HasExceptionCatchBlocks()
+        {
+            return GetDecorators().SelectMany(p => p.GetExceptionCatchBlocks()).Any();
+        }
+
+        private string GetExceptionCatchBlocks()
+        {
+            var blockLines = new List<string>();
+
+            foreach (var block in GetDecorators().SelectMany(s => s.GetExceptionCatchBlocks()))
+            {
+                blockLines.Add($"catch ({block.ExceptionType})");
+                blockLines.Add("{");
+                blockLines.AddRange(block.StatementLines.Select(s => $"    {s}"));
+                blockLines.Add("}");
+            }
+
+            const string newLine = @"
+            ";
+            return string.Join(newLine, blockLines);
         }
 
         private DTOModel GetRequestDtoModel()

@@ -1,4 +1,6 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.OperationModel, Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.AzureFunctionClassDecorator>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase
+        <Intent.Modelers.Services.Api.OperationModel,
+            Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.AzureFunctionClassDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
@@ -32,9 +34,25 @@ namespace <#= Namespace #>
 
         [FunctionName("<#= ClassName #>")]
         public async Task<IActionResult> Run(<#= GetRunMethodParameterDefinitionList() #>)
-        {<#= GetRunMethodEntryStatementList() #>
+        {<#
+    if (HasExceptionCatchBlocks())
+    {
+#>
+            try
+            {
+<#
+    }
+#><#= GetRunMethodEntryStatementList() #>
             <#= GetRunMethodBodyStatementList() #>
-            <#= GetRunMethodExitStatementList() #>
+            <#= GetRunMethodExitStatementList() #><#
+    if (HasExceptionCatchBlocks())
+    {
+#>
+            }
+            <#= GetExceptionCatchBlocks() #>
+<#
+    }
+#>
         }
     }
 }

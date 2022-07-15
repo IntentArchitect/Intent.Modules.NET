@@ -19,8 +19,7 @@ namespace Intent.Modules.Application.FluentValidation.Templates.ValidationBehavi
         public const string TemplateId = "Intent.Application.FluentValidation.ValidationBehaviour";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ValidationBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-            outputTarget, model)
+        public ValidationBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.FluentValidation);
         }

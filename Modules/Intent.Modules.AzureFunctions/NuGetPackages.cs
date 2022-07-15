@@ -2,7 +2,7 @@ using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AzureFunctions;
 
-public static class NugetPackages
+static class NuGetPackages
 {
     public static readonly INugetPackageInfo MicrosoftNETSdkFunctions =
         new NugetPackageInfo("Microsoft.NET.Sdk.Functions", "4.1.1");

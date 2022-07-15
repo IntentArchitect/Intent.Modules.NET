@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>1c788aee-6d6a-48e5-93c3-91b686ed2d5e</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#ae428900-45be-4645-ba6e-c15ca04384b1</CorrelationId>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5d0ef871-a0b8-42f0-9433-e4d8284803f9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#49f71a7c-e4f1-4ed4-936e-8c6b445bee05</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/AzureFunctionFluentValidationDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionFluentValidationDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5d0ef871-a0b8-42f0-9433-e4d8284803f9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#49f71a7c-e4f1-4ed4-936e-8c6b445bee05</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/AzureFunctionFluentValidationDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionFluentValidationDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a61facd5-0e8e-48ee-9260-d14e229de430</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.AzureFunctions.FluentValidation.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AzureFunctions.FluentValidation.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a61facd5-0e8e-48ee-9260-d14e229de430</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a61facd5-0e8e-48ee-9260-d14e229de430</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.FluentValidation.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.FluentValidation.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a61facd5-0e8e-48ee-9260-d14e229de430</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

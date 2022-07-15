@@ -1,6 +1,6 @@
 ﻿using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Application.FluentValidation
+namespace Intent.Modules.AzureFunctions.FluentValidation
 {
     static class NuGetPackages
     {

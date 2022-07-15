@@ -75,5 +75,6 @@
     <application id="20cc8969-8c41-4c7e-a7a8-f4f2a0bf7325" name="Intent.Modules.Application.FluentValidation" relativePath="Intent.Modules.Application.FluentValidation/Intent.Modules.Application.FluentValidation.application.config" />
     <application id="0e1f242f-2b97-41b3-b5e0-4f0b28f838e2" name="Intent.Modules.Application.FluentValidation.Dtos" relativePath="Intent.Modules.Application.FluentValidation.Dtos/Intent.Modules.Application.FluentValidation.Dtos.application.config" />
     <application id="c2ee8013-fd29-4dae-a6f5-9326c7a19d4f" name="Intent.Modules.Application.ServiceImplementations.FluentValidation" relativePath="Intent.Modules.Application.ServiceImplementations.FluentValidation/Intent.Modules.Application.ServiceImplementations.FluentValidation.application.config" />
+    <application id="1c788aee-6d6a-48e5-93c3-91b686ed2d5e" name="Intent.Modules.AzureFunctions.FluentValidation" relativePath="Intent.Modules.AzureFunctions.FluentValidation/Intent.Modules.AzureFunctions.FluentValidation.application.config" />
   </applications>
 </solution>

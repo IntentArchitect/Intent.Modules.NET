@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="49f71a7c-e4f1-4ed4-936e-8c6b445bee05" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>AzureFunctionFluentValidationDecorator</name>
+  <display>AzureFunctionFluentValidationDecorator: AzureFunctionClassDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="d18ca6f7-5342-440d-a711-5ce7029d0d52">
+    <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.AzureFunctions</typePackageName>
+    <typePackageId>022dbddc-276c-406b-81e6-5034ad64db72</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>f11bcf8c-0844-4ba4-bdae-79934c94a588</parentFolderId>
+  <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+  <packageName>Intent.AzureFunctions.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
