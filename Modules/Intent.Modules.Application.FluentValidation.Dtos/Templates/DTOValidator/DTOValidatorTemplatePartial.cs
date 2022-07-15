@@ -12,17 +12,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.DTOValidator
+namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidator
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class DTOValidatorTemplate : CSharpTemplateBase<DTOModel>
     {
-        public const string TemplateId = "Intent.AzureFunctions.FluentValidation.DTOValidator";
+        public const string TemplateId = "Intent.Application.FluentValidation.Dtos.DTOValidator";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DTOValidatorTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.FluentValidation);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

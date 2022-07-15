@@ -3,7 +3,7 @@
   <name>ValidationBehaviourDecorator</name>
   <display>ValidationBehaviourDecorator: ValidationBehaviourContract</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>1</order>
   <genericTypes />
   <typeReference id="9a8278d8-1dc4-4a96-820a-1b97d79a742a">
     <typeId>1d6c5b73-8903-44a5-9973-6fa7912d2afc</typeId>

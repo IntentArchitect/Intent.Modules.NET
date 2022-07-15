@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="4d1d26c2-5cd0-4d24-84a9-33c1184859cb" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="9247df07-c11b-4082-8659-1fa0f19bc5e1" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>DTOValidator</name>
   <display>DTOValidator: File Per Model</display>
   <isAbstract>false</isAbstract>
   <order>1</order>
   <genericTypes />
-  <typeReference id="3a583094-96dd-481e-854e-028edb4d3acd">
+  <typeReference id="a07b0581-c786-4983-bf92-0100bd2c5ce0">
     <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -17,9 +17,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>4a84d6bf-c98a-4bf5-aeeb-94ecd78cef0d</parentFolderId>
-  <packageId>4a84d6bf-c98a-4bf5-aeeb-94ecd78cef0d</packageId>
-  <packageName>Intent.AzureFunctions.FluentValidation</packageName>
+  <parentFolderId>31c500b7-66f0-46fc-8748-23ac58a8c375</parentFolderId>
+  <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
+  <packageName>Intent.Application.FluentValidation.Dtos</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

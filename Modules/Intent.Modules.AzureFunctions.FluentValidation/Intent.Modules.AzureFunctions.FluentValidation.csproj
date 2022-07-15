@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.1" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.6" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.12" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.0" />
@@ -53,7 +52,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj" />
-    <ProjectReference Include="..\Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj" />
   </ItemGroup>
 
 </Project>

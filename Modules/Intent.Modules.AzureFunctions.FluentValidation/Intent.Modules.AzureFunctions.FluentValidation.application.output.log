@@ -42,40 +42,5 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4d1d26c2-5cd0-4d24-84a9-33c1184859cb</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#4d1d26c2-5cd0-4d24-84a9-33c1184859cb</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4d1d26c2-5cd0-4d24-84a9-33c1184859cb</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4d1d26c2-5cd0-4d24-84a9-33c1184859cb</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c81a82-7d76-49ac-a140-9e95bb545580</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
   </FileLogs>
 </outputLog>

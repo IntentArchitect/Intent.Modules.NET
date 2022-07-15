@@ -12,7 +12,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.DTOValidator
+namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidator
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class DTOValidatorTemplateRegistration : FilePerModelTemplateRegistration<DTOModel>

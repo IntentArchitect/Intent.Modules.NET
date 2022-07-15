@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Intent.Modules.AzureFunctions.FluentValidation.Templates.DTOValidator;
+using Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidator;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateExtensions", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.FluentValidation.Templates
+namespace Intent.Modules.Application.FluentValidation.Dtos.Templates
 {
     public static class TemplateExtensions
     {
