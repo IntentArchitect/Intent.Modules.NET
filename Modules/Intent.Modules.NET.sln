@@ -168,9 +168,11 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctio
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}"
-EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.ServiceImplementations.FluentValidation", "Intent.Modules.Application.ServiceImplementations.FluentValidation\Intent.Modules.Application.ServiceImplementations.FluentValidation.csproj", "{57961267-D074-495C-ABB9-AC6FB15A0BC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -486,14 +488,18 @@ Global
 		{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39362E67-E432-45BF-8901-84AE3A4DBF08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57961267-D074-495C-ABB9-AC6FB15A0BC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57961267-D074-495C-ABB9-AC6FB15A0BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57961267-D074-495C-ABB9-AC6FB15A0BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57961267-D074-495C-ABB9-AC6FB15A0BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -576,8 +582,9 @@ Global
 		{82458406-7D23-41F5-81A0-2083C0B7668D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{C37E7BEA-8424-4574-9755-E47D2980E0FC} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{0697FFAF-2FA6-4A45-91DA-ECFC5C039AD5} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{39362E67-E432-45BF-8901-84AE3A4DBF08} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{57961267-D074-495C-ABB9-AC6FB15A0BC1} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
+		{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

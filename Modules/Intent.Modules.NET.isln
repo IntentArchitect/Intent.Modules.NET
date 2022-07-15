@@ -72,8 +72,8 @@
     <application id="411531a2-eb34-4b48-b722-ffd07f1ede61" name="Intent.Modules.AzureFunctions" relativePath="Intent.Modules.AzureFunctions/Intent.Modules.AzureFunctions.application.config" />
     <application id="1a48b51c-571c-45e5-964a-bd434271a742" name="Intent.Modules.AzureFunctions.Interop.Contracts" relativePath="Intent.Modules.AzureFunctions.Interop.Contracts/Intent.Modules.AzureFunctions.Interop.Contracts.application.config" />
     <application id="eb217aa7-b0ab-48d0-ac8e-73bbb2096769" name="Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore" relativePath="Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore/Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.application.config" />
-    <application id="52a5c37c-f870-4e5f-9a02-378a54025932" name="Intent.Modules.AzureFunctions.FluentValidation" relativePath="Intent.Modules.AzureFunctions.FluentValidation/Intent.Modules.AzureFunctions.FluentValidation.application.config" />
     <application id="20cc8969-8c41-4c7e-a7a8-f4f2a0bf7325" name="Intent.Modules.Application.FluentValidation" relativePath="Intent.Modules.Application.FluentValidation/Intent.Modules.Application.FluentValidation.application.config" />
     <application id="0e1f242f-2b97-41b3-b5e0-4f0b28f838e2" name="Intent.Modules.Application.FluentValidation.Dtos" relativePath="Intent.Modules.Application.FluentValidation.Dtos/Intent.Modules.Application.FluentValidation.Dtos.application.config" />
+    <application id="c2ee8013-fd29-4dae-a6f5-9326c7a19d4f" name="Intent.Modules.Application.ServiceImplementations.FluentValidation" relativePath="Intent.Modules.Application.ServiceImplementations.FluentValidation/Intent.Modules.Application.ServiceImplementations.FluentValidation.application.config" />
   </applications>
 </solution>
