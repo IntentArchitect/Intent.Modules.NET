@@ -148,33 +148,35 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.L
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Core Tests", "NET Core Tests", "{A319FB02-C635-433C-9446-8A7FB29162DE}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.IntegrationTests", "EntityFrameworkCore.TestApplication\EfCoreTestSuite.IntegrationTests\EfCoreTestSuite.IntegrationTests.csproj", "{2C6FF5F9-369C-4301-8A61-A26EC6A8272A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreTestSuite.IntegrationTests", "EntityFrameworkCore.TestApplication\EfCoreTestSuite.IntegrationTests\EfCoreTestSuite.IntegrationTests.csproj", "{2C6FF5F9-369C-4301-8A61-A26EC6A8272A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.IntentGenerated", "EntityFrameworkCore.TestApplication\EfCoreTestSuite.IntentGenerated\EfCoreTestSuite.IntentGenerated.csproj", "{BF8F742B-F7E7-41F7-B825-84F886E15074}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreTestSuite.IntentGenerated", "EntityFrameworkCore.TestApplication\EfCoreTestSuite.IntentGenerated\EfCoreTestSuite.IntentGenerated.csproj", "{BF8F742B-F7E7-41F7-B825-84F886E15074}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.TPH.IntentGenerated", "EntityFrameworkCore.TPH.TestApplication\EfCoreTestSuite.TPH.IntentGenerated\EfCoreTestSuite.TPH.IntentGenerated.csproj", "{B82F4816-2CDD-4466-AEB9-20E884208C65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreTestSuite.TPH.IntentGenerated", "EntityFrameworkCore.TPH.TestApplication\EfCoreTestSuite.TPH.IntentGenerated\EfCoreTestSuite.TPH.IntentGenerated.csproj", "{B82F4816-2CDD-4466-AEB9-20E884208C65}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.TPT.IntentGenerated", "EntityFrameworkCore.TPT.TestApplication\EfCoreTestSuite.TPT.IntentGenerated\EfCoreTestSuite.TPT.IntentGenerated.csproj", "{30620F7A-FCC3-406F-93C0-D407F46855FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreTestSuite.TPT.IntentGenerated", "EntityFrameworkCore.TPT.TestApplication\EfCoreTestSuite.TPT.IntentGenerated\EfCoreTestSuite.TPT.IntentGenerated.csproj", "{30620F7A-FCC3-406F-93C0-D407F46855FB}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.TPC.IntentGenerated", "EntityFrameworkCore.TPC.TestApplication\EfCoreTestSuite.TPC.IntentGenerated\EfCoreTestSuite.TPC.IntentGenerated.csproj", "{A3505075-B92B-4BE8-BFE1-6908206CC14A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreTestSuite.TPC.IntentGenerated", "EntityFrameworkCore.TPC.TestApplication\EfCoreTestSuite.TPC.IntentGenerated\EfCoreTestSuite.TPC.IntentGenerated.csproj", "{A3505075-B92B-4BE8-BFE1-6908206CC14A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated", "EntityFrameworkCore.ExplicitKeyCreation.TestApplication\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj", "{1303E57E-1275-42A4-B433-05E88A85E9B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated", "EntityFrameworkCore.ExplicitKeyCreation.TestApplication\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated\EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj", "{1303E57E-1275-42A4-B433-05E88A85E9B1}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreRepositoryTestSuite.IntentGenerated", "EntityFrameworkCore.Repositories.TestApplication\EfCoreRepositoryTestSuite.IntentGenerated\EfCoreRepositoryTestSuite.IntentGenerated.csproj", "{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreRepositoryTestSuite.IntentGenerated", "EntityFrameworkCore.Repositories.TestApplication\EfCoreRepositoryTestSuite.IntentGenerated\EfCoreRepositoryTestSuite.IntentGenerated.csproj", "{B68C4E1C-AB56-4F60-9FE9-714CC0584A1B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Interop.Contracts", "Intent.Modules.AzureFunctions.Interop.Contracts\Intent.Modules.AzureFunctions.Interop.Contracts.csproj", "{C37E7BEA-8424-4574-9755-E47D2980E0FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Interop.Contracts", "Intent.Modules.AzureFunctions.Interop.Contracts\Intent.Modules.AzureFunctions.Interop.Contracts.csproj", "{C37E7BEA-8424-4574-9755-E47D2980E0FC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore", "Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore\Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj", "{B6D3A029-7D53-4CE7-B2A7-720B2601C2C0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.FluentValidation", "Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj", "{39362E67-E432-45BF-8901-84AE3A4DBF08}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.ServiceImplementations.FluentValidation", "Intent.Modules.Application.ServiceImplementations.FluentValidation\Intent.Modules.Application.ServiceImplementations.FluentValidation.csproj", "{57961267-D074-495C-ABB9-AC6FB15A0BC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations.FluentValidation", "Intent.Modules.Application.ServiceImplementations.FluentValidation\Intent.Modules.Application.ServiceImplementations.FluentValidation.csproj", "{57961267-D074-495C-ABB9-AC6FB15A0BC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions", "Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions\Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.csproj", "{88688357-4CB8-4D2E-BAC4-C8933061D70D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -506,6 +508,10 @@ Global
 		{A61FACD5-0E8E-48EE-9260-D14E229DE430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A61FACD5-0E8E-48EE-9260-D14E229DE430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A61FACD5-0E8E-48EE-9260-D14E229DE430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88688357-4CB8-4D2E-BAC4-C8933061D70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88688357-4CB8-4D2E-BAC4-C8933061D70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88688357-4CB8-4D2E-BAC4-C8933061D70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88688357-4CB8-4D2E-BAC4-C8933061D70D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -592,6 +598,7 @@ Global
 		{57961267-D074-495C-ABB9-AC6FB15A0BC1} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A61FACD5-0E8E-48EE-9260-D14E229DE430} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{88688357-4CB8-4D2E-BAC4-C8933061D70D} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
