@@ -30,6 +30,13 @@
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#da621866-ec56-4cb0-815a-ce21261712a6</CorrelationId>
+      <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AzureFunctions/metadata.iatspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.ApplicationTemplate.AzureFunctions/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#7e8ada90-678e-4a30-925f-66b864b9918d</CorrelationId>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.EmptyVisualStudioSolution/metadata.iatspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ApplicationTemplate.EmptyVisualStudioSolution/metadata.iatspec</ProjectRelativeFilePath>

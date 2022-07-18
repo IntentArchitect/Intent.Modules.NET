@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="85f2cf72-fa85-488f-8e75-8dc579b2bb2f" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>a84ef5e8-2d37-4ba8-a1a2-e412a3404665</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>3</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>67749b77-24df-418f-8182-3e3b857247a8</parentFolderId>
+  <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
+  <packageName>${solution.name}</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
