@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="922c7e4f-146c-4bf7-b0ff-7b0db29a3cbf" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
+  <name>ResourceLocation</name>
+  <display>ResourceLocation&lt;TPayload&gt;</display>
+  <isAbstract>false</isAbstract>
+  <order>3</order>
+  <genericTypes>
+    <genericType id="758407b3-668c-4d47-8d65-28759234c132">
+      <name>TPayload</name>
+    </genericType>
+  </genericTypes>
+  <isMapped>false</isMapped>
+  <parentFolderId>12876bce-a65f-4ff9-8b38-1d2b324f5609</parentFolderId>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

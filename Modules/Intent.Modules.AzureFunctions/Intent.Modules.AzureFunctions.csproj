@@ -32,6 +32,26 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>StartupTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\Return Types\ResourceLocationPayload\ResourceLocationPayloadTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourceLocationPayloadTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Return Types\ResourceLocationVoid\ResourceLocationVoidTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourceLocationVoidTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ReturnTypes\ResourceLocationPayload\ResourceLocationPayloadTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourceLocationPayloadTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ReturnTypes\ResourceLocationVoid\ResourceLocationVoidTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourceLocationVoidTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourceLocationClassTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +64,31 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>StartupTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Return Types\ResourceLocationPayload\ResourceLocationPayloadTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceLocationPayloadTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Return Types\ResourceLocationVoid\ResourceLocationVoidTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceLocationVoidTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ReturnTypes\ResourceLocationPayload\ResourceLocationPayloadTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceLocationPayloadTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ReturnTypes\ResourceLocationVoid\ResourceLocationVoidTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceLocationVoidTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceLocationClassTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

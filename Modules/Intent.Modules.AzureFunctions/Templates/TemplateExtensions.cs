@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.AzureFunctions.Templates.ReturnTypes.ResourceLocationClass;
 using Intent.Modules.AzureFunctions.Templates.Startup;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -20,6 +21,11 @@ namespace Intent.Modules.AzureFunctions.Templates
         public static string GetAzureFunctionClassName(this IntentTemplateBase template, Intent.Modelers.Services.Api.OperationModel model)
         {
             return template.GetTypeName(AzureFunctionClassTemplate.TemplateId, model);
+        }
+
+        public static string GetResourceLocationClassName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(ResourceLocationClassTemplate.TemplateId);
         }
 
         public static string GetStartupName<T>(this IntentTemplateBase<T> template)

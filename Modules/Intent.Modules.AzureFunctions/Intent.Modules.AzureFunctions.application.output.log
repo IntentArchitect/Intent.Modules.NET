@@ -15,6 +15,20 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b39c8ad2-7cb0-46da-ac57-ef88c268a200</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#83078c9f-7cfa-4edf-b7f3-566f71f8f6a7</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/ReturnTypes/AzureFunctionClassResourceLocationDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/AzureFunctionClassResourceLocationDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b39c8ad2-7cb0-46da-ac57-ef88c268a200</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#83078c9f-7cfa-4edf-b7f3-566f71f8f6a7</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/ReturnTypes/AzureFunctionClassResourceLocationDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/AzureFunctionClassResourceLocationDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>82458406-7d23-41f5-81a0-2083c0b7668d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <ApplicationRelativeFilePath>Intent.AzureFunctions.imodspec</ApplicationRelativeFilePath>
@@ -68,6 +82,34 @@
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</CorrelationId>
       <ApplicationRelativeFilePath>Templates/AzureFunctionClass/AzureFunctionClassTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctionClass/AzureFunctionClassTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#a8bb8b25-bd0b-4ebb-b78e-f6c328430707</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#a8bb8b25-bd0b-4ebb-b78e-f6c328430707</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a8bb8b25-bd0b-4ebb-b78e-f6c328430707</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a8bb8b25-bd0b-4ebb-b78e-f6c328430707</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

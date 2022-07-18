@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>AzureFunctionClass</name>
-  <display>AzureFunctionClass: Custom</display>
+<class id="a8bb8b25-bd0b-4ebb-b78e-f6c328430707" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>ResourceLocationClass</name>
+  <display>ResourceLocationClass: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>0</order>
   <genericTypes />
-  <typeReference id="13f964b1-45d3-4b27-97af-9b65ead7c812">
-    <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
+  <typeReference id="91325218-ade8-4642-bbde-23834642da62">
+    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -17,7 +17,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>022dbddc-276c-406b-81e6-5034ad64db72</parentFolderId>
+  <parentFolderId>12876bce-a65f-4ff9-8b38-1d2b324f5609</parentFolderId>
   <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
   <packageName>Intent.AzureFunctions</packageName>
   <stereotypes>
@@ -35,10 +35,10 @@
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
         <property name="a9de6cf5-6d4f-4ae1-aa60-5ca85e458709" display="Source" value="Lookup Type" isActive="true" />
-        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="81104ae6-2bc5-4bae-b05a-f987b0372d81" isActive="true" />
-        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="e030c97a-e066-40a7-8188-808c275df3cb" isActive="true" />
+        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
+        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Distribution" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Contracts.ReturnTypes.ResourceLocation" isActive="true" />
         <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" isActive="true" />
       </properties>
     </stereotype>

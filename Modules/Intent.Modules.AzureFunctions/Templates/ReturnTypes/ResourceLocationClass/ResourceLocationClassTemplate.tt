@@ -1,0 +1,52 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public class <#= ClassName #>
+    {
+        public <#= ClassName #>(string location)
+        {
+            Location = location;
+        }
+
+        public string Location { get; }
+
+        public bool HasLocation()
+        {
+            return !string.IsNullOrEmpty(Location);
+        }
+
+        public static <#= ClassName #> ToLocation(string location)
+        {
+            return new <#= ClassName #>(location);
+        }
+
+        public static <#= ClassName #><TPayload> ToLocation<TPayload>(TPayload payload, string location)
+        {
+            return new <#= ClassName #><TPayload>(payload, location);
+        }
+    }
+
+    public class <#= ClassName #><TPayload> : <#= ClassName #>
+    {
+        public <#= ClassName #>(TPayload payload, string location)
+            : base (location)
+        {
+            Payload = payload;
+        }
+
+        public TPayload Payload { get; }
+    }
+}

@@ -11,7 +11,7 @@ using Intent.Templates;
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public abstract class AzureFunctionClassDecorator : ITemplateDecorator, IHasNugetDependencies
+    public abstract class AzureFunctionClassDecorator : ITemplateDecorator
     {
         public int Priority { get; protected set; } = 0;
 
