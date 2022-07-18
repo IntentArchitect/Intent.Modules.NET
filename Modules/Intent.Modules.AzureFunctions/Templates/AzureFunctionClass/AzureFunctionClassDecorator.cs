@@ -11,7 +11,7 @@ using Intent.Templates;
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public abstract class AzureFunctionClassDecorator : ITemplateDecorator
+    public abstract class AzureFunctionClassDecorator : ITemplateDecorator, IHasNugetDependencies
     {
         public int Priority { get; protected set; } = 0;
 
@@ -25,6 +25,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         public virtual IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks() =>
             Enumerable.Empty<ExceptionCatchBlock>();
+
+        public virtual IEnumerable<INugetPackageInfo> GetNugetDependencies() => Enumerable.Empty<INugetPackageInfo>();
     }
 
     [IntentManaged(Mode.Ignore)]
@@ -32,7 +34,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
     {
         private readonly List<string> _requiredNamespaces = new();
         private readonly List<string> _statementLines = new();
-        private readonly List<INugetPackageInfo> _nugetPackages = new();
 
         public ExceptionCatchBlock(string exceptionType)
         {
@@ -51,15 +52,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             return this;
         }
 
-        public ExceptionCatchBlock AddNugetPackage(params INugetPackageInfo[] packages)
-        {
-            _nugetPackages.AddRange(packages);
-            return this;
-        }
-
         public string ExceptionType { get; }
         public IEnumerable<string> RequiredNamespaces => _requiredNamespaces;
         public IEnumerable<string> StatementLines => _statementLines;
-        public IEnumerable<INugetPackageInfo> NugetPackages => _nugetPackages;
     }
 }

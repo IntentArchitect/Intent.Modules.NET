@@ -4,6 +4,7 @@ using Intent.Modules.Application.FluentValidation.Templates.ValidationBehaviour;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -91,8 +92,12 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         {
             yield return new ExceptionCatchBlock("ValidationException exception")
                 .AddNamespaces("FluentValidation")
-                .AddStatementLines("return new BadRequestObjectResult(exception.Errors);")
-                .AddNugetPackage(NuGetPackages.FluentValidation);
+                .AddStatementLines("return new BadRequestObjectResult(exception.Errors);");
+        }
+
+        public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
+        {
+            yield return NuGetPackages.FluentValidation;
         }
     }
 }

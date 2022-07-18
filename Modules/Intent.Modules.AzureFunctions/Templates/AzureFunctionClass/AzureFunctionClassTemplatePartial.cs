@@ -59,11 +59,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 {
                     AddUsing(@namespace);
                 }
-
-                foreach (var package in block.NugetPackages)
-                {
-                    AddNugetDependency(package);
-                }
             }
         }
 
