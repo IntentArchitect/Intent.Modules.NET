@@ -1,10 +1,15 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Intent.Modelers.Services.Api;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorContract", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation
 {
-    public abstract class ServiceImplementationDecoratorBase : ITemplateDecorator
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public abstract class ServiceImplementationDecorator : ITemplateDecorator
     {
         public virtual IEnumerable<ConstructorParameter> GetConstructorDependencies()
         {
@@ -16,6 +21,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             return string.Empty;
         }
 
-        public int Priority { get; } = 0;
+        public int Priority { get; protected set; } = 0;
     }
 }

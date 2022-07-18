@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="890a31d9-3eaa-48b0-9666-b161e46a329d" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>CrudConventionDecorator</name>
+  <display>CrudConventionDecorator: ServiceImplementationDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <typeReference id="6e76b6be-6f57-4e30-9d0d-b24365f02fc1">
+    <typeId>d90ec855-e605-4712-923d-9e0c42f10398</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Application.ServiceImplementations</typePackageName>
+    <typePackageId>2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>d6896515-75f1-4dee-9b72-7523b5948b2b</parentFolderId>
+  <packageId>d6896515-75f1-4dee-9b72-7523b5948b2b</packageId>
+  <packageName>Intent.Application.ServiceImplementations.Conventions.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

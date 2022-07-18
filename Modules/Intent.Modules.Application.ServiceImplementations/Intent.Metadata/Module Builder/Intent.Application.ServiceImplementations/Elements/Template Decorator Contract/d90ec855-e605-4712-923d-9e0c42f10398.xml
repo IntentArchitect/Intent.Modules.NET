@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d90ec855-e605-4712-923d-9e0c42f10398" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+  <name>ServiceImplementationDecorator</name>
+  <display>ServiceImplementationDecorator</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>18e4bf9f-2cff-41f4-a98a-333dc4c1178a</parentFolderId>
+  <packageId>2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7</packageId>
+  <packageName>Intent.Application.ServiceImplementations</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

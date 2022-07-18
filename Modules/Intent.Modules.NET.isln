@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.1" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -68,5 +68,6 @@
     <application id="e184c209-f4ce-4ca3-850e-5cf2a2232c28" name="EntityFrameworkCore.TPC.TestApplication" relativePath="EntityFrameworkCore.TPC.TestApplication/EntityFrameworkCore.TPC.TestApplication.application.config" />
     <application id="e4d11b2e-4e93-4ecc-b85c-d290412beaf4" name="EntityFrameworkCore.ExplicitKeyCreation.TestApplication" relativePath="EntityFrameworkCore.ExplicitKeyCreation.TestApplication/EntityFrameworkCore.ExplicitKeyCreation.TestApplication.application.config" />
     <application id="454aab6f-4c66-40ee-8b77-02dcd82f4040" name="EntityFrameworkCore.Repositories.TestApplication" relativePath="EntityFrameworkCore.Repositories.TestApplication/EntityFrameworkCore.Repositories.TestApplication.application.config" />
+    <application id="b43e280b-5711-433f-87d1-ba8bba65465c" name="Intent.Modules.Application.ServiceImplementations" relativePath="Intent.Modules.Application.ServiceImplementations/Intent.Modules.Application.ServiceImplementations.application.config" />
   </applications>
 </solution>

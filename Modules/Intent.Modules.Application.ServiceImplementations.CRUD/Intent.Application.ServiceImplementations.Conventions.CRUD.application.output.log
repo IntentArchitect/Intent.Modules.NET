@@ -8,17 +8,17 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>edf1ca39-2211-451d-ae91-39d4615a58bc</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#6d5ff42a-a539-462b-80f4-780205286b81</CorrelationId>
-      <ApplicationRelativeFilePath>Api/ServiceExtensionsModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ServiceExtensionsModel.cs</ProjectRelativeFilePath>
+      <ProjectId>26e60f55-cdff-4456-bcfb-d87853b83846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#890a31d9-3eaa-48b0-9666-b161e46a329d</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/CrudConventionDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CrudConventionDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>edf1ca39-2211-451d-ae91-39d4615a58bc</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#aec8e629-5885-41a9-9f49-eca762a554de</CorrelationId>
-      <ApplicationRelativeFilePath>Api/ServicesPackageExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ServicesPackageExtensionModel.cs</ProjectRelativeFilePath>
+      <ProjectId>26e60f55-cdff-4456-bcfb-d87853b83846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#890a31d9-3eaa-48b0-9666-b161e46a329d</CorrelationId>
+      <ApplicationRelativeFilePath>Decorators/CrudConventionDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CrudConventionDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -33,13 +33,6 @@
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#34e9069c-bc7c-42c3-9357-343439553ad3</CorrelationId>
       <ApplicationRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8cbe2686-2cfa-4373-b441-b10cbe419699</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#63beeea4-819d-42f9-9baf-a08f8eaf49be</CorrelationId>
-      <ApplicationRelativeFilePath>modelers/CRUD Enhancements.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CRUD Enhancements.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
