@@ -13,29 +13,33 @@ namespace Intent.AzureFunctions.Api
 {
     public static class OperationModelStereotypeExtensions
     {
-        public static HttpTrigger GetHttpTrigger(this OperationModel model)
+        public static AzureFunction GetAzureFunction(this OperationModel model)
         {
-            var stereotype = model.GetStereotype("Http Trigger");
-            return stereotype != null ? new HttpTrigger(stereotype) : null;
+            var stereotype = model.GetStereotype("Azure Function");
+            return stereotype != null ? new AzureFunction(stereotype) : null;
         }
 
 
-        public static bool HasHttpTrigger(this OperationModel model)
+        public static bool HasAzureFunction(this OperationModel model)
         {
-            return model.HasStereotype("Http Trigger");
+            return model.HasStereotype("Azure Function");
         }
 
-
-        public class HttpTrigger
+        public class AzureFunction
         {
             private IStereotype _stereotype;
 
-            public HttpTrigger(IStereotype stereotype)
+            public AzureFunction(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }
 
             public string Name => _stereotype.Name;
+
+            public TypeOptions Type()
+            {
+                return new TypeOptions(_stereotype.GetProperty<string>("Type"));
+            }
 
             public AuthorizationLevelOptions AuthorizationLevel()
             {
@@ -50,6 +54,130 @@ namespace Intent.AzureFunctions.Api
             public string Route()
             {
                 return _stereotype.GetProperty<string>("Route");
+            }
+
+            public string QueueName()
+            {
+                return _stereotype.GetProperty<string>("Queue Name");
+            }
+
+            public string Connection()
+            {
+                return _stereotype.GetProperty<string>("Connection");
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public HttpTriggerView GetHttpTriggerView()
+            {
+                if (!Type().IsHttpTrigger())
+                {
+                    return null;
+                }
+
+                return new HttpTriggerView(this.AuthorizationLevel(), this.Method(), this.Route());
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public ServiceBusTriggerView GetServiceBusTriggerView()
+            {
+                if (!Type().IsServiceBusTrigger())
+                {
+                    return null;
+                }
+
+                return new ServiceBusTriggerView(this.QueueName(), this.Connection());
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public class HttpTriggerView
+            {
+                private readonly AuthorizationLevelOptions _authorizationLevel;
+                private readonly MethodOptions _method;
+                private readonly string _route;
+
+                public HttpTriggerView(AuthorizationLevelOptions authorizationLevel, MethodOptions method, string route)
+                {
+                    _authorizationLevel = authorizationLevel;
+                    _method = method;
+                    _route = route;
+                }
+
+                public AuthorizationLevelOptions AuthorizationLevel()
+                {
+                    return _authorizationLevel;
+                }
+
+                public MethodOptions Method()
+                {
+                    return _method;
+                }
+
+                public string Route()
+                {
+                    return _route;
+                }
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public class ServiceBusTriggerView
+            {
+                private readonly string _queueName;
+                private readonly string _connection;
+
+                public ServiceBusTriggerView(string queueName, string connection)
+                {
+                    _queueName = queueName;
+                    _connection = connection;
+                }
+
+                public string QueueName()
+                {
+                    return _queueName;
+                }
+
+                public string Connection()
+                {
+                    return _connection;
+                }
+            }
+
+            public class TypeOptions
+            {
+                public readonly string Value;
+
+                public TypeOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public TypeOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Http Trigger":
+                            return TypeOptionsEnum.HttpTrigger;
+                        case "Service Bus Trigger":
+                            return TypeOptionsEnum.ServiceBusTrigger;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsHttpTrigger()
+                {
+                    return Value == "Http Trigger";
+                }
+
+                public bool IsServiceBusTrigger()
+                {
+                    return Value == "Service Bus Trigger";
+                }
+            }
+
+            public enum TypeOptionsEnum
+            {
+                HttpTrigger,
+                ServiceBusTrigger
             }
 
             public class AuthorizationLevelOptions
@@ -84,18 +212,22 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "Anonymous";
                 }
+
                 public bool IsUser()
                 {
                     return Value == "User";
                 }
+
                 public bool IsFunction()
                 {
                     return Value == "Function";
                 }
+
                 public bool IsSystem()
                 {
                     return Value == "System";
                 }
+
                 public bool IsAdmin()
                 {
                     return Value == "Admin";
@@ -110,6 +242,7 @@ namespace Intent.AzureFunctions.Api
                 System,
                 Admin
             }
+
             public class MethodOptions
             {
                 public readonly string Value;
@@ -140,14 +273,17 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "GET";
                 }
+
                 public bool IsPOST()
                 {
                     return Value == "POST";
                 }
+
                 public bool IsPUT()
                 {
                     return Value == "PUT";
                 }
+
                 public bool IsDELETE()
                 {
                     return Value == "DELETE";
@@ -162,6 +298,5 @@ namespace Intent.AzureFunctions.Api
                 DELETE
             }
         }
-
     }
 }

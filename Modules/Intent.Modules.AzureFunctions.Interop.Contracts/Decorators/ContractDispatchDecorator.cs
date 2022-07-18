@@ -68,21 +68,22 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
         public override IEnumerable<string> GetRunMethodExitStatementList()
         {
-            string result = _template.Model.GetHttpTrigger().Method().AsEnum() switch
+            var httpTriggersView = _template.Model.GetAzureFunction()?.GetHttpTriggerView();
+            string result = httpTriggersView?.Method().AsEnum() switch
             {
-                OperationModelStereotypeExtensions.HttpTrigger.MethodOptionsEnum.GET => _template.Model.ReturnType ==
+                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.GET => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult(result);",
-                OperationModelStereotypeExtensions.HttpTrigger.MethodOptionsEnum.POST =>
+                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.POST =>
                     _template.Model.ReturnType == null
                         ? $"return new CreatedResult(string.Empty, null);"
                         : $"return new CreatedResult(string.Empty, result);",
-                OperationModelStereotypeExtensions.HttpTrigger.MethodOptionsEnum.PUT => _template.Model.ReturnType ==
+                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult(result);",
-                OperationModelStereotypeExtensions.HttpTrigger.MethodOptionsEnum.DELETE => _template.Model.ReturnType ==
+                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.DELETE => _template.Model.ReturnType ==
                     null
                         ? $"return new OkResult();"
                         : $"return new OkObjectResult(result);",

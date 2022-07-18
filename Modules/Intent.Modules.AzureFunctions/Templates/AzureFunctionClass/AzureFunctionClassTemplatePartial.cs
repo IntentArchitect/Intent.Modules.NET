@@ -113,14 +113,15 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             var paramList = new List<string>();
 
-            if (Model.HasHttpTrigger())
+            if (Model.GetAzureFunction()?.Type()?.IsHttpTrigger() == true)
             {
-                var method = @$"""{Model.GetHttpTrigger().Method().Value.ToLower()}""";
-                var route = !string.IsNullOrWhiteSpace(Model.GetHttpTrigger().Route())
-                    ? $@"""{Model.GetHttpTrigger().Route()}"""
+                var httpTriggersView = Model.GetAzureFunction().GetHttpTriggerView();
+                var method = @$"""{httpTriggersView.Method().Value.ToLower()}""";
+                var route = !string.IsNullOrWhiteSpace(httpTriggersView.Route())
+                    ? $@"""{httpTriggersView.Route()}"""
                     : "null";
                 paramList.Add(
-                    @$"[HttpTrigger(AuthorizationLevel.{Model.GetHttpTrigger().AuthorizationLevel().Value}, {method}, Route = {route})] HttpRequest req");
+                    @$"[HttpTrigger(AuthorizationLevel.{httpTriggersView.AuthorizationLevel().Value}, {method}, Route = {route})] HttpRequest req");
             }
 
             paramList.Add("ILogger log");
