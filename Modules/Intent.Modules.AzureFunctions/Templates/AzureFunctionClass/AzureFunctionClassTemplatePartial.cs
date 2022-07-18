@@ -26,7 +26,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private readonly bool _hasMultipleServices;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
+            outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
@@ -119,6 +120,20 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     @$"[HttpTrigger(AuthorizationLevel.{httpTriggersView.AuthorizationLevel().Value}, {method}, Route = {route})] HttpRequest req");
             }
 
+            if (Model.GetAzureFunction()?.Type()?.IsServiceBusTrigger() == true)
+            {
+                var serviceBusTriggerView = Model.GetAzureFunction().GetServiceBusTriggerView();
+                var attrParamList = new List<string>();
+                attrParamList.Add(serviceBusTriggerView.QueueName());
+                if (!string.IsNullOrEmpty(serviceBusTriggerView.Connection()))
+                {
+                    attrParamList.Add($@"Connection = ""{serviceBusTriggerView.Connection()}""");
+                }
+
+                paramList.Add(
+                    $@"[ServiceBusTrigger({string.Join(", ", attrParamList)})] {GetRequestDtoType()} {GetRequestDtoParamName()}");
+            }
+
             paramList.Add("ILogger log");
 
             paramList.AddRange(GetDecorators()
@@ -144,7 +159,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     $@"var {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
             }
 
-            if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
+            if (Model.GetAzureFunction()?.Type()?.IsHttpTrigger() == true
+                && !string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
                 statementList.Add($@"string requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
                 statementList.Add($@"var dto = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
@@ -216,10 +232,29 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return param.TypeReference.Element.AsDTOModel();
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.TypeReference.Element.AsDTOModel();
+                }
+            }
+        }
+
+        private string GetRequestDtoParamName()
+        {
+            var dtoParams = Model.Parameters
+                .Where(p => p.TypeReference.Element.IsDTOModel())
+                .ToArray();
+            switch (dtoParams.Length)
+            {
+                case 0:
+                    return null;
+                case > 1:
+                    throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
+                default:
+                {
+                    var param = dtoParams.First();
+                    return param.Name.ToParameterName();
+                }
             }
         }
 
