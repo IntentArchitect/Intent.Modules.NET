@@ -27,6 +27,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             Enumerable.Empty<ExceptionCatchBlock>();
     }
 
+    [IntentManaged(Mode.Ignore)]
     public class ExceptionCatchBlock
     {
         private readonly List<string> _requiredNamespaces = new();
