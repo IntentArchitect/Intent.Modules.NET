@@ -31,7 +31,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetClassEntryDefinitionList()
         {
-            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView().Method().IsGET() == true)
+            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView()?.Method().IsGET() == true)
             {
                 yield break;
             }
@@ -41,7 +41,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetConstructorParameterDefinitionList()
         {
-            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView().Method().IsGET() == true)
+            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView()?.Method().IsGET() == true)
             {
                 yield break;
             }
@@ -51,7 +51,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetConstructorBodyStatementList()
         {
-            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView().Method().IsGET() == true)
+            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView()?.Method().IsGET() == true)
             {
                 yield break;
             }
@@ -61,7 +61,7 @@ namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetRunMethodBodyStatementList()
         {
-            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView().Method().IsGET() == true)
+            if (_template.Model.GetAzureFunction()?.GetHttpTriggerView()?.Method().IsGET() == true)
             {
                 yield break;
             }

@@ -26,12 +26,19 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private readonly bool _hasMultipleServices;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
+            outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
             AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
+
+            if (model.GetAzureFunction()?.Type().IsServiceBusTrigger() == true)
+            {
+                AddNugetDependency(NuGetPackages.MicrosoftAzureServiceBus);
+                AddNugetDependency(NuGetPackages.MicrosoftAzureWebJobsExtensionsServiceBus);
+            }
 
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
         }
@@ -104,6 +111,18 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             return string.Join(newLine, statementList);
         }
 
+        private string GetRunMethodReturnType()
+        {
+            if (Model.GetAzureFunction()?.Type().IsHttpTrigger() == true)
+            {
+                return "Task<IActionResult>";
+            }
+
+            return Model.ReturnType != null
+                ? "Task<IActionResult>"
+                : "Task";
+        }
+
         private string GetRunMethodParameterDefinitionList()
         {
             var paramList = new List<string>();
@@ -123,7 +142,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             {
                 var serviceBusTriggerView = Model.GetAzureFunction().GetServiceBusTriggerView();
                 var attrParamList = new List<string>();
-                attrParamList.Add(serviceBusTriggerView.QueueName());
+                attrParamList.Add($@"""{serviceBusTriggerView.QueueName()}""");
                 if (!string.IsNullOrEmpty(serviceBusTriggerView.Connection()))
                 {
                     attrParamList.Add($@"Connection = ""{serviceBusTriggerView.Connection()}""");
@@ -231,10 +250,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return param.TypeReference.Element.AsDTOModel();
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.TypeReference.Element.AsDTOModel();
+                }
             }
         }
 
@@ -250,10 +269,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return param.Name.ToParameterName();
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.Name.ToParameterName();
+                }
             }
         }
 

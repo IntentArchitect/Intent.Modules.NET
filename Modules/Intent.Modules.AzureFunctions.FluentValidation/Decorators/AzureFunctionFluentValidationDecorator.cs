@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modules.Application.FluentValidation.Templates.ValidationBehaviour;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
@@ -37,7 +38,12 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 return;
             }
-            
+
+            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            {
+                return;
+            }
+
             var templateDependency = TemplateDependency.OnTemplate(ValidationBehaviourTemplate.TemplateId);
             var template = _template.GetTemplate<IClassProvider>(templateDependency);
             if (template != null)
@@ -47,10 +53,15 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
 
             _template.AddTemplateDependency(templateDependency);
         }
-        
+
         public override IEnumerable<string> GetClassEntryDefinitionList()
         {
             if (_requestDtoTypeName == null)
+            {
+                yield break;
+            }
+            
+            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 yield break;
             }
@@ -64,6 +75,11 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 yield break;
             }
+            
+            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            {
+                yield break;
+            }
 
             yield return $"ValidationBehaviour<{_requestDtoTypeName}> validation";
         }
@@ -71,6 +87,11 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         public override IEnumerable<string> GetConstructorBodyStatementList()
         {
             if (_requestDtoTypeName == null)
+            {
+                yield break;
+            }
+            
+            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 yield break;
             }
@@ -84,12 +105,27 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 yield break;
             }
+            
+            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            {
+                yield break;
+            }
 
             yield return $"await _validation.Handle(dto, default);";
         }
 
         public override IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()
         {
+            if (_requestDtoTypeName == null)
+            {
+                yield break;
+            }
+            
+            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            {
+                yield break;
+            }
+            
             yield return new ExceptionCatchBlock("ValidationException exception")
                 .AddNamespaces("FluentValidation")
                 .AddStatementLines("return new BadRequestObjectResult(exception.Errors);");

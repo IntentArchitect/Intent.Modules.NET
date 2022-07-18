@@ -84,7 +84,14 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             
             #line default
             #line hidden
-            this.Write("\")]\r\n        public async Task<IActionResult> Run(");
+            this.Write("\")]\r\n        public async ");
+            
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetRunMethodReturnType()));
+            
+            #line default
+            #line hidden
+            this.Write(" Run(");
             
             #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetRunMethodParameterDefinitionList()));

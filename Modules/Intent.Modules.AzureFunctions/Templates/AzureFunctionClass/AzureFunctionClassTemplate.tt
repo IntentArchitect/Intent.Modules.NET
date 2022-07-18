@@ -33,7 +33,7 @@ namespace <#= Namespace #>
         }
 
         [FunctionName("<#= ClassName #>")]
-        public async Task<IActionResult> Run(<#= GetRunMethodParameterDefinitionList() #>)
+        public async <#= GetRunMethodReturnType() #> Run(<#= GetRunMethodParameterDefinitionList() #>)
         {<#
     if (HasExceptionCatchBlocks())
     {

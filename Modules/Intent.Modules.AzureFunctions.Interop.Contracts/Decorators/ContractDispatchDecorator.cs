@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
@@ -68,8 +69,13 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
         public override IEnumerable<string> GetRunMethodExitStatementList()
         {
-            var httpTriggersView = _template.Model.GetAzureFunction()?.GetHttpTriggerView();
-            string result = httpTriggersView?.Method().AsEnum() switch
+            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            {
+                return Enumerable.Empty<string>();
+            }
+
+            var httpTriggersView = _template.Model.GetAzureFunction().GetHttpTriggerView();
+            string result = httpTriggersView.Method().AsEnum() switch
             {
                 OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.GET => _template.Model.ReturnType ==
                     null
