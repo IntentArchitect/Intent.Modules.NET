@@ -26,7 +26,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private readonly bool _hasMultipleServices;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
+            outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
@@ -151,6 +152,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     $@"[ServiceBusTrigger({string.Join(", ", attrParamList)})] {GetRequestDtoType()} {GetRequestDtoParamName()}");
             }
 
+            foreach (var parameterModel in Model.Parameters.Where(IsParameterRoute))
+            {
+                paramList.Add($@"{GetTypeName(parameterModel.Type)} {parameterModel.Name.ToParameterName()}");
+            }
+
             paramList.Add("ILogger log");
 
             paramList.AddRange(GetDecorators()
@@ -179,7 +185,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     continue;
                 }
 
-                statementList.Add($@"{GetTypeName(param.Type)} {param.Name.ToParameterName()} = {this.GetAzureFunctionClassHelperName()}.{(param.Type.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {GetTypeName(param.Type).Replace("?", string.Empty)} parsed) => {GetTypeName(param.Type).Replace("?", string.Empty)}.TryParse(val, out parsed));");
+                statementList.Add(
+                    $@"{GetTypeName(param.Type)} {param.Name.ToParameterName()} = {this.GetAzureFunctionClassHelperName()}.{(param.Type.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {GetTypeName(param.Type).Replace("?", string.Empty)} parsed) => {GetTypeName(param.Type).Replace("?", string.Empty)}.TryParse(val, out parsed));");
             }
 
             if (Model.GetAzureFunction()?.Type()?.IsHttpTrigger() == true
@@ -224,7 +231,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private bool HasExceptionCatchBlocks()
         {
             return GetDecorators().SelectMany(p => p.GetExceptionCatchBlocks()).Any()
-                || GetQueryParams().Any();
+                   || GetQueryParams().Any();
         }
 
         private string GetExceptionCatchBlocks()
@@ -255,7 +262,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private DTOModel GetRequestDtoModel()
         {
             var dtoParams = Model.Parameters
-                .Where(p => p.TypeReference.Element.IsDTOModel())
+                .Where(IsParameterBody)
                 .ToArray();
             switch (dtoParams.Length)
             {
@@ -264,17 +271,17 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return param.TypeReference.Element.AsDTOModel();
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.TypeReference.Element.AsDTOModel();
+                }
             }
         }
 
         private string GetRequestDtoParamName()
         {
             var dtoParams = Model.Parameters
-                .Where(p => p.TypeReference.Element.IsDTOModel())
+                .Where(IsParameterBody)
                 .ToArray();
             switch (dtoParams.Length)
             {
@@ -283,11 +290,25 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return param.Name.ToParameterName();
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.Name.ToParameterName();
+                }
             }
+        }
+
+        private bool IsParameterBody(ParameterModel parameterModel)
+        {
+            return parameterModel.GetParameterSetting()?.Source().IsFromBody() == true
+                   || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
+                       parameterModel.TypeReference.Element.IsDTOModel());
+        }
+
+        private bool IsParameterRoute(ParameterModel parameterModel)
+        {
+            return parameterModel.GetParameterSetting()?.Source().IsFromRoute() == true
+                   || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
+                       !parameterModel.TypeReference.Element.IsDTOModel());
         }
 
         public string GetRequestDtoType()
@@ -298,7 +319,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         private IReadOnlyCollection<ParameterModel> GetQueryParams()
         {
-            return Model.Parameters.Where(p => !p.TypeReference.Element.IsDTOModel()).ToArray();
+            return Model.Parameters.Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true).ToArray();
         }
     }
 }

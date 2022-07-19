@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="9c43b6a8-7d38-4799-b441-399923e5790b" version="3.1.0">
+  <name>Parameter Setting</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="00208d20-469d-41cb-8501-768fd5eb796b">Parameter</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>022dbddc-276c-406b-81e6-5034ad64db72</parentFolderId>
+  <order>0</order>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
+  <properties>
+    <property id="2f757dda-f5c0-4901-b442-fa06ddf9acba">
+      <name>Source</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue>Default</defaultValue>
+      <valueOptions>
+        <option>Default</option>
+        <option>From Query</option>
+        <option>From Body</option>
+        <option>From Route</option>
+      </valueOptions>
+      <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

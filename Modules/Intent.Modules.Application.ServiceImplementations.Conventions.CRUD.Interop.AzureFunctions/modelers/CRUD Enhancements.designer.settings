@@ -66,7 +66,17 @@ async function setStereotype(operation, verb, route) {
         return;
     }
     
-    await dialogService.error("Could not determine stereotype to update, please contact Intent Architect Support.");
+    await dialogService.error("Could not determine Stereotype to update, please contact Intent Architect Support.");
+}
+
+async function setParamStereotype(parameter, source) {
+    let stereotype = parameter.getStereotype("Parameter Setting");
+    if (stereotype != null) {
+        if (source) stereotype.getProperty("Source").setValue(source);
+        return;
+    }
+
+    await dialogService.error("Could not determine Stereotype to update, please contact Intent Architect Support.");
 }
 
 let options = lookupTypesOf("Class");
@@ -108,6 +118,7 @@ for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStere
 let createOperation = createElement("Operation", "Create", service.id);
 let createOperationParam = createElement("Parameter", "dto", createOperation.id);
 createOperationParam.typeReference.setType(createDTO.id);
+await setParamStereotype(createOperationParam, "From Body");
 await setStereotype(createOperation, "POST", null);
 createOperation.collapse();
 
@@ -122,6 +133,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
 
     let idParam = createElement("Parameter", "id", findByIdOperation.id);
     idParam.typeReference.setType(getSurrogateKeyType());
+    await setParamStereotype(idParam, "From Route");
 } else {
     for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
         let field = createElement("DTO-Field", attribute.getName(), dto.id);
@@ -162,6 +174,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
 
     let idParam = createElement("Parameter", "id", updateOperation.id);
     idParam.typeReference.setType(getSurrogateKeyType());
+    await setParamStereotype(idParam, "From Route");
 } else {
     for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
         let field = createElement("DTO-Field", attribute.getName(), updateDTO.id);
@@ -174,6 +187,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
 
 let updateOperationDtoParam = createElement("Parameter", "dto", updateOperation.id);
 updateOperationDtoParam.typeReference.setType(updateDTO.id);
+await setParamStereotype(updateOperationDtoParam, "From Body");
 
 for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
     let field = createElement("DTO-Field", attribute.getName(), updateDTO.id);
@@ -189,6 +203,7 @@ let deleteOperation = createElement("Operation", "Delete", service.id);
 if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
     let idParam = createElement("Parameter", "id", deleteOperation.id);
     idParam.typeReference.setType(getSurrogateKeyType());
+    await setParamStereotype(idParam, "From Route");
 } else {
     for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
         let param = createElement("Parameter", toCamelCase(attribute.getName()), deleteOperation.id);
@@ -265,7 +280,17 @@ async function setStereotype(operation, verb, route) {
         return;
     }
     
-    await dialogService.error("Could not determine stereotype to update, please contact Intent Architect Support.");
+    await dialogService.error("Could not determine Stereotype to update, please contact Intent Architect Support.");
+}
+
+async function setParamStereotype(parameter, source) {
+    let stereotype = parameter.getStereotype("Parameter Setting");
+    if (stereotype != null) {
+        if (source) stereotype.getProperty("Source").setValue(source);
+        return;
+    }
+
+    await dialogService.error("Could not determine Stereotype to update, please contact Intent Architect Support.");
 }
 
 let options = lookupTypesOf("Class");
@@ -307,6 +332,7 @@ for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStere
 let createOperation = createElement("Operation", "Create", service.id);
 let createOperationParam = createElement("Parameter", "dto", createOperation.id);
 createOperationParam.typeReference.setType(createDTO.id);
+await setParamStereotype(createOperationParam, "From Body");
 await setStereotype(createOperation, "POST", null);
 createOperation.collapse();
 
@@ -321,6 +347,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
 
     let idParam = createElement("Parameter", "id", findByIdOperation.id);
     idParam.typeReference.setType(getSurrogateKeyType());
+    await setParamStereotype(idParam, "From Route");
 } else {
     for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
         let field = createElement("DTO-Field", attribute.getName(), dto.id);
@@ -361,6 +388,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
 
     let idParam = createElement("Parameter", "id", updateOperation.id);
     idParam.typeReference.setType(getSurrogateKeyType());
+    await setParamStereotype(idParam, "From Route");
 } else {
     for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
         let field = createElement("DTO-Field", attribute.getName(), updateDTO.id);
@@ -373,6 +401,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
 
 let updateOperationDtoParam = createElement("Parameter", "dto", updateOperation.id);
 updateOperationDtoParam.typeReference.setType(updateDTO.id);
+await setParamStereotype(updateOperationDtoParam, "From Body");
 
 for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
     let field = createElement("DTO-Field", attribute.getName(), updateDTO.id);
@@ -388,6 +417,7 @@ let deleteOperation = createElement("Operation", "Delete", service.id);
 if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
     let idParam = createElement("Parameter", "id", deleteOperation.id);
     idParam.typeReference.setType(getSurrogateKeyType());
+    await setParamStereotype(idParam, "From Route");
 } else {
     for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
         let param = createElement("Parameter", toCamelCase(attribute.getName()), deleteOperation.id);

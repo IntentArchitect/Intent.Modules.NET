@@ -15,6 +15,13 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#00208d20-469d-41cb-8501-768fd5eb796b</CorrelationId>
+      <ApplicationRelativeFilePath>Api/ParameterModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParameterModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b39c8ad2-7cb0-46da-ac57-ef88c268a200</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#83078c9f-7cfa-4edf-b7f3-566f71f8f6a7</CorrelationId>
       <ApplicationRelativeFilePath>Decorators/ReturnTypes/AzureFunctionClassResourceLocationDecorator.cs</ApplicationRelativeFilePath>
