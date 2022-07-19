@@ -32,23 +32,37 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using Microsoft.Azure.Functions.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using Microsoft.Azure.Functions.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\n[assembly: FunctionsStartup(typeof(");
             
             #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    public class ");
+            this.Write(".");
+            
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\Startup\StartupTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("))]\r\n\r\nnamespace ");
             
             #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\Startup\StartupTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    public class ");
+            
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : FunctionsStartup\r\n    {\r\n        public override void Configure(IFunctionsHostBuilder builder)\r\n        {\r\n            var configuration = builder.GetContext().Configuration;\r\n            ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\Startup\StartupTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\Startup\StartupTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetServiceConfigurationStatementList()));
             
             #line default

@@ -11,6 +11,8 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
+[assembly: FunctionsStartup(typeof(<#= Namespace #>.<#= ClassName #>))]
+
 namespace <#= Namespace #>
 {
     public class <#= ClassName #> : FunctionsStartup
