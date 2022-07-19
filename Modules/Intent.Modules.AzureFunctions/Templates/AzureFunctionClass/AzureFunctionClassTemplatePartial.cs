@@ -26,8 +26,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private readonly bool _hasMultipleServices;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
-            outputTarget, model)
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
@@ -173,8 +172,14 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
             foreach (var param in GetQueryParams())
             {
-                statementList.Add(
-                    $@"var {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
+                if (GetTypeName(param.Type) == "string")
+                {
+                    statementList.Add(
+                        $@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
+                    continue;
+                }
+
+                statementList.Add($@"{GetTypeName(param.Type)} {param.Name.ToParameterName()} = {this.GetAzureFunctionClassHelperName()}.{(param.Type.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {GetTypeName(param.Type).Replace("?", string.Empty)} parsed) => {GetTypeName(param.Type).Replace("?", string.Empty)}.TryParse(val, out parsed));");
             }
 
             if (Model.GetAzureFunction()?.Type()?.IsHttpTrigger() == true
@@ -218,7 +223,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         private bool HasExceptionCatchBlocks()
         {
-            return GetDecorators().SelectMany(p => p.GetExceptionCatchBlocks()).Any();
+            return GetDecorators().SelectMany(p => p.GetExceptionCatchBlocks()).Any()
+                || GetQueryParams().Any();
         }
 
         private string GetExceptionCatchBlocks()
@@ -230,6 +236,14 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 blockLines.Add($"catch ({block.ExceptionType})");
                 blockLines.Add("{");
                 blockLines.AddRange(block.StatementLines.Select(s => $"    {s}"));
+                blockLines.Add("}");
+            }
+
+            if (GetQueryParams().Any())
+            {
+                blockLines.Add($"catch (FormatException exception)");
+                blockLines.Add("{");
+                blockLines.Add("    return new BadRequestObjectResult(new { Message = exception.Message });");
                 blockLines.Add("}");
             }
 
@@ -250,10 +264,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                {
-                    var param = dtoParams.First();
-                    return param.TypeReference.Element.AsDTOModel();
-                }
+                    {
+                        var param = dtoParams.First();
+                        return param.TypeReference.Element.AsDTOModel();
+                    }
             }
         }
 
@@ -269,10 +283,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                {
-                    var param = dtoParams.First();
-                    return param.Name.ToParameterName();
-                }
+                    {
+                        var param = dtoParams.First();
+                        return param.Name.ToParameterName();
+                    }
             }
         }
 

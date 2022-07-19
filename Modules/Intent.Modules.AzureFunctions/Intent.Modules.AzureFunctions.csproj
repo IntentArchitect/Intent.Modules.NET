@@ -52,6 +52,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ResourceLocationClassTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AzureFunctionClassHelperTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -89,6 +93,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceLocationClassTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AzureFunctionClassHelperTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

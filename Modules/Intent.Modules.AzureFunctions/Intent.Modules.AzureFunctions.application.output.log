@@ -86,6 +86,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#dd8ccc08-d1be-4269-a60f-aef7d9e8325c</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctionClassHelper/AzureFunctionClassHelperTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionClassHelper/AzureFunctionClassHelperTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#dd8ccc08-d1be-4269-a60f-aef7d9e8325c</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctionClassHelper/AzureFunctionClassHelperTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionClassHelper/AzureFunctionClassHelperTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#dd8ccc08-d1be-4269-a60f-aef7d9e8325c</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctionClassHelper/AzureFunctionClassHelperTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionClassHelper/AzureFunctionClassHelperTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#dd8ccc08-d1be-4269-a60f-aef7d9e8325c</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/AzureFunctionClassHelper/AzureFunctionClassHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctionClassHelper/AzureFunctionClassHelperTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#a8bb8b25-bd0b-4ebb-b78e-f6c328430707</CorrelationId>
       <ApplicationRelativeFilePath>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplate.cs</ProjectRelativeFilePath>

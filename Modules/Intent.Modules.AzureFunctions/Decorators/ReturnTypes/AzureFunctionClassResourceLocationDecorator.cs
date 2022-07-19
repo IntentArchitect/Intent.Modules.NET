@@ -12,15 +12,13 @@ namespace Intent.Modules.AzureFunctions.Decorators.ReturnTypes
     [IntentManaged(Mode.Merge)]
     public class AzureFunctionClassResourceLocationDecorator : AzureFunctionClassDecorator
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId =
-            "Intent.AzureFunctions.ReturnTypes.AzureFunctionClassResourceLocationDecorator";
+        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.AzureFunctions.ReturnTypes.AzureFunctionClassResourceLocationDecorator";
 
         [IntentManaged(Mode.Fully)] private readonly AzureFunctionClassTemplate _template;
         [IntentManaged(Mode.Fully)] private readonly IApplication _application;
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public AzureFunctionClassResourceLocationDecorator(AzureFunctionClassTemplate template,
-            IApplication application)
+        public AzureFunctionClassResourceLocationDecorator(AzureFunctionClassTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
@@ -37,7 +35,7 @@ namespace Intent.Modules.AzureFunctions.Decorators.ReturnTypes
 
             yield return $"if (result?.HasLocation() == true)";
             yield return "{";
-            
+
             switch (_template.Model.ReturnType.Element.Id)
             {
                 case TypeDefinitionIds.ResourceLocationVoidTypeDefId:
@@ -47,7 +45,7 @@ namespace Intent.Modules.AzureFunctions.Decorators.ReturnTypes
                     yield return $@"    return new AcceptedResult(result.Location, result.Payload);";
                     break;
             }
-            
+
             yield return "}";
         }
     }

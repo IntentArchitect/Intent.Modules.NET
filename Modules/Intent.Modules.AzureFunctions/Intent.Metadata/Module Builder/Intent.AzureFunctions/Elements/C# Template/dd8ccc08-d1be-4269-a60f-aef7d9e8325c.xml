@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="4cc2b906-6a28-4d05-9721-548e8a541abd" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>Startup</name>
-  <display>Startup: Single File</display>
+<class id="dd8ccc08-d1be-4269-a60f-aef7d9e8325c" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>AzureFunctionClassHelper</name>
+  <display>AzureFunctionClassHelper: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>3</order>
   <genericTypes />
-  <typeReference id="88211696-123a-41e9-a7de-8caf706b55d7">
+  <typeReference id="bd751115-f6b2-4a62-88a0-7b922946f2fb">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

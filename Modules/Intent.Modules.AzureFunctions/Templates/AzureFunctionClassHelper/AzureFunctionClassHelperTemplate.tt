@@ -1,0 +1,50 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using Microsoft.AspNetCore.Http;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    static class <#= ClassName #>
+    {
+        public static T GetQueryParam<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
+            where T : struct
+        {
+            var strVal = query[paramName];
+            if (string.IsNullOrEmpty(strVal) || !parse(strVal, out T parsed))
+            {
+                throw new FormatException($"Parameter '{paramName}' could not be parsed as a {typeof(T).Name}.");
+            }
+
+            return parsed;
+        }
+        
+        public static T? GetQueryParamNullable<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
+            where T : struct
+        {
+            var strVal = query[paramName];
+            if (string.IsNullOrEmpty(strVal))
+            {
+                return null;
+            }
+
+            if (!parse(strVal, out T parsed))
+            {
+                throw new FormatException($"Parameter '{paramName}' could not be parsed as a {typeof(T).Name}.");
+            }
+
+            return parsed;
+        }
+        
+        public delegate bool ParseDelegate<T>(string strVal, out T parsed);
+    }
+}

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper;
 using Intent.Modules.AzureFunctions.Templates.ReturnTypes.ResourceLocationClass;
 using Intent.Modules.AzureFunctions.Templates.Startup;
 using Intent.Modules.Common.Templates;
@@ -21,6 +22,11 @@ namespace Intent.Modules.AzureFunctions.Templates
         public static string GetAzureFunctionClassName(this IntentTemplateBase template, Intent.Modelers.Services.Api.OperationModel model)
         {
             return template.GetTypeName(AzureFunctionClassTemplate.TemplateId, model);
+        }
+
+        public static string GetAzureFunctionClassHelperName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(AzureFunctionClassHelperTemplate.TemplateId);
         }
 
         public static string GetResourceLocationClassName<T>(this IntentTemplateBase<T> template)
