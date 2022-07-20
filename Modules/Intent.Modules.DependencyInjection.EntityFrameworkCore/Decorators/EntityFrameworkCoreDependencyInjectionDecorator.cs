@@ -56,9 +56,9 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountEndpoint", ""));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountKey", ""));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:DatabaseName", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountEndpoint", "https://localhost:8081"));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:DatabaseName", $"{_template.Project.ApplicationName()}DB"));
                     break;
             }
 
