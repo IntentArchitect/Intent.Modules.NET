@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="22067fae-4d36-4615-898c-fba79c8f9e05" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
-  <name>${application.name}.Domain</name>
-  <display>${application.name}.Domain</display>
-  <externalReference>c2fd7236-c566-4783-ba16-ad284452fa35</externalReference>
+<class id="28b4ea3b-2275-4440-93e4-9050b664ebcf" type="Azure Functions Project" typeId="73e51385-5e20-4e2c-aa0b-6eb2dc8de52e">
+  <name>${application.name}.Api</name>
+  <display>${application.name}.Api</display>
   <isAbstract>false</isAbstract>
   <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>85f2cf72-fa85-488f-8e75-8dc579b2bb2f</parentFolderId>
+  <parentFolderId>1f28e28f-41b5-453c-ac71-809c984c86cb</parentFolderId>
   <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-  <packageName>${solution.name}</packageName>
+  <packageName>${application.name}</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
       <addedByDefault>true</addedByDefault>
@@ -28,6 +27,14 @@
         <property name="f236ad27-a4ab-490a-92d4-b6faf2d1e033" display="Assembly Name" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="97218a15-c5ad-42f7-aac4-a9b8edcb5acd" name="Azure Functions Project Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="31a88b3b-e05d-4b5a-ae8f-6612fb0ac09a" display="Azure Functions Version" value="v4" isActive="true" />
+      </properties>
+    </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
@@ -41,32 +48,32 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="3539352d-5be1-4bdf-a405-99995cf7deed" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Domain</name>
-      <display>Domain</display>
-      <externalReference>16c39b94-0e07-4e95-987f-b3e92ae11594</externalReference>
+    <childElement id="d8d9d738-4366-405b-816b-6c36f3484ac7" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Startup</name>
+      <display>Startup</display>
+      <externalReference>a1ebfadf-c1bc-4b37-8156-5cab47fd1e0a</externalReference>
       <isAbstract>false</isAbstract>
       <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>22067fae-4d36-4615-898c-fba79c8f9e05</parentFolderId>
+      <parentFolderId>28b4ea3b-2275-4440-93e4-9050b664ebcf</parentFolderId>
       <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-      <packageName>${solution.name}</packageName>
+      <packageName>${application.name}</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="dbe11bb0-aad1-474f-9b9f-63a9924d0e3b" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Repository.Interface</name>
-      <display>Repository.Interface</display>
-      <externalReference>3a437489-6d50-466b-8f34-8eaeb073c6ee</externalReference>
+    <childElement id="f46221bc-62b1-4490-9116-5b3d9c0a4f72" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Distribution</name>
+      <display>Distribution</display>
+      <externalReference>a0d2c141-8412-46c1-8aa9-851f0c644d0f</externalReference>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>22067fae-4d36-4615-898c-fba79c8f9e05</parentFolderId>
+      <parentFolderId>28b4ea3b-2275-4440-93e4-9050b664ebcf</parentFolderId>
       <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-      <packageName>${solution.name}</packageName>
+      <packageName>${application.name}</packageName>
       <stereotypes />
       <metadata />
       <childElements />

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="28b4ea3b-2275-4440-93e4-9050b664ebcf" type="Azure Functions Project" typeId="73e51385-5e20-4e2c-aa0b-6eb2dc8de52e">
-  <name>${application.name}.Api</name>
-  <display>${application.name}.Api</display>
+<class id="1bb1ebc1-6306-4f35-8dcd-8f803be15b1e" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
+  <name>${application.name}.Application</name>
+  <display>${application.name}.Application</display>
+  <externalReference>08b3db47-8460-4832-a7df-4fc93a505b27</externalReference>
   <isAbstract>false</isAbstract>
   <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>1f28e28f-41b5-453c-ac71-809c984c86cb</parentFolderId>
+  <parentFolderId>54d80a73-fad8-4a64-a53f-db2fbcbefd24</parentFolderId>
   <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-  <packageName>${solution.name}</packageName>
+  <packageName>${application.name}</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
       <addedByDefault>true</addedByDefault>
@@ -27,14 +28,6 @@
         <property name="f236ad27-a4ab-490a-92d4-b6faf2d1e033" display="Assembly Name" isActive="true" />
       </properties>
     </stereotype>
-    <stereotype stereotypeDefinitionId="97218a15-c5ad-42f7-aac4-a9b8edcb5acd" name="Azure Functions Project Settings">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-      <properties>
-        <property name="31a88b3b-e05d-4b5a-ae8f-6612fb0ac09a" display="Azure Functions Version" value="v4" isActive="true" />
-      </properties>
-    </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
@@ -48,32 +41,17 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="d8d9d738-4366-405b-816b-6c36f3484ac7" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Startup</name>
-      <display>Startup</display>
-      <externalReference>a1ebfadf-c1bc-4b37-8156-5cab47fd1e0a</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>0</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>28b4ea3b-2275-4440-93e4-9050b664ebcf</parentFolderId>
-      <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-      <packageName>${solution.name}</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="f46221bc-62b1-4490-9116-5b3d9c0a4f72" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Distribution</name>
-      <display>Distribution</display>
-      <externalReference>a0d2c141-8412-46c1-8aa9-851f0c644d0f</externalReference>
+    <childElement id="f9f039b3-07c0-4243-ab8c-67003794bced" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>7daf3301-2e60-475c-b3e0-676549d1c6bf</externalReference>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>28b4ea3b-2275-4440-93e4-9050b664ebcf</parentFolderId>
+      <parentFolderId>1bb1ebc1-6306-4f35-8dcd-8f803be15b1e</parentFolderId>
       <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-      <packageName>${solution.name}</packageName>
+      <packageName>${application.name}</packageName>
       <stereotypes />
       <metadata />
       <childElements />

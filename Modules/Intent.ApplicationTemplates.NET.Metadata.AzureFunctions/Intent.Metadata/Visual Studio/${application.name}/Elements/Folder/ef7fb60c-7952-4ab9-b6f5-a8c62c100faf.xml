@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>1bb1ebc1-6306-4f35-8dcd-8f803be15b1e</parentFolderId>
   <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-  <packageName>${solution.name}</packageName>
+  <packageName>${application.name}</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -30,7 +30,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>ef7fb60c-7952-4ab9-b6f5-a8c62c100faf</parentFolderId>
       <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-      <packageName>${solution.name}</packageName>
+      <packageName>${application.name}</packageName>
       <stereotypes />
       <metadata />
       <childElements />

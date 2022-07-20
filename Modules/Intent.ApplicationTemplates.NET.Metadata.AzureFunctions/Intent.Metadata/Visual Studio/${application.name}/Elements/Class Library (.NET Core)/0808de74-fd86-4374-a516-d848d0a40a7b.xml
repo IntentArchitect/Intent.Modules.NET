@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="1bb1ebc1-6306-4f35-8dcd-8f803be15b1e" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
-  <name>${application.name}.Application</name>
-  <display>${application.name}.Application</display>
-  <externalReference>08b3db47-8460-4832-a7df-4fc93a505b27</externalReference>
+<class id="0808de74-fd86-4374-a516-d848d0a40a7b" type="Class Library (.NET Core)" typeId="52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE">
+  <name>${application.name}.Infrastructure</name>
+  <display>${application.name}.Infrastructure</display>
+  <externalReference>e202e73f-eac7-4769-9a19-c3023c093854</externalReference>
   <isAbstract>false</isAbstract>
   <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>54d80a73-fad8-4a64-a53f-db2fbcbefd24</parentFolderId>
+  <parentFolderId>433b1a34-b38f-4936-868f-a37be4d9944d</parentFolderId>
   <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-  <packageName>${solution.name}</packageName>
+  <packageName>${application.name}</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5d85edfb-490c-42c2-81ef-c57c0300eb5a" name=".NET Core Settings">
       <addedByDefault>true</addedByDefault>
@@ -41,17 +41,32 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="f9f039b3-07c0-4243-ab8c-67003794bced" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>7daf3301-2e60-475c-b3e0-676549d1c6bf</externalReference>
+    <childElement id="55327876-325c-41d0-9088-3b300accc789" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Infrastructure</name>
+      <display>Infrastructure</display>
+      <externalReference>73158ae5-7d6a-4fee-a61a-c1db635acfb1</externalReference>
+      <isAbstract>false</isAbstract>
+      <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0808de74-fd86-4374-a516-d848d0a40a7b</parentFolderId>
+      <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="384ba1f9-c484-4b8f-8958-de5b6b4ff10f" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Repository.Implementation</name>
+      <display>Repository.Implementation</display>
+      <externalReference>a9ee46ee-50a1-4476-b6d4-02e84442adb1</externalReference>
       <isAbstract>false</isAbstract>
       <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>1bb1ebc1-6306-4f35-8dcd-8f803be15b1e</parentFolderId>
+      <parentFolderId>0808de74-fd86-4374-a516-d848d0a40a7b</parentFolderId>
       <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-      <packageName>${solution.name}</packageName>
+      <packageName>${application.name}</packageName>
       <stereotypes />
       <metadata />
       <childElements />

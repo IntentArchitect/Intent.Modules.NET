@@ -9,7 +9,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>67749b77-24df-418f-8182-3e3b857247a8</parentFolderId>
   <packageId>67749b77-24df-418f-8182-3e3b857247a8</packageId>
-  <packageName>${solution.name}</packageName>
+  <packageName>${application.name}</packageName>
   <stereotypes />
   <metadata />
   <childElements />
