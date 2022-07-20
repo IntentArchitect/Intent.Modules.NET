@@ -26,8 +26,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private readonly bool _hasMultipleServices;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
-            outputTarget, model)
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
@@ -271,10 +270,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                {
-                    var param = dtoParams.First();
-                    return param.TypeReference.Element.AsDTOModel();
-                }
+                    {
+                        var param = dtoParams.First();
+                        return param.TypeReference.Element.AsDTOModel();
+                    }
             }
         }
 
@@ -290,10 +289,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                {
-                    var param = dtoParams.First();
-                    return param.Name.ToParameterName();
-                }
+                    {
+                        var param = dtoParams.First();
+                        return param.Name.ToParameterName();
+                    }
             }
         }
 

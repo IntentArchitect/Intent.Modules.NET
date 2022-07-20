@@ -262,6 +262,8 @@ namespace Intent.AzureFunctions.Api
                             return MethodOptionsEnum.POST;
                         case "PUT":
                             return MethodOptionsEnum.PUT;
+                        case "PATCH":
+                            return MethodOptionsEnum.PATCH;
                         case "DELETE":
                             return MethodOptionsEnum.DELETE;
                         default:
@@ -283,6 +285,10 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "PUT";
                 }
+                public bool IsPATCH()
+                {
+                    return Value == "PATCH";
+                }
 
                 public bool IsDELETE()
                 {
@@ -295,6 +301,7 @@ namespace Intent.AzureFunctions.Api
                 GET,
                 POST,
                 PUT,
+                PATCH,
                 DELETE
             }
         }
