@@ -42,5 +42,40 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>
