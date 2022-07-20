@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections;
+using Newtonsoft.Json.Linq;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates;
 
@@ -48,6 +49,7 @@ internal static class ApplicationSettingsJsonHelper
             short primitive => primitive,
             ushort primitive => primitive,
             string primitive => primitive,
+            IEnumerable enumerable => JArray.FromObject(enumerable),
             _ => JObject.FromObject(value)
         };
     }
