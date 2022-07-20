@@ -74,14 +74,14 @@ namespace Intent.Modules.AzureFunctions.Templates.ReturnTypes.ResourceLocationCl
             
             #line default
             #line hidden
-            this.Write("<TPayload> ToLocation<TPayload>(TPayload payload, string location)\r\n        {\r\n            return new ");
+            this.Write("<TPayload> ToLocation<TPayload>(string location, TPayload payload)\r\n        {\r\n            return new ");
             
             #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("<TPayload>(payload, location);\r\n        }\r\n    }\r\n\r\n    public class ");
+            this.Write("<TPayload>(location, payload);\r\n        }\r\n    }\r\n\r\n    public class ");
             
             #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
@@ -102,7 +102,7 @@ namespace Intent.Modules.AzureFunctions.Templates.ReturnTypes.ResourceLocationCl
             
             #line default
             #line hidden
-            this.Write("(TPayload payload, string location)\r\n            : base (location)\r\n        {\r\n            Payload = payload;\r\n        }\r\n\r\n        public TPayload Payload { get; }\r\n    }\r\n}");
+            this.Write("(string location, TPayload payload)\r\n            : base (location)\r\n        {\r\n            Payload = payload;\r\n        }\r\n\r\n        public TPayload Payload { get; }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

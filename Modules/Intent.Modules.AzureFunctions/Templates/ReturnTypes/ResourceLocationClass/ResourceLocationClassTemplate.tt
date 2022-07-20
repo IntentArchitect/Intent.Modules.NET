@@ -33,15 +33,15 @@ namespace <#= Namespace #>
             return new <#= ClassName #>(location);
         }
 
-        public static <#= ClassName #><TPayload> ToLocation<TPayload>(TPayload payload, string location)
+        public static <#= ClassName #><TPayload> ToLocation<TPayload>(string location, TPayload payload)
         {
-            return new <#= ClassName #><TPayload>(payload, location);
+            return new <#= ClassName #><TPayload>(location, payload);
         }
     }
 
     public class <#= ClassName #><TPayload> : <#= ClassName #>
     {
-        public <#= ClassName #>(TPayload payload, string location)
+        public <#= ClassName #>(string location, TPayload payload)
             : base (location)
         {
             Payload = payload;
