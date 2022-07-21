@@ -27,7 +27,8 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
     {
         return operationModel.Parameters.Any(IsPageNumberParam)
                && operationModel.Parameters.Any(IsPageSizeParam)
-               && operationModel.ReturnType.Element.Name == "PagedResult";
+               && operationModel.ReturnType.Element.Name == "PagedResult"
+               && operationModel.ReturnType.GenericTypeParameters.Any();
     }
 
     private bool IsPageNumberParam(ParameterModel param)
@@ -69,13 +70,14 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
     public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
     {
         var pageNumberVar = operationModel.Parameters.Single(IsPageNumberParam);
-        var pageSizeVar = operationModel.Parameters.Single(IsPageSizeParam); 
-        var dto = _decorator.FindDTOModel(operationModel.TypeReference.Element.Id);
+        var pageSizeVar = operationModel.Parameters.Single(IsPageSizeParam);
+        var genericDtoTypeId = operationModel.TypeReference.GenericTypeParameters.First().Element.Id;
+        var dto = _decorator.FindDTOModel(genericDtoTypeId);
         return
             $@"var results = {(operationModel.IsAsync() ? " await" : string.Empty)} {domainModel.Name.ToPrivateMemberName()}Repository.FindAll{(operationModel.IsAsync() ? "Async" : "")}(
                 pageNo: {pageNumberVar.Name.ToParameterName()},
                 pageSize: {pageSizeVar.Name.ToParameterName()});
-            return results.MapToPagedResult(x => x.MapTo{_decorator.Template.GetTypeName(DtoModelTemplate.TemplateId, dto)}List(_mapper))";
+            return results.MapToPagedResult(x => x.MapTo{_decorator.Template.GetTypeName(DtoModelTemplate.TemplateId, dto)}(_mapper));";
     }
 
     public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)

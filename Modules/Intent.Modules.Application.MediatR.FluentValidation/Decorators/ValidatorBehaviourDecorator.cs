@@ -24,6 +24,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Decorators
         {
             _template = template;
             _application = application;
+            _template.AddUsing("MediatR");
         }
         
         public void BeforeTemplateExecution()
@@ -58,7 +59,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Decorators
 
         public override string GetHandleReturnType()
         {
-            return "Task<TResponse>";
+            return "TResponse";
         }
 
         public override IEnumerable<string> GetHandleExitStatementList()

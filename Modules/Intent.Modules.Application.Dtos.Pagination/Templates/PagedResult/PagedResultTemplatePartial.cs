@@ -20,8 +20,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResult
         public const string TemplateId = "Intent.Application.Dtos.Pagination.PagedResult";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public PagedResultTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget,
-            model)
+        public PagedResultTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
