@@ -50,48 +50,41 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             _serviceConfigurations.Add(request);
         }
 
-        private IEnumerable<ServiceConfigurationRequest> GetRelevantServiceConfigurationRequests()
-        {
-            return _serviceConfigurations.Where(p => !p.IsHandled).ToArray();
-        }
-
-        public override void BeforeTemplateExecution()
-        {
-            foreach (var request in GetRelevantServiceConfigurationRequests())
-            {
-                foreach (var templateDependency in request.TemplateDependencies)
-                {
-                    var template = GetTemplate<IClassProvider>(templateDependency);
-                    if (template != null)
-                    {
-                        AddUsing(template.Namespace);
-                    }
-
-                    AddTemplateDependency(templateDependency);
-                }
-
-                foreach (var @namespace in request.RequiredNamespaces)
-                {
-                    AddUsing(@namespace);
-                }
-            }
-        }
-
-        public bool IsNetCore2App()
-        {
-            return OutputTarget.IsNetCore2App();
-        }
-
         private string GetServiceConfigurations(string baseIndent)
         {
             var serviceConfigElements = new List<(string Code, int Priority)>();
 
             serviceConfigElements.AddRange(GetDecorators()
                 .Select(s => (s.ConfigureServices(), s.Priority)));
-            serviceConfigElements.AddRange(GetRelevantServiceConfigurationRequests()
-                .Select(s => (GetExtensionMethodInvocationStatement(s), s.Priority)));
+
+            var serviceConfigurationRequests = _serviceConfigurations
+                .Where(x => !x.IsHandled)
+                .ToArray();
+
+            foreach (var request in serviceConfigurationRequests)
+            {
+                foreach (var dependency in request.TemplateDependencies)
+                {
+                    var classProvider = GetTemplate<IClassProvider>(dependency);
+
+                    AddTemplateDependency(dependency);
+                    AddUsing(classProvider.Namespace);
+                }
+
+                foreach (var @namespace in request.RequiredNamespaces)
+                {
+                    AddUsing(@namespace);
+                }
+
+                serviceConfigElements.Add((GetExtensionMethodInvocationStatement(request), request.Priority));
+            }
 
             return GetCodeInNeatLines(serviceConfigElements, baseIndent);
+        }
+
+        public bool IsNetCore2App()
+        {
+            return OutputTarget.IsNetCore2App();
         }
 
         private string GetExtensionMethodInvocationStatement(ServiceConfigurationRequest request)
@@ -265,24 +258,29 @@ app.UseEndpoints(endpoints =>
         //                                    $"{y}");
         //}
 
-        private IEnumerable<ContainerRegistrationRequest> GetServiceRegistrations()
-        {
-            return _registrations.Where(x => !x.IsHandled);
-        }
-
         public string Registrations()
         {
-            string registrations = string.Empty;
-            //if (_dbContextRegistrations.Any())
-            //{
-            //    registrations += $"{Environment.NewLine}            ConfigureDbContext(services);";
-            //}
+            var containerRegistrationRequests = _registrations
+                .Where(x => !x.IsHandled)
+                .ToArray();
 
-            registrations += GetServiceRegistrations().Any()
-                ? GetServiceRegistrations().Select(DefineServiceRegistration).Aggregate((x, y) => x + y)
-                : string.Empty;
+            foreach (var request in containerRegistrationRequests)
+            {
+                foreach (var dependency in request.TemplateDependencies)
+                {
+                    var classProvider = GetTemplate<IClassProvider>(dependency);
 
-            return registrations; // + Environment.NewLine + GetDecorators().Aggregate(x => x.Registrations());
+                    AddTemplateDependency(dependency);
+                    AddUsing(classProvider.Namespace);
+                }
+
+                foreach (var @namespace in request.RequiredNamespaces)
+                {
+                    AddUsing(@namespace);
+                }
+            }
+
+            return string.Concat(containerRegistrationRequests.Select(DefineServiceRegistration));
         }
 
         //public string Methods()
