@@ -34,18 +34,18 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.Name}",
+                className: $"{Model.Name.ToPascalCase()}",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
-        private string GetEnumLiterals(IEnumerable<EnumLiteralModel> literals)
+        private static string GetEnumLiterals(IEnumerable<EnumLiteralModel> literals)
         {
             return string.Join(@",
             ", literals.Select(GetEnumLiteral));
         }
 
-        private string GetEnumLiteral(EnumLiteralModel literal)
+        private static string GetEnumLiteral(EnumLiteralModel literal)
         {
             return $"{literal.Name}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
         }
