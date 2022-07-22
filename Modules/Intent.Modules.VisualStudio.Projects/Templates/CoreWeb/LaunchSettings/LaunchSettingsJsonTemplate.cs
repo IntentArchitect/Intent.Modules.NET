@@ -20,15 +20,22 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
     {
         private int _randomPort;
         private int _randomSslPort;
-        private ICollection<EnvironmentVariableRegistrationRequest> _environmentVariables = new List<EnvironmentVariableRegistrationRequest>();
+        private string _defaultLaunchUrlPath = string.Empty;
+
+        private ICollection<EnvironmentVariableRegistrationRequest> _environmentVariables =
+            new List<EnvironmentVariableRegistrationRequest>();
+
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
         public LaunchSettingsJsonTemplate(IProject project, IApplicationEventDispatcher applicationEventDispatcher)
             : base(Identifier, project, null)
         {
-            ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
-            ExecutionContext.EventDispatcher.Subscribe<LaunchProfileRegistrationRequest>(HandleLaunchProfileRegistration);
+            ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(
+                HandleEnvironmentVariable);
+            ExecutionContext.EventDispatcher.Subscribe<LaunchProfileRegistrationRequest>(
+                HandleLaunchProfileRegistration);
             applicationEventDispatcher.Subscribe(LaunchProfileRegistrationEvent.EventId, Handle);
+            ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(HandleDefaultLaunchUrlRequest);
         }
 
         public override string GetCorrelationId()
@@ -48,11 +55,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             Profiles.Add(@event.GetValue(LaunchProfileRegistrationEvent.ProfileNameKey), new Profile
             {
                 commandName = @event.GetValue(LaunchProfileRegistrationEvent.CommandNameKey),
-                launchBrowser = bool.TryParse(@event.GetValue(LaunchProfileRegistrationEvent.LaunchBrowserKey), out var launchBrowser) && launchBrowser,
+                launchBrowser = bool.TryParse(@event.GetValue(LaunchProfileRegistrationEvent.LaunchBrowserKey),
+                    out var launchBrowser) && launchBrowser,
                 launchUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.LaunchUrlKey),
                 applicationUrl = @event.TryGetValue(LaunchProfileRegistrationEvent.ApplicationUrl),
-                publishAllPorts = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.PublishAllPorts), out var publishAllPorts) && publishAllPorts,
-                useSSL = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSSL) && useSSL,
+                publishAllPorts = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.PublishAllPorts),
+                    out var publishAllPorts) && publishAllPorts,
+                useSSL = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSSL) &&
+                         useSSL,
             });
         }
 
@@ -94,6 +104,30 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             _environmentVariables.Add(request);
         }
 
+        private void HandleDefaultLaunchUrlRequest(DefaultLaunchUrlPathRequest request)
+        {
+            if (!request.IsApplicableTo(this))
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(_defaultLaunchUrlPath))
+            {
+                throw new InvalidOperationException("Default Launch Url Path was already set and is being set again.");
+            }
+
+            if (string.IsNullOrEmpty(request.UrlPath))
+            {
+                throw new ArgumentNullException(nameof(request.UrlPath));
+            }
+
+            _defaultLaunchUrlPath = request.UrlPath;
+            if (_defaultLaunchUrlPath.StartsWith("/"))
+            {
+                _defaultLaunchUrlPath = _defaultLaunchUrlPath.Remove(0, 1);
+            }
+        }
+
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
@@ -101,13 +135,17 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             {
                 _randomPort = new Random().Next(40000, 65535);
                 _randomSslPort = new Random().Next(44300, 44399);
-                ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent($"http://localhost:{_randomPort}/", _randomPort, _randomSslPort));
+                ExecutionContext.EventDispatcher.Publish(
+                    new HostingSettingsCreatedEvent($"http://localhost:{_randomPort}/", _randomPort, _randomSslPort));
             }
             else
             {
                 var appSettings = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(GetMetadata().GetFilePath()));
-                if (int.TryParse(appSettings["iisSettings"]?["iisExpress"]?["sslPort"]?.ToString(), out _randomSslPort) &&
-                    appSettings["iisSettings"]?["iisExpress"]?["applicationUrl"]?.ToString().Split(new[] { ':', '/' }, StringSplitOptions.RemoveEmptyEntries).Any(x => int.TryParse(x, out _randomPort)) == true)
+                if (int.TryParse(appSettings["iisSettings"]?["iisExpress"]?["sslPort"]?.ToString(),
+                        out _randomSslPort) &&
+                    appSettings["iisSettings"]?["iisExpress"]?["applicationUrl"]?.ToString()
+                        .Split(new[] { ':', '/' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Any(x => int.TryParse(x, out _randomPort)) == true)
                 {
                     ExecutionContext.EventDispatcher.Publish(new HostingSettingsCreatedEvent(
                         applicationUrl: appSettings["iisSettings"]["iisExpress"]["applicationUrl"].ToString(),
@@ -136,17 +174,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                     },
                     profiles = new Dictionary<string, Profile>()
                     {
-                        { "IIS Express", new Profile()
-                            {
-                                commandName = "IISExpress",
-                                launchBrowser = true,
-                            }
-                        },
-                        { Project.Name, new Profile()
+                        {
+                            Project.Name, new Profile()
                             {
                                 commandName = "Project",
                                 launchBrowser = true,
-                                applicationUrl = $"http://localhost:{_randomPort}/"
+                                applicationUrl = $"http://localhost:{_randomPort}/",
+                                launchUrl = _defaultLaunchUrlPath == null
+                                    ? null
+                                    : $"http://localhost:{_randomPort}/{_defaultLaunchUrlPath}"
+                            }
+                        },
+                        {
+                            "IIS Express", new Profile()
+                            {
+                                commandName = "IISExpress",
+                                launchBrowser = true,
+                                launchUrl = _defaultLaunchUrlPath == null
+                                    ? null
+                                    : $"http://localhost:{_randomPort}/{_defaultLaunchUrlPath}"
                             }
                         }
                     }
@@ -171,22 +217,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             {
                 if (config.profiles[profile.Key] == null)
                 {
-                    config.profiles[profile.Key] = JObject.FromObject(profile.Value, JsonSerializer.Create(new JsonSerializerSettings()
-                    {
-                        Formatting = Formatting.Indented,
-                        NullValueHandling = NullValueHandling.Ignore
-                    }));
+                    config.profiles[profile.Key] = JObject.FromObject(profile.Value, JsonSerializer.Create(
+                        new JsonSerializerSettings()
+                        {
+                            Formatting = Formatting.Indented,
+                            NullValueHandling = NullValueHandling.Ignore
+                        }));
                 }
             }
 
             // In case has not been set through an event, sets this be default.
-            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT", "Development", new[] { "IIS Express", Project.Name }));
+            _environmentVariables.Add(new EnvironmentVariableRegistrationRequest("ASPNETCORE_ENVIRONMENT",
+                "Development", new[] { "IIS Express", Project.Name }));
 
             foreach (var environmentVariable in _environmentVariables)
             {
                 foreach (var profile in (config.profiles as IEnumerable<dynamic>)
-                    .Where(x => environmentVariable.TargetProfiles == null || environmentVariable.TargetProfiles.Any(p => p == ((JProperty)x).Name))
-                    .Select(x => x.Value))
+                         .Where(x => environmentVariable.TargetProfiles == null ||
+                                     environmentVariable.TargetProfiles.Any(p => p == ((JProperty)x).Name))
+                         .Select(x => x.Value))
                 {
                     profile.environmentVariables ??= JObject.FromObject(new EnvironmentVariables());
                     ((dynamic)profile.environmentVariables)[environmentVariable.Key] ??= environmentVariable.Value;
@@ -208,7 +257,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                 fileName: "launchsettings",
                 fileExtension: "json",
                 relativeLocation: "Properties"
-                );
+            );
         }
     }
 
