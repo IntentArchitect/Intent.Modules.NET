@@ -61,5 +61,6 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.AzureFunctions/Intent.AzureFunctions.pkg.config" externalReference="022dbddc-276c-406b-81e6-5034ad64db72" />
+    <install target="Services" src="modelers/AzureFunctions Extension.designer.settings" externalReference="855ced69-036d-4282-96a6-c63f6b683cad" />
   </metadata>
 </package>

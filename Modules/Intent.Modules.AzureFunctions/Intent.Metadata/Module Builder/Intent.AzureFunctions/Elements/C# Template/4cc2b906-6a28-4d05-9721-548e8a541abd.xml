@@ -3,7 +3,7 @@
   <name>Startup</name>
   <display>Startup: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <order>5</order>
   <genericTypes />
   <typeReference id="88211696-123a-41e9-a7de-8caf706b55d7">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

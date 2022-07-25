@@ -3,7 +3,7 @@
   <name>AzureFunctionClass</name>
   <display>AzureFunctionClass: Custom</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <order>3</order>
   <genericTypes />
   <typeReference id="13f964b1-45d3-4b27-97af-9b65ead7c812">
     <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>

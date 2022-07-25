@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>855ced69-036d-4282-96a6-c63f6b683cad</id>
+  <name>AzureFunctions Extension</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <validateFunctionOverride>return (typeReference.typeId == null &amp;&amp; getStereotype("Azure Function")?.getProperty("Method").value === "GET") 
+    ? "Return Type required for HTTP GET Method" 
+    : "";</validateFunctionOverride>
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-name-changed">
+          <script>var httpVerb = element.getStereotype("Azure Function")?.getProperty("Method")?.value;
+if (!httpVerb) {
+    if (element.name.toLowerCase().startsWith("get") ||
+        element.name.toLowerCase().startsWith("find") ||
+        element.name.toLowerCase().startsWith("lookup") ||
+        element.name.toLowerCase().startsWith("search")) {
+        element.getStereotype("Azure Function")?.getProperty("Method")?.setValue("GET");
+    } else {
+        element.getStereotype("Azure Function")?.getProperty("Method")?.setValue("POST");
+    }
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+</settings>

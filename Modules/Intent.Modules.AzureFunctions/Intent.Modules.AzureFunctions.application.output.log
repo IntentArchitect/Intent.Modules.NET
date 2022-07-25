@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#740298f9-fc50-4f95-bd81-3e39260c995f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/OperationExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#e030c97a-e066-40a7-8188-808c275df3cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/OperationModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -54,6 +62,14 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>70100c30-0b7d-427d-92e8-ada8cb069d99</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#855ced69-036d-4282-96a6-c63f6b683cad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/AzureFunctions Extension.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureFunctions Extension.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
