@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#8802e51c-6189-4974-b648-4d3d21bc723c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>12250743-300e-4d8c-a619-9a24efd5e79f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#51c1f2c3-a8a3-4bf5-88bf-45a992c51dc8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/ServiceExtensionsModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceExtensionsModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>12250743-300e-4d8c-a619-9a24efd5e79f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#3c0211cf-82c8-4456-8924-5fef3e48e9f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/ServicesPackageExtensionModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServicesPackageExtensionModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>88688357-4cb8-4d2e-bac4-c8933061d70d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>88688357-4cb8-4d2e-bac4-c8933061d70d</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#88688357-4cb8-4d2e-bac4-c8933061d70d</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>938a8e10-a880-4a1b-983f-2e95b6304ce3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.DesignerSettings#564b5228-003c-4eb3-b7ad-8f6111b93f95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/CRUD Enhancements.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CRUD Enhancements.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>88688357-4cb8-4d2e-bac4-c8933061d70d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
