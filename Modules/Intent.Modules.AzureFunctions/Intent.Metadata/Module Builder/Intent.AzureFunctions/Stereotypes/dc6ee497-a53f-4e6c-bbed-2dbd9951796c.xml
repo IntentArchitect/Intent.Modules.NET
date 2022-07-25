@@ -32,12 +32,13 @@ return Type;</displayFunction>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder />
+      <defaultValue>Http Trigger</defaultValue>
       <valueOptions>
         <option>Http Trigger</option>
         <option>Service Bus Trigger</option>
       </valueOptions>
       <lookupTypes />
-      <isRequiredFunction>true</isRequiredFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="a1910492-781d-42ab-bb76-e5db6810240f">
       <comment />
@@ -56,7 +57,7 @@ return Type;</displayFunction>
       </valueOptions>
       <lookupTypes />
       <isActiveFunction>return Type === "Http Trigger";</isActiveFunction>
-      <isRequiredFunction>return Type === "Http Trigger";</isRequiredFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="8b1d6b10-b9c9-4562-a8cf-bf3eb9123621">
       <comment />
@@ -74,7 +75,7 @@ return Type;</displayFunction>
       </valueOptions>
       <lookupTypes />
       <isActiveFunction>return Type === "Http Trigger";</isActiveFunction>
-      <isRequiredFunction>return Type === "Http Trigger";</isRequiredFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="095baa56-16b2-4aaa-91e2-a43c1698b7e0">
       <comment />
@@ -98,7 +99,7 @@ return Type;</displayFunction>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return Type === "Service Bus Trigger";</isActiveFunction>
-      <isRequiredFunction>return Type === "Service Bus Trigger";</isRequiredFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="b2bfad15-1818-4fa5-86ec-15c34b3bd7ee">
       <comment />
@@ -110,6 +111,7 @@ return Type;</displayFunction>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return Type === "Service Bus Trigger";</isActiveFunction>
+      <isRequiredFunction />
     </property>
   </properties>
 </stereotypeDefinition>

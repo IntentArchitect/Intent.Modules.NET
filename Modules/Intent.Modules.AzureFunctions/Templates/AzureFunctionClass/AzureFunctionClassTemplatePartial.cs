@@ -26,7 +26,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private readonly bool _hasMultipleServices;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
+        public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId,
+            outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
@@ -51,10 +52,14 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
+            var additionalFolders = _hasMultipleServices
+                ? new[] { Model.ParentService.Name.ToPascalCase() }
+                : Array.Empty<string>();
+            
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: GetRelativeLocation());
+                @namespace: $"{this.GetNamespace(additionalFolders)}",
+                relativeLocation: this.GetFolderPath(additionalFolders));
         }
 
         public override void BeforeTemplateExecution()
@@ -68,11 +73,9 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             }
         }
 
-        private string GetRelativeLocation()
+        private string GetFunctionName()
         {
-            return _hasMultipleServices
-                ? Path.Join(this.GetFolderPath(), Model.ParentService.Name)
-                : this.GetFolderPath();
+            return $"{Model.ParentService.Name.ToPascalCase()}-{Model.Name.ToPascalCase()}";
         }
 
         private string GetClassEntryDefinitionList()
@@ -270,10 +273,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return param.TypeReference.Element.AsDTOModel();
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.TypeReference.Element.AsDTOModel();
+                }
             }
         }
 
@@ -289,10 +292,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 case > 1:
                     throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
                 default:
-                    {
-                        var param = dtoParams.First();
-                        return param.Name.ToParameterName();
-                    }
+                {
+                    var param = dtoParams.First();
+                    return param.Name.ToParameterName();
+                }
             }
         }
 

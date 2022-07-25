@@ -69,6 +69,14 @@ async function setStereotype(operation, verb, route) {
     await dialogService.error("Could not determine Stereotype to update, please contact Intent Architect Support.");
 }
 
+function getServiceName(entity) {
+    return `${pluralize(toPascalCase(entity.getName()))}Service`;
+}
+
+function getServiceNameForRoute(entity) {
+    return entity.getName().toLowerCase();
+}
+
 let options = lookupTypesOf("Class");
 if (options.length == 0) {
     await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package.");
@@ -89,7 +97,7 @@ const entityName = entity.name;
 // Auto detect if we're running in the context of a service or package
 const service = element.specialization === "Service"
     ? element
-    : createElement("Service", `${pluralize(toPascalCase(entity.getName()))}Service`, element.id);
+    : createElement("Service", getServiceName(entity), element.id);
 
 // SET UP FOLDER:
 var existing = service.getParent().getChildren("Folder").find(x =&gt; x.name == pluralize(entityName));
@@ -108,7 +116,7 @@ for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStere
 let createOperation = createElement("Operation", "Create", service.id);
 let createOperationParam = createElement("Parameter", "dto", createOperation.id);
 createOperationParam.typeReference.setType(createDTO.id);
-await setStereotype(createOperation, "POST", null);
+await setStereotype(createOperation, "POST", getServiceNameForRoute(entity));
 createOperation.collapse();
 
 // FIND-BY-ID
@@ -140,19 +148,19 @@ for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStere
     field.typeReference.setIsCollection(attribute.typeReference.isCollection);
     field.setMapping(attribute.id);
 }
-await setStereotype(findByIdOperation, "GET", "{id}");
+await setStereotype(findByIdOperation, "GET", `${getServiceNameForRoute(entity)}/{id}`);
 findByIdOperation.collapse();
 
 // FIND-ALL:
 let findByAllOperation = createElement("Operation", "FindAll", service.id);
 findByAllOperation.typeReference.setType(dto.id);
 findByAllOperation.typeReference.setIsCollection(true);
-await setStereotype(findByAllOperation, "GET", null);
+await setStereotype(findByAllOperation, "GET", getServiceNameForRoute(entity));
 findByAllOperation.collapse();
 
 // UPDATE OPERATION AND DTO:
 let updateOperation = createElement("Operation", "Update", service.id);
-await setStereotype(updateOperation, "PUT", "{id}");
+await setStereotype(updateOperation, "PUT", `${getServiceNameForRoute(entity)}/{id}`);
 
 let updateDTO = createElement("DTO", `${entityName}UpdateDTO`, folder.id);
 
@@ -195,7 +203,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
         param.typeReference.setType(attribute.typeReference.typeId);
     }
 }
-await setStereotype(deleteOperation, "DELETE", "{id}");
+await setStereotype(deleteOperation, "DELETE", `${getServiceNameForRoute(entity)}/{id}`);
 deleteOperation.collapse();
 </script>
         </option>
@@ -268,6 +276,14 @@ async function setStereotype(operation, verb, route) {
     await dialogService.error("Could not determine Stereotype to update, please contact Intent Architect Support.");
 }
 
+function getServiceName(entity) {
+    return `${pluralize(toPascalCase(entity.getName()))}Service`;
+}
+
+function getServiceNameForRoute(entity) {
+    return entity.getName().toLowerCase();
+}
+
 let options = lookupTypesOf("Class");
 if (options.length == 0) {
     await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package.");
@@ -288,7 +304,7 @@ const entityName = entity.name;
 // Auto detect if we're running in the context of a service or package
 const service = element.specialization === "Service"
     ? element
-    : createElement("Service", `${pluralize(toPascalCase(entity.getName()))}Service`, element.id);
+    : createElement("Service", getServiceName(entity), element.id);
 
 // SET UP FOLDER:
 var existing = service.getParent().getChildren("Folder").find(x =&gt; x.name == pluralize(entityName));
@@ -307,7 +323,7 @@ for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStere
 let createOperation = createElement("Operation", "Create", service.id);
 let createOperationParam = createElement("Parameter", "dto", createOperation.id);
 createOperationParam.typeReference.setType(createDTO.id);
-await setStereotype(createOperation, "POST", null);
+await setStereotype(createOperation, "POST", getServiceNameForRoute(entity));
 createOperation.collapse();
 
 // FIND-BY-ID
@@ -339,19 +355,19 @@ for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStere
     field.typeReference.setIsCollection(attribute.typeReference.isCollection);
     field.setMapping(attribute.id);
 }
-await setStereotype(findByIdOperation, "GET", "{id}");
+await setStereotype(findByIdOperation, "GET", `${getServiceNameForRoute(entity)}/{id}`);
 findByIdOperation.collapse();
 
 // FIND-ALL:
 let findByAllOperation = createElement("Operation", "FindAll", service.id);
 findByAllOperation.typeReference.setType(dto.id);
 findByAllOperation.typeReference.setIsCollection(true);
-await setStereotype(findByAllOperation, "GET", null);
+await setStereotype(findByAllOperation, "GET", getServiceNameForRoute(entity));
 findByAllOperation.collapse();
 
 // UPDATE OPERATION AND DTO:
 let updateOperation = createElement("Operation", "Update", service.id);
-await setStereotype(updateOperation, "PUT", "{id}");
+await setStereotype(updateOperation, "PUT", `${getServiceNameForRoute(entity)}/{id}`);
 
 let updateDTO = createElement("DTO", `${entityName}UpdateDTO`, folder.id);
 
@@ -394,7 +410,7 @@ if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"
         param.typeReference.setType(attribute.typeReference.typeId);
     }
 }
-await setStereotype(deleteOperation, "DELETE", "{id}");
+await setStereotype(deleteOperation, "DELETE", `${getServiceNameForRoute(entity)}/{id}`);
 deleteOperation.collapse();
 </script>
         </option>

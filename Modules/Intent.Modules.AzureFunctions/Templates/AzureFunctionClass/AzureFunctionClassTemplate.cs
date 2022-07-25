@@ -80,7 +80,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             this.Write("\r\n        }\r\n\r\n        [FunctionName(\"");
             
             #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions\Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetFunctionName()));
             
             #line default
             #line hidden
