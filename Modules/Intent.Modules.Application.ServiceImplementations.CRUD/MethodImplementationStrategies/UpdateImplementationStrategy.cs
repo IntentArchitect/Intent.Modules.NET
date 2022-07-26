@@ -32,64 +32,81 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
-            if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
-                                                    string.Equals(p.Name, $"{lowerDomainName}Id", StringComparison.InvariantCultureIgnoreCase)))
+            if (!operationModel.Parameters
+                    .Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase)
+                              || string.Equals(p.Name, $"{lowerDomainName}Id",
+                                  StringComparison.InvariantCultureIgnoreCase)))
             {
                 return false;
             }
 
-            if (operationModel.TypeReference.Element != null)
+            if (operationModel.TypeReference?.Element != null)
+            {
+                return false;
+            }
+
+            if (!_decorator.HasEntityRepositoryInterfaceName(domainModel))
             {
                 return false;
             }
 
             return new[]
-            {
-                "put",
-                $"put{lowerDomainName}",
-                "update",
-                $"update{lowerDomainName}",
-            }
-            .Contains(lowerOperationName);
+                {
+                    "put",
+                    $"put{lowerDomainName}",
+                    "update",
+                    $"update{lowerDomainName}",
+                }
+                .Contains(lowerOperationName);
         }
 
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            var idParam = operationModel.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
-            var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
+            var idParam =
+                operationModel.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
+            var dtoParam =
+                operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
 
-            return $@"var existing{domainModel.Name} ={ (operationModel.IsAsync() ? " await" : "") } {domainModel.Name.ToPrivateMember()}Repository.FindById{ (operationModel.IsAsync() ? "Async" : "") }({idParam.Name});
-                {EmitPropertyAssignments(domainModel, "existing"+ domainModel.Name, dtoParam)}";
+            return
+                $@"var existing{domainModel.Name} ={(operationModel.IsAsync() ? " await" : "")} {domainModel.Name.ToPrivateMemberName()}Repository.FindById{(operationModel.IsAsync() ? "Async" : "")}({idParam.Name});
+                {GetPropertyAssignments(domainModel, "existing" + domainModel.Name, dtoParam)}";
         }
 
-        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
+        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel)
         {
-            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, targetEntity);
+            var repo = _decorator.GetEntityRepositoryInterfaceName(domainModel);
             return new[]
             {
                 new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),
             };
         }
 
-        private string EmitPropertyAssignments(ClassModel domainModel, string domainVarName, ParameterModel operationParameterModel)
+        private string GetPropertyAssignments(ClassModel domainModel, string domainVarName,
+            ParameterModel operationParameterModel)
         {
             var sb = new StringBuilder();
             var dto = _decorator.FindDTOModel(operationParameterModel.TypeReference.Element.Id);
             foreach (var dtoField in dto.Fields)
             {
-                var domainAttribute = domainModel.Attributes.FirstOrDefault(p => p.Name.Equals(dtoField.Name, StringComparison.OrdinalIgnoreCase));
+                var domainAttribute = domainModel.Attributes.FirstOrDefault(p =>
+                    p.Name.Equals(dtoField.Name, StringComparison.OrdinalIgnoreCase));
                 if (domainAttribute == null)
                 {
                     sb.AppendLine($"                    #warning No matching field found for {dtoField.Name}");
                     continue;
                 }
+
                 if (domainAttribute.Type.Element.Id != dtoField.TypeReference.Element.Id)
                 {
-                    sb.AppendLine($"                    #warning No matching type for Domain: {domainAttribute.Name} and DTO: {dtoField.Name}");
+                    sb.AppendLine(
+                        $"                    #warning No matching type for Domain: {domainAttribute.Name} and DTO: {dtoField.Name}");
                     continue;
                 }
-                sb.AppendLine($"                    {domainVarName}.{domainAttribute.Name.ToPascalCase()} = {operationParameterModel.Name}.{dtoField.Name.ToPascalCase()};");
+
+                sb.AppendLine(
+                    $"                    {domainVarName}.{domainAttribute.Name.ToPascalCase()} = {operationParameterModel.Name}.{dtoField.Name.ToPascalCase()};");
             }
+
             return sb.ToString().Trim();
         }
     }

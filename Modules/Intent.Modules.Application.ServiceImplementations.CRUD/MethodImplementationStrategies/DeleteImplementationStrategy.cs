@@ -30,8 +30,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
-            if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
-                                                    string.Equals(p.Name, $"{lowerDomainName}Id", StringComparison.InvariantCultureIgnoreCase)))
+            if (!operationModel.Parameters
+                    .Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase)
+                              || string.Equals(p.Name, $"{lowerDomainName}Id",
+                                  StringComparison.InvariantCultureIgnoreCase)))
             {
                 return false;
             }
@@ -40,24 +42,30 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 return false;
             }
+            
+            if (!_decorator.HasEntityRepositoryInterfaceName(domainModel))
+            {
+                return false;
+            }
 
             return new[]
-            {
-                "delete",
-                $"delete{lowerDomainName}"
-            }
-            .Contains(lowerOperationName);
+                {
+                    "delete",
+                    $"delete{lowerDomainName}"
+                }
+                .Contains(lowerOperationName);
         }
 
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            return $@"var existing{domainModel.Name} ={ (operationModel.IsAsync() ? " await" : "") } {domainModel.Name.ToPrivateMember()}Repository.FindById{ (operationModel.IsAsync() ? "Async" : "") }({operationModel.Parameters.Single().Name.ToCamelCase()});
-                {domainModel.Name.ToPrivateMember()}Repository.Remove(existing{domainModel.Name});";
+            return
+                $@"var existing{domainModel.Name} ={(operationModel.IsAsync() ? " await" : "")} {domainModel.Name.ToPrivateMemberName()}Repository.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()});
+                {domainModel.Name.ToPrivateMemberName()}Repository.Remove(existing{domainModel.Name});";
         }
 
-        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
+        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel)
         {
-            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, targetEntity);
+            var repo = _decorator.GetEntityRepositoryInterfaceName(domainModel);
             return new[]
             {
                 new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),

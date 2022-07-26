@@ -32,8 +32,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
-            if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
-                                                    string.Equals(p.Name, $"{entityName}Id", StringComparison.InvariantCultureIgnoreCase)))
+            if (!operationModel.Parameters.Any(p =>
+                    string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
+                    string.Equals(p.Name, $"{entityName}Id", StringComparison.InvariantCultureIgnoreCase)))
             {
                 return false;
             }
@@ -43,31 +44,35 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
+            if (!_decorator.HasEntityRepositoryInterfaceName(domainModel)
+                || !_decorator.HasDtoName(operationModel.TypeReference?.Element))
+            {
+                return false;
+            }
 
             return new[]
-            {
-                "get",
-                $"get{entityName}",
-                "find",
-                "findbyid",
-                $"find{entityName}",
-                $"find{entityName}byid",
-                entityName
-            }
-            .Contains(lowerOperationName);
+                {
+                    "get",
+                    $"get{entityName}",
+                    "find",
+                    "findbyid",
+                    $"find{entityName}",
+                    $"find{entityName}byid",
+                    entityName
+                }
+                .Contains(lowerOperationName);
         }
 
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            var dto = _decorator.FindDTOModel(operationModel.TypeReference.Element.Id);
-
-            return $@"var element ={ (operationModel.IsAsync() ? " await" : "") } {domainModel.Name.ToPrivateMember()}Repository.FindById{ (operationModel.IsAsync() ? "Async" : "") }({operationModel.Parameters.First().Name.ToCamelCase()});
-            return element.MapTo{_decorator.Template.GetTypeName(DtoModelTemplate.TemplateId, dto)}(_mapper);";
+            return
+                $@"var element ={(operationModel.IsAsync() ? " await" : "")} {domainModel.Name.ToPrivateMemberName()}Repository.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.First().Name.ToCamelCase()});
+            return element.MapTo{_decorator.GetDtoName(operationModel.TypeReference.Element)}(_mapper);";
         }
 
-        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
+        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel)
         {
-            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, targetEntity);
+            var repo = _decorator.GetEntityRepositoryInterfaceName(domainModel);
             return new[]
             {
                 new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),

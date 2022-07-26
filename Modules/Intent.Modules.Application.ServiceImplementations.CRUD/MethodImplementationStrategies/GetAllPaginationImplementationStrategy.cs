@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Decorators;
@@ -25,10 +26,16 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
 
     public bool Match(ClassModel domainModel, OperationModel operationModel)
     {
-        return operationModel.Parameters.Any(IsPageNumberParam)
-               && operationModel.Parameters.Any(IsPageSizeParam)
-               && operationModel.ReturnType.Element.Name == "PagedResult"
-               && operationModel.ReturnType.GenericTypeParameters.Any();
+        if (!operationModel.Parameters.Any(IsPageNumberParam)
+             || !operationModel.Parameters.Any(IsPageSizeParam)
+             || operationModel.ReturnType.Element.Name != "PagedResult"
+             || !operationModel.ReturnType.GenericTypeParameters.Any())
+        {
+            return false;
+        }
+        
+        return _decorator.HasEntityRepositoryInterfaceName(domainModel) 
+               && _decorator.HasDtoName(operationModel.TypeReference.GenericTypeParameters.First().Element);
     }
 
     private bool IsPageNumberParam(ParameterModel param)
@@ -71,18 +78,17 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
     {
         var pageNumberVar = operationModel.Parameters.Single(IsPageNumberParam);
         var pageSizeVar = operationModel.Parameters.Single(IsPageSizeParam);
-        var genericDtoTypeId = operationModel.TypeReference.GenericTypeParameters.First().Element.Id;
-        var dto = _decorator.FindDTOModel(genericDtoTypeId);
+        var genericDtoType = operationModel.TypeReference.GenericTypeParameters.First().Element;
         return
             $@"var results = {(operationModel.IsAsync() ? " await" : string.Empty)} {domainModel.Name.ToPrivateMemberName()}Repository.FindAll{(operationModel.IsAsync() ? "Async" : "")}(
                 pageNo: {pageNumberVar.Name.ToParameterName()},
                 pageSize: {pageSizeVar.Name.ToParameterName()});
-            return results.MapToPagedResult(x => x.MapTo{_decorator.Template.GetTypeName(DtoModelTemplate.TemplateId, dto)}(_mapper));";
+            return results.MapToPagedResult(x => x.MapTo{_decorator.GetDtoName(genericDtoType)}(_mapper));";
     }
 
-    public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
+    public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel)
     {
-        var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, targetEntity);
+        var repo = _decorator.GetEntityRepositoryInterfaceName(domainModel);
         return new[]
         {
             new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),

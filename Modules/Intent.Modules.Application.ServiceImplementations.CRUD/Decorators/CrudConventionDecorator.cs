@@ -89,14 +89,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Dec
         private ClassModel GetDomainForService(ServiceModel service)
         {
             var serviceIdentifier = service.Name.RemoveSuffix("RestController", "Controller", "Service", "Manager").ToLower();
-            var entities = _application.MetadataManager.Domain(Template.Project.Application).GetClassModels();
+            var entities = _application.MetadataManager.Domain(_application).GetClassModels();
             return entities.SingleOrDefault(e => e.Name.Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase) ||
                                                  e.Name.Pluralize().Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase));
         }
 
         public DTOModel FindDTOModel(string elementId)
         {
-            return _application.MetadataManager.Services(Template.Project.Application).GetDTOModels().First(p => p.Id == elementId);
+            return _application.MetadataManager.Services(_application).GetDTOModels().First(p => p.Id == elementId);
         }
     }
 }

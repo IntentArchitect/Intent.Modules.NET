@@ -6,10 +6,10 @@ using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
-    public interface IImplementationStrategy
+    interface IImplementationStrategy
     {
         bool Match(ClassModel domainModel, OperationModel operationModel);
         string GetImplementation(ClassModel domainModel, OperationModel operationModel);
-        IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity);
+        IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel);
     }
 }

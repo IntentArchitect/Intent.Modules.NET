@@ -30,7 +30,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
-            if (operationModel.TypeReference.Element != null && !_decorator.Template.GetTypeInfo(operationModel.TypeReference).IsPrimitive)
+            if (operationModel.TypeReference.Element != null &&
+                !_decorator.Template.GetTypeInfo(operationModel.TypeReference).IsPrimitive)
+            {
+                return false;
+            }
+
+            if (!_decorator.HasDomainEntityName(domainModel)
+                || !_decorator.HasEntityRepositoryInterfaceName(domainModel))
             {
                 return false;
             }
@@ -38,39 +45,39 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var lowerDomainName = domainModel.Name.ToLower();
             var lowerOperationName = operationModel.Name.ToLower();
             return new[]
-            {
-                "post",
-                $"post{lowerDomainName}",
-                "create",
-                $"create{lowerDomainName}",
-                $"add{lowerDomainName}",
-            }
-            .Contains(lowerOperationName);
+                {
+                    "post",
+                    $"post{lowerDomainName}",
+                    "create",
+                    $"create{lowerDomainName}",
+                    $"add{lowerDomainName}",
+                }
+                .Contains(lowerOperationName);
         }
 
         public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
         {
-            var entityName = _decorator.Template.GetTypeName("Domain.Entity", domainModel, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+            var entityName = _decorator.GetDomainEntityName(domainModel);
             var impl = $@"var new{domainModel.Name} = new {entityName ?? domainModel.Name}
                 {{
 {GetPropertyAssignments(domainModel, operationModel.Parameters.First())}
                 }};
                 
-                {domainModel.Name.ToPrivateMember()}Repository.Add(new{domainModel.Name});";
+                {domainModel.Name.ToPrivateMemberName()}Repository.Add(new{domainModel.Name});";
 
             if (operationModel.TypeReference.Element != null)
             {
                 impl += $@"
-                await {domainModel.Name.ToPrivateMember()}Repository.UnitOfWork.SaveChangesAsync();
+                await {domainModel.Name.ToPrivateMemberName()}Repository.UnitOfWork.SaveChangesAsync();
                 return new{domainModel.Name}.Id;";
             }
 
             return impl;
         }
 
-        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel targetEntity)
+        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel)
         {
-            var repo = _decorator.Template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, targetEntity);
+            var repo = _decorator.GetEntityRepositoryInterfaceName(domainModel);
             return new[]
             {
                 new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),
@@ -83,18 +90,23 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var dto = _decorator.FindDTOModel(operationParameterModel.TypeReference.Element.Id);
             foreach (var dtoField in dto.Fields)
             {
-                var domainAttribute = domainModel.Attributes.FirstOrDefault(p => p.Name.Equals(dtoField.Name, StringComparison.OrdinalIgnoreCase));
+                var domainAttribute = domainModel.Attributes.FirstOrDefault(p =>
+                    p.Name.Equals(dtoField.Name, StringComparison.OrdinalIgnoreCase));
                 if (domainAttribute == null)
                 {
                     sb.AppendLine($"                    #warning No matching field found for {dtoField.Name}");
                     continue;
                 }
+
                 if (domainAttribute.Type.Element.Id != dtoField.TypeReference.Element.Id)
                 {
-                    sb.AppendLine($"                    #warning No matching type for Domain: {domainAttribute.Name} and DTO: {dtoField.Name}");
+                    sb.AppendLine(
+                        $"                    #warning No matching type for Domain: {domainAttribute.Name} and DTO: {dtoField.Name}");
                     continue;
                 }
-                sb.AppendLine($"                    {domainAttribute.Name.ToPascalCase()} = {operationParameterModel.Name}.{dtoField.Name.ToPascalCase()},");
+
+                sb.AppendLine(
+                    $"                    {domainAttribute.Name.ToPascalCase()} = {operationParameterModel.Name}.{dtoField.Name.ToPascalCase()},");
             }
 
             return sb.ToString().Trim();
