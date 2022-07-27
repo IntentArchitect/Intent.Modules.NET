@@ -61,7 +61,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 impl += $@"
                 await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);
-                return new{foundEntity.Name}.{foundEntity.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name ?? "Id"};";
+                return new{foundEntity.Name}.{foundEntity.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};";
             }
             else
             {
