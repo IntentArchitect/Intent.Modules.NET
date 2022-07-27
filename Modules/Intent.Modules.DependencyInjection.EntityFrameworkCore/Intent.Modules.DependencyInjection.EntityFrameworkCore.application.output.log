@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#824d7988-daed-4837-8cc9-e0a473a1c346</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7a8858e1-6ee2-4df4-8a03-4382c1eb63f0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#96afbf9c-4eee-47eb-9c0e-cf05130350cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreDependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCoreDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>7a8858e1-6ee2-4df4-8a03-4382c1eb63f0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#96afbf9c-4eee-47eb-9c0e-cf05130350cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreDependencyInjectionDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCoreDependencyInjectionDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>b9af8d74-7ab3-45e7-8a0d-eeef2b532474</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.DependencyInjection.EntityFrameworkCore.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.DependencyInjection.EntityFrameworkCore.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>b9af8d74-7ab3-45e7-8a0d-eeef2b532474</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b9af8d74-7ab3-45e7-8a0d-eeef2b532474</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.DependencyInjection.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.DependencyInjection.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>b9af8d74-7ab3-45e7-8a0d-eeef2b532474</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>becf4998-d344-4774-a4b1-74ba42fe14c8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

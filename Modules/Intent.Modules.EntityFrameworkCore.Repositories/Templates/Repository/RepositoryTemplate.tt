@@ -34,14 +34,14 @@ namespace <#= Namespace #>
 
 
         [IntentManaged(Mode.Fully)]
-        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> id, CancellationToken cancellationToken = default)
+        public async Task<<#= EntityInterfaceName #>> FindByIdAsync(<#= PrimaryKeyType #> <#= PrimaryKeyName.ToCamelCase() #>, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.<#= PrimaryKeyName #> == <#= PrimaryKeyName.ToCamelCase() #>, cancellationToken);
         }
 
 
         [IntentManaged(Mode.Fully)]
-        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<<#= EntityInterfaceName #>>> FindByIdsAsync(<#= PrimaryKeyType #>[] <#= PrimaryKeyName.ToCamelCase().Pluralize() #>, CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => <#= PrimaryKeyName.ToCamelCase().Pluralize() #>.Contains(x.<#= PrimaryKeyName #>), cancellationToken);
         }

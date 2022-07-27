@@ -91,13 +91,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 case ControllerTemplate.HttpVerb.GET:
                     return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
                 case ControllerTemplate.HttpVerb.POST:
+                    var getByIdOperation = _template.Model.Operations.FirstOrDefault(x => (x.Name == "Get" || x.Name == $"Get{operationModel.Name.Replace("Create", "")}") && x.Parameters.FirstOrDefault()?.Name == "id");
+                    if (getByIdOperation != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
+                    {
+                        return $@"return CreatedAtAction(nameof(Get), new {{ id = result }}, new {{ Id = result }});";
+                    }
                     return operationModel.ReturnType == null ? $@"return Created(string.Empty, null);" : $@"return Created(string.Empty, result);";
                 case ControllerTemplate.HttpVerb.PUT:
+                case ControllerTemplate.HttpVerb.PATCH:
                     return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
                 case ControllerTemplate.HttpVerb.DELETE:
                     return operationModel.ReturnType == null ? $@"return Ok();" : $@"return Ok(result);";
-                case ControllerTemplate.HttpVerb.PATCH:
-                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }

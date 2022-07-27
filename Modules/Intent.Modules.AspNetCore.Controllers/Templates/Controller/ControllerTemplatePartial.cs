@@ -114,14 +114,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 case HttpVerb.POST:
                     lines.Add($"/// <response code=\"201\">Successfully created.</response>");
                     break;
+                case HttpVerb.PATCH:
                 case HttpVerb.PUT:
                     lines.Add($"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
                     break;
                 case HttpVerb.DELETE:
                     lines.Add($"/// <response code=\"200\">Successfully deleted.</response>");
-                    break;
-                case HttpVerb.PATCH:
-                    lines.Add($"/// <response code=\"201\">Successfully patched.</response>");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -336,8 +334,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             GET,
             POST,
             PUT,
-            DELETE,
-            PATCH
+            PATCH,
+            DELETE
         }
     }
 }

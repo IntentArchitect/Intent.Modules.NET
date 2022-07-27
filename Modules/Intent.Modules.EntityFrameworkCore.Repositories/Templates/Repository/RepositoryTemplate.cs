@@ -121,8 +121,15 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             
             #line default
             #line hidden
-            this.Write(" id, CancellationToken cancellationToken = default)\r\n        {\r\n            retur" +
-                    "n await FindAsync(x => x.");
+            this.Write(" ");
+            
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(", CancellationToken cancellationToken = default)\r\n        {\r\n            return a" +
+                    "wait FindAsync(x => x.");
             
             #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName));
@@ -151,8 +158,15 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             
             #line default
             #line hidden
-            this.Write("[] ids, CancellationToken cancellationToken = default)\r\n        {\r\n            re" +
-                    "turn await FindAllAsync(x => ");
+            this.Write("[] ");
+            
+            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase().Pluralize()));
+            
+            #line default
+            #line hidden
+            this.Write(", CancellationToken cancellationToken = default)\r\n        {\r\n            return a" +
+                    "wait FindAllAsync(x => ");
             
             #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore.Repositories\Templates\Repository\RepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PrimaryKeyName.ToCamelCase().Pluralize()));

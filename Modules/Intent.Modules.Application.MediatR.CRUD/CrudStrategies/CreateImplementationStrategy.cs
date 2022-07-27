@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
@@ -75,7 +76,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 impl += $@"
                 await {_repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);
-                return new{_foundEntity.Name}.Id;";
+                return new{_foundEntity.Name}.{_foundEntity.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name ?? "Id"};";
             }
             else
             {

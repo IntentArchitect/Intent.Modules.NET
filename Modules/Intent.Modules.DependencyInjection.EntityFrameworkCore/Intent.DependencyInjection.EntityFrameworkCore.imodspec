@@ -23,7 +23,9 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <metadata />
+  <metadata>
+    <install src="Intent.Metadata/Module Builder/Intent.DependencyInjection.EntityFrameworkCore/Intent.DependencyInjection.EntityFrameworkCore.pkg.config" externalReference="2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc" />
+  </metadata>
   <moduleSettings />
   <moduleSettingsExtensions>
     <groupExtension id="345c988e-69d3-44cf-af23-b67c8d8f3976" groupId="ac0a788e-d8b3-4eea-b56d-538608f1ded9" externalReference="345c988e-69d3-44cf-af23-b67c8d8f3976">

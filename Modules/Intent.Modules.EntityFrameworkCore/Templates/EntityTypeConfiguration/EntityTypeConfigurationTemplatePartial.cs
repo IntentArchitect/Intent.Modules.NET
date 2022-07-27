@@ -334,7 +334,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         _ownedTypeConfigMethods.Add(@$"
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element, null)}, {GetTypeName((IElement)associationEnd.Element, null)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey(x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}Id);{
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey({GetForeignKeyLambda(associationEnd)});{
             string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
