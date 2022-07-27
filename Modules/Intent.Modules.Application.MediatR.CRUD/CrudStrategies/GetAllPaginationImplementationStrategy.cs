@@ -18,7 +18,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
     private readonly QueryHandlerTemplate _template;
     private readonly IApplication _application;
     private readonly IMetadataManager _metadataManager;
-    private readonly Lazy<(bool IsMatch, DTOModel DtoModel, RequiredService Repository)> _matchingElementDetails;
+    private readonly Lazy<StrategyData> _matchingElementDetails;
 
     public GetAllPaginationImplementationStrategy(QueryHandlerTemplate template, IApplication application,
         IMetadataManager metadataManager)
@@ -26,7 +26,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
         _template = template;
         _application = application;
         _metadataManager = metadataManager;
-        _matchingElementDetails = new Lazy<(bool IsMatch, DTOModel DtoModel, RequiredService Repository)>(GetMatchingElementDetails);
+        _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
     }
 
     public bool IsMatch()
@@ -54,38 +54,37 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
                 pageNo: request.{pageNumberVar.Name.ToPascalCase()},
                 pageSize: request.{pageSizeVar.Name.ToPascalCase()},
                 cancellationToken: cancellationToken);
-            return results.MapToPagedResult(x => x.MapTo{_template.GetTypeName("Application.Contract.Dto", _matchingElementDetails.Value.DtoModel)}(_mapper));";
+            return results.MapToPagedResult(x => x.MapTo{_template.GetDtoName(_matchingElementDetails.Value.DtoModel)}(_mapper));";
     }
-        
-    private (bool IsMatch, DTOModel DtoModel, RequiredService Repository) GetMatchingElementDetails()
+
+    private StrategyData GetMatchingElementDetails()
     {
         if (_template.Model.TypeReference.Element.Name != "PagedResult")
         {
-            return (IsMatch: false, DtoModel: null, Repository: null);
+            return NoMatch;
         }
 
         var nestedDtoModel = _template.Model.TypeReference.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel();
         if (nestedDtoModel == null)
         {
-            return (IsMatch: false, DtoModel: null, Repository: null);
+            return NoMatch;
         }
 
         var mappedDomainEntity = nestedDtoModel.IsMapped ? nestedDtoModel.Mapping.Element.AsClassModel() : null;
         if (mappedDomainEntity == null)
         {
-            return (IsMatch: false, DtoModel: null, Repository: null);
+            return NoMatch;
         }
 
-        var repositoryInterface = _template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, mappedDomainEntity,
-            new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+        var repositoryInterface = _template.GetEntityRepositoryInterfaceName(mappedDomainEntity);
         if (repositoryInterface == null)
         {
-            return (IsMatch: false, DtoModel: null, Repository: null);
+            return NoMatch;
         }
 
         var repository = new RequiredService(type: repositoryInterface,
             name: repositoryInterface.Substring(1).ToCamelCase());
-        return (IsMatch: true, DtoModel: nestedDtoModel, Repository: repository);
+        return new StrategyData(true, nestedDtoModel, repository);
     }
 
     private bool IsPageNumberParam(DTOFieldModel param)
@@ -122,5 +121,21 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
         }
 
         return false;
+    }
+
+    private static readonly StrategyData NoMatch = new StrategyData(false, null, null);
+
+    private class StrategyData
+    {
+        public StrategyData(bool isMatch, DTOModel dtoModel, RequiredService repository)
+        {
+            IsMatch = isMatch;
+            DtoModel = dtoModel;
+            Repository = repository;
+        }
+
+        public bool IsMatch { get; }
+        public DTOModel DtoModel { get; }
+        public RequiredService Repository { get; }
     }
 }

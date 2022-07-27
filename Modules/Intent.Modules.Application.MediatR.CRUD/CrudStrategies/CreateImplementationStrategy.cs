@@ -19,64 +19,49 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private readonly CommandHandlerTemplate _template;
         private readonly IApplication _application;
         private readonly IMetadataManager _metadataManager;
-        private ClassModel _foundEntity;
-        private RequiredService _repository;
 
-        public CreateImplementationStrategy(CommandHandlerTemplate template, IApplication application, IMetadataManager metadataManager)
+        private readonly Lazy<StrategyData> _matchingElementDetails;
+
+        public CreateImplementationStrategy(CommandHandlerTemplate template, IApplication application,
+            IMetadataManager metadataManager)
         {
             _template = template;
             _application = application;
             _metadataManager = metadataManager;
+            _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
         }
 
         public bool IsMatch()
         {
-            var matchingEntities = _metadataManager.Domain(_application).GetClassModels().Where(x => new[]
-            {
-                $"add{x.Name.ToLower()}",
-                $"addnew{x.Name.ToLower()}",
-                $"create{x.Name.ToLower()}",
-                $"createnew{x.Name.ToLower()}",
-            }.Contains(_template.Model.Name.ToLower().RemoveSuffix("command"))).ToList();
-
-            if (matchingEntities.Count() == 1)
-            {
-                _foundEntity = matchingEntities.Single();
-                var repositoryInterface = _template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, _foundEntity, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
-                if (repositoryInterface == null)
-                {
-                    return false;
-                }
-                _repository = new RequiredService(type: repositoryInterface, name: repositoryInterface.Substring(1).ToCamelCase());
-                return true;
-            }
-
-            return false;
+            return _matchingElementDetails.Value.IsMatch;
         }
 
         public IEnumerable<RequiredService> GetRequiredServices()
         {
             return new[]
             {
-                _repository
+                _matchingElementDetails.Value.Repository
             };
         }
 
         public string GetImplementation()
         {
-            var entityName = _template.GetTypeName("Domain.Entity", _foundEntity, new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
-            var impl = $@"var new{_foundEntity.Name} = new {entityName ?? _foundEntity.Name}
+            var foundEntity = _matchingElementDetails.Value.FoundEntity;
+            var repository = _matchingElementDetails.Value.Repository;
+            
+            var entityName = _template.GetDomainEntityName(foundEntity);
+            var impl = $@"var new{foundEntity.Name} = new {entityName ?? foundEntity.Name}
                 {{
-{GetPropertyAssignments(_foundEntity, _template.Model)}
+{GetPropertyAssignments(foundEntity, _template.Model)}
                 }};
                 
-                {_repository.FieldName}.Add(new{_foundEntity.Name});";
+                {repository.FieldName}.Add(new{foundEntity.Name});";
 
             if (_template.Model.TypeReference.Element != null)
             {
                 impl += $@"
-                await {_repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);
-                return new{_foundEntity.Name}.{_foundEntity.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name ?? "Id"};";
+                await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);
+                return new{foundEntity.Name}.{foundEntity.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name ?? "Id"};";
             }
             else
             {
@@ -87,6 +72,36 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return impl;
         }
 
+        private StrategyData GetMatchingElementDetails()
+        {
+            var matchingEntities = _metadataManager.Domain(_application)
+                .GetClassModels().Where(x => new[]
+                {
+                    $"add{x.Name.ToLower()}",
+                    $"addnew{x.Name.ToLower()}",
+                    $"create{x.Name.ToLower()}",
+                    $"createnew{x.Name.ToLower()}",
+                }.Contains(_template.Model.Name.ToLower().RemoveSuffix("command")))
+                .ToList();
+
+            if (matchingEntities.Count() == 1)
+            {
+                var foundEntity = matchingEntities.Single();
+                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
+                if (repositoryInterface == null)
+                {
+                    return NoMatch;
+                }
+
+                var repository = new RequiredService(type: repositoryInterface,
+                    name: repositoryInterface.Substring(1).ToCamelCase());
+                
+                return new StrategyData(true, foundEntity, repository);
+            }
+
+            return NoMatch;
+        }
+
         private string GetPropertyAssignments(ClassModel domainModel, CommandModel command)
         {
             var sb = new StringBuilder();
@@ -94,21 +109,41 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             {
                 var attribute = property.Mapping?.Element != null
                     ? property.Mapping.Element.AsAttributeModel()
-                    : domainModel.Attributes.FirstOrDefault(p => p.Name.Equals(property.Name, StringComparison.OrdinalIgnoreCase));
+                    : domainModel.Attributes.FirstOrDefault(p =>
+                        p.Name.Equals(property.Name, StringComparison.OrdinalIgnoreCase));
                 if (attribute == null)
                 {
                     sb.AppendLine($"                    #warning No matching field found for {property.Name}");
                     continue;
                 }
+
                 if (attribute.Type.Element.Id != property.TypeReference.Element.Id)
                 {
-                    sb.AppendLine($"                    #warning No matching type for Domain: {attribute.Name} and DTO: {property.Name}");
+                    sb.AppendLine(
+                        $"                    #warning No matching type for Domain: {attribute.Name} and DTO: {property.Name}");
                     continue;
                 }
-                sb.AppendLine($"                    {attribute.Name.ToPascalCase()} = request.{property.Name.ToPascalCase()},");
+
+                sb.AppendLine(
+                    $"                    {attribute.Name.ToPascalCase()} = request.{property.Name.ToPascalCase()},");
             }
 
             return sb.ToString().Trim();
+        }
+
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null);
+        private class StrategyData
+        {
+            public StrategyData(bool isMatch, ClassModel foundEntity, RequiredService repository)
+            {
+                IsMatch = isMatch;
+                FoundEntity = foundEntity;
+                Repository = repository;
+            }
+            
+            public bool IsMatch { get; }
+            public ClassModel FoundEntity { get; }
+            public RequiredService Repository { get; }
         }
     }
 }

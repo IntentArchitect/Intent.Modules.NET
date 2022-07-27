@@ -18,9 +18,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private readonly QueryHandlerTemplate _template;
         private readonly IApplication _application;
         private readonly IMetadataManager _metadataManager;
-
-        private readonly
-            Lazy<(bool IsMatch, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)> _matchingElementDetails;
+        private readonly Lazy<StrategyData> _matchingElementDetails;
 
         public GetAllImplementationStrategy(QueryHandlerTemplate template, IApplication application,
             IMetadataManager metadataManager)
@@ -28,9 +26,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             _template = template;
             _application = application;
             _metadataManager = metadataManager;
-            _matchingElementDetails =
-                new Lazy<(bool IsMatch, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)>(
-                    GetMatchingElementDetails);
+            _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
         }
 
         public bool IsMatch()
@@ -57,47 +53,66 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var result = _matchingElementDetails.Value;
             return
                 $@"var {result.FoundEntity.Name.ToCamelCase().ToPluralName()} = await {result.Repository.FieldName}.FindAllAsync(cancellationToken);
-            return {result.FoundEntity.Name.ToCamelCase().ToPluralName()}.MapTo{_template.GetTypeName("Application.Contract.Dto", result.DtoToReturn)}List(_mapper);";
+            return {result.FoundEntity.Name.ToCamelCase().ToPluralName()}.MapTo{_template.GetDtoName(result.DtoToReturn)}List(_mapper);";
         }
 
-        private (bool IsMatch, ClassModel FoundEntity, DTOModel DtoToReturn, RequiredService Repository)
-            GetMatchingElementDetails()
+        private StrategyData GetMatchingElementDetails()
         {
-            var matchingEntities = _metadataManager.Domain(_application).GetClassModels().Where(x => new[]
-            {
-                $"get{x.Name.ToPluralName().ToLower()}",
-                $"getall{x.Name.ToPluralName().ToLower()}",
-                $"find{x.Name.ToPluralName().ToLower()}",
-                $"findall{x.Name.ToPluralName().ToLower()}",
-                $"lookup{x.Name.ToPluralName().ToLower()}",
-                $"lookupall{x.Name.ToPluralName().ToLower()}",
-            }.Contains(_template.Model.Name.ToLower().RemoveSuffix("query"))).ToList();
+            var matchingEntities = _metadataManager.Domain(_application)
+                .GetClassModels().Where(x => new[]
+                {
+                    $"get{x.Name.ToPluralName().ToLower()}",
+                    $"getall{x.Name.ToPluralName().ToLower()}",
+                    $"find{x.Name.ToPluralName().ToLower()}",
+                    $"findall{x.Name.ToPluralName().ToLower()}",
+                    $"lookup{x.Name.ToPluralName().ToLower()}",
+                    $"lookupall{x.Name.ToPluralName().ToLower()}",
+                }.Contains(_template.Model.Name.ToLower().RemoveSuffix("query")))
+                .ToList();
 
             if (matchingEntities.Count() != 1)
             {
-                return (IsMatch: false, FoundEntity: null, DtoToReturn: null, Repository: null);
+                return NoMatch;
             }
 
             var foundEntity = matchingEntities.Single();
 
-            var dtoToReturn = _metadataManager.Services(_application).GetDTOModels().SingleOrDefault(x =>
-                x.Id == _template.Model.TypeReference.Element.Id && x.IsMapped &&
-                x.Mapping.ElementId == foundEntity.Id);
+            var dtoToReturn = _metadataManager.Services(_application)
+                .GetDTOModels().SingleOrDefault(x =>
+                    x.Id == _template.Model.TypeReference.Element.Id && x.IsMapped &&
+                    x.Mapping.ElementId == foundEntity.Id);
             if (dtoToReturn == null)
             {
-                return (IsMatch: false, FoundEntity: null, DtoToReturn: null, Repository: null);
+                return NoMatch;
             }
 
-            var repositoryInterface = _template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, foundEntity,
-                new TemplateDiscoveryOptions() { ThrowIfNotFound = false });
+            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
             if (repositoryInterface == null)
             {
-                return (IsMatch: false, FoundEntity: null, DtoToReturn: null, Repository: null);
+                return NoMatch;
             }
 
             var repository = new RequiredService(type: repositoryInterface,
                 name: repositoryInterface.Substring(1).ToCamelCase());
-            return (IsMatch: true, FoundEntity: foundEntity, DtoToReturn: dtoToReturn, Repository: repository);
+            return new StrategyData(true, foundEntity, dtoToReturn, repository);
+        }
+
+        private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);
+
+        private class StrategyData
+        {
+            public StrategyData(bool isMatch, ClassModel foundEntity, DTOModel dtoToReturn, RequiredService repository)
+            {
+                IsMatch = isMatch;
+                FoundEntity = foundEntity;
+                DtoToReturn = dtoToReturn;
+                Repository = repository;
+            }
+
+            public bool IsMatch { get; }
+            public ClassModel FoundEntity { get; }
+            public DTOModel DtoToReturn { get; }
+            public RequiredService Repository { get; }
         }
     }
 }
