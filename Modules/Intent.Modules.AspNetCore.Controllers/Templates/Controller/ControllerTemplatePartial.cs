@@ -120,6 +120,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 case HttpVerb.DELETE:
                     lines.Add($"/// <response code=\"200\">Successfully deleted.</response>");
                     break;
+                case HttpVerb.PATCH:
+                    lines.Add($"/// <response code=\"201\">Successfully patched.</response>");
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -171,6 +174,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]");
                     break;
                 case HttpVerb.PUT:
+                case HttpVerb.PATCH:
                     attributes.Add(operation.ReturnType != null
                         ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
                         : $@"[ProducesResponseType(StatusCodes.Status204NoContent)]");
@@ -254,6 +258,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 case HttpVerb.PUT:
                 case HttpVerb.GET:
                 case HttpVerb.DELETE:
+                case HttpVerb.PATCH:
                     parameters.AddRange(operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
                     break;
                 default:
@@ -284,13 +289,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             if (parameter.GetParameterSettings().Source().IsDefault())
             {
                 if ((operation.GetHttpSettings().Verb().IsGET() || operation.GetHttpSettings().Verb().IsDELETE()) &&
-                    (!parameter.TypeReference.Element.IsTypeDefinitionModel()))
+                    !parameter.TypeReference.Element.IsTypeDefinitionModel())
                 {
                     return "[FromQuery]";
                 }
 
                 if ((operation.GetHttpSettings().Verb().IsPOST() || operation.GetHttpSettings().Verb().IsPUT()) &&
-                    (!parameter.TypeReference.Element.IsTypeDefinitionModel()))
+                    !parameter.TypeReference.Element.IsTypeDefinitionModel())
                 {
                     return "[FromBody]";
                 }
@@ -300,27 +305,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 {
                     return "[FromRoute]";
                 }
-                return "";
+
+                return string.Empty;
             }
 
-            if (parameter.GetParameterSettings().Source().IsFromBody())
+            return parameter.GetParameterSettings().Source().AsEnum() switch
             {
-                return "[FromBody]";
-            }
-            if (parameter.GetParameterSettings().Source().IsFromHeader())
-            {
-                return "[FromHeader]";
-            }
-            if (parameter.GetParameterSettings().Source().IsFromQuery())
-            {
-                return "[FromQuery]";
-            }
-            if (parameter.GetParameterSettings().Source().IsFromRoute())
-            {
-                return "[FromRoute]";
-            }
-
-            return "";
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromBody => "[FromBody]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromForm => "[FromForm]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => "[FromHeader]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromQuery => "[FromQuery]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => "[FromRoute]",
+                _ => string.Empty
+            };
         }
 
         private string GetConstructorParameters()
@@ -339,7 +336,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             GET,
             POST,
             PUT,
-            DELETE
+            DELETE,
+            PATCH
         }
     }
 }

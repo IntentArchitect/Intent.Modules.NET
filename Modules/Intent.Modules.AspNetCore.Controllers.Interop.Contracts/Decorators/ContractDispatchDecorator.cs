@@ -85,6 +85,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
                     return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
                 case ControllerTemplate.HttpVerb.DELETE:
                     return operationModel.ReturnType == null ? $@"return Ok();" : $@"return Ok(result);";
+                case ControllerTemplate.HttpVerb.PATCH:
+                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
