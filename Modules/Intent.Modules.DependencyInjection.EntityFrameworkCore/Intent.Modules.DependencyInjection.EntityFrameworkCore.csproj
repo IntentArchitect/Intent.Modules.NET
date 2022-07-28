@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -20,5 +20,18 @@
     <ProjectReference Include="..\Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Intent.Modules.Infrastructure.DependencyInjection\Intent.Modules.Infrastructure.DependencyInjection.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\DbContextConfiguration\DbContextConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DbContextConfigurationTemplate.cs</LastGenOutput>
+    </None></ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\DbContextConfiguration\DbContextConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DbContextConfigurationTemplate.tt</DependentUpon>
+    </Compile></ItemGroup>
 
 </Project>

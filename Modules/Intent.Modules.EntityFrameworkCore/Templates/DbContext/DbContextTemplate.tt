@@ -50,14 +50,12 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
 <#  foreach (var typeConfiguration in _entityTypeConfigurations) { #>
             modelBuilder.ApplyConfiguration(new <#= GetTypeName(typeConfiguration.Template) #>());
 <#  } #>
+            <#= GetOnModelCreatingStatements() #>
         }
 
         [IntentManaged(Mode.Ignore)]
         private void ConfigureModel(ModelBuilder modelBuilder)
         {
-            // Customize Default Schema
-            // modelBuilder.HasDefaultSchema("<#= Project.Application.Name #>");
-            
             // Seed data
             // https://rehansaeed.com/migrating-to-entity-framework-core-seed-data/
             /* Eg.

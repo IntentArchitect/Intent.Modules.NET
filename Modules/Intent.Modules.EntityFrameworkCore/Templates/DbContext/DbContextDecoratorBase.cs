@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,9 +25,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
         public virtual string AfterCallToSaveChangesAsync() => null;
 
-        public virtual IEnumerable<string> GetMethods() { return new List<string>(); }
+        public virtual IEnumerable<string> GetMethods() => Enumerable.Empty<string>();
 
         public virtual void OnBeforeTemplateExecution() { }
+        
+        public virtual IEnumerable<string> GetOnModelCreatingStatements() => Enumerable.Empty<string>();
 
         public int Priority { get; set; } = 0;
     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b2b8194f-8f92-4679-b998-83b384fef06f" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>EntityFrameworkCoreDbContextDecorator</name>
+  <display>EntityFrameworkCoreDbContextDecorator: DbContextDecoratorBase</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="9900662d-92e1-4989-a273-d805a4e3202b">
+    <typeId>c35164c7-3797-476e-89ba-c98b96de3176</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.EntityFrameworkCore</typePackageName>
+    <typePackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</parentFolderId>
+  <packageId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</packageId>
+  <packageName>Intent.DependencyInjection.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

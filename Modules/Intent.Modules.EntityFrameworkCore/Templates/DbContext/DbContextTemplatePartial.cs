@@ -22,8 +22,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class DbContextTemplate : CSharpTemplateBase<IList<ClassModel>, DbContextDecoratorBase>
     {
-        [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
+        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
         private readonly IList<EntityTypeConfigurationCreatedEvent> _entityTypeConfigurations = new List<EntityTypeConfigurationCreatedEvent>();
 
@@ -55,6 +54,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                     .WithResolveFromContainer()
                     .WithPerServiceCallLifeTime());
             }
+
             base.BeforeTemplateExecution();
         }
 
@@ -74,20 +74,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
             return (UseLazyLoadingProxies
-                ? new[]
-                {
-                    NugetPackages.EntityFrameworkCore(Project),
-                    NugetPackages.EntityFrameworkCoreProxies(Project),
-                }
-                : new[]
-                {
-                    NugetPackages.EntityFrameworkCore(Project),
-                })
-            .Union(base.GetNugetDependencies())
-            .ToArray();
+                    ? new[]
+                    {
+                        NugetPackages.EntityFrameworkCore(Project),
+                        NugetPackages.EntityFrameworkCoreProxies(Project),
+                    }
+                    : new[]
+                    {
+                        NugetPackages.EntityFrameworkCore(Project),
+                    })
+                .Union(base.GetNugetDependencies())
+                .ToArray();
         }
 
-        public bool UseLazyLoadingProxies => !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
+        public bool UseLazyLoadingProxies =>
+            !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
 
         public string GetMethods()
         {
@@ -99,6 +100,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             {
                 return string.Empty;
             }
+
             return Environment.NewLine + Environment.NewLine + code;
         }
 
@@ -107,11 +109,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             try
             {
                 var baseTypes = new List<string>();
-                baseTypes.Add(UseType(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ?? "Microsoft.EntityFrameworkCore.DbContext"));
+                baseTypes.Add(UseType(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ??
+                                      "Microsoft.EntityFrameworkCore.DbContext"));
                 if (TryGetTypeName(DbContextInterfaceTemplate.TemplateId, out var dbContextInterface))
                 {
                     baseTypes.Add(dbContextInterface);
                 }
+
                 baseTypes.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
                 return string.Join(", ", baseTypes);
             }
@@ -134,25 +138,39 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         private string GetPrivateFields()
         {
             var privateFields = GetDecorators().SelectMany(x => x.GetPrivateFields() ?? Enumerable.Empty<string>()).ToList();
-            return privateFields.Any() ? string.Join(@"
+            return privateFields.Any()
+                ? string.Join(@"
         ", privateFields) + @"
-        " : "";
+        "
+                : "";
         }
 
         private string GetConstructorParameters()
         {
             var privateFields = GetDecorators().SelectMany(x => x.GetConstructorParameters() ?? Enumerable.Empty<string>()).ToList();
-            return privateFields.Any() ? @",
+            return privateFields.Any()
+                ? @",
             " + string.Join(@",
-            ", privateFields) : "";
+            ", privateFields)
+                : "";
         }
 
         private string GetConstructorInitializations()
         {
             var privateFields = GetDecorators().SelectMany(x => x.GetConstructorInitializations() ?? Enumerable.Empty<string>()).ToList();
-            return privateFields.Any() ? @"
+            return privateFields.Any()
+                ? @"
             " + string.Join(@"
-            ", privateFields) : "";
+            ", privateFields)
+                : "";
+        }
+
+        private string GetOnModelCreatingStatements()
+        {
+            var statements = GetDecorators().SelectMany(x => x.GetOnModelCreatingStatements() ?? Enumerable.Empty<string>()).ToList();
+            const string newLine = @"
+            ";
+            return string.Join(newLine, statements);
         }
     }
 }

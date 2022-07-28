@@ -10,6 +10,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>7a8858e1-6ee2-4df4-8a03-4382c1eb63f0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#b2b8194f-8f92-4679-b998-83b384fef06f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreDbContextDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityFrameworkCoreDbContextDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7a8858e1-6ee2-4df4-8a03-4382c1eb63f0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#b2b8194f-8f92-4679-b998-83b384fef06f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreDbContextDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityFrameworkCoreDbContextDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7a8858e1-6ee2-4df4-8a03-4382c1eb63f0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#96afbf9c-4eee-47eb-9c0e-cf05130350cf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreDependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
@@ -46,6 +62,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbContextConfiguration/DbContextConfigurationTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextConfiguration/DbContextConfigurationTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbContextConfiguration/DbContextConfigurationTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextConfiguration/DbContextConfigurationTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbContextConfiguration/DbContextConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextConfiguration/DbContextConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbContextConfiguration/DbContextConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextConfiguration/DbContextConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
