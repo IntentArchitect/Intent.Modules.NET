@@ -3,7 +3,6 @@
   <name>DbContextDecoratorBase</name>
   <display>DbContextDecoratorBase</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>96f7b6e6-79da-4f5e-b095-3d603777968b</parentFolderId>

@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.DependencyInjection.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore;
+using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
 using Intent.Modules.Metadata.RDBMS.Settings;

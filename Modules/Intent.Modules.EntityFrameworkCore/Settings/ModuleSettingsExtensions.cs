@@ -58,5 +58,57 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             TablePerType,
             TablePerConcreteType,
         }
+
+        public static DatabaseProviderOptions DatabaseProvider(this DatabaseSettings groupSettings) => new DatabaseProviderOptions(groupSettings.GetSetting("00bb780c-57bf-43c1-b952-303f11096be7")?.Value);
+
+        public class DatabaseProviderOptions
+        {
+            public readonly string Value;
+
+            public DatabaseProviderOptions(string value)
+            {
+                Value = value;
+            }
+
+            public DatabaseProviderOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "in-memory" => DatabaseProviderOptionsEnum.InMemory,
+                    "sql-server" => DatabaseProviderOptionsEnum.SQLServer,
+                    "postgresql" => DatabaseProviderOptionsEnum.PostgreSQL,
+                    "cosmos" => DatabaseProviderOptionsEnum.CosmosDB,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsInMemory()
+            {
+                return Value == "in-memory";
+            }
+
+            public bool IsSQLServer()
+            {
+                return Value == "sql-server";
+            }
+
+            public bool IsPostgreSQL()
+            {
+                return Value == "postgresql";
+            }
+
+            public bool IsCosmosDB()
+            {
+                return Value == "cosmos";
+            }
+        }
+
+        public enum DatabaseProviderOptionsEnum
+        {
+            InMemory,
+            SQLServer,
+            PostgreSQL,
+            CosmosDB,
+        }
     }
 }

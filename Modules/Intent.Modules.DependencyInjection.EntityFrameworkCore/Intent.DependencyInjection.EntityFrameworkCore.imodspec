@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DependencyInjection.EntityFrameworkCore</id>
-  <version>3.3.6</version>
+  <version>3.3.7-pre.1</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Responsible for registering the EntityFrameworkCore DbContext and setting the database provider.</summary>
   <description>Responsible for registering the EntityFrameworkCore DbContext and setting the database provider.</description>
@@ -15,7 +15,7 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.3.6" />
     <dependency id="Intent.Common.Types" version="3.3.0" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.7-pre.2" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.3.7-pre.4" />
     <dependency id="Intent.Infrastructure.DependencyInjection" version="3.3.3" />
     <dependency id="Intent.Metadata.RDBMS" version="3.3.1" />
   </dependencies>
@@ -27,21 +27,5 @@
     <install src="Intent.Metadata/Module Builder/Intent.DependencyInjection.EntityFrameworkCore/Intent.DependencyInjection.EntityFrameworkCore.pkg.config" externalReference="2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc" />
   </metadata>
   <moduleSettings />
-  <moduleSettingsExtensions>
-    <groupExtension id="345c988e-69d3-44cf-af23-b67c8d8f3976" groupId="ac0a788e-d8b3-4eea-b56d-538608f1ded9" externalReference="345c988e-69d3-44cf-af23-b67c8d8f3976">
-      <settings>
-        <setting id="a6441c16-5a85-44be-be0e-118237d45ba0" title="Database Provider" type="select">
-          <isRequired>true</isRequired>
-          <hint>Underlying database technology.</hint>
-          <defaultValue>in-memory</defaultValue>
-          <options>
-            <option value="in-memory" description="In Memory" />
-            <option value="sql-server" description="SQL Server" />
-            <option value="postgresql" description="PostgreSQL" />
-            <option value="cosmos" description="Cosmos DB" />
-          </options>
-        </setting>
-      </settings>
-    </groupExtension>
-  </moduleSettingsExtensions>
+  <moduleSettingsExtensions />
 </package>

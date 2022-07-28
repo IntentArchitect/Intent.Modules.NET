@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>3.3.7-pre.3</version>
+  <version>3.3.7-pre.4</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Entity Framework Core implementation.</summary>
   <description>Entity Framework Core implementation.</description>
@@ -53,12 +53,12 @@
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.6" />
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.7-pre.1" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.6" />
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.7-pre.1" />
       </install>
     </detect>
   </interoperability>
@@ -89,6 +89,17 @@
             <option value="TPH" description="Table Per Hierarchy" />
             <option value="TPT" description="Table Per Type" />
             <option value="TPC" description="Table Per Concrete Type" />
+          </options>
+        </setting>
+        <setting id="00bb780c-57bf-43c1-b952-303f11096be7" title="Database Provider" type="select">
+          <isRequired>true</isRequired>
+          <hint>Underlying database technology.</hint>
+          <defaultValue>in-memory</defaultValue>
+          <options>
+            <option value="in-memory" description="In Memory" />
+            <option value="sql-server" description="SQL Server" />
+            <option value="postgresql" description="PostgreSQL" />
+            <option value="cosmos" description="Cosmos DB" />
           </options>
         </setting>
       </settings>

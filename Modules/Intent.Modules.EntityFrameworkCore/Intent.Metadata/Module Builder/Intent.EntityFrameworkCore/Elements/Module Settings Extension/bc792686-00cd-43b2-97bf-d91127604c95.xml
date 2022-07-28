@@ -3,7 +3,7 @@
   <name>Database Settings Extension</name>
   <display>Database Settings Extension: Database Settings</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>manually</sort-children>
   <genericTypes />
   <typeReference id="a0af07dc-ed8e-4db0-aeab-70d9d5d07b57">
     <typeId>ac0a788e-d8b3-4eea-b56d-538608f1ded9</typeId>
@@ -27,7 +27,7 @@
       <name>Inheritance Strategy</name>
       <display>Inheritance Strategy</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>bc792686-00cd-43b2-97bf-d91127604c95</parentFolderId>
@@ -53,7 +53,6 @@
           <display>Table Per Hierarchy = TPH</display>
           <isAbstract>false</isAbstract>
           <value>TPH</value>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68f03894-248b-4569-bc76-52c67499bf7c</parentFolderId>
@@ -68,7 +67,6 @@
           <display>Table Per Type = TPT</display>
           <isAbstract>false</isAbstract>
           <value>TPT</value>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68f03894-248b-4569-bc76-52c67499bf7c</parentFolderId>
@@ -83,10 +81,92 @@
           <display>Table Per Concrete Type = TPC</display>
           <isAbstract>false</isAbstract>
           <value>TPC</value>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>68f03894-248b-4569-bc76-52c67499bf7c</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="00bb780c-57bf-43c1-b952-303f11096be7" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Database Provider</name>
+      <display>Database Provider</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bc792686-00cd-43b2-97bf-d91127604c95</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Underlying database technology." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="in-memory" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d98c64b2-cd82-4dde-90d3-a005d6a3f537" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>In Memory</name>
+          <display>In Memory = in-memory</display>
+          <isAbstract>false</isAbstract>
+          <value>in-memory</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4564e8c7-8c45-4852-a0be-6c69ebb533b1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>SQL Server</name>
+          <display>SQL Server = sql-server</display>
+          <isAbstract>false</isAbstract>
+          <value>sql-server</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ff177cb8-e33c-448a-a194-43ecf22ec70b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>PostgreSQL</name>
+          <display>PostgreSQL = postgresql</display>
+          <isAbstract>false</isAbstract>
+          <value>postgresql</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dd09aae1-4d24-4c87-802c-8cd04e96c918" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Cosmos DB</name>
+          <display>Cosmos DB = cosmos</display>
+          <isAbstract>false</isAbstract>
+          <value>cosmos</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
           <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
           <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />

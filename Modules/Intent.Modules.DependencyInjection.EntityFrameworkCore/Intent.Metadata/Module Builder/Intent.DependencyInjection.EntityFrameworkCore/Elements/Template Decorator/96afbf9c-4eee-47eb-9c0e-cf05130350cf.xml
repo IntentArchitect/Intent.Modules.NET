@@ -3,7 +3,6 @@
   <name>EntityFrameworkCoreDependencyInjectionDecorator</name>
   <display>EntityFrameworkCoreDependencyInjectionDecorator: DependencyInjectionDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="2a39637a-0901-45fa-91ce-54a73a821e5c">
     <typeId>08c8b8d6-b827-4ac8-b201-e6ae7614743d</typeId>
