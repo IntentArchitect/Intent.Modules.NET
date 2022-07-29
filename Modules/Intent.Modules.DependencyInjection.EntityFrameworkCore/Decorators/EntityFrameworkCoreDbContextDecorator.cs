@@ -27,7 +27,6 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         {
             _template = template;
             _application = application;
-            template.AddUsing("Microsoft.Extensions.Options");
         }
 
         public override IEnumerable<string> GetPrivateFields()
@@ -55,6 +54,9 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
                     yield return "modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);";
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
+                default:
                     break;
             }
         }

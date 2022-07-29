@@ -65,6 +65,8 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:DatabaseName", $"{_template.Project.ApplicationName()}DB"));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultContainerName", $"{_template.Project.ApplicationName()}"));
                     break;
+                default:
+                    break;
             }
 
             if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
