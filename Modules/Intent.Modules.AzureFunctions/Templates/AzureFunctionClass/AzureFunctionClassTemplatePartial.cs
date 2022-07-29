@@ -134,7 +134,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 var method = @$"""{httpTriggersView.Method().Value.ToLower()}""";
                 var route = !string.IsNullOrWhiteSpace(httpTriggersView.Route())
                     ? $@"""{httpTriggersView.Route()}"""
-                    : "null";
+                    : @"""""";
                 paramList.Add(
                     @$"[HttpTrigger(AuthorizationLevel.{httpTriggersView.AuthorizationLevel().Value}, {method}, Route = {route})] HttpRequest req");
             }

@@ -3,7 +3,7 @@
   <name>AzureFunctions Extension</name>
   <display>AzureFunctions Extension</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0cae0ada-de89-4c45-b149-fd6fe74454fc</parentFolderId>

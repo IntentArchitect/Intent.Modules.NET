@@ -3,7 +3,7 @@
   <name>ReturnTypes</name>
   <display>ReturnTypes</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>022dbddc-276c-406b-81e6-5034ad64db72</parentFolderId>

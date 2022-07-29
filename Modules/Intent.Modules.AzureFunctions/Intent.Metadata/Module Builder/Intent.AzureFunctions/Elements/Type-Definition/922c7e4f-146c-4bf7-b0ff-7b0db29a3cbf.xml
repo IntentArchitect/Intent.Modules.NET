@@ -3,7 +3,6 @@
   <name>ResourceLocation</name>
   <display>ResourceLocation&lt;TPayload&gt;</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes>
     <genericType id="758407b3-668c-4d47-8d65-28759234c132">
       <name>TPayload</name>

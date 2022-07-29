@@ -3,7 +3,6 @@
   <name>AzureFunctionClassResourceLocationDecorator</name>
   <display>AzureFunctionClassResourceLocationDecorator: AzureFunctionClassDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="a36f4218-a150-427a-bc55-25d59ef88e52">
     <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>
