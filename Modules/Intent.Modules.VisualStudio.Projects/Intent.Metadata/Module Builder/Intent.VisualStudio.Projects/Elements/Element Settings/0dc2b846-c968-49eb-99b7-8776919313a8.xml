@@ -3,7 +3,7 @@
   <name>Solution Folder</name>
   <display>Solution Folder</display>
   <isAbstract>false</isAbstract>
-  <order>12</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
@@ -51,7 +51,7 @@
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0dc2b846-c968-49eb-99b7-8776919313a8</parentFolderId>
@@ -64,7 +64,6 @@
           <name>New Folder</name>
           <display>New Folder: Solution Folder</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <typeReference id="9e2c991f-6951-4342-94f2-c94a3cdf72d5">
             <typeId>0dc2b846-c968-49eb-99b7-8776919313a8</typeId>
@@ -104,7 +103,6 @@
           <name>Azure Functions Project</name>
           <display>Azure Functions Project: Azure Functions Project</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <typeReference id="3740f362-7be5-4d59-8c50-7a227ccc7d8c">
             <typeId>73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</typeId>
@@ -144,7 +142,6 @@
           <name>Class Library (.NET Core)</name>
           <display>Class Library (.NET Core): Class Library (.NET Core)</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <typeReference id="b47625b6-5005-475b-9c23-6b45976ab45e">
             <typeId>52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</typeId>
@@ -184,7 +181,6 @@
           <name>Class Library (.NET Framework)</name>
           <display>Class Library (.NET Framework): Class Library (.NET Framework)</display>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <typeReference id="4af95c65-a638-4ee4-8eb4-44b336754984">
             <typeId>0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</typeId>
@@ -224,7 +220,6 @@
           <name>ASP.NET Core Web Application</name>
           <display>ASP.NET Core Web Application: ASP.NET Core Web Application</display>
           <isAbstract>false</isAbstract>
-          <order>4</order>
           <genericTypes />
           <typeReference id="3b7d2adc-a7f0-46de-8a59-59764a69aaea">
             <typeId>FFD54A85-9362-48AC-B646-C93AB9AC63D2</typeId>
@@ -264,7 +259,6 @@
           <name>ASP.NET Web Application (.NET Framework)</name>
           <display>ASP.NET Web Application (.NET Framework): ASP.NET Web Application (.NET Framework)</display>
           <isAbstract>false</isAbstract>
-          <order>5</order>
           <genericTypes />
           <typeReference id="c7c4965d-6146-4a1d-9018-f458464787b9">
             <typeId>8AF747CF-58F0-449C-8B95-46080FEFC8C0</typeId>
@@ -304,7 +298,6 @@
           <name>WCF Service Application</name>
           <display>WCF Service Application: WCF Service Application</display>
           <isAbstract>false</isAbstract>
-          <order>6</order>
           <genericTypes />
           <typeReference id="8efbe19e-8b51-4a1c-bd9b-4f71069019bc">
             <typeId>3CDFF513-03D8-4BAB-9435-160108A086A3</typeId>
@@ -344,7 +337,6 @@
           <name>Console App (.NET Framework)</name>
           <display>Console App (.NET Framework): Console App (.NET Framework)</display>
           <isAbstract>false</isAbstract>
-          <order>7</order>
           <genericTypes />
           <typeReference id="82231939-428a-415e-8315-75bcc9895113">
             <typeId>673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</typeId>
@@ -384,7 +376,6 @@
           <name>Console App (.NET Core)</name>
           <display>Console App (.NET Core): Console App (.NET Core)</display>
           <isAbstract>false</isAbstract>
-          <order>8</order>
           <genericTypes />
           <typeReference id="e1192699-f697-47c7-a052-662764a79f59">
             <typeId>27b265c8-e185-4c33-9908-8d23d5e945d1</typeId>
@@ -424,7 +415,6 @@
           <name>SQL Server Database Project</name>
           <display>SQL Server Database Project: SQL Server Database Project</display>
           <isAbstract>false</isAbstract>
-          <order>9</order>
           <genericTypes />
           <typeReference id="858c465c-1022-4735-940f-7428cdba3185">
             <typeId>00D1A9C2-B5F0-4AF3-8072-F6C62B433612</typeId>
@@ -464,7 +454,6 @@
           <name>Add Role</name>
           <display>Add Role: Role</display>
           <isAbstract>false</isAbstract>
-          <order>10</order>
           <genericTypes />
           <typeReference id="93e424ee-b0c7-4905-9fe1-2aee7853300f">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
@@ -504,7 +493,6 @@
           <name>Add Template Output</name>
           <display>Add Template Output: Template Output</display>
           <isAbstract>false</isAbstract>
-          <order>11</order>
           <genericTypes />
           <typeReference id="3bc3b49c-cb9b-4bfb-8e7a-b40cdddc639a">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>

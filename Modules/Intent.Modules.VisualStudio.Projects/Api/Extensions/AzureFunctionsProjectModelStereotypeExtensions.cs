@@ -23,6 +23,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype(".NET Core Settings");
         }
 
+        public static bool TryGetNETCoreSettings(this AzureFunctionsProjectModel model, out NETCoreSettings stereotype)
+        {
+            if (!HasNETCoreSettings(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new NETCoreSettings(model.GetStereotype(".NET Core Settings"));
+            return true;
+        }
+
         public static AzureFunctionsProjectSettings GetAzureFunctionsProjectSettings(this AzureFunctionsProjectModel model)
         {
             var stereotype = model.GetStereotype("Azure Functions Project Settings");
@@ -34,6 +46,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype("Azure Functions Project Settings");
         }
 
+        public static bool TryGetAzureFunctionsProjectSettings(this AzureFunctionsProjectModel model, out AzureFunctionsProjectSettings stereotype)
+        {
+            if (!HasAzureFunctionsProjectSettings(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new AzureFunctionsProjectSettings(model.GetStereotype("Azure Functions Project Settings"));
+            return true;
+        }
+
         public static CSharpProjectOptions GetCSharpProjectOptions(this AzureFunctionsProjectModel model)
         {
             var stereotype = model.GetStereotype("C# Project Options");
@@ -43,6 +67,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public static bool HasCSharpProjectOptions(this AzureFunctionsProjectModel model)
         {
             return model.HasStereotype("C# Project Options");
+        }
+
+        public static bool TryGetCSharpProjectOptions(this AzureFunctionsProjectModel model, out CSharpProjectOptions stereotype)
+        {
+            if (!HasCSharpProjectOptions(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new CSharpProjectOptions(model.GetStereotype("C# Project Options"));
+            return true;
         }
 
 

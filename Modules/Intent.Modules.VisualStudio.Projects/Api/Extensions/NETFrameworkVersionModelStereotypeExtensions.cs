@@ -23,6 +23,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype(".NET Framework Version Settings");
         }
 
+        public static bool TryGetNETFrameworkVersionSettings(this NETFrameworkVersionModel model, out NETFrameworkVersionSettings stereotype)
+        {
+            if (!HasNETFrameworkVersionSettings(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new NETFrameworkVersionSettings(model.GetStereotype(".NET Framework Version Settings"));
+            return true;
+        }
+
 
         public class NETFrameworkVersionSettings
         {

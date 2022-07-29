@@ -3,7 +3,6 @@
   <name>HostJson</name>
   <display>HostJson: Custom</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
   <genericTypes />
   <typeReference id="5003ce7f-cd9e-48ce-b900-f83ae94c9ab3">
     <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>

@@ -3,7 +3,7 @@
   <name>AppSettings</name>
   <display>AppSettings: Custom</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <typeReference id="a29febd9-ed93-49ca-a0b9-45c68a5c5fb0">
     <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>

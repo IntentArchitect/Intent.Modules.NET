@@ -3,7 +3,6 @@
   <name>SqlProject</name>
   <display>SqlProject: Custom</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
   <genericTypes />
   <typeReference id="04d71e57-a461-4382-8cc9-9eadbb3be3ff">
     <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>

@@ -3,7 +3,7 @@
   <name>SQL Server Database Project</name>
   <display>SQL Server Database Project</display>
   <isAbstract>false</isAbstract>
-  <order>13</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
@@ -51,7 +51,7 @@
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>00D1A9C2-B5F0-4AF3-8072-F6C62B433612</parentFolderId>
@@ -64,7 +64,6 @@
           <name>New Folder</name>
           <display>New Folder: Folder</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <typeReference id="8be6969b-7027-4d35-8640-b898e1c39b4b">
             <typeId>3407a825-1331-4f3f-89a4-901903ed97ce</typeId>
@@ -104,7 +103,6 @@
           <name>Add Template Output</name>
           <display>Add Template Output: Template Output</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <typeReference id="718da20b-31f2-441b-bece-02a3fe0b5332">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
@@ -144,7 +142,6 @@
           <name>Add Role</name>
           <display>Add Role: Role</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <typeReference id="03e8e43f-bbf5-41a4-8802-6f235b5846a4">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>
@@ -184,7 +181,6 @@
           <name>Add SQLCMD Variable</name>
           <display>Add SQLCMD Variable: SQLCMD Variable</display>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <typeReference id="30d95b91-806b-4cb3-95ef-b143f29779d8">
             <typeId>e96716fe-877e-47e5-8b50-f5087cbe8482</typeId>

@@ -28,8 +28,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             _registrationRequestsByKey = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public LocalSettingsJsonTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-            outputTarget, model)
+        public LocalSettingsJsonTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(Handle);
         }
@@ -51,7 +50,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
         {
             return $"{TemplateId}#{OutputTarget.Id}";
         }
-        
+
         private void Handle(AppSettingRegistrationRequest @event)
         {
             if (!@event.IsApplicableTo(this))
@@ -73,7 +72,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
 
             _registrationRequestsByKey.Add(@event.Key, (@event, Environment.StackTrace));
         }
-        
+
         public override string RunTemplate()
         {
             if (!TryGetExistingFileContent(out var content))

@@ -23,6 +23,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype(".NET Core Settings");
         }
 
+        public static bool TryGetNETCoreSettings(this ASPNETCoreWebApplicationModel model, out NETCoreSettings stereotype)
+        {
+            if (!HasNETCoreSettings(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new NETCoreSettings(model.GetStereotype(".NET Core Settings"));
+            return true;
+        }
+
         public static CSharpProjectOptions GetCSharpProjectOptions(this ASPNETCoreWebApplicationModel model)
         {
             var stereotype = model.GetStereotype("C# Project Options");
@@ -32,6 +44,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public static bool HasCSharpProjectOptions(this ASPNETCoreWebApplicationModel model)
         {
             return model.HasStereotype("C# Project Options");
+        }
+
+        public static bool TryGetCSharpProjectOptions(this ASPNETCoreWebApplicationModel model, out CSharpProjectOptions stereotype)
+        {
+            if (!HasCSharpProjectOptions(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new CSharpProjectOptions(model.GetStereotype("C# Project Options"));
+            return true;
         }
 
 

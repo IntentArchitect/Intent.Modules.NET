@@ -3,7 +3,7 @@
   <name>Template Output</name>
   <display>Template Output</display>
   <isAbstract>false</isAbstract>
-  <order>15</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
@@ -51,7 +51,6 @@
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d421c322-7a51-4094-89fa-e5d8a0a97b27</parentFolderId>
@@ -65,7 +64,7 @@
       <name>NewElementEventSettings</name>
       <display>[events]</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d421c322-7a51-4094-89fa-e5d8a0a97b27</parentFolderId>
@@ -78,7 +77,6 @@
           <name>On Changed</name>
           <display>On Changed: Script</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <typeReference id="1c53830c-514d-415b-8750-3ecb3ad6f2f8">
             <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>

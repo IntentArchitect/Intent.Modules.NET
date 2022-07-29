@@ -23,6 +23,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype(".NET Framework Settings");
         }
 
+        public static bool TryGetNETFrameworkSettings(this ConsoleAppNETFrameworkModel model, out NETFrameworkSettings stereotype)
+        {
+            if (!HasNETFrameworkSettings(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new NETFrameworkSettings(model.GetStereotype(".NET Framework Settings"));
+            return true;
+        }
+
         public static CSharpProjectOptions GetCSharpProjectOptions(this ConsoleAppNETFrameworkModel model)
         {
             var stereotype = model.GetStereotype("C# Project Options");
@@ -32,6 +44,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public static bool HasCSharpProjectOptions(this ConsoleAppNETFrameworkModel model)
         {
             return model.HasStereotype("C# Project Options");
+        }
+
+        public static bool TryGetCSharpProjectOptions(this ConsoleAppNETFrameworkModel model, out CSharpProjectOptions stereotype)
+        {
+            if (!HasCSharpProjectOptions(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new CSharpProjectOptions(model.GetStereotype("C# Project Options"));
+            return true;
         }
 
 

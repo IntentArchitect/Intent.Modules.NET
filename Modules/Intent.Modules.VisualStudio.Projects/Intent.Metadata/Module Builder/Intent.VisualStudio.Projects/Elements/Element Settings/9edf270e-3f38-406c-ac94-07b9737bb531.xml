@@ -3,7 +3,7 @@
   <name>Runtime Environment</name>
   <display>Runtime Environment</display>
   <isAbstract>false</isAbstract>
-  <order>11</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
@@ -51,7 +51,6 @@
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9edf270e-3f38-406c-ac94-07b9737bb531</parentFolderId>

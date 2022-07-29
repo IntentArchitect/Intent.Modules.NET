@@ -3,7 +3,7 @@
   <name>Azure Functions Project</name>
   <display>Azure Functions Project</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2ef69545-61ca-42b7-89bd-4ae3d5970280</parentFolderId>
@@ -51,7 +51,7 @@
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</parentFolderId>
@@ -64,7 +64,6 @@
           <name>New Folder</name>
           <display>New Folder: Folder</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <typeReference id="2d2bc582-c698-4aae-be67-35672afed16a">
             <typeId>3407a825-1331-4f3f-89a4-901903ed97ce</typeId>
@@ -104,7 +103,6 @@
           <name>Add Template Output</name>
           <display>Add Template Output: Template Output</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <typeReference id="fd6bdc69-179c-4315-b5fa-b3a5a11cfefe">
             <typeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</typeId>
@@ -144,7 +142,6 @@
           <name>Add Role</name>
           <display>Add Role: Role</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <typeReference id="e92a442a-8ef0-474f-9336-d1bc7de90e6c">
             <typeId>025e933b-b602-4b6d-95ab-0ec36ae940da</typeId>

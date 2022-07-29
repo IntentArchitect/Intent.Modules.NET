@@ -48,7 +48,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.HostJson
 
             return config;
         }
-        
+
         private void Handle(HostSettingRegistrationRequest @event)
         {
             if (!@event.IsApplicableTo(this))

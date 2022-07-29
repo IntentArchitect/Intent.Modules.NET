@@ -3,7 +3,6 @@
   <name>AppSettingsDecorator</name>
   <display>AppSettingsDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cc3f8b62-c026-49c9-bef2-52cdd44f0ebd</parentFolderId>

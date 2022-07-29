@@ -23,6 +23,18 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return model.HasStereotype("Folder Options");
         }
 
+        public static bool TryGetFolderOptions(this FolderModel model, out FolderOptions stereotype)
+        {
+            if (!HasFolderOptions(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new FolderOptions(model.GetStereotype("Folder Options"));
+            return true;
+        }
+
 
         public class FolderOptions
         {
