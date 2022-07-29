@@ -44,6 +44,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
                     properties.Add("public string? DefaultContainerName { get; set; }");
+                    properties.Add("public string? PartitionKey { get; set; }");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:

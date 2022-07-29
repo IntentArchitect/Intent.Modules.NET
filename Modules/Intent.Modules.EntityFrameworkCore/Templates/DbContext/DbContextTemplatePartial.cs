@@ -172,5 +172,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             ";
             return string.Join(newLine, statements);
         }
+
+        private string GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
+        {
+            var parameters = GetDecorators().SelectMany(s => s.GetTypeConfigurationParameters(@event));
+            return string.Join(",", parameters);
+        }
     }
 }

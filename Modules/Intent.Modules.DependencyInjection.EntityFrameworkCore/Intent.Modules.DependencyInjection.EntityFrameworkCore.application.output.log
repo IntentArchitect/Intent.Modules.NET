@@ -41,6 +41,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7a8858e1-6ee2-4df4-8a03-4382c1eb63f0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e4214339-f2c8-4426-aec2-eedec9487a7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreEntityTypeConfigDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityFrameworkCoreEntityTypeConfigDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7a8858e1-6ee2-4df4-8a03-4382c1eb63f0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e4214339-f2c8-4426-aec2-eedec9487a7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreEntityTypeConfigDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityFrameworkCoreEntityTypeConfigDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b9af8d74-7ab3-45e7-8a0d-eeef2b532474</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

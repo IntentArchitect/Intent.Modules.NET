@@ -151,14 +151,21 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
             
             #line default
             #line hidden
-            this.Write("());\r\n");
+            this.Write("(");
+            
+            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContext\DbContextTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeConfigurationParameters(typeConfiguration)));
+            
+            #line default
+            #line hidden
+            this.Write("));\r\n");
             
             #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContext\DbContextTemplate.tt"
   } 
             
             #line default
             #line hidden
-            this.Write("            ");
+            this.Write(" \r\n            ");
             
             #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContext\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetOnModelCreatingStatements()));

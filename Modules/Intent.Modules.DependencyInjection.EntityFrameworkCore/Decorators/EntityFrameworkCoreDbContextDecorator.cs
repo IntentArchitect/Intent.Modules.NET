@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
+using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 
@@ -59,6 +60,16 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 default:
                     break;
             }
+        }
+
+        public override IEnumerable<string> GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
+        {
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmosDB())
+            {
+                yield break;
+            }
+
+            yield return "_dbContextConfig.Value?.PartitionKey";
         }
     }
 }

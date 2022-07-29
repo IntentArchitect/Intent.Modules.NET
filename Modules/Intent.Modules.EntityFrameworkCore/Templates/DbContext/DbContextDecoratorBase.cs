@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -30,6 +31,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public virtual void OnBeforeTemplateExecution() { }
         
         public virtual IEnumerable<string> GetOnModelCreatingStatements() => Enumerable.Empty<string>();
+
+        public virtual IEnumerable<string> GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event) => Enumerable.Empty<string>();
 
         public int Priority { get; set; } = 0;
     }

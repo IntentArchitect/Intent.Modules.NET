@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -11,8 +14,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     {
         public int Priority { get; protected set; } = 0;
 
+        [Obsolete($"Use instead {nameof(BeforeAttributeStatements)}")]
         public virtual string BeforeAttributes() => null;
 
+        [Obsolete($"Use instead {nameof(AfterAttributeStatements)}")]
         public virtual string AfterAttributes() => null;
+
+        public virtual IEnumerable<string> GetClassMembers() => Enumerable.Empty<string>();
+        public virtual IEnumerable<string> GetConstructorParameters() => Enumerable.Empty<string>();
+        public virtual IEnumerable<string> GetConstructorBodyStatements() => Enumerable.Empty<string>();
+        public virtual IEnumerable<string> BeforeAttributeStatements() => Enumerable.Empty<string>();
+        public virtual IEnumerable<string> AfterAttributeStatements() => Enumerable.Empty<string>();
     }
 }

@@ -38,8 +38,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         //private readonly List<AttributeModel> _explicitPrimaryKeys;
         private readonly List<string> _ownedTypeConfigMethods = new List<string>();
 
-        [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
+        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
@@ -65,6 +64,52 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private string GetEntityName()
         {
             return GetTypeName("Domain.Entity", Model);
+        }
+
+        private string GetClassMembers()
+        {
+            var members = new List<string>();
+            
+            members.AddRange(GetDecorators().SelectMany(x => x.GetClassMembers()));
+
+            if (!members.Any())
+            {
+                return string.Empty;
+            }
+            
+            const string newLine = @"
+        ";
+            return string.Join(newLine, members) + newLine;
+        }
+
+        // By default this won't be generated in the template since
+        // Configuration classes don't need a constructor so we're
+        // making it a opt-in feature when a decorator needs to
+        // generate specific parts of a constructor.
+        private string GetConstructor()
+        {
+            var constructorParameters = GetDecorators().SelectMany(x => x.GetConstructorParameters()).ToList();
+            var constructorBodyStatements = GetDecorators()
+                .SelectMany(x => x.GetConstructorBodyStatements())
+                .Select(x => $"    {x}")
+                .ToList();
+
+            if (!constructorParameters.Any() && !constructorBodyStatements.Any())
+            {
+                return string.Empty;
+            }
+            
+            var codeLines = new List<string>
+            {
+                $"public {ClassName}({string.Join(",", constructorParameters)})",
+                "{",
+            };
+            codeLines.AddRange(constructorBodyStatements);
+            codeLines.Add("}");
+            
+            const string newLine = @"
+        ";
+            return string.Join(newLine, codeLines);
         }
 
         private string GetTableMapping(ClassModel model)
@@ -102,6 +147,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     return "";
                 }
+
                 return $@"
                 builder.HasKey(x => x.Id);";
                 //    return $@"
@@ -143,7 +189,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 return $@"
             {string.Join(@"
                 ", statements)};";
-
             }
 
             _ownedTypeConfigMethods.Add(@$"
@@ -262,6 +307,29 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return statements;
         }
 
+        private string GetAfterAttributeStatements()
+        {
+            // These will have their own whitespace padding so we want to try and retain this.
+            // Once this can be deprecated, then it will simplify this method a lot.
+            string statementsCode = GetDecoratorsOutput(x => x.AfterAttributes() ?? string.Empty);
+
+            var statements = new List<string>();
+            statements.AddRange(GetDecorators().SelectMany(x => x.AfterAttributeStatements()));
+
+            if (statements.Count > 0)
+            {
+                const string newLine = @"
+            ";
+                var joined = string.Join(newLine, statements);
+
+                statementsCode = !string.IsNullOrEmpty(statementsCode)
+                    ? statementsCode + newLine + joined
+                    : joined;
+            }
+
+            return statementsCode;
+        }
+
         private string GetAssociationMapping(AssociationEndModel associationEnd)
         {
             var statements = new List<string>();
@@ -282,7 +350,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element, null)}, {GetTypeName((IElement)associationEnd.Element, null)}> builder)
         {{
             builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey(x => x.Id);{
-            string.Join(@"
+                string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         return $@"
@@ -335,12 +403,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element, null)}, {GetTypeName((IElement)associationEnd.Element, null)}> builder)
         {{
             builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey({GetForeignKeyLambda(associationEnd)});{
-            string.Join(@"
+                string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         return $@"
             builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
                     }
+
                     statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
                     statements.Add(
                         $".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
@@ -404,6 +473,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statements.Add(GetKeyMapping(targetType.AsClassModel()));
                 }
             }
+
             statements.AddRange(attributes.Where(RequiresConfiguration).Select(GetAttributeMapping));
             statements.AddRange(associations.Where(RequiresConfiguration).Select(GetAssociationMapping));
             if (targetType.IsClassModel())
@@ -502,6 +572,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 return !type.AsClassModel().IsAggregateRoot();
             }
+
             return TryGetTypeName("Domain.ValueObject", type.Id,
                 out var typename);
         }
@@ -541,6 +612,29 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return $"x => new {{ {string.Join(", ", columns.Select(x => "x." + x))}}}";
         }
 
+        private string GetBeforeAttributeStatements()
+        {
+            // These will have their own whitespace padding so we want to try and retain this.
+            // Once this can be deprecated, then it will simplify this method a lot.
+            string statementsCode = GetDecoratorsOutput(x => x.BeforeAttributes() ?? string.Empty);
+
+            var statements = new List<string>();
+            statements.AddRange(GetDecorators().SelectMany(x => x.BeforeAttributeStatements()));
+
+            if (statements.Count > 0)
+            {
+                const string newLine = @"
+            ";
+                var joined = string.Join(newLine, statements);
+                
+                statementsCode = !string.IsNullOrEmpty(statementsCode)
+                    ? statementsCode + newLine + joined
+                    : joined;
+            }
+
+            return statementsCode;
+        }
+
         private IEnumerable<AttributeModel> GetAttributes(ClassModel model)
         {
             var attributes = new List<AttributeModel>();
@@ -569,11 +663,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetAdditionalMethods()
         {
-            _ownedTypeConfigMethods.Reverse(); // methods are added to this list recursively and therefore the methods are in reverse dependency order.
-            return _ownedTypeConfigMethods.Any() ? @$"
-        {string.Join(@"
-        ", _ownedTypeConfigMethods)}" : "";
+            var methods = new List<string>();
+            methods.AddRange(_ownedTypeConfigMethods);
 
+            methods.Reverse(); // methods are added to this list recursively and therefore the methods are in reverse dependency order.
+
+            const string newLine = @"
+        ";
+            return _ownedTypeConfigMethods.Any()
+                ? newLine + string.Join(newLine, _ownedTypeConfigMethods)
+                : string.Empty;
         }
     }
 }
