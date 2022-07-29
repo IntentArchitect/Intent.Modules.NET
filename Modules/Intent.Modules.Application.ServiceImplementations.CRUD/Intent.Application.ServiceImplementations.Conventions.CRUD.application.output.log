@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#ae4ec4fe-85f4-4a3a-b32d-554a42cba9f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>26e60f55-cdff-4456-bcfb-d87853b83846</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#890a31d9-3eaa-48b0-9666-b161e46a329d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/CrudConventionDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CrudConventionDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>26e60f55-cdff-4456-bcfb-d87853b83846</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#890a31d9-3eaa-48b0-9666-b161e46a329d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/CrudConventionDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CrudConventionDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.ServiceImplementations.Conventions.CRUD.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.ServiceImplementations.Conventions.CRUD.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#34e9069c-bc7c-42c3-9357-343439553ad3</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>34e9069c-bc7c-42c3-9357-343439553ad3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

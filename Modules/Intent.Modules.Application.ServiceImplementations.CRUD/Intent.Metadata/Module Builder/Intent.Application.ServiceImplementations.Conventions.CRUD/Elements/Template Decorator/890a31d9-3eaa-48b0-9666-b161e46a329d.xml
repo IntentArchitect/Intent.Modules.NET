@@ -3,7 +3,6 @@
   <name>CrudConventionDecorator</name>
   <display>CrudConventionDecorator: ServiceImplementationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="6e76b6be-6f57-4e30-9d0d-b24365f02fc1">
     <typeId>d90ec855-e605-4712-923d-9e0c42f10398</typeId>
