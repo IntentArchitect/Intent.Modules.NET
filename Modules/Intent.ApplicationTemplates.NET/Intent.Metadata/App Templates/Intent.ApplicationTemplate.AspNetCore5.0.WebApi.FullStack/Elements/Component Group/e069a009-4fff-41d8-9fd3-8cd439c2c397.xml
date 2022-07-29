@@ -3,6 +3,7 @@
   <name>Persistence</name>
   <display>Persistence</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>6</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Entity Framework Core</name>
       <display>Entity Framework Core</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e069a009-4fff-41d8-9fd3-8cd439c2c397</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.EntityFrameworkCore</name>
           <display>Intent.EntityFrameworkCore</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8fa2af41-c060-4dca-aee6-ca2cd271a692</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</name>
           <display>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8fa2af41-c060-4dca-aee6-ca2cd271a692</parentFolderId>
@@ -99,7 +98,7 @@
       <name>Entity Framework Core Repositories</name>
       <display>Entity Framework Core Repositories</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e069a009-4fff-41d8-9fd3-8cd439c2c397</parentFolderId>
@@ -125,7 +124,6 @@
           <name>Intent.EntityFrameworkCore.Repositories</name>
           <display>Intent.EntityFrameworkCore.Repositories</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2fa14e14-aa38-4693-8bff-d759183852a1</parentFolderId>

@@ -3,6 +3,7 @@
   <name>Identity Management</name>
   <display>Identity Management</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Identity Server 4</name>
       <display>Identity Server 4</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>dabc3950-39d1-4eb8-b2c7-5014781fce30</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.IdentityServer4.SecureTokenServer</name>
           <display>Intent.IdentityServer4.SecureTokenServer</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>89622f08-4f53-4593-be25-f5ac705a7fb0</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.IdentityServer4.UI</name>
           <display>Intent.IdentityServer4.UI</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>89622f08-4f53-4593-be25-f5ac705a7fb0</parentFolderId>
@@ -97,7 +96,6 @@
           <name>Intent.IdentityServer4.X509CertSigning</name>
           <display>Intent.IdentityServer4.X509CertSigning</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>89622f08-4f53-4593-be25-f5ac705a7fb0</parentFolderId>
@@ -120,7 +118,6 @@
           <name>Intent.IdentityServer4.Identity.EFCore</name>
           <display>Intent.IdentityServer4.Identity.EFCore</display>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>89622f08-4f53-4593-be25-f5ac705a7fb0</parentFolderId>

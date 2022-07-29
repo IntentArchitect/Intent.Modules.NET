@@ -3,6 +3,7 @@
   <name>Domain</name>
   <display>Domain</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Entities</name>
       <display>Entities</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>debc5f99-3e05-4dfe-9e11-48acb99fb242</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.Entities</name>
           <display>Intent.Entities</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8a0b6f82-0901-4d4a-b9f6-4b5b1092ae3c</parentFolderId>
@@ -76,7 +76,7 @@
       <name>Domain Eventing</name>
       <display>Domain Eventing</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>debc5f99-3e05-4dfe-9e11-48acb99fb242</parentFolderId>
@@ -102,7 +102,6 @@
           <name>Intent.DomainEvents</name>
           <display>Intent.DomainEvents</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ac68ffee-d82c-46fd-b7f9-d112e02dd964</parentFolderId>
@@ -125,7 +124,6 @@
           <name>Intent.MediatR.DomainEvents</name>
           <display>Intent.MediatR.DomainEvents</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ac68ffee-d82c-46fd-b7f9-d112e02dd964</parentFolderId>

@@ -3,6 +3,7 @@
   <name>Api</name>
   <display>Api</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>ASP.NET Core RESTful Api</name>
       <display>ASP.NET Core RESTful Api</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b00c0fa-2af2-45c9-b84f-e2ebff087df0</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.AspNetCore</name>
           <display>Intent.AspNetCore</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e9c6845-4337-44a6-bdd4-1e09bbbfec06</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.AspNetCore.Controllers</name>
           <display>Intent.AspNetCore.Controllers</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e9c6845-4337-44a6-bdd4-1e09bbbfec06</parentFolderId>
@@ -97,7 +96,6 @@
           <name>Intent.Application.Dtos</name>
           <display>Intent.Application.Dtos</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1e9c6845-4337-44a6-bdd4-1e09bbbfec06</parentFolderId>
@@ -122,7 +120,7 @@
       <name>Api Authorisation</name>
       <display>Api Authorisation</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b00c0fa-2af2-45c9-b84f-e2ebff087df0</parentFolderId>
@@ -148,7 +146,6 @@
           <name>Intent.Security.JWT</name>
           <display>Intent.Security.JWT</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b7715e2-ff3b-4bf8-853c-43b005c73fad</parentFolderId>
@@ -173,7 +170,7 @@
       <name>OpenAPI (Swashbuckle)</name>
       <display>OpenAPI (Swashbuckle)</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3b00c0fa-2af2-45c9-b84f-e2ebff087df0</parentFolderId>
@@ -199,7 +196,6 @@
           <name>Intent.AspNetCore.Swashbuckle</name>
           <display>Intent.AspNetCore.Swashbuckle</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5a53117f-aaf5-4f12-b450-643022661db2</parentFolderId>

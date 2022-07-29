@@ -3,6 +3,7 @@
   <name>Application</name>
   <display>Application</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Basic Service Implementation</name>
       <display>Basic Service Implementation</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d1e6d393-bfd3-4f07-90fe-98171d299362</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.Application.ServiceImplementations</name>
           <display>Intent.Application.ServiceImplementations</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b9a4a927-1c56-45f9-830f-49031166a885</parentFolderId>
@@ -76,7 +76,7 @@
       <name>AutoMapper</name>
       <display>AutoMapper</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d1e6d393-bfd3-4f07-90fe-98171d299362</parentFolderId>
@@ -102,7 +102,6 @@
           <name>Intent.Application.AutoMapper</name>
           <display>Intent.Application.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e9f77b1e-5b85-4255-8c45-e13fd1f05e16</parentFolderId>
@@ -125,7 +124,6 @@
           <name>Intent.Application.Dtos.AutoMapper</name>
           <display>Intent.Application.Dtos.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e9f77b1e-5b85-4255-8c45-e13fd1f05e16</parentFolderId>
@@ -148,7 +146,6 @@
           <name>Intent.Application.DependencyInjection.AutoMapper</name>
           <display>Intent.Application.DependencyInjection.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e9f77b1e-5b85-4255-8c45-e13fd1f05e16</parentFolderId>
@@ -173,7 +170,7 @@
       <name>Additional CRUD Support</name>
       <display>Additional CRUD Support</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d1e6d393-bfd3-4f07-90fe-98171d299362</parentFolderId>
@@ -199,7 +196,6 @@
           <name>Intent.Application.ServiceImplementations.Conventions.CRUD</name>
           <display>Intent.Application.ServiceImplementations.Conventions.CRUD</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6e1c5037-e80d-495f-8257-ca9454c78910</parentFolderId>

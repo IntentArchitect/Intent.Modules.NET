@@ -3,6 +3,7 @@
   <name>Core</name>
   <display>Core</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Identity Server</name>
       <display>Identity Server</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e87ba8c6-9960-4e71-bf55-ba1ca0bdc805</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.AspNetCore</name>
           <display>Intent.AspNetCore</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8a671f0-cc80-462b-9675-b9efae6d94a8</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.IdentityServer4.SecureTokenServer</name>
           <display>Intent.IdentityServer4.SecureTokenServer</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8a671f0-cc80-462b-9675-b9efae6d94a8</parentFolderId>

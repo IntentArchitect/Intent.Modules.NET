@@ -3,6 +3,7 @@
   <name>Tooling</name>
   <display>Tooling</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>8</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Visual Studio Integration</name>
       <display>Visual Studio Integration</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b18d589c-413c-40d1-b7d0-f25630e40f0d</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.VisualStudio.Projects</name>
           <display>Intent.VisualStudio.Projects</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cd253dd2-6c74-482b-8c6e-5398ddc4d6a5</parentFolderId>
@@ -76,7 +76,7 @@
       <name>Docker Support</name>
       <display>Docker Support</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b18d589c-413c-40d1-b7d0-f25630e40f0d</parentFolderId>
@@ -102,7 +102,6 @@
           <name>Intent.AspNetCore.Docker</name>
           <display>Intent.AspNetCore.Docker</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aeb35388-84cc-41e3-abec-4fd674c6fd84</parentFolderId>

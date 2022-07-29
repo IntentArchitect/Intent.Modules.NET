@@ -3,6 +3,7 @@
   <name>Application</name>
   <display>Application</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>MediatR</name>
       <display>MediatR</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>66afd18c-f211-4f68-9d6d-ef69a25d17dd</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.Application.MediatR</name>
           <display>Intent.Application.MediatR</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1c1be665-9040-4bbd-ab1d-0ce4b004d2c5</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.Application.MediatR.Behaviours</name>
           <display>Intent.Application.MediatR.Behaviours</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1c1be665-9040-4bbd-ab1d-0ce4b004d2c5</parentFolderId>
@@ -97,7 +96,6 @@
           <name>Intent.Application.DependencyInjection.MediatR</name>
           <display>Intent.Application.DependencyInjection.MediatR</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1c1be665-9040-4bbd-ab1d-0ce4b004d2c5</parentFolderId>
@@ -122,7 +120,7 @@
       <name>AutoMapper</name>
       <display>AutoMapper</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>66afd18c-f211-4f68-9d6d-ef69a25d17dd</parentFolderId>
@@ -148,7 +146,6 @@
           <name>Intent.Application.AutoMapper</name>
           <display>Intent.Application.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>76b582cd-c96a-4da4-a3d0-312ef16edfc4</parentFolderId>
@@ -171,7 +168,6 @@
           <name>Intent.Application.Dtos.AutoMapper</name>
           <display>Intent.Application.Dtos.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>76b582cd-c96a-4da4-a3d0-312ef16edfc4</parentFolderId>
@@ -194,7 +190,6 @@
           <name>Intent.Application.DependencyInjection.AutoMapper</name>
           <display>Intent.Application.DependencyInjection.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>76b582cd-c96a-4da4-a3d0-312ef16edfc4</parentFolderId>
@@ -219,7 +214,7 @@
       <name>Fluent Validation</name>
       <display>Fluent Validation</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>66afd18c-f211-4f68-9d6d-ef69a25d17dd</parentFolderId>
@@ -245,7 +240,6 @@
           <name>Intent.Application.MediatR.FluentValidation</name>
           <display>Intent.Application.MediatR.FluentValidation</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bdb55c01-453e-42f1-b3aa-ef01f92e4916</parentFolderId>
@@ -268,7 +262,6 @@
           <name>Intent.Application.DependencyInjection.FluentValidation</name>
           <display>Intent.Application.DependencyInjection.FluentValidation</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bdb55c01-453e-42f1-b3aa-ef01f92e4916</parentFolderId>
@@ -293,7 +286,7 @@
       <name>Additional CRUD Support</name>
       <display>Additional CRUD Support</display>
       <isAbstract>false</isAbstract>
-      <order>3</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>66afd18c-f211-4f68-9d6d-ef69a25d17dd</parentFolderId>
@@ -319,7 +312,6 @@
           <name>Intent.Application.MediatR.CRUD</name>
           <display>Intent.Application.MediatR.CRUD</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4da59e7e-62eb-417f-b3bd-90f59b1e9155</parentFolderId>

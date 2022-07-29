@@ -3,6 +3,7 @@
   <name>Persistence</name>
   <display>Persistence</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Entity Framework Core</name>
       <display>Entity Framework Core</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>85309ecb-38d0-4860-8181-515704cdda19</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.IdentityServer4.Identity.EFCore</name>
           <display>Intent.IdentityServer4.Identity.EFCore</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>21c6930b-efb8-4742-9a30-835c73bbbea9</parentFolderId>

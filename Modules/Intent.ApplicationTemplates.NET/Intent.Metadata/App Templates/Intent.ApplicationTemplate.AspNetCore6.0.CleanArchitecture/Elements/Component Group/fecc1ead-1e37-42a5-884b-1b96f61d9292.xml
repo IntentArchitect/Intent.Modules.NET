@@ -3,6 +3,7 @@
   <name>Cross-Cutting</name>
   <display>Cross-Cutting</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>6</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Multitenancy (Finbuckle)</name>
       <display>Multitenancy (Finbuckle)</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fecc1ead-1e37-42a5-884b-1b96f61d9292</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.Modules.AspNetCore.MultiTenancy</name>
           <display>Intent.Modules.AspNetCore.MultiTenancy</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e3db92fd-b51e-4a27-979c-658226d75ffd</parentFolderId>

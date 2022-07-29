@@ -3,6 +3,7 @@
   <name>Domain</name>
   <display>Domain</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>3</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Entities</name>
       <display>Entities</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8df09d1-6b6d-4153-a7bd-7083c1cf919f</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.Entities</name>
           <display>Intent.Entities</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>599fc524-b048-4153-a20b-0f585b8ee204</parentFolderId>

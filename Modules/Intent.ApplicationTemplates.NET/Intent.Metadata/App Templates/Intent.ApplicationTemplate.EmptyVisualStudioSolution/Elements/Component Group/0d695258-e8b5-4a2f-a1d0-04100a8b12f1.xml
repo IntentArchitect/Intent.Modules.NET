@@ -3,6 +3,7 @@
   <name>Tooling</name>
   <display>Tooling</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Visual Studio Integration</name>
       <display>Visual Studio Integration</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0d695258-e8b5-4a2f-a1d0-04100a8b12f1</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.VisualStudio.Projects</name>
           <display>Intent.VisualStudio.Projects</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>af859152-4664-4696-88cf-b81622c7b618</parentFolderId>

@@ -3,6 +3,7 @@
   <name>Logging</name>
   <display>Logging</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Serilog</name>
       <display>Serilog</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ed720247-38d7-4016-89d1-c8944139af27</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.Modules.AspNetCore.Logging.Serilog</name>
           <display>Intent.Modules.AspNetCore.Logging.Serilog</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d08eea5d-4794-47ed-b88d-f7f730681682</parentFolderId>

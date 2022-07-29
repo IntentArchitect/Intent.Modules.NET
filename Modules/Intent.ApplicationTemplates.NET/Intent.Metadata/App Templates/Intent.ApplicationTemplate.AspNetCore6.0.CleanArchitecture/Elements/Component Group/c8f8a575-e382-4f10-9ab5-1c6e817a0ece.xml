@@ -3,6 +3,7 @@
   <name>Persistence</name>
   <display>Persistence</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Entity Framework Core</name>
       <display>Entity Framework Core</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8f8a575-e382-4f10-9ab5-1c6e817a0ece</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.EntityFrameworkCore</name>
           <display>Intent.EntityFrameworkCore</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b4e4fbb1-b78b-4641-accd-e273e4a6123d</parentFolderId>
@@ -76,7 +76,7 @@
       <name>Entity Framework Core Repositories</name>
       <display>Entity Framework Core Repositories</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8f8a575-e382-4f10-9ab5-1c6e817a0ece</parentFolderId>
@@ -102,7 +102,6 @@
           <name>Intent.EntityFrameworkCore.Repositories</name>
           <display>Intent.EntityFrameworkCore.Repositories</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3a5d478d-7b99-422f-8e44-c7c21b01c0a3</parentFolderId>

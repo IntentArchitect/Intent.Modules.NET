@@ -3,6 +3,7 @@
   <name>Front-End</name>
   <display>Front-End</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Identity UI</name>
       <display>Identity UI</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1f62181b-7829-4c9d-abbe-515c97d2e093</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.IdentityServer4.UI</name>
           <display>Intent.IdentityServer4.UI</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>78cf90ec-4ae7-48b6-a84b-4525f2db71e0</parentFolderId>

@@ -3,6 +3,7 @@
   <name>Application</name>
   <display>Application</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Basic Service Implementation</name>
       <display>Basic Service Implementation</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9572e8d1-cd6c-455c-a666-37bd3dc7a236</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.Application.ServiceImplementations</name>
           <display>Intent.Application.ServiceImplementations</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3f5cd2b4-8b33-4bfa-af2c-7edc1b56ea70</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.AzureFunctions.Interop.Contracts</name>
           <display>Intent.AzureFunctions.Interop.Contracts</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3f5cd2b4-8b33-4bfa-af2c-7edc1b56ea70</parentFolderId>
@@ -86,7 +85,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.1" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -99,7 +98,7 @@
       <name>AutoMapper</name>
       <display>AutoMapper</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9572e8d1-cd6c-455c-a666-37bd3dc7a236</parentFolderId>
@@ -125,7 +124,6 @@
           <name>Intent.Application.AutoMapper</name>
           <display>Intent.Application.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d5543703-fd70-4043-bd5b-939bf48782d6</parentFolderId>
@@ -148,7 +146,6 @@
           <name>Intent.Application.Dtos.AutoMapper</name>
           <display>Intent.Application.Dtos.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d5543703-fd70-4043-bd5b-939bf48782d6</parentFolderId>
@@ -171,7 +168,6 @@
           <name>Intent.Application.DependencyInjection.AutoMapper</name>
           <display>Intent.Application.DependencyInjection.AutoMapper</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d5543703-fd70-4043-bd5b-939bf48782d6</parentFolderId>
@@ -196,7 +192,7 @@
       <name>Fluent Validation</name>
       <display>Fluent Validation</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9572e8d1-cd6c-455c-a666-37bd3dc7a236</parentFolderId>
@@ -222,7 +218,6 @@
           <name>Intent.AzureFunctions.FluentValidation</name>
           <display>Intent.AzureFunctions.FluentValidation</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>959b7f2f-2a16-43fc-8c63-259426430479</parentFolderId>
@@ -245,7 +240,6 @@
           <name>Intent.Application.DependencyInjection.FluentValidation</name>
           <display>Intent.Application.DependencyInjection.FluentValidation</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>959b7f2f-2a16-43fc-8c63-259426430479</parentFolderId>
@@ -268,7 +262,6 @@
           <name>Intent.Application.FluentValidation.Dtos</name>
           <display>Intent.Application.FluentValidation.Dtos</display>
           <isAbstract>false</isAbstract>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>959b7f2f-2a16-43fc-8c63-259426430479</parentFolderId>
@@ -291,7 +284,6 @@
           <name>Intent.Application.ServiceImplementations.FluentValidation</name>
           <display>Intent.Application.ServiceImplementations.FluentValidation</display>
           <isAbstract>false</isAbstract>
-          <order>3</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>959b7f2f-2a16-43fc-8c63-259426430479</parentFolderId>
@@ -316,7 +308,7 @@
       <name>Additional CRUD Support</name>
       <display>Additional CRUD Support</display>
       <isAbstract>false</isAbstract>
-      <order>3</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9572e8d1-cd6c-455c-a666-37bd3dc7a236</parentFolderId>
@@ -342,7 +334,6 @@
           <name>Intent.Application.ServiceImplementations.Conventions.CRUD</name>
           <display>Intent.Application.ServiceImplementations.Conventions.CRUD</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>331621bc-8a98-4824-8e0a-8fc8f1ebe4be</parentFolderId>

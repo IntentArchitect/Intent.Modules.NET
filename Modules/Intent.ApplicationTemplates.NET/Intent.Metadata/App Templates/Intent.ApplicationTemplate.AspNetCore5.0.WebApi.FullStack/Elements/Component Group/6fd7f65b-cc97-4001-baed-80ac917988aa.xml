@@ -3,6 +3,7 @@
   <name>Api</name>
   <display>Api</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>ASP.NET Core RESTful Api</name>
       <display>ASP.NET Core RESTful Api</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6fd7f65b-cc97-4001-baed-80ac917988aa</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.AspNetCore</name>
           <display>Intent.AspNetCore</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e1d44707-ff25-4efd-b4c0-e422a8c4e4e9</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.AspNetCore.Controllers</name>
           <display>Intent.AspNetCore.Controllers</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e1d44707-ff25-4efd-b4c0-e422a8c4e4e9</parentFolderId>
@@ -99,7 +98,7 @@
       <name>Api Authorisation</name>
       <display>Api Authorisation</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6fd7f65b-cc97-4001-baed-80ac917988aa</parentFolderId>
@@ -125,7 +124,6 @@
           <name>Intent.Security.JWT</name>
           <display>Intent.Security.JWT</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b66c40b8-8528-48a9-95bd-9ac72db8ffbe</parentFolderId>
@@ -150,7 +148,7 @@
       <name>OpenAPI (Swashbuckle)</name>
       <display>OpenAPI (Swashbuckle)</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6fd7f65b-cc97-4001-baed-80ac917988aa</parentFolderId>
@@ -176,7 +174,6 @@
           <name>Intent.AspNetCore.Swashbuckle</name>
           <display>Intent.AspNetCore.Swashbuckle</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>263b41ba-364e-4ea8-a52b-6a1a9b200be8</parentFolderId>

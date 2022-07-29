@@ -3,6 +3,7 @@
   <name>Persistence</name>
   <display>Persistence</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
@@ -25,7 +26,7 @@
       <name>Entity Framework Core</name>
       <display>Entity Framework Core</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fb58ade4-117e-4919-82bb-dc2163761c3b</parentFolderId>
@@ -51,7 +52,6 @@
           <name>Intent.EntityFrameworkCore</name>
           <display>Intent.EntityFrameworkCore</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fa1e04b1-f7e6-40fa-a1fa-3e70901cde5f</parentFolderId>
@@ -74,7 +74,6 @@
           <name>Intent.AzureFunctions.Interop.EntityFrameworkCore</name>
           <display>Intent.AzureFunctions.Interop.EntityFrameworkCore</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fa1e04b1-f7e6-40fa-a1fa-3e70901cde5f</parentFolderId>
@@ -99,7 +98,7 @@
       <name>Entity Framework Core Repositories</name>
       <display>Entity Framework Core Repositories</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fb58ade4-117e-4919-82bb-dc2163761c3b</parentFolderId>
@@ -125,7 +124,6 @@
           <name>Intent.EntityFrameworkCore.Repositories</name>
           <display>Intent.EntityFrameworkCore.Repositories</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a3f3ee28-c74c-40f4-a5ae-c7577352f6a6</parentFolderId>
