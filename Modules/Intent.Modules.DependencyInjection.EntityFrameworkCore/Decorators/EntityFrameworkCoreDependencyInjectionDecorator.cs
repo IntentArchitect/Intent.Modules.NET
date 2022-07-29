@@ -52,18 +52,18 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchema", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchemaName", ""));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
                     _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchema", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchemaName", ""));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountEndpoint", "https://localhost:8081"));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:DatabaseName", $"{_template.Project.ApplicationName()}DB"));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultContainer", $"{_template.Project.ApplicationName()}"));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultContainerName", $"{_template.Project.ApplicationName()}"));
                     break;
             }
 

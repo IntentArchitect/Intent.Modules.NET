@@ -40,10 +40,10 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
-                    properties.Add("public string? DefaultSchema { get; set; }");
+                    properties.Add("public string? DefaultSchemaName { get; set; }");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
-                    properties.Add("public string? DefaultContainer { get; set; }");
+                    properties.Add("public string? DefaultContainerName { get; set; }");
                     break;
             }
 
