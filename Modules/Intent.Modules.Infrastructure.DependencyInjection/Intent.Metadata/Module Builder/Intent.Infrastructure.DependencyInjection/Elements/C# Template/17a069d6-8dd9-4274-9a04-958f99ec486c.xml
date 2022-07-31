@@ -3,7 +3,7 @@
   <name>DependencyInjection</name>
   <display>DependencyInjection: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <typeReference id="532a5bc2-2efd-46e2-986c-41a60368ba77">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
