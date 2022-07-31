@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#381ec2e1-c1c5-4d86-828b-b85b4927cec6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>27fb946f-391f-4a8a-acc8-2746cbc04889</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Entities.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Entities.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>27fb946f-391f-4a8a-acc8-2746cbc04889</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#27fb946f-391f-4a8a-acc8-2746cbc04889</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Entities.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Entities.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>27fb946f-391f-4a8a-acc8-2746cbc04889</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,13 +35,15 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#3d25a607-58e9-42bd-b578-6fd47f8767e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntity/DomainEntityTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntity/DomainEntityTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#3d25a607-58e9-42bd-b578-6fd47f8767e0</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#3d25a607-58e9-42bd-b578-6fd47f8767e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntity/DomainEntityTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntity/DomainEntityTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3d25a607-58e9-42bd-b578-6fd47f8767e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntity/DomainEntityTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntity/DomainEntityTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3d25a607-58e9-42bd-b578-6fd47f8767e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntity/DomainEntityTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntity/DomainEntityTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#6e12f99e-c152-4809-98ab-7f9f6c0957e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityInterface/DomainEntityInterfaceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityInterface/DomainEntityInterfaceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#6e12f99e-c152-4809-98ab-7f9f6c0957e7</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#6e12f99e-c152-4809-98ab-7f9f6c0957e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityInterface/DomainEntityInterfaceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityInterface/DomainEntityInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6e12f99e-c152-4809-98ab-7f9f6c0957e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityInterface/DomainEntityInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityInterface/DomainEntityInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#6e12f99e-c152-4809-98ab-7f9f6c0957e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityInterface/DomainEntityInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityInterface/DomainEntityInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,13 +99,15 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#c1f8508f-96fc-461c-bbdd-bc2d1aabf955</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityState/DomainEntityStateTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityState/DomainEntityStateTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#c1f8508f-96fc-461c-bbdd-bc2d1aabf955</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#c1f8508f-96fc-461c-bbdd-bc2d1aabf955</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityState/DomainEntityStateTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityState/DomainEntityStateTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c1f8508f-96fc-461c-bbdd-bc2d1aabf955</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityState/DomainEntityStateTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityState/DomainEntityStateTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,6 +123,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#c1f8508f-96fc-461c-bbdd-bc2d1aabf955</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntityState/DomainEntityStateTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEntityState/DomainEntityStateTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -115,13 +131,15 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEnum/DomainEnumTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEnum/DomainEnumTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEnum/DomainEnumTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEnum/DomainEnumTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -129,6 +147,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEnum/DomainEnumTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEnum/DomainEnumTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -136,6 +155,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEnum/DomainEnumTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEnum/DomainEnumTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -143,6 +163,7 @@
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c3af7375-c08c-4312-9365-001f629f501d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>cc69b565-1089-41e7-b364-3e017912be94</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.FluentValidation.Dtos.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.FluentValidation.Dtos.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>cc69b565-1089-41e7-b364-3e017912be94</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#cc69b565-1089-41e7-b364-3e017912be94</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.FluentValidation.Dtos.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.FluentValidation.Dtos.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>cc69b565-1089-41e7-b364-3e017912be94</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,13 +35,15 @@
     <FileLog>
       <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#9247df07-c11b-4082-8659-1fa0f19bc5e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#9247df07-c11b-4082-8659-1fa0f19bc5e1</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#9247df07-c11b-4082-8659-1fa0f19bc5e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9247df07-c11b-4082-8659-1fa0f19bc5e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#9247df07-c11b-4082-8659-1fa0f19bc5e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DTOValidator/DTOValidatorTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DTOValidator/DTOValidatorTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>9d29a925-e5a6-4a29-b3b4-e02983b9d151</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

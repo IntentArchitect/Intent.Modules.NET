@@ -16,8 +16,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
     [IntentManaged(Mode.Merge)]
     public class AzureFunctionFluentValidationDecorator : AzureFunctionClassDecorator, IDecoratorExecutionHooks
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId =
-            "Intent.AzureFunctions.FluentValidation.AzureFunctionFluentValidationDecorator";
+        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.AzureFunctions.FluentValidation.AzureFunctionFluentValidationDecorator";
 
         [IntentManaged(Mode.Fully)] private readonly AzureFunctionClassTemplate _template;
         [IntentManaged(Mode.Fully)] private readonly IApplication _application;
@@ -29,7 +28,6 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         {
             _template = template;
             _application = application;
-            _requestDtoTypeName = _template.GetRequestDtoType();
         }
 
         public void BeforeTemplateExecution()
@@ -60,7 +58,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 yield break;
             }
-            
+
             if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 yield break;
@@ -75,7 +73,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 yield break;
             }
-            
+
             if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 yield break;
@@ -90,7 +88,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 yield break;
             }
-            
+
             if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 yield break;
@@ -105,7 +103,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 yield break;
             }
-            
+
             if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 yield break;
@@ -120,12 +118,12 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             {
                 yield break;
             }
-            
+
             if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 yield break;
             }
-            
+
             yield return new ExceptionCatchBlock("ValidationException exception")
                 .AddNamespaces("FluentValidation")
                 .AddStatementLines("return new BadRequestObjectResult(exception.Errors);");

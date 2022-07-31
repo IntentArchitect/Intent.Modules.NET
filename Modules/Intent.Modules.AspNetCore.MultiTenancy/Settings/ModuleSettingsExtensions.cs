@@ -17,13 +17,26 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
         }
     }
 
-    public class MultitenancySettings
+    public class MultitenancySettings : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
         public MultitenancySettings(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
+        }
+
+        public string Id => _groupSettings.Id;
+
+        public string Title
+        {
+            get => _groupSettings.Title;
+            set => _groupSettings.Title = value;
+        }
+
+        public ISetting GetSetting(string settingId)
+        {
+            return _groupSettings.GetSetting(settingId);
         }
 
         public StrategyOptions Strategy() => new StrategyOptions(_groupSettings.GetSetting("e15fe0fb-be28-4cc5-8b85-37a07b7ca160")?.Value);
@@ -41,24 +54,24 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             {
                 return Value switch
                 {
-                    "header" => StrategyOptionsEnum.HeaderStrategy,
-                    "claim" => StrategyOptionsEnum.ClaimStrategy,
-                    "host" => StrategyOptionsEnum.HostStrategy,
+                    "header" => StrategyOptionsEnum.Header,
+                    "claim" => StrategyOptionsEnum.Claim,
+                    "host" => StrategyOptionsEnum.Host,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
-            public bool IsHeaderStrategy()
+            public bool IsHeader()
             {
                 return Value == "header";
             }
 
-            public bool IsClaimStrategy()
+            public bool IsClaim()
             {
                 return Value == "claim";
             }
 
-            public bool IsHostStrategy()
+            public bool IsHost()
             {
                 return Value == "host";
             }
@@ -66,9 +79,9 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
 
         public enum StrategyOptionsEnum
         {
-            HeaderStrategy,
-            ClaimStrategy,
-            HostStrategy
+            Header,
+            Claim,
+            Host
         }
 
         public StoreOptions Store() => new StoreOptions(_groupSettings.GetSetting("e430d7bc-fac3-4528-93e8-e3f38bc0b925")?.Value);
@@ -87,20 +100,20 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
                 return Value switch
                 {
                     "in-memory" => StoreOptionsEnum.InMemory,
-                    "efcore" => StoreOptionsEnum.EntityFrameworkCore,
+                    "efcore" => StoreOptionsEnum.Efcore,
                     "configuration" => StoreOptionsEnum.Configuration,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
-            public bool IsEntityFrameworkCore()
-            {
-                return Value == "efcore";
-            }
-
             public bool IsInMemory()
             {
                 return Value == "in-memory";
+            }
+
+            public bool IsEfcore()
+            {
+                return Value == "efcore";
             }
 
             public bool IsConfiguration()
@@ -111,8 +124,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
 
         public enum StoreOptionsEnum
         {
-            EntityFrameworkCore,
             InMemory,
+            Efcore,
             Configuration
         }
 
@@ -131,12 +144,12 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             {
                 return Value switch
                 {
-                    "separate-database" => DataIsolationOptionsEnum.SeparateDatabases,
+                    "separate-database" => DataIsolationOptionsEnum.SeparateDatabase,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
-            public bool IsSeparateDatabases()
+            public bool IsSeparateDatabase()
             {
                 return Value == "separate-database";
             }
@@ -144,7 +157,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
 
         public enum DataIsolationOptionsEnum
         {
-            SeparateDatabases,
+            SeparateDatabase,
         }
     }
 }

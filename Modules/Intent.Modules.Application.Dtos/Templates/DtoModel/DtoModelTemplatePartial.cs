@@ -90,7 +90,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             ", parameters)}";
         }
 
-        public string GenericTypes => Model.GenericTypes.Any() ? $"<{ string.Join(", ", Model.GenericTypes) }>" : "";
+        public string GenericTypes => Model.GenericTypes.Any() ? $"<{string.Join(", ", Model.GenericTypes)}>" : "";
 
     }
 }

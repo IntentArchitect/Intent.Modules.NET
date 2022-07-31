@@ -24,9 +24,8 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Decorators
         {
             _template = template;
             _application = application;
-            _template.AddUsing("MediatR");
         }
-        
+
         public void BeforeTemplateExecution()
         {
             _template.ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({_template.ClassName}<,>)")

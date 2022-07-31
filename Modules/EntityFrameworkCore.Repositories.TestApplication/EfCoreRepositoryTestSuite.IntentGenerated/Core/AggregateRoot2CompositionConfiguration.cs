@@ -16,24 +16,27 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
             builder.HasKey(x => x.Id);
 
 
-            builder.HasOne(x => x.AggregateRoot2Single)
-                .WithOne()
-                .HasForeignKey<AggregateRoot2Composition>(x => x.Id)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.OwnsOne(x => x.AggregateRoot2Single, ConfigureAggregateRoot2Single);
 
-            builder.HasOne(x => x.AggregateRoot2Nullable)
-                .WithOne()
-                .HasForeignKey<AggregateRoot2Nullable>(x => x.Id)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.OwnsOne(x => x.AggregateRoot2Nullable, ConfigureAggregateRoot2Nullable);
 
-            builder.HasMany(x => x.AggregateRoot2Collections)
-                .WithOne()
-                .HasForeignKey(x => x.AggregateRoot2CompositionId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.OwnsMany(x => x.AggregateRoot2Collections, ConfigureAggregateRoot2Collections);
 
+        }
+
+        public void ConfigureAggregateRoot2Single(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Single> builder)
+        {
+            builder.WithOwner().HasForeignKey(x => x.Id);
+        }
+
+        public void ConfigureAggregateRoot2Nullable(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Nullable> builder)
+        {
+            builder.WithOwner().HasForeignKey(x => x.Id);
+        }
+
+        public void ConfigureAggregateRoot2Collections(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Collection> builder)
+        {
+            builder.WithOwner().HasForeignKey(x => x.AggregateRoot2CompositionId);
         }
     }
 }

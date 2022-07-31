@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#48216838-90d1-457f-808b-70b206050800</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>98d54bf6-a53f-429f-be8e-594498c0cf2b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#ccf14eb6-3a55-4d81-b5b9-d27311c70cb9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/CommandModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>98d54bf6-a53f-429f-be8e-594498c0cf2b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#e71b0662-e29d-4db2-868b-8a12464b25d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/Extensions/QueryModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryModelStereotypeExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>80081361-cc7d-430c-8861-8b2ac9d6e8a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.MediatR.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>80081361-cc7d-430c-8861-8b2ac9d6e8a7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#80081361-cc7d-430c-8861-8b2ac9d6e8a7</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>80081361-cc7d-430c-8861-8b2ac9d6e8a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#9c8ff153-4dca-4d95-8136-043ed779abd1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandHandler/CommandHandlerDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandler/CommandHandlerDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,13 +59,15 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandHandler/CommandHandlerTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandler/CommandHandlerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandHandler/CommandHandlerTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandler/CommandHandlerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +75,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandHandler/CommandHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandler/CommandHandlerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4ba1d060-8722-4b1d-97e1-e7f070b8be2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandHandler/CommandHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandHandler/CommandHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,13 +91,15 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandInterface/CommandInterfaceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandInterface/CommandInterfaceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandInterface/CommandInterfaceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandInterface/CommandInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -94,6 +107,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandInterface/CommandInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandInterface/CommandInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandInterface/CommandInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandInterface/CommandInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,13 +123,15 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#6fe47b20-09e5-4a25-8675-746c403d0158</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandModels/CommandModelsTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandModels/CommandModelsTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#6fe47b20-09e5-4a25-8675-746c403d0158</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#6fe47b20-09e5-4a25-8675-746c403d0158</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandModels/CommandModelsTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandModels/CommandModelsTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -122,6 +139,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6fe47b20-09e5-4a25-8675-746c403d0158</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandModels/CommandModelsTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandModels/CommandModelsTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -129,6 +147,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#6fe47b20-09e5-4a25-8675-746c403d0158</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandModels/CommandModelsTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CommandModels/CommandModelsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -136,6 +155,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#745ca135-d095-4fa8-9fa3-8fc4d700c6c5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandler/QueryHandlerDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandler/QueryHandlerDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -143,13 +163,15 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#3a8eb772-0533-42c8-9767-a87c67884d46</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandler/QueryHandlerTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandler/QueryHandlerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#3a8eb772-0533-42c8-9767-a87c67884d46</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#3a8eb772-0533-42c8-9767-a87c67884d46</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandler/QueryHandlerTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandler/QueryHandlerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -157,6 +179,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3a8eb772-0533-42c8-9767-a87c67884d46</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandler/QueryHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandler/QueryHandlerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -164,6 +187,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3a8eb772-0533-42c8-9767-a87c67884d46</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandler/QueryHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandler/QueryHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -171,13 +195,15 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryInterface/QueryInterfaceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryInterface/QueryInterfaceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryInterface/QueryInterfaceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryInterface/QueryInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -185,6 +211,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryInterface/QueryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryInterface/QueryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -192,6 +219,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryInterface/QueryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryInterface/QueryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -199,13 +227,15 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#7b686f14-b047-44e4-9065-4de3b48e6048</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryModels/QueryModelsTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryModels/QueryModelsTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#7b686f14-b047-44e4-9065-4de3b48e6048</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#7b686f14-b047-44e4-9065-4de3b48e6048</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryModels/QueryModelsTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryModels/QueryModelsTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -213,6 +243,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7b686f14-b047-44e4-9065-4de3b48e6048</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryModels/QueryModelsTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryModels/QueryModelsTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -220,6 +251,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#7b686f14-b047-44e4-9065-4de3b48e6048</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryModels/QueryModelsTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryModels/QueryModelsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -227,6 +259,7 @@
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

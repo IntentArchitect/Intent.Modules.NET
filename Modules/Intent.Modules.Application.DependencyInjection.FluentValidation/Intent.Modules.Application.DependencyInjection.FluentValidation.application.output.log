@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#9f6101a2-d01a-4c9f-98ba-a868950ec466</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c02ec711-33b1-4b53-b87d-7d85c45a8101</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#84d1de11-3e2a-49f6-924f-cf70cf09b31b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/FluentValidationDependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FluentValidationDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>c02ec711-33b1-4b53-b87d-7d85c45a8101</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#84d1de11-3e2a-49f6-924f-cf70cf09b31b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/FluentValidationDependencyInjectionDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FluentValidationDependencyInjectionDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>b0ab7936-8875-49d5-8892-af57ee0b9a87</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.DependencyInjection.FluentValidation.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.DependencyInjection.FluentValidation.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>b0ab7936-8875-49d5-8892-af57ee0b9a87</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b0ab7936-8875-49d5-8892-af57ee0b9a87</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.DependencyInjection.FluentValidation.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.FluentValidation.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>b0ab7936-8875-49d5-8892-af57ee0b9a87</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

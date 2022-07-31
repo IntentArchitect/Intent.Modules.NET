@@ -21,21 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="1e92d27d-4b7f-4bd0-9fa8-5e4c2b7c79e1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate</name>
-      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate</display>
-      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>0</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>250b8fe2-8b39-4e3d-9db6-b4dacbd4de73</parentFolderId>
-      <packageId>43212378-7993-43a5-81b4-6b3f54e7febd</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="44f066eb-84f3-4763-a598-c8763d0a0a3e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</name>
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</display>
@@ -207,6 +192,34 @@
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <order>0</order>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>250b8fe2-8b39-4e3d-9db6-b4dacbd4de73</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d934f504-021c-4a2e-affe-d3e730e499d1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>250b8fe2-8b39-4e3d-9db6-b4dacbd4de73</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8b6bb72f-ea4b-42db-b8e6-cd955aa2ba97" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>250b8fe2-8b39-4e3d-9db6-b4dacbd4de73</parentFolderId>

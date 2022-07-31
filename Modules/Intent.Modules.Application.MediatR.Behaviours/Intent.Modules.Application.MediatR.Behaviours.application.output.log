@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#09f8516d-f26a-4a4b-9d39-c3074cba2132</CorrelationId>
-      <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.Behaviours.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.MediatR.Behaviours.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#8de7db33-7d69-403f-ad45-3b3d753705f2</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.Behaviours.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.Behaviours.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,13 +35,15 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#88e43d09-6042-4be7-a108-42c0772d6e0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizationBehaviour/AuthorizationBehaviourTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour/AuthorizationBehaviourTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#88e43d09-6042-4be7-a108-42c0772d6e0e</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#88e43d09-6042-4be7-a108-42c0772d6e0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizationBehaviour/AuthorizationBehaviourTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour/AuthorizationBehaviourTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#88e43d09-6042-4be7-a108-42c0772d6e0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizationBehaviour/AuthorizationBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour/AuthorizationBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#88e43d09-6042-4be7-a108-42c0772d6e0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizationBehaviour/AuthorizationBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizationBehaviour/AuthorizationBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#68ec10f6-35bb-4b18-9845-d5ef91513cff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/LoggingBehaviour/LoggingBehaviourTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour/LoggingBehaviourTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#68ec10f6-35bb-4b18-9845-d5ef91513cff</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#68ec10f6-35bb-4b18-9845-d5ef91513cff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/LoggingBehaviour/LoggingBehaviourTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour/LoggingBehaviourTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68ec10f6-35bb-4b18-9845-d5ef91513cff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/LoggingBehaviour/LoggingBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour/LoggingBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#68ec10f6-35bb-4b18-9845-d5ef91513cff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/LoggingBehaviour/LoggingBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour/LoggingBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,13 +99,15 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#01accc66-206d-450c-8c23-b671dd4a69d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PerformanceBehaviour/PerformanceBehaviourTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour/PerformanceBehaviourTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#01accc66-206d-450c-8c23-b671dd4a69d4</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#01accc66-206d-450c-8c23-b671dd4a69d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PerformanceBehaviour/PerformanceBehaviourTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour/PerformanceBehaviourTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#01accc66-206d-450c-8c23-b671dd4a69d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PerformanceBehaviour/PerformanceBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour/PerformanceBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,6 +123,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#01accc66-206d-450c-8c23-b671dd4a69d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PerformanceBehaviour/PerformanceBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PerformanceBehaviour/PerformanceBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -115,6 +131,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -122,13 +139,15 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -136,6 +155,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -143,6 +163,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -150,13 +171,15 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -164,6 +187,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -171,6 +195,7 @@
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#25c03256-0042-46df-9e3d-d9a8b71ef499</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

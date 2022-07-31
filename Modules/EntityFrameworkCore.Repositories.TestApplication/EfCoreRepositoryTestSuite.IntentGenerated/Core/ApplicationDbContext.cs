@@ -19,10 +19,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         }
 
         public DbSet<AggregateRoot1> AggregateRoot1s { get; set; }
-        public DbSet<AggregateRoot2Collection> AggregateRoot2Collections { get; set; }
         public DbSet<AggregateRoot2Composition> AggregateRoot2Compositions { get; set; }
-        public DbSet<AggregateRoot2Nullable> AggregateRoot2Nullables { get; set; }
-        public DbSet<AggregateRoot2Single> AggregateRoot2Singles { get; set; }
         public DbSet<AggregateRoot3AggCollection> AggregateRoot3AggCollections { get; set; }
         public DbSet<AggregateRoot3Collection> AggregateRoot3Collections { get; set; }
         public DbSet<AggregateRoot3Nullable> AggregateRoot3Nullables { get; set; }
@@ -32,7 +29,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         public DbSet<AggregateRoot4Nullable> AggregateRoot4Nullables { get; set; }
         public DbSet<AggregateRoot4Single> AggregateRoot4Singles { get; set; }
         public DbSet<AggregateRoot5> AggregateRoot5s { get; set; }
-        public DbSet<AggregateRoot5EntityWithRepo> AggregateRoot5EntityWithRepos { get; set; }
 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
@@ -50,10 +46,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
             ConfigureModel(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new AggregateRoot1Configuration());
-            modelBuilder.ApplyConfiguration(new AggregateRoot2CollectionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot2CompositionConfiguration());
-            modelBuilder.ApplyConfiguration(new AggregateRoot2NullableConfiguration());
-            modelBuilder.ApplyConfiguration(new AggregateRoot2SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3AggCollectionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3CollectionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3NullableConfiguration());
@@ -63,7 +56,8 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new AggregateRoot4NullableConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot4SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot5Configuration());
-            modelBuilder.ApplyConfiguration(new AggregateRoot5EntityWithRepoConfiguration());
+
+
         }
 
         [IntentManaged(Mode.Ignore)]

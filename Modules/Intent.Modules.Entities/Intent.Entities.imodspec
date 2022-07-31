@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
-  <version>3.3.7</version>
+  <version>3.3.8</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Create domain entities and related artifacts.</summary>
   <description></description>
@@ -10,14 +10,14 @@
   <templates>
     <template id="Intent.Entities.DomainEntity" externalReference="3d25a607-58e9-42bd-b578-6fd47f8767e0">
       <role>Domain.Entity.Behaviour</role>
-      <location>Entities</location>
+      <location></location>
       <config>
         <add key="Namespace" description="Namespace" />
       </config>
     </template>
     <template id="Intent.Entities.DomainEntityInterface" externalReference="6e12f99e-c152-4809-98ab-7f9f6c0957e7">
       <role>Domain.Entity.Interface</role>
-      <location>Entities</location>
+      <location></location>
       <config>
         <add key="Namespace" description="Namespace" />
         <add key="Depends On" description="Make this output a code behind file for" default="${Model.Name}.cs" />
@@ -25,7 +25,7 @@
     </template>
     <template id="Intent.Entities.DomainEntityState" externalReference="c1f8508f-96fc-461c-bbdd-bc2d1aabf955">
       <role>Domain.Entity</role>
-      <location>Entities</location>
+      <location></location>
       <config>
         <add key="Namespace" description="Namespace" />
         <add key="Depends On" description="Make this output a code behind file for" default="${Model.Name}.cs" />
@@ -33,7 +33,7 @@
     </template>
     <template id="Intent.Entities.DomainEnum" externalReference="4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732">
       <role>Domain.Enum</role>
-      <location>Enums</location>
+      <location></location>
       <config>
         <add key="Namespace" description="Namespace" />
       </config>
@@ -49,21 +49,21 @@
   <interoperability>
     <detect id="Intent.EntityFramework">
       <install>
-        <package id="Intent.Entities.Keys" version="3.3.2" />
+        <package id="Intent.Entities.Keys" version="3.3.5" />
       </install>
     </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Entities.Keys" version="3.3.2" />
+        <package id="Intent.Entities.Keys" version="3.3.5" />
       </install>
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.3" />
-    <dependency id="Intent.Common.CSharp" version="3.3.4" />
-    <dependency id="Intent.Common.Types" version="3.3.1" />
-    <dependency id="Intent.Modelers.Domain" version="3.3.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.9" />
+    <dependency id="Intent.Common.CSharp" version="3.3.15" />
+    <dependency id="Intent.Common.Types" version="3.3.4" />
+    <dependency id="Intent.Modelers.Domain" version="3.3.5" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

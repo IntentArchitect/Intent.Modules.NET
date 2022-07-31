@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#2c6182be-5f36-4435-b5f6-1ed11b969bc2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5eec3e89-9696-474c-85f9-d992298e8ba2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.HotChocolate.GraphQL.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.HotChocolate.GraphQL.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>5eec3e89-9696-474c-85f9-d992298e8ba2</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#5eec3e89-9696-474c-85f9-d992298e8ba2</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>5eec3e89-9696-474c-85f9-d992298e8ba2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,13 +35,15 @@
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#f16ade6a-8713-4526-b0b1-38e7cee8b749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MutationResolver/MutationResolverTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MutationResolver/MutationResolverTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#f16ade6a-8713-4526-b0b1-38e7cee8b749</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#f16ade6a-8713-4526-b0b1-38e7cee8b749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MutationResolver/MutationResolverTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MutationResolver/MutationResolverTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f16ade6a-8713-4526-b0b1-38e7cee8b749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MutationResolver/MutationResolverTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MutationResolver/MutationResolverTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f16ade6a-8713-4526-b0b1-38e7cee8b749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MutationResolver/MutationResolverTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MutationResolver/MutationResolverTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#fb116229-1053-44c4-b939-ae32d05cc2ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryResolver/QueryResolverTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryResolver/QueryResolverTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#fb116229-1053-44c4-b939-ae32d05cc2ec</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#fb116229-1053-44c4-b939-ae32d05cc2ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryResolver/QueryResolverTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryResolver/QueryResolverTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fb116229-1053-44c4-b939-ae32d05cc2ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryResolver/QueryResolverTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryResolver/QueryResolverTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#fb116229-1053-44c4-b939-ae32d05cc2ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryResolver/QueryResolverTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryResolver/QueryResolverTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +99,7 @@
     <FileLog>
       <ProjectId>64404f25-c55e-4582-8106-11db6879984a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

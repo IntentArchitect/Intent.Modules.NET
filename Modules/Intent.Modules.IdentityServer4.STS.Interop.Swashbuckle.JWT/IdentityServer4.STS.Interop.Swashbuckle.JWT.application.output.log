@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#247caef0-ad06-4c5a-9e72-863481322dd2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c3113bd-4bc0-4e52-9f8b-26de4cb067fe</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#a53d7f4d-b320-4fbf-9061-464249d818b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/InteropSwashbuckleAppSettingsDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InteropSwashbuckleAppSettingsDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>1c3113bd-4bc0-4e52-9f8b-26de4cb067fe</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#a53d7f4d-b320-4fbf-9061-464249d818b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/InteropSwashbuckleAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InteropSwashbuckleAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>c26fb0c9-758c-4497-b009-6a2c57fb1b73</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.IdentityServer4.STS.Interop.Swashbuckle.JWT.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.STS.Interop.Swashbuckle.JWT.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>c26fb0c9-758c-4497-b009-6a2c57fb1b73</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#c26fb0c9-758c-4497-b009-6a2c57fb1b73</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.STS.Interop.Swashbuckle.JWT.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.STS.Interop.Swashbuckle.JWT.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>c26fb0c9-758c-4497-b009-6a2c57fb1b73</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

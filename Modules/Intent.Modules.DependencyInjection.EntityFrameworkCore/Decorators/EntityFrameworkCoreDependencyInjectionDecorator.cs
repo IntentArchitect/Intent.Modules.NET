@@ -77,7 +77,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
             _template.ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                 name: "DefaultConnection",
-                connectionString: $"Server=.;Initial Catalog={ _template.OutputTarget.ApplicationName() };Integrated Security=true;MultipleActiveResultSets=True",
+                connectionString: $"Server=.;Initial Catalog={_template.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True",
                 providerName: "System.Data.SqlClient"));
         }
 

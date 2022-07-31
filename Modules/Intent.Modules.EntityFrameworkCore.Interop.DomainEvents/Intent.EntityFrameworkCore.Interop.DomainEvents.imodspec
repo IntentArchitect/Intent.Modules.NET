@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Interop.DomainEvents</id>
-  <version>3.3.3</version>
+  <version>3.3.4</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
@@ -15,9 +15,9 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.6" />
-    <dependency id="Intent.Common.Types" version="3.3.0" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.7" />
+    <dependency id="Intent.Common" version="3.3.9" />
+    <dependency id="Intent.Common.Types" version="3.3.4" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.3.7-pre.5" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -25,4 +25,5 @@
   </files>
   <metadata />
   <moduleSettings />
+  <moduleSettingsExtensions />
 </package>

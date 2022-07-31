@@ -60,7 +60,7 @@ namespace Intent.Modules.AspNetCore.Interop.Angular.Decorators
             }});
         }}
 
-        private void InitializeAngularSpa(IApplicationBuilder app, { (_template.OutputTarget.IsNetCore2App() ? "IHostingEnvironment" : "IWebHostEnvironment") } env)
+        private void InitializeAngularSpa(IApplicationBuilder app, {(_template.OutputTarget.IsNetCore2App() ? "IHostingEnvironment" : "IWebHostEnvironment")} env)
         {{
             app.UseSpa(spa =>
             {{

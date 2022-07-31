@@ -66,7 +66,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#96f7b6e6-79da-4f5e-b095-3d603777968b</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#96f7b6e6-79da-4f5e-b095-3d603777968b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContext/DbContextTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContext/DbContextTemplate.tt</ProjectRelativeFilePath>
@@ -98,7 +98,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#b74d885c-a582-4101-9d92-c4edb7e67844</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplate.tt</ProjectRelativeFilePath>
@@ -170,7 +170,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#aba7dad6-c66b-4476-9470-0ab8786b5b4d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#aba7dad6-c66b-4476-9470-0ab8786b5b4d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplate.tt</ProjectRelativeFilePath>

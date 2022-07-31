@@ -3,9 +3,9 @@ using Intent.Engine;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 using Intent.Modules.AspNetCore.Templates.Startup;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.Common.CSharp.Configuration;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]

@@ -19,20 +19,22 @@ namespace Intent.IdentityServer4.Identity.EFCore.Api
             return stereotype != null ? new IdentityUser(stereotype) : null;
         }
 
-        public static IReadOnlyCollection<IdentityUser> GetIdentityUsers(this ClassModel model)
-        {
-            var stereotypes = model
-                .GetStereotypes("Identity User")
-                .Select(stereotype => new IdentityUser(stereotype))
-                .ToArray();
-
-            return stereotypes;
-        }
-
 
         public static bool HasIdentityUser(this ClassModel model)
         {
             return model.HasStereotype("Identity User");
+        }
+
+        public static bool TryGetIdentityUser(this ClassModel model, out IdentityUser stereotype)
+        {
+            if (!HasIdentityUser(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new IdentityUser(model.GetStereotype("Identity User"));
+            return true;
         }
 
 

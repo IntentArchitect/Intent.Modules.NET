@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
-  <version>3.3.6</version>
+  <version>3.3.7</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Repository Patterns for Entity Framework Core.</summary>
   <description>Repository Patterns for Entity Framework Core.</description>
@@ -32,13 +32,13 @@
   </decorators>
   <interoperability></interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.6" />
-    <dependency id="Intent.Common.CSharp" version="3.3.12" />
-    <dependency id="Intent.Common.Types" version="3.3.0" />
-    <dependency id="Intent.Entities.Repositories.Api" version="3.3.1" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.7-pre.0" />
-    <dependency id="Intent.Modelers.Domain" version="3.3.4" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.9" />
+    <dependency id="Intent.Common.CSharp" version="3.3.15" />
+    <dependency id="Intent.Common.Types" version="3.3.4" />
+    <dependency id="Intent.Entities.Repositories.Api" version="3.3.3" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.3.7-pre.5" />
+    <dependency id="Intent.Modelers.Domain" version="3.3.5" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -46,4 +46,5 @@
   </files>
   <moduleSettings />
   <metadata />
+  <moduleSettingsExtensions />
 </package>

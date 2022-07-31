@@ -42,7 +42,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#9d3fa7ac-3146-4995-8af1-c3b204065b4e</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#9d3fa7ac-3146-4995-8af1-c3b204065b4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult/PagedResultTemplate.tt</ProjectRelativeFilePath>
@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#55b20827-bbff-4c99-bbbc-928b198ba9c6</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#55b20827-bbff-4c99-bbbc-928b198ba9c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResultMappingExtensions/PagedResultMappingExtensionsTemplate.tt</ProjectRelativeFilePath>

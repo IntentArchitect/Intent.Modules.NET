@@ -19,20 +19,22 @@ namespace Intent.EntityFrameworkCore.Api
             return stereotype != null ? new RowVersion(stereotype) : null;
         }
 
-        public static IReadOnlyCollection<RowVersion> GetRowVersions(this AttributeModel model)
-        {
-            var stereotypes = model
-                .GetStereotypes("Row Version")
-                .Select(stereotype => new RowVersion(stereotype))
-                .ToArray();
-
-            return stereotypes;
-        }
-
 
         public static bool HasRowVersion(this AttributeModel model)
         {
             return model.HasStereotype("Row Version");
+        }
+
+        public static bool TryGetRowVersion(this AttributeModel model, out RowVersion stereotype)
+        {
+            if (!HasRowVersion(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new RowVersion(model.GetStereotype("Row Version"));
+            return true;
         }
 
 

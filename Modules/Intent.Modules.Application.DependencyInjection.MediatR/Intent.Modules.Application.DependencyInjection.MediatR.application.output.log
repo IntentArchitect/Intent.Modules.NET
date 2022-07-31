@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#4fecac07-b610-4d0c-b17b-be56e2c3c400</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8a4708a2-76f1-45c0-b43a-e3ce66c075c1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#1a2b0750-50f6-41a5-849a-3f438cb94cbd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/MediatRDependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MediatRDependencyInjectionDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>8a4708a2-76f1-45c0-b43a-e3ce66c075c1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#1a2b0750-50f6-41a5-849a-3f438cb94cbd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/MediatRDependencyInjectionDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MediatRDependencyInjectionDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.DependencyInjection.MediatR.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.DependencyInjection.MediatR.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#237c143b-3123-4722-bdf6-24a34537c85b</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.DependencyInjection.MediatR.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.MediatR.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>237c143b-3123-4722-bdf6-24a34537c85b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

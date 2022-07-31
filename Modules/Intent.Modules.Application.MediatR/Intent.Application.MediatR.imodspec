@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>3.3.1</version>
+  <version>3.3.2</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -14,6 +14,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Command.Handler</role>
+      <location></location>
     </template>
     <template id="Intent.Application.MediatR.CommandInterface" externalReference="373cd97c-cf6b-4864-94f5-a0931bf01bb6">
       <config>
@@ -29,6 +30,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Command</role>
+      <location></location>
     </template>
     <template id="Intent.Application.MediatR.QueryHandler" externalReference="3a8eb772-0533-42c8-9767-a87c67884d46">
       <config>
@@ -36,6 +38,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Query.Handler</role>
+      <location></location>
     </template>
     <template id="Intent.Application.MediatR.QueryInterface" externalReference="0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32">
       <config>
@@ -51,25 +54,26 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Query</role>
+      <location></location>
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.1" />
-    <dependency id="Intent.Common.CSharp" version="3.3.2" />
-    <dependency id="Intent.Common.Types" version="3.3.0" />
-    <dependency id="Intent.Modelers.Services" version="3.3.0" />
-    <dependency id="Intent.Modelers.Services.CQRS" version="3.3.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
+    <dependency id="Intent.Common" version="3.3.9" />
+    <dependency id="Intent.Common.CSharp" version="3.3.15" />
+    <dependency id="Intent.Common.Types" version="3.3.4" />
+    <dependency id="Intent.Modelers.Services" version="3.3.3" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="3.3.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
   </dependencies>
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Interop.MediatR" version="3.3.1" />
+        <package id="Intent.AspNetCore.Controllers.Interop.MediatR" version="3.3.4" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.3.0" />
+        <package id="Intent.Application.DependencyInjection.AutoMapper" version="3.3.2" />
       </install>
     </detect>
   </interoperability>
@@ -81,4 +85,5 @@
     <install target="Module Builder;Services" src="Intent.Metadata/Module Builder/Intent.Application.MediatR/Intent.Application.MediatR.pkg.config" externalReference="e92495db-1b26-4389-bf06-cc1b375520b1" />
   </metadata>
   <moduleSettings />
+  <moduleSettingsExtensions />
 </package>

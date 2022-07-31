@@ -17,13 +17,26 @@ namespace Intent.Modules.AspNetCore.Controllers.Settings
         }
     }
 
-    public class APISettings
+    public class APISettings : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
         public APISettings(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
+        }
+
+        public string Id => _groupSettings.Id;
+
+        public string Title
+        {
+            get => _groupSettings.Title;
+            set => _groupSettings.Title = value;
+        }
+
+        public ISetting GetSetting(string settingId)
+        {
+            return _groupSettings.GetSetting(settingId);
         }
 
         public DefaultAPISecurityOptions DefaultAPISecurity() => new DefaultAPISecurityOptions(_groupSettings.GetSetting("061a559a-0d54-4eb1-8c70-ed0baa238a59")?.Value);
@@ -41,18 +54,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Settings
             {
                 return Value switch
                 {
-                    "secured" => DefaultAPISecurityOptionsEnum.SecuredByDefault,
-                    "unsecured" => DefaultAPISecurityOptionsEnum.UnsecuredByDefault,
+                    "secured" => DefaultAPISecurityOptionsEnum.Secured,
+                    "unsecured" => DefaultAPISecurityOptionsEnum.Unsecured,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
-            public bool IsSecuredByDefault()
+            public bool IsSecured()
             {
                 return Value == "secured";
             }
 
-            public bool IsUnsecuredByDefault()
+            public bool IsUnsecured()
             {
                 return Value == "unsecured";
             }
@@ -60,8 +73,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Settings
 
         public enum DefaultAPISecurityOptionsEnum
         {
-            SecuredByDefault,
-            UnsecuredByDefault,
+            Secured,
+            Unsecured,
         }
     }
 }

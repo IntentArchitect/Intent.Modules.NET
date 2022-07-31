@@ -17,13 +17,26 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Settings
         }
     }
 
-    public class IdentityServerSettings
+    public class IdentityServerSettings : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
         public IdentityServerSettings(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
+        }
+
+        public string Id => _groupSettings.Id;
+
+        public string Title
+        {
+            get => _groupSettings.Title;
+            set => _groupSettings.Title = value;
+        }
+
+        public ISetting GetSetting(string settingId)
+        {
+            return _groupSettings.GetSetting(settingId);
         }
 
         public bool CreateTestUsers() => bool.TryParse(_groupSettings.GetSetting("e31ca033-a677-4674-aeca-126633e3e097")?.Value.ToPascalCase(), out var result) && result;

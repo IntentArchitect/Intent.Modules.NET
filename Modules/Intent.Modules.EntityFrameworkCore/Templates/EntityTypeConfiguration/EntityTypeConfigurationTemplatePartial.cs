@@ -69,14 +69,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private string GetClassMembers()
         {
             var members = new List<string>();
-            
+
             members.AddRange(GetDecorators().SelectMany(x => x.GetClassMembers()));
 
             if (!members.Any())
             {
                 return string.Empty;
             }
-            
+
             const string newLine = @"
         ";
             return string.Join(newLine, members) + newLine;
@@ -98,7 +98,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 return string.Empty;
             }
-            
+
             var codeLines = new List<string>
             {
                 $"public {ClassName}({string.Join(",", constructorParameters)})",
@@ -106,7 +106,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             };
             codeLines.AddRange(constructorBodyStatements);
             codeLines.Add("}");
-            
+
             const string newLine = @"
         ";
             return string.Join(newLine, codeLines);
@@ -193,8 +193,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             _ownedTypeConfigMethods.Add(@$"
         public void Configure{attribute.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement, null)}, {GetTypeName((IElement)attribute.TypeReference.Element, null)}> builder)
-        {{{
-            string.Join(@"
+        {{{string.Join(@"
             ", GetTypeConfiguration((IElement)attribute.TypeReference.Element))}
         }}");
             return $"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()});";
@@ -349,8 +348,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         _ownedTypeConfigMethods.Add(@$"
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element, null)}, {GetTypeName((IElement)associationEnd.Element, null)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey(x => x.Id);{
-                string.Join(@"
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey(x => x.Id);{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         return $@"
@@ -402,8 +400,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         _ownedTypeConfigMethods.Add(@$"
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element, null)}, {GetTypeName((IElement)associationEnd.Element, null)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey({GetForeignKeyLambda(associationEnd)});{
-                string.Join(@"
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey({GetForeignKeyLambda(associationEnd)});{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         return $@"
@@ -626,7 +623,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 const string newLine = @"
             ";
                 var joined = string.Join(newLine, statements);
-                
+
                 statementsCode = !string.IsNullOrEmpty(statementsCode)
                     ? statementsCode + newLine + joined
                     : joined;

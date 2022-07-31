@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#cba83286-8d23-45ae-b996-ec6009c0f936</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#27254a54-ff9b-4c8e-b1cf-abb220d2bf94</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ConfigurationJWTAuthenticationDefaultDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationJWTAuthenticationDefaultDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#27254a54-ff9b-4c8e-b1cf-abb220d2bf94</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ConfigurationJWTAuthenticationDefaultDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationJWTAuthenticationDefaultDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e695d66c-d375-42a5-9b24-636b6ef61e6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ConfigurationSettingsJWTDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationSettingsJWTDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e695d66c-d375-42a5-9b24-636b6ef61e6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ConfigurationSettingsJWTDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationSettingsJWTDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#ea59acfd-4fa7-4419-8714-a9355fd5a9b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/StartupDefaultJWTDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StartupDefaultJWTDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#ea59acfd-4fa7-4419-8714-a9355fd5a9b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/StartupDefaultJWTDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StartupDefaultJWTDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#7133cd2e-f7e0-4d02-8cbe-22a5165f1289</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Security.JWT.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Security.JWT.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Security.JWT.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Security.JWT.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +75,7 @@
     <FileLog>
       <ProjectId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,13 +83,15 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#55927007-83ce-479c-9a07-970a940dcb72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#55927007-83ce-479c-9a07-970a940dcb72</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#55927007-83ce-479c-9a07-970a940dcb72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +99,7 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#55927007-83ce-479c-9a07-970a940dcb72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -94,6 +107,7 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#55927007-83ce-479c-9a07-970a940dcb72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#a2e4d2a1-f6d1-4098-88e3-7a3f32a79c42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigurationJWTAuthentication/JWTAuthenticationDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigurationJWTAuthentication/JWTAuthenticationDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,13 +123,15 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -122,6 +139,7 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -129,6 +147,7 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -136,6 +155,7 @@
     <FileLog>
       <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DependencyInjection.FluentValidation</id>
-  <version>3.3.2</version>
+  <version>3.3.3</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
@@ -13,10 +13,10 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.DependencyInjection" version="3.3.3" />
-    <dependency id="Intent.Common" version="3.3.6" />
-    <dependency id="Intent.Common.CSharp" version="3.3.12" />
-    <dependency id="Intent.Common.Types" version="3.3.0" />
+    <dependency id="Intent.Application.DependencyInjection" version="3.3.4" />
+    <dependency id="Intent.Common" version="3.3.9" />
+    <dependency id="Intent.Common.CSharp" version="3.3.15" />
+    <dependency id="Intent.Common.Types" version="3.3.4" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -24,4 +24,5 @@
   </files>
   <metadata />
   <moduleSettings />
+  <moduleSettingsExtensions />
 </package>

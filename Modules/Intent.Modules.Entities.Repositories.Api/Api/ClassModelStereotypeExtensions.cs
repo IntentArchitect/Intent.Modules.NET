@@ -19,20 +19,22 @@ namespace Intent.Entities.Repositories.Api.Api
             return stereotype != null ? new Repository(stereotype) : null;
         }
 
-        public static IReadOnlyCollection<Repository> GetRepositories(this ClassModel model)
-        {
-            var stereotypes = model
-                .GetStereotypes("Repository")
-                .Select(stereotype => new Repository(stereotype))
-                .ToArray();
-
-            return stereotypes;
-        }
-
 
         public static bool HasRepository(this ClassModel model)
         {
             return model.HasStereotype("Repository");
+        }
+
+        public static bool TryGetRepository(this ClassModel model, out Repository stereotype)
+        {
+            if (!HasRepository(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Repository(model.GetStereotype("Repository"));
+            return true;
         }
 
 

@@ -29,24 +29,24 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             {
                 return Value switch
                 {
-                    "TPH" => InheritanceStrategyOptionsEnum.TablePerHierarchy,
-                    "TPT" => InheritanceStrategyOptionsEnum.TablePerType,
-                    "TPC" => InheritanceStrategyOptionsEnum.TablePerConcreteType,
+                    "TPH" => InheritanceStrategyOptionsEnum.TPH,
+                    "TPT" => InheritanceStrategyOptionsEnum.TPT,
+                    "TPC" => InheritanceStrategyOptionsEnum.TPC,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
 
-            public bool IsTablePerHierarchy()
+            public bool IsTPH()
             {
                 return Value == "TPH";
             }
 
-            public bool IsTablePerType()
+            public bool IsTPT()
             {
                 return Value == "TPT";
             }
 
-            public bool IsTablePerConcreteType()
+            public bool IsTPC()
             {
                 return Value == "TPC";
             }
@@ -54,9 +54,9 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
 
         public enum InheritanceStrategyOptionsEnum
         {
-            TablePerHierarchy,
-            TablePerType,
-            TablePerConcreteType,
+            TPH,
+            TPT,
+            TPC,
         }
 
         public static DatabaseProviderOptions DatabaseProvider(this DatabaseSettings groupSettings) => new DatabaseProviderOptions(groupSettings.GetSetting("00bb780c-57bf-43c1-b952-303f11096be7")?.Value);
@@ -75,9 +75,9 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
                 return Value switch
                 {
                     "in-memory" => DatabaseProviderOptionsEnum.InMemory,
-                    "sql-server" => DatabaseProviderOptionsEnum.SQLServer,
-                    "postgresql" => DatabaseProviderOptionsEnum.PostgreSQL,
-                    "cosmos" => DatabaseProviderOptionsEnum.CosmosDB,
+                    "sql-server" => DatabaseProviderOptionsEnum.SqlServer,
+                    "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
+                    "cosmos" => DatabaseProviderOptionsEnum.Cosmos,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -87,17 +87,17 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
                 return Value == "in-memory";
             }
 
-            public bool IsSQLServer()
+            public bool IsSqlServer()
             {
                 return Value == "sql-server";
             }
 
-            public bool IsPostgreSQL()
+            public bool IsPostgresql()
             {
                 return Value == "postgresql";
             }
 
-            public bool IsCosmosDB()
+            public bool IsCosmos()
             {
                 return Value == "cosmos";
             }
@@ -106,9 +106,9 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
         public enum DatabaseProviderOptionsEnum
         {
             InMemory,
-            SQLServer,
-            PostgreSQL,
-            CosmosDB,
+            SqlServer,
+            Postgresql,
+            Cosmos,
         }
     }
 }

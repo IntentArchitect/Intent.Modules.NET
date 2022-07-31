@@ -25,6 +25,18 @@ namespace Intent.AzureFunctions.Api
             return model.HasStereotype("Azure Function");
         }
 
+        public static bool TryGetAzureFunction(this OperationModel model, out AzureFunction stereotype)
+        {
+            if (!HasAzureFunction(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new AzureFunction(model.GetStereotype("Azure Function"));
+            return true;
+        }
+
         public class AzureFunction
         {
             private IStereotype _stereotype;

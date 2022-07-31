@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>3.3.2</version>
+  <version>3.3.3</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>For generating code to secure your API services using the JWT bearer tokens</summary>
   <description>For generating code to secure your API services using the JWT bearer tokens</description>
@@ -32,18 +32,18 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.3.0" />
-    <dependency id="Intent.AspNetCore" version="3.3.4" />
-    <dependency id="Intent.Common" version="3.3.6" />
-    <dependency id="Intent.Common.CSharp" version="3.3.12" />
-    <dependency id="Intent.Common.Types" version="3.3.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.0" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.3.6" />
+    <dependency id="Intent.Application.Identity" version="3.3.1" />
+    <dependency id="Intent.AspNetCore" version="3.3.6" />
+    <dependency id="Intent.Common" version="3.3.9" />
+    <dependency id="Intent.Common.CSharp" version="3.3.15" />
+    <dependency id="Intent.Common.Types" version="3.3.4" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.3.9" />
   </dependencies>
   <interoperability>
     <detect id="Intent.IdentityServer4.SecureTokenServer">
       <install>
-        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.3.1" />
+        <package id="Intent.Security.BearerToken.Interop.IdentityServer4" version="3.3.3" />
       </install>
     </detect>
   </interoperability>
@@ -55,4 +55,5 @@
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Security.JWT/Intent.Security.JWT.pkg.config" externalReference="dc5bde69-a694-4347-9683-d746710568e7" />
   </metadata>
   <moduleSettings />
+  <moduleSettingsExtensions />
 </package>

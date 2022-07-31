@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b4f8b5f5-cf03-4e79-bd64-3c656e73819f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#be287863-aec7-4c58-bf04-07aaaacd6fb1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/AccountTestStoreDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountTestStoreDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#be287863-aec7-4c58-bf04-07aaaacd6fb1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/AccountTestStoreDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AccountTestStoreDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#a5200d0f-be1c-4792-b365-c804b036c1b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ExternalTestStoreDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExternalTestStoreDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#a5200d0f-be1c-4792-b365-c804b036c1b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ExternalTestStoreDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExternalTestStoreDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4c1f3227-41a7-4947-9517-903f7d7911da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/MVCControllerEndpointStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MVCControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4c1f3227-41a7-4947-9517-903f7d7911da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/MVCControllerEndpointStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MVCControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#f3f7aef4-8f6e-4233-b6af-cdde542f70f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/RazorPageControllerStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorPageControllerStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#f3f7aef4-8f6e-4233-b6af-cdde542f70f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/RazorPageControllerStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RazorPageControllerStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +75,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#71190011-f577-4fc1-a964-11b24e07ef39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/StaticFilesStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StaticFilesStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>9f6f137c-dc55-4769-bed0-139f13c993f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#71190011-f577-4fc1-a964-11b24e07ef39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/StaticFilesStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StaticFilesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>52bc9867-295e-4bd1-bb24-5de690a89bb5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#c2836371-2d1f-4565-ae1a-a29c6c999789</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/IdentityServerQuickstartExtractorFactoryExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityServerQuickstartExtractorFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +99,7 @@
     <FileLog>
       <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.IdentityServer4.UI.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.UI.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -94,6 +107,7 @@
     <FileLog>
       <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#ba65ea8f-9c7c-4acc-bb47-4e80763dc120</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.UI.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.UI.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,6 +123,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#cddac3d6-bb33-4fbd-8a21-00e4fd833225</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/AccountController/AccountAuthProviderDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountAuthProviderDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -115,13 +131,15 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/AccountController/AccountControllerTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/AccountController/AccountControllerTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -129,6 +147,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/AccountController/AccountControllerTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -136,6 +155,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#62c7762a-3091-4e29-bb21-bfea845ef51d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/AccountController/AccountControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/AccountController/AccountControllerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -143,6 +163,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#cfb67386-2b94-40e7-b2e9-fa47a2148d35</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/ExternalController/ExternalAuthProviderDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalAuthProviderDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -150,13 +171,15 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#f619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/ExternalController/ExternalControllerTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#f619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#f619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/ExternalController/ExternalControllerTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -164,6 +187,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/ExternalController/ExternalControllerTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -171,6 +195,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f619a9e9-4473-4d03-89d8-1e42adf41e0d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controllers/ExternalController/ExternalControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controllers/ExternalController/ExternalControllerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -178,6 +203,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QuickStartContent/QuickStartContentTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QuickStartContent/QuickStartContentTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -185,6 +211,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#7bcc66d0-4ecc-47c3-87e2-b310dbc750a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QuickStartContent/QuickStartContentTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QuickStartContent/QuickStartContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -192,6 +219,7 @@
     <FileLog>
       <ProjectId>f3503319-40bd-4cfe-b072-0a43a340977b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

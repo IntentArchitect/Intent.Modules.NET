@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public virtual IEnumerable<string> GetMethods() => Enumerable.Empty<string>();
 
         public virtual void OnBeforeTemplateExecution() { }
-        
+
         public virtual IEnumerable<string> GetOnModelCreatingStatements() => Enumerable.Empty<string>();
 
         public virtual IEnumerable<string> GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event) => Enumerable.Empty<string>();

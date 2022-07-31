@@ -23,8 +23,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             new List<ContainerRegistrationRequest>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-            outputTarget, model)
+        public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
         }

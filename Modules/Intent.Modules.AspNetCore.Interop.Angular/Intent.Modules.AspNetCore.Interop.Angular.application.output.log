@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#f7c7a271-b5d9-4acd-a25e-a5e9524f2d71</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>4b3f8fa7-db3a-499c-b4c2-5b076d6eae97</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#d0c21268-d82e-42dd-bcd8-e036de3e41a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/AngularStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AngularStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>4b3f8fa7-db3a-499c-b4c2-5b076d6eae97</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#d0c21268-d82e-42dd-bcd8-e036de3e41a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/AngularStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AngularStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

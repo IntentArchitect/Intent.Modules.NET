@@ -4,47 +4,30 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#8dda5ae2-53f3-404d-8ce7-389b9ad0f7b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ee44dfaf-14ac-4e3e-bb3b-7527485f4477</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot1Configuration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot1Configuration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#dd2ae265-b4bd-4eda-abd3-9f34edaa1ed1</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot2CollectionConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoot2CollectionConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#e88c2331-5fba-4530-9fa2-d95f95ce96ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot2CompositionConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2CompositionConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#72ca11ca-749f-412a-bb2b-b103630aecee</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot2NullableConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoot2NullableConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f077ea5a-e03e-4ddc-b493-77318e283398</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot2SingleConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoot2SingleConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ce8709f5-05a6-4559-a064-e83ee75b6c2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot3AggCollectionConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3AggCollectionConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +35,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9b16a02f-adbb-4851-8b04-ee3070cd67af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot3CollectionConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3CollectionConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +43,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#18ca7a3e-b86d-4d6b-9eb2-fb8baadc08a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot3NullableConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3NullableConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +51,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ceef4640-ec73-4f6e-b564-d6b1c3a6d263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot3SingleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3SingleConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +59,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7644fed5-5a73-4340-b7e5-cc1ae407e568</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot4AggNullableConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4AggNullableConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +67,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#936021ea-8df0-4191-8265-4fa7c9d41749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot4CollectionConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4CollectionConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +75,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#db6688d9-f781-406b-886c-8602381dc32d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot4NullableConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4NullableConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -94,6 +83,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0b3339c6-8e49-4313-a3bb-c53d23134952</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot4SingleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4SingleConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,20 +91,15 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#17a883c1-a3cb-464e-bbd5-c765b29c564a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot5Configuration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5Configuration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a068d9f3-ebab-4e9f-a31a-cdf0b11dec91</CorrelationId>
-      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/AggregateRoot5EntityWithRepoConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoot5EntityWithRepoConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -122,6 +107,7 @@
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -129,6 +115,7 @@
     <FileLog>
       <ProjectId>b68c4e1c-ab56-4f60-9fe9-714cc0584a1b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b68c4e1c-ab56-4f60-9fe9-714cc0584a1b</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/EfCoreRepositoryTestSuite.IntentGenerated.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -136,6 +123,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#ee44dfaf-14ac-4e3e-bb3b-7527485f4477</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot1.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot1.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -143,6 +131,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#ee44dfaf-14ac-4e3e-bb3b-7527485f4477</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot1State.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot1State.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -150,6 +139,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#dd2ae265-b4bd-4eda-abd3-9f34edaa1ed1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2Collection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2Collection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -157,6 +147,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#dd2ae265-b4bd-4eda-abd3-9f34edaa1ed1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2CollectionState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2CollectionState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -164,6 +155,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#e88c2331-5fba-4530-9fa2-d95f95ce96ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2Composition.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2Composition.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -171,6 +163,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#e88c2331-5fba-4530-9fa2-d95f95ce96ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2CompositionState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2CompositionState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -178,6 +171,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#72ca11ca-749f-412a-bb2b-b103630aecee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2Nullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2Nullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -185,6 +179,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#72ca11ca-749f-412a-bb2b-b103630aecee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2NullableState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2NullableState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -192,6 +187,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#f077ea5a-e03e-4ddc-b493-77318e283398</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2Single.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2Single.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -199,6 +195,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#f077ea5a-e03e-4ddc-b493-77318e283398</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot2SingleState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2SingleState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -206,6 +203,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#ce8709f5-05a6-4559-a064-e83ee75b6c2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3AggCollection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3AggCollection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -213,6 +211,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#ce8709f5-05a6-4559-a064-e83ee75b6c2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3AggCollectionState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3AggCollectionState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -220,6 +219,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#9b16a02f-adbb-4851-8b04-ee3070cd67af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3Collection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3Collection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -227,6 +227,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#9b16a02f-adbb-4851-8b04-ee3070cd67af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3CollectionState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3CollectionState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -234,6 +235,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#18ca7a3e-b86d-4d6b-9eb2-fb8baadc08a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3Nullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3Nullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -241,6 +243,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#18ca7a3e-b86d-4d6b-9eb2-fb8baadc08a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3NullableState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3NullableState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -248,6 +251,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#ceef4640-ec73-4f6e-b564-d6b1c3a6d263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3Single.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3Single.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -255,6 +259,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#ceef4640-ec73-4f6e-b564-d6b1c3a6d263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot3SingleState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3SingleState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -262,6 +267,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#7644fed5-5a73-4340-b7e5-cc1ae407e568</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4AggNullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4AggNullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -269,6 +275,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#7644fed5-5a73-4340-b7e5-cc1ae407e568</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4AggNullableState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4AggNullableState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -276,6 +283,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#936021ea-8df0-4191-8265-4fa7c9d41749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4Collection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4Collection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -283,6 +291,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#936021ea-8df0-4191-8265-4fa7c9d41749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4CollectionState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4CollectionState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -290,6 +299,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#db6688d9-f781-406b-886c-8602381dc32d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4Nullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4Nullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -297,6 +307,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#db6688d9-f781-406b-886c-8602381dc32d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4NullableState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4NullableState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -304,6 +315,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#0b3339c6-8e49-4313-a3bb-c53d23134952</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4Single.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4Single.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -311,6 +323,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#0b3339c6-8e49-4313-a3bb-c53d23134952</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot4SingleState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4SingleState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -318,6 +331,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#17a883c1-a3cb-464e-bbd5-c765b29c564a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot5.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -325,6 +339,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a068d9f3-ebab-4e9f-a31a-cdf0b11dec91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot5EntityWithRepo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5EntityWithRepo.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -332,6 +347,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#a068d9f3-ebab-4e9f-a31a-cdf0b11dec91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot5EntityWithRepoState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5EntityWithRepoState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -339,6 +355,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#17a883c1-a3cb-464e-bbd5-c765b29c564a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/AggregateRoot5State.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5State.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -346,6 +363,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#ee44dfaf-14ac-4e3e-bb3b-7527485f4477</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot1.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot1.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -353,6 +371,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#dd2ae265-b4bd-4eda-abd3-9f34edaa1ed1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot2Collection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot2Collection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -360,6 +379,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#e88c2331-5fba-4530-9fa2-d95f95ce96ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot2Composition.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot2Composition.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -367,6 +387,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#72ca11ca-749f-412a-bb2b-b103630aecee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot2Nullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot2Nullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -374,6 +395,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#f077ea5a-e03e-4ddc-b493-77318e283398</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot2Single.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot2Single.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -381,6 +403,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#ce8709f5-05a6-4559-a064-e83ee75b6c2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot3AggCollection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3AggCollection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -388,6 +411,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#9b16a02f-adbb-4851-8b04-ee3070cd67af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot3Collection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3Collection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -395,6 +419,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#18ca7a3e-b86d-4d6b-9eb2-fb8baadc08a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot3Nullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3Nullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -402,6 +427,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#ceef4640-ec73-4f6e-b564-d6b1c3a6d263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot3Single.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3Single.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -409,6 +435,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#7644fed5-5a73-4340-b7e5-cc1ae407e568</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot4AggNullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4AggNullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -416,6 +443,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#936021ea-8df0-4191-8265-4fa7c9d41749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot4Collection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4Collection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -423,6 +451,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#db6688d9-f781-406b-886c-8602381dc32d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot4Nullable.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4Nullable.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -430,6 +459,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#0b3339c6-8e49-4313-a3bb-c53d23134952</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot4Single.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4Single.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -437,6 +467,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#17a883c1-a3cb-464e-bbd5-c765b29c564a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot5.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot5.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -444,6 +475,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#a068d9f3-ebab-4e9f-a31a-cdf0b11dec91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot5EntityWithRepo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot5EntityWithRepo.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -451,6 +483,7 @@
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IdentityGenerator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -458,6 +491,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ee44dfaf-14ac-4e3e-bb3b-7527485f4477</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot1Repository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot1Repository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -465,6 +499,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#e88c2331-5fba-4530-9fa2-d95f95ce96ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot2CompositionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot2CompositionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -472,6 +507,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ce8709f5-05a6-4559-a064-e83ee75b6c2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot3AggCollectionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3AggCollectionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -479,6 +515,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#9b16a02f-adbb-4851-8b04-ee3070cd67af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot3CollectionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3CollectionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -486,6 +523,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#18ca7a3e-b86d-4d6b-9eb2-fb8baadc08a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot3NullableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3NullableRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -493,6 +531,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ceef4640-ec73-4f6e-b564-d6b1c3a6d263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot3SingleRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot3SingleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -500,6 +539,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#7644fed5-5a73-4340-b7e5-cc1ae407e568</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot4AggNullableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4AggNullableRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -507,6 +547,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#936021ea-8df0-4191-8265-4fa7c9d41749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot4CollectionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4CollectionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -514,6 +555,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#db6688d9-f781-406b-886c-8602381dc32d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot4NullableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4NullableRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -521,6 +563,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#0b3339c6-8e49-4313-a3bb-c53d23134952</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot4SingleRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot4SingleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -528,6 +571,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a068d9f3-ebab-4e9f-a31a-cdf0b11dec91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot5EntityWithRepoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5EntityWithRepoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -535,6 +579,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#17a883c1-a3cb-464e-bbd5-c765b29c564a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/AggregateRoot5Repository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5Repository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -542,6 +587,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ee44dfaf-14ac-4e3e-bb3b-7527485f4477</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot1Repository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot1Repository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -549,6 +595,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#e88c2331-5fba-4530-9fa2-d95f95ce96ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot2CompositionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot2CompositionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -556,6 +603,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ce8709f5-05a6-4559-a064-e83ee75b6c2c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot3AggCollectionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3AggCollectionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -563,6 +611,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#9b16a02f-adbb-4851-8b04-ee3070cd67af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot3CollectionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3CollectionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -570,6 +619,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#18ca7a3e-b86d-4d6b-9eb2-fb8baadc08a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot3NullableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3NullableRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -577,6 +627,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ceef4640-ec73-4f6e-b564-d6b1c3a6d263</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot3SingleRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot3SingleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -584,6 +635,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7644fed5-5a73-4340-b7e5-cc1ae407e568</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot4AggNullableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4AggNullableRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -591,6 +643,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#936021ea-8df0-4191-8265-4fa7c9d41749</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot4CollectionRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4CollectionRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -598,6 +651,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#db6688d9-f781-406b-886c-8602381dc32d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot4NullableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4NullableRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -605,6 +659,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#0b3339c6-8e49-4313-a3bb-c53d23134952</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot4SingleRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot4SingleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -612,6 +667,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a068d9f3-ebab-4e9f-a31a-cdf0b11dec91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot5EntityWithRepoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot5EntityWithRepoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -619,6 +675,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#17a883c1-a3cb-464e-bbd5-c765b29c564a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IAggregateRoot5Repository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot5Repository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -626,6 +683,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedResultInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IPagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedResult.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -633,6 +691,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -640,6 +699,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -647,6 +707,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/PagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -654,6 +715,7 @@
     <FileLog>
       <ProjectId>f241845e-77db-4f07-8113-67c92629ddb0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

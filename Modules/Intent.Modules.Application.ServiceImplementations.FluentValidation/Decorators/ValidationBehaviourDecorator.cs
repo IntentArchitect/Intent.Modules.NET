@@ -26,7 +26,7 @@ namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Dec
             _template = template;
             _application = application;
         }
-        
+
         public void BeforeTemplateExecution()
         {
             _template.ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({_template.ClassName}<>)")

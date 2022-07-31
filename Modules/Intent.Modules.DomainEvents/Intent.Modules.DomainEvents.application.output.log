@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#216be49e-9e44-4ab0-b300-9163bb9c7eb7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e484d3da-e357-43a3-b37b-a43c33a639d1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.DomainEvents.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.DomainEvents.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>e484d3da-e357-43a3-b37b-a43c33a639d1</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#e484d3da-e357-43a3-b37b-a43c33a639d1</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.DomainEvents.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.DomainEvents.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>e484d3da-e357-43a3-b37b-a43c33a639d1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,13 +35,15 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#94b7bbc1-1590-4480-8545-955310b729a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEvent/DomainEventTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent/DomainEventTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#94b7bbc1-1590-4480-8545-955310b729a5</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#94b7bbc1-1590-4480-8545-955310b729a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEvent/DomainEventTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent/DomainEventTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#94b7bbc1-1590-4480-8545-955310b729a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEvent/DomainEventTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent/DomainEventTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#94b7bbc1-1590-4480-8545-955310b729a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEvent/DomainEventTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEvent/DomainEventTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventBase/DomainEventBaseTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventBase/DomainEventBaseTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventBase/DomainEventBaseTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventBase/DomainEventBaseTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventBase/DomainEventBaseTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventBase/DomainEventBaseTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventBase/DomainEventBaseTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventBase/DomainEventBaseTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,13 +99,15 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#13c96091-dafd-4ae7-ba4d-b31396b19956</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#13c96091-dafd-4ae7-ba4d-b31396b19956</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#13c96091-dafd-4ae7-ba4d-b31396b19956</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#13c96091-dafd-4ae7-ba4d-b31396b19956</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,6 +123,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#13c96091-dafd-4ae7-ba4d-b31396b19956</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -115,13 +131,15 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#7633ea57-224c-4f93-a512-32243d21d216</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HasDomainEventInterface/HasDomainEventInterfaceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#7633ea57-224c-4f93-a512-32243d21d216</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#7633ea57-224c-4f93-a512-32243d21d216</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HasDomainEventInterface/HasDomainEventInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -129,6 +147,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7633ea57-224c-4f93-a512-32243d21d216</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HasDomainEventInterface/HasDomainEventInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -136,6 +155,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#7633ea57-224c-4f93-a512-32243d21d216</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HasDomainEventInterface/HasDomainEventInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -143,6 +163,7 @@
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

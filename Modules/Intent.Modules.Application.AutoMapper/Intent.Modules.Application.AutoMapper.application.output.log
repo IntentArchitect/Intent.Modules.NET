@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#67bbd2be-4fe1-4309-a20b-8a9ad4720cd1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>34f467f9-4a45-43ad-8fe7-5dcb850e724a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.AutoMapper.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Application.AutoMapper.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>34f467f9-4a45-43ad-8fe7-5dcb850e724a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#34f467f9-4a45-43ad-8fe7-5dcb850e724a</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.AutoMapper.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.AutoMapper.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>34f467f9-4a45-43ad-8fe7-5dcb850e724a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,13 +35,15 @@
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#b377226a-7824-4941-a648-cf7f14dbe267</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MapFromInterface/MapFromInterfaceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MapFromInterface/MapFromInterfaceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#b377226a-7824-4941-a648-cf7f14dbe267</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#b377226a-7824-4941-a648-cf7f14dbe267</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MapFromInterface/MapFromInterfaceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MapFromInterface/MapFromInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b377226a-7824-4941-a648-cf7f14dbe267</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MapFromInterface/MapFromInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MapFromInterface/MapFromInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b377226a-7824-4941-a648-cf7f14dbe267</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MapFromInterface/MapFromInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MapFromInterface/MapFromInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MappingProfile/MappingProfileTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile/MappingProfileTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MappingProfile/MappingProfileTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile/MappingProfileTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MappingProfile/MappingProfileTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile/MappingProfileTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MappingProfile/MappingProfileTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingProfile/MappingProfileTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +99,7 @@
     <FileLog>
       <ProjectId>8e21baaa-7956-4cc2-a081-579048cf9b78</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

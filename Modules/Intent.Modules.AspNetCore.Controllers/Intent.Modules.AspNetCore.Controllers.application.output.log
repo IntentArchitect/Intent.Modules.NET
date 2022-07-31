@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#30096efa-e031-4bd2-9b64-671d36ba6297</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultControllerServicesStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DefaultControllerServicesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e45547aa-aaf9-40a3-8709-d4e627b9a43e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/RolesAuthorizationDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RolesAuthorizationDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e45547aa-aaf9-40a3-8709-d4e627b9a43e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/RolesAuthorizationDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RolesAuthorizationDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Controllers.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.Controllers.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#863dedbb-b0a4-467e-96ea-f1ee97d7bd10</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Controllers.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,13 +75,15 @@
     <FileLog>
       <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3343e34e-ec01-448a-8bbd-4b5242135af9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#2e47c1f8-bb68-45ad-aa23-385a4faadc92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,13 +99,15 @@
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,6 +123,7 @@
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -115,6 +131,7 @@
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

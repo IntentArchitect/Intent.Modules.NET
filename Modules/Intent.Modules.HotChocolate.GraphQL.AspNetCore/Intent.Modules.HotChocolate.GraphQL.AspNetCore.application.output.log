@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b3b1fd0f-45b6-41bf-8fe3-b25c5c82c3ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>432e20dd-9371-4b25-acb7-07a377b23414</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#c9a61707-9dfc-4d7f-a571-b32b8cef4087</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/GraphQLStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GraphQLStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>432e20dd-9371-4b25-acb7-07a377b23414</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#c9a61707-9dfc-4d7f-a571-b32b8cef4087</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/GraphQLStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GraphQLStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>77bdc12b-e2d3-481d-bbe6-fea16b5bf39e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.HotChocolate.GraphQL.AspNetCore.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.HotChocolate.GraphQL.AspNetCore.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>77bdc12b-e2d3-481d-bbe6-fea16b5bf39e</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#77bdc12b-e2d3-481d-bbe6-fea16b5bf39e</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>77bdc12b-e2d3-481d-bbe6-fea16b5bf39e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,13 +51,15 @@
     <FileLog>
       <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +75,7 @@
     <FileLog>
       <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#79f528ec-7567-4f78-a651-2665b71d942c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ConfigureGraphQL/ConfigureGraphQLTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConfigureGraphQL/ConfigureGraphQLTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>b3a186f3-44bf-4c30-a1b5-2fe1f21e0515</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

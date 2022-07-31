@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#1c908d16-e0d4-4593-8ef0-850d5481a767</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#6f1fd1fc-9e8b-419a-b9e5-767211e3e5ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ControllerAuthenticationSchemesDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ControllerAuthenticationSchemesDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#6f1fd1fc-9e8b-419a-b9e5-767211e3e5ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/ControllerAuthenticationSchemesDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ControllerAuthenticationSchemesDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#996404d7-407c-498a-9939-352e801a574f</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Security.BearerToken.Interop.IdentityServer4.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Security.BearerToken.Interop.IdentityServer4.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>996404d7-407c-498a-9939-352e801a574f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#4c9a9332-6dff-4586-b9b4-d1924b5afab2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#9077e920-9e84-4b01-98fe-c71dd2d25010</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/X509CertSigningAppSettingsDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>X509CertSigningAppSettingsDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#9077e920-9e84-4b01-98fe-c71dd2d25010</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/X509CertSigningAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>X509CertSigningAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e5a6a18d-f239-4eb0-aabb-31e64a3669d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/X509CertSigningIdentityConfigurationDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>X509CertSigningIdentityConfigurationDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>2f2233b1-6a5e-4b1c-bb20-9e466ba0bc17</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e5a6a18d-f239-4eb0-aabb-31e64a3669d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/X509CertSigningIdentityConfigurationDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>X509CertSigningIdentityConfigurationDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.IdentityServer4.X509CertSigning.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.IdentityServer4.X509CertSigning.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a664fd66-4b59-4477-8849-444c4e4dac33</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.X509CertSigning.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.X509CertSigning.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>a664fd66-4b59-4477-8849-444c4e4dac33</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>9db0a5a2-cab2-4e7b-b224-47f0c6af8587</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#12912d05-d01f-40c7-997a-f0513a49e7b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CertificateRepo/CertificateRepoTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CertificateRepo/CertificateRepoTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9db0a5a2-cab2-4e7b-b224-47f0c6af8587</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#12912d05-d01f-40c7-997a-f0513a49e7b0</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#12912d05-d01f-40c7-997a-f0513a49e7b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CertificateRepo/CertificateRepoTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CertificateRepo/CertificateRepoTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>9db0a5a2-cab2-4e7b-b224-47f0c6af8587</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#12912d05-d01f-40c7-997a-f0513a49e7b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CertificateRepo/CertificateRepoTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CertificateRepo/CertificateRepoTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>9db0a5a2-cab2-4e7b-b224-47f0c6af8587</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#12912d05-d01f-40c7-997a-f0513a49e7b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CertificateRepo/CertificateRepoTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CertificateRepo/CertificateRepoTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +99,7 @@
     <FileLog>
       <ProjectId>9db0a5a2-cab2-4e7b-b224-47f0c6af8587</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

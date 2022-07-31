@@ -19,20 +19,22 @@ namespace Intent.Application.MediatR.Api
             return stereotype != null ? new Authorize(stereotype) : null;
         }
 
-        public static IReadOnlyCollection<Authorize> GetAuthorizes(this QueryModel model)
-        {
-            var stereotypes = model
-                .GetStereotypes("Authorize")
-                .Select(stereotype => new Authorize(stereotype))
-                .ToArray();
-
-            return stereotypes;
-        }
-
 
         public static bool HasAuthorize(this QueryModel model)
         {
             return model.HasStereotype("Authorize");
+        }
+
+        public static bool TryGetAuthorize(this QueryModel model, out Authorize stereotype)
+        {
+            if (!HasAuthorize(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Authorize(model.GetStereotype("Authorize"));
+            return true;
         }
 
 

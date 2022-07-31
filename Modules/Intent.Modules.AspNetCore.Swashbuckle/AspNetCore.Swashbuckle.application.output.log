@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#227d4e76-cb57-44bc-a802-3ae35ccbcb12</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#bc6e3b78-630d-4804-9475-23f606694704</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/SwashbuckleAppSettingsDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleAppSettingsDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#bc6e3b78-630d-4804-9475-23f606694704</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/SwashbuckleAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#ff189556-1a54-46dc-9cfb-e86ba6f4e67b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/SwashbuckleCoreWebStartupDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleCoreWebStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#ff189556-1a54-46dc-9cfb-e86ba6f4e67b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/SwashbuckleCoreWebStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleCoreWebStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Swashbuckle.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AspNetCore.Swashbuckle.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#30433701-b132-47a8-831d-7093a7d2a79b</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e4beda9d-c6c8-4c1f-9020-cd520aa2276d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,13 +99,15 @@
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#f9817e5f-293b-47bb-895e-22d387b7c6f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#f9817e5f-293b-47bb-895e-22d387b7c6f0</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#f9817e5f-293b-47bb-895e-22d387b7c6f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,6 +115,7 @@
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9817e5f-293b-47bb-895e-22d387b7c6f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -108,6 +123,7 @@
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f9817e5f-293b-47bb-895e-22d387b7c6f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -115,6 +131,7 @@
     <FileLog>
       <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

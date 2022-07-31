@@ -50,7 +50,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#4801c180-6756-4496-a4e0-d9b08a8f6674</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4801c180-6756-4496-a4e0-d9b08a8f6674</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Program/ProgramTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program/ProgramTemplate.tt</ProjectRelativeFilePath>
@@ -90,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#2b0cd2c1-23c0-4841-a618-bc03211d9ae2</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#2b0cd2c1-23c0-4841-a618-bc03211d9ae2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Startup/StartupTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup/StartupTemplate.tt</ProjectRelativeFilePath>

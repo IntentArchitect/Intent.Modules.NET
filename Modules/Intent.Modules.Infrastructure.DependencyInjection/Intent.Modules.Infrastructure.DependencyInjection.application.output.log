@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#7751518a-8789-4fc4-a472-85c1a00955ad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>17a3cb70-a261-43ea-b2b3-6f106af95a0b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Infrastructure.DependencyInjection.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Infrastructure.DependencyInjection.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>17a3cb70-a261-43ea-b2b3-6f106af95a0b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#17a3cb70-a261-43ea-b2b3-6f106af95a0b</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Infrastructure.DependencyInjection.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Infrastructure.DependencyInjection.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>17a3cb70-a261-43ea-b2b3-6f106af95a0b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#08c8b8d6-b827-4ac8-b201-e6ae7614743d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,13 +43,15 @@
     <FileLog>
       <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +75,7 @@
     <FileLog>
       <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

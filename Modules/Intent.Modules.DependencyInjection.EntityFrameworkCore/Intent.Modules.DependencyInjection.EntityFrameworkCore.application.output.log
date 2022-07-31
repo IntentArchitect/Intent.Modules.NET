@@ -90,7 +90,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContextConfiguration/DbContextConfigurationTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContextConfiguration/DbContextConfigurationTemplate.tt</ProjectRelativeFilePath>

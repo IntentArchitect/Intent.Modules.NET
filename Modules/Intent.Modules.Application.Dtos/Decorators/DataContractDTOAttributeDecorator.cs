@@ -31,7 +31,7 @@ namespace Intent.Modules.Application.Dtos.Decorators
 
         public override string ClassAttributes(DTOModel dto)
         {
-            return $"[DataContract{ GetDataContractPropertiesFormatted(dto) }]";
+            return $"[DataContract{GetDataContractPropertiesFormatted(dto)}]";
         }
 
         public override string PropertyAttributes(DTOModel dto, DTOFieldModel field)
@@ -55,7 +55,7 @@ namespace Intent.Modules.Application.Dtos.Decorators
                 var @namespace = dataContractStereotype.GetProperty<string>("Namespace");
                 if (!string.IsNullOrEmpty(@namespace))
                 {
-                    sb.Append($@"Namespace=""{ @namespace }""");
+                    sb.Append($@"Namespace=""{@namespace}""");
                 }
 
                 var isReference = dataContractStereotype.GetProperty<bool>("IsReference");
@@ -66,7 +66,7 @@ namespace Intent.Modules.Application.Dtos.Decorators
                         sb.Append(" ");
                     }
 
-                    sb.Append($@"IsReference=""{ isReference }""");
+                    sb.Append($@"IsReference=""{isReference}""");
                 }
 
                 if (sb.Length > 0)

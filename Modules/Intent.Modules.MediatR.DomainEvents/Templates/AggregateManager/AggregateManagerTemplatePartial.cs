@@ -36,7 +36,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
 
         private string GetInterfaces()
         {
-            return string.Join(", ", GetDomainEventModels().Select(e => $"INotificationHandler<{ this.GetDomainEventNotificationName() }<{ this.GetDomainEventName(e) }>>"));
+            return string.Join(", ", GetDomainEventModels().Select(e => $"INotificationHandler<{this.GetDomainEventNotificationName()}<{this.GetDomainEventName(e)}>>"));
         }
 
         private IEnumerable<DomainEventModel> GetDomainEventModels()

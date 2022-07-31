@@ -19,19 +19,21 @@ namespace Intent.Modules.Application.Contracts.Api
             return stereotype != null ? new Asynchronous(stereotype) : null;
         }
 
-        public static IReadOnlyCollection<Asynchronous> GetAsynchronouss(this OperationModel model)
-        {
-            var stereotypes = model
-                .GetStereotypes("Asynchronous")
-                .Select(stereotype => new Asynchronous(stereotype))
-                .ToArray();
-
-            return stereotypes;
-        }
-
         public static bool HasAsynchronous(this OperationModel model)
         {
             return model.HasStereotype("Asynchronous");
+        }
+
+        public static bool TryGetAsynchronous(this OperationModel model, out Asynchronous stereotype)
+        {
+            if (!HasAsynchronous(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Asynchronous(model.GetStereotype("Asynchronous"));
+            return true;
         }
 
         public static Synchronous GetSynchronous(this OperationModel model)
@@ -40,19 +42,21 @@ namespace Intent.Modules.Application.Contracts.Api
             return stereotype != null ? new Synchronous(stereotype) : null;
         }
 
-        public static IReadOnlyCollection<Synchronous> GetSynchronouss(this OperationModel model)
-        {
-            var stereotypes = model
-                .GetStereotypes("Synchronous")
-                .Select(stereotype => new Synchronous(stereotype))
-                .ToArray();
-
-            return stereotypes;
-        }
-
         public static bool HasSynchronous(this OperationModel model)
         {
             return model.HasStereotype("Synchronous");
+        }
+
+        public static bool TryGetSynchronous(this OperationModel model, out Synchronous stereotype)
+        {
+            if (!HasSynchronous(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Synchronous(model.GetStereotype("Synchronous"));
+            return true;
         }
 
 

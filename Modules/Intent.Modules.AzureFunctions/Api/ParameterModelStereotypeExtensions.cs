@@ -25,6 +25,18 @@ namespace Intent.AzureFunctions.Api
             return model.HasStereotype("Parameter Setting");
         }
 
+        public static bool TryGetParameterSetting(this ParameterModel model, out ParameterSetting stereotype)
+        {
+            if (!HasParameterSetting(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new ParameterSetting(model.GetStereotype("Parameter Setting"));
+            return true;
+        }
+
 
         public class ParameterSetting
         {

@@ -44,7 +44,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 yield break;
             }
-            
+
             yield return "string partitionKey";
         }
 
@@ -54,7 +54,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 yield break;
             }
-            
+
             yield return "_partitionKey = partitionKey;";
         }
 
@@ -64,7 +64,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 yield break;
             }
-            
+
             yield return $"builder.HasPartitionKey(_partitionKey);";
         }
     }

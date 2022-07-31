@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#78b93fa2-4a87-49bf-8d3f-8527deb7f90f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c61839e6-1add-422e-8e22-7d280b166bc1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreRepositoryDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCoreRepositoryDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>c61839e6-1add-422e-8e22-7d280b166bc1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.EntityFrameworkCore.Repositories.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.EntityFrameworkCore.Repositories.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#5dd354ae-1260-4a29-a506-037941ec04ae</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.Repositories.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.Repositories.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,13 +51,15 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList/PagedListTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList/PagedListTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList/PagedListTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +75,7 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList/PagedListTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,13 +83,15 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#a78eb6c0-6400-436f-87d7-1b9cf35effa9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Repository/RepositoryTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Repository/RepositoryTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#a78eb6c0-6400-436f-87d7-1b9cf35effa9</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#a78eb6c0-6400-436f-87d7-1b9cf35effa9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Repository/RepositoryTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Repository/RepositoryTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +99,7 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a78eb6c0-6400-436f-87d7-1b9cf35effa9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Repository/RepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Repository/RepositoryTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -94,6 +107,7 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a78eb6c0-6400-436f-87d7-1b9cf35effa9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Repository/RepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Repository/RepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -101,13 +115,15 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RepositoryBase/RepositoryBaseTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase/RepositoryBaseTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RepositoryBase/RepositoryBaseTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase/RepositoryBaseTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -115,6 +131,7 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase/RepositoryBaseTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -122,6 +139,7 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/RepositoryBase/RepositoryBaseTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase/RepositoryBaseTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -129,6 +147,7 @@
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
