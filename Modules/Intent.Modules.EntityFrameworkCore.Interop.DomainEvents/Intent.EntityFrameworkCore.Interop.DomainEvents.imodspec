@@ -17,7 +17,7 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.3.9" />
     <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.7-pre.5" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.3.7" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
