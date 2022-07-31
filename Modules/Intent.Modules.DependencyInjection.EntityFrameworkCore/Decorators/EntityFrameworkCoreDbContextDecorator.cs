@@ -55,7 +55,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     yield return "modelBuilder.HasDefaultSchema(string.IsNullOrEmpty(_dbContextConfig.Value?.DefaultSchemaName) ? null : _dbContextConfig.Value?.DefaultSchemaName);";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    yield return "modelBuilder.HasDefaultSchema(string.IsNullOrEmpty(_dbContextConfig.Value?.DefaultContainerName) ? null : _dbContextConfig.Value?.DefaultContainerName);";
+                    yield return "modelBuilder.HasDefaultContainer(string.IsNullOrEmpty(_dbContextConfig.Value?.DefaultContainerName) ? null : _dbContextConfig.Value?.DefaultContainerName);";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:
