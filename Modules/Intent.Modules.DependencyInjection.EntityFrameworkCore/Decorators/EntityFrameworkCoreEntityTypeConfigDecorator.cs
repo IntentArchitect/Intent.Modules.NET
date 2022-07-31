@@ -30,7 +30,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetClassMembers()
         {
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmosDB())
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
             {
                 yield break;
             }
@@ -40,7 +40,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetConstructorParameters()
         {
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmosDB())
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
             {
                 yield break;
             }
@@ -50,7 +50,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetConstructorBodyStatements()
         {
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmosDB())
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
             {
                 yield break;
             }
@@ -60,7 +60,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> AfterAttributeStatements()
         {
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmosDB())
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
             {
                 yield break;
             }

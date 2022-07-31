@@ -50,15 +50,15 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(_template.Project));
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchemaName", ""));
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchemaName", ""));
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountEndpoint", "https://localhost:8081"));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
@@ -112,21 +112,21 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     statements.Add($@"options.UseInMemoryDatabase({connection});");
                     statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
                     statements.Add($@"options.UseSqlServer(
                     configuration.GetConnectionString({connection}),
                     b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));");
                     statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
                     statements.Add($@"options.UseNpgsql(
                     configuration.GetConnectionString({connection}),
                     b => b.MigrationsAssembly(typeof({_template.GetDbContextName()}).Assembly.FullName));");
                     statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
                     statements.Add($@"options.UseCosmos(
                     configuration[""Cosmos:AccountEndpoint""],

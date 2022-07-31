@@ -85,7 +85,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 
         private bool IsRepoSupported()
         {
-            return !(ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType() &&
+            return !(ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() &&
                    Model.IsAbstract && OutputTarget.GetProject().TargetDotNetFrameworks.First().Major <= 6);
         }
     }

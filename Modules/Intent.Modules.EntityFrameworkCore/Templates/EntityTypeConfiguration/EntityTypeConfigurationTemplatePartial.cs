@@ -115,7 +115,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private string GetTableMapping(ClassModel model)
         {
             if (model.ParentClass != null && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
-                    .IsTablePerHierarchy())
+                    .IsTPH())
             {
                 return $@"
             builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();
@@ -123,7 +123,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             if (model.HasTable() || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
-                    .IsTablePerHierarchy())
+                    .IsTPH())
             {
                 return $@"
             builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});
@@ -136,7 +136,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private string GetKeyMapping(ClassModel model)
         {
             if (model.ParentClass != null && (!model.ParentClass.IsAbstract || !ExecutionContext.Settings
-                    .GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType()))
+                    .GetDatabaseSettings().InheritanceStrategy().IsTPC()))
             {
                 return string.Empty;
             }
@@ -636,7 +636,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var attributes = new List<AttributeModel>();
             if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings
-                    .GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
+                    .GetDatabaseSettings().InheritanceStrategy().IsTPC())
             {
                 attributes.AddRange(GetAttributes(model.ParentClass));
             }
@@ -649,7 +649,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var associations = new List<AssociationEndModel>();
             if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings
-                    .GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType())
+                    .GetDatabaseSettings().InheritanceStrategy().IsTPC())
             {
                 associations.AddRange(GetAssociations(model.ParentClass));
             }

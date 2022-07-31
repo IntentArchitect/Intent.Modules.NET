@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbCon
         [IntentManaged(Mode.Ignore)]
         public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (!application.Settings.GetMultitenancySettings().Store().IsEntityFrameworkCore())
+            if (!application.Settings.GetMultitenancySettings().Store().IsEfcore())
             {
                 AbortRegistration();
             }

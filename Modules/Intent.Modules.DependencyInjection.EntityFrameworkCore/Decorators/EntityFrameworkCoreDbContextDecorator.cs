@@ -49,11 +49,11 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         {
             switch (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     yield return "modelBuilder.HasDefaultSchema(_dbContextConfig.Value?.DefaultSchemaName);";
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     yield return "modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
@@ -64,7 +64,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
         {
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmosDB())
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
             {
                 yield break;
             }

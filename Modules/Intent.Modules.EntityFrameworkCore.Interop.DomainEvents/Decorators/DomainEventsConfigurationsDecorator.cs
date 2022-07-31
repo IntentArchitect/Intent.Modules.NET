@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 
         public override string AfterAttributes()
         {
-            if (_template.Model.ParentClass != null && (!_template.Model.ParentClass.IsAbstract || !_template.ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType()))
+            if (_template.Model.ParentClass != null && (!_template.Model.ParentClass.IsAbstract || !_template.ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()))
             {
                 return null;
             }

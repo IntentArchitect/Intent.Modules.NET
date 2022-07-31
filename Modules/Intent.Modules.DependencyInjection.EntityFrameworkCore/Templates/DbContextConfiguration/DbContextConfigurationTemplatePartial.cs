@@ -38,11 +38,11 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
 
             switch (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SQLServer:
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.PostgreSQL:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     properties.Add("public string? DefaultSchemaName { get; set; }");
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.CosmosDB:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     properties.Add("public string? DefaultContainerName { get; set; }");
                     properties.Add("public string? PartitionKey { get; set; }");
                     break;

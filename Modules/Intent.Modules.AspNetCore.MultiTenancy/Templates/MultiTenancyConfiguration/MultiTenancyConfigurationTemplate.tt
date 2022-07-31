@@ -25,18 +25,18 @@ namespace <#= Namespace #>
         public static IServiceCollection ConfigureMultiTenancy(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMultiTenant<TenantInfo>()
-<#  if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsEntityFrameworkCore()) { #>
+<#  if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsEfcore()) { #>
                 .WithEFCoreStore<<#= this.GetMultiTenantStoreDbContextName() #>, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#efcore-store
 <#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory()) { #>
                 .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store
 <#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration()) { #>
                 .WithConfigurationStore() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#configuration-store
 <#  } #>
-<#  if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHeaderStrategy()) { #>
+<#  if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHeader()) { #>
                 .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#header-strategy
-<#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHostStrategy()) { #>
+<#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHost()) { #>
                 .WithHostStrategy(); // default pattern is __tenant__.* (e.g. https://tenantidentifier.example.com). See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#host-strategy
-<#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsClaimStrategy()) { #>
+<#  } else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsClaim()) { #>
                 .WithClaimStrategy(); // default claim value with type __tenant__. See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#claim-strategy
 <#  } #>
             return services;

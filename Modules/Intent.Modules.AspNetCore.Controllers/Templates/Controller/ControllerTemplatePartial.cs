@@ -233,7 +233,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private bool IsControllerSecured()
         {
-            return Model.HasSecured() || ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().IsSecuredByDefault();
+            return Model.HasSecured() || ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().IsSecured();
         }
 
         private bool IsOperationSecured(OperationModel operation)

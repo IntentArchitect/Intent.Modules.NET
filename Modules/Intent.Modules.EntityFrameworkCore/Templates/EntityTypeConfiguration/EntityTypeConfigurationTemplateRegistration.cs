@@ -39,7 +39,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return _metadataManager.Domain(application).GetClassModels()
                 .Where(x => x.IsAggregateRoot())
                 .Where(x => !x.IsAbstract ||
-                            !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTablePerConcreteType());
+                            !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC());
         }
     }
 }
