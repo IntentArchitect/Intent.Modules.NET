@@ -23,11 +23,12 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EntityFrameworkCoreDbContextDecorator(DbContextTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
+            template.AddUsing("Microsoft.Extensions.Options");
         }
 
         public override IEnumerable<string> GetPrivateFields()

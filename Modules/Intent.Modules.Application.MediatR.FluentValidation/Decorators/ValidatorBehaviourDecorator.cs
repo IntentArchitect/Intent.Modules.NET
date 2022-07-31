@@ -19,11 +19,12 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Decorators
         [IntentManaged(Mode.Fully)] private readonly ValidationBehaviourTemplate _template;
         [IntentManaged(Mode.Fully)] private readonly IApplication _application;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValidatorBehaviourDecorator(ValidationBehaviourTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
+            _template.AddUsing("MediatR");
         }
 
         public void BeforeTemplateExecution()
