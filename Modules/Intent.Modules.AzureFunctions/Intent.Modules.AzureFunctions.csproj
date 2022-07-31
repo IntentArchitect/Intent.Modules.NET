@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.1" />
+    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.3" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.9" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.15" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.3" />

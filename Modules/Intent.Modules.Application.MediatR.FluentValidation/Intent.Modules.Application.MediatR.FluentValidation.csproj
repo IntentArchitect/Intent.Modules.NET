@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -51,7 +51,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.15" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.5" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.3" />
-    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.3.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="3.3.1" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
