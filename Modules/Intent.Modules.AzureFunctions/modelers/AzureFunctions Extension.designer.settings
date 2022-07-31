@@ -15,12 +15,9 @@
       <macros>
         <macro trigger="on-created">
           <script>let serviceElement = element.getParent();
-let packageElement = serviceElement.getParent();
-if (packageElement.getChildren("Service").length &gt; 1) {
-    let stereotype = element.getStereotype("Azure Function");
-    if (stereotype.getProperty("Route").getValue() == null) {
-        stereotype.getProperty("Route").setValue(serviceElement.getName().toLowerCase());
-    }
+let stereotype = element.getStereotype("Azure Function");
+if (stereotype.getProperty("Route").getValue() == null) {
+    stereotype.getProperty("Route").setValue(serviceElement.getName().toLowerCase());
 }</script>
         </macro>
         <macro trigger="on-name-changed">
