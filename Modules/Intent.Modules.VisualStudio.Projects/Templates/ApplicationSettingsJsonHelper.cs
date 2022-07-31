@@ -50,6 +50,7 @@ internal static class ApplicationSettingsJsonHelper
             ushort primitive => primitive,
             string primitive => primitive,
             IEnumerable enumerable => JArray.FromObject(enumerable),
+            null => null,
             _ => JObject.FromObject(value)
         };
     }

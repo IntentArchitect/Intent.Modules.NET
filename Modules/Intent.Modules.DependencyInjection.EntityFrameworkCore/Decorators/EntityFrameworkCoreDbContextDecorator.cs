@@ -52,10 +52,10 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
-                    yield return "modelBuilder.HasDefaultSchema(_dbContextConfig.Value?.DefaultSchemaName);";
+                    yield return "modelBuilder.HasDefaultSchema(string.IsNullOrEmpty(_dbContextConfig.Value?.DefaultSchemaName) ? null : _dbContextConfig.Value?.DefaultSchemaName);";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    yield return "modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);";
+                    yield return "modelBuilder.HasDefaultSchema(string.IsNullOrEmpty(_dbContextConfig.Value?.DefaultContainerName) ? null : _dbContextConfig.Value?.DefaultContainerName);";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:
