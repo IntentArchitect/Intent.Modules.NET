@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.IdentityServer4.SecureTokenServer.Templates;
 using Intent.Modules.IdentityServer4.SecureTokenServer.Templates.IdentityServerConfiguration;
 using Intent.RoslynWeaver.Attributes;
 
@@ -26,10 +28,15 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         {
             _template = template;
             _application = application;
-            _template.AddTemplateDependency(IdentityServerConfigurationTemplate.TemplateId);
             Priority = -9;
+            _template.AddTemplateDependency(IdentityServerConfigurationTemplate.TemplateId);
+            var cp = _template.GetTemplate<IClassProvider>(IdentityServerConfigurationTemplate.TemplateId);
+            if (cp != null)
+            {
+                _template.AddUsing(cp.Namespace);
+            }
         }
-
+        
         public override string Configuration()
         {
             return "app.UseIdentityServer();";
