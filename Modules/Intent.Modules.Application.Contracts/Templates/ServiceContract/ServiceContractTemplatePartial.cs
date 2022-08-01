@@ -9,6 +9,7 @@ using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
@@ -31,8 +32,8 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
         public ServiceContractTemplate(IOutputTarget project, ServiceModel model, string identifier = TemplateId)
             : base(identifier, project, model)
         {
-            AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            SetDefaultTypeCollectionFormat("List<{0}>");
+            AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

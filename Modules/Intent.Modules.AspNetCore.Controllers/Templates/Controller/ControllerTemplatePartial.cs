@@ -8,6 +8,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
@@ -30,6 +31,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public ControllerTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
