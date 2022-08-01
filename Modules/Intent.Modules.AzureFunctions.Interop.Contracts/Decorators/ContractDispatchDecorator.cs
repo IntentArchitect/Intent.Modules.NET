@@ -85,7 +85,8 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
                     _template.Model.ReturnType == null
                         ? $"return new CreatedResult(string.Empty, null);"
                         : $"return new CreatedResult(string.Empty, result);",
-                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT => _template.Model.ReturnType ==
+                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT or
+                    OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PATCH => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult(result);",

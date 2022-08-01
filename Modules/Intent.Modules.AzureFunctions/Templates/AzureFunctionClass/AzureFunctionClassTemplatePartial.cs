@@ -150,7 +150,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 }
 
                 paramList.Add(
-                    $@"[ServiceBusTrigger({string.Join(", ", attrParamList)})] {GetRequestDtoType()} {GetRequestDtoParamName()}");
+                    $@"[ServiceBusTrigger({string.Join(", ", attrParamList)})] {GetRequestDtoType()} {GetRequestDtoParameterName()}");
             }
 
             foreach (var parameterModel in Model.Parameters.Where(IsParameterRoute))
@@ -193,8 +193,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             if (Model.GetAzureFunction()?.Type()?.IsHttpTrigger() == true
                 && !string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
-                statementList.Add($@"string requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                statementList.Add($@"var dto = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
+                statementList.Add($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
+                statementList.Add($@"var {GetRequestDtoParameterName()} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
             }
 
             statementList.AddRange(GetDecorators()
@@ -260,7 +260,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             return string.Join(newLine, blockLines);
         }
 
-        private DTOModel GetRequestDtoModel()
+        private ParameterModel GetRequestDtoParameter()
         {
             var dtoParams = Model.Parameters
                 .Where(IsParameterBody)
@@ -274,38 +274,24 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 default:
                     {
                         var param = dtoParams.First();
-                        return param.TypeReference.Element.AsDTOModel();
+                        return param;
                     }
             }
         }
 
-        private string GetRequestDtoParamName()
+        public string GetRequestDtoParameterName()
         {
-            var dtoParams = Model.Parameters
-                .Where(IsParameterBody)
-                .ToArray();
-            switch (dtoParams.Length)
-            {
-                case 0:
-                    return null;
-                case > 1:
-                    throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
-                default:
-                    {
-                        var param = dtoParams.First();
-                        return param.Name.ToParameterName();
-                    }
-            }
+            return GetRequestDtoParameter().Name.ToParameterName();
         }
 
-        private bool IsParameterBody(ParameterModel parameterModel)
+        private static bool IsParameterBody(ParameterModel parameterModel)
         {
             return parameterModel.GetParameterSetting()?.Source().IsFromBody() == true
                    || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
                        parameterModel.TypeReference.Element.IsDTOModel());
         }
 
-        private bool IsParameterRoute(ParameterModel parameterModel)
+        private static bool IsParameterRoute(ParameterModel parameterModel)
         {
             return parameterModel.GetParameterSetting()?.Source().IsFromRoute() == true
                    || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
@@ -314,13 +300,16 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         public string GetRequestDtoType()
         {
-            var model = GetRequestDtoModel();
-            return model == null ? null : this.GetDtoModelName(model);
+            var dtoParameter = GetRequestDtoParameter();
+            return dtoParameter == null
+                ? null
+                : this.GetDtoModelName(dtoParameter.TypeReference.Element.AsDTOModel());
         }
 
-        private IReadOnlyCollection<ParameterModel> GetQueryParams()
+        private IEnumerable<ParameterModel> GetQueryParams()
         {
-            return Model.Parameters.Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true).ToArray();
+            return Model.Parameters
+                .Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true);
         }
     }
 }

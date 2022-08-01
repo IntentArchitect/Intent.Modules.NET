@@ -109,7 +109,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 yield break;
             }
 
-            yield return $"await _validation.Handle(dto, default);";
+            yield return $"await _validation.Handle({_template.GetRequestDtoParameterName()}, default);";
         }
 
         public override IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()
