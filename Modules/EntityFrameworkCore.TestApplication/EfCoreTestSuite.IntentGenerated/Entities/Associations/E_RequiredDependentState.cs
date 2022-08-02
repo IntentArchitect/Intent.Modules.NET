@@ -27,6 +27,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _attribute;
+
+        public string Attribute
+        {
+            get { return _attribute; }
+            set
+            {
+                _attribute = value;
+            }
+        }
+
         private E_RequiredCompositeNav _e_RequiredCompositeNav;
 
         public virtual E_RequiredCompositeNav E_RequiredCompositeNav

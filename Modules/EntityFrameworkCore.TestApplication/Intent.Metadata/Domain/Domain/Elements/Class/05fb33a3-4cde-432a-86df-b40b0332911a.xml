@@ -3,7 +3,7 @@
   <name>CustomIndex</name>
   <display>CustomIndex</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a7322c0d-8ae7-418f-adf3-2d9b1ed379cf</parentFolderId>
@@ -16,7 +16,6 @@
       <name>indexField</name>
       <display>indexField: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="bee6f915-1cdc-4137-8feb-966ce686a5b2">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -41,7 +40,7 @@
       <name>IX_CustomIndices_IndexField</name>
       <display>IX_CustomIndices_IndexField</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
       <mappedClass>
@@ -75,7 +74,6 @@
           <name>indexField</name>
           <display>indexField</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>true</isMapped>
           <mappedClass>

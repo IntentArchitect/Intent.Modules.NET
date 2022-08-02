@@ -3,7 +3,7 @@
   <name>ComplexDefaultIndex</name>
   <display>ComplexDefaultIndex</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a7322c0d-8ae7-418f-adf3-2d9b1ed379cf</parentFolderId>
@@ -16,7 +16,6 @@
       <name>fieldA</name>
       <display>fieldA: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="63548514-6aa6-49b8-89f7-20a83bc4b03e">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -41,7 +40,6 @@
       <name>fieldB</name>
       <display>fieldB: guid</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <typeReference id="2a0cf4e0-30f3-4834-9033-9464f21711f7">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -66,7 +64,7 @@
       <name>IX_ComplexDefaultIndices_FieldA_FieldB</name>
       <display>IX_ComplexDefaultIndices_FieldA_FieldB</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
       <mappedClass>
@@ -100,7 +98,6 @@
           <name>fieldA</name>
           <display>fieldA</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>true</isMapped>
           <mappedClass>
@@ -130,7 +127,6 @@
           <name>fieldB</name>
           <display>fieldB</display>
           <isAbstract>false</isAbstract>
-          <order>1</order>
           <genericTypes />
           <isMapped>true</isMapped>
           <mappedClass>

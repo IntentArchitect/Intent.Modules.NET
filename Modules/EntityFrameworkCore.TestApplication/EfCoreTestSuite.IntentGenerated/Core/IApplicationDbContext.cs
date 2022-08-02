@@ -24,6 +24,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         DbSet<DefaultIndex> DefaultIndexes { get; set; }
         DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
+        DbSet<E2_RequiredCompositeNav> E2_RequiredCompositeNavs { get; set; }
         DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }

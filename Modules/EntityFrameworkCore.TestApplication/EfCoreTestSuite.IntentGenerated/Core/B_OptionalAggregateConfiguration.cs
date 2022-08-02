@@ -16,11 +16,14 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Attribute)
+                .IsRequired();
+
 
             builder.HasOne(x => x.B_OptionalDependent)
-                .WithOne()
-                .HasForeignKey<B_OptionalAggregate>(x => x.B_OptionalDependentId)
-                .OnDelete(DeleteBehavior.Restrict);
+            .WithOne()
+            .HasForeignKey<B_OptionalAggregate>(x => x.B_OptionalDependentId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

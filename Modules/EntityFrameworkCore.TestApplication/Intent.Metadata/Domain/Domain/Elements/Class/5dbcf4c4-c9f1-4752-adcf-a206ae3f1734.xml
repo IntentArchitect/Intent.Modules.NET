@@ -3,7 +3,7 @@
   <name>PK_PrimaryKeyInt</name>
   <display>PK_PrimaryKeyInt</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bb1319c-d75b-42c0-9411-1580b006d32f</parentFolderId>
@@ -16,7 +16,6 @@
       <name>primaryKeyId</name>
       <display>primaryKeyId: int</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="c77eca8f-bd35-4800-924a-ff3b142e8a76">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>

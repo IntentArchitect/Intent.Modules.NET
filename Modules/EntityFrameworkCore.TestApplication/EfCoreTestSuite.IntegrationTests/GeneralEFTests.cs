@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EfCoreTestSuite.IntentGenerated.Core;
+using EfCoreTestSuite.IntentGenerated.Entities;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +15,11 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_A_Unidirectional_1_To_0to1_Association()
     {
-        var src = new A_RequiredComposite();
+        var src = new A_RequiredComposite() { Attribute = "test 1" };
         DbContext.A_RequiredComposites.Add(src);
         DbContext.SaveChanges();
 
-        var dst = new A_OptionalDependent();
+        var dst = new A_OptionalDependent() { Attribute = "test 2" };
         src.A_OptionalDependent = dst;
         DbContext.SaveChanges();
 
@@ -30,11 +31,11 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_B_Unidirectional_0to1_To_0to1_Association()
     {
-        var src = new B_OptionalAggregate();
+        var src = new B_OptionalAggregate() { Attribute = "test 1" };
         DbContext.B_OptionalAggregates.Add(src);
         DbContext.SaveChanges();
 
-        var dst = new B_OptionalDependent();
+        var dst = new B_OptionalDependent() { Attribute = "test 2" };
         DbContext.B_OptionalDependents.Add(dst);
         DbContext.SaveChanges();
 
@@ -111,10 +112,10 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_E_Bidirectional_1_To_1_Association()
     {
-        var src = new E_RequiredCompositeNav();
+        var src = new E_RequiredCompositeNav() { Attribute = "test 1" };
         DbContext.E_RequiredCompositeNavs.Add(src);
 
-        var dst = new E_RequiredDependent();
+        var dst = new E_RequiredDependent() { Attribute = "test 2" };
         src.E_RequiredDependent = dst;
 
         DbContext.SaveChanges();
@@ -123,17 +124,44 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.NotNull(owner);
         Assert.NotNull(owner.E_RequiredDependent);
 
-        // Due to EF Core's new OwnsOne configuration, there currently isn't a way to make
-        // this relationship Required.
-        // Assert.Throws<InvalidOperationException>(() =>
+        Assert.Throws<Microsoft.EntityFrameworkCore.DbUpdateException>(() =>
+        {
+            DbContext.E_RequiredCompositeNavs.Add(new E_RequiredCompositeNav() { Attribute = "test 3" });
+            DbContext.SaveChanges();
+        });
+
+        Assert.Throws<InvalidOperationException>(() =>
+        {
+            DbContext.Set<E_RequiredDependent>().Add(new E_RequiredDependent());
+            DbContext.SaveChanges();
+        });
+    }
+
+    [Fact(Skip = Helpers.SkipMessage)]
+    public void Test_E2_Bidirectional_1_To_1_Association()
+    {
+        var src = new E2_RequiredCompositeNav() { Attribute = "test 1" };
+        DbContext.E2_RequiredCompositeNavs.Add(src);
+
+        var dst = new E2_RequiredDependent() { Attribute = "test 2" };
+        src.E2_RequiredDependent = dst;
+
+        DbContext.SaveChanges();
+
+        var owner = DbContext.E2_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id);
+        Assert.NotNull(owner);
+        Assert.NotNull(owner.E2_RequiredDependent);
+
+        // Until such a time when Microsoft can enforce this, this code will need to be commented out.
+        // Assert.Throws<Microsoft.EntityFrameworkCore.DbUpdateException>(() =>
         // {
-        //     DbContext.E_RequiredCompositeNavs.Add(new E_RequiredCompositeNav());
+        //     DbContext.E2_RequiredCompositeNavs.Add(new E2_RequiredCompositeNav() { Attribute = "test 3" });
         //     DbContext.SaveChanges();
         // });
 
         Assert.Throws<InvalidOperationException>(() =>
         {
-            DbContext.Set<E_RequiredDependent>().Add(new E_RequiredDependent());
+            DbContext.Set<E2_RequiredDependent>().Add(new E2_RequiredDependent());
             DbContext.SaveChanges();
         });
     }
@@ -339,17 +367,17 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         var pk = new PK_PrimaryKeyInt();
         DbContext.PK_PrimaryKeyInts.Add(pk);
         DbContext.SaveChanges();
-        
+
         Assert.Equal(1, pk.PrimaryKeyId);
     }
-    
+
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_PK_PrimaryKeyLong()
     {
         var pk = new PK_PrimaryKeyLong();
         DbContext.PK_PrimaryKeyLongs.Add(pk);
         DbContext.SaveChanges();
-        
+
         Assert.Equal(1, pk.PrimaryKeyLong);
     }
 
@@ -360,18 +388,18 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         pk.CompositeKeyA = Guid.NewGuid();
         pk.CompositeKeyB = Guid.NewGuid();
         DbContext.PK_A_CompositeKeys.Add(pk);
-        
+
         var fk = new FK_A_CompositeForeignKey();
         fk.PK_CompositeKey = pk;
         DbContext.FK_A_CompositeForeignKeys.Add(fk);
 
         DbContext.SaveChanges();
-        
+
         Assert.Equal(pk, fk.PK_CompositeKey);
         Assert.Equal(pk.CompositeKeyA, fk.ForeignCompositeKeyA);
         Assert.Equal(pk.CompositeKeyB, fk.ForeignCompositeKeyB);
     }
-    
+
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_PK_B_CompositeKeys_FK_B_CompositeForeignKeys()
     {
@@ -379,13 +407,13 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         pk.CompositeKeyA = Guid.NewGuid();
         pk.CompositeKeyB = Guid.NewGuid();
         DbContext.PK_B_CompositeKeys.Add(pk);
-        
+
         var fk = new FK_B_CompositeForeignKey();
         fk.PK_CompositeKey = pk;
         DbContext.FK_B_CompositeForeignKeys.Add(fk);
 
         DbContext.SaveChanges();
-        
+
         Assert.Equal(pk, fk.PK_CompositeKey);
         Assert.Equal(pk.CompositeKeyA, fk.PK_CompositeKeyCompositeKeyA);
         Assert.Equal(pk.CompositeKeyB, fk.PK_CompositeKeyCompositeKeyB);

@@ -18,9 +18,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
 
             builder.HasOne(x => x.M_SelfReferenceBiNavDst)
-                .WithMany(x => x.M_SelfReferenceBiNavs)
-                .HasForeignKey(x => x.M_SelfReferenceBiNavDstId)
-                .OnDelete(DeleteBehavior.Restrict);
+            .WithMany(x => x.M_SelfReferenceBiNavs)
+            .HasForeignKey(x => x.M_SelfReferenceBiNavDstId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

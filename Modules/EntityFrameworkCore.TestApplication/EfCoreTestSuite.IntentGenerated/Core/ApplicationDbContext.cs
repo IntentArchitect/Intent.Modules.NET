@@ -29,6 +29,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         public DbSet<DefaultIndex> DefaultIndexes { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
+        public DbSet<E2_RequiredCompositeNav> E2_RequiredCompositeNavs { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         public DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
@@ -71,6 +72,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new D_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new DefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
+            modelBuilder.ApplyConfiguration(new E2_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());

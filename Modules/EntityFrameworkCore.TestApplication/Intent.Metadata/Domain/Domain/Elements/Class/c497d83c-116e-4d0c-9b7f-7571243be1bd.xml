@@ -3,7 +3,7 @@
   <name>DefaultIndex</name>
   <display>DefaultIndex</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a7322c0d-8ae7-418f-adf3-2d9b1ed379cf</parentFolderId>
@@ -16,7 +16,6 @@
       <name>indexField</name>
       <display>indexField: string</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="87461bba-bc6c-4ee0-a01c-78d3f004e589">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
@@ -52,7 +51,7 @@
       <name>IX_DefaultIndices_IndexField</name>
       <display>IX_DefaultIndices_IndexField</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>true</isMapped>
       <mappedClass>
@@ -86,7 +85,6 @@
           <name>indexField</name>
           <display>indexField</display>
           <isAbstract>false</isAbstract>
-          <order>0</order>
           <genericTypes />
           <isMapped>true</isMapped>
           <mappedClass>

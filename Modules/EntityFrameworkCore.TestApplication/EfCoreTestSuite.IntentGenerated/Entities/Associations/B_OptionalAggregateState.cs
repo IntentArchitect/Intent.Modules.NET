@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _attribute;
+
+        public string Attribute
+        {
+            get { return _attribute; }
+            set
+            {
+                _attribute = value;
+            }
+        }
+
         private B_OptionalDependent _b_OptionalDependent;
 
         public virtual B_OptionalDependent B_OptionalDependent

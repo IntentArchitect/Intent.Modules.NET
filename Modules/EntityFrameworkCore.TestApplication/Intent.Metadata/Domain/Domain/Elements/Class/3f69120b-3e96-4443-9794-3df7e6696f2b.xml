@@ -3,7 +3,7 @@
   <name>PK_A_CompositeKey</name>
   <display>PK_A_CompositeKey</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bb1319c-d75b-42c0-9411-1580b006d32f</parentFolderId>
@@ -16,7 +16,6 @@
       <name>compositeKeyA</name>
       <display>compositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="7e3b26c5-f384-44ed-b282-1b38e81f0d83">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -50,7 +49,6 @@
       <name>compositeKeyB</name>
       <display>compositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <typeReference id="4c2aa07a-53ef-4a59-9089-83a2c5622448">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>

@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _attribute;
+
+        public string Attribute
+        {
+            get { return _attribute; }
+            set
+            {
+                _attribute = value;
+            }
+        }
+
 
     }
 }

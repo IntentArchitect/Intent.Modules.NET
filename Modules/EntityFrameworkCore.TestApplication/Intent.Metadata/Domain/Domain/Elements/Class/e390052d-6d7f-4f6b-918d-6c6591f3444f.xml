@@ -3,7 +3,7 @@
   <name>FK_B_CompositeForeignKey</name>
   <display>FK_B_CompositeForeignKey</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bb1319c-d75b-42c0-9411-1580b006d32f</parentFolderId>
@@ -16,7 +16,6 @@
       <name>PK_CompositeKeyCompositeKeyA</name>
       <display>PK_CompositeKeyCompositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="ab130c61-3303-46a0-a2b8-1c30fd97b758">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -48,7 +47,6 @@
       <name>PK_CompositeKeyCompositeKeyB</name>
       <display>PK_CompositeKeyCompositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <typeReference id="de3130f3-d654-494a-bf7d-62efb602a9d6">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>

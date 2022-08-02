@@ -3,7 +3,7 @@
   <name>PK_PrimaryKeyLong</name>
   <display>PK_PrimaryKeyLong</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bb1319c-d75b-42c0-9411-1580b006d32f</parentFolderId>
@@ -16,7 +16,6 @@
       <name>primaryKeyLong</name>
       <display>primaryKeyLong: long</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="cd128255-3309-41b2-89ca-473e88bff6d8">
         <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>

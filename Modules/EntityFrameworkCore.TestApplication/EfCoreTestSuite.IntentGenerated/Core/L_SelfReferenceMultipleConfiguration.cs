@@ -18,8 +18,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
 
             builder.HasMany(x => x.L_SelfReferenceMultiplesDst)
-                .WithMany("L_SelfReferenceMultiplesSrc")
-                .UsingEntity(x => x.ToTable("L_SelfReferenceMultipleL_SelfReferenceMultiples"));
+            .WithMany("L_SelfReferenceMultiplesSrc")
+            .UsingEntity(x => x.ToTable("L_SelfReferenceMultipleL_SelfReferenceMultiples"));
 
         }
     }

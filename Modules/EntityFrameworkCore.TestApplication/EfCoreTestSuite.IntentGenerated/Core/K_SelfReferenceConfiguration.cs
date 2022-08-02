@@ -18,9 +18,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
 
             builder.HasOne(x => x.K_SelfReferenceAssociation)
-                .WithMany()
-                .HasForeignKey(x => x.K_SelfReferenceAssociationId)
-                .OnDelete(DeleteBehavior.Restrict);
+            .WithMany()
+            .HasForeignKey(x => x.K_SelfReferenceAssociationId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

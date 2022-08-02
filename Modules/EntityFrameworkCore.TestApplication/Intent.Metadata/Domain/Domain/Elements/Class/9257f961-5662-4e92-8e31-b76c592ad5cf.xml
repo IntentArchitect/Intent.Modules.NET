@@ -3,7 +3,7 @@
   <name>StereotypeIndex</name>
   <display>StereotypeIndex</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a7322c0d-8ae7-418f-adf3-2d9b1ed379cf</parentFolderId>
@@ -16,7 +16,6 @@
       <name>defaultIndexField</name>
       <display>defaultIndexField: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="a417b544-f570-4002-85e8-fe9e2482ffd2">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -52,7 +51,6 @@
       <name>customIndexField</name>
       <display>customIndexField: guid</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <typeReference id="cb93a47c-777b-4750-9a19-1f9c22b6ce87">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -88,7 +86,6 @@
       <name>groupedIndexFieldA</name>
       <display>groupedIndexFieldA: guid</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <typeReference id="1808ef50-6e43-45a0-a740-4b6a30000670">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -124,7 +121,6 @@
       <name>groupedIndexFieldB</name>
       <display>groupedIndexFieldB: guid</display>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <typeReference id="6214f2cf-341a-413f-b91e-e1f3fd8d8a82">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>

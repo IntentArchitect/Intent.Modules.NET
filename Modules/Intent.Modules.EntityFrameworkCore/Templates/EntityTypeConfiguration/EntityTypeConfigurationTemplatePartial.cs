@@ -331,6 +331,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetAssociationMapping(AssociationEndModel associationEnd)
         {
+            const string newLine = @"
+            ";
             var statements = new List<string>();
 
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
@@ -351,8 +353,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey(x => x.Id);{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
-                        return $@"
-            builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
+                        statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});");
+
+                        if (!associationEnd.IsNullable)
+                        {
+                            statements.Add($"builder.Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired();");
+                        }
+
+                        return newLine + string.Join(newLine, statements);
                     }
 
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
@@ -443,10 +451,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     throw new Exception(
                         $"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
-
-            return $@"
-            {string.Join(@"
-                ", statements)};";
+            
+            return newLine + string.Join(newLine, statements) + ";";
         }
 
         private List<string> GetTypeConfiguration(IElement targetType)
