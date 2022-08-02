@@ -14,11 +14,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 {
     public interface IApplicationDbContext
     {
-        DbSet<A_OptionalDependent> A_OptionalDependents { get; set; }
         DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
         DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
-        DbSet<C_MultipleDependent> C_MultipleDependents { get; set; }
         DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         DbSet<ComplexDefaultIndex> ComplexDefaultIndexes { get; set; }
         DbSet<CustomIndex> CustomIndexes { get; set; }
@@ -26,12 +24,10 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         DbSet<DefaultIndex> DefaultIndexes { get; set; }
         DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
-        DbSet<E_RequiredDependent> E_RequiredDependents { get; set; }
         DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
         DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
-        DbSet<G_MultipleDependent> G_MultipleDependents { get; set; }
         DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }

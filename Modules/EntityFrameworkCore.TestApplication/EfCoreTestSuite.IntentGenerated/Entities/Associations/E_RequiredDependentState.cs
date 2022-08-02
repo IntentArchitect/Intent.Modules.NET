@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using EfCoreTestSuite.IntentGenerated.Entities;
 using Intent.RoslynWeaver.Attributes;
 

@@ -19,12 +19,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-
-        public DbSet<A_OptionalDependent> A_OptionalDependents { get; set; }
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
         public DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
-        public DbSet<C_MultipleDependent> C_MultipleDependents { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         public DbSet<ComplexDefaultIndex> ComplexDefaultIndexes { get; set; }
         public DbSet<CustomIndex> CustomIndexes { get; set; }
@@ -32,12 +29,10 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         public DbSet<DefaultIndex> DefaultIndexes { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
-        public DbSet<E_RequiredDependent> E_RequiredDependents { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         public DbSet<FK_A_CompositeForeignKey> FK_A_CompositeForeignKeys { get; set; }
         public DbSet<FK_B_CompositeForeignKey> FK_B_CompositeForeignKeys { get; set; }
-        public DbSet<G_MultipleDependent> G_MultipleDependents { get; set; }
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
@@ -66,11 +61,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
             ConfigureModel(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new A_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
-            modelBuilder.ApplyConfiguration(new C_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new ComplexDefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new CustomIndexConfiguration());
@@ -78,12 +71,10 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new D_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new DefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
-            modelBuilder.ApplyConfiguration(new E_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new FK_A_CompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new FK_B_CompositeForeignKeyConfiguration());
-            modelBuilder.ApplyConfiguration(new G_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new G_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new H_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new H_OptionalAggregateNavConfiguration());
@@ -97,6 +88,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
             modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
+
+
         }
 
         [IntentManaged(Mode.Ignore)]

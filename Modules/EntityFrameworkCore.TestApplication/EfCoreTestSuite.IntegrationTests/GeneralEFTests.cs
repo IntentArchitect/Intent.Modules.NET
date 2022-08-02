@@ -22,8 +22,9 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         src.A_OptionalDependent = dst;
         DbContext.SaveChanges();
 
-        Assert.NotNull(DbContext.A_RequiredComposites.SingleOrDefault(p => p.Id == src.Id));
-        Assert.NotNull(DbContext.A_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
+        var owner = DbContext.A_RequiredComposites.SingleOrDefault(p => p.Id == src.Id);
+        Assert.NotNull(owner);
+        Assert.NotNull(owner.A_OptionalDependent);
     }
 
     [Fact(Skip = Helpers.SkipMessage)]
@@ -68,15 +69,18 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         src.C_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
-        Assert.NotNull(DbContext.C_RequiredComposites.SingleOrDefault(p => p.Id == src.Id));
-        Assert.Equal(dstList.Count, DbContext.C_MultipleDependents.Count(p => dstList.Contains(p)));
+        var owner = DbContext.C_RequiredComposites.SingleOrDefault(p => p.Id == src.Id);
+        Assert.NotNull(owner);
+        Assert.Equal(dstList.Count, owner.C_MultipleDependents.Count(p => dstList.Contains(p)));
 
-        Assert.Throws<DbUpdateException>(() =>
-        {
-            var orphan = new C_MultipleDependent();
-            DbContext.C_MultipleDependents.Add(orphan);
-            DbContext.SaveChanges();
-        });
+        // I previously had an orphan check here. Keeping just in case.
+        // Assert.Throws<DbUpdateException>(() =>
+        // {
+        //     var orphan = new C_MultipleDependent();
+        //     DbContext.Set<C_MultipleDependent>().Add(orphan);
+        //     
+        //     DbContext.SaveChanges();
+        // });
     }
 
     [Fact(Skip = Helpers.SkipMessage)]
@@ -115,18 +119,21 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
 
         DbContext.SaveChanges();
 
-        Assert.NotNull(DbContext.E_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id));
-        Assert.NotNull(DbContext.E_RequiredDependents.SingleOrDefault(p => p.Id == dst.Id));
+        var owner = DbContext.E_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id);
+        Assert.NotNull(owner);
+        Assert.NotNull(owner.E_RequiredDependent);
+
+        // Due to EF Core's new OwnsOne configuration, there currently isn't a way to make
+        // this relationship Required.
+        // Assert.Throws<InvalidOperationException>(() =>
+        // {
+        //     DbContext.E_RequiredCompositeNavs.Add(new E_RequiredCompositeNav());
+        //     DbContext.SaveChanges();
+        // });
 
         Assert.Throws<InvalidOperationException>(() =>
         {
-            DbContext.E_RequiredCompositeNavs.Add(new E_RequiredCompositeNav());
-            DbContext.SaveChanges();
-        });
-
-        Assert.Throws<InvalidOperationException>(() =>
-        {
-            DbContext.E_RequiredDependents.Add(new E_RequiredDependent());
+            DbContext.Set<E_RequiredDependent>().Add(new E_RequiredDependent());
             DbContext.SaveChanges();
         });
     }
@@ -175,15 +182,17 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         src.G_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
-        Assert.NotNull(DbContext.G_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id));
-        Assert.Equal(dstList.Count, DbContext.G_MultipleDependents.Count(p => dstList.Contains(p)));
+        var owner = DbContext.G_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id);
+        Assert.NotNull(owner);
+        Assert.Equal(dstList.Count, owner.G_MultipleDependents.Count(p => dstList.Contains(p)));
 
-        Assert.Throws<DbUpdateException>(() =>
-        {
-            var orphan = new G_MultipleDependent();
-            DbContext.G_MultipleDependents.Add(orphan);
-            DbContext.SaveChanges();
-        });
+        // I previously had an orphan check here. Keeping just in case.
+        // Assert.Throws<DbUpdateException>(() =>
+        // {
+        //     var orphan = new G_MultipleDependent();
+        //     DbContext.Set<G_MultipleDependent>().Add(orphan);
+        //     DbContext.SaveChanges();
+        // });
     }
 
     [Fact(Skip = Helpers.SkipMessage)]

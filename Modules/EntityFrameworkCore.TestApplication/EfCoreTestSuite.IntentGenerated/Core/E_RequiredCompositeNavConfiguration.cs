@@ -17,12 +17,14 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.HasKey(x => x.Id);
 
 
-            builder.HasOne(x => x.E_RequiredDependent)
-                .WithOne(x => x.E_RequiredCompositeNav)
-                .HasForeignKey<E_RequiredCompositeNav>(x => x.Id)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.OwnsOne(x => x.E_RequiredDependent, ConfigureE_RequiredDependent);
 
+        }
+
+        public void ConfigureE_RequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
+        {
+            builder.WithOwner(x => x.E_RequiredCompositeNav).HasForeignKey(x => x.Id);
+            
         }
     }
 }

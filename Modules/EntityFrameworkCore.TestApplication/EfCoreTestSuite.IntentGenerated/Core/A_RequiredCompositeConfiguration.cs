@@ -17,12 +17,13 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.HasKey(x => x.Id);
 
 
-            builder.HasOne(x => x.A_OptionalDependent)
-                .WithOne()
-                .HasForeignKey<A_OptionalDependent>(x => x.Id)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.OwnsOne(x => x.A_OptionalDependent, ConfigureA_OptionalDependent);
 
+        }
+
+        public void ConfigureA_OptionalDependent(OwnedNavigationBuilder<A_RequiredComposite, A_OptionalDependent> builder)
+        {
+            builder.WithOwner().HasForeignKey(x => x.Id);
         }
     }
 }
