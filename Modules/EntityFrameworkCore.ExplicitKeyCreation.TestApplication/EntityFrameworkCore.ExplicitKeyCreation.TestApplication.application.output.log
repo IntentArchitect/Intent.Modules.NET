@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#ae6c1ca8-b6ea-43a4-9e51-3ee22932c4e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1c7ed671-864f-4b70-9fde-d6716b0d8aa5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/ExplicitKeysCompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeysCompositeForeignKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5f0d44e4-2c08-474b-82bc-b05340bf313e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/ExplicitKeysCompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeysCompositeKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/IApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
       <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/IdentityGenerator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,6 +51,7 @@
     <FileLog>
       <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -52,6 +59,7 @@
     <FileLog>
       <ProjectId>1303e57e-1275-42a4-b433-05e88a85e9b1</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#1303e57e-1275-42a4-b433-05e88a85e9b1</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,6 +67,7 @@
     <FileLog>
       <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#1c7ed671-864f-4b70-9fde-d6716b0d8aa5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/ExplicitKeysCompositeForeignKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeysCompositeForeignKey.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +75,7 @@
     <FileLog>
       <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#1c7ed671-864f-4b70-9fde-d6716b0d8aa5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/ExplicitKeysCompositeForeignKeyState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeysCompositeForeignKeyState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#5f0d44e4-2c08-474b-82bc-b05340bf313e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/ExplicitKeysCompositeKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeysCompositeKey.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -80,6 +91,7 @@
     <FileLog>
       <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#5f0d44e4-2c08-474b-82bc-b05340bf313e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/ExplicitKeysCompositeKeyState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeysCompositeKeyState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -87,6 +99,7 @@
     <FileLog>
       <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#1c7ed671-864f-4b70-9fde-d6716b0d8aa5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/IExplicitKeysCompositeForeignKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IExplicitKeysCompositeForeignKey.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -94,6 +107,7 @@
     <FileLog>
       <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#5f0d44e4-2c08-474b-82bc-b05340bf313e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/IExplicitKeysCompositeKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IExplicitKeysCompositeKey.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
