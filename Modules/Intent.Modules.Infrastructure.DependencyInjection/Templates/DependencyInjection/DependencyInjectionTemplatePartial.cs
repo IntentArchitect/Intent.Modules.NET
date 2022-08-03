@@ -91,22 +91,18 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                 : null;
 
             // ReSharper disable ConditionIsAlwaysTrueOrFalse
+
+            // This is a 3 way truth table to string mapping:
             return useProvider switch
             {
                 false when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{concreteType}>();",
                 false when !hasInterface && usesTypeOfFormat => $"services.{registrationType}({concreteType});",
-                false when hasInterface && !usesTypeOfFormat =>
-                    $"services.{registrationType}<{interfaceType}, {concreteType}>();",
-                false when hasInterface && usesTypeOfFormat =>
-                    $"services.{registrationType}({interfaceType}, {concreteType});",
-                true when !hasInterface && !usesTypeOfFormat =>
-                    $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
-                true when !hasInterface && usesTypeOfFormat =>
-                    $"services.{registrationType}(provider => provider.GetService({concreteType}));",
-                true when hasInterface && !usesTypeOfFormat =>
-                    $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
-                true when hasInterface && usesTypeOfFormat =>
-                    $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
+                false when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}, {concreteType}>();",
+                false when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, {concreteType});",
+                true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
+                true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
+                true when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
+                true when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
                 _ => throw new InvalidOperationException()
             };
             // ReSharper restore ConditionIsAlwaysTrueOrFalse
