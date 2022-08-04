@@ -45,6 +45,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     properties.Add("public string? DefaultContainerName { get; set; }");
                     properties.Add("public string? PartitionKey { get; set; }");
+                    properties.Add("public bool? EnsureDbCreated { get; set; }");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:

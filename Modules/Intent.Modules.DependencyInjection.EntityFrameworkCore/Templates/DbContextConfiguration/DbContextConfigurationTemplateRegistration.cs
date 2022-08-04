@@ -5,22 +5,35 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
 namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbContextConfiguration
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class DbContextConfigurationTemplateRegistration : SingleFileTemplateRegistration
+    public class DbContextConfigurationTemplateRegistration : ITemplateRegistration
     {
-        public override string TemplateId => DbContextConfigurationTemplate.TemplateId;
+        private readonly IMetadataManager _metadataManager;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
+        public DbContextConfigurationTemplateRegistration(IMetadataManager metadataManager)
         {
-            return new DbContextConfigurationTemplate(outputTarget);
+            _metadataManager = metadataManager;
+        }
+        public string TemplateId => DbContextConfigurationTemplate.TemplateId;
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
+        {
+            if (!applicationManager.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+            {
+                registry.RegisterTemplate(TemplateId, project => new DbContextConfigurationTemplate(project, null));
+            }
         }
     }
 }

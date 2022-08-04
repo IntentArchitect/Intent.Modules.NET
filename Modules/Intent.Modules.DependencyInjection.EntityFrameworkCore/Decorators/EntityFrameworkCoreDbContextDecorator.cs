@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -28,21 +29,40 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         {
             _template = template;
             _application = application;
-            template.AddUsing("Microsoft.Extensions.Options");
+
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+            {
+                template.AddUsing("Microsoft.Extensions.Options");
+            }
         }
 
         public override IEnumerable<string> GetPrivateFields()
         {
+            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+            {
+                yield break;
+            }
+
             yield return $"private readonly IOptions<{_template.GetDbContextConfigurationName()}> _dbContextConfig;";
         }
 
         public override IEnumerable<string> GetConstructorParameters()
         {
+            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+            {
+                yield break;
+            }
+
             yield return $"IOptions<{_template.GetDbContextConfigurationName()}> dbContextConfig";
         }
 
         public override IEnumerable<string> GetConstructorInitializations()
         {
+            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+            {
+                yield break;
+            }
+
             yield return "_dbContextConfig = dbContextConfig;";
         }
 
@@ -52,10 +72,12 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
-                    yield return "modelBuilder.HasDefaultSchema(string.IsNullOrEmpty(_dbContextConfig.Value?.DefaultSchemaName) ? null : _dbContextConfig.Value?.DefaultSchemaName);";
+                    const string schemaNameExpression = "_dbContextConfig.Value?.DefaultSchemaName";
+                    yield return $"modelBuilder.HasDefaultSchema(string.IsNullOrEmpty({schemaNameExpression}) ? null : {schemaNameExpression});";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    yield return "modelBuilder.HasDefaultContainer(string.IsNullOrEmpty(_dbContextConfig.Value?.DefaultContainerName) ? null : _dbContextConfig.Value?.DefaultContainerName);";
+                    const string containerNameExpression = "_dbContextConfig.Value?.DefaultContainerName";
+                    yield return $"modelBuilder.HasDefaultContainer(string.IsNullOrEmpty({containerNameExpression}) ? null : {containerNameExpression});";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:
@@ -70,7 +92,31 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 yield break;
             }
 
-            yield return "_dbContextConfig.Value?.PartitionKey";
+            const string partitionKeyExpression = "_dbContextConfig.Value?.PartitionKey";
+            yield return $"string.IsNullOrEmpty({partitionKeyExpression}) ? null : {partitionKeyExpression}";
+        }
+
+        public override IEnumerable<string> GetMethods()
+        {
+            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
+            {
+                yield break;
+            }
+
+            yield return @"
+        /// <summary>
+        /// If configured to do so, a check is performed to see
+        /// whether the database exist and if not will create it
+        /// based on this container configuration.
+        /// </summary>
+        public void EnsureDbCreated()
+        {
+            if (_dbContextConfig.Value.EnsureDbCreated == true)
+            {
+                Database.EnsureCreated();
+            }
+        }
+";
         }
     }
 }

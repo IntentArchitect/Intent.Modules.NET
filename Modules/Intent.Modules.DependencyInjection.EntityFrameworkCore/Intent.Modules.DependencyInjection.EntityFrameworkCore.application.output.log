@@ -106,7 +106,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6690131b-1b48-40dc-8ab7-4f9d4b75a8cb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#c49df5e4-cab0-4c78-8679-37a1ac97aacb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContextConfiguration/DbContextConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContextConfiguration/DbContextConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>

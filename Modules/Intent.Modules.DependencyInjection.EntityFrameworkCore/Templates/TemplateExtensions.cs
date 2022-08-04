@@ -16,5 +16,6 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates
             return template.GetTypeName(DbContextConfigurationTemplate.TemplateId);
         }
 
+
     }
 }

@@ -29,6 +29,10 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
+        private const string ConfigSectionSqlServer = "SqlServer";
+        private const string ConfigSectionPostgreSql = "PostgreSql";
+        private const string ConfigSectionCosmos = "Cosmos";
+        
         [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
         public EntityFrameworkCoreDependencyInjectionDecorator(DependencyInjectionTemplate template, IApplication application)
         {
@@ -52,18 +56,19 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchemaName", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionSqlServer}:DefaultSchemaName", ""));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultSchemaName", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionPostgreSql}:DefaultSchemaName", ""));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountEndpoint", "https://localhost:8081"));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("Cosmos:DatabaseName", $"{_template.Project.ApplicationName()}DB"));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DbContext.Configuration:DefaultContainerName", $"{_template.Project.ApplicationName()}"));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountEndpoint", "https://localhost:8081"));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DatabaseName", $"{_template.Project.ApplicationName()}DB"));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DefaultContainerName", $"{_template.Project.ApplicationName()}"));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:PartitionKey", $""));
                     break;
                 default:
                     break;
@@ -89,8 +94,22 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 {GetDbContextOptions()}
             }});");
 
-            statements.Add($@"services.Configure<{_template.GetDbContextConfigurationName()}>(opt => configuration.GetSection(""DbContext.Configuration"").Bind(opt));");
-
+            switch (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
+            {
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
+                    statements.Add($@"services.Configure<{_template.GetDbContextConfigurationName()}>(opt => configuration.GetSection(""{ConfigSectionSqlServer}"").Bind(opt));");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
+                    statements.Add($@"services.Configure<{_template.GetDbContextConfigurationName()}>(opt => configuration.GetSection(""{ConfigSectionPostgreSql}"").Bind(opt));");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
+                    statements.Add($@"services.Configure<{_template.GetDbContextConfigurationName()}>(opt => configuration.GetSection(""{ConfigSectionCosmos}"").Bind(opt));");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
+                default:
+                    break;
+            }
+            
             return string.Join(@"
             ", statements);
         }

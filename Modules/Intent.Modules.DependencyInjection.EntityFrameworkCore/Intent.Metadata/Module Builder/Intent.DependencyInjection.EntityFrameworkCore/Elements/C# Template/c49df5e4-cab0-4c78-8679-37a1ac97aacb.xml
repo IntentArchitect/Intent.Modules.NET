@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="c49df5e4-cab0-4c78-8679-37a1ac97aacb" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>DbContextConfiguration</name>
-  <display>DbContextConfiguration: Single File</display>
+  <display>DbContextConfiguration: Custom</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="fd18d08a-a259-40fa-8038-945ebc0c99bf">
-    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
+    <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
