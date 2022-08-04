@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.BearerToken.Interop.IdentityServer4</id>
-  <version>3.3.3</version>
+  <version>3.3.5</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>The module that bridges the gap to allow API Services and Identity Server 4 to be hosted together</summary>
   <description>The module that bridges the gap to allow API Services and Identity Server 4 to be hosted together</description>
@@ -13,11 +13,11 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.6" />
-    <dependency id="Intent.AspNetCore.Controllers" version="3.3.5" />
+    <dependency id="Intent.AspNetCore" version="3.3.8" />
+    <dependency id="Intent.AspNetCore.Controllers" version="3.3.8" />
     <dependency id="Intent.Common" version="3.3.9" />
     <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.Security.JWT" version="3.3.3" />
+    <dependency id="Intent.Security.JWT" version="3.3.5" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

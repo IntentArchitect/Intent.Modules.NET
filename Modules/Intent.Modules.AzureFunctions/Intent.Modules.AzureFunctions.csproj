@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageVersion>3.3.5</PackageVersion>
+    <PackageVersion>3.3.7</PackageVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
     <Authors>Intent Architect</Authors>
@@ -11,9 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.3" />
+    <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.5" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.9" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.15" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.16" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.3" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>

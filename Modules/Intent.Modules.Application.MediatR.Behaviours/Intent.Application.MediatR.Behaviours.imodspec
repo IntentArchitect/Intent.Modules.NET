@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.Behaviours</id>
-  <version>3.3.1</version>
+  <version>3.3.3</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -50,9 +50,9 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.3.1" />
+    <dependency id="Intent.Application.Identity" version="3.3.3" />
     <dependency id="Intent.Common" version="3.3.9" />
-    <dependency id="Intent.Common.CSharp" version="3.3.15" />
+    <dependency id="Intent.Common.CSharp" version="3.3.16" />
     <dependency id="Intent.Common.Types" version="3.3.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
   </dependencies>

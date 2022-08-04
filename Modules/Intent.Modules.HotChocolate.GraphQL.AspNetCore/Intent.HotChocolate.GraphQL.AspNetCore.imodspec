@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL.AspNetCore</id>
-  <version>3.3.2</version>
+  <version>3.3.4</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>GraphQL bootstrapping for AspNetCore.</summary>
   <description>GraphQL bootstrapping for AspNetCore.</description>
@@ -23,11 +23,11 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.6" />
+    <dependency id="Intent.AspNetCore" version="3.3.8" />
     <dependency id="Intent.Common" version="3.3.9" />
-    <dependency id="Intent.Common.CSharp" version="3.3.15" />
+    <dependency id="Intent.Common.CSharp" version="3.3.16" />
     <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.HotChocolate.GraphQL" version="3.3.1" />
+    <dependency id="Intent.HotChocolate.GraphQL" version="3.3.3" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
   </dependencies>
   <files>

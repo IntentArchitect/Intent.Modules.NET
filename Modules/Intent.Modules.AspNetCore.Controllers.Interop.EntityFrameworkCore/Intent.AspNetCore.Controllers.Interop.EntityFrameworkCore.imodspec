@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</id>
-  <version>3.3.5-pre.0</version>
+  <version>3.3.6</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -18,11 +18,11 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.AspNetCore.Controllers" version="3.3.5" />
+    <dependency id="Intent.AspNetCore.Controllers" version="3.3.8" />
     <dependency id="Intent.Common" version="3.3.9" />
-    <dependency id="Intent.Common.CSharp" version="3.3.6" />
+    <dependency id="Intent.Common.CSharp" version="3.3.16" />
     <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.8" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.3.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.1" />
   </dependencies>
   <files>
