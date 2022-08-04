@@ -98,7 +98,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetMethods()
         {
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
+            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
             {
                 yield break;
             }

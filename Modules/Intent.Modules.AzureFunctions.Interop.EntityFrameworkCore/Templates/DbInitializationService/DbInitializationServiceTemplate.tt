@@ -42,9 +42,12 @@ namespace <#= Namespace #>
         {
             using var scope = _scopeFactory.CreateScope();
             var dbContext = scope.ServiceProvider.GetService<<#= this.GetDbContextName() #>>();
-
-            dbContext.Database.EnsureCreated();
-            // Further DB seeding, etc.
+            if (dbContext == null)
+            {
+                throw new InvalidOperationException("DbContext not configured in Services Collection in order to ensure that the database is created.");
+            }
+            
+            dbContext.EnsureDbCreated();
         }
     }
 }

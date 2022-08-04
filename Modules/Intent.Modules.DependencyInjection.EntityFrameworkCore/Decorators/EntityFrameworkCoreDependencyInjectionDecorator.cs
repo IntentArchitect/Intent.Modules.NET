@@ -57,10 +57,20 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(_template.Project));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionSqlServer}:DefaultSchemaName", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionSqlServer}:EnsureDbCreated", false));
+                    _template.ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                        name: "DefaultConnection",
+                        connectionString: $"Server=.;Initial Catalog={_template.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True",
+                        providerName: "System.Data.SqlClient"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     _template.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(_template.Project));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionPostgreSql}:DefaultSchemaName", ""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionPostgreSql}:EnsureDbCreated", false));
+                    _template.ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                        name: "DefaultConnection",
+                        connectionString: $"Server=127.0.0.1;Port=5432;Database={_template.OutputTarget.ApplicationName()};Integrated Security=true;",
+                        providerName: ""));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     _template.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(_template.Project));
@@ -69,6 +79,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DatabaseName", $"{_template.Project.ApplicationName()}DB"));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DefaultContainerName", $"{_template.Project.ApplicationName()}"));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:PartitionKey", $""));
+                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:EnsureDbCreated", true));
                     break;
                 default:
                     break;
@@ -79,11 +90,6 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 _template.AddNugetDependency("Finbuckle.MultiTenant", "6.5.1");
                 _template.AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
             }
-
-            _template.ExecutionContext.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
-                name: "DefaultConnection",
-                connectionString: $"Server=.;Initial Catalog={_template.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True",
-                providerName: "System.Data.SqlClient"));
         }
 
         public override string ServiceRegistration()

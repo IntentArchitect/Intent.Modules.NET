@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.9" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.15" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.16-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,5 +20,18 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DbInitializationExtensionsTemplate.tt</DependentUpon>
+    </Compile></ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DbInitializationExtensionsTemplate.cs</LastGenOutput>
+    </None></ItemGroup>
 
 </Project>

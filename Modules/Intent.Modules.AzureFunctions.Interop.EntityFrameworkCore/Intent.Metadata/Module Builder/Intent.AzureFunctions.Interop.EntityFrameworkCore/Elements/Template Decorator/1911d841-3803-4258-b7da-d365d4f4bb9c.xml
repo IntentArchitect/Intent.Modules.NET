@@ -3,7 +3,6 @@
   <name>DbContextSaveFunctionDecorator</name>
   <display>DbContextSaveFunctionDecorator: AzureFunctionClassDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="68f6bcb2-2346-4225-9834-8ba4e201a650">
     <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>

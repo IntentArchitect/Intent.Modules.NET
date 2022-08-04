@@ -4,12 +4,14 @@
   <FileLogs>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#0f486cac-953c-43a4-a846-b1827462e544</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>225df398-98bb-4286-8a03-be23c372f4b5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#1911d841-3803-4258-b7da-d365d4f4bb9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DbContextSaveFunctionDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContextSaveFunctionDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -17,6 +19,7 @@
     <FileLog>
       <ProjectId>225df398-98bb-4286-8a03-be23c372f4b5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#1911d841-3803-4258-b7da-d365d4f4bb9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/DbContextSaveFunctionDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContextSaveFunctionDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -24,6 +27,7 @@
     <FileLog>
       <ProjectId>b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AzureFunctions.Interop.EntityFrameworkCore.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.AzureFunctions.Interop.EntityFrameworkCore.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -31,6 +35,7 @@
     <FileLog>
       <ProjectId>b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +43,7 @@
     <FileLog>
       <ProjectId>b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -45,13 +51,15 @@
     <FileLog>
       <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -59,13 +67,15 @@
     <FileLog>
       <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#5a71ddc3-2d31-4dbb-95aa-479d69569824</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbInitializationService/DbInitializationServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbInitializationService/DbInitializationServiceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -73,6 +83,7 @@
     <FileLog>
       <ProjectId>54021c70-f23f-408a-9839-69fbd00ab5ba</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

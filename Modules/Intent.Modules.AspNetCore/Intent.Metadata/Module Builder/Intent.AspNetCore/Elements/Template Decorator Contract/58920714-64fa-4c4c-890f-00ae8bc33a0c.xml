@@ -3,7 +3,6 @@
   <name>StartupDecorator</name>
   <display>StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2b0cd2c1-23c0-4841-a618-bc03211d9ae2</parentFolderId>

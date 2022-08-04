@@ -3,7 +3,6 @@
   <name>DbContextSaveControllerDecorator</name>
   <display>DbContextSaveControllerDecorator: ControllerDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="4050a055-3e0c-442a-ba89-5d94a74ce601">
     <typeId>2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</typeId>

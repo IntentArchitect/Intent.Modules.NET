@@ -23,12 +23,14 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
         private readonly List<ContainerRegistrationRequest> _containerRegistrationRequests = new();
         private readonly List<ServiceConfigurationRequest> _serviceConfigurationRequests = new();
+        private readonly List<ApplicationBuilderRegistrationRequest> _applicationBuilderRegistrationRequests = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(Handle);
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(Handle);
+            ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(Handle);
         }
 
         private void Handle(ContainerRegistrationRequest request)
@@ -39,6 +41,11 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         private void Handle(ServiceConfigurationRequest request)
         {
             _serviceConfigurationRequests.Add(request);
+        }
+        
+        private void Handle(ApplicationBuilderRegistrationRequest request)
+        {
+            _applicationBuilderRegistrationRequests.Add(request);
         }
 
         /// <remarks>
@@ -71,7 +78,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                     AddUsing(@namespace);
                 }
 
-                serviceConfigElements.Add((GetExtensionMethodInvocationStatement(request), request.Priority));
+                serviceConfigElements.Add((GetServiceConfigurationExtensionMethodStatement(request), request.Priority));
             }
 
             return GetCodeInNeatLines(serviceConfigElements, baseIndent);
@@ -82,36 +89,36 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             return OutputTarget.IsNetCore2App();
         }
 
-        private static string GetExtensionMethodInvocationStatement(ServiceConfigurationRequest request)
+        private static string GetServiceConfigurationExtensionMethodStatement(ServiceConfigurationRequest request)
         {
-            return $"services.{request.ExtensionMethodName}({GetExtensionMethodParameterList(request)});";
-        }
-
-        private static string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
-        {
-            if (request.ExtensionMethodParameterList?.Any() != true)
+            string GetExtensionMethodParameterList()
             {
-                return string.Empty;
-            }
-
-            var paramList = new List<string>();
-
-            foreach (var param in request.ExtensionMethodParameterList)
-            {
-                switch (param)
+                if (request.ExtensionMethodParameterList?.Any() != true)
                 {
-                    case ServiceConfigurationRequest.ParameterType.Configuration:
-                        paramList.Add("Configuration");
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException(
-                            paramName: nameof(request.ExtensionMethodParameterList),
-                            actualValue: param,
-                            message: "Type specified in parameter list is not known or supported");
+                    return string.Empty;
                 }
-            }
 
-            return string.Join(", ", paramList);
+                var paramList = new List<string>();
+
+                foreach (var param in request.ExtensionMethodParameterList)
+                {
+                    switch (param)
+                    {
+                        case ServiceConfigurationRequest.ParameterType.Configuration:
+                            paramList.Add("Configuration");
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(
+                                paramName: nameof(request.ExtensionMethodParameterList),
+                                actualValue: param,
+                                message: "Type specified in parameter list is not known or supported");
+                    }
+                }
+
+                return string.Join(", ", paramList);
+            }
+            
+            return $"services.{request.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
 
         private string GetApplicationConfigurations(string baseIndent)
@@ -136,7 +143,65 @@ app.UseEndpoints(endpoints =>
 
             appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));
 
+            var applicationBuilderRegistrationRequests = _applicationBuilderRegistrationRequests
+                .Where(x => !x.IsHandled)
+                .ToArray();
+            
+            foreach (var request in applicationBuilderRegistrationRequests)
+            {
+                foreach (var dependency in request.TemplateDependencies)
+                {
+                    var classProvider = GetTemplate<IClassProvider>(dependency);
+
+                    AddTemplateDependency(dependency);
+                    AddUsing(classProvider.Namespace);
+                }
+
+                foreach (var @namespace in request.RequiredNamespaces)
+                {
+                    AddUsing(@namespace);
+                }
+
+                appConfigElements.Add((GetApplicationBuilderExtensionMethodStatement(request), request.Priority));
+            }
+            
             return GetCodeInNeatLines(appConfigElements, baseIndent);
+        }
+
+        private string GetApplicationBuilderExtensionMethodStatement(ApplicationBuilderRegistrationRequest request)
+        {
+            string GetExtensionMethodParameterList()
+            {
+                if (request.ExtensionMethodParameterList?.Any() != true)
+                {
+                    return string.Empty;
+                }
+
+                var paramList = new List<string>();
+
+                foreach (var param in request.ExtensionMethodParameterList)
+                {
+                    switch (param)
+                    {
+                        case ApplicationBuilderRegistrationRequest.ParameterType.Configuration:
+                            paramList.Add("Configuration");
+                            break;
+                        case ApplicationBuilderRegistrationRequest.ParameterType.HostEnvironment:
+                        case ApplicationBuilderRegistrationRequest.ParameterType.WebHostEnvironment:
+                            paramList.Add("env");
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(
+                                paramName: nameof(request.ExtensionMethodParameterList),
+                                actualValue: param,
+                                message: "Type specified in parameter list is not known or supported");
+                    }
+                }
+
+                return string.Join(", ", paramList);
+            }
+            
+            return $"app.{request.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
 
         private string GetEndPointMappings()

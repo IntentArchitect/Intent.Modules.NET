@@ -41,6 +41,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     properties.Add("public string? DefaultSchemaName { get; set; }");
+                    properties.Add("public bool? EnsureDbCreated { get; set; }");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     properties.Add("public string? DefaultContainerName { get; set; }");

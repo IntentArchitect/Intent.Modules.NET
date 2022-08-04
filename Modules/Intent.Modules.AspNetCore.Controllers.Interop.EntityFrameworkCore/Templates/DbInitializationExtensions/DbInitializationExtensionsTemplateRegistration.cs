@@ -14,25 +14,26 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Templates.DbInitializationService
+namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Templates.DbInitializationExtensions
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class DbInitializationServiceTemplateRegistration : ITemplateRegistration
+    public class DbInitializationExtensionsTemplateRegistration : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public DbInitializationServiceTemplateRegistration(IMetadataManager metadataManager)
+        public DbInitializationExtensionsTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
-        public string TemplateId => DbInitializationServiceTemplate.TemplateId;
+
+        public string TemplateId => DbInitializationExtensionsTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
             if (!applicationManager.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
             {
-                registry.RegisterTemplate(TemplateId, project => new DbInitializationServiceTemplate(project, null));
+                registry.RegisterTemplate(TemplateId, project => new DbInitializationExtensionsTemplate(project, null));
             }
         }
     }
