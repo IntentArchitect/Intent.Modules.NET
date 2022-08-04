@@ -24,13 +24,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.VisualStudio.Projects.AzureFunctions.LocalSettingsJson";
 
-        private readonly Dictionary<string, (AppSettingRegistrationRequest Request, string StackTrace)>
-            _registrationRequestsByKey = new();
+        private readonly Dictionary<string, (AppSettingRegistrationRequest Request, string StackTrace)> _registrationRequestsByKey = new();
+        private readonly Dictionary<string, (ConnectionStringRegistrationRequest Request, string StackTrace)> _connectionStringRequestByName = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public LocalSettingsJsonTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(Handle);
+            ExecutionContext.EventDispatcher.Subscribe<ConnectionStringRegistrationRequest>(Handle);
         }
 
         public override ITemplateFileConfig GetTemplateFileConfig()
@@ -72,6 +73,29 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
 
             _registrationRequestsByKey.Add(@event.Key, (@event, Environment.StackTrace));
         }
+        
+        private void Handle(ConnectionStringRegistrationRequest @event)
+        {
+            if (!@event.IsApplicableTo(this))
+            {
+                return;
+            }
+
+            var key = $"ConnectionStrings:{@event.Name}";
+            if (_connectionStringRequestByName.TryGetValue(key, out var value))
+            {
+                Logging.Log.Warning($"A request already existed for {key}{Environment.NewLine}" +
+                                    $"{Environment.NewLine}" +
+                                    $"Existing item's stack trace:{Environment.NewLine}" +
+                                    $"{value.StackTrace}{Environment.NewLine}" +
+                                    $"{Environment.NewLine}" +
+                                    $"Incoming item's stack trace:{Environment.NewLine}" +
+                                    $"{Environment.StackTrace}");
+                return;
+            }
+
+            _connectionStringRequestByName.Add(key, (@event, Environment.StackTrace));
+        }
 
         public override string RunTemplate()
         {
@@ -86,6 +110,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             foreach (var request in _registrationRequestsByKey)
             {
                 valuesObj[request.Key] ??= new JValue(request.Value.Request.Value);
+            }
+            foreach (var request in _connectionStringRequestByName)
+            {
+                valuesObj[request.Key] ??= new JValue(request.Value.Request.ConnectionString);
             }
 
             return JsonConvert.SerializeObject(json, Formatting.Indented);
