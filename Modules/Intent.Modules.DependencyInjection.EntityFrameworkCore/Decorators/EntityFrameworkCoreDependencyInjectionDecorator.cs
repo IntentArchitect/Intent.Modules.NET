@@ -32,7 +32,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
         private const string ConfigSectionSqlServer = "SqlServer";
         private const string ConfigSectionPostgreSql = "PostgreSql";
         private const string ConfigSectionCosmos = "Cosmos";
-        
+
         [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
         public EntityFrameworkCoreDependencyInjectionDecorator(DependencyInjectionTemplate template, IApplication application)
         {
@@ -115,7 +115,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 default:
                     break;
             }
-            
+
             return string.Join(@"
             ", statements);
         }
