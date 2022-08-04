@@ -99,8 +99,11 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                 false when !hasInterface && usesTypeOfFormat => $"services.{registrationType}({concreteType});",
                 false when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}, {concreteType}>();",
                 false when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, {concreteType});",
-                true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
-                true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
+                true when !hasInterface && !usesTypeOfFormat => throw new InvalidOperationException($"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
+                true when !hasInterface && usesTypeOfFormat => throw new InvalidOperationException($"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
+                // These configurations can cause an infinite loop.
+                // true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
+                // true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
                 true when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
                 true when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
                 _ => throw new InvalidOperationException()
