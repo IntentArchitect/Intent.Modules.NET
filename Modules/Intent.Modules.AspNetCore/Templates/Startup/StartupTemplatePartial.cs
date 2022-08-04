@@ -143,9 +143,7 @@ app.UseEndpoints(endpoints =>
 
             appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));
 
-            var applicationBuilderRegistrationRequests = _applicationBuilderRegistrationRequests
-                .Where(x => !x.IsHandled)
-                .ToArray();
+            var applicationBuilderRegistrationRequests = _applicationBuilderRegistrationRequests;
             
             foreach (var request in applicationBuilderRegistrationRequests)
             {
