@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="233873da-66d2-450a-b26e-95d4af6b104c" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="0d9602a9-ccfc-497a-ac9a-97654c1aab83" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>DbInitializationExtensions</name>
   <display>DbInitializationExtensions: Custom</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="15c1f0ca-4460-419a-9e50-57d6270568b6">
+  <typeReference id="60d5f13e-de00-4f92-9510-cc95f3ea3416">
     <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>f1244c35-3ba2-4d04-9914-24011ad85d29</parentFolderId>
-  <packageId>f1244c35-3ba2-4d04-9914-24011ad85d29</packageId>
-  <packageName>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</packageName>
+  <parentFolderId>ea194b70-0007-4183-88f5-d32848f62260</parentFolderId>
+  <packageId>ea194b70-0007-4183-88f5-d32848f62260</packageId>
+  <packageName>Intent.AspNetCore.Interop.EntityFrameworkCore</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

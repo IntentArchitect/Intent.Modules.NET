@@ -1,8 +1,23 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DbInitializationExtensionsTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DbInitializationExtensionsTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.9" />
@@ -11,13 +26,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="1.1.3" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.0" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

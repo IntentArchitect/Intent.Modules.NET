@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Templates.DbInitializationExtensions
+namespace Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.Templates.DbInitializationExtensions
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Temp
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class DbInitializationExtensionsTemplate : CSharpTemplateBase<object>
     {
@@ -35,21 +35,21 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Temp
         {
             this.Write("using System;\r\nusing Microsoft.AspNetCore.Builder;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        /// <summary>\r\n        /// If configured to do so, a check is performed to see\r\n        /// whether the database exist and if not will create it\r\n        /// based on this container configuration.\r\n        /// </summary>\r\n        public static void EnsureDbCreation(this IApplicationBuilder builder)\r\n        {\r\n            using var scope = builder.ApplicationServices.CreateScope();\r\n            var dbContext = scope.ServiceProvider.GetService<");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Interop.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetDbContextName()));
             
             #line default
