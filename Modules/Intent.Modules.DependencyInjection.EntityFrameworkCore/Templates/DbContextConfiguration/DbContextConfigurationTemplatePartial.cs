@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Settings;
@@ -35,18 +36,19 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
         private string GetProperties()
         {
             var properties = new List<string>();
-
+            
+            var useExplicitNullSymbol = this.Project.GetProject().NullableEnabled;
             switch (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
-                    properties.Add("public string? DefaultSchemaName { get; set; }");
-                    properties.Add("public bool? EnsureDbCreated { get; set; }");
+                    properties.Add($"public string{(useExplicitNullSymbol ? "?" : "")} DefaultSchemaName {{ get; set; }}");
+                    properties.Add($"public bool? EnsureDbCreated {{ get; set; }}");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    properties.Add("public string? DefaultContainerName { get; set; }");
-                    properties.Add("public string? PartitionKey { get; set; }");
-                    properties.Add("public bool? EnsureDbCreated { get; set; }");
+                    properties.Add($"public string{(useExplicitNullSymbol ? "?" : "")} DefaultContainerName {{ get; set; }}");
+                    properties.Add($"public string{(useExplicitNullSymbol ? "?" : "")} PartitionKey {{ get; set; }}");
+                    properties.Add($"public bool? EnsureDbCreated {{ get; set; }}");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:
