@@ -75,12 +75,12 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
                 if (field.Name.ToPascalCase() != mappingExpression || shouldCast)
                 {
                     memberMappings.Add($@"
-                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({_template.GetTypeName(field)})" : string.Empty)}src.{mappingExpression}))");
+                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({_template.GetTypeName(field)})" : string.Empty)}{mappingExpression}))");
                 }
                 else if (field.TypeReference.IsCollection && field.TypeReference.Element.Name != field.Mapping.Element?.TypeReference?.Element.Name)
                 {
                     memberMappings.Add($@"
-                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => src.{mappingExpression}))");
+                .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {mappingExpression}))");
                 }
             }
 
@@ -106,10 +106,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             var association = path.First().Element.AsAssociationEndModel().Association;
             var result = (association.SourceEnd.Multiplicity, association.TargetEnd.Multiplicity) switch
             {
-                (Multiplicity.ZeroToOne, Multiplicity.ZeroToOne) => GetPK(path),
+                (Multiplicity.ZeroToOne, Multiplicity.ZeroToOne) => GetPK(path, true),
                 (Multiplicity.ZeroToOne, Multiplicity.One) => GetPK(path),
                 (Multiplicity.ZeroToOne, Multiplicity.Many) => GetMultiplePK(path),
-                (Multiplicity.One, Multiplicity.ZeroToOne) => GetPK(path),
+                (Multiplicity.One, Multiplicity.ZeroToOne) => GetPK(path, true),
                 (Multiplicity.One, Multiplicity.One) => GetPK(path),
                 (Multiplicity.One, Multiplicity.Many) => GetMultiplePK(path),
                 (Multiplicity.Many, Multiplicity.ZeroToOne) => GetLocalFK(path),
@@ -121,22 +121,28 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             return result;
         }
 
-        private string GetPK(IList<IElementMappingPathTarget> path)
+        private string GetPK(IList<IElementMappingPathTarget> path, bool isOptional = false)
         {
             var association = path.First().Element.AsAssociationEndModel();
             var explicitPKs = association.Class.GetExplicitPrimaryKey();
 
+            // Unfortunately the conditional access expression (?.) doesn't work on expressions
+            // and so we're forced to write out the longer expression.
             if (explicitPKs.Count == 0)
             {
-                return $"{GetPath(path)}.Id";
+                return isOptional 
+                    ? $"(src.{GetPath(path)} == null ? null : src.{GetPath(path)}.Id)" 
+                    : $"src.{GetPath(path)}.Id";
             }
             if (explicitPKs.Count == 1)
             {
-                return $"{GetPath(path)}.{explicitPKs.First().Name.ToPascalCase()}";
+                return isOptional 
+                    ? $"(src.{GetPath(path)} == null ? null : src.{GetPath(path)}.{explicitPKs.First().Name.ToPascalCase()})" 
+                    : $"src.{GetPath(path)}.{explicitPKs.First().Name.ToPascalCase()}";
             }
 
             // We're not catering for composite keys
-            return GetPath(path);
+            return "src." + GetPath(path);
         }
 
         private string GetMultiplePK(IList<IElementMappingPathTarget> path)
@@ -144,18 +150,19 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             var association = path.First().Element.AsAssociationEndModel();
             var explicitPKs = association.Class.GetExplicitPrimaryKey();
 
+            _template.AddUsing("System.Linq");
+            
             if (explicitPKs.Count == 0)
             {
-                return $"{GetPath(path)}.Select(x => x.Id).ToArray()";
+                return $"src.{GetPath(path)}.Select(x => x.Id).ToArray()";
             }
             if (explicitPKs.Count == 1)
             {
-                _template.AddUsing("System.Linq");
-                return $"{GetPath(path)}.Select(x => x.{explicitPKs.First().Name.ToPascalCase()}).ToArray()";
+                return $"src.{GetPath(path)}.Select(x => x.{explicitPKs.First().Name.ToPascalCase()}).ToArray()";
             }
 
             // We're not catering for composite keys
-            return GetPath(path);
+            return "src." + GetPath(path);
         }
 
         private string GetLocalFK(IList<IElementMappingPathTarget> path)
@@ -165,16 +172,16 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
             if (explicitPKs.Count == 0)
             {
-                return $"{association.Name.ToPascalCase()}Id";
+                return $"src.{association.Name.ToPascalCase()}Id";
             }
             if (explicitPKs.Count == 1)
             {
                 var pk = explicitPKs.First();
-                return $"{association.Name.ToPascalCase()}{pk.Name.ToPascalCase()}";
+                return $"src.{association.Name.ToPascalCase()}{pk.Name.ToPascalCase()}";
             }
 
             // We're not catering for composite keys
-            return GetPath(path);
+            return "src." + GetPath(path);
         }
 
         private string GetPath(IEnumerable<IElementMappingPathTarget> path)
