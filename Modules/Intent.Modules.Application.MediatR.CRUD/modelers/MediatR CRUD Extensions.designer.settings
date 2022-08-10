@@ -16,198 +16,206 @@
           <script>let options = lookupTypesOf("Class");
 if (options.length == 0) {
     await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package.");
-} else {
-    let classId = await dialogService.lookupFromOptions(options);
-    let entity = lookup(classId);
-    if (entity != null) {
-        function getSurrogateKeyType() {
-            let keyType = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9").getField("Key Type").value;
-            if (keyType == "guid")
-                return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-            if (keyType == "int")
-                return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-            if (keyType == "long")
-                return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-            return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-        }
-        let entityName = entity.name;
-        let service = createElement("Service", pluralize(entity.getName()) + 'Service', element.id);
+    return;
+}
 
-        // SET UP FOLDER:
-        var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entityName));
-        var folder = existing || createElement("Folder", pluralize(entityName), service.getParent().id);
+function isAggregateRoot(element) {
+    return ! element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
 
-        // CREATE:
-        if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
-        {
-            let command = createElement("Command", `Create${entityName}Command`, folder.id);
-            command.setMapping(entity.id);
-            for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-            }
-            command.collapse();
-            let operation = createElement("Operation", "Post", service.id);
-            operation.setMapping(command.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("POST");
+options = options.filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository"));
 
-            let param = createElement("Parameter", "command", operation.id);
-            param.typeReference.setType(command.id);
-            operation.collapse();
-        }
+let classId = await dialogService.lookupFromOptions(options);
+let entity = lookup(classId);
+if (entity == null) {
+    await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);
+    return;
+}
 
-        // UPDATE:
-        if (!folder.getChildren().some(x =&gt; x.name == `Update${entityName}Command`))
-        {
-            let command = createElement("Command", `Update${entityName}Command`, folder.id);
-            command.setMapping(entity.id);
-            
-            let operation = createElement("Operation", "Put", service.id);
-            operation.setMapping(command.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("PUT");
-            stereotype.getProperty("Route").setValue("{id}");
+function getSurrogateKeyType() {
+    let keyType = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9").getField("Key Type").value;
+    if (keyType == "guid")
+        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+    if (keyType == "int")
+        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
+    if (keyType == "long")
+        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
+    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+}
+let entityName = entity.name;
+let service = createElement("Service", pluralize(entity.getName()) + 'Service', element.id);
 
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "Id", command.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-                            
-                let idParam = createElement("Parameter", "id", operation.id);
-                idParam.typeReference.setType(getSurrogateKeyType());
-                idParam.setMapping(idField.id);
-            } else {
-                for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                    let field = createElement("DTO-Field", attribute.name, command.id);
-                    field.typeReference.setType(attribute.typeReference.typeId)
-                    field.setMapping(attribute.id);
+// SET UP FOLDER:
+var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entityName));
+var folder = existing || createElement("Folder", pluralize(entityName), service.getParent().id);
 
-                    let param = createElement("Parameter", field.getName(), operation.id);
-                    param.typeReference.setType(field.typeReference.typeId);
-                    param.setMapping(field.id);
-                }
-            }
+// CREATE:
+if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
+{
+    let command = createElement("Command", `Create${entityName}Command`, folder.id);
+    command.setMapping(entity.id);
+    for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+        let field = createElement("DTO-Field", attribute.name, command.id);
+        field.typeReference.setType(attribute.typeReference.typeId)
+        field.setMapping(attribute.id);
+    }
+    command.collapse();
+    let operation = createElement("Operation", "Post", service.id);
+    operation.setMapping(command.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("POST");
 
-            for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-            }
+    let param = createElement("Parameter", "command", operation.id);
+    param.typeReference.setType(command.id);
+    operation.collapse();
+}
 
-            let commandParam = createElement("Parameter", "command", operation.id);
-            commandParam.typeReference.setType(command.id);
+// UPDATE:
+if (!folder.getChildren().some(x =&gt; x.name == `Update${entityName}Command`))
+{
+    let command = createElement("Command", `Update${entityName}Command`, folder.id);
+    command.setMapping(entity.id);
+    
+    let operation = createElement("Operation", "Put", service.id);
+    operation.setMapping(command.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("PUT");
+    stereotype.getProperty("Route").setValue("{id}");
 
-            command.collapse();
-            operation.collapse();
-        }
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "Id", command.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+                    
+        let idParam = createElement("Parameter", "id", operation.id);
+        idParam.typeReference.setType(getSurrogateKeyType());
+        idParam.setMapping(idField.id);
+    } else {
+        for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
 
-        // DELETE:
-        if (!folder.getChildren().some(x =&gt; x.name == `Delete${entityName}Command`))
-        {
-            let command = createElement("Command", `Delete${entityName}Command`, folder.id);
-            
-            let operation = createElement("Operation", "Delete", service.id);
-            operation.setMapping(command.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("DELETE");
-            stereotype.getProperty("Route").setValue("{id}");
-
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "Id", command.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-                            
-                let idParam = createElement("Parameter", "id", operation.id);
-                idParam.typeReference.setType(getSurrogateKeyType());
-                idParam.setMapping(idField.id);
-            } else {
-                for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                    let field = createElement("DTO-Field", attribute.name, command.id);
-                    field.typeReference.setType(attribute.typeReference.typeId)
-
-                    let param = createElement("Parameter", field.getName(), operation.id);
-                    param.typeReference.setType(field.typeReference.typeId);
-                    param.setMapping(field.id);
-                }
-            }
-
-            command.collapse();
-            operation.collapse();
-        }
-
-        // DTO:
-        if (!folder.getChildren().some(x =&gt; x.name == `${entityName}DTO`))
-        {
-            var dto = createElement("DTO", `${entityName}DTO`, folder.id);
-            dto.setMapping(entity.id);
-            
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "Id", dto.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-            }
-            
-            for(let attribute of entity.getChildren("Attribute")) {
-                let field = createElement("DTO-Field", attribute.name, dto.id);
-                field.typeReference.setType(attribute.typeReference.typeId);
-                field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-                field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-                field.setMapping(attribute.id);
-            }
-            dto.collapse();
-        }
-        // Get BY ID:
-        if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
-        {
-            let query = createElement("Query", `Get${entityName}ByIdQuery`, folder.id);
-            query.typeReference.setType(dto.id)
-
-            let operation = createElement("Operation", "Get", service.id);
-            operation.setMapping(query.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("GET");
-            stereotype.getProperty("Route").setValue("{id}");
-            
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "Id", query.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-                            
-                let idParam = createElement("Parameter", "id", operation.id);
-                idParam.typeReference.setType(getSurrogateKeyType());
-                idParam.setMapping(idField.id);
-            } else {
-                for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                    let field = createElement("DTO-Field", attribute.name, query.id);
-                    field.typeReference.setType(attribute.typeReference.typeId)
-
-                    let param = createElement("Parameter", field.getName(), operation.id);
-                    param.typeReference.setType(field.typeReference.typeId);
-                    param.setMapping(field.id);
-                }
-            }
-            
-            query.collapse();
-            operation.collapse();
-        }
-
-        // Get All:
-        if (!folder.getChildren().some(x =&gt; x.name == `Get${pluralize(entityName)}Query`))
-        {
-            let query = createElement("Query", `Get${pluralize(entityName)}Query`, folder.id);
-            query.typeReference.setType(dto.id)
-            query.typeReference.setIsCollection(true);
-            query.collapse();
-            
-            let operation = createElement("Operation", "Get", service.id);
-            operation.setMapping(query.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("GET");
-            stereotype.getProperty("Route").setValue("");
-            operation.collapse();
+            let param = createElement("Parameter", field.getName(), operation.id);
+            param.typeReference.setType(field.typeReference.typeId);
+            param.setMapping(field.id);
         }
     }
-    else {
-        await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);
+
+    for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let field = createElement("DTO-Field", attribute.name, command.id);
+        field.typeReference.setType(attribute.typeReference.typeId)
+        field.setMapping(attribute.id);
     }
+
+    let commandParam = createElement("Parameter", "command", operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    command.collapse();
+    operation.collapse();
+}
+
+// DELETE:
+if (!folder.getChildren().some(x =&gt; x.name == `Delete${entityName}Command`))
+{
+    let command = createElement("Command", `Delete${entityName}Command`, folder.id);
+    
+    let operation = createElement("Operation", "Delete", service.id);
+    operation.setMapping(command.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("DELETE");
+    stereotype.getProperty("Route").setValue("{id}");
+
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "Id", command.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+                    
+        let idParam = createElement("Parameter", "id", operation.id);
+        idParam.typeReference.setType(getSurrogateKeyType());
+        idParam.setMapping(idField.id);
+    } else {
+        for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+
+            let param = createElement("Parameter", field.getName(), operation.id);
+            param.typeReference.setType(field.typeReference.typeId);
+            param.setMapping(field.id);
+        }
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+// DTO:
+if (!folder.getChildren().some(x =&gt; x.name == `${entityName}DTO`))
+{
+    var dto = createElement("DTO", `${entityName}DTO`, folder.id);
+    dto.setMapping(entity.id);
+    
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "Id", dto.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+    }
+    
+    for(let attribute of entity.getChildren("Attribute")) {
+        let field = createElement("DTO-Field", attribute.name, dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+    }
+    dto.collapse();
+}
+// Get BY ID:
+if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
+{
+    let query = createElement("Query", `Get${entityName}ByIdQuery`, folder.id);
+    query.typeReference.setType(dto.id)
+
+    let operation = createElement("Operation", "Get", service.id);
+    operation.setMapping(query.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("GET");
+    stereotype.getProperty("Route").setValue("{id}");
+    
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "Id", query.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+                    
+        let idParam = createElement("Parameter", "id", operation.id);
+        idParam.typeReference.setType(getSurrogateKeyType());
+        idParam.setMapping(idField.id);
+    } else {
+        for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, query.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+
+            let param = createElement("Parameter", field.getName(), operation.id);
+            param.typeReference.setType(field.typeReference.typeId);
+            param.setMapping(field.id);
+        }
+    }
+    
+    query.collapse();
+    operation.collapse();
+}
+
+// Get All:
+if (!folder.getChildren().some(x =&gt; x.name == `Get${pluralize(entityName)}Query`))
+{
+    let query = createElement("Query", `Get${pluralize(entityName)}Query`, folder.id);
+    query.typeReference.setType(dto.id)
+    query.typeReference.setIsCollection(true);
+    query.collapse();
+    
+    let operation = createElement("Operation", "Get", service.id);
+    operation.setMapping(query.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("GET");
+    stereotype.getProperty("Route").setValue("");
+    operation.collapse();
 }</script>
         </option>
       </scriptOptions>
@@ -226,198 +234,206 @@ if (options.length == 0) {
           <script>let options = element.lookupTypesOf("Class");
 if (options.length == 0) {
     await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package.");
-} else {
-    let classId = await dialogService.lookupFromOptions(options);
-    let entity = lookup(classId);
-    if (entity != null) {
-        function getSurrogateKeyType() {
-            let keyType = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9").getField("Key Type").value;
-            if (keyType == "guid")
-                return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-            if (keyType == "int")
-                return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-            if (keyType == "long")
-                return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-            return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-        }
-        let entityName = entity.name;
-        let service = element;
+    return;
+}
 
-        // SET UP FOLDER:
-        var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entityName));
-        var folder = existing || createElement("Folder", pluralize(entityName), service.getParent().id);
+function isAggregateRoot(element) {
+    return ! element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
 
-        // CREATE:
-        if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
-        {
-            let command = createElement("Command", `Create${entityName}Command`, folder.id);
-            command.setMapping(entity.id);
-            for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-            }
-            command.collapse();
-            let operation = createElement("Operation", "Post", service.id);
-            operation.setMapping(command.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("POST");
+options = options.filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository"));
 
-            let param = createElement("Parameter", "command", operation.id);
-            param.typeReference.setType(command.id);
-            operation.collapse();
-        }
+let classId = await dialogService.lookupFromOptions(options);
+let entity = lookup(classId);
+if (entity == null) {
+    await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);
+    return;
+}
 
-        // UPDATE:
-        if (!folder.getChildren().some(x =&gt; x.name == `Update${entityName}Command`))
-        {
-            let command = createElement("Command", `Update${entityName}Command`, folder.id);
-            command.setMapping(entity.id);
-            
-            let operation = createElement("Operation", "Put", service.id);
-            operation.setMapping(command.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("PUT");
-            stereotype.getProperty("Route").setValue("{id}");
+function getSurrogateKeyType() {
+    let keyType = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9").getField("Key Type").value;
+    if (keyType == "guid")
+        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+    if (keyType == "int")
+        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
+    if (keyType == "long")
+        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
+    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+}
+let entityName = entity.name;
+let service = element;
 
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", command.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-                            
-                let idParam = createElement("Parameter", "id", operation.id);
-                idParam.typeReference.setType(getSurrogateKeyType());
-                idParam.setMapping(idField.id);
-            } else {
-                for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                    let field = createElement("DTO-Field", attribute.name, command.id);
-                    field.typeReference.setType(attribute.typeReference.typeId)
-                    field.setMapping(attribute.id);
+// SET UP FOLDER:
+var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entityName));
+var folder = existing || createElement("Folder", pluralize(entityName), service.getParent().id);
 
-                    let param = createElement("Parameter", field.getName(), operation.id);
-                    param.typeReference.setType(field.typeReference.typeId);
-                    param.setMapping(field.id);
-                }
-            }
+// CREATE:
+if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
+{
+    let command = createElement("Command", `Create${entityName}Command`, folder.id);
+    command.setMapping(entity.id);
+    for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+        let field = createElement("DTO-Field", attribute.name, command.id);
+        field.typeReference.setType(attribute.typeReference.typeId)
+        field.setMapping(attribute.id);
+    }
+    command.collapse();
+    let operation = createElement("Operation", "Post", service.id);
+    operation.setMapping(command.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("POST");
 
-            for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-            }
+    let param = createElement("Parameter", "command", operation.id);
+    param.typeReference.setType(command.id);
+    operation.collapse();
+}
 
-            let commandParam = createElement("Parameter", "command", operation.id);
-            commandParam.typeReference.setType(command.id);
+// UPDATE:
+if (!folder.getChildren().some(x =&gt; x.name == `Update${entityName}Command`))
+{
+    let command = createElement("Command", `Update${entityName}Command`, folder.id);
+    command.setMapping(entity.id);
+    
+    let operation = createElement("Operation", "Put", service.id);
+    operation.setMapping(command.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("PUT");
+    stereotype.getProperty("Route").setValue("{id}");
 
-            command.collapse();
-            operation.collapse();
-        }
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "id", command.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+                    
+        let idParam = createElement("Parameter", "id", operation.id);
+        idParam.typeReference.setType(getSurrogateKeyType());
+        idParam.setMapping(idField.id);
+    } else {
+        for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
 
-        // DELETE:
-        if (!folder.getChildren().some(x =&gt; x.name == `Delete${entityName}Command`))
-        {
-            let command = createElement("Command", `Delete${entityName}Command`, folder.id);
-            
-            let operation = createElement("Operation", "Delete", service.id);
-            operation.setMapping(command.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("DELETE");
-            stereotype.getProperty("Route").setValue("{id}");
-
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", command.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-                            
-                let idParam = createElement("Parameter", "id", operation.id);
-                idParam.typeReference.setType(getSurrogateKeyType());
-                idParam.setMapping(idField.id);
-            } else {
-                for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                    let field = createElement("DTO-Field", attribute.name, command.id);
-                    field.typeReference.setType(attribute.typeReference.typeId)
-
-                    let param = createElement("Parameter", field.getName(), operation.id);
-                    param.typeReference.setType(field.typeReference.typeId);
-                    param.setMapping(field.id);
-                }
-            }
-
-            command.collapse();
-            operation.collapse();
-        }
-
-        // DTO:
-        if (!folder.getChildren().some(x =&gt; x.name == `${entityName}DTO`))
-        {
-            var dto = createElement("DTO", `${entityName}DTO`, folder.id);
-            dto.setMapping(entity.id);
-            
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", dto.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-            }
-            
-            for(let attribute of entity.getChildren("Attribute")) {
-                let field = createElement("DTO-Field", attribute.name, dto.id);
-                field.typeReference.setType(attribute.typeReference.typeId);
-                field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-                field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-                field.setMapping(attribute.id);
-            }
-            dto.collapse();
-        }
-        // Get BY ID:
-        if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
-        {
-            let query = createElement("Query", `Get${entityName}ByIdQuery`, folder.id);
-            query.typeReference.setType(dto.id)
-
-            let operation = createElement("Operation", "Get", service.id);
-            operation.setMapping(query.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("GET");
-            stereotype.getProperty("Route").setValue("{id}");
-            
-            if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
-                let idField = createElement("DTO-Field", "id", query.id);
-                idField.typeReference.setType(getSurrogateKeyType())
-                            
-                let idParam = createElement("Parameter", "id", operation.id);
-                idParam.typeReference.setType(getSurrogateKeyType());
-                idParam.setMapping(idField.id);
-            } else {
-                for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                    let field = createElement("DTO-Field", attribute.name, query.id);
-                    field.typeReference.setType(attribute.typeReference.typeId)
-
-                    let param = createElement("Parameter", field.getName(), operation.id);
-                    param.typeReference.setType(field.typeReference.typeId);
-                    param.setMapping(field.id);
-                }
-            }
-            
-            query.collapse();
-            operation.collapse();
-        }
-
-        // Get All:
-        if (!folder.getChildren().some(x =&gt; x.name == `Get${pluralize(entityName)}Query`))
-        {
-            let query = createElement("Query", `Get${pluralize(entityName)}Query`, folder.id);
-            query.typeReference.setType(dto.id)
-            query.typeReference.setIsCollection(true);
-            query.collapse();
-            
-            let operation = createElement("Operation", "Get", service.id);
-            operation.setMapping(query.id);
-            let stereotype = operation.getStereotype("Http Settings");
-            stereotype.getProperty("Verb").setValue("GET");
-            stereotype.getProperty("Route").setValue("");
-            operation.collapse();
+            let param = createElement("Parameter", field.getName(), operation.id);
+            param.typeReference.setType(field.typeReference.typeId);
+            param.setMapping(field.id);
         }
     }
-    else {
-        await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);
+
+    for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let field = createElement("DTO-Field", attribute.name, command.id);
+        field.typeReference.setType(attribute.typeReference.typeId)
+        field.setMapping(attribute.id);
     }
+
+    let commandParam = createElement("Parameter", "command", operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    command.collapse();
+    operation.collapse();
+}
+
+// DELETE:
+if (!folder.getChildren().some(x =&gt; x.name == `Delete${entityName}Command`))
+{
+    let command = createElement("Command", `Delete${entityName}Command`, folder.id);
+    
+    let operation = createElement("Operation", "Delete", service.id);
+    operation.setMapping(command.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("DELETE");
+    stereotype.getProperty("Route").setValue("{id}");
+
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "id", command.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+                    
+        let idParam = createElement("Parameter", "id", operation.id);
+        idParam.typeReference.setType(getSurrogateKeyType());
+        idParam.setMapping(idField.id);
+    } else {
+        for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+
+            let param = createElement("Parameter", field.getName(), operation.id);
+            param.typeReference.setType(field.typeReference.typeId);
+            param.setMapping(field.id);
+        }
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+// DTO:
+if (!folder.getChildren().some(x =&gt; x.name == `${entityName}DTO`))
+{
+    var dto = createElement("DTO", `${entityName}DTO`, folder.id);
+    dto.setMapping(entity.id);
+    
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "id", dto.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+    }
+    
+    for(let attribute of entity.getChildren("Attribute")) {
+        let field = createElement("DTO-Field", attribute.name, dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+    }
+    dto.collapse();
+}
+// Get BY ID:
+if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
+{
+    let query = createElement("Query", `Get${entityName}ByIdQuery`, folder.id);
+    query.typeReference.setType(dto.id)
+
+    let operation = createElement("Operation", "Get", service.id);
+    operation.setMapping(query.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("GET");
+    stereotype.getProperty("Route").setValue("{id}");
+    
+    if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        let idField = createElement("DTO-Field", "id", query.id);
+        idField.typeReference.setType(getSurrogateKeyType())
+                    
+        let idParam = createElement("Parameter", "id", operation.id);
+        idParam.typeReference.setType(getSurrogateKeyType());
+        idParam.setMapping(idField.id);
+    } else {
+        for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, query.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+
+            let param = createElement("Parameter", field.getName(), operation.id);
+            param.typeReference.setType(field.typeReference.typeId);
+            param.setMapping(field.id);
+        }
+    }
+    
+    query.collapse();
+    operation.collapse();
+}
+
+// Get All:
+if (!folder.getChildren().some(x =&gt; x.name == `Get${pluralize(entityName)}Query`))
+{
+    let query = createElement("Query", `Get${pluralize(entityName)}Query`, folder.id);
+    query.typeReference.setType(dto.id)
+    query.typeReference.setIsCollection(true);
+    query.collapse();
+    
+    let operation = createElement("Operation", "Get", service.id);
+    operation.setMapping(query.id);
+    let stereotype = operation.getStereotype("Http Settings");
+    stereotype.getProperty("Verb").setValue("GET");
+    stereotype.getProperty("Route").setValue("");
+    operation.collapse();
 }</script>
         </option>
       </scriptOptions>

@@ -3,7 +3,7 @@
   <name>MediatR CRUD Extensions</name>
   <display>MediatR CRUD Extensions</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d8af7c4c-b996-499d-9594-4b8902286bde</parentFolderId>
