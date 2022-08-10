@@ -3,7 +3,6 @@
   <name>AutoMapperDtoDecorator</name>
   <display>AutoMapperDtoDecorator: DtoModelDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="482b984d-5303-4574-a4fb-6a44ba3dfa94">
     <typeId>b0eb283a-13f0-4d72-8000-917fa9550574</typeId>
