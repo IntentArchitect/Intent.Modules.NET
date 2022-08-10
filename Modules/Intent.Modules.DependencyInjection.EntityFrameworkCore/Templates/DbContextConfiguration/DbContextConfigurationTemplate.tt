@@ -16,4 +16,12 @@ namespace <#= Namespace #>
     {
         <#= GetProperties() #>
     }
+
+    internal static class <#= ClassName #>Helper
+    {
+        public static string<#= UseExplicitNullSymbol ? "?" : "" #> EmptyToNull(string<#= UseExplicitNullSymbol ? "?" : "" #> str)
+        {
+            return string.IsNullOrEmpty(str) ? null : str;
+        }
+    }
 }

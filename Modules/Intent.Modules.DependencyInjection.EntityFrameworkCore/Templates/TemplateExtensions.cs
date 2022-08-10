@@ -16,6 +16,10 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates
             return template.GetTypeName(DbContextConfigurationTemplate.TemplateId);
         }
 
-
+        [IntentManaged(Mode.Ignore)]
+        public static string GetDbContextConfigHelperName<T>(this IntentTemplateBase<T> template)
+        {
+            return $"{template.GetDbContextConfigurationName()}Helper";
+        }
     }
 }

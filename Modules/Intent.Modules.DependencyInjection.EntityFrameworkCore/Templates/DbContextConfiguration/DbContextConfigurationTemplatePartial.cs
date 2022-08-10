@@ -33,21 +33,22 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
+        private bool UseExplicitNullSymbol => this.Project.GetProject().NullableEnabled;
+        
         private string GetProperties()
         {
             var properties = new List<string>();
             
-            var useExplicitNullSymbol = this.Project.GetProject().NullableEnabled;
             switch (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
-                    properties.Add($"public string{(useExplicitNullSymbol ? "?" : "")} DefaultSchemaName {{ get; set; }}");
+                    properties.Add($"public string{(UseExplicitNullSymbol ? "?" : "")} DefaultSchemaName {{ get; set; }}");
                     properties.Add($"public bool? EnsureDbCreated {{ get; set; }}");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    properties.Add($"public string{(useExplicitNullSymbol ? "?" : "")} DefaultContainerName {{ get; set; }}");
-                    properties.Add($"public string{(useExplicitNullSymbol ? "?" : "")} PartitionKey {{ get; set; }}");
+                    properties.Add($"public string{(UseExplicitNullSymbol ? "?" : "")} DefaultContainerName {{ get; set; }}");
+                    properties.Add($"public string{(UseExplicitNullSymbol ? "?" : "")} PartitionKey {{ get; set; }}");
                     properties.Add($"public bool? EnsureDbCreated {{ get; set; }}");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:

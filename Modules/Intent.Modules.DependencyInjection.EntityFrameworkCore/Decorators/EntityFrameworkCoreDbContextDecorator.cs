@@ -73,11 +73,11 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     const string schemaNameExpression = "_dbContextConfig.Value?.DefaultSchemaName";
-                    yield return $"modelBuilder.HasDefaultSchema(string.IsNullOrEmpty({schemaNameExpression}) ? null : {schemaNameExpression});";
+                    yield return $"modelBuilder.HasDefaultSchema({_template.GetDbContextConfigHelperName()}.EmptyToNull({schemaNameExpression}));";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     const string containerNameExpression = "_dbContextConfig.Value?.DefaultContainerName";
-                    yield return $"modelBuilder.HasDefaultContainer(string.IsNullOrEmpty({containerNameExpression}) ? null : {containerNameExpression});";
+                    yield return $"modelBuilder.HasDefaultContainer({_template.GetDbContextConfigHelperName()}.EmptyToNull({containerNameExpression}));";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:
@@ -93,7 +93,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             }
 
             const string partitionKeyExpression = "_dbContextConfig.Value?.PartitionKey";
-            yield return $"string.IsNullOrEmpty({partitionKeyExpression}) ? null : {partitionKeyExpression}";
+            yield return $"{_template.GetDbContextConfigHelperName()}.EmptyToNull({partitionKeyExpression})";
         }
 
         public override IEnumerable<string> GetMethods()
