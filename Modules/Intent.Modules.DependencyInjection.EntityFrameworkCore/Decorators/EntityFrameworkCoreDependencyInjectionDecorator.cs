@@ -78,7 +78,6 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DatabaseName", $"{_template.Project.ApplicationName()}DB"));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DefaultContainerName", $"{_template.Project.ApplicationName()}"));
-                    _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:PartitionKey", $""));
                     _application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:EnsureDbCreated", true));
                     break;
                 default:

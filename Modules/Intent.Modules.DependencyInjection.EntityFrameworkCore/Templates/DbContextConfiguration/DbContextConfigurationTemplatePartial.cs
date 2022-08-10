@@ -34,11 +34,11 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
         }
 
         private bool UseExplicitNullSymbol => this.Project.GetProject().NullableEnabled;
-        
+
         private string GetProperties()
         {
             var properties = new List<string>();
-            
+
             switch (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
@@ -48,7 +48,6 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates.DbCon
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     properties.Add($"public string{(UseExplicitNullSymbol ? "?" : "")} DefaultContainerName {{ get; set; }}");
-                    properties.Add($"public string{(UseExplicitNullSymbol ? "?" : "")} PartitionKey {{ get; set; }}");
                     properties.Add($"public bool? EnsureDbCreated {{ get; set; }}");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e4214339-f2c8-4426-aec2-eedec9487a7e" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+<class id="968adaf5-53d3-483c-926e-826daffc855b" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
   <name>EntityFrameworkCoreEntityTypeConfigDecorator</name>
   <display>EntityFrameworkCoreEntityTypeConfigDecorator: EntityTypeConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="c6c55963-697a-42a7-95af-28aca0fd674b">
+  <typeReference id="dfca7fa0-fef6-4b61-8ef7-fd4a8dd6b5a2">
     <typeId>dddb9e20-11dd-49c9-b15e-08e98d0fd989</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</parentFolderId>
-  <packageId>2fbd4961-4bf7-4a1a-9456-a6cfa22bd3dc</packageId>
-  <packageName>Intent.DependencyInjection.EntityFrameworkCore</packageName>
+  <parentFolderId>d8959b22-9c09-4bab-8e7b-beb854478abb</parentFolderId>
+  <packageId>d8959b22-9c09-4bab-8e7b-beb854478abb</packageId>
+  <packageName>Intent.EntityFrameworkCore.CosmosDb</packageName>
   <stereotypes />
   <metadata />
   <childElements />

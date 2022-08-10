@@ -85,17 +85,6 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             }
         }
 
-        public override IEnumerable<string> GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
-        {
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
-            {
-                yield break;
-            }
-
-            const string partitionKeyExpression = "_dbContextConfig.Value?.PartitionKey";
-            yield return $"{_template.GetDbContextConfigHelperName()}.EmptyToNull({partitionKeyExpression})";
-        }
-
         public override IEnumerable<string> GetMethods()
         {
             if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())

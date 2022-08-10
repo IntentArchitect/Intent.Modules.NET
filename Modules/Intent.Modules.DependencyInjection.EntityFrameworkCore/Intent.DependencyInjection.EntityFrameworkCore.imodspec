@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DependencyInjection.EntityFrameworkCore</id>
   <version>3.3.10-pre.0</version>
@@ -20,7 +20,6 @@
   <decorators>
     <decorator id="Intent.DependencyInjection.EntityFrameworkCore.EntityFrameworkCoreDbContextDecorator" externalReference="b2b8194f-8f92-4679-b998-83b384fef06f" />
     <decorator id="Intent.DependencyInjection.EntityFrameworkCore.EntityFrameworkCoreDependencyInjectionDecorator" externalReference="96afbf9c-4eee-47eb-9c0e-cf05130350cf" />
-    <decorator id="Intent.DependencyInjection.EntityFrameworkCore.EntityFrameworkCoreEntityTypeConfigDecorator" externalReference="e4214339-f2c8-4426-aec2-eedec9487a7e" />
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>

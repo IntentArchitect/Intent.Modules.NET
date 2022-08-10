@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 
-namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
+namespace Intent.Modules.EntityFrameworkCore.CosmosDb.Decorators
 {
     [Description(EntityFrameworkCoreEntityTypeConfigDecorator.DecoratorId)]
     public class EntityFrameworkCoreEntityTypeConfigDecoratorRegistration : DecoratorRegistration<EntityTypeConfigurationTemplate, EntityTypeConfigurationDecorator>
