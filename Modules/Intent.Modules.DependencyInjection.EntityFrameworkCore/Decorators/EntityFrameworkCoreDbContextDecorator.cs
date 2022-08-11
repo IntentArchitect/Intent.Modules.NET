@@ -73,11 +73,17 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     const string schemaNameExpression = "_dbContextConfig.Value?.DefaultSchemaName";
-                    yield return $"modelBuilder.HasDefaultSchema({_template.GetDbContextConfigHelperName()}.EmptyToNull({schemaNameExpression}));";
+                    yield return $"if (!string.IsNullOrWhiteSpace({schemaNameExpression}))";
+                    yield return "{";
+                    yield return $"    modelBuilder.HasDefaultSchema({schemaNameExpression});";
+                    yield return "}";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     const string containerNameExpression = "_dbContextConfig.Value?.DefaultContainerName";
-                    yield return $"modelBuilder.HasDefaultContainer({_template.GetDbContextConfigHelperName()}.EmptyToNull({containerNameExpression}));";
+                    yield return $"if (!string.IsNullOrWhiteSpace({containerNameExpression}))";
+                    yield return "{";
+                    yield return $"    modelBuilder.HasDefaultContainer({containerNameExpression});";
+                    yield return "}";
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:
