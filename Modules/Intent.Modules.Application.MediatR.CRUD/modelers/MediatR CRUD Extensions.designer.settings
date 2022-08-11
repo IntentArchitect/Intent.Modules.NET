@@ -173,6 +173,7 @@ if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
 {
     let query = createElement("Query", `Get${entityName}ByIdQuery`, folder.id);
     query.typeReference.setType(dto.id)
+    query.setMapping(entity.id);
 
     let operation = createElement("Operation", "Get", service.id);
     operation.setMapping(query.id);
@@ -191,6 +192,7 @@ if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
         for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
             let field = createElement("DTO-Field", attribute.name, query.id);
             field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
 
             let param = createElement("Parameter", field.getName(), operation.id);
             param.typeReference.setType(field.typeReference.typeId);
@@ -391,6 +393,7 @@ if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
 {
     let query = createElement("Query", `Get${entityName}ByIdQuery`, folder.id);
     query.typeReference.setType(dto.id)
+    query.setMapping(entity.id);
 
     let operation = createElement("Operation", "Get", service.id);
     operation.setMapping(query.id);
@@ -409,6 +412,7 @@ if (!folder.getChildren().some(x =&gt; x.name == `Get${entityName}ByIdQuery`))
         for(let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
             let field = createElement("DTO-Field", attribute.name, query.id);
             field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
 
             let param = createElement("Parameter", field.getName(), operation.id);
             param.typeReference.setType(field.typeReference.typeId);
