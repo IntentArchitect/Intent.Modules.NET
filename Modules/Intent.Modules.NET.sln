@@ -176,9 +176,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions", "Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions\Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.csproj", "{88688357-4CB8-4D2E-BAC4-C8933061D70D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.Conventions.CRUD", "Intent.Modules.AzureFunctions.Conventions.CRUD\Intent.Modules.AzureFunctions.Conventions.CRUD.csproj", "{88688357-4CB8-4D2E-BAC4-C8933061D70D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Interop.EntityFrameworkCore", "Intent.Modules.AspNetCore.Interop.EntityFrameworkCore\Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.csproj", "{F03B9E59-821B-4F56-8EDF-052F10B68EFD}"
 EndProject
@@ -610,7 +610,7 @@ Global
 		{57961267-D074-495C-ABB9-AC6FB15A0BC1} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A61FACD5-0E8E-48EE-9260-D14E229DE430} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{88688357-4CB8-4D2E-BAC4-C8933061D70D} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
+		{88688357-4CB8-4D2E-BAC4-C8933061D70D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{2F154FBE-BD9A-47D5-B1DF-287729FB872B} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{F03B9E59-821B-4F56-8EDF-052F10B68EFD} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection

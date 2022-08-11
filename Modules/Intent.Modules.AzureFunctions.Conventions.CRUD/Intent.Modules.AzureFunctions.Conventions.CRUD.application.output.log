@@ -36,8 +36,8 @@
       <ProjectId>88688357-4cb8-4d2e-bac4-c8933061d70d</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#88688357-4cb8-4d2e-bac4-c8933061d70d</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.Conventions.CRUD.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Conventions.CRUD.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

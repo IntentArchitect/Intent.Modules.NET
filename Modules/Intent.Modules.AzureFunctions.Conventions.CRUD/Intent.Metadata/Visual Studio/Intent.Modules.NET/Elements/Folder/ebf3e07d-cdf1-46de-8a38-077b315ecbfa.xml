@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="938a8e10-a880-4a1b-983f-2e95b6304ce3" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>modelers</name>
-  <display>modelers</display>
+<class id="ebf3e07d-cdf1-46de-8a38-077b315ecbfa" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>FactoryExtensions</name>
+  <display>FactoryExtensions</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>88688357-4cb8-4d2e-bac4-c8933061d70d</parentFolderId>
@@ -21,32 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="361eff22-a400-49c2-ae19-78732b1aa000" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.DesignerConfig</name>
-      <display>Intent.ModuleBuilder.DesignerConfig</display>
+    <childElement id="69a721f8-6369-4f98-9391-16f3c9b072f7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.FactoryExtension</name>
+      <display>Intent.ModuleBuilder.Templates.FactoryExtension</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>938a8e10-a880-4a1b-983f-2e95b6304ce3</parentFolderId>
-      <packageId>8802e51c-6189-4974-b648-4d3d21bc723c</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="c5d7af01-4b6e-4d58-a7ed-249f4c51211c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.DesignerSettings</name>
-      <display>Intent.ModuleBuilder.DesignerSettings</display>
-      <externalReference>Intent.ModuleBuilder</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>1</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>938a8e10-a880-4a1b-983f-2e95b6304ce3</parentFolderId>
+      <parentFolderId>ebf3e07d-cdf1-46de-8a38-077b315ecbfa</parentFolderId>
       <packageId>8802e51c-6189-4974-b648-4d3d21bc723c</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
