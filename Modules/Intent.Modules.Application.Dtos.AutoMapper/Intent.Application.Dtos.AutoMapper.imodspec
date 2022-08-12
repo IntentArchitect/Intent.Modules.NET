@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.AutoMapper</id>
-  <version>3.3.4</version>
+  <version>3.3.4-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -34,21 +34,6 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata />
-  <moduleSettings>
-    <group id="10a401d1-030a-4dd3-9742-9710bd8b5a9f" title="Database Settings" externalReference="10a401d1-030a-4dd3-9742-9710bd8b5a9f">
-      <settings>
-        <setting id="9e89d26e-ca9a-489e-8dcb-d57d78b03af9" title="Key Type" type="select">
-          <isRequired>false</isRequired>
-          <hint>Select the data type to be used for all surrogate and foreign keys.</hint>
-          <defaultValue>guid</defaultValue>
-          <options>
-            <option value="guid" description="guid" />
-            <option value="long" description="long" />
-            <option value="int" description="int" />
-          </options>
-        </setting>
-      </settings>
-    </group>
-  </moduleSettings>
+  <moduleSettings />
   <moduleSettingsExtensions />
 </package>
