@@ -451,7 +451,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     throw new Exception(
                         $"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
-            
+
             return newLine + string.Join(newLine, statements) + ";";
         }
 

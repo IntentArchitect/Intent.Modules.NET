@@ -13,6 +13,29 @@ namespace Intent.EntityFrameworkCore.Api
 {
     public static class AttributeModelStereotypeExtensions
     {
+        public static PartitionKey GetPartitionKey(this AttributeModel model)
+        {
+            var stereotype = model.GetStereotype("Partition Key");
+            return stereotype != null ? new PartitionKey(stereotype) : null;
+        }
+
+
+        public static bool HasPartitionKey(this AttributeModel model)
+        {
+            return model.HasStereotype("Partition Key");
+        }
+
+        public static bool TryGetPartitionKey(this AttributeModel model, out PartitionKey stereotype)
+        {
+            if (!HasPartitionKey(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new PartitionKey(model.GetStereotype("Partition Key"));
+            return true;
+        }
         public static RowVersion GetRowVersion(this AttributeModel model)
         {
             var stereotype = model.GetStereotype("Row Version");
@@ -35,6 +58,19 @@ namespace Intent.EntityFrameworkCore.Api
 
             stereotype = new RowVersion(model.GetStereotype("Row Version"));
             return true;
+        }
+
+        public class PartitionKey
+        {
+            private IStereotype _stereotype;
+
+            public PartitionKey(IStereotype stereotype)
+            {
+                _stereotype = stereotype;
+            }
+
+            public string Name => _stereotype.Name;
+
         }
 
 

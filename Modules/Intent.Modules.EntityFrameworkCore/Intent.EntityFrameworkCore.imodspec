@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>3.3.10</version>
+  <version>3.3.11-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Entity Framework Core implementation.</summary>
   <description>Entity Framework Core implementation.</description>
@@ -77,6 +77,7 @@
   </files>
   <metadata>
     <install target="Module Builder;Domain" src="Intent.Metadata/Module Builder/Intent.EntityFrameworkCore/Intent.EntityFrameworkCore.pkg.config" externalReference="a9d2a398-04e4-4300-9fbb-768568c65f9e" />
+    <install src="modelers/EF Core Settings.designer.settings" externalReference="78be924b-a4c6-40f9-ac4e-103fd8f17ce0" target="Domain" />
   </metadata>
   <moduleSettings />
   <moduleSettingsExtensions>

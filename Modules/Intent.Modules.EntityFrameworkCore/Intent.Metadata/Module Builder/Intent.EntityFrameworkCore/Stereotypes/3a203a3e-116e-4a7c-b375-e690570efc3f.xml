@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="3a203a3e-116e-4a7c-b375-e690570efc3f" version="3.1.0">
+  <name>Partition Key</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="0090fb93-483e-41af-a11d-5ad2dc796adf">Attribute</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="th" />
+  <displayIcon>true</displayIcon>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>a9d2a398-04e4-4300-9fbb-768568c65f9e</parentFolderId>
+  <order>0</order>
+  <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+  <packageName>Intent.EntityFrameworkCore</packageName>
+  <properties />
+</stereotypeDefinition>
