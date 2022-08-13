@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
+using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -16,6 +17,7 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using AttributeModelStereotypeExtensions = Intent.Metadata.RDBMS.Api.AttributeModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -315,6 +317,25 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             var statements = new List<string>();
             statements.AddRange(GetDecorators().SelectMany(x => x.AfterAttributeStatements()));
 
+            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
+            {
+                // Is there an easier way to get this?
+                var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
+                var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
+                
+                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
+                    ? OutputTarget.ApplicationName()
+                    : cosmosSettings.ContainerName();
+                statements.Add($@"builder.ToContainer(""{containerName}"");");
+
+                var partitionKey = cosmosSettings?.PartitionKey();
+                if (this.GetAttributes(Model).Any(p => p.Name.Equals(partitionKey) && p.HasPartitionKey())
+                    && !string.IsNullOrWhiteSpace(partitionKey))
+                {
+                    statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
+                }
+            }
+            
             if (statements.Count > 0)
             {
                 const string newLine = @"
