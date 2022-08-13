@@ -322,7 +322,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 // Is there an easier way to get this?
                 var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
                 var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
-                
+
                 var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
                     ? OutputTarget.ApplicationName()
                     : cosmosSettings.ContainerName();
@@ -335,7 +335,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
                 }
             }
-            
+
             if (statements.Count > 0)
             {
                 const string newLine = @"

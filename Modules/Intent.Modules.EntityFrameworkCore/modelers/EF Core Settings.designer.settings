@@ -49,59 +49,32 @@ if (!element.hasStereotype("Cosmos DB Container Settings")) {
     <elementExtension type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <mappingSettings />
       <macros>
-        <macro trigger="on-changed">
-          <script>const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
-const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
-
-function isCosmosDbProvider() {
-    return application.getSettings(dbSettingsId)
-        ?.getField("Database Provider")
-        ?.value == "cosmos";
-}
-
-function isAggregateRoot(element) {
-    return ! element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function getSurrogateKeyType() {
-    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
-    if (keyType == "guid")
-        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-    if (keyType == "int")
-        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-    if (keyType == "long")
-        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-}
-
-function getNamingConvention() {
-    return application.getSettings(dbSettingsId)
-        .getField("Key Naming Convention")?.value ?? "pascal-case";
-}
-
-if (!isCosmosDbProvider() || !isAggregateRoot(element.getParent())) { 
-    element.getParent().removeStereotype(partitionKeyStereotypeId);
-    return; 
-}
-
-if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
-
-let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
-if (!partitionKey) { 
-    let namingConvetion = getNamingConvention();
-    let idName = namingConvetion == "pascal-case" ? "Id" : "id";
-    partitionKey = idName; 
-}
-
-if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitionKeyStereotypeId)) {
-    element.addStereotype(partitionKeyStereotypeId);
-}
-</script>
-        </macro>
         <macro trigger="on-created">
-          <script>const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
+          <script>// If Explicit key creation is set and partition key name is blank.
+
+const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+
+if (!isCosmosDbProvider() || !isAggregateRoot(element.getParent())) { 
+    return; 
+}
+
+if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
+
+let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
+if (partitionKey) { 
+    return;
+}
+
+let namingConvetion = getNamingConvention();
+let idName = namingConvetion == "pascal-case" ? "Id" : "id";
+partitionKey = idName; 
+
+if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitionKeyStereotypeId)) {
+    element.addStereotype(partitionKeyStereotypeId);
+}
+
+// === FUNCTIONS ===
 
 function isCosmosDbProvider() {
     return application.getSettings(dbSettingsId)
@@ -128,32 +101,197 @@ function getSurrogateKeyType() {
 function getNamingConvention() {
     return application.getSettings(dbSettingsId)
         .getField("Key Naming Convention")?.value ?? "pascal-case";
-}
-
-if (!isCosmosDbProvider() || !isAggregateRoot(element.getParent())) { 
-    element.getParent().removeStereotype(partitionKeyStereotypeId);
-    return; 
-}
-
-if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
-
-let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
-if (!partitionKey) { 
-    let namingConvetion = getNamingConvention();
-    let idName = namingConvetion == "pascal-case" ? "Id" : "id";
-    partitionKey = idName; 
-}
-
-if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitionKeyStereotypeId)) {
-    element.addStereotype(partitionKeyStereotypeId);
-}
-</script>
+}</script>
         </macro>
       </macros>
     </elementExtension>
     <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
       <mappingSettings />
-      <macros />
+      <macros>
+        <macro trigger="on-changed">
+          <script>// If the partition key attribute is deleted or renamed, add it back
+
+const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
+const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+
+if (!isCosmosDbProvider() || !isAggregateRoot(element)) { 
+    element.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
+        .forEach(x =&gt; {
+            x.removeStereotype(partitionKeyStereotypeId);
+        });
+    return; 
+}
+
+if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
+
+let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
+if (!partitionKey) { 
+    return;
+}
+
+let possiblePkAttrs = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey)
+if (possiblePkAttrs.length == 0) {
+    let pkAttr = createElement("Attribute", partitionKey, element.id);
+    pkAttr.setOrder(1);
+    pkAttr.typeReference.setType(getSurrogateKeyType());
+    pkAttr.addStereotype(partitionKeyStereotypeId);
+} else if (! possiblePkAttrs.every(x =&gt; x.hasStereotype(partitionKeyStereotypeId))) {
+    possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
+}
+
+// === FUNCTIONS ===
+
+function isCosmosDbProvider() {
+    return application.getSettings(dbSettingsId)
+        ?.getField("Database Provider")
+        ?.value == "cosmos";
+}
+
+function isAggregateRoot(element) {
+    return ! element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+
+function getSurrogateKeyType() {
+    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
+    if (keyType == "guid")
+        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+    if (keyType == "int")
+        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
+    if (keyType == "long")
+        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
+    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+}
+
+function getNamingConvention() {
+    return application.getSettings(dbSettingsId)
+        .getField("Key Naming Convention")?.value ?? "pascal-case";
+}</script>
+        </macro>
+        <macro trigger="on-created">
+          <script>// If the partition key name is not blank, we want to add a new attribute as the partition key
+
+const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
+const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+
+if (!isCosmosDbProvider() || !isAggregateRoot(element)) { 
+    element.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
+        .forEach(x =&gt; {
+            x.removeStereotype(partitionKeyStereotypeId);
+        });
+    return; 
+}
+
+if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
+
+let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
+if (!partitionKey) { 
+    return;
+}
+
+let possiblePkAttrs = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey)
+if (possiblePkAttrs.length == 0) {
+    let pkAttr = createElement("Attribute", partitionKey, element.id);
+    pkAttr.setOrder(1);
+    pkAttr.typeReference.setType(getSurrogateKeyType());
+    pkAttr.addStereotype(partitionKeyStereotypeId);
+} else if (! possiblePkAttrs.every(x =&gt; x.hasStereotype(partitionKeyStereotypeId))) {
+    possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
+}
+
+// === FUNCTIONS ===
+
+function isCosmosDbProvider() {
+    return application.getSettings(dbSettingsId)
+        ?.getField("Database Provider")
+        ?.value == "cosmos";
+}
+
+function isAggregateRoot(element) {
+    return ! element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+
+function getSurrogateKeyType() {
+    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
+    if (keyType == "guid")
+        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+    if (keyType == "int")
+        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
+    if (keyType == "long")
+        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
+    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+}
+
+function getNamingConvention() {
+    return application.getSettings(dbSettingsId)
+        .getField("Key Naming Convention")?.value ?? "pascal-case";
+}</script>
+        </macro>
+        <macro trigger="on-loaded">
+          <script>// While we don't have an event on the partition key stereotype property, let's at least cover it on load.
+
+const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
+const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+
+if (!isCosmosDbProvider() || !isAggregateRoot(element)) { 
+    element.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
+        .forEach(x =&gt; {
+            x.removeStereotype(partitionKeyStereotypeId);
+        });
+    return; 
+}
+
+if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
+
+let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
+if (!partitionKey) { 
+    return;
+}
+
+let possiblePkAttrs = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey)
+if (possiblePkAttrs.length == 0) {
+    let pkAttr = createElement("Attribute", partitionKey, element.id);
+    pkAttr.setOrder(1);
+    pkAttr.typeReference.setType(getSurrogateKeyType());
+    pkAttr.addStereotype(partitionKeyStereotypeId);
+} else if (! possiblePkAttrs.every(x =&gt; x.hasStereotype(partitionKeyStereotypeId))) {
+    possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
+}
+
+// === FUNCTIONS ===
+
+function isCosmosDbProvider() {
+    return application.getSettings(dbSettingsId)
+        ?.getField("Database Provider")
+        ?.value == "cosmos";
+}
+
+function isAggregateRoot(element) {
+    return ! element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+
+function getSurrogateKeyType() {
+    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
+    if (keyType == "guid")
+        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+    if (keyType == "int")
+        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
+    if (keyType == "long")
+        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
+    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
+}
+
+function getNamingConvention() {
+    return application.getSettings(dbSettingsId)
+        .getField("Key Naming Convention")?.value ?? "pascal-case";
+}</script>
+        </macro>
+      </macros>
     </elementExtension>
   </elementExtensions>
   <associationSettings />
@@ -178,36 +316,11 @@ if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitio
         </typeReferenceExtension>
       </targetEndExtension>
       <macros>
-        <macro trigger="on-changed">
-          <script>const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
+        <macro trigger="on-created">
+          <script>// Update class depending on whether it is an aggregate root or not
+
+const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
-
-function isCosmosDbProvider() {
-    return application.getSettings(dbSettingsId)
-        ?.getField("Database Provider")
-        ?.value == "cosmos";
-}
-
-function isAggregateRoot(element) {
-    return ! element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function getSurrogateKeyType() {
-    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
-    if (keyType == "guid")
-        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-    if (keyType == "int")
-        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-    if (keyType == "long")
-        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-}
-
-function getNamingConvention() {
-    return application.getSettings(dbSettingsId)
-        .getField("Key Naming Convention")?.value ?? "pascal-case";
-}
 
 if (!association.isTargetEnd()) { return; } 
 
@@ -234,28 +347,12 @@ if (!partitionKey) {
 }
 
 let attributePartitionKeys = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey);
-switch (attributePartitionKeys.length) {
-    case 0:
-        let keyCreationMode = application.getSettings(dbSettingsId)?.getField("Key Creation Mode").value;
-        if (keyCreationMode === "explicit") {
-            if (!lookup(element.id)) { return; }
-            let idAttribute = createElement("Attribute", partitionKey, element.id);
-            idAttribute.setOrder(0);
-            idAttribute.typeReference.setType(getSurrogateKeyType());
-            idAttribute.addStereotype(partitionKeyStereotypeId)
-        }
-        break;
-    case 1:
-        if (!attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {
-            attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);
-        }
-        break;
+if (attributePartitionKeys.length == 0) { return; }
+if (!attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {
+    attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);
 }
-</script>
-        </macro>
-        <macro trigger="on-deleted">
-          <script>const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
-const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+
+// === FUNCTIONS ===
 
 function isCosmosDbProvider() {
     return application.getSettings(dbSettingsId)
@@ -282,51 +379,7 @@ function getSurrogateKeyType() {
 function getNamingConvention() {
     return application.getSettings(dbSettingsId)
         .getField("Key Naming Convention")?.value ?? "pascal-case";
-}
-
-if (!association.isTargetEnd()) { return; } 
-
-let element = association?.typeReference?.getType(); 
-
-if (!element) { return; } 
-
-if (!isCosmosDbProvider() || !isAggregateRoot(element)) { 
-    element.getChildren("Attribute")
-        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
-        .forEach(x =&gt; {
-            x.removeStereotype(partitionKeyStereotypeId);
-        });
-    return; 
-}
-
-if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
-
-let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
-if (!partitionKey) { 
-    let namingConvetion = getNamingConvention();
-    let idName = namingConvetion == "pascal-case" ? "Id" : "id";
-    partitionKey = idName; 
-}
-
-let attributePartitionKeys = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey);
-switch (attributePartitionKeys.length) {
-    case 0:
-        let keyCreationMode = application.getSettings(dbSettingsId)?.getField("Key Creation Mode").value;
-        if (keyCreationMode === "explicit") {
-            if (!lookup(element.id)) { return; }
-            let idAttribute = createElement("Attribute", partitionKey, element.id);
-            idAttribute.setOrder(0);
-            idAttribute.typeReference.setType(getSurrogateKeyType());
-            idAttribute.addStereotype(partitionKeyStereotypeId)
-        }
-        break;
-    case 1:
-        if (!attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {
-            attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);
-        }
-        break;
-}
-</script>
+}</script>
         </macro>
       </macros>
     </associationExtension>
