@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1623b4f6-4240-4291-b263-a52461e13d36</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#79e7f0c5-71f8-4c73-9db3-2084eefd9cdb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/AttributeExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AttributeExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1623b4f6-4240-4291-b263-a52461e13d36</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#d1993c7e-60e2-4345-a063-3045ba3937a1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/ClassExtensionModel.cs</ApplicationRelativeFilePath>

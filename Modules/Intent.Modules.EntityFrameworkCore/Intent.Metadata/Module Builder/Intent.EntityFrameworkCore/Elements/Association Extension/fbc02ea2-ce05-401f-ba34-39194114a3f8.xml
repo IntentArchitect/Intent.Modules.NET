@@ -125,6 +125,39 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="59f1633a-2c40-4f4b-a773-1f19287887b1" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
+          <name>On Deleted</name>
+          <display>On Deleted: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e53c0b1a-8396-477c-9ef4-b86bceadd17e">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a9a4b2b3-fc30-4214-8fa4-cce714f41aff</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="const dbSettingsId = &quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;;&#xD;&#xA;const partitionKeyStereotypeId = &quot;3a203a3e-116e-4a7c-b375-e690570efc3f&quot;;&#xD;&#xA;&#xD;&#xA;function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return ! element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getSurrogateKeyType() {&#xD;&#xA;    let keyType = application.getSettings(dbSettingsId).getField(&quot;Key Type&quot;).value;&#xD;&#xA;    if (keyType == &quot;guid&quot;)&#xD;&#xA;        return &quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;; // guid id&#xD;&#xA;    if (keyType == &quot;int&quot;)&#xD;&#xA;        return &quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;; // int id&#xD;&#xA;    if (keyType == &quot;long&quot;)&#xD;&#xA;        return &quot;33013006-E404-48C2-AC46-24EF5A5774FD&quot;; // long id&#xD;&#xA;    return &quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;; // guid id&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getNamingConvention() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        .getField(&quot;Key Naming Convention&quot;)?.value ?? &quot;pascal-case&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!association.isTargetEnd()) { return; } &#xD;&#xA;&#xD;&#xA;let element = association?.typeReference?.getType(); &#xD;&#xA;&#xD;&#xA;if (!element) { return; } &#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider() || !isAggregateRoot(element)) { &#xD;&#xA;    element.getChildren(&quot;Attribute&quot;)&#xD;&#xA;        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))&#xD;&#xA;        .forEach(x =&gt; {&#xD;&#xA;            x.removeStereotype(partitionKeyStereotypeId);&#xD;&#xA;        });&#xD;&#xA;    return; &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (! (element.getPackage()?.getStereotype(&quot;Cosmos DB Container Settings&quot;)?.getProperty(&quot;Partition Key&quot;))) { return; }&#xD;&#xA;&#xD;&#xA;let partitionKey = element.getPackage().getStereotype(&quot;Cosmos DB Container Settings&quot;).getProperty(&quot;Partition Key&quot;).value;&#xD;&#xA;if (!partitionKey) { &#xD;&#xA;    let namingConvetion = getNamingConvention();&#xD;&#xA;    let idName = namingConvetion == &quot;pascal-case&quot; ? &quot;Id&quot; : &quot;id&quot;;&#xD;&#xA;    partitionKey = idName; &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let attributePartitionKeys = element.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.getName() == partitionKey);&#xD;&#xA;switch (attributePartitionKeys.length) {&#xD;&#xA;    case 0:&#xD;&#xA;        let keyCreationMode = application.getSettings(dbSettingsId)?.getField(&quot;Key Creation Mode&quot;).value;&#xD;&#xA;        if (keyCreationMode === &quot;explicit&quot;) {&#xD;&#xA;            if (!lookup(element.id)) { return; }&#xD;&#xA;            let idAttribute = createElement(&quot;Attribute&quot;, partitionKey, element.id);&#xD;&#xA;            idAttribute.setOrder(0);&#xD;&#xA;            idAttribute.typeReference.setType(getSurrogateKeyType());&#xD;&#xA;            idAttribute.addStereotype(partitionKeyStereotypeId)&#xD;&#xA;        }&#xD;&#xA;        break;&#xD;&#xA;    case 1:&#xD;&#xA;        if (!attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {&#xD;&#xA;            attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);&#xD;&#xA;        }&#xD;&#xA;        break;&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>
