@@ -131,6 +131,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});
 ";
             }
+            
+            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
+            {
+                // Is there an easier way to get this?
+                var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
+                var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
+
+                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
+                    ? OutputTarget.ApplicationName()
+                    : cosmosSettings.ContainerName();
+                
+                return $@"
+            builder.ToContainer(""{containerName}"");
+";
+            }
 
             return string.Empty;
         }
@@ -323,14 +338,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
                 var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
 
-                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
-                    ? OutputTarget.ApplicationName()
-                    : cosmosSettings.ContainerName();
-                statements.Add($@"builder.ToContainer(""{containerName}"");");
-
                 var partitionKey = cosmosSettings?.PartitionKey();
-                if (this.GetAttributes(Model).Any(p => p.Name.Equals(partitionKey) && p.HasPartitionKey())
-                    && !string.IsNullOrWhiteSpace(partitionKey))
+                if (GetAttributes(Model).Any(p => p.Name.Equals(partitionKey) && p.HasPartitionKey()))
                 {
                     statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
                 }
@@ -386,42 +395,42 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
                     statements.Add(
-                        $".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
+                        $"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
 
                     if (associationEnd.IsNullable)
                     {
                         if (associationEnd.OtherEnd().IsNullable)
                         {
                             statements.Add(
-                                $".HasForeignKey<{associationEnd.OtherEnd().Class.Name}>(x => x.{associationEnd.Name.ToPascalCase()}Id)");
+                                $"    .HasForeignKey<{associationEnd.OtherEnd().Class.Name}>(x => x.{associationEnd.Name.ToPascalCase()}Id)");
                         }
                         else
                         {
-                            statements.Add($".HasForeignKey<{associationEnd.Class.Name}>(x => x.Id)");
+                            statements.Add($"    .HasForeignKey<{associationEnd.Class.Name}>(x => x.Id)");
                         }
                     }
                     else
                     {
-                        statements.Add($".HasForeignKey<{Model.Name}>(x => x.Id)");
+                        statements.Add($"    .HasForeignKey<{Model.Name}>(x => x.Id)");
                     }
 
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
-                        statements.Add($".IsRequired()");
-                        statements.Add($".OnDelete(DeleteBehavior.Cascade)");
+                        statements.Add($"    .IsRequired()");
+                        statements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
                     }
                     else
                     {
-                        statements.Add($".OnDelete(DeleteBehavior.Restrict)");
+                        statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
                     }
 
                     break;
                 case RelationshipType.ManyToOne:
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
                     statements.Add(
-                        $".WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
-                    statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd())})");
-                    statements.Add($".OnDelete(DeleteBehavior.Restrict)");
+                        $"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
+                    statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd())})");
+                    statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
                     break;
                 case RelationshipType.OneToMany:
                     if (IsValueObject(associationEnd.Element))
@@ -438,12 +447,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                     statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
                     statements.Add(
-                        $".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
-                    statements.Add($".HasForeignKey({GetForeignKeyLambda(associationEnd)})");
+                        $"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
+                    statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd)})");
                     if (!associationEnd.OtherEnd().IsNullable)
                     {
-                        statements.Add($".IsRequired()");
-                        statements.Add($".OnDelete(DeleteBehavior.Cascade)");
+                        statements.Add($"    .IsRequired()");
+                        statements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
                     }
 
                     break;
@@ -462,9 +471,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
                         statements.Add(
-                            $".WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
+                            $"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
                         statements.Add(
-                            $".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
+                            $"    .UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
                     }
 
                     break;
@@ -638,25 +647,23 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetBeforeAttributeStatements()
         {
+            var statements = new List<string>();
+
+            statements.AddRange(GetDecorators().SelectMany(x => x.BeforeAttributeStatements()));
+
             // These will have their own whitespace padding so we want to try and retain this.
             // Once this can be deprecated, then it will simplify this method a lot.
             string statementsCode = GetDecoratorsOutput(x => x.BeforeAttributes() ?? string.Empty);
 
-            var statements = new List<string>();
-            statements.AddRange(GetDecorators().SelectMany(x => x.BeforeAttributeStatements()));
-
-            if (statements.Count > 0)
-            {
+            if (statements.Count > 0 || !string.IsNullOrEmpty(statementsCode))
+            { 
                 const string newLine = @"
             ";
                 var joined = string.Join(newLine, statements);
-
-                statementsCode = !string.IsNullOrEmpty(statementsCode)
-                    ? statementsCode + newLine + joined
-                    : joined;
+                return newLine + joined + (!string.IsNullOrWhiteSpace(statementsCode) ? newLine : string.Empty) + statementsCode;
             }
 
-            return statementsCode;
+            return string.Empty;
         }
 
         private IEnumerable<AttributeModel> GetAttributes(ClassModel model)
