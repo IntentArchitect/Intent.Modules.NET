@@ -383,11 +383,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey(x => x.Id);{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
-                        statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});");
+                        statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})" +
+                                       (associationEnd.IsNullable ? ";" : string.Empty));
 
                         if (!associationEnd.IsNullable)
                         {
-                            statements.Add($"builder.Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired();");
+                            statements.Add($"    .Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired();");
                         }
 
                         return newLine + string.Join(newLine, statements);
