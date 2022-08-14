@@ -131,7 +131,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});
 ";
             }
-            
+
             if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
             {
                 // Is there an easier way to get this?
@@ -141,7 +141,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
                     ? OutputTarget.ApplicationName()
                     : cosmosSettings.ContainerName();
-                
+
                 return $@"
             builder.ToContainer(""{containerName}"");
 ";
@@ -657,7 +657,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             string statementsCode = GetDecoratorsOutput(x => x.BeforeAttributes() ?? string.Empty);
 
             if (statements.Count > 0 || !string.IsNullOrEmpty(statementsCode))
-            { 
+            {
                 const string newLine = @"
             ";
                 var joined = string.Join(newLine, statements);

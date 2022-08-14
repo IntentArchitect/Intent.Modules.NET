@@ -89,13 +89,11 @@ if (!isCosmosDbProvider() || !isAggregateRoot(element.getParent())) {
 if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key"))) { return; }
 
 let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
-if (partitionKey) { 
-    return;
+if (!partitionKey) { 
+    let namingConvetion = getNamingConvention();
+    let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
+    partitionKey = defaultPkName;
 }
-
-let namingConvetion = getNamingConvention();
-let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
-partitionKey = defaultPkName;
 
 if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitionKeyStereotypeId)) {
     element.addStereotype(partitionKeyStereotypeId);
