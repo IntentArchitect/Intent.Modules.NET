@@ -37,8 +37,8 @@ if (!isCosmosDbProvider()) {
     return;
 }
 
-if (!element.hasStereotype("Cosmos DB Container Settings")) {
-    element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+if (!element.hasStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5")) {
+    element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5"); // Cosmos DB Container Settings
 }</script>
         </macro>
       </macros>
