@@ -49,6 +49,39 @@
       <stereotypes />
       <metadata />
       <childElements>
+        <childElement id="a8c1f595-4f90-4419-a9f4-b07821c1bc12" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f7f59954-1b1c-48f6-b0ae-ee9110099266">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a728265b-2c43-4ae1-b409-f6a604bab7b0</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="// Check if the Partition name changed so that we can update all the aggregate root classes&#xD;&#xA;const dbSettingsId = &quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;;&#xD;&#xA;const partitionKeyStereotypeId = &quot;3a203a3e-116e-4a7c-b375-e690570efc3f&quot;;&#xD;&#xA;const stringTypeId = &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot;;&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;lookupTypesOf(&quot;Class&quot;)?.filter(x =&gt; isAggregateRoot(x)).forEach(element =&gt; {&#xD;&#xA;    let partitionKey = element.getPackage().getStereotype(&quot;Cosmos DB Container Settings&quot;).getProperty(&quot;Partition Key&quot;).value;&#xD;&#xA;    if (!partitionKey) { &#xD;&#xA;        let namingConvetion = getNamingConvention();&#xD;&#xA;        let defaultPkName = namingConvetion == &quot;pascal-case&quot; ? &quot;PartitionKey&quot; : &quot;partitionKey&quot;;&#xD;&#xA;        partitionKey = defaultPkName;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    let pkAttr = element.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))[0];&#xD;&#xA;    if (pkAttr &amp;&amp; partitionKey != pkAttr.getName()) {&#xD;&#xA;        pkAttr.setName(partitionKey);&#xD;&#xA;    }&#xD;&#xA;});&#xD;&#xA;&#xD;&#xA;// === FUNCTIONS ===&#xD;&#xA;&#xD;&#xA;function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return ! element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getNamingConvention() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        .getField(&quot;Key Naming Convention&quot;)?.value ?? &quot;pascal-case&quot;;&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="d1fc4dbc-44f7-4fea-813d-4abebc0a03b9" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Created</name>
           <display>On Created: Script</display>
@@ -75,40 +108,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(&quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!element.hasStereotype(&quot;Cosmos DB Container Settings&quot;)) {&#xD;&#xA;    element.addStereotype(&quot;b4995259-b47b-405a-a332-fd3dc69cd3a5&quot;);&#xD;&#xA;}" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8c96ff15-84b0-498c-a830-3e510208bd7a" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
-          <name>On Loaded</name>
-          <display>On Loaded: Script</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="71757899-95a7-4b6f-b228-82ac84372046">
-            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.ModuleBuilder</typePackageName>
-            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>a728265b-2c43-4ae1-b409-f6a604bab7b0</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
-              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
-              <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(&quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!element.hasStereotype(&quot;b4995259-b47b-405a-a332-fd3dc69cd3a5&quot;)) {&#xD;&#xA;    element.addStereotype(&quot;b4995259-b47b-405a-a332-fd3dc69cd3a5&quot;); // Cosmos DB Container Settings&#xD;&#xA;}" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(&quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider()) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (! element.hasStereotype(&quot;Cosmos DB Container Settings&quot;)) {&#xD;&#xA;    element.addStereotype(&quot;b4995259-b47b-405a-a332-fd3dc69cd3a5&quot;);&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

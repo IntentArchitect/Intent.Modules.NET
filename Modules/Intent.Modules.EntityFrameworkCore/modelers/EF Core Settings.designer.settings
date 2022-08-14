@@ -11,6 +11,48 @@
       <scriptOptions />
       <typeOrder />
       <macros>
+        <macro trigger="on-changed">
+          <script>// Check if the Partition name changed so that we can update all the aggregate root classes
+const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
+const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+
+if (!isCosmosDbProvider()) {
+    return;
+}
+
+lookupTypesOf("Class")?.filter(x =&gt; isAggregateRoot(x)).forEach(element =&gt; {
+    let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
+    if (!partitionKey) { 
+        let namingConvetion = getNamingConvention();
+        let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
+        partitionKey = defaultPkName;
+    }
+
+    let pkAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))[0];
+    if (pkAttr &amp;&amp; partitionKey != pkAttr.getName()) {
+        pkAttr.setName(partitionKey);
+    }
+});
+
+// === FUNCTIONS ===
+
+function isCosmosDbProvider() {
+    return application.getSettings(dbSettingsId)
+        ?.getField("Database Provider")
+        ?.value == "cosmos";
+}
+
+function isAggregateRoot(element) {
+    return ! element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+
+function getNamingConvention() {
+    return application.getSettings(dbSettingsId)
+        .getField("Key Naming Convention")?.value ?? "pascal-case";
+}</script>
+        </macro>
         <macro trigger="on-created">
           <script>function isCosmosDbProvider() {
     return application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")
@@ -22,23 +64,8 @@ if (!isCosmosDbProvider()) {
     return;
 }
 
-if (!element.hasStereotype("Cosmos DB Container Settings")) {
+if (! element.hasStereotype("Cosmos DB Container Settings")) {
     element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
-}</script>
-        </macro>
-        <macro trigger="on-loaded">
-          <script>function isCosmosDbProvider() {
-    return application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")
-        ?.getField("Database Provider")
-        ?.value == "cosmos";
-}
-
-if (!isCosmosDbProvider()) {
-    return;
-}
-
-if (!element.hasStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5")) {
-    element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5"); // Cosmos DB Container Settings
 }</script>
         </macro>
       </macros>
@@ -67,8 +94,8 @@ if (partitionKey) {
 }
 
 let namingConvetion = getNamingConvention();
-let idName = namingConvetion == "pascal-case" ? "Id" : "id";
-partitionKey = idName; 
+let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
+partitionKey = defaultPkName;
 
 if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitionKeyStereotypeId)) {
     element.addStereotype(partitionKeyStereotypeId);
@@ -87,17 +114,6 @@ function isAggregateRoot(element) {
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
-function getSurrogateKeyType() {
-    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
-    if (keyType == "guid")
-        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-    if (keyType == "int")
-        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-    if (keyType == "long")
-        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-}
-
 function getNamingConvention() {
     return application.getSettings(dbSettingsId)
         .getField("Key Naming Convention")?.value ?? "pascal-case";
@@ -113,12 +129,14 @@ function getNamingConvention() {
 
 const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
 if (!isCosmosDbProvider() || !isAggregateRoot(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
             x.removeStereotype(partitionKeyStereotypeId);
+            x.delete();
         });
     return; 
 }
@@ -127,16 +145,17 @@ if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getP
 
 let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
 if (!partitionKey) { 
-    return;
+    let namingConvetion = getNamingConvention();
+    let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
+    partitionKey = defaultPkName;
 }
 
 let possiblePkAttrs = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey)
 if (possiblePkAttrs.length == 0) {
     let pkAttr = createElement("Attribute", partitionKey, element.id);
     pkAttr.setOrder(1);
-    pkAttr.typeReference.setType(getSurrogateKeyType());
-    pkAttr.addStereotype(partitionKeyStereotypeId);
-} else if (! possiblePkAttrs.every(x =&gt; x.hasStereotype(partitionKeyStereotypeId))) {
+    pkAttr.typeReference.setType(stringTypeId);
+} else if (! possiblePkAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
     possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
 }
 
@@ -151,17 +170,6 @@ function isCosmosDbProvider() {
 function isAggregateRoot(element) {
     return ! element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function getSurrogateKeyType() {
-    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
-    if (keyType == "guid")
-        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-    if (keyType == "int")
-        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-    if (keyType == "long")
-        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
 }
 
 function getNamingConvention() {
@@ -174,6 +182,7 @@ function getNamingConvention() {
 
 const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
 if (!isCosmosDbProvider() || !isAggregateRoot(element)) { 
     element.getChildren("Attribute")
@@ -188,16 +197,17 @@ if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getP
 
 let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
 if (!partitionKey) { 
-    return;
+    let namingConvetion = getNamingConvention();
+    let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
+    partitionKey = defaultPkName;
 }
 
 let possiblePkAttrs = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey)
 if (possiblePkAttrs.length == 0) {
     let pkAttr = createElement("Attribute", partitionKey, element.id);
     pkAttr.setOrder(1);
-    pkAttr.typeReference.setType(getSurrogateKeyType());
-    pkAttr.addStereotype(partitionKeyStereotypeId);
-} else if (! possiblePkAttrs.every(x =&gt; x.hasStereotype(partitionKeyStereotypeId))) {
+    pkAttr.typeReference.setType(stringTypeId);
+} else if (! possiblePkAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
     possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
 }
 
@@ -212,17 +222,6 @@ function isCosmosDbProvider() {
 function isAggregateRoot(element) {
     return ! element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function getSurrogateKeyType() {
-    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
-    if (keyType == "guid")
-        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-    if (keyType == "int")
-        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-    if (keyType == "long")
-        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
 }
 
 function getNamingConvention() {
@@ -235,6 +234,7 @@ function getNamingConvention() {
 
 const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
 if (!isCosmosDbProvider() || !isAggregateRoot(element)) { 
     element.getChildren("Attribute")
@@ -249,16 +249,17 @@ if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getP
 
 let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
 if (!partitionKey) { 
-    return;
+    let namingConvetion = getNamingConvention();
+    let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
+    partitionKey = defaultPkName;
 }
 
 let possiblePkAttrs = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey)
 if (possiblePkAttrs.length == 0) {
     let pkAttr = createElement("Attribute", partitionKey, element.id);
     pkAttr.setOrder(1);
-    pkAttr.typeReference.setType(getSurrogateKeyType());
-    pkAttr.addStereotype(partitionKeyStereotypeId);
-} else if (! possiblePkAttrs.every(x =&gt; x.hasStereotype(partitionKeyStereotypeId))) {
+    pkAttr.typeReference.setType(stringTypeId);
+} else if (! possiblePkAttrs[0].hasStereotype(partitionKeyStereotypeId)) {
     possiblePkAttrs[0].addStereotype(partitionKeyStereotypeId);
 }
 
@@ -273,17 +274,6 @@ function isCosmosDbProvider() {
 function isAggregateRoot(element) {
     return ! element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function getSurrogateKeyType() {
-    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
-    if (keyType == "guid")
-        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-    if (keyType == "int")
-        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-    if (keyType == "long")
-        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
 }
 
 function getNamingConvention() {
@@ -333,6 +323,7 @@ if (!isCosmosDbProvider() || !isAggregateRoot(element)) {
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
             x.removeStereotype(partitionKeyStereotypeId);
+            x.delete();
         });
     return; 
 }
@@ -342,13 +333,13 @@ if (! (element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getP
 let partitionKey = element.getPackage().getStereotype("Cosmos DB Container Settings").getProperty("Partition Key").value;
 if (!partitionKey) { 
     let namingConvetion = getNamingConvention();
-    let idName = namingConvetion == "pascal-case" ? "Id" : "id";
-    partitionKey = idName; 
+    let defaultPkName = namingConvetion == "pascal-case" ? "PartitionKey" : "partitionKey";
+    partitionKey = defaultPkName;
 }
 
 let attributePartitionKeys = element.getChildren("Attribute").filter(x =&gt; x.getName() == partitionKey);
 if (attributePartitionKeys.length == 0) { return; }
-if (!attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {
+if (! attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {
     attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);
 }
 
@@ -363,17 +354,6 @@ function isCosmosDbProvider() {
 function isAggregateRoot(element) {
     return ! element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-
-function getSurrogateKeyType() {
-    let keyType = application.getSettings(dbSettingsId).getField("Key Type").value;
-    if (keyType == "guid")
-        return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
-    if (keyType == "int")
-        return "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"; // int id
-    if (keyType == "long")
-        return "33013006-E404-48C2-AC46-24EF5A5774FD"; // long id
-    return "6b649125-18ea-48fd-a6ba-0bfff0d8f488"; // guid id
 }
 
 function getNamingConvention() {
