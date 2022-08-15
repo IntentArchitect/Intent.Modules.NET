@@ -27,9 +27,10 @@ function isAggregateRoot(element) {
 options = options.filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository"));
 
 let classId = await dialogService.lookupFromOptions(options);
+if (!classId) { return; }
 let entity = lookup(classId);
 if (entity == null) {
-    await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);
+    await dialogService.error(`Could not find an Entity with the Id '${classId}'. The name of your service must correlate to an Entity in the domain.`);
     return;
 }
 
@@ -247,6 +248,7 @@ function isAggregateRoot(element) {
 options = options.filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository"));
 
 let classId = await dialogService.lookupFromOptions(options);
+if (!classId) { return; }
 let entity = lookup(classId);
 if (entity == null) {
     await dialogService.error(`Could not find an Entity with the name '${entityName}'. The name of your service must correlate to an Entity in the domain.`);

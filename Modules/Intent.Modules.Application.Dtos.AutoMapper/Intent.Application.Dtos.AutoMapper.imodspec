@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.AutoMapper</id>
-  <version>3.3.4-pre.0</version>
+  <version>3.3.4</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -18,7 +18,7 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Application.AutoMapper" version="3.3.3" />
+    <dependency id="Intent.Application.AutoMapper" version="3.3.4" />
     <dependency id="Intent.Application.Dtos" version="3.3.5" />
     <dependency id="Intent.Common" version="3.3.9" />
     <dependency id="Intent.Common.CSharp" version="3.3.16" />

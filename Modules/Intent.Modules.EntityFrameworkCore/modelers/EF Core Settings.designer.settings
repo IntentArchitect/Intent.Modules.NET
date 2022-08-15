@@ -68,6 +68,21 @@ if (! element.hasStereotype("Cosmos DB Container Settings")) {
     element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
 }</script>
         </macro>
+        <macro trigger="on-loaded">
+          <script>function isCosmosDbProvider() {
+    return application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")
+        ?.getField("Database Provider")
+        ?.value == "cosmos";
+}
+
+if (!isCosmosDbProvider()) {
+    return;
+}
+
+if (! element.hasStereotype("Cosmos DB Container Settings")) {
+    element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+}</script>
+        </macro>
       </macros>
     </packageExtension>
   </packageExtensions>
