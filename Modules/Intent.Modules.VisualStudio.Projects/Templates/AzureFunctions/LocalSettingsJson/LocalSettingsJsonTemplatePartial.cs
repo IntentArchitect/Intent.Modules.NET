@@ -73,7 +73,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
 
             _registrationRequestsByKey.Add(@event.Key, (@event, Environment.StackTrace));
         }
-        
+
         private void Handle(ConnectionStringRegistrationRequest @event)
         {
             if (!@event.IsApplicableTo(this))
