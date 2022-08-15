@@ -338,8 +338,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
                 var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
 
-                var partitionKey = cosmosSettings?.PartitionKey();
-                if (GetAttributes(Model).Any(p => p.Name.Equals(partitionKey) && p.HasPartitionKey()))
+                var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
+                if (string.IsNullOrEmpty(partitionKey))
+                {
+                    partitionKey = "PartitionKey";
+                }
+                if (GetAttributes(Model).Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
                 {
                     statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
                 }
