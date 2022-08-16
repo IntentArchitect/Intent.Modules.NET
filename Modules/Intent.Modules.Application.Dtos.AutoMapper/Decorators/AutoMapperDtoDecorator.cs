@@ -126,6 +126,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
 
         private string GetMultiplePK(IList<IElementMappingPathTarget> path)
         {
+            _template.AddUsing("System.Linq");
             return $"src.{GetPath(path)}.Select(x => x.Id).ToArray()";
         }
 
