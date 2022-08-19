@@ -49,12 +49,12 @@
   <interoperability>
     <detect id="Intent.EntityFramework">
       <install>
-        <package id="Intent.Entities.Keys" version="3.3.7" />
+        <package id="Intent.Entities.Keys" version="3.3.8" />
       </install>
     </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Entities.Keys" version="3.3.7" />
+        <package id="Intent.Entities.Keys" version="3.3.8" />
       </install>
     </detect>
   </interoperability>
