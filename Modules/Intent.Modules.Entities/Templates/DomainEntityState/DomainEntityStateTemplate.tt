@@ -11,6 +11,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic"#>
+<#@ import namespace="Intent.Modules.Common.TypeResolution" #>
 using System;
 using System.Collections.Generic;
 <#= DependencyUsings #>
@@ -77,7 +78,7 @@ namespace <#= Namespace #>
 <#		string associatedClassReturn;
 		if (associatedClass.Multiplicity == Multiplicity.Many)
 		{
-			associatedClassReturn = String.Format("{0} ?? ({0} = new List<{1}>())", associatedClass.Name().ToPrivateMember(), associatedClass.Class.Name + "");
+			associatedClassReturn = String.Format("{0} ??= new List<{1}>()", associatedClass.Name().ToPrivateMember(), GetTypeName(associatedClass.Element.AsTypeReference()));
 		}
 		else
 		{

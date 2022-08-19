@@ -18,6 +18,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
     using System.Linq;
     using System.Collections;
     using System.Collections.Generic;
+    using Intent.Modules.Common.TypeResolution;
     
     /// <summary>
     /// Class to produce the template output
@@ -33,6 +34,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             this.Write("using System;\r\nusing System.Collections.Generic;\r\n");
             
             #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\DomainEntityState\DomainEntityStateTemplate.tt"
@@ -309,7 +311,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
 		string associatedClassReturn;
 		if (associatedClass.Multiplicity == Multiplicity.Many)
 		{
-			associatedClassReturn = String.Format("{0} ?? ({0} = new List<{1}>())", associatedClass.Name().ToPrivateMember(), associatedClass.Class.Name + "");
+			associatedClassReturn = String.Format("{0} ??= new List<{1}>()", associatedClass.Name().ToPrivateMember(), GetTypeName(associatedClass.Element.AsTypeReference()));
 		}
 		else
 		{

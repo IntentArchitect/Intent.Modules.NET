@@ -160,7 +160,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (!model.GetExplicitPrimaryKey().Any())
             {
-                if (IsValueObject(model.InternalElement))
+                if (IsOwned(model.InternalElement))
                 {
                     return "";
                 }
@@ -198,7 +198,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var statements = new List<string>();
 
-            if (!IsValueObject(attribute.TypeReference.Element))
+            if (!IsOwned(attribute.TypeReference.Element))
             {
                 statements.Add($"builder.Property(x => x.{attribute.Name.ToPascalCase()})");
                 statements.AddRange(GetAttributeMappingStatements(attribute));
@@ -209,11 +209,27 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             _ownedTypeConfigMethods.Add(@$"
-        public void Configure{attribute.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement, null)}, {GetTypeName((IElement)attribute.TypeReference.Element, null)}> builder)
+        public void Configure{attribute.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}> builder)
         {{{string.Join(@"
             ", GetTypeConfiguration((IElement)attribute.TypeReference.Element))}
         }}");
-            return $"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()});";
+
+            if (attribute.TypeReference.IsCollection)
+            {
+                statements.Add($"builder.OwnsMany(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})");
+            }
+            else
+            {
+                statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})");
+                if (!attribute.TypeReference.IsNullable)
+                {
+                    statements.Add($".Navigation(x => x.{attribute.Name.ToPascalCase()}).IsRequired()");
+                }
+            }
+            
+            return $@"
+            {string.Join(@"
+                ", statements)};";
         }
 
         private List<string> GetAttributeMappingStatements(AttributeModel attribute)
@@ -365,8 +381,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetAssociationMapping(AssociationEndModel associationEnd)
         {
-            const string newLine = @"
-            ";
             var statements = new List<string>();
 
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
@@ -379,12 +393,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             switch (associationEnd.Association.GetRelationshipType())
             {
                 case RelationshipType.OneToOne:
-                    if (IsValueObject(associationEnd.Element))
+                    if (IsOwned(associationEnd.Element))
                     {
                         _ownedTypeConfigMethods.Add(@$"
-        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element, null)}, {GetTypeName((IElement)associationEnd.Element, null)}> builder)
+        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey(x => x.Id);{string.Join(@"
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")};{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})" +
@@ -395,7 +409,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             statements.Add($"    .Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired();");
                         }
 
-                        return newLine + string.Join(newLine, statements);
+                        return $@"
+            {string.Join(@"
+            ", statements)}";
                     }
 
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
@@ -441,9 +457,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     if (IsValueObject(associationEnd.Element))
                     {
                         _ownedTypeConfigMethods.Add(@$"
-        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element, null)}, {GetTypeName((IElement)associationEnd.Element, null)}> builder)
+        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}).HasForeignKey({GetForeignKeyLambda(associationEnd)});{string.Join(@"
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         return $@"
@@ -487,7 +503,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         $"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
 
-            return newLine + string.Join(newLine, statements) + ";";
+            return $@"
+            {string.Join(@"
+            ", statements)};";
         }
 
         private List<string> GetTypeConfiguration(IElement targetType)
@@ -606,13 +624,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private bool IsValueObject(ICanBeReferencedType type)
         {
+            return TryGetTypeName("Domain.ValueObject", type.Id, out var typename);
+        }
+
+        private bool IsOwned(ICanBeReferencedType type)
+        {
             if (type.IsClassModel())
             {
                 return !type.AsClassModel().IsAggregateRoot();
             }
 
-            return TryGetTypeName("Domain.ValueObject", type.Id,
-                out var typename);
+            return IsValueObject(type);
         }
 
         private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)

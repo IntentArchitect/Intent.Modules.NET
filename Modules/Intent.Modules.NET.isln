@@ -80,5 +80,6 @@
     <application id="847b89f0-5425-45a2-9170-1713dfda0b16" name="Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions" relativePath="Intent.Modules.AzureFunctions.Conventions.CRUD/Intent.Modules.AzureFunctions.Conventions.CRUD.application.config" />
     <application id="b40bf9f0-3286-4fe7-8a7d-39df74c0e322" name="Application.Dtos.Pagination" relativePath="Intent.Modules.Application.Dtos.Pagination/Application.Dtos.Pagination.application.config" />
     <application id="7d03c44e-7951-45b7-9a7b-9edd7d0c0cce" name="Intent.Modules.AspNetCore.Interop.EntityFrameworkCore" relativePath="Intent.Modules.AspNetCore.Interop.EntityFrameworkCore/Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.application.config" />
+    <application id="77c4cbb9-a425-4619-ac55-78caa87addd3" name="Intent.Modules.Entities.ValueObjects" relativePath="Intent.Modules.Entities.ValueObjects/Intent.Modules.Entities.ValueObjects.application.config" />
   </applications>
 </solution>

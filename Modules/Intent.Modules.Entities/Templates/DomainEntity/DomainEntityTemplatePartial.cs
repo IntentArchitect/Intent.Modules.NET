@@ -29,6 +29,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         {
             AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"));
             AddTypeSource(DomainEnumTemplate.TemplateId).WithCollectionFormat("ICollection<{0}>");
+            AddTypeSource("Domain.ValueObject", "ICollection<{0}>");
 
             if (Model.Operations.Any(x => x.IsAsync()))
             {
