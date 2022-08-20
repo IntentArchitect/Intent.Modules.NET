@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -18,45 +19,48 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
     {
         public const string TemplateId = "Intent.ValueObjects.ValueObject";
 
+        public CSharpFile Output { get; set; }
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValueObjectTemplate(IOutputTarget outputTarget, ValueObjectModel model) : base(TemplateId, outputTarget, model)
         {
+            Output = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddClass(Model.Name, @class =>
+                {
+                    @class.WithBaseType(this.GetValueObjectBaseName());
+
+                    var ctor = @class.AddConstructor();
+
+                    var getEqualityComponentsMethod = @class.AddMethod($"{UseType("System.Collections.Generic.IEnumerable")}<object>", "GetEqualityComponents")
+                        .Protected()
+                        .Override()
+                        .AddStatement("// Using a yield return statement to return each element one at a time");
+
+                    if (!Model.Attributes.Any())
+                    {
+                        getEqualityComponentsMethod.AddStatement("yield break;");
+                    }
+                    foreach (var attribute in Model.Attributes)
+                    {
+                        var prop = ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase())
+                            .IntroduceProperty()
+                            .PrivateSetter();
+                        getEqualityComponentsMethod.AddStatement($"yield return {prop.Name};");
+                    }
+                });
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return Output.GetConfig();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
+        public override string TransformText()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
-        }
-
-        private string GetClass()
-        {
-            // NOTE: This is an experimental approach to class templating
-            var @class = new CSharpClass(Model.Name)
-                .WithBaseType(this.GetValueObjectBaseName());
-
-            var ctor = @class.AddConstructor();
-
-            var getEqualityComponentsMethod = @class.AddMethod($"{UseType("System.Collections.Generic.IEnumerable")}<object>", "GetEqualityComponents")
-                .Protected()
-                .Override()
-                .AddStatement("// Using a yield return statement to return each element one at a time");
-
-            if (!Model.Attributes.Any())
-            {
-                getEqualityComponentsMethod.AddStatement("yield break;");
-            }
-            foreach (var attribute in Model.Attributes)
-            {
-                var prop = ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase())
-                    .IntroduceProperty()
-                        .PrivateSetter();
-                getEqualityComponentsMethod.AddStatement($"yield return {prop.Name};");
-            }
-            return @class.ToString("    ");
+            return Output.ToString();
         }
     }
 }

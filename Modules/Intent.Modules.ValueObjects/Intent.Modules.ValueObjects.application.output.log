@@ -42,14 +42,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2b49f8c1-c0e9-4319-becd-ae56f45dd628</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#7327f865-ed9f-4f52-952e-124f7c1702e5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValueObject/ValueObjectTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValueObject/ValueObjectTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2b49f8c1-c0e9-4319-becd-ae56f45dd628</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7327f865-ed9f-4f52-952e-124f7c1702e5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ValueObject/ValueObjectTemplatePartial.cs</ApplicationRelativeFilePath>
