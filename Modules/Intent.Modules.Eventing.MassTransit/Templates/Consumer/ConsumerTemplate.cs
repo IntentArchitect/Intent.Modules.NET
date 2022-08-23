@@ -34,7 +34,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge)]\r\n    public class ");
+            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n    public class ");
             
             #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

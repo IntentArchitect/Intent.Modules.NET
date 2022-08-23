@@ -21,9 +21,16 @@ namespace <#= Namespace #>
 <#  foreach(var decorator in GetDecorators()) { #>
             <#= decorator.ServiceRegistration() #>
 <#  } #>
-<#  foreach(var registration in _registrationRequests) { #>
+<#  foreach(var registration in _containerRegistrationRequests.OrderBy(x => x.Priority)) { #>
             <#= DefineServiceRegistration(registration) #>
-<#  } #>
+<#  }
+    foreach (var registration in _serviceConfigurationRequests.OrderBy(x => x.Priority))
+    {
+#>
+            <#= ServiceConfigurationRegistration(registration) #>        
+<#
+    }
+#>
             return services;
         }
     }

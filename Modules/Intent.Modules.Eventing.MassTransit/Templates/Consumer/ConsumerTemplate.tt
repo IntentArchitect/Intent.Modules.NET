@@ -9,7 +9,7 @@ using MassTransit;
 
 namespace <#= Namespace #>
 {
-    [IntentManaged(Mode.Merge)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : IConsumer<<#= GetMessageName() #>>
     {
         [IntentManaged(Mode.Ignore)]
