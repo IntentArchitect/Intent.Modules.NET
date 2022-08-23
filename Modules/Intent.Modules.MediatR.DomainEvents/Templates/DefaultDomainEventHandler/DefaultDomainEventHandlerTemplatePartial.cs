@@ -30,7 +30,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}Handler",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: this.GetFolderPath());
         }
 
         private string GetDomainEventNotificationType()

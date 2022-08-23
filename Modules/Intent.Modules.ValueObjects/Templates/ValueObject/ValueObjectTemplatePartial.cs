@@ -25,14 +25,15 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
         public ValueObjectTemplate(IOutputTarget outputTarget, ValueObjectModel model) : base(TemplateId, outputTarget, model)
         {
             Output = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("System")
                 .AddClass(Model.Name, @class =>
                 {
                     @class.WithBaseType(this.GetValueObjectBaseName());
 
                     var ctor = @class.AddConstructor();
 
-                    var getEqualityComponentsMethod = @class.AddMethod($"{UseType("System.Collections.Generic.IEnumerable")}<object>", "GetEqualityComponents")
+                    var getEqualityComponentsMethod = @class.AddMethod(
+                            returnType: $"{UseType("System.Collections.Generic.IEnumerable")}<object>", 
+                            name: "GetEqualityComponents")
                         .Protected()
                         .Override()
                         .AddStatement("// Using a yield return statement to return each element one at a time");

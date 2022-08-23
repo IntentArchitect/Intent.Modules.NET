@@ -31,7 +31,8 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEvent
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{this.GetNamespace()}",
+                relativeLocation: this.GetFolderPath());
         }
 
         private string GetBaseClass()
