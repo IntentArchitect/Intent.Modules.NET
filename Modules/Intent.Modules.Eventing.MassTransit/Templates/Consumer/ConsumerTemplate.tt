@@ -1,0 +1,26 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel>" #>
+<#@ import namespace="Intent.Modelers.Eventing.Api" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+using System;
+using System.Threading.Tasks;
+using MassTransit;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    [IntentManaged(Mode.Merge)]
+    public class <#= ClassName #> : IConsumer<<#= GetMessageName() #>>
+    {
+        [IntentManaged(Mode.Ignore)]
+        public <#= ClassName #>()
+        {            
+        }
+        
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task Consume(ConsumeContext<<#= GetMessageName() #>> context)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

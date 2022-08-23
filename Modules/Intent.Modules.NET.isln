@@ -82,5 +82,6 @@
     <application id="7d03c44e-7951-45b7-9a7b-9edd7d0c0cce" name="Intent.Modules.AspNetCore.Interop.EntityFrameworkCore" relativePath="Intent.Modules.AspNetCore.Interop.EntityFrameworkCore/Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.application.config" />
     <application id="ad22f3ab-10e5-488a-b026-81346dc61c64" name="Intent.Modules.ValueObjects" relativePath="Intent.Modules.ValueObjects/Intent.Modules.ValueObjects.application.config" />
     <application id="0e64d2ec-20ae-488a-8d4c-0b34354032d5" name="Intent.Modules.Azure.BlobStorage" relativePath="Intent.Modules.Azure.BlobStorage/Intent.Modules.Azure.BlobStorage.application.config" />
+    <application id="8c05ab5b-e166-4c12-8c8c-5c230905057a" name="Intent.Modules.Eventing.MassTransit" relativePath="Intent.Modules.Eventing.MassTransit/Intent.Modules.Eventing.MassTransit.application.config" />
   </applications>
 </solution>

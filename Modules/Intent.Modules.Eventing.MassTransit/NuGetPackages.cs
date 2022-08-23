@@ -1,0 +1,9 @@
+using Intent.Modules.Common.VisualStudio;
+
+namespace Intent.Modules.Eventing.MassTransit;
+
+public static class NuGetPackages
+{
+    public static readonly INugetPackageInfo MassTransit = new NugetPackageInfo("MassTransit", "8.0.6");
+    public static readonly INugetPackageInfo MassTransitAbstractions = new NugetPackageInfo("MassTransit.Abstractions", "8.0.6");
+}

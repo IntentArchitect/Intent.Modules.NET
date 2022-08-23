@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\Consumer\ConsumerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConsumerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventMessage\EventMessageTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventMessageTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\MassTransitTypeReference\MassTransitTypeReferenceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MassTransitTypeReferenceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\MassTransitContainerRegistrationType\MassTransitContainerRegistrationTypeTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MassTransitContainerRegistrationTypeTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MassTransitConfigurationTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\Consumer\ConsumerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ConsumerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventMessage\EventMessageTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventMessageTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MassTransitTypeReference\MassTransitTypeReferenceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MassTransitTypeReferenceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MassTransitContainerRegistrationType\MassTransitContainerRegistrationTypeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MassTransitContainerRegistrationTypeTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MassTransitConfigurationTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.10" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.16" />
+    <PackageReference Include="Intent.Modules.Modelers.Eventing" Version="3.3.2-pre.0" />
+    <PackageReference Include="Intent.Packager" Version="3.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
+  </ItemGroup>
+
+</Project>

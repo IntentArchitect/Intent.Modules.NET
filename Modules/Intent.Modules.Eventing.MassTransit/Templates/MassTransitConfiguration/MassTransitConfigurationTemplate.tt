@@ -1,0 +1,42 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System.Reflection;
+using MassTransit;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public static class <#= ClassName #>
+    {
+        public static void AddMassTransitConfiguration(this IServiceCollection services)
+        {
+            services.AddMassTransit(x =>
+            {
+                x.SetKebabCaseEndpointNameFormatter();
+
+                x.SetInMemorySagaRepositoryProvider();
+
+                var entryAssembly = Assembly.GetAssembly(typeof(<#= this.GetMassTransitContainerRegistrationTypeName() #>));
+
+                x.AddConsumers(entryAssembly);
+                x.AddSagaStateMachines(entryAssembly);
+                x.AddSagas(entryAssembly);
+                x.AddActivities(entryAssembly);
+
+                x.UsingInMemory((context, cfg) =>
+                {
+                    cfg.ConfigureEndpoints(context);
+                });
+            });
+        }
+    }
+}
