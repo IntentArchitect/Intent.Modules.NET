@@ -29,7 +29,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Eventing.Interface</role>
+      <role>Application.Eventing.EventHandlerInterface</role>
       <location>Interfaces/Eventing</location>
     </template>
     <template id="Intent.Modules.Eventing.MassTransit.EventMessage" externalReference="6e6cd535-3b09-4bcb-8ee5-83a6f8ba9a73">
@@ -47,6 +47,30 @@
       </config>
       <role>Infrastructure.DependencyInjection.MassTransit</role>
       <location>Configuration</location>
+    </template>
+    <template id="Intent.Modules.Eventing.MassTransit.MessageBusPublisher" externalReference="014ed2f0-99fc-422f-b070-67a01953c8a3">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.MessageBusPublisher</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Modules.Eventing.MassTransit.MessagePublishContext" externalReference="903038d3-4859-419d-9f10-a3b22881b1f7">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.MessagePublishContext</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Modules.Eventing.MassTransit.PublisherInterface" externalReference="2edf3b4c-5e7d-4bdd-9573-d88922ef9d37">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.PublisherInterface</role>
+      <location>Interfaces/Eventing</location>
     </template>
   </templates>
   <decorators></decorators>

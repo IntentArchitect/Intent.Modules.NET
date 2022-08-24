@@ -41,6 +41,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>EventHandlerInterfaceTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\MessageBusPublisher\MessageBusPublisherTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageBusPublisherTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\MessagePublishContext\MessagePublishContextTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessagePublishContextTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\PublisherInterface\PublisherInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PublisherInterfaceTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -71,6 +86,18 @@
     <None Update="Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventHandlerInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MessageBusPublisher\MessageBusPublisherTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessageBusPublisherTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MessagePublishContext\MessagePublishContextTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessagePublishContextTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\PublisherInterface\PublisherInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>PublisherInterfaceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

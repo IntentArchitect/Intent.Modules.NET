@@ -5,6 +5,9 @@ using Intent.Modules.Eventing.MassTransit.Templates.EventHandlerImplementation;
 using Intent.Modules.Eventing.MassTransit.Templates.EventHandlerInterface;
 using Intent.Modules.Eventing.MassTransit.Templates.EventMessage;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
+using Intent.Modules.Eventing.MassTransit.Templates.MessageBusPublisher;
+using Intent.Modules.Eventing.MassTransit.Templates.MessagePublishContext;
+using Intent.Modules.Eventing.MassTransit.Templates.PublisherInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -58,6 +61,21 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         public static string GetMassTransitConfigurationName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MassTransitConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetMessageBusPublisherName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MessageBusPublisherTemplate.TemplateId);
+        }
+
+        public static string GetMessagePublishContextName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MessagePublishContextTemplate.TemplateId);
+        }
+
+        public static string GetPublisherInterfaceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(PublisherInterfaceTemplate.TemplateId);
         }
 
     }
