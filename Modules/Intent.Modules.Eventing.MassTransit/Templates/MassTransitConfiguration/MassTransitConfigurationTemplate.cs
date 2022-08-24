@@ -60,7 +60,13 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
             
             #line default
             #line hidden
-            this.Write("\r\n            });\r\n        }\r\n    }\r\n}");
+            
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetAdditionalConfiguration()));
+            
+            #line default
+            #line hidden
+            this.Write(" \r\n            });\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

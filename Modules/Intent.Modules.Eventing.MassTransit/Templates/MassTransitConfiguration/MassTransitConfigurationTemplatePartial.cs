@@ -83,6 +83,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
             get { return _messageProviderSpecificConfigCode ??= GetGetMessagingProviderSpecificCode(); }
         }
 
+        public List<ScopedExtensionMethodConfiguration> AdditionalConfiguration { get; } = new();
+
         private string GetConsumers()
         {
             var consumers = new List<string>();
@@ -102,12 +104,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
             switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
             {
                 case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
-                    return new ScopedExtensionMethodConfiguration("UsingInMemory").AppendNestedLines(new[]
+                    return new ScopedExtensionMethodConfiguration("UsingInMemory", "context", "cfg").AppendNestedLines(new[]
                     {
                         $@"cfg.ConfigureEndpoints(context);"
                     });
                 case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
-                    return new ScopedExtensionMethodConfiguration("UsingRabbitMq").AppendNestedLines(new[]
+                    return new ScopedExtensionMethodConfiguration("UsingRabbitMq", "context", "cfg").AppendNestedLines(new[]
                     {
                         $@"cfg.Host(configuration[""RabbitMq:Host""], configuration[""RabbitMq:VirtualHost""], h =>",
                         $@"{{",
@@ -118,14 +120,14 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                         $@"cfg.ConfigureEndpoints(context);"
                     });
                 case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
-                    return new ScopedExtensionMethodConfiguration("UsingAzureServiceBus").AppendNestedLines(new[]
+                    return new ScopedExtensionMethodConfiguration("UsingAzureServiceBus", "context", "cfg").AppendNestedLines(new[]
                     {
                         $@"cfg.Host(configuration[""AzureMessageBus:ConnectionString""]);",
                         $@"",
                         $@"cfg.ConfigureEndpoints(context);"
                     });
                 case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
-                    return new ScopedExtensionMethodConfiguration("UsingAmazonSqs").AppendNestedLines(new[]
+                    return new ScopedExtensionMethodConfiguration("UsingAmazonSqs", "context", "cfg").AppendNestedLines(new[]
                     {
                         $@"cfg.Host(configuration[""AmazonSqs:Host""], h =>",
                         $@"{{",
@@ -145,7 +147,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
         {
             var lines = new List<string>();
 
-            lines.Add($@"x.{MessageProviderSpecificConfigCode.ExtensionMethodName}((context, cfg) =>");
+            lines.Add($@"x.{MessageProviderSpecificConfigCode.ExtensionMethodName}(({string.Join(", ", MessageProviderSpecificConfigCode.Parameters)}) =>");
             lines.Add(@$"{{");
             lines.AddRange(MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Select(s => $@"    {s}"));
             lines.Add(@$"}});");
@@ -154,15 +156,35 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                 ";
             return string.Join(newLine, lines);
         }
+        
+        private string GetAdditionalConfiguration()
+        {
+            var lines = new List<string>();
+
+            foreach (var extensionMethodConfiguration in AdditionalConfiguration)
+            {
+                lines.Add(@$"");
+                lines.Add(@$"x.{extensionMethodConfiguration.ExtensionMethodName}(({string.Join(", ", extensionMethodConfiguration.Parameters)}) =>");
+                lines.Add(@$"{{");
+                lines.AddRange(extensionMethodConfiguration.NestedConfigurationCodeLines.Select(s => $@"    {s}"));
+                lines.Add(@$"}});");
+            }
+
+            const string newLine = @"
+                ";
+            return string.Join(newLine, lines);
+        }
 
         public class ScopedExtensionMethodConfiguration
         {
-            public ScopedExtensionMethodConfiguration(string extensionMethodName)
+            public ScopedExtensionMethodConfiguration(string extensionMethodName, params string[] parameters)
             {
                 ExtensionMethodName = extensionMethodName;
+                Parameters = parameters ?? Array.Empty<string>();
             }
 
             public string ExtensionMethodName { get; }
+            public IReadOnlyCollection<string> Parameters { get; }
             public List<string> NestedConfigurationCodeLines { get; } = new();
 
             public ScopedExtensionMethodConfiguration AppendNestedLines(IEnumerable<string> lines)

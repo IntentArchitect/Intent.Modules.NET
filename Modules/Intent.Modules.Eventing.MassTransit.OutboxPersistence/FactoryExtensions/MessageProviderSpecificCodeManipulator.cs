@@ -1,10 +1,14 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -32,10 +36,41 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.FactoryExtension
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
             var template = application.FindTemplateInstance<MassTransitConfigurationTemplate>(TemplateDependency.OnTemplate(MassTransitConfigurationTemplate.TemplateId));
-            if (template?.MessageProviderSpecificConfigCode != null &&
-                application.Settings.GetEventingSettings().MessagingServiceProvider().IsInMemory())
+            if (template == null)
+            {
+                return;
+            }
+            
+            if (application.Settings.GetEventingSettings().MessagingServiceProvider().IsInMemory())
             {
                 template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
+                return;
+            }
+
+            switch (application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
+            {
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
+                    template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer: 
+                    template.AdditionalConfiguration.Add(new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
+                        .AppendNestedLines(new[]
+                        {
+                            "o.UseSqlServer();",
+                            "o.UseBusOutbox();"
+                        }));
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
+                    template.AdditionalConfiguration.Add(new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
+                        .AppendNestedLines(new[]
+                        {
+                            "o.UsePostgres();",
+                            "o.UseBusOutbox();"
+                        }));
+                    break;
+                default:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
+                    throw new NotSupportedException($"{application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum()} is not supported for Outbox persistence.");
             }
         }
     }
