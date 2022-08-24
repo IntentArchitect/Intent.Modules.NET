@@ -56,6 +56,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>PublisherInterfaceTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\MessageBufferInterface\MessageBufferInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageBufferInterfaceTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -98,6 +103,10 @@
     <None Update="Templates\PublisherInterface\PublisherInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PublisherInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MessageBufferInterface\MessageBufferInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessageBufferInterfaceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

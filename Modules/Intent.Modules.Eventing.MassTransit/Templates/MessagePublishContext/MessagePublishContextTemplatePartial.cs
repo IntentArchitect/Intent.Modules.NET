@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.MassTransit.Templates.MessageBufferInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -28,6 +29,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MessagePublishContext
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")
                 .WithPerServiceCallLifeTime());
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Infrastructure")
+                .ForInterface(GetTemplate<IClassProvider>(MessageBufferInterfaceTemplate.TemplateId))
+                .WithResolveFromContainer());
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

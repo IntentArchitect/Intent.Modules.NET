@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.Eventing.MassTransit.Templates.EventHandlerInterface
+namespace Intent.Modules.Eventing.MassTransit.Templates.MessageBufferInterface
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,9 +22,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.EventHandlerInterface
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MessageBufferInterface\MessageBufferInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class EventHandlerInterfaceTemplate : CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel>
+    public partial class MessageBufferInterfaceTemplate : CSharpTemplateBase<object>
     {
 #line hidden
         /// <summary>
@@ -32,28 +32,21 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.EventHandlerInterface
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MessageBufferInterface\MessageBufferInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MessageBufferInterface\MessageBufferInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        Task HandleAsync(");
-            
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageName()));
-            
-            #line default
-            #line hidden
-            this.Write(" message, CancellationToken cancellationToken = default);\r\n    }\r\n}");
+            this.Write("\r\n    {\r\n        Task FlushAllAsync(CancellationToken cancellationToken = default);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

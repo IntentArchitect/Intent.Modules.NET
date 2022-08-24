@@ -16,7 +16,7 @@ using MassTransit;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #>
+    public class <#= ClassName #> : <#= this.GetMessageBufferInterfaceName() #>
     {
         private readonly List<object> _messagesToPublish = new();
 

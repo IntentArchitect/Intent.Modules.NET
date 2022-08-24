@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.Templates.EventMessage;
 using Intent.RoslynWeaver.Attributes;
@@ -35,6 +36,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
+        private bool UseExplicitNullSymbol => Project.GetProject().NullableEnabled;
+
         private string GetMessageName()
         {
             return GetTypeName(Model.TypeReference);
@@ -44,7 +47,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
         {
             var members = new List<string>();
 
-            members.Add($@"private readonly {this.GetEventHandlerInterfaceName(Model)} _eventHandler;");
+            members.Add($@"private readonly IServiceProvider _serviceProvider;");
 
             if (!members.Any())
             {
@@ -60,7 +63,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
         {
             var parameters = new List<string>();
 
-            parameters.Add($@"{this.GetEventHandlerInterfaceName(Model)} eventHandler");
+            parameters.Add($@"IServiceProvider serviceProvider");
 
             return string.Join(", ", parameters);
         }
@@ -69,7 +72,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
         {
             var statements = new List<string>();
 
-            statements.Add($@"_eventHandler = eventHandler;");
+            statements.Add($@"_serviceProvider = serviceProvider;");
 
             if (!statements.Any())
             {
@@ -87,7 +90,15 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
 
             lines.Add(@$"public async Task Consume(ConsumeContext<{GetMessageName()}> context)");
             lines.Add(@$"{{");
-            lines.Add($@"    await _eventHandler.HandleAsync(context.Message);");
+            lines.Add(@$"    using var scope = _serviceProvider.CreateScope();");
+            lines.Add(@$"    ");
+            lines.Add($@"    var handler = scope.ServiceProvider.GetService<{this.GetEventHandlerInterfaceName(Model)}>(){(UseExplicitNullSymbol ? "!" : string.Empty)};");
+            lines.Add(@$"    var messagePublishContext = scope.ServiceProvider.GetService<{this.GetMessagePublishContextName()}>(){(UseExplicitNullSymbol ? "!" : string.Empty)};");
+            lines.Add($@"    messagePublishContext.Current = context;");
+            lines.Add(@$"    ");
+            lines.Add(@$"    await handler.HandleAsync(context.Message, context.CancellationToken);");
+            lines.Add(@$"    ");
+            lines.Add(@$"    await messagePublishContext.FlushAllAsync(context.CancellationToken);");
             lines.Add(@$"}}");
             lines.Add(@$"");
 

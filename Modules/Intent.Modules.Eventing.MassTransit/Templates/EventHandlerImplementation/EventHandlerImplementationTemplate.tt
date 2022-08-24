@@ -8,6 +8,7 @@
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -23,7 +24,7 @@ namespace <#= Namespace #>
         }
         
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task HandleAsync(<#= GetMessageName() #> message)
+        public async Task HandleAsync(<#= GetMessageName() #> message, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException(); 
         }
