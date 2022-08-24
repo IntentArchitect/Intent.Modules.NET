@@ -32,28 +32,35 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System.Reflection;\r\nusing MassTransit;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System.Reflection;\r\nusing MassTransit;\r\nusing Microsoft.Extensions.Configuration;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        public static void AddMassTransitConfiguration(this IServiceCollection services)\r\n        {\r\n            services.AddMassTransit(x =>\r\n            {\r\n                x.SetKebabCaseEndpointNameFormatter();\r\n\r\n                x.SetInMemorySagaRepositoryProvider();\r\n\r\n                var entryAssembly = Assembly.GetAssembly(typeof(");
+            this.Write("\r\n    {\r\n        public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)\r\n        {\r\n            services.AddMassTransit(x =>\r\n            {\r\n                x.SetKebabCaseEndpointNameFormatter();\r\n\r\n                x.SetInMemorySagaRepositoryProvider();\r\n\r\n                var entryAssembly = Assembly.GetAssembly(typeof(");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetMassTransitContainerRegistrationTypeName()));
             
             #line default
             #line hidden
-            this.Write("));\r\n\r\n                x.AddConsumers(entryAssembly);\r\n                x.AddSagaStateMachines(entryAssembly);\r\n                x.AddSagas(entryAssembly);\r\n                x.AddActivities(entryAssembly);\r\n\r\n                x.UsingInMemory((context, cfg) =>\r\n                {\r\n                    cfg.ConfigureEndpoints(context);\r\n                });\r\n            });\r\n        }\r\n    }\r\n}");
+            this.Write("));\r\n\r\n                x.AddConsumers(entryAssembly);\r\n                x.AddSagaStateMachines(entryAssembly);\r\n                x.AddSagas(entryAssembly);\r\n                x.AddActivities(entryAssembly);\r\n\r\n                ");
+            
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessagingProviderSpecificConfig()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n            });\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

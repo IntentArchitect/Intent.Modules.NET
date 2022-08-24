@@ -9,6 +9,7 @@
 <#@ import namespace="Intent.Metadata.Models" #>
 using System.Reflection;
 using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,7 +18,7 @@ namespace <#= Namespace #>
 {
     public static class <#= ClassName #>
     {
-        public static void AddMassTransitConfiguration(this IServiceCollection services)
+        public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMassTransit(x =>
             {
@@ -32,10 +33,7 @@ namespace <#= Namespace #>
                 x.AddSagas(entryAssembly);
                 x.AddActivities(entryAssembly);
 
-                x.UsingInMemory((context, cfg) =>
-                {
-                    cfg.ConfigureEndpoints(context);
-                });
+                <#= GetMessagingProviderSpecificConfig() #>
             });
         }
     }
