@@ -193,6 +193,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.MassTransit.OutboxPersistence", "Intent.Modules.Eventing.MassTransit.OutboxPersistence\Intent.Modules.Eventing.MassTransit.OutboxPersistence.csproj", "{59D1CE34-4811-4229-8116-62BE614BF8C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -547,6 +549,10 @@ Global
 		{A5014CAB-E575-4D90-AFD3-BA92D8E3BEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5014CAB-E575-4D90-AFD3-BA92D8E3BEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5014CAB-E575-4D90-AFD3-BA92D8E3BEC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D1CE34-4811-4229-8116-62BE614BF8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D1CE34-4811-4229-8116-62BE614BF8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D1CE34-4811-4229-8116-62BE614BF8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D1CE34-4811-4229-8116-62BE614BF8C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -639,6 +645,7 @@ Global
 		{BE53D805-6699-498D-A281-05F24E1B3E58} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{D2C20998-FB57-4C68-B78B-6FAF943C99A3} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A5014CAB-E575-4D90-AFD3-BA92D8E3BEC5} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{59D1CE34-4811-4229-8116-62BE614BF8C3} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

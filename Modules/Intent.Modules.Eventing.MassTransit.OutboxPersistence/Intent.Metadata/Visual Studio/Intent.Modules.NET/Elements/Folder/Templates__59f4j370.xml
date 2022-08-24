@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="208aeec8-be2b-41b1-a1fb-0a5462467a1b" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+<class id="228fbe4c-ea56-4004-aad1-6ec087b2ec67" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
   <name>Templates</name>
   <display>Templates</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</parentFolderId>
-  <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+  <parentFolderId>59d1ce34-4811-4229-8116-62be614bf8c3</parentFolderId>
+  <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
@@ -21,15 +21,15 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="6d241b30-5571-4c53-9092-33902133b121" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="58afb7e0-cb49-478f-92a5-6eaf943c98b9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate</name>
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate</display>
       <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -37,15 +37,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="73079d8c-241d-46e0-b861-ce2f7f17d9b7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="1db7cf4d-62c8-450b-abf5-8ae070437e19" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template</name>
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template</display>
       <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -53,15 +53,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d78433cd-b9ce-415e-80b2-c2d97cc371c2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="11bdf1e3-702f-4b39-b47e-f2c7eb8c8664" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</name>
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed</display>
       <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -69,15 +69,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0079e3c6-4a7d-4fd8-9c74-c3daae7cef00" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="df7a3415-409b-4fe7-aac2-663d2205d16f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</name>
       <display>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial</display>
       <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -85,15 +85,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2e68696c-accb-4347-a680-5a2400e366d6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="31c306c3-41a5-4626-a2c2-8de3bf10b13c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.ProjectItemTemplate.Partial</name>
       <display>Intent.ModuleBuilder.ProjectItemTemplate.Partial</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -101,15 +101,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="450d0a3e-41bf-4ae4-b69d-2d202fc20bfd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="4d9da4f2-1749-4dc4-8d4f-341f4d6c3196" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed</name>
       <display>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -117,15 +117,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="7d2d750c-20c1-4b9d-99bd-8d4399af1d95" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="fc8b4cf1-2056-4cf6-bab4-a03abe54903e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.TemplateRegistration.Custom</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.Custom</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -133,15 +133,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="962af75f-211c-4488-ac3c-9a19147b6e45" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="8de08d81-5b72-40c8-a88f-c024b666d13e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.TemplateRegistration.FilePerModel</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.FilePerModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -149,15 +149,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4892fceb-e7d0-4e4d-b645-be7ba426bc39" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="fd3e9dc9-957f-4cce-8167-2eaca2e1a545" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -165,15 +165,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="818df4af-2ea1-45a2-985d-10a9b9a7a76c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="9c4f6c03-a7de-4742-97dd-24904d620728" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel</name>
       <display>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -181,15 +181,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="dd5ab327-db08-44a6-8f9b-a2f59c51ef8a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f627ab1a-7922-4061-82b0-f78adbfa3b2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation</name>
       <display>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -197,15 +197,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="dba999df-a438-4c6b-95ba-7362cb78c800" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="f6ce0c3c-0688-4657-b796-755d03ad0da1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.FileTemplateT4</name>
       <display>Intent.ModuleBuilder.Templates.FileTemplateT4</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -213,15 +213,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="8813963f-ee4e-4e09-8af7-f886ee4df942" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="8893776c-e6a4-4ee4-b7b9-25e4d58c416c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration</name>
       <display>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -229,15 +229,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="8661e3ca-0656-41c4-98c9-0aa53d7c8f85" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="b71f0626-a256-48f4-91b7-a19613c50056" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.TemplateDecoratorContract</name>
       <display>Intent.ModuleBuilder.Templates.TemplateDecoratorContract</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
@@ -245,15 +245,15 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="693ed70b-d15d-4024-8879-82e0da9f9b87" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="69a6159e-efcb-4bec-9af7-9a3599f46a11" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.TemplateExtensions</name>
       <display>Intent.ModuleBuilder.Templates.TemplateExtensions</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</parentFolderId>
-      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <parentFolderId>228fbe4c-ea56-4004-aad1-6ec087b2ec67</parentFolderId>
+      <packageId>0c40b0d2-7da1-499f-b8a1-cb25be50179f</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>

@@ -10,18 +10,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a5014cab-e575-4d90-afd3-ba92d8e3bec5</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Eventing.MassTransit.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Eventing.MassTransit.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.imodspec</ProjectRelativeFilePath>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a5014cab-e575-4d90-afd3-ba92d8e3bec5</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

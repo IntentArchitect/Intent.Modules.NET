@@ -15,7 +15,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.EventMessage
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class EventMessageTemplate : CSharpTemplateBase<MessageModel>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.EventMessage";
+        public const string TemplateId = "Intent.Eventing.MassTransit.EventMessage";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EventMessageTemplate(IOutputTarget outputTarget, MessageModel model) : base(TemplateId, outputTarget, model)

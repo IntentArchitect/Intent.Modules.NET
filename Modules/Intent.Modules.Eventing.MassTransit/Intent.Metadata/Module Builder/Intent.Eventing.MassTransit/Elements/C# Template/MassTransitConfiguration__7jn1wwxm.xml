@@ -18,7 +18,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>6502ee82-f515-4007-9635-bade3eb88e72</parentFolderId>
   <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-  <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+  <packageName>Intent.Eventing.MassTransit</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

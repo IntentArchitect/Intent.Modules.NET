@@ -18,7 +18,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class MassTransitConfigurationTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.MassTransitConfiguration";
+        public const string TemplateId = "Intent.Eventing.MassTransit.MassTransitConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

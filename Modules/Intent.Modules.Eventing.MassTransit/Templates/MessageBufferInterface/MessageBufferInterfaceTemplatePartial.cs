@@ -14,7 +14,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MessageBufferInterface
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class MessageBufferInterfaceTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.MessageBufferInterface";
+        public const string TemplateId = "Intent.Eventing.MassTransit.MessageBufferInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MessageBufferInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

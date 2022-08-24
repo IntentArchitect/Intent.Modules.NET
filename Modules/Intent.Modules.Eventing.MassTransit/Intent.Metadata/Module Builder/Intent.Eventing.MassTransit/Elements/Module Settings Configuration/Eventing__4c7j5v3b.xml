@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>6502ee82-f515-4007-9635-bade3eb88e72</parentFolderId>
   <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-  <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+  <packageName>Intent.Eventing.MassTransit</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -21,7 +21,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>b1c11f3f-63ce-4917-8ffb-b6c7698346c7</parentFolderId>
       <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-      <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+      <packageName>Intent.Eventing.MassTransit</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
           <addedByDefault>true</addedByDefault>
@@ -46,7 +46,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
           <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -60,7 +60,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
           <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -74,7 +74,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
           <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -88,7 +88,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
           <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />

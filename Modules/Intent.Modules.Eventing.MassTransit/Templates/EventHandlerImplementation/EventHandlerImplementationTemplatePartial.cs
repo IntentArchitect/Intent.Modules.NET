@@ -18,7 +18,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.EventHandlerImplementati
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class EventHandlerImplementationTemplate : CSharpTemplateBase<MessageHandlerModel>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.EventHandlerImplementation";
+        public const string TemplateId = "Intent.Eventing.MassTransit.EventHandlerImplementation";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EventHandlerImplementationTemplate(IOutputTarget outputTarget, MessageHandlerModel model) : base(TemplateId, outputTarget, model)

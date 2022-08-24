@@ -16,7 +16,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MessageBusPublisher
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class MessageBusPublisherTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.MessageBusPublisher";
+        public const string TemplateId = "Intent.Eventing.MassTransit.MessageBusPublisher";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MessageBusPublisherTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

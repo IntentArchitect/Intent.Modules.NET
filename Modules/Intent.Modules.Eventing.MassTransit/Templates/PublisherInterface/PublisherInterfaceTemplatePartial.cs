@@ -14,7 +14,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.PublisherInterface
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class PublisherInterfaceTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.PublisherInterface";
+        public const string TemplateId = "Intent.Eventing.MassTransit.PublisherInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PublisherInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

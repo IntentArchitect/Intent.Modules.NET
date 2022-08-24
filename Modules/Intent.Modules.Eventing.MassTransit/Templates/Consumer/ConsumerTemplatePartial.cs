@@ -18,7 +18,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class ConsumerTemplate : CSharpTemplateBase<MessageHandlerModel>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.Consumer";
+        public const string TemplateId = "Intent.Eventing.MassTransit.Consumer";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ConsumerTemplate(IOutputTarget outputTarget, MessageHandlerModel model) : base(TemplateId, outputTarget, model)

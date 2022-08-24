@@ -16,7 +16,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MessagePublishContext
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class MessagePublishContextTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.MassTransit.MessagePublishContext";
+        public const string TemplateId = "Intent.Eventing.MassTransit.MessagePublishContext";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MessagePublishContextTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
