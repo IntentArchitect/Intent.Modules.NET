@@ -36,12 +36,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
 
-            switch (ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum())
+            switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
             {
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.InMemory:
+                case Settings.EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
                     // InMemory doesn't require appsettings
                     break;
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.Rabbitmq:
+                case Settings.EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
                     AddNugetDependency(NuGetPackages.MassTransitRabbitMq);
 
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:Host", "localhost"));
@@ -49,12 +49,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:Username", "guest"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:Password", "guest"));
                     break;
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AzureServiceBus:
+                case Settings.EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
                     AddNugetDependency(NuGetPackages.MassTransitAzureServiceBusCore);
 
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureMessageBus:ConnectionString", "your connection string"));
                     break;
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AmazonSqs:
+                case Settings.EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
                     AddNugetDependency(NuGetPackages.MassTransitAmazonSqs);
 
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:Host", "us-east-1"));
@@ -63,7 +63,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     break;
                 default:
                     throw new InvalidOperationException(
-                        $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
+                        $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum()}");
             }
         }
 
@@ -74,6 +74,13 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                 className: $"MassTransitConfiguration",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        private ScopedExtensionMethodConfiguration _messageProviderSpecificConfigCode;
+
+        public ScopedExtensionMethodConfiguration MessageProviderSpecificConfigCode
+        {
+            get { return _messageProviderSpecificConfigCode ??= GetGetMessagingProviderSpecificCode(); }
         }
 
         private string GetConsumers()
@@ -90,57 +97,79 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
             return string.Join(newLine, consumers);
         }
 
+        private ScopedExtensionMethodConfiguration GetGetMessagingProviderSpecificCode()
+        {
+            switch (ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum())
+            {
+                case EventingSettings.MessagingServiceProviderOptionsEnum.InMemory:
+                    return new ScopedExtensionMethodConfiguration("UsingInMemory").AppendNestedLines(new[]
+                    {
+                        $@"cfg.ConfigureEndpoints(context);"
+                    });
+                case EventingSettings.MessagingServiceProviderOptionsEnum.Rabbitmq:
+                    return new ScopedExtensionMethodConfiguration("UsingRabbitMq").AppendNestedLines(new[]
+                    {
+                        $@"cfg.Host(configuration[""RabbitMq:Host""], configuration[""RabbitMq:VirtualHost""], h =>",
+                        $@"{{",
+                        $@"    h.Username(configuration[""RabbitMq:Username""]);",
+                        $@"    h.Password(configuration[""RabbitMq:Password""]);",
+                        $@"}});",
+                        $@"",
+                        $@"cfg.ConfigureEndpoints(context);"
+                    });
+                case EventingSettings.MessagingServiceProviderOptionsEnum.AzureServiceBus:
+                    return new ScopedExtensionMethodConfiguration("UsingAzureServiceBus").AppendNestedLines(new[]
+                    {
+                        $@"cfg.Host(configuration[""AzureMessageBus:ConnectionString""]);",
+                        $@"",
+                        $@"cfg.ConfigureEndpoints(context);"
+                    });
+                case EventingSettings.MessagingServiceProviderOptionsEnum.AmazonSqs:
+                    return new ScopedExtensionMethodConfiguration("UsingAmazonSqs").AppendNestedLines(new[]
+                    {
+                        $@"cfg.Host(configuration[""AmazonSqs:Host""], h =>",
+                        $@"{{",
+                        $@"    h.AccessKey(configuration[""AmazonSqs:AccessKey""]);",
+                        $@"    h.SecretKey(configuration[""AmazonSqs:SecretKey""]);",
+                        $@"}});",
+                        $@"",
+                        $@"cfg.ConfigureEndpoints(context);"
+                    });
+                default:
+                    throw new InvalidOperationException(
+                        $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum()}");
+            }
+        }
+
         private string GetMessagingProviderSpecificConfig()
         {
             var lines = new List<string>();
 
-            switch (ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum())
-            {
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.InMemory:
-                    lines.Add("x.UsingInMemory((context, cfg) =>");
-                    lines.Add("{");
-                    lines.Add("    cfg.ConfigureEndpoints(context);");
-                    lines.Add("});");
-                    break;
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.Rabbitmq:
-                    lines.Add(@$"x.UsingRabbitMq((context, cfg) =>");
-                    lines.Add(@$"{{");
-                    lines.Add(@$"    cfg.Host(configuration[""RabbitMq:Host""], configuration[""RabbitMq:VirtualHost""], h => {{");
-                    lines.Add(@$"        h.Username(configuration[""RabbitMq:Username""]);");
-                    lines.Add(@$"        h.Password(configuration[""RabbitMq:Password""]);");
-                    lines.Add(@$"    }});");
-                    lines.Add(@$"    ");
-                    lines.Add(@$"    cfg.ConfigureEndpoints(context);");
-                    lines.Add(@$"}});");
-                    break;
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AzureServiceBus:
-                    lines.Add(@$"x.UsingAzureServiceBus((context,cfg) =>");
-                    lines.Add(@$"{{");
-                    lines.Add(@$"    cfg.Host(configuration[""AzureMessageBus:ConnectionString""]);");
-                    lines.Add(@$"    ");
-                    lines.Add(@$"    cfg.ConfigureEndpoints(context);");
-                    lines.Add(@$"}});");
-                    break;
-                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AmazonSqs:
-                    lines.Add($@"x.UsingAmazonSqs((context, cfg) =>");
-                    lines.Add($@"{{");
-                    lines.Add($@"    cfg.Host(configuration[""AmazonSqs:Host""], h =>");
-                    lines.Add($@"    {{");
-                    lines.Add($@"        h.AccessKey(configuration[""AmazonSqs:AccessKey""]);");
-                    lines.Add($@"        h.SecretKey(configuration[""AmazonSqs:SecretKey""]);");
-                    lines.Add($@"    }});");
-                    lines.Add($@"    ");
-                    lines.Add($@"    cfg.ConfigureEndpoints(context);");
-                    lines.Add($@"}}");
-                    break;
-                default:
-                    throw new InvalidOperationException(
-                        $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
-            }
+            lines.Add($@"x.{MessageProviderSpecificConfigCode.ExtensionMethodName}((context, cfg) =>");
+            lines.Add(@$"{{");
+            lines.AddRange(MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Select(s => $@"    {s}"));
+            lines.Add(@$"}});");
 
             const string newLine = @"
                 ";
             return string.Join(newLine, lines);
+        }
+
+        public class ScopedExtensionMethodConfiguration
+        {
+            public ScopedExtensionMethodConfiguration(string extensionMethodName)
+            {
+                ExtensionMethodName = extensionMethodName;
+            }
+
+            public string ExtensionMethodName { get; }
+            public List<string> NestedConfigurationCodeLines { get; } = new();
+
+            public ScopedExtensionMethodConfiguration AppendNestedLines(IEnumerable<string> lines)
+            {
+                NestedConfigurationCodeLines.AddRange(lines);
+                return this;
+            }
         }
     }
 }

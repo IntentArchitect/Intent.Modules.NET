@@ -11,17 +11,17 @@ namespace Intent.Modules.Eventing.MassTransit.Settings
 {
     public static class ModuleSettingsExtensions
     {
-        public static Eventing GetEventing(this IApplicationSettingsProvider settings)
+        public static EventingSettings GetEventingSettings(this IApplicationSettingsProvider settings)
         {
-            return new Eventing(settings.GetGroup("b1c11f3f-63ce-4917-8ffb-b6c7698346c7"));
+            return new EventingSettings(settings.GetGroup("b1c11f3f-63ce-4917-8ffb-b6c7698346c7"));
         }
     }
 
-    public class Eventing : IGroupSettings
+    public class EventingSettings : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
-        public Eventing(IGroupSettings groupSettings)
+        public EventingSettings(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
         }

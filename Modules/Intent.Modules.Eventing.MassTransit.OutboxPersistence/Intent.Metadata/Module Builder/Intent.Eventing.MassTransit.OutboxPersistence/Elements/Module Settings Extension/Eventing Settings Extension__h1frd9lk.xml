@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="2b05b6d9-0ce0-4990-af12-cb8ba2f078a8" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
-  <name>Eventing</name>
-  <display>Eventing: Eventing</display>
+  <name>Eventing Settings Extension</name>
+  <display>Eventing Settings Extension: Eventing Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />
@@ -63,10 +63,10 @@
           <childElements />
         </childElement>
         <childElement id="b1018407-fcad-48f7-a6ef-a745ec7e66b3" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Database Provider Setting</name>
-          <display>Database Provider Setting = db-provider-setting</display>
+          <name>Relational Database</name>
+          <display>Relational Database = relational-database</display>
           <isAbstract>false</isAbstract>
-          <value>db-provider-setting</value>
+          <value>relational-database</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6d320406-9f48-4f93-999f-a0b60244afff</parentFolderId>

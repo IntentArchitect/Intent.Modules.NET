@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
-  <name>Eventing</name>
-  <display>Eventing</display>
+  <name>Eventing Settings</name>
+  <display>Eventing Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />
