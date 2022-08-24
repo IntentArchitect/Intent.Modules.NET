@@ -8,6 +8,7 @@
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
 using System;
+using System.Threading.Tasks;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -22,7 +23,7 @@ namespace <#= Namespace #>
         }
         
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public void Handle(<#= GetMessageName() #> message)
+        public async Task HandleAsync(<#= GetMessageName() #> message)
         {
             throw new NotImplementedException(); 
         }

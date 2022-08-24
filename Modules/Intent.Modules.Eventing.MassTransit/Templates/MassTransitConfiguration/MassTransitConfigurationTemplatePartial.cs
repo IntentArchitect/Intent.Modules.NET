@@ -54,7 +54,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     break;
                 case Settings.Eventing.MessagingServiceProviderOptionsEnum.AmazonSqs:
                     AddNugetDependency(NuGetPackages.MassTransitAmazonSqs);
-                    
+
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:Host", "us-east-1"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:AccessKey", "your-iam-access-key"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:SecretKey", "your-iam-secret-key"));

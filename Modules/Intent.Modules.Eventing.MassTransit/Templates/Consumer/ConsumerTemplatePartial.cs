@@ -87,7 +87,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
 
             lines.Add(@$"public async Task Consume(ConsumeContext<{GetMessageName()}> context)");
             lines.Add(@$"{{");
-            lines.Add($@"    _eventHandler.Handle(context.Message);");
+            lines.Add($@"    await _eventHandler.HandleAsync(context.Message);");
             lines.Add(@$"}}");
             lines.Add(@$"");
 
