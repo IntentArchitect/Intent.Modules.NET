@@ -55,6 +55,8 @@ namespace Intent.Modules.Eventing.MassTransit.Settings
                 {
                     "in-memory" => MessagingServiceProviderOptionsEnum.InMemory,
                     "rabbitmq" => MessagingServiceProviderOptionsEnum.Rabbitmq,
+                    "azure-service-bus" => MessagingServiceProviderOptionsEnum.AzureServiceBus,
+                    "amazon-sqs" => MessagingServiceProviderOptionsEnum.AmazonSqs,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -68,12 +70,24 @@ namespace Intent.Modules.Eventing.MassTransit.Settings
             {
                 return Value == "rabbitmq";
             }
+
+            public bool IsAzureServiceBus()
+            {
+                return Value == "azure-service-bus";
+            }
+
+            public bool IsAmazonSqs()
+            {
+                return Value == "amazon-sqs";
+            }
         }
 
         public enum MessagingServiceProviderOptionsEnum
         {
             InMemory,
             Rabbitmq,
+            AzureServiceBus,
+            AmazonSqs,
         }
     }
 }

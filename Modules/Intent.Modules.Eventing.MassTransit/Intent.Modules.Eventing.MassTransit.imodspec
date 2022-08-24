@@ -60,6 +60,8 @@
           <options>
             <option value="in-memory" description="In Memory" />
             <option value="rabbitmq" description="Rabbit MQ" />
+            <option value="azure-service-bus" description="Azure Service Bus" />
+            <option value="amazon-sqs" description="Amazon SQS" />
           </options>
         </setting>
       </settings>

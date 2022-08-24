@@ -65,6 +65,34 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="c8dbeb41-83a5-42f7-9a5c-7eabb9d3c0ec" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Azure Service Bus</name>
+          <display>Azure Service Bus = azure-service-bus</display>
+          <isAbstract>false</isAbstract>
+          <value>azure-service-bus</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="09e41888-3f16-4762-905a-b66a16d94fed" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Amazon SQS</name>
+          <display>Amazon SQS = amazon-sqs</display>
+          <isAbstract>false</isAbstract>
+          <value>amazon-sqs</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Modules.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

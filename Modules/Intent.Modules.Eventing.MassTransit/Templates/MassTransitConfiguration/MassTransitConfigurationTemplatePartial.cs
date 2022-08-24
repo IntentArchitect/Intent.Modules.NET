@@ -47,6 +47,18 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:Username", "guest"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:Password", "guest"));
                     break;
+                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AzureServiceBus:
+                    AddNugetDependency(NuGetPackages.MassTransitAzureServiceBusCore);
+
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureMessageBus:ConnectionString", "your connection string"));
+                    break;
+                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AmazonSqs:
+                    AddNugetDependency(NuGetPackages.MassTransitAmazonSqs);
+                    
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:Host", "us-east-1"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:AccessKey", "your-iam-access-key"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:SecretKey", "your-iam-secret-key"));
+                    break;
                 default:
                     throw new InvalidOperationException($"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
             }
@@ -83,6 +95,26 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     lines.Add(@$"    ");
                     lines.Add(@$"    cfg.ConfigureEndpoints(context);");
                     lines.Add(@$"}});");
+                    break;
+                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AzureServiceBus:
+                    lines.Add(@$"x.UsingAzureServiceBus((context,cfg) =>");
+                    lines.Add(@$"{{");
+                    lines.Add(@$"    cfg.Host(configuration[""AzureMessageBus:ConnectionString""]);");
+                    lines.Add(@$"    ");
+                    lines.Add(@$"    cfg.ConfigureEndpoints(context);");
+                    lines.Add(@$"}});");
+                    break;
+                case Settings.Eventing.MessagingServiceProviderOptionsEnum.AmazonSqs:
+                    lines.Add($@"x.UsingAmazonSqs((context, cfg) =>");
+                    lines.Add($@"{{");
+                    lines.Add($@"    cfg.Host(configuration[""AmazonSqs:Host""], h =>");
+                    lines.Add($@"    {{");
+                    lines.Add($@"        h.AccessKey(configuration[""AmazonSqs:AccessKey""]);");
+                    lines.Add($@"        h.SecretKey(configuration[""AmazonSqs:SecretKey""]);");
+                    lines.Add($@"    }});");
+                    lines.Add($@"    ");
+                    lines.Add($@"    cfg.ConfigureEndpoints(context);");
+                    lines.Add($@"}}");
                     break;
                 default:
                     throw new InvalidOperationException($"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
