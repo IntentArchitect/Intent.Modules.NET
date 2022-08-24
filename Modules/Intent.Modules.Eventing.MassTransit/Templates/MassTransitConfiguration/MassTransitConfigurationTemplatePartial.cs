@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -60,7 +62,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AmazonSqs:SecretKey", "your-iam-secret-key"));
                     break;
                 default:
-                    throw new InvalidOperationException($"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
+                    throw new InvalidOperationException(
+                        $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
             }
         }
 
@@ -71,6 +74,20 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                 className: $"MassTransitConfiguration",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        private string GetConsumers()
+        {
+            var consumers = new List<string>();
+            foreach (var messageHandlerModel in ExecutionContext.MetadataManager
+                         .Eventing(ExecutionContext.GetApplicationConfig().Id).GetConsumerModels().SelectMany(x => x.MessageConsumers))
+            {
+                consumers.Add($@"x.AddConsumer<{this.GetConsumerName(messageHandlerModel)}>();");
+            }
+
+            const string newLine = @"
+                ";
+            return string.Join(newLine, consumers);
         }
 
         private string GetMessagingProviderSpecificConfig()
@@ -117,7 +134,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     lines.Add($@"}}");
                     break;
                 default:
-                    throw new InvalidOperationException($"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
+                    throw new InvalidOperationException(
+                        $"Messaging Service Provider is set to a setting that is not supported: {ExecutionContext.Settings.GetEventing().MessagingServiceProvider().AsEnum()}");
             }
 
             const string newLine = @"

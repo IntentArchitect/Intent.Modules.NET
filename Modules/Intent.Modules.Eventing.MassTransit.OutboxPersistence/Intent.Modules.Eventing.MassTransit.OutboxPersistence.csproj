@@ -13,4 +13,9 @@
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Eventing.MassTransit\Intent.Modules.Eventing.MassTransit.csproj" />
+  </ItemGroup>
+
 </Project>
