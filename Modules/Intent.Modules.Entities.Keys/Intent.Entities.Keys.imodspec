@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Keys</id>
   <version>3.3.8</version>
@@ -39,7 +39,7 @@
     <decorator id="Intent.Entities.Keys.ZeroOrOneToZeroOrOneEntityStateDecorator" enabled="true" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.3.10" />
     <dependency id="Intent.Common.Types" version="3.3.4" />
     <dependency id="Intent.Entities" version="3.3.11" />
     <dependency id="Intent.Metadata.RDBMS" version="3.3.7" />
@@ -52,4 +52,7 @@
   <moduleSettings />
   <moduleSettingsExtensions />
   <metadata />
+  <factoryExtensions>
+    <factoryExtension id="Intent.Entities.Keys.DomainEntityKeysExtension" externalReference="ab6e6f40-7db7-4b94-b14a-0ddeb75d82ca" />
+  </factoryExtensions>
 </package>

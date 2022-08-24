@@ -1,6 +1,8 @@
+using System;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,23 +10,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Entities.Settings
 {
-    public static class ModuleSettingsExtensions
+
+    public static class DomainSettingsExtensions
     {
-        public static EntitySettings GetEntitySettings(this IApplicationSettingsProvider settings)
-        {
-            return new EntitySettings(settings.GetGroup("5272be11-67d1-4730-993e-e3582f96e2ee"));
-        }
-    }
 
-    public class EntitySettings
-    {
-        private readonly IGroupSettings _groupSettings;
+        public static bool CreateEntityInterfaces(this DomainSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("0456dafe-a46e-466b-bf23-1fb35c094899")?.Value.ToPascalCase(), out var result) && result;
 
-        public EntitySettings(IGroupSettings groupSettings)
-        {
-            _groupSettings = groupSettings;
-        }
+        public static bool EnsurePrivatePropertySetters(this DomainSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("0cf704e1-9a61-499a-bb91-b20717e334f5")?.Value.ToPascalCase(), out var result) && result;
 
-        public bool SeparateBusinessLogicWithPartials() => bool.TryParse(_groupSettings.GetSetting("cbae7b62-5a99-41c5-8ddf-cf21fb797a10")?.Value.ToPascalCase(), out var result) && result;
+        public static bool SeparateStateFromBehaviour(this DomainSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("7692b7ce-4eb7-4245-ade9-d6b5fb684d80")?.Value.ToPascalCase(), out var result) && result;
     }
 }
