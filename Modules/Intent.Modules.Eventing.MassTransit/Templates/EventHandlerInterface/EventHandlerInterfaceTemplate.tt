@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -12,12 +12,8 @@
 
 namespace <#= Namespace #>
 {
-    /// <summary>
-    /// Is purely used by MassTransit to identify the assembly that holds
-    /// the necessary components which it will register up when the application
-    /// starts up.
-    /// </summary>
-    public class <#= ClassName #>
+    public interface <#= ClassName #>
     {
+        void Handle(<#= GetMessageName() #> message);
     }
 }

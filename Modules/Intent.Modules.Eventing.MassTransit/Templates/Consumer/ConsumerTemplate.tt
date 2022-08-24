@@ -9,18 +9,11 @@ using MassTransit;
 
 namespace <#= Namespace #>
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : IConsumer<<#= GetMessageName() #>>
-    {
-        [IntentManaged(Mode.Ignore)]
-        public <#= ClassName #>()
-        {            
+    {<#= GetClassMembers() #>
+        public <#= ClassName #>(<#= GetConstructorParameters() #>)
+        {<#= GetConstructorImplementation() #>
         }
-        
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Consume(ConsumeContext<<#= GetMessageName() #>> context)
-        {
-            throw new NotImplementedException();
-        }
+        <#= GetClassMethods() #>
     }
 }

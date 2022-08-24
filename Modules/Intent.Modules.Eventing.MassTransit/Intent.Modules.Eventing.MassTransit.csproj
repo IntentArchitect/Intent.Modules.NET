@@ -31,6 +31,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>MassTransitConfigurationTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\EventHandlerImplementation\EventHandlerImplementationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventHandlerImplementationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventHandlerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +63,14 @@
     <None Update="Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MassTransitConfigurationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventHandlerImplementation\EventHandlerImplementationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventHandlerImplementationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventHandlerInterfaceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

@@ -26,7 +26,7 @@ namespace <#= Namespace #>
 
                 x.SetInMemorySagaRepositoryProvider();
 
-                var entryAssembly = Assembly.GetAssembly(typeof(<#= this.GetMassTransitContainerRegistrationTypeName() #>));
+                var entryAssembly = Assembly.GetEntryAssembly();
 
                 x.AddConsumers(entryAssembly);
                 x.AddSagaStateMachines(entryAssembly);

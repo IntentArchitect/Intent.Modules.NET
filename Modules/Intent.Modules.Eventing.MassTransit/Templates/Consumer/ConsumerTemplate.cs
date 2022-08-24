@@ -34,35 +34,56 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n    public class ");
+            this.Write("\r\n{\r\n    public class ");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : IConsumer<");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageName()));
             
             #line default
             #line hidden
-            this.Write(">\r\n    {\r\n        [IntentManaged(Mode.Ignore)]\r\n        public ");
+            this.Write(">\r\n    {");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassMembers()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        public ");
+            
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("()\r\n        {            \r\n        }\r\n        \r\n        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]\r\n        public async Task Consume(ConsumeContext<");
+            this.Write("(");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageName()));
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorParameters()));
             
             #line default
             #line hidden
-            this.Write("> context)\r\n        {\r\n            throw new NotImplementedException();\r\n        }\r\n    }\r\n}");
+            this.Write(")\r\n        {");
+            
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorImplementation()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        }\r\n        ");
+            
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassMethods()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

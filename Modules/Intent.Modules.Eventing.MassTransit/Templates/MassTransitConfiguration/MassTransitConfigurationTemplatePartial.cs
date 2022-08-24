@@ -41,7 +41,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                     break;
                 case Settings.Eventing.MessagingServiceProviderOptionsEnum.Rabbitmq:
                     AddNugetDependency(NuGetPackages.MassTransitRabbitMq);
-                    
+
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:Host", "localhost"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:VirtualHost", "/"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("RabbitMq:Username", "guest"));

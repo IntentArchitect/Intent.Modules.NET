@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.Templates.Consumer;
+using Intent.Modules.Eventing.MassTransit.Templates.EventHandlerImplementation;
+using Intent.Modules.Eventing.MassTransit.Templates.EventHandlerInterface;
 using Intent.Modules.Eventing.MassTransit.Templates.EventMessage;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
-using Intent.Modules.Eventing.MassTransit.Templates.MassTransitContainerRegistrationType;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,6 +25,26 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
             return template.GetTypeName(ConsumerTemplate.TemplateId, model);
         }
 
+        public static string GetEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
+        {
+            return template.GetTypeName(EventHandlerImplementationTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageHandlerModel model)
+        {
+            return template.GetTypeName(EventHandlerImplementationTemplate.TemplateId, model);
+        }
+
+        public static string GetEventHandlerInterfaceName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
+        {
+            return template.GetTypeName(EventHandlerInterfaceTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetEventHandlerInterfaceName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageHandlerModel model)
+        {
+            return template.GetTypeName(EventHandlerInterfaceTemplate.TemplateId, model);
+        }
+
         public static string GetEventMessageName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageModel
         {
             return template.GetTypeName(EventMessageTemplate.TemplateId, template.Model);
@@ -37,11 +58,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         public static string GetMassTransitConfigurationName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MassTransitConfigurationTemplate.TemplateId);
-        }
-
-        public static string GetMassTransitContainerRegistrationTypeName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(MassTransitContainerRegistrationTypeTemplate.TemplateId);
         }
 
     }

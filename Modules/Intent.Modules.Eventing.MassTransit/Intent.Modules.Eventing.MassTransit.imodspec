@@ -13,8 +13,24 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.Eventing.Consumer</role>
+      <role>Distribution.Eventing.Consumer</role>
       <location>EventConsumers</location>
+    </template>
+    <template id="Intent.Modules.Eventing.MassTransit.EventHandlerImplementation" externalReference="8ca87db6-869c-4f8a-8990-f797d96c4aca">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>EventHandlers</location>
+    </template>
+    <template id="Intent.Modules.Eventing.MassTransit.EventHandlerInterface" externalReference="f9b3467a-b1eb-41f0-bc1b-209c086b3801">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.Interface</role>
+      <location>Interfaces/Eventing</location>
     </template>
     <template id="Intent.Modules.Eventing.MassTransit.EventMessage" externalReference="6e6cd535-3b09-4bcb-8ee5-83a6f8ba9a73">
       <config>
@@ -31,14 +47,6 @@
       </config>
       <role>Infrastructure.DependencyInjection.MassTransit</role>
       <location>Configuration</location>
-    </template>
-    <template id="Intent.Modules.Eventing.MassTransit.MassTransitContainerRegistrationType" externalReference="4d2fea6b-4989-4317-beb7-a3d8ca58d694">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.DependencyInjection.MassTransit</role>
-      <location></location>
     </template>
   </templates>
   <decorators></decorators>

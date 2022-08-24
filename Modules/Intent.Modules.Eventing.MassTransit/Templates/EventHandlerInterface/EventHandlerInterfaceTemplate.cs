@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitContainerRegistrationType
+namespace Intent.Modules.Eventing.MassTransit.Templates.EventHandlerInterface
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,9 +22,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitContainerRegi
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitContainerRegistrationType\MassTransitContainerRegistrationTypeTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class MassTransitContainerRegistrationTypeTemplate : CSharpTemplateBase<object>
+    public partial class EventHandlerInterfaceTemplate : CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel>
     {
 #line hidden
         /// <summary>
@@ -34,19 +34,26 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitContainerRegi
         {
             this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitContainerRegistrationType\MassTransitContainerRegistrationTypeTemplate.tt"
+            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    /// <summary>\r\n    /// Is purely used by MassTransit to identify the assembly that holds\r\n    /// the necessary components which it will register up when the application\r\n    /// starts up.\r\n    /// </summary>\r\n    public class ");
+            this.Write("\r\n{\r\n    public interface ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitContainerRegistrationType\MassTransitContainerRegistrationTypeTemplate.tt"
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n    }\r\n}");
+            this.Write("\r\n    {\r\n        void Handle(");
+            
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\EventHandlerInterface\EventHandlerInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageName()));
+            
+            #line default
+            #line hidden
+            this.Write(" message);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
