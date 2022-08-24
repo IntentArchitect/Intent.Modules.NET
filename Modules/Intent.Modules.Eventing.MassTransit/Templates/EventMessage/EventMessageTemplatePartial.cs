@@ -27,7 +27,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.EventMessage
         {
             return new CSharpFileConfig(
                 className: $"{Model.Name}",
-                @namespace: $"{this.GetNamespace()}",
+                @namespace: $"{Model.InternalElement.Package.Name.ToPascalCase()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
     }
