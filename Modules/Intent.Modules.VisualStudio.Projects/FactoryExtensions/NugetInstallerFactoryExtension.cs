@@ -95,11 +95,11 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
 
         private void HandleEvent(VisualStudioProjectCreatedEvent @event)
         {
-            if (_projectRegistry.ContainsKey(@event.ProjectId))
+            if (_projectRegistry.ContainsKey(@event.TemplateInstance.ProjectId))
             {
-                throw new Exception($"Attempted to add project with same project Id [{@event.ProjectId}] (location: {@event.TemplateInstance.FilePath})");
+                throw new Exception($"Attempted to add project with same project Id [{@event.TemplateInstance.ProjectId}] (location: {@event.TemplateInstance.FilePath})");
             }
-            _projectRegistry.Add(@event.ProjectId, @event.TemplateInstance);
+            _projectRegistry.Add(@event.TemplateInstance.ProjectId, @event.TemplateInstance);
         }
 
         //private string LoadProject(string projectFilePath)

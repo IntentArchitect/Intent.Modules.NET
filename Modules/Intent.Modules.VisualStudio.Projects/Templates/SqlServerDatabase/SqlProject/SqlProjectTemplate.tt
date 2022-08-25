@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="IntentTemplateBase<Intent.Modules.VisualStudio.Projects.Api.SQLServerDatabaseProjectModel>" #>
+<#@ template language="C#" inherits="VisualStudioProjectTemplateBase<SQLServerDatabaseProjectModel>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>

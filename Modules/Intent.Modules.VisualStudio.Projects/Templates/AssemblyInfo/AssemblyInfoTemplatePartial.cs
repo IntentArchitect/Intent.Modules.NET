@@ -9,8 +9,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AssemblyInfo
     {
         public const string Identifier = "Intent.VisualStudio.Projects.AssemblyInfo";
 
-        public AssemblyInfoTemplate(IProject project)
-            : base (Identifier, project, null)
+        public AssemblyInfoTemplate(IOutputTarget outputTarget)
+            : base (Identifier, outputTarget, null)
         {
         }
 
@@ -22,7 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AssemblyInfo
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                overwriteBehaviour: OverwriteBehaviour.OnceOff,
+                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled,
                 codeGenType: CodeGenType.Basic,
                 fileName: "AssemblyInfo",
                 fileExtension: "cs",

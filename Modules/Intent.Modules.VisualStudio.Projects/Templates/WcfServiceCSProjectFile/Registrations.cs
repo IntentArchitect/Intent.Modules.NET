@@ -13,7 +13,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WcfServiceCSProjectFile
     [Description("Wcf Service CS Project File - VS Projects")]
     public class Registrations : ITemplateRegistration
     {
-        public string TemplateId => WcfServiceCSProjectFileTemplate.IDENTIFIER;
+        public string TemplateId => WcfServiceCSProjectFileTemplate.TemplateId;
         private readonly IMetadataManager _metadataManager;
 
         public Registrations(IMetadataManager metadataManager)

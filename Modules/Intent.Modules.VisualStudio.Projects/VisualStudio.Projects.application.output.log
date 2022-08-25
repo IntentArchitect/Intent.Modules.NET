@@ -396,22 +396,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template.PreProcessed#90bf72bb-3741-4c8e-8954-2a9a65d37740</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SqlServerDatabase/SqlProject/SqlProjectTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SqlServerDatabase/SqlProject/SqlProjectTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template#90bf72bb-3741-4c8e-8954-2a9a65d37740</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SqlServerDatabase/SqlProject/SqlProjectTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SqlServerDatabase/SqlProject/SqlProjectTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</ApplicationRelativeFilePath>

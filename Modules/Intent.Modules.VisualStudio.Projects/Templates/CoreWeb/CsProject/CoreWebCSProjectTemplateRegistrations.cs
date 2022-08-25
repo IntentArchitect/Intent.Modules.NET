@@ -9,11 +9,11 @@ using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
 {
-    [Description(CoreWebCSProjectTemplate.Identifier)]
+    [Description(CoreWebCSProjectTemplate.TemplateId)]
     public class CoreWebCSProjectTemplateRegistrations : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
-        public string TemplateId => CoreWebCSProjectTemplate.Identifier;
+        public string TemplateId => CoreWebCSProjectTemplate.TemplateId;
 
         public CoreWebCSProjectTemplateRegistrations(IMetadataManager metadataManager)
         {

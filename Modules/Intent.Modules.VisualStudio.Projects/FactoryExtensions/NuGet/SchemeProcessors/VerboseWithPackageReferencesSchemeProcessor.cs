@@ -4,6 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
+using Intent.Modules.Common;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using NuGet.Versioning;
 
@@ -136,7 +137,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
 
             FormatNodes(document.Root.Nodes());
 
-            return $"<?xml version=\"1.0\" encoding=\"utf-8\"?>{Environment.NewLine}{document}";
+            return document.ToStringUTF8();
         }
 
         private static void FormatNodes(IEnumerable<XNode> nodes)

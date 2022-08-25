@@ -1,42 +1,25 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Xml.Linq;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.SoftwareFactory;
 using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Events;
-using Intent.Templates;
 using Microsoft.Build.Construction;
+using Microsoft.Build.Evaluation;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.CsProject
 {
-    public class ConsoleAppCsProjectTemplate : VisualStudioProjectTemplateBase
+    public class ConsoleAppCsProjectTemplate : VisualStudioProjectTemplateBase<ConsoleAppNETFrameworkModel>
     {
-        public const string Identifier = "Intent.VisualStudio.Projects.ConsoleApp.CSProject";
+        public const string TemplateId = "Intent.VisualStudio.Projects.ConsoleApp.CSProject";
 
-        public ConsoleAppCsProjectTemplate(IProject project, IVisualStudioProject model)
-            : base (Identifier, project, model)
+        public ConsoleAppCsProjectTemplate(IOutputTarget outputTarget, ConsoleAppNETFrameworkModel model)
+            : base(TemplateId, outputTarget, model)
         {
         }
 
         public override string TransformText()
         {
-            if (!TryGetExistingFileContent(out var content))
-            {
-                content = CreateTemplate();
-            }
-
-            var doc = XDocument.Parse(content);
-            return doc.ToStringUTF8();
-        }
-
-        private string CreateTemplate()
-        {
-            var root = ProjectRootElement.Create();
+            var root = ProjectRootElement.Create(NewProjectFileOptions.IncludeXmlDeclaration);
             root.ToolsVersion = "14.0";
             root.DefaultTargets = "Build";
 
@@ -71,7 +54,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.CsProject
             group.AddProperty("ErrorReport", "prompt");
             group.AddProperty("WarningLevel", "4");
 
-            var itemGroup = AddItems(root, "Reference", 
+            var itemGroup = AddItems(root, "Reference",
                 "Microsoft.CSharp"
                 , "System"
                 , "System.Core"
@@ -96,8 +79,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.CsProject
             }
 
             root.AddImport("$(MSBuildToolsPath)\\Microsoft.CSharp.targets");
-
-            return root.RawXml.Replace("utf-16", "utf-8");
+            return root.ToUtf8String();
         }
 
         private string GetTargetFrameworkVersion()

@@ -10,11 +10,11 @@ using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreLibrary.CsProject
 {
-    [Description(CoreLibraryCSProjectTemplate.Identifier)]
+    [Description(CoreLibraryCSProjectTemplate.TemplateId)]
     public class CoreLibraryCSProjectTemplateRegistrations : ITemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
-        public string TemplateId => CoreLibraryCSProjectTemplate.Identifier;
+        public string TemplateId => CoreLibraryCSProjectTemplate.TemplateId;
 
         public CoreLibraryCSProjectTemplateRegistrations(IMetadataManager metadataManager)
         {

@@ -6,10 +6,10 @@ using Intent.Registrations;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.CsProject
 {
-    [Description(ConsoleAppCsProjectTemplate.Identifier)]
+    [Description(ConsoleAppCsProjectTemplate.TemplateId)]
     public class ConsoleAppCsProjectTemplateRegistration : ITemplateRegistration
     {
-        public string TemplateId => ConsoleAppCsProjectTemplate.Identifier;
+        public string TemplateId => ConsoleAppCsProjectTemplate.TemplateId;
         private readonly IMetadataManager _metadataManager;
 
         public ConsoleAppCsProjectTemplateRegistration(IMetadataManager metadataManager)

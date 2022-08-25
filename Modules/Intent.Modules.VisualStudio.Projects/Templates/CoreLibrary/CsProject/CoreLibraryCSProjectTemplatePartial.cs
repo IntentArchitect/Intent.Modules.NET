@@ -3,12 +3,12 @@ using Intent.Modules.VisualStudio.Projects.Api;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreLibrary.CsProject
 {
-    partial class CoreLibraryCSProjectTemplate : VisualStudioProjectTemplateBase
+    partial class CoreLibraryCSProjectTemplate : VisualStudioProjectTemplateBase<ClassLibraryNETCoreModel>
     {
-        public const string Identifier = "Intent.VisualStudio.Projects.CoreLibrary.CSProject";
+        public const string TemplateId = "Intent.VisualStudio.Projects.CoreLibrary.CSProject";
 
-        public CoreLibraryCSProjectTemplate(IProject project, IVisualStudioProject model)
-            : base(Identifier, project, model)
+        public CoreLibraryCSProjectTemplate(IOutputTarget outputTarget, ClassLibraryNETCoreModel model)
+            : base(TemplateId, outputTarget, model)
         {
         }
     }

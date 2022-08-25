@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
@@ -10,18 +8,17 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Events;
+using Intent.Modules.VisualStudio.Projects.Sync;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Microsoft.Build.Evaluation;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlProject
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class SqlProjectTemplate : IntentTemplateBase<SQLServerDatabaseProjectModel>
+    [IntentManaged(Mode.Ignore)]
+    public partial class SqlProjectTemplate : VisualStudioProjectTemplateBase<SQLServerDatabaseProjectModel>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.VisualStudio.Projects.SqlServerDatabase.SqlProject";
@@ -39,30 +36,19 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
             );
         }
 
-        public override string RunTemplate()
+        protected override string ApplyAdditionalTransforms(string existingFileOrTransformTextContent)
         {
-            if (!TryGetExistingFileContent(out var content))
-            {
-                content = base.RunTemplate();
-            }
+            var xml = new ProjectFileXml(existingFileOrTransformTextContent);
 
-            var doc = XDocument.Parse(content, LoadOptions.PreserveWhitespace);
-            var namespaces = new XmlNamespaceManager(new NameTable());
-            var @namespace = doc.Root.GetDefaultNamespace();
-            namespaces.AddNamespace("ns", @namespace.NamespaceName);
+            ApplySqlCmdVariables(xml);
 
-            ApplySqlCmdVariables(doc, namespaces, @namespace);
-
-            var updated = doc.ToString();
-            return IsSemanticallyTheSame(content, updated)
-                ? content
-                : $"<?xml version=\"1.0\" encoding=\"utf-8\"?>{Environment.NewLine}{updated}";
+            return xml.Document.ToStringUTF8();
         }
 
-        private void ApplySqlCmdVariables(XDocument doc, IXmlNamespaceResolver namespaces, XNamespace @namespace)
+        private void ApplySqlCmdVariables(ProjectFileXml xml)
         {
-            var toRemove = doc
-                .XPathSelectElements("/ns:Project/ns:ItemGroup/ns:SqlCmdVariable[@IntentReference]", namespaces)
+            var toRemove = xml.Document
+                .XPathSelectElements("/ns:Project/ns:ItemGroup/ns:SqlCmdVariable[@IntentReference]", xml.Namespaces)
                 .Where(x => Model.SQLCMDVariables.All(s => s.Id != x.Attribute("IntentReference")!.Value))
                 .ToArray();
             foreach (var item in toRemove)
@@ -81,13 +67,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
                 return;
             }
 
-            var itemGroup = doc
-                .XPathSelectElements("/ns:Project/ns:ItemGroup[ns:SqlCmdVariable]", namespaces)
+            var itemGroup = xml.Document
+                .XPathSelectElements("/ns:Project/ns:ItemGroup[ns:SqlCmdVariable]", xml.Namespaces)
                 .FirstOrDefault();
-            itemGroup ??= CreateItemGroup(doc, namespaces, @namespace);
+            itemGroup ??= CreateItemGroup(xml);
 
-            var maxValue = doc
-                .XPathSelectElements("/ns:Project/ns:ItemGroup/ns:SqlCmdVariable/ns:Value", namespaces)
+            var maxValue = xml.Document
+                .XPathSelectElements("/ns:Project/ns:ItemGroup/ns:SqlCmdVariable/ns:Value", xml.Namespaces)
                 .Select(x => int.TryParse(x.Value.Replace("$(SqlCmdVar__", string.Empty).Replace(")", string.Empty), out var parsed)
                     ? parsed
                     : 0)
@@ -97,9 +83,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
             foreach (var sqlCmdVariable in Model.SQLCMDVariables)
             {
                 var element =
-                    doc.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:SqlCmdVariable[@IntentReference='{sqlCmdVariable.Id}']", namespaces)
+                    xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:SqlCmdVariable[@IntentReference='{sqlCmdVariable.Id}']", xml.Namespaces)
                     ??
-                    doc.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:SqlCmdVariable[@Include='{sqlCmdVariable.Name}']", namespaces);
+                    xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:SqlCmdVariable[@Include='{sqlCmdVariable.Name}']", xml.Namespaces);
 
                 if (element == null)
                 {
@@ -119,14 +105,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
             }
         }
 
-        private static XElement CreateItemGroup(XDocument doc, IXmlNamespaceResolver namespaces, XNamespace @namespace)
+        private static XElement CreateItemGroup(ProjectFileXml xml)
         {
-            var newItemGroup = CreateElement("ItemGroup", @namespace);
+            var newItemGroup = CreateElement("ItemGroup", xml.Namespace);
 
-            var lastItemGroup = doc.XPathSelectElements("/ns:Project/ns:ItemGroup", namespaces).LastOrDefault();
+            var lastItemGroup = xml.Document.XPathSelectElements("/ns:Project/ns:ItemGroup", xml.Namespaces).LastOrDefault();
             if (lastItemGroup == null)
             {
-                var projectElement = doc.XPathSelectElement("/ns:Project", namespaces);
+                var projectElement = xml.Document.XPathSelectElement("/ns:Project", xml.Namespaces);
                 projectElement.Add(newItemGroup);
                 return newItemGroup;
             }
@@ -143,17 +129,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
         private static XElement CreateElement(string name, XNamespace @namespace, object value = null)
         {
             return new XElement(XName.Get(name, @namespace.NamespaceName), value);
-        }
-
-        private static bool IsSemanticallyTheSame(string original, string updated)
-        {
-            return XDocument.Parse(original).ToString() == XDocument.Parse(updated).ToString();
-        }
-
-        public override void OnCreated()
-        {
-            base.OnCreated();
-            ExecutionContext.EventDispatcher.Publish(new VisualStudioSolutionProjectCreatedEvent(OutputTarget.Id, GetMetadata().GetFilePath()));
         }
     }
 }

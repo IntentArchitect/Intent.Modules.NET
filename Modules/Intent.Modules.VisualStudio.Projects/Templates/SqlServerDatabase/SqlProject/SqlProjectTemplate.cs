@@ -23,7 +23,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
     
     #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\SqlServerDatabase\SqlProject\SqlProjectTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class SqlProjectTemplate : IntentTemplateBase<Intent.Modules.VisualStudio.Projects.Api.SQLServerDatabaseProjectModel>
+    public partial class SqlProjectTemplate : VisualStudioProjectTemplateBase<SQLServerDatabaseProjectModel>
     {
 #line hidden
         /// <summary>

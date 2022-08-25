@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.SdkEvolutionHelpers;
 using Intent.Utils;
 
@@ -16,45 +17,72 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 {
     internal abstract class ProjectSyncProcessorBase
     {
-        private readonly IXmlFileCache _xmlFileCache;
-        private readonly IChanges _changeManager;
-        private readonly string _relativeProjectPath;
+        private readonly IVisualStudioProjectTemplate _template;
         private readonly ISoftwareFactoryEventDispatcher _sfEventDispatcher;
-
-        private Action<string, string> _commitChanges;
-        private XDocument _doc;
-        private XmlNamespaceManager _namespaces;
-        private XNamespace _namespace;
-        private XElement _projectElement;
+        private readonly IChanges _changes;
+        private readonly bool _includeXmlDeclaration;
 
         protected ProjectSyncProcessorBase(
-            string relativeProjectPath,
+            IVisualStudioProjectTemplate template,
             ISoftwareFactoryEventDispatcher sfEventDispatcher,
-            IXmlFileCache xmlFileCache,
-            IChanges changeManager)
+            IChanges changes,
+            bool includeXmlDeclaration)
         {
-            if (string.IsNullOrWhiteSpace(relativeProjectPath))
-            {
-                throw new ArgumentNullException(nameof(relativeProjectPath));
-            }
-
-            _relativeProjectPath = relativeProjectPath;
+            _template = template;
             _sfEventDispatcher = sfEventDispatcher;
-            _xmlFileCache = xmlFileCache;
-            _changeManager = changeManager;
-            _commitChanges = SendOverwriteFileCommand;
+            _changes = changes;
+            _includeXmlDeclaration = includeXmlDeclaration;
         }
 
         public void Process(List<SoftwareFactoryEvent> events)
         {
-            LoadProjectFile();
+            var change = _changes.FindChange(_template.FilePath);
 
-            ProcessEvents(events);
+            var content = change?.Content;
+            if (content == null &&
+                !_template.TryGetExistingFileContent(out content))
+            {
+                throw new Exception($"Could not find content for {_template.FilePath}");
+            }
 
-            CommitChanges();
+            var xml = new ProjectFileXml(content);
+
+            _template.OutputTarget.SyncProjectReferences(xml.Document);
+            _template.OutputTarget.SyncFrameworkReferences(xml.Document);
+
+            ProcessEvents(xml, events);
+
+            var updatedContent = _includeXmlDeclaration
+                ? xml.Document.ToStringUTF8()
+                : xml.Document.ToString();
+            if (XmlHelper.IsSemanticallyTheSame(content, updatedContent))
+            {
+                return;
+            }
+
+            Logging.Log.Debug($"Syncing changes to Project File {ProjectPath}");
+            if (change == null)
+            {
+                _sfEventDispatcher.Publish(new SoftwareFactoryEvent(
+                    eventIdentifier: SoftwareFactoryEvents.OverwriteFileCommand,
+                    additionalInfo: new Dictionary<string, string>
+                    {
+                        ["FullFileName"] = ProjectPath,
+                        ["Context"] = _template.ToString(),
+                        ["Content"] = string.Empty
+                    }));
+
+                change = _changes.FindChange(ProjectPath);
+            }
+
+            change.ChangeContent(updatedContent);
         }
 
-        protected virtual void ProcessEvents(List<SoftwareFactoryEvent> events)
+        protected string ProjectPath => _template.FilePath;
+
+        protected virtual void ProcessEvents(
+            ProjectFileXml xml,
+            List<SoftwareFactoryEvent> events)
         {
             foreach (var @event in events)
             {
@@ -62,11 +90,13 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 {
                     case SoftwareFactoryEvents.FileAddedEvent:
                         AddProjectItem(
+                            xml: xml,
                             path: @event.GetValue("Path"),
                             data: GetFileAddedDataP(@event.AdditionalInfo));
                         break;
                     case SoftwareFactoryEvents.FileRemovedEvent:
                         RemoveProjectItem(
+                            xml: xml,
                             path: @event.GetValue("Path"));
                         break;
                     default:
@@ -103,82 +133,24 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return null;
         }
 
-        private void CommitChanges()
+        private static XElement FindItemGroup(
+            ProjectFileXml xml,
+            string itemType)
         {
-            var filename = Path.GetFullPath(_relativeProjectPath);
-
-            var normalizedExistingContent = File.Exists(filename)
-                ? XDocument.Parse(File.ReadAllText(filename)).ToString()
-                : string.Empty;
-
-            var normalizedOutput = XDocument.Parse(_doc.ToString()).ToString();
-
-            if (normalizedExistingContent == normalizedOutput)
-            {
-                return;
-            }
-
-            Logging.Log.Debug($"Syncing changes to Project File {filename}");
-            _commitChanges(filename, $"<?xml version=\"1.0\" encoding=\"utf-8\"?>{Environment.NewLine}{normalizedOutput}");
-        }
-
-        private void SendOverwriteFileCommand(string fullFilePath, string fileContent)
-        {
-            var @event = new SoftwareFactoryEvent(
-                SoftwareFactoryEvents.OverwriteFileCommand,
-                new Dictionary<string, string>
-                {
-                    ["FullFileName"] = fullFilePath,
-                    ["Content"] = fileContent,
-                });
-
-            _sfEventDispatcher.Publish(@event);
-        }
-
-        private void LoadProjectFile()
-        {
-            var change = _changeManager.FindChange(_relativeProjectPath);
-            if (change == null)
-            {
-                _doc = _xmlFileCache.GetFile(_relativeProjectPath);
-                if (_doc == null)
-                {
-                    throw new Exception($"Trying to sync project file, but unable to find file content. {_relativeProjectPath}");
-                }
-            }
-            else
-            {
-                _doc = XDocument.Parse(change.Content, LoadOptions.PreserveWhitespace);
-                _commitChanges = (_, content) => change.ChangeContent(content);
-            }
-
-            if (_doc.Root == null)
-            {
-                throw new Exception("_doc.Root is null");
-            }
-
-            _namespaces = new XmlNamespaceManager(new NameTable());
-            _namespace = _doc.Root.GetDefaultNamespace();
-            _namespaces.AddNamespace("ns", _namespace.NamespaceName);
-
-            _projectElement = _doc.XPathSelectElement("/ns:Project", _namespaces);
-        }
-
-        private XElement FindItemGroup(string itemType)
-        {
-            var itemGroup = _doc.XPathSelectElements($"/ns:Project/ns:ItemGroup[ns:{itemType}]", _namespaces);
+            var itemGroup = xml.Document.XPathSelectElements($"/ns:Project/ns:ItemGroup[ns:{itemType}]", xml.Namespaces);
 
             return itemGroup.FirstOrDefault();
         }
 
-        private XElement AddItemGroup()
+        private static XElement AddItemGroup(
+            ProjectFileXml xml)
         {
-            var newItemGroup = new XElement(XName.Get("ItemGroup", _namespace.NamespaceName));
+            var newItemGroup = new XElement(XName.Get("ItemGroup", xml.Namespace.NamespaceName));
 
-            var lastItemGroup = _doc.XPathSelectElements("/ns:Project/ns:ItemGroup", _namespaces).LastOrDefault();
+            var lastItemGroup = xml.Document.XPathSelectElements("/ns:Project/ns:ItemGroup", xml.Namespaces).LastOrDefault();
             if (lastItemGroup == null)
             {
-                _projectElement.Add(newItemGroup);
+                xml.ProjectElement.Add(newItemGroup);
                 return newItemGroup;
             }
 
@@ -191,17 +163,21 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return newItemGroup;
         }
 
-        private XElement GetProjectItem(string fileName)
+        private static XElement GetProjectItem(
+            ProjectFileXml xml,
+            string fileName)
         {
-            var projectItem = _doc.XPathSelectElement($"/ns:Project/ns:ItemGroup/*[@Include='{fileName}']", _namespaces);
+            var projectItem = xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup/*[@Include='{fileName}']", xml.Namespaces);
             return projectItem;
         }
 
-        protected void RemoveProjectItem(string path)
+        protected void RemoveProjectItem(
+            ProjectFileXml xml,
+            string path)
         {
             var relativeFileName = GetRelativeFileName(path);
 
-            var projectItem = GetProjectItem(relativeFileName);
+            var projectItem = GetProjectItem(xml, relativeFileName);
             if (projectItem == null)
             {
                 return;
@@ -218,10 +194,13 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         protected string GetRelativeFileName(string path)
         {
-            return NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_relativeProjectPath)!, path));
+            return NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(ProjectPath)!, path));
         }
 
-        protected virtual void AddProjectItem(string path, FileAddedData data)
+        protected virtual void AddProjectItem(
+            ProjectFileXml xml,
+            string path,
+            FileAddedData data)
         {
             var relativeFileName = GetRelativeFileName(path);
             if (string.IsNullOrWhiteSpace(relativeFileName))
@@ -229,9 +208,9 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 throw new Exception($"{nameof(relativeFileName)} is null");
             }
 
-            var itemGroup = FindItemGroup(data.ItemType) ?? AddItemGroup();
+            var itemGroup = FindItemGroup(xml, data.ItemType) ?? AddItemGroup(xml);
 
-            var itemElement = GetProjectItem(relativeFileName);
+            var itemElement = GetProjectItem(xml, relativeFileName);
             if (itemElement?.Attribute("IntentIgnore")?.Value.ToLower() == "true")
             {
                 return;
@@ -240,7 +219,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             if (itemElement == null)
             {
                 itemElement = new XElement(
-                    name: XName.Get(data.ItemType, _namespace.NamespaceName),
+                    name: XName.Get(data.ItemType, xml.Namespace.NamespaceName),
                     content: new XAttribute("Include", relativeFileName));
                 itemGroup.Add(itemElement);
             }
@@ -255,7 +234,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 var subElement = itemElement.Elements().SingleOrDefault(x => x.Name.LocalName == name);
                 if (subElement == null)
                 {
-                    subElement = new XElement(XName.Get(name, _namespace.NamespaceName), value);
+                    subElement = new XElement(XName.Get(name, xml.Namespace.NamespaceName), value);
                     itemElement.Add(subElement);
                 }
 

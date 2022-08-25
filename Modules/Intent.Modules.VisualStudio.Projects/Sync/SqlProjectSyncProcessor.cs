@@ -4,21 +4,20 @@ using System.IO;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.CSharp.VisualStudio;
-using Intent.Utils;
+using Intent.Modules.VisualStudio.Projects.Templates;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
 {
     internal class SqlProjectSyncProcessor : ProjectSyncProcessorBase
     {
         public SqlProjectSyncProcessor(
-            string projectPath,
+            IVisualStudioProjectTemplate template,
             ISoftwareFactoryEventDispatcher sfEventDispatcher,
-            IXmlFileCache xmlFileCache,
-            IChanges changeManager) : base(
-                projectPath,
-                sfEventDispatcher,
-                xmlFileCache,
-                changeManager)
+            IChanges changes) : base(
+                template: template,
+                sfEventDispatcher: sfEventDispatcher,
+                changes: changes,
+                includeXmlDeclaration: true)
         {
         }
 
@@ -39,7 +38,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return base.GetFileAddedDataP(input);
         }
 
-        protected override void AddProjectItem(string path, FileAddedData fileAddedData)
+        protected override void AddProjectItem(ProjectFileXml xml, string path, FileAddedData fileAddedData)
         {
             if (".sqlproj".Equals(Path.GetExtension(path), StringComparison.OrdinalIgnoreCase))
             {
@@ -48,11 +47,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
             if (fileAddedData.ItemType == "None")
             {
-                RemoveProjectItem(path);
+                RemoveProjectItem(xml, path);
                 return;
             }
 
-            base.AddProjectItem(path, fileAddedData);
+            base.AddProjectItem(xml, path, fileAddedData);
         }
     }
 }
