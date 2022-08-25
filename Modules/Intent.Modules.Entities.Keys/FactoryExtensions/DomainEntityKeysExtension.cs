@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Keys.Templates.IdentityGenerator;
@@ -28,7 +29,7 @@ namespace Intent.Modules.Entities.Keys.FactoryExtensions
             var entityTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Domain.Entity"));
             foreach (var template in entityTemplates)
             {
-                var @class = template.Output.Classes.First();
+                var @class = template.CSharpFile.Classes.First();
                 var explicitKeys = @class.Properties.Where(x => x.Name.Equals("Id", StringComparison.InvariantCultureIgnoreCase)).ToArray();
                 string surrogateKeyType = null;
                 bool requiresImplicitKey = true;
@@ -47,18 +48,20 @@ namespace Intent.Modules.Entities.Keys.FactoryExtensions
 
                 if (requiresImplicitKey)
                 {
-                    var property = @class.InsertProperty(0, surrogateKeyType, "Id")
-                        .Virtual()
-                        .WithBackingField(field =>
-                        {
-                            field.CanBeNull();
-                        })
-                        .WithComments(@"
+                    @class.InsertProperty(0, surrogateKeyType, "Id", property =>
+                    {
+                        property.Virtual()
+                            .WithBackingField(field =>
+                            {
+                                field.CanBeNull();
+                            })
+                            .WithComments(@"
 /// <summary>
 /// Get the persistent object's identifier
 /// </summary>");
-                    property.Getter.WithExpressionImplementation($"_id ??= {template.GetTypeName(IdentityGeneratorTemplate.Identifier)}.NewSequentialId().Value;");
-                    property.Setter.WithExpressionImplementation($"_id = value");
+                        property.Getter.WithExpressionImplementation($"_id ??= {template.GetTypeName(IdentityGeneratorTemplate.Identifier)}.NewSequentialId().Value;");
+                        property.Setter.WithExpressionImplementation($"_id = value");
+                    });
                 }
             }
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -20,7 +21,7 @@ using Intent.Templates;
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class DbContextTemplate : CSharpTemplateBase<IList<ClassModel>, DbContextDecoratorBase>
+    public partial class DbContextTemplate : CSharpTemplateBase<IList<ClassModel>, DbContextDecoratorBase>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
@@ -36,7 +37,69 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                 _entityTypeConfigurations.Add(evt);
                 AddTemplateDependency(TemplateDependency.OnTemplate(evt.Template));
             });
+
+            CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
+                .AddClass("ApplicationDbContext", @class =>
+                {
+                    @class.WithBaseType(UseType(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null)
+                                                ?? "Microsoft.EntityFrameworkCore.DbContext"));
+                    @class.ImplementsInterfaces(GetInterfaces());
+                    @class.AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter(GetDbContextOptionsType(), "options", param =>
+                        {
+                            ctor.CallsBase(call => call.AddArgument(param.Name));
+                        });
+                    });
+
+                    foreach (var typeConfiguration in _entityTypeConfigurations)
+                    {
+                        @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityName(typeConfiguration.Template.Model).ToPluralName());
+                    }
+
+                    //@class.AddMethod("Task<int>", "SaveChangesAsync", method =>
+                    //{
+                    //    method.Override().Async()
+                    //        .AddParameter($"CancellationToken", "cancellationToken",
+                    //            param =>
+                    //            {
+                    //                param.WithDefaultValue("default(CancellationToken)");
+                    //            })
+                    //        .AddStatement("var result = await base.SaveChangesAsync(cancellationToken);")
+                    //        .AddStatement("return result;");
+                    //});
+
+                    @class.AddMethod("void", "OnModelCreating", method =>
+                    {
+                        method.AddParameter("ModelBuilder", "modelBuilder");
+                        method.AddStatement("base.OnModelCreating(modelBuilder);");
+                        method.AddStatement("ConfigureModel(modelBuilder);");
+                        foreach (var typeConfiguration in _entityTypeConfigurations)
+                        {
+                            method.AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}({GetTypeConfigurationParameters(typeConfiguration)}));");
+                        }
+
+                        method.AddStatements(GetOnModelCreatingStatements());
+                    });
+
+                    @class.AddMethod("void", "ConfigureModel", method =>
+                    {
+                        method.Private()
+                            .AddParameter("ModelBuilder", "modelBuilder")
+                            .AddStatements(@"
+// Seed data
+// https://rehansaeed.com/migrating-to-entity-framework-core-seed-data/
+/* Eg.
+
+modelBuilder.Entity<Car>().HasData(
+    new Car() { CarId = 1, Make = ""Ferrari"", Model = ""F40"" },
+    new Car() { CarId = 2, Make = ""Ferrari"", Model = ""F50"" },
+    new Car() { CarId = 3, Make = ""Labourghini"", Model = ""Countach"" });
+*/".TrimStart().Split(Environment.NewLine));
+                    });
+                });
         }
+        public CSharpFile CSharpFile { get; }
 
         public override void BeforeTemplateExecution()
         {
@@ -63,7 +126,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
             return new CSharpFileConfig(
                 className: $"ApplicationDbContext",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{OutputTarget.GetNamespace()}")
+            {
+                AutoFormat = false
+            };
+        }
+
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
 
         public string GetEntityName(ClassModel model)
@@ -90,7 +161,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         public bool UseLazyLoadingProxies =>
             !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
 
-        public string GetMethods()
+        private string GetMethods()
         {
             var code = string.Join(Environment.NewLine + Environment.NewLine,
                 GetDecorators()
@@ -104,20 +175,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             return Environment.NewLine + Environment.NewLine + code;
         }
 
-        public string GetBaseTypes()
+        public IEnumerable<string> GetInterfaces()
         {
             try
             {
-                var baseTypes = new List<string>();
-                baseTypes.Add(UseType(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null) ??
-                                      "Microsoft.EntityFrameworkCore.DbContext"));
+                var interfaces = new List<string>();
                 if (TryGetTypeName(DbContextInterfaceTemplate.TemplateId, out var dbContextInterface))
                 {
-                    baseTypes.Add(dbContextInterface);
+                    interfaces.Add(dbContextInterface);
                 }
 
-                baseTypes.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
-                return string.Join(", ", baseTypes);
+                interfaces.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
+                return interfaces;
             }
             catch (InvalidOperationException)
             {
@@ -134,43 +203,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
             return GetTypeName(EntityTypeConfigurationTemplate.TemplateId, model);
         }
+        
 
-        private string GetPrivateFields()
-        {
-            var privateFields = GetDecorators().SelectMany(x => x.GetPrivateFields() ?? Enumerable.Empty<string>()).ToList();
-            return privateFields.Any()
-                ? string.Join(@"
-        ", privateFields) + @"
-        "
-                : "";
-        }
-
-        private string GetConstructorParameters()
-        {
-            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorParameters() ?? Enumerable.Empty<string>()).ToList();
-            return privateFields.Any()
-                ? @",
-            " + string.Join(@",
-            ", privateFields)
-                : "";
-        }
-
-        private string GetConstructorInitializations()
-        {
-            var privateFields = GetDecorators().SelectMany(x => x.GetConstructorInitializations() ?? Enumerable.Empty<string>()).ToList();
-            return privateFields.Any()
-                ? @"
-            " + string.Join(@"
-            ", privateFields)
-                : "";
-        }
-
-        private string GetOnModelCreatingStatements()
+        private IEnumerable<string> GetOnModelCreatingStatements()
         {
             var statements = GetDecorators().SelectMany(x => x.GetOnModelCreatingStatements() ?? Enumerable.Empty<string>()).ToList();
-            const string newLine = @"
-            ";
-            return string.Join(newLine, statements);
+            return statements;
         }
 
         private string GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
@@ -178,5 +216,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             var parameters = GetDecorators().SelectMany(s => s.GetTypeConfigurationParameters(@event));
             return string.Join(",", parameters);
         }
+
     }
 }

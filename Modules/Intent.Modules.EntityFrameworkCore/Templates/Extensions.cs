@@ -1,11 +1,35 @@
 ﻿using System;
+using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.RDBMS.Settings;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates
 {
     public static class Extensions
     {
+
+        public static string GetSurrogateKeyType(this ISoftwareFactoryExecutionContext executionContext)
+        {
+            var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
+            switch (settingType)
+            {
+                case "guid":
+                    return "System.Guid";
+                case "int":
+                    return "int";
+                case "long":
+                    return "long";
+                default:
+                    return settingType;
+            }
+        }
+
+        public static string GetSurrogateKeyType(this ICSharpTemplate template)
+        {
+            return template.UseType(GetSurrogateKeyType(template.ExecutionContext));
+        }
         public static RelationshipType GetRelationshipType(this AssociationModel association)
         {
             if ((association.SourceEnd.Multiplicity == Multiplicity.One || association.SourceEnd.Multiplicity == Multiplicity.ZeroToOne) && (association.TargetEnd.Multiplicity == Multiplicity.One || association.TargetEnd.Multiplicity == Multiplicity.ZeroToOne))

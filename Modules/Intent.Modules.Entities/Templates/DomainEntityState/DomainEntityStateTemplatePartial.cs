@@ -27,7 +27,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         public const string TemplateId = "Intent.Entities.DomainEntityState";
         public const string InterfaceContext = "Interface";
 
-        public CSharpFile Output { get; set; }
+        public CSharpFile CSharpFile { get; set; }
 
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEntityStateTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
@@ -36,7 +36,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             AddTypeSource(DomainEnumTemplate.TemplateId, "ICollection<{0}>");
             AddTypeSource("Domain.ValueObject", "ICollection<{0}>");
             Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"), InterfaceContext);
-            Output = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
                 {
                     if (ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
@@ -49,21 +49,27 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
                     }
                     foreach (var attribute in Model.Attributes)
                     {
-                        var property = @class.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase());
-                        if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                        @class.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
                         {
-                            property.PrivateSetter();
-                        }
+                            property.AddMetadata("model", attribute);
+                            if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                            {
+                                property.PrivateSetter();
+                            }
+                        });
                     }
 
                     foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
                     {
-                        var property = @class.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase())
-                            .Virtual();
-                        if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                        @class.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
                         {
-                            property.PrivateSetter();
-                        }
+                            property.AddMetadata("model", associationEnd);
+                            property.Virtual();
+                            if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                            {
+                                property.PrivateSetter();
+                            }
+                        });
                     }
                 });
         }
@@ -71,7 +77,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            var config = Output.GetConfig();
+            var config = CSharpFile.GetConfig();
             if (ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
             {
                 config.FileName = $"{Model.Name}State";
@@ -82,9 +88,9 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            return Output.ToString();
+            return CSharpFile.ToString();
         }
-        
+
         //[IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         //protected override CSharpFileConfig DefineFileConfig()
         //{

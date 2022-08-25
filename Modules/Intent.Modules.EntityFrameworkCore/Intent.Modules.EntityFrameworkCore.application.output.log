@@ -202,22 +202,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#aba7dad6-c66b-4476-9470-0ab8786b5b4d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#aba7dad6-c66b-4476-9470-0ab8786b5b4d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#aba7dad6-c66b-4476-9470-0ab8786b5b4d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>

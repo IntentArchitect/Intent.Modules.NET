@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
@@ -15,8 +12,11 @@ using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 using Intent.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using AttributeModelStereotypeExtensions = Intent.Metadata.RDBMS.Api.AttributeModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -35,10 +35,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, EntityTypeConfigurationDecorator>
+    public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, EntityTypeConfigurationDecorator>
     {
         //private readonly List<AttributeModel> _explicitPrimaryKeys;
-        private readonly List<string> _ownedTypeConfigMethods = new List<string>();
+        private readonly List<Action<CSharpClass>> _requiredChangesToDomainEntity = new List<Action<CSharpClass>>();
 
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
@@ -48,11 +48,70 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
             AddTypeSource("Domain.Entity");
             AddTypeSource("Domain.ValueObject");
+
+            CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
+                .AddClass($"{Model.Name}Configuration", @class =>
+                {
+                    var entityTemplate = GetTemplate<IIntentTemplate>("Domain.Entity", Model);
+                    @class.ImplementsInterface($"IEntityTypeConfiguration<{GetTypeName(entityTemplate)}>")
+                        .AddMethod("void", "Configure", method =>
+                        {
+                            method.AddParameter($"EntityTypeBuilder<{GetTypeName(entityTemplate)}>", "builder");
+                            method.AddStatements(new[] {
+                                GetTableMapping(Model),
+                                GetKeyMapping(Model),
+                                GetCheckConstraints(),
+                                GetBeforeAttributeStatements()
+                            }.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray());
+
+                            if (entityTemplate is ICSharpFileBuilderTemplate builderTemplate)
+                            {
+                                builderTemplate.CSharpFile.OnBuild(file =>
+                                {
+                                    foreach (var requiredChange in _requiredChangesToDomainEntity)
+                                    {
+                                        requiredChange.Invoke(file.Classes.First());
+                                    }
+                                    foreach (var property in file.Classes.First().Properties)
+                                    {
+                                        if (property.TryGetMetadata<AttributeModel>("model", out var attribute))
+                                        {
+                                            method.AddStatement(GetAttributeMapping(attribute, @class));
+                                        }
+                                        else if (property.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
+                                        {
+                                            method.AddStatement(GetAssociationMapping(associationEnd, @class));
+                                        }
+                                        else if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent)
+                                        {
+                                            method.AddStatement($"builder.Ignore(e => e.{property.Name})");
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                // Backward compatibility
+                                foreach (var attribute in GetAttributes(Model))
+                                {
+                                    method.AddStatement(GetAttributeMapping(attribute, @class));
+                                }
+                                foreach (var associationEnd in GetAssociations(Model))
+                                {
+                                    method.AddStatement(GetAssociationMapping(associationEnd, @class));
+                                }
+                            }
+
+                            method.AddStatements(GetIndexes(Model));
+                        });
+                });
         }
+        public CSharpFile CSharpFile { get; }
 
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(new EntityTypeConfigurationCreatedEvent(this));
+            CSharpFile.Build(); // Execute before template execution so that changes to Domain.Entity type happen before its execution.
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -63,55 +122,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
-        private string GetEntityName()
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
         {
-            return GetTypeName("Domain.Entity", Model);
-        }
-
-        private string GetClassMembers()
-        {
-            var members = new List<string>();
-
-            members.AddRange(GetDecorators().SelectMany(x => x.GetClassMembers()));
-
-            if (!members.Any())
-            {
-                return string.Empty;
-            }
-
-            const string newLine = @"
-        ";
-            return string.Join(newLine, members) + newLine;
-        }
-
-        // By default this won't be generated in the template since
-        // Configuration classes don't need a constructor so we're
-        // making it a opt-in feature when a decorator needs to
-        // generate specific parts of a constructor.
-        private string GetConstructor()
-        {
-            var constructorParameters = GetDecorators().SelectMany(x => x.GetConstructorParameters()).ToList();
-            var constructorBodyStatements = GetDecorators()
-                .SelectMany(x => x.GetConstructorBodyStatements())
-                .Select(x => $"    {x}")
-                .ToList();
-
-            if (!constructorParameters.Any() && !constructorBodyStatements.Any())
-            {
-                return string.Empty;
-            }
-
-            var codeLines = new List<string>
-            {
-                $"public {ClassName}({string.Join(",", constructorParameters)})",
-                "{",
-            };
-            codeLines.AddRange(constructorBodyStatements);
-            codeLines.Add("}");
-
-            const string newLine = @"
-        ";
-            return string.Join(newLine, codeLines);
+            return CSharpFile.ToString();
         }
 
         private string GetTableMapping(ClassModel model)
@@ -165,13 +179,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     return "";
                 }
 
+                _requiredChangesToDomainEntity.Add((@class) =>
+                {
+                    @class.InsertProperty(0, this.GetSurrogateKeyType(), "Id");
+                });
+
                 return $@"
                 builder.HasKey(x => x.Id);";
-                //    return $@"
-                //builder.HasKey(x => x.Id);
-                //builder.Property(x => x.Id)
-                //       .UsePropertyAccessMode(PropertyAccessMode.Property)
-                //       .ValueGeneratedNever();";
             }
             else
             {
@@ -194,7 +208,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return associationEnd.IsTargetEnd();
         }
 
-        private string GetAttributeMapping(AttributeModel attribute)
+        private string GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
         {
             var statements = new List<string>();
 
@@ -208,11 +222,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 ", statements)};";
             }
 
-            _ownedTypeConfigMethods.Add(@$"
-        public void Configure{attribute.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}> builder)
-        {{{string.Join(@"
-            ", GetTypeConfiguration((IElement)attribute.TypeReference.Element))}
-        }}");
+            @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
+            {
+                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>", "builder");
+                method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
+            });
 
             if (attribute.TypeReference.IsCollection)
             {
@@ -226,7 +240,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statements.Add($".Navigation(x => x.{attribute.Name.ToPascalCase()}).IsRequired()");
                 }
             }
-            
+
             return $@"
             {string.Join(@"
                 ", statements)};";
@@ -379,7 +393,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return statementsCode;
         }
 
-        private string GetAssociationMapping(AssociationEndModel associationEnd)
+        private string GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
         {
             var statements = new List<string>();
 
@@ -395,12 +409,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 case RelationshipType.OneToOne:
                     if (IsOwned(associationEnd.Element))
                     {
-                        _ownedTypeConfigMethods.Add(@$"
-        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
-        {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")};{string.Join(@"
-            ", GetTypeConfiguration((IElement)associationEnd.Element))}
-        }}");
+                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                        {
+                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                            method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")};");
+                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                        });
                         statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})" +
                                        (associationEnd.IsNullable ? ";" : string.Empty));
 
@@ -456,12 +470,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 case RelationshipType.OneToMany:
                     if (IsValueObject(associationEnd.Element))
                     {
-                        _ownedTypeConfigMethods.Add(@$"
-        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
-        {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
-            ", GetTypeConfiguration((IElement)associationEnd.Element))}
-        }}");
+                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                        {
+                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                            method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};");
+                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                        });
                         return $@"
             builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
                     }
@@ -508,7 +522,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             ", statements)};";
         }
 
-        private List<string> GetTypeConfiguration(IElement targetType)
+        private List<string> GetTypeConfiguration(IElement targetType, CSharpClass @class)
         {
             var statements = new List<string>();
             var attributes = targetType.ChildElements
@@ -530,8 +544,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 }
             }
 
-            statements.AddRange(attributes.Where(RequiresConfiguration).Select(GetAttributeMapping));
-            statements.AddRange(associations.Where(RequiresConfiguration).Select(GetAssociationMapping));
+            statements.AddRange(attributes.Where(RequiresConfiguration).Select(attribute => GetAttributeMapping(attribute, @class)));
+            statements.AddRange(associations.Where(RequiresConfiguration).Select(association => GetAssociationMapping(association, @class)));
             if (targetType.IsClassModel())
             {
                 statements.AddRange(GetIndexes(targetType.AsClassModel()));
@@ -561,12 +575,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return sb.ToString();
         }
 
-        private List<string> GetIndexes(ClassModel model)
+        private string[] GetIndexes(ClassModel model)
         {
             var indexes = model.GetIndexes();
             if (indexes.Count == 0)
             {
-                return new List<string>();
+                return Array.Empty<string>();
             }
 
             var statements = new List<string>();
@@ -619,7 +633,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add(sb.ToString());
             }
 
-            return statements;
+            return statements.ToArray();
         }
 
         private bool IsValueObject(ICanBeReferencedType type)
@@ -717,20 +731,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             associations.AddRange(model.AssociatedClasses.Where(RequiresConfiguration).ToList());
             return associations;
-        }
-
-        private string GetAdditionalMethods()
-        {
-            var methods = new List<string>();
-            methods.AddRange(_ownedTypeConfigMethods);
-
-            methods.Reverse(); // methods are added to this list recursively and therefore the methods are in reverse dependency order.
-
-            const string newLine = @"
-        ";
-            return _ownedTypeConfigMethods.Any()
-                ? newLine + string.Join(newLine, _ownedTypeConfigMethods)
-                : string.Empty;
         }
     }
 }

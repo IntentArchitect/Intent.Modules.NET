@@ -29,26 +29,32 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                 {
                     @class.WithBaseType(this.GetValueObjectBaseName());
 
-                    var ctor = @class.AddConstructor();
-
-                    var getEqualityComponentsMethod = @class.AddMethod(
-                            returnType: $"{UseType("System.Collections.Generic.IEnumerable")}<object>", 
-                            name: "GetEqualityComponents")
-                        .Protected()
-                        .Override()
-                        .AddStatement("// Using a yield return statement to return each element one at a time");
-
-                    if (!Model.Attributes.Any())
+                    @class.AddConstructor(ctor =>
                     {
-                        getEqualityComponentsMethod.AddStatement("yield break;");
-                    }
-                    foreach (var attribute in Model.Attributes)
-                    {
-                        var prop = ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase())
-                            .IntroduceProperty()
-                            .PrivateSetter();
-                        getEqualityComponentsMethod.AddStatement($"yield return {prop.Name};");
-                    }
+                        @class.AddMethod(
+                            returnType: $"{UseType("System.Collections.Generic.IEnumerable")}<object>",
+                            name: "GetEqualityComponents", method =>
+                            {
+                                method.Protected()
+                                    .Override()
+                                    .AddStatement("// Using a yield return statement to return each element one at a time");
+                                if (!Model.Attributes.Any())
+                                {
+                                    method.AddStatement("yield break;");
+                                }
+                                foreach (var attribute in Model.Attributes)
+                                {
+                                    ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase(), param =>
+                                    {
+                                        param.IntroduceProperty(prop =>
+                                        {
+                                            prop.PrivateSetter();
+                                            method.AddStatement($"yield return {prop.Name};");
+                                        });
+                                    });
+                                }
+                            });
+                    });
                 });
         }
 

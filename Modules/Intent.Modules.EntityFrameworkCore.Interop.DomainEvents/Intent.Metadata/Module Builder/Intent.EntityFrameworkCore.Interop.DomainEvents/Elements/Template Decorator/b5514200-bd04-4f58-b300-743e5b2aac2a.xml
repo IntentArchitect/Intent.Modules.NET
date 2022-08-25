@@ -3,7 +3,6 @@
   <name>DomainEventsDbContextDecorator</name>
   <display>DomainEventsDbContextDecorator: DbContextDecoratorBase</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="e44e378a-efff-42b4-82f7-9fc8073eb713">
     <typeId>c35164c7-3797-476e-89ba-c98b96de3176</typeId>
