@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Sync;
 using Intent.RoslynWeaver.Attributes;
@@ -44,6 +45,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
 
             return xml.Document.ToStringUTF8();
         }
+
+        /// <summary>
+        /// SQL projects should never have NuGet packages.
+        /// </summary>
+        public override IEnumerable<INugetPackageInfo> RequestedNugetPackages() => Enumerable.Empty<INugetPackageInfo>();
 
         private void ApplySqlCmdVariables(ProjectFileXml xml)
         {

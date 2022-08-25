@@ -66,7 +66,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
             }));
         }
 
-        public IEnumerable<INugetPackageInfo> RequestedNugetPackages() => OutputTarget.NugetPackages();
+        public virtual IEnumerable<INugetPackageInfo> RequestedNugetPackages() => OutputTarget.NugetPackages();
 
         public IEnumerable<string> GetTargetFrameworks() => Model.TargetFrameworkVersion();
 

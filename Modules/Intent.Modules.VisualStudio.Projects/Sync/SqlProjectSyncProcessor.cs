@@ -45,12 +45,6 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 return;
             }
 
-            if (fileAddedData.ItemType == "None")
-            {
-                RemoveProjectItem(xml, path);
-                return;
-            }
-
             base.AddProjectItem(xml, path, fileAddedData);
         }
     }
