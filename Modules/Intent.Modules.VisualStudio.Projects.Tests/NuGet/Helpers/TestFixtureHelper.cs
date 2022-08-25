@@ -69,6 +69,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
             }
 
             public IVisualStudioProject Project { get; }
+            public IOutputTarget OutputTarget { get; }
+            public bool TryGetExistingFileContent(out string content) => throw new NotImplementedException();
 
             private class NuGetPackages : INugetPackageInfo
             {
