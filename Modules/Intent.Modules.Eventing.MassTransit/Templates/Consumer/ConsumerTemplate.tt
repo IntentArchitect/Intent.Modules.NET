@@ -1,4 +1,5 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel, Intent.Modules.Eventing.MassTransit.Templates.Consumer.ConsumerDecorator>" #>
+<#@ output extension=".cs" #>
 <#@ import namespace="Intent.Modelers.Eventing.Api" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 using System;
@@ -14,6 +15,18 @@ namespace <#= Namespace #>
     {<#= GetClassMembers() #>
         public <#= ClassName #>(<#= GetConstructorParameters() #>)
         {<#= GetConstructorImplementation() #>
+        }
+
+        public async Task Consume(ConsumeContext<<#= GetMessageName() #>> context)
+        {
+            using var scope = _serviceProvider.CreateScope();
+            var handler = scope.ServiceProvider.GetService<<#= this.GetEventHandlerInterfaceName(Model) #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;
+            var messagePublishContext = scope.ServiceProvider.GetService<<#= this.GetMessagePublishContextName() #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;
+            messagePublishContext.Current = context;
+            
+            await handler.HandleAsync(context.Message, context.CancellationToken);
+            
+            await messagePublishContext.FlushAllAsync(context.CancellationToken);
         }
         <#= GetClassMethods() #>
     }

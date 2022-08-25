@@ -46,27 +46,27 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)\r\n        {\r\n            services.AddMassTransit(x =>\r\n            {\r\n                x.SetKebabCaseEndpointNameFormatter();\r\n\r\n                ");
+            this.Write("\r\n    {\r\n        public static void AddMassTransitConfiguration(this IServiceCollection services, IConfiguration configuration)\r\n        {\r\n            services.AddMassTransit(x =>\r\n            {\r\n                x.SetKebabCaseEndpointNameFormatter();\r\n\r\n                AddConsumers(x);\r\n                ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumers()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\r\n                ");
-            
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetMessagingProviderSpecificConfig()));
             
             #line default
             #line hidden
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAdditionalConfiguration()));
             
             #line default
             #line hidden
-            this.Write(" \r\n            });\r\n        }\r\n    }\r\n}");
+            this.Write("\r\n            });\r\n        }\r\n\r\n        private static void AddConsumers(IRegistrationConfigurator cfg)\r\n        {\r\n            ");
+            
+            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitConfiguration\MassTransitConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumers()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

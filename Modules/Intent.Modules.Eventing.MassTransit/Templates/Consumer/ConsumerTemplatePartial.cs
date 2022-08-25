@@ -16,7 +16,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class ConsumerTemplate : CSharpTemplateBase<MessageHandlerModel>
+    partial class ConsumerTemplate : CSharpTemplateBase<MessageHandlerModel, ConsumerDecorator>
     {
         public const string TemplateId = "Intent.Eventing.MassTransit.Consumer";
 
@@ -88,19 +88,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
         {
             var lines = new List<string>();
 
-            lines.Add(@$"public async Task Consume(ConsumeContext<{GetMessageName()}> context)");
-            lines.Add(@$"{{");
-            lines.Add(@$"    using var scope = _serviceProvider.CreateScope();");
-            lines.Add(@$"    ");
-            lines.Add($@"    var handler = scope.ServiceProvider.GetService<{this.GetEventHandlerInterfaceName(Model)}>(){(UseExplicitNullSymbol ? "!" : string.Empty)};");
-            lines.Add(@$"    var messagePublishContext = scope.ServiceProvider.GetService<{this.GetMessagePublishContextName()}>(){(UseExplicitNullSymbol ? "!" : string.Empty)};");
-            lines.Add($@"    messagePublishContext.Current = context;");
-            lines.Add(@$"    ");
-            lines.Add(@$"    await handler.HandleAsync(context.Message, context.CancellationToken);");
-            lines.Add(@$"    ");
-            lines.Add(@$"    await messagePublishContext.FlushAllAsync(context.CancellationToken);");
-            lines.Add(@$"}}");
-            lines.Add(@$"");
 
             const string newLine = @"
         ";

@@ -42,6 +42,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#dcbc9d8c-3261-4c3b-b6c6-f3da2dc7632c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Consumer/ConsumerDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Consumer/ConsumerDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Consumer/ConsumerTemplate.cs</ApplicationRelativeFilePath>

@@ -24,10 +24,14 @@ namespace <#= Namespace #>
             {
                 x.SetKebabCaseEndpointNameFormatter();
 
-                <#= GetConsumers() #>
-
+                AddConsumers(x);
                 <#= GetMessagingProviderSpecificConfig() #><#= GetAdditionalConfiguration() #>
             });
+        }
+
+        private static void AddConsumers(IRegistrationConfigurator cfg)
+        {
+            <#= GetConsumers() #>
         }
     }
 }

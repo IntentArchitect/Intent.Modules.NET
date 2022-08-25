@@ -91,7 +91,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
             foreach (var messageHandlerModel in ExecutionContext.MetadataManager
                          .Eventing(ExecutionContext.GetApplicationConfig().Id).GetConsumerModels().SelectMany(x => x.MessageConsumers))
             {
-                consumers.Add($@"x.AddConsumer<{this.GetConsumerName(messageHandlerModel)}>();");
+                consumers.Add($@"cfg.AddConsumer<{this.GetConsumerName(messageHandlerModel)}>();");
             }
 
             const string newLine = @"
