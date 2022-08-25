@@ -26,15 +26,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge, Body = Mode.Fully)]
         public DbContextSaveControllerDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-            Priority = 100;
-            
-            _template.AddUsing("System.Transactions");
         }
+
+        public override int Priority => 100;
 
         public override string EnterClass()
         {
@@ -55,6 +54,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
 
         public override string EnterOperationBody(OperationModel operationModel)
         {
+            _template.AddUsing("System.Transactions");
+            
             return $@"
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
