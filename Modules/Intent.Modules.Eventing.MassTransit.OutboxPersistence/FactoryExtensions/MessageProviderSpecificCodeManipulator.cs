@@ -40,7 +40,7 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.FactoryExtension
             {
                 return;
             }
-            
+
             if (application.Settings.GetEventingSettings().MessagingServiceProvider().IsInMemory())
             {
                 template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
@@ -52,7 +52,7 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.FactoryExtension
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                     template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
                     break;
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer: 
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     template.AdditionalConfiguration.Add(new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
                         .AppendNestedLines(new[]
                         {

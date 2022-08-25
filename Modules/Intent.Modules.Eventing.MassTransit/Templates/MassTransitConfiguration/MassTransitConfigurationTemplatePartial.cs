@@ -154,9 +154,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
 
             const string newLine = @"
                 ";
-            return string.Join(newLine, lines);
+            return newLine + string.Join(newLine, lines);
         }
-        
+
         private string GetAdditionalConfiguration()
         {
             var lines = new List<string>();
@@ -172,7 +172,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
 
             const string newLine = @"
                 ";
-            return string.Join(newLine, lines);
+            return newLine + string.Join(newLine, lines);
         }
 
         public class ScopedExtensionMethodConfiguration
