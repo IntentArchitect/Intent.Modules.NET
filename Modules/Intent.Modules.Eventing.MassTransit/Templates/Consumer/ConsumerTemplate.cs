@@ -83,42 +83,49 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             
             #line default
             #line hidden
-            this.Write("> context)\r\n        {\r\n            using var scope = _serviceProvider.CreateScope();\r\n            var handler = scope.ServiceProvider.GetService<");
+            this.Write("> context)\r\n        {");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventHandlerInterfaceName(Model)));
-            
-            #line default
-            #line hidden
-            this.Write(">()");
-            
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(UseExplicitNullSymbol ? "!" : string.Empty));
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumeEnterCode()));
             
             #line default
             #line hidden
-            this.Write(";\r\n            var messagePublishContext = scope.ServiceProvider.GetService<");
+            this.Write("\r\n            var messagePublishContext = _serviceProvider.GetService<");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetMessagePublishContextName()));
             
             #line default
             #line hidden
             this.Write(">()");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(UseExplicitNullSymbol ? "!" : string.Empty));
             
             #line default
             #line hidden
-            this.Write(";\r\n            messagePublishContext.Current = context;\r\n            \r\n            await handler.HandleAsync(context.Message, context.CancellationToken);\r\n            \r\n            await messagePublishContext.FlushAllAsync(context.CancellationToken);\r\n        }\r\n        ");
+            this.Write(";\r\n            messagePublishContext.Current = context;\r\n\r\n            var handler = _serviceProvider.GetService<");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassMethods()));
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventHandlerInterfaceName(Model)));
             
             #line default
             #line hidden
-            this.Write("\r\n    }\r\n}");
+            this.Write(">()");
+            
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(UseExplicitNullSymbol ? "!" : string.Empty));
+            
+            #line default
+            #line hidden
+            this.Write(";            \r\n            await handler.HandleAsync(context.Message, context.CancellationToken);\r\n            \r\n            await messagePublishContext.FlushAllAsync(context.CancellationToken);");
+            
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumeExitCode()));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -18,16 +18,14 @@ namespace <#= Namespace #>
         }
 
         public async Task Consume(ConsumeContext<<#= GetMessageName() #>> context)
-        {
-            using var scope = _serviceProvider.CreateScope();
-            var handler = scope.ServiceProvider.GetService<<#= this.GetEventHandlerInterfaceName(Model) #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;
-            var messagePublishContext = scope.ServiceProvider.GetService<<#= this.GetMessagePublishContextName() #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;
+        {<#= GetConsumeEnterCode() #>
+            var messagePublishContext = _serviceProvider.GetService<<#= this.GetMessagePublishContextName() #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;
             messagePublishContext.Current = context;
-            
+
+            var handler = _serviceProvider.GetService<<#= this.GetEventHandlerInterfaceName(Model) #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;            
             await handler.HandleAsync(context.Message, context.CancellationToken);
             
-            await messagePublishContext.FlushAllAsync(context.CancellationToken);
+            await messagePublishContext.FlushAllAsync(context.CancellationToken);<#= GetConsumeExitCode() #>
         }
-        <#= GetClassMethods() #>
     }
 }
