@@ -29,7 +29,7 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.Settings
                 return Value switch
                 {
                     "in-memory" => OutboxPersistenceOptionsEnum.InMemory,
-                    "relational-database" => OutboxPersistenceOptionsEnum.RelationalDatabase,
+                    "entity-framework" => OutboxPersistenceOptionsEnum.EntityFramework,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -39,16 +39,16 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.Settings
                 return Value == "in-memory";
             }
 
-            public bool IsRelationalDatabase()
+            public bool IsEntityFramework()
             {
-                return Value == "relational-database";
+                return Value == "entity-framework";
             }
         }
 
         public enum OutboxPersistenceOptionsEnum
         {
             InMemory,
-            RelationalDatabase,
+            EntityFramework,
         }
     }
 }

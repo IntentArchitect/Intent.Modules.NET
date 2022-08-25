@@ -42,7 +42,7 @@
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
-            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="in-memory" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="entity-framework" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -63,10 +63,10 @@
           <childElements />
         </childElement>
         <childElement id="b1018407-fcad-48f7-a6ef-a745ec7e66b3" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Relational Database</name>
-          <display>Relational Database = relational-database</display>
+          <name>Entity Framework</name>
+          <display>Entity Framework = entity-framework</display>
           <isAbstract>false</isAbstract>
-          <value>relational-database</value>
+          <value>entity-framework</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6d320406-9f48-4f93-999f-a0b60244afff</parentFolderId>

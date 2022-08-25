@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -49,6 +48,9 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.FactoryExtension
 
             switch (application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
+                // Assume In-Memory outbox pattern when an unsupported (or in-memory) option is selected
+                default:
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                     template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
                     break;
@@ -68,9 +70,6 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.FactoryExtension
                             "o.UseBusOutbox();"
                         }));
                     break;
-                default:
-                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    throw new NotSupportedException($"{application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum()} is not supported for Outbox persistence.");
             }
         }
     }

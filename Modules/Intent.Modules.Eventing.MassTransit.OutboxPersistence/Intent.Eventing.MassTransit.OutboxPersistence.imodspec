@@ -30,10 +30,10 @@
       <settings>
         <setting id="6d320406-9f48-4f93-999f-a0b60244afff" title="Outbox Persistence" type="select">
           <isRequired>true</isRequired>
-          <defaultValue>in-memory</defaultValue>
+          <defaultValue>entity-framework</defaultValue>
           <options>
             <option value="in-memory" description="In Memory" />
-            <option value="relational-database" description="Relational Database" />
+            <option value="entity-framework" description="Entity Framework" />
           </options>
         </setting>
       </settings>
