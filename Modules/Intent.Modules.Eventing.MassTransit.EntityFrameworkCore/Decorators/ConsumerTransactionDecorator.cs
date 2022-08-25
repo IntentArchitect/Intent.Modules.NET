@@ -45,9 +45,9 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
 
             _template.AddUsing("System.Transactions");
 
-            yield return $@"using var transaction = new TransactionScope(TransactionScopeOption.Required,";
-            yield return $@"    new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled);";
-            yield return $@"";
+            yield return $@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,";
+            yield return $@"    new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))";
+            yield return $@"{{";
         }
 
         public override IEnumerable<string> GetConsumeExitCode()
@@ -58,9 +58,10 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
                 yield break;
             }
 
-            yield return $@"await _unitOfWork.SaveChangesAsync(context.CancellationToken);";
-            yield return $@"";
-            yield return $@"transaction.Complete();";
+            yield return $@"    await _unitOfWork.SaveChangesAsync(context.CancellationToken);";
+            yield return $@"    ";
+            yield return $@"    transaction.Complete();";
+            yield return $@"}}";
         }
 
         private string GetUnitOfWorkName()

@@ -32,6 +32,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
             _template = template;
             _application = application;
             Priority = 100;
+            
+            _template.AddUsing("System.Transactions");
         }
 
         public override string EnterClass()
@@ -51,6 +53,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));";
         }
 
+        public override string EnterOperationBody(OperationModel operationModel)
+        {
+            return $@"
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
+            {{";
+        }
+
         public override string MidOperationBody(OperationModel operationModel)
         {
             if (operationModel.GetHttpSettings().Verb().IsGET())
@@ -58,7 +68,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
                 return string.Empty;
             }
             return $@"
-            await _unitOfWork.SaveChangesAsync(cancellationToken);";
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            transaction.Complete();";
+        }
+
+        public override string ExitOperationBody(OperationModel operationModel)
+        {
+            return "}";
         }
 
         private string GetUnitOfWork()
