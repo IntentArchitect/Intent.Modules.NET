@@ -86,5 +86,6 @@
     <application id="5a945e2d-088e-4340-8f0b-02cf71457ab7" name="Intent.Modules.Eventing.MassTransit.OutboxPersistence" relativePath="Intent.Modules.Eventing.MassTransit.OutboxPersistence/Intent.Modules.Eventing.MassTransit.OutboxPersistence.application.config" />
     <application id="b989913b-9bcd-478b-9134-e53553efd5f8" name="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore" relativePath="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore/Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.application.config" />
     <application id="2ca84b5f-bb9f-4c13-8d89-a89a4d4c29c8" name="Intent.Modules.Eventing.MassTransit.AspNetCore" relativePath="Intent.Modules.Eventing.MassTransit.AspNetCore/Intent.Modules.Eventing.MassTransit.AspNetCore.application.config" />
+    <application id="0caf7d78-4503-409b-80fd-83da44a6b855" name="Intent.Modules.Eventing.MassTransit.MediatR" relativePath="Intent.Modules.Eventing.MassTransit.MediatR/Intent.Modules.Eventing.MassTransit.MediatR.application.config" />
   </applications>
 </solution>
