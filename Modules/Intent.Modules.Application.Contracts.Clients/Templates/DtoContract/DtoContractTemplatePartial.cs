@@ -35,9 +35,9 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
-        
+
         public string GenericTypes => Model.GenericTypes.Any() ? $"<{string.Join(", ", Model.GenericTypes)}>" : "";
-        
+
         public string ConstructorParameters()
         {
             var parameters = new List<string>();

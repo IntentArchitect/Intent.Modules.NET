@@ -33,7 +33,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service",
+                className: $"I{Model.MappedService.Name.RemoveSuffix("RestController", "Controller", "Service")}Service",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
