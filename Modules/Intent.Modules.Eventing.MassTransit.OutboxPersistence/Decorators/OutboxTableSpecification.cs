@@ -37,6 +37,8 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.Decorators
                 yield break;
             }
 
+            _template.AddUsing("MassTransit");
+
             yield return @$"";
             yield return @$"modelBuilder.AddInboxStateEntity();";
             yield return @$"modelBuilder.AddOutboxMessageEntity();";

@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.EntityFrameworkCore;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Eventing.MassTransit.Settings;
@@ -55,6 +56,7 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.FactoryExtension
                     template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
+                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
                     template.AdditionalConfiguration.Add(new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
                         .AppendNestedLines(new[]
                         {
@@ -63,6 +65,7 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPersistence.FactoryExtension
                         }));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
+                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
                     template.AdditionalConfiguration.Add(new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
                         .AppendNestedLines(new[]
                         {
