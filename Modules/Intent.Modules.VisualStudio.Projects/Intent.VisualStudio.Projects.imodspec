@@ -2,7 +2,7 @@
 <package>
   <id>Intent.VisualStudio.Projects</id>
   <version>3.3.13-pre.0</version>
-  <supportedClientVersions>[3.3.13-pre.4, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.3.14-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Designer and templates for creating .csproj and .sln files</summary>
   <description>Designer and templates for creating .csproj and .sln files</description>
   <authors>Intent Architect</authors>
