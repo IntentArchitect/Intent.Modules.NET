@@ -88,5 +88,6 @@
     <application id="0caf7d78-4503-409b-80fd-83da44a6b855" name="Intent.Modules.Eventing.MassTransit.MediatR" relativePath="Intent.Modules.Eventing.MassTransit.MediatR/Intent.Modules.Eventing.MassTransit.MediatR.application.config" />
     <application id="06df51fb-6745-4f57-a945-31d87e6d5df3" name="Intent.Modules.Eventing.MassTransit.OutboxPattern" relativePath="Intent.Modules.Eventing.MassTransit.OutboxPattern/Intent.Modules.Eventing.MassTransit.OutboxPattern.application.config" />
     <application id="e3d5f673-e092-4556-bd5f-6a67ecc23233" name="Intent.Modules.Application.Contracts.Clients" relativePath="Intent.Modules.Application.Contracts.Clients/Intent.Modules.Application.Contracts.Clients.application.config" />
+    <application id="c2922c7f-3b25-49b8-a6fc-07342215ad94" name="Intent.Modules.ServiceProxies" relativePath="Intent.Modules.ServiceProxies/Intent.Modules.ServiceProxies.application.config" />
   </applications>
 </solution>
