@@ -86,7 +86,7 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.OutboxPersistence" version="3.3.0-pre.0" />
+		<package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="3.3.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore">
