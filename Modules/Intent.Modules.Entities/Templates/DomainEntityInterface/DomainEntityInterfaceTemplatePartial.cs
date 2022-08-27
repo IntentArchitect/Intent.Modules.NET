@@ -5,11 +5,14 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -19,15 +22,16 @@ using Intent.Templates;
 namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 {
     [IntentManaged(Mode.Ignore, Body = Mode.Merge)]
-    partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, IHasDecorators<DomainEntityInterfaceDecoratorBase>, ITemplatePostCreationHook, IDeclareUsings
+    partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, ITemplatePostCreationHook, IDeclareUsings, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEntityInterface";
         private readonly IMetadataManager _metadataManager;
         public const string Identifier = "Intent.Entities.DomainEntityInterface";
         public const string InterfaceContext = "Interface";
+        public CSharpFile CSharpFile { get; set; }
 
-        private readonly IList<DomainEntityInterfaceDecoratorBase> _decorators = new List<DomainEntityInterfaceDecoratorBase>();
+        //private readonly IList<DomainEntityInterfaceDecoratorBase> _decorators = new List<DomainEntityInterfaceDecoratorBase>();
 
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEntityInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
@@ -46,6 +50,40 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             {
                 AddUsing("System.Threading.Tasks");
             }
+
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddInterface($"I{Model.Name}", @interface =>
+                {
+                    if (Model.ParentClass != null)
+                    {
+                        @interface.ExtendsInterface(this.GetDomainEntityInterfaceName(Model.ParentClass));
+                    }
+                    
+                    foreach (var attribute in Model.Attributes)
+                    {
+                        @interface.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
+                        {
+                            property.AddMetadata("model", attribute);
+                            if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                            {
+                                property.PrivateSetter();
+                            }
+                        });
+                    }
+
+                    foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
+                    {
+                        @interface.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
+                        {
+                            property.AddMetadata("model", associationEnd);
+                            property.Virtual();
+                            if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                            {
+                                property.PrivateSetter();
+                            }
+                        });
+                    }
+                });
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -57,26 +95,37 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
-        public void AddDecorator(DomainEntityInterfaceDecoratorBase decorator)
+        public override bool CanRunTemplate()
         {
-            _decorators.Add(decorator);
+            return ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
         }
 
-        public IEnumerable<DomainEntityInterfaceDecoratorBase> GetDecorators()
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
         {
-            return _decorators.OrderBy(x => x.Priority);
+            return CSharpFile.ToString();
         }
 
-        public string GetInterfaces(ClassModel @class)
-        {
-            var interfaces = GetDecorators().SelectMany(x => x.GetInterfaces(@class)).Distinct().ToList();
-            if (Model.GetStereotypeProperty("Base Type", "Has Interface", false) && GetBaseTypeInterface() != null)
-            {
-                interfaces.Insert(0, GetBaseTypeInterface());
-            }
+        //public void AddDecorator(DomainEntityInterfaceDecoratorBase decorator)
+        //{
+        //    _decorators.Add(decorator);
+        //}
 
-            return string.Join(", ", interfaces);
-        }
+        //public IEnumerable<DomainEntityInterfaceDecoratorBase> GetDecorators()
+        //{
+        //    return _decorators.OrderBy(x => x.Priority);
+        //}
+
+        //public string GetInterfaces(ClassModel @class)
+        //{
+        //    var interfaces = GetDecorators().SelectMany(x => x.GetInterfaces(@class)).Distinct().ToList();
+        //    if (Model.GetStereotypeProperty("Base Type", "Has Interface", false) && GetBaseTypeInterface() != null)
+        //    {
+        //        interfaces.Insert(0, GetBaseTypeInterface());
+        //    }
+
+        //    return string.Join(", ", interfaces);
+        //}
 
         private string GetBaseTypeInterface()
         {
@@ -96,60 +145,60 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             throw new Exception($"Could not find Base Type for class {Model.Name}");
         }
 
-        public string InterfaceAnnotations(ClassModel @class)
-        {
-            return GetDecorators().Aggregate(x => x.InterfaceAnnotations(@class));
-        }
+        //public string InterfaceAnnotations(ClassModel @class)
+        //{
+        //    return GetDecorators().Aggregate(x => x.InterfaceAnnotations(@class));
+        //}
 
-        public string BeforeProperties(ClassModel @class)
-        {
-            return GetDecorators().Aggregate(x => x.BeforeProperties(@class));
-        }
+        //public string BeforeProperties(ClassModel @class)
+        //{
+        //    return GetDecorators().Aggregate(x => x.BeforeProperties(@class));
+        //}
 
-        public string PropertyBefore(AttributeModel attribute)
-        {
-            return GetDecorators().Aggregate(x => x.PropertyBefore(attribute));
-        }
+        //public string PropertyBefore(AttributeModel attribute)
+        //{
+        //    return GetDecorators().Aggregate(x => x.PropertyBefore(attribute));
+        //}
 
-        public string PropertyAnnotations(AttributeModel attribute)
-        {
-            return GetDecorators().Aggregate(x => x.PropertyAnnotations(attribute));
-        }
+        //public string PropertyAnnotations(AttributeModel attribute)
+        //{
+        //    return GetDecorators().Aggregate(x => x.PropertyAnnotations(attribute));
+        //}
 
-        public string PropertyBefore(AssociationEndModel associationEnd)
-        {
-            return GetDecorators().Aggregate(x => x.PropertyBefore(associationEnd));
-        }
+        //public string PropertyBefore(AssociationEndModel associationEnd)
+        //{
+        //    return GetDecorators().Aggregate(x => x.PropertyBefore(associationEnd));
+        //}
 
-        public string PropertyAnnotations(AssociationEndModel associationEnd)
-        {
-            return GetDecorators().Aggregate(x => x.PropertyAnnotations(associationEnd));
-        }
+        //public string PropertyAnnotations(AssociationEndModel associationEnd)
+        //{
+        //    return GetDecorators().Aggregate(x => x.PropertyAnnotations(associationEnd));
+        //}
 
-        public string AttributeAccessors(AttributeModel attribute)
-        {
-            return GetDecorators().Select(x => x.AttributeAccessors(attribute)).FirstOrDefault(x => x != null) ?? "get; set;";
-        }
+        //public string AttributeAccessors(AttributeModel attribute)
+        //{
+        //    return GetDecorators().Select(x => x.AttributeAccessors(attribute)).FirstOrDefault(x => x != null) ?? "get; set;";
+        //}
 
-        public string AssociationAccessors(AssociationEndModel associationEnd)
-        {
-            return GetDecorators().Select(x => x.AssociationAccessors(associationEnd)).FirstOrDefault(x => x != null) ?? "get; set;";
-        }
+        //public string AssociationAccessors(AssociationEndModel associationEnd)
+        //{
+        //    return GetDecorators().Select(x => x.AssociationAccessors(associationEnd)).FirstOrDefault(x => x != null) ?? "get; set;";
+        //}
 
-        public bool CanWriteDefaultAttribute(AttributeModel attribute)
-        {
-            return GetDecorators().All(x => x.CanWriteDefaultAttribute(attribute));
-        }
+        //public bool CanWriteDefaultAttribute(AttributeModel attribute)
+        //{
+        //    return GetDecorators().All(x => x.CanWriteDefaultAttribute(attribute));
+        //}
 
-        public bool CanWriteDefaultAssociation(AssociationEndModel association)
-        {
-            return GetDecorators().All(x => x.CanWriteDefaultAssociation(association));
-        }
+        //public bool CanWriteDefaultAssociation(AssociationEndModel association)
+        //{
+        //    return GetDecorators().All(x => x.CanWriteDefaultAssociation(association));
+        //}
 
-        public bool CanWriteDefaultOperation(OperationModel operation)
-        {
-            return GetDecorators().All(x => x.CanWriteDefaultOperation(operation));
-        }
+        //public bool CanWriteDefaultOperation(OperationModel operation)
+        //{
+        //    return GetDecorators().All(x => x.CanWriteDefaultOperation(operation));
+        //}
 
         public string GetParametersDefinition(OperationModel operation)
         {

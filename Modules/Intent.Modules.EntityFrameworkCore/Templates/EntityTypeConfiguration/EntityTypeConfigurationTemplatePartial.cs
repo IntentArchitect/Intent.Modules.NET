@@ -35,7 +35,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, EntityTypeConfigurationDecorator>
+    public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, EntityTypeConfigurationDecorator>, ICSharpFileBuilderTemplate
     {
         //private readonly List<AttributeModel> _explicitPrimaryKeys;
         private readonly List<Action<CSharpClass>> _requiredChangesToDomainEntity = new List<Action<CSharpClass>>();
@@ -50,6 +50,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             AddTypeSource("Domain.ValueObject");
 
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
+                .AddUsing("Microsoft.EntityFrameworkCore")
+                .AddUsing("Microsoft.EntityFrameworkCore.Metadata.Builders")
                 .AddClass($"{Model.Name}Configuration", @class =>
                 {
                     var entityTemplate = GetTemplate<IIntentTemplate>("Domain.Entity", Model);
@@ -72,7 +74,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                     {
                                         requiredChange.Invoke(file.Classes.First());
                                     }
-                                    foreach (var property in file.Classes.First().Properties)
+                                    foreach (var property in file.Classes.First().Properties.ToList())
                                     {
                                         if (property.TryGetMetadata<AttributeModel>("model", out var attribute))
                                         {
@@ -82,12 +84,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                         {
                                             method.AddStatement(GetAssociationMapping(associationEnd, @class));
                                         }
-                                        else if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent)
+                                        if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent)
                                         {
-                                            method.AddStatement($"builder.Ignore(e => e.{property.Name})");
+                                            method.AddStatement($"builder.Ignore(e => e.{property.Name});");
                                         }
                                     }
-                                });
+                                    method.Statements.SeparateAll();
+                                }, 100);
                             }
                             else
                             {
@@ -103,6 +106,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             }
 
                             method.AddStatements(GetIndexes(Model));
+                            method.Statements.SeparateAll();
                         });
                 });
         }
@@ -110,8 +114,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         public override void BeforeTemplateExecution()
         {
+            base.BeforeTemplateExecution();
             ExecutionContext.EventDispatcher.Publish(new EntityTypeConfigurationCreatedEvent(this));
-            CSharpFile.Build(); // Execute before template execution so that changes to Domain.Entity type happen before its execution.
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -181,19 +185,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 _requiredChangesToDomainEntity.Add((@class) =>
                 {
-                    @class.InsertProperty(0, this.GetSurrogateKeyType(), "Id");
+                    @class.InsertProperty(0, this.GetDefaultSurrogateKeyType(), "Id");
                 });
 
-                return $@"
-                builder.HasKey(x => x.Id);";
+                return $@"builder.HasKey(x => x.Id);";
             }
             else
             {
                 var keys = model.GetExplicitPrimaryKey().Count() == 1
                     ? "x." + model.GetExplicitPrimaryKey().Single().Name.ToPascalCase()
                     : $"new {{ {string.Join(", ", model.GetExplicitPrimaryKey().Select(x => "x." + x.Name.ToPascalCase()))} }}";
-                return $@"
-            builder.HasKey(x => {keys});";
+                return $@"builder.HasKey(x => {keys});";
             }
         }
 
@@ -217,8 +219,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add($"builder.Property(x => x.{attribute.Name.ToPascalCase()})");
                 statements.AddRange(GetAttributeMappingStatements(attribute));
 
-                return $@"
-            {string.Join(@"
+                return $@"{string.Join(@"
                 ", statements)};";
             }
 
@@ -226,6 +227,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>", "builder");
                 method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
+                method.Statements.SeparateAll();
             });
 
             if (attribute.TypeReference.IsCollection)
@@ -241,8 +243,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 }
             }
 
-            return $@"
-            {string.Join(@"
+            return $@"{string.Join(@"
                 ", statements)};";
         }
 
@@ -414,30 +415,28 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                             method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")};");
                             method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                            method.Statements.SeparateAll();
                         });
-                        statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})" +
-                                       (associationEnd.IsNullable ? ";" : string.Empty));
+                        statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
 
                         if (!associationEnd.IsNullable)
                         {
-                            statements.Add($"    .Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired();");
+                            statements.Add($"    .Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
                         }
 
-                        return $@"
-            {string.Join(@"
-            ", statements)}";
+                        return $@"{string.Join(@"
+            ", statements)};";
                     }
 
                     statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add(
-                        $"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
+                    statements.Add($"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
 
                     if (associationEnd.IsNullable)
                     {
                         if (associationEnd.OtherEnd().IsNullable)
                         {
-                            statements.Add(
-                                $"    .HasForeignKey<{associationEnd.OtherEnd().Class.Name}>(x => x.{associationEnd.Name.ToPascalCase()}Id)");
+                            statements.Add($"    .HasForeignKey<{associationEnd.OtherEnd().Class.Name}>({GetForeignKeyLambda(associationEnd.OtherEnd(), out var columns)})");
+                            EnsureColumnsOnEntity(associationEnd.OtherEnd(), columns);
                         }
                         else
                         {
@@ -461,36 +460,42 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                     break;
                 case RelationshipType.ManyToOne:
-                    statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add(
-                        $"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
-                    statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd())})");
-                    statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
-                    break;
+                    {
+                        statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
+                        statements.Add($"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
+                        statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd(), out var columns)})");
+                        statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
+                        EnsureColumnsOnEntity(associationEnd.OtherEnd(), columns);
+                        break;
+                    }
                 case RelationshipType.OneToMany:
-                    if (IsValueObject(associationEnd.Element))
                     {
-                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                        if (IsOwned(associationEnd.Element))
                         {
-                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};");
-                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
-                        });
-                        return $@"
-            builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
-                    }
+                            @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                            {
+                                (string Type, string Name)[] columns = null;
+                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd, out columns)})" : "")};");
+                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                                EnsureColumnsOnEntity(associationEnd, columns ?? Array.Empty<(string Type, string Name)>());
+                                method.Statements.SeparateAll();
+                            });
+                            return $@"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
+                        }
 
-                    statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                    statements.Add(
-                        $"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
-                    statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd)})");
-                    if (!associationEnd.OtherEnd().IsNullable)
-                    {
-                        statements.Add($"    .IsRequired()");
-                        statements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
-                    }
+                        statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
+                        statements.Add($"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
+                        statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd, out var columns)})");
+                        EnsureColumnsOnEntity(associationEnd, columns);
+                        if (!associationEnd.OtherEnd().IsNullable)
+                        {
+                            statements.Add($"    .IsRequired()");
+                            statements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
+                        }
 
-                    break;
+                        break;
+                    }
                 case RelationshipType.ManyToMany:
                     if (Project.GetProject().IsNetCore2App || Project.GetProject().IsNetCore3App)
                     {
@@ -505,21 +510,40 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     else // if .NET 5.0 or above...
                     {
                         statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                        statements.Add(
-                            $"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
-                        statements.Add(
-                            $"    .UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
+                        statements.Add($"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
+                        statements.Add($"    .UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
                     }
 
                     break;
                 default:
-                    throw new Exception(
-                        $"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
+                    throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
 
-            return $@"
-            {string.Join(@"
+            return $@"{string.Join(@"
             ", statements)};";
+        }
+
+        private void EnsureColumnsOnEntity(AssociationEndModel associationEnd, params (string Type, string Name)[] columns)
+        {
+            if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", associationEnd.Element.Id, out var template))
+            {
+                var associatedClass = template.CSharpFile.Classes.First();
+                foreach (var column in columns)
+                {
+                    if (!associatedClass.Properties.Any(x => x.Name.Equals(column.Name)))
+                    {
+                        var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
+                        if (associationProperty != null)
+                        {
+                            associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), column.Type, column.Name);
+                        }
+                        else
+                        {
+                            associatedClass.AddProperty(column.Type, column.Name);
+                        }
+                    }
+                }
+            }
         }
 
         private List<string> GetTypeConfiguration(IElement targetType, CSharpClass @class)
@@ -551,7 +575,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.AddRange(GetIndexes(targetType.AsClassModel()));
             }
 
-            return statements;
+            return statements.Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
         }
 
         private string GetCheckConstraints()
@@ -658,32 +682,32 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 : $"{prefix}{column.Name.ToPascalCase()}";
         }
 
-        private static string GetForeignKeyLambda(AssociationEndModel associationEnd)
+        private string GetForeignKeyLambda(AssociationEndModel associationEnd, out (string Type, string Name)[] columns)
         {
-            var columns = new List<string>();
-            if (associationEnd.HasForeignKey() &&
-                !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
+            //if (associationEnd.HasForeignKey() &&
+            //    !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
+            //{
+            //    columns.AddRange(associationEnd.GetForeignKey().ColumnName()
+            //        .Split(',') // upgrade stereotype to have a selection list.
+            //        .Select(x => x.Trim()));
+            //}
+            if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
             {
-                columns.AddRange(associationEnd.GetForeignKey().ColumnName()
-                    .Split(',') // upgrade stereotype to have a selection list.
-                    .Select(x => x.Trim()));
-            }
-            else if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
-            {
-                columns.AddRange(associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
-                    $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"));
+                columns = associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
+                    (Type: GetTypeName(x), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
+                    .ToArray();
             }
             else // implicit Id
             {
-                columns.Add($"{associationEnd.OtherEnd().Name.ToPascalCase()}Id");
+                columns = new[] { (Type: this.GetDefaultSurrogateKeyType(), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id") };
             }
 
-            if (columns.Count == 1)
+            if (columns?.Length == 1)
             {
-                return $"x => x.{columns.Single()}";
+                return $"x => x.{columns.Single().Name}";
             }
 
-            return $"x => new {{ {string.Join(", ", columns.Select(x => "x." + x))}}}";
+            return $"x => new {{ {string.Join(", ", columns.Select(x => "x." + x.Name))}}}";
         }
 
         private string GetBeforeAttributeStatements()

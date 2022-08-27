@@ -46,23 +46,23 @@ namespace Intent.Modules.Entities.Keys.FactoryExtensions
                     template.FileMetadata.CustomMetadata.TryAdd("Surrogate Key Type", surrogateKeyType);
                 }
 
-                if (requiresImplicitKey)
-                {
-                    @class.InsertProperty(0, surrogateKeyType, "Id", property =>
-                    {
-                        property.Virtual()
-                            .WithBackingField(field =>
-                            {
-                                field.CanBeNull();
-                            })
-                            .WithComments(@"
-/// <summary>
-/// Get the persistent object's identifier
-/// </summary>");
-                        property.Getter.WithExpressionImplementation($"_id ??= {template.GetTypeName(IdentityGeneratorTemplate.Identifier)}.NewSequentialId().Value;");
-                        property.Setter.WithExpressionImplementation($"_id = value");
-                    });
-                }
+//                if (requiresImplicitKey && !@class.Properties.Any(x => x.Name.Equals("Id")))
+//                {
+//                    @class.InsertProperty(0, surrogateKeyType, "Id", property =>
+//                    {
+//                        property.Virtual()
+//                            .WithBackingField(field =>
+//                            {
+//                                field.CanBeNull();
+//                            })
+//                            .WithComments(@"
+///// <summary>
+///// Get the persistent object's identifier
+///// </summary>");
+//                        property.Getter.WithExpressionImplementation($"_id ??= {template.GetTypeName(IdentityGeneratorTemplate.Identifier)}.NewSequentialId().Value;");
+//                        property.Setter.WithExpressionImplementation($"_id = value");
+//                    });
+//                }
             }
         }
     }

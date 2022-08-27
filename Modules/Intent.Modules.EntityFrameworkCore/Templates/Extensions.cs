@@ -10,7 +10,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
     public static class Extensions
     {
 
-        public static string GetSurrogateKeyType(this ISoftwareFactoryExecutionContext executionContext)
+        public static string GetDefaultSurrogateKeyType(this ISoftwareFactoryExecutionContext executionContext)
         {
             var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
             switch (settingType)
@@ -26,9 +26,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
             }
         }
 
-        public static string GetSurrogateKeyType(this ICSharpTemplate template)
+        public static string GetDefaultSurrogateKeyType(this ICSharpTemplate template)
         {
-            return template.UseType(GetSurrogateKeyType(template.ExecutionContext));
+            return template.UseType(GetDefaultSurrogateKeyType(template.ExecutionContext));
         }
         public static RelationshipType GetRelationshipType(this AssociationModel association)
         {

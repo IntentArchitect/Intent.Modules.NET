@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
@@ -30,88 +33,120 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Decorators
             _template = template;
             _application = application;
 
-            if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+            _template.CSharpFile.OnBuild(file =>
             {
-                template.AddUsing("Microsoft.Extensions.Options");
-            }
+                if (!application.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+                {
+                    file.AddUsing("Microsoft.Extensions.Options");
+                }
+
+                var @class = file.Classes.First();
+
+
+                if (!_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+                {
+                    @class.Constructors.Single().AddParameter($"IOptions<{_template.GetDbContextConfigurationName()}>", $"dbContextConfig", param =>
+                    {
+                        param.IntroduceReadonlyField();
+                    });
+
+                    @class.Methods.SingleOrDefault(x => x.Name == "OnModelCreating") 
+                        ?.AddStatements(GetOnModelCreatingStatements(), statements => statements.FirstOrDefault()?.SeparatedFromPrevious());
+
+                    @class.AddMethod("void", "EnsureDbCreated", method =>
+                    {
+                        method.WithComments(@"
+/// <summary>
+/// If configured to do so, a check is performed to see
+/// whether the database exist and if not will create it
+/// based on this container configuration.
+/// </summary>");
+                        method.AddStatements(@"
+if (_dbContextConfig.Value.EnsureDbCreated == true)
+{
+    Database.EnsureCreated();
+}");
+                    });
+                }
+            });
+
+
         }
 
-        public override IEnumerable<string> GetPrivateFields()
-        {
-            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
-            {
-                yield break;
-            }
+        //public override IEnumerable<string> GetPrivateFields()
+        //{
+        //    if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+        //    {
+        //        yield break;
+        //    }
 
-            yield return $"private readonly IOptions<{_template.GetDbContextConfigurationName()}> _dbContextConfig;";
-        }
+        //    yield return $"private readonly IOptions<{_template.GetDbContextConfigurationName()}> _dbContextConfig;";
+        //}
 
-        public override IEnumerable<string> GetConstructorParameters()
-        {
-            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
-            {
-                yield break;
-            }
+        //public override IEnumerable<string> GetConstructorParameters()
+        //{
+        //    if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+        //    {
+        //        yield break;
+        //    }
 
-            yield return $"IOptions<{_template.GetDbContextConfigurationName()}> dbContextConfig";
-        }
+        //    yield return $"IOptions<{_template.GetDbContextConfigurationName()}> dbContextConfig";
+        //}
 
-        public override IEnumerable<string> GetConstructorInitializations()
-        {
-            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
-            {
-                yield break;
-            }
+        //public override IEnumerable<string> GetConstructorInitializations()
+        //{
+        //    if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+        //    {
+        //        yield break;
+        //    }
 
-            yield return "_dbContextConfig = dbContextConfig;";
-        }
+        //    yield return "_dbContextConfig = dbContextConfig;";
+        //}
 
-        public override IEnumerable<string> GetOnModelCreatingStatements()
+        public string GetOnModelCreatingStatements()
         {
             switch (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
-                    const string schemaNameExpression = "_dbContextConfig.Value?.DefaultSchemaName";
-                    yield return $"if (!string.IsNullOrWhiteSpace({schemaNameExpression}))";
-                    yield return "{";
-                    yield return $"    modelBuilder.HasDefaultSchema({schemaNameExpression});";
-                    yield return "}";
-                    break;
+                    return @"
+if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultSchemaName))
+{
+    modelBuilder.HasDefaultSchema(_dbContextConfig.Value?.DefaultSchemaName);
+}";
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    const string containerNameExpression = "_dbContextConfig.Value?.DefaultContainerName";
-                    yield return $"if (!string.IsNullOrWhiteSpace({containerNameExpression}))";
-                    yield return "{";
-                    yield return $"    modelBuilder.HasDefaultContainer({containerNameExpression});";
-                    yield return "}";
-                    break;
+                    return @"
+if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))
+{
+    modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);
+}";
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                 default:
-                    break;
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
-        public override IEnumerable<string> GetMethods()
-        {
-            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
-            {
-                yield break;
-            }
+        //        public override IEnumerable<string> GetMethods()
+        //        {
+        //            if (_template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsInMemory())
+        //            {
+        //                yield break;
+        //            }
 
-            yield return @"
-        /// <summary>
-        /// If configured to do so, a check is performed to see
-        /// whether the database exist and if not will create it
-        /// based on this container configuration.
-        /// </summary>
-        public void EnsureDbCreated()
-        {
-            if (_dbContextConfig.Value.EnsureDbCreated == true)
-            {
-                Database.EnsureCreated();
-            }
-        }
-";
-        }
+        //            yield return @"
+        //        /// <summary>
+        //        /// If configured to do so, a check is performed to see
+        //        /// whether the database exist and if not will create it
+        //        /// based on this container configuration.
+        //        /// </summary>
+        //        public void EnsureDbCreated()
+        //        {
+        //            if (_dbContextConfig.Value.EnsureDbCreated == true)
+        //            {
+        //                Database.EnsureCreated();
+        //            }
+        //        }
+        //";
+        //        }
     }
 }

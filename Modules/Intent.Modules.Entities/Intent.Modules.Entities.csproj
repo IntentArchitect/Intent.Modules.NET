@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceDecoratorBase.cs" />
+    <Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.6" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
@@ -25,10 +34,6 @@
     <None Update="Templates\DomainEnum\DomainEnumTemplate.tt">
       <LastGenOutput>DomainEnumTemplate.cs</LastGenOutput>
       <Generator>TextTemplatingFilePreprocessor</Generator>
-    </None>
-    <None Update="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DomainEntityInterfaceTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\DomainEntityState\DomainEntityStateTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -49,11 +54,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AutofacConfigTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DomainEntityInterfaceTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\DomainEntityState\DomainEntityStateTemplate.cs">
       <DesignTime>True</DesignTime>

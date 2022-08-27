@@ -6,8 +6,10 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -44,6 +46,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 className: $"{Model.Name}",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour();
         }
 
         public void AddDecorator(DomainEntityDecoratorBase decorator)

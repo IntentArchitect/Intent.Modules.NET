@@ -15,16 +15,16 @@ using Intent.Templates;
 namespace Intent.Modules.ValueObjects.Templates.ValueObject
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class ValueObjectTemplate : CSharpTemplateBase<ValueObjectModel>
+    partial class ValueObjectTemplate : CSharpTemplateBase<ValueObjectModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.ValueObjects.ValueObject";
 
-        public CSharpFile Output { get; set; }
+        public CSharpFile CSharpFile { get; set; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValueObjectTemplate(IOutputTarget outputTarget, ValueObjectModel model) : base(TemplateId, outputTarget, model)
         {
-            Output = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
                 {
                     @class.WithBaseType(this.GetValueObjectBaseName());
@@ -61,13 +61,13 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return Output.GetConfig();
+            return CSharpFile.GetConfig();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            return Output.ToString();
+            return CSharpFile.ToString();
         }
     }
 }

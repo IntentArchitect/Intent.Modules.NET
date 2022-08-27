@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
+using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
 using Intent.Modules.DomainEvents.Templates.HasDomainEventInterface;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Plugins.FactoryExtensions;
@@ -35,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
                 {
                     var @class = file.Classes.First();
                     @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
-                    @class.AddProperty($"List<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
+                    @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
                     {
                         property.WithInitialValue($"new {property.Type}()");
                         property.AddMetadata("non-persistent", true);
@@ -47,10 +49,14 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
             dbContext?.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
+                @class.Constructors.First().AddParameter(dbContext.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId), "domainEventService", param =>
+                {
+                    param.IntroduceReadonlyField();
+                });
                 var saveMethod = @class.Methods.SingleOrDefault(x => x.Name == "SaveChangesAsync");
                 if (saveMethod != null)
                 {
-                    saveMethod?.InsertStatement(0, $"await DispatchEvents();");
+                    saveMethod.InsertStatement(0, $"await DispatchEvents();");
                 }
                 else
                 {
@@ -83,7 +89,7 @@ while (true)
 
     domainEventEntity.IsPublished = true;
     await _domainEventService.Publish(domainEventEntity);
-}".TrimStart().Split(Environment.NewLine));
+}");
                 });
             });
         }

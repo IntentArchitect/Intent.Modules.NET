@@ -12,10 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Decorators\ForeignKeyEntityInterfaceDecorator.cs" />
+    <Compile Remove="Decorators\ForeignKeyEntityInterfaceDecoratorRegistration.cs" />
     <Compile Remove="Decorators\ForeignKeyEntityStateDecorator.cs" />
     <Compile Remove="Decorators\ForeignKeyEntityStateDecoratorRegistration.cs" />
     <Compile Remove="Decorators\SurrogatePrimaryKeyEntityStateDecorator.cs" />
     <Compile Remove="Decorators\SurrogatePrimaryKeyEntityStateDecoratorRegistration.cs" />
+    <Compile Remove="Decorators\SurrogatePrimaryKeyInterfaceDecorator.cs" />
+    <Compile Remove="Decorators\SurrogatePrimaryKeyInterfaceDecoratorRegistration.cs" />
     <Compile Remove="Decorators\UnidirectionalManyToManyEntityStateDecorator.cs" />
     <Compile Remove="Decorators\UnidirectionalManyToManyEntityStateDecoratorRegistration.cs" />
     <Compile Remove="Decorators\ZeroOrOneToZeroOrOneEntityStateDecorator.cs" />
@@ -53,6 +57,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>IdentityGeneratorTemplate.tt</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Decorators\" />
   </ItemGroup>
 
 </Project>

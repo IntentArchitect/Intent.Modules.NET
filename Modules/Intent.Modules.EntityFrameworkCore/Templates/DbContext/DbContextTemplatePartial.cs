@@ -32,12 +32,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
             FulfillsRole("Infrastructure.Data.DbContext");
 
-            ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(evt =>
-            {
-                _entityTypeConfigurations.Add(evt);
-                AddTemplateDependency(TemplateDependency.OnTemplate(evt.Template));
-            });
-
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddClass("ApplicationDbContext", @class =>
                 {
@@ -52,32 +46,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                         });
                     });
 
-                    foreach (var typeConfiguration in _entityTypeConfigurations)
-                    {
-                        @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityName(typeConfiguration.Template.Model).ToPluralName());
-                    }
-
-                    //@class.AddMethod("Task<int>", "SaveChangesAsync", method =>
-                    //{
-                    //    method.Override().Async()
-                    //        .AddParameter($"CancellationToken", "cancellationToken",
-                    //            param =>
-                    //            {
-                    //                param.WithDefaultValue("default(CancellationToken)");
-                    //            })
-                    //        .AddStatement("var result = await base.SaveChangesAsync(cancellationToken);")
-                    //        .AddStatement("return result;");
-                    //});
-
                     @class.AddMethod("void", "OnModelCreating", method =>
                     {
-                        method.AddParameter("ModelBuilder", "modelBuilder");
+                        method.Protected().Override()
+                            .AddParameter("ModelBuilder", "modelBuilder");
+
                         method.AddStatement("base.OnModelCreating(modelBuilder);");
-                        method.AddStatement("ConfigureModel(modelBuilder);");
-                        foreach (var typeConfiguration in _entityTypeConfigurations)
-                        {
-                            method.AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}({GetTypeConfigurationParameters(typeConfiguration)}));");
-                        }
+                        method.AddStatement("ConfigureModel(modelBuilder);", s => s.SeparatedFromPrevious());
 
                         method.AddStatements(GetOnModelCreatingStatements());
                     });
@@ -85,6 +60,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                     @class.AddMethod("void", "ConfigureModel", method =>
                     {
                         method.Private()
+                            .AddAttribute("IntentManaged", attr => attr.AddArgument("Mode.Ignore"))
                             .AddParameter("ModelBuilder", "modelBuilder")
                             .AddStatements(@"
 // Seed data
@@ -95,9 +71,22 @@ modelBuilder.Entity<Car>().HasData(
     new Car() { CarId = 1, Make = ""Ferrari"", Model = ""F40"" },
     new Car() { CarId = 2, Make = ""Ferrari"", Model = ""F50"" },
     new Car() { CarId = 3, Make = ""Labourghini"", Model = ""Countach"" });
-*/".TrimStart().Split(Environment.NewLine));
+*/");
                     });
                 });
+
+            ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(typeConfiguration =>
+            {
+                _entityTypeConfigurations.Add(typeConfiguration);
+                var @class = CSharpFile.Classes.First();
+            
+                @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityName(typeConfiguration.Template.Model).ToPluralName());
+                
+                @class.Methods.Single(x => x.Name.Equals("OnModelCreating"))
+                    .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}({GetTypeConfigurationParameters(typeConfiguration)}));");
+
+                AddTemplateDependency(TemplateDependency.OnTemplate(typeConfiguration.Template)); // needed? GetTypeName does the same thing?
+            });
         }
         public CSharpFile CSharpFile { get; }
 
