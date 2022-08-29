@@ -13,7 +13,9 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObjectBase
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            return $@"
+            return $@"using System.Collections.Generic;
+using System.Linq;
+
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace {Namespace}
