@@ -30,7 +30,7 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.MessageBusPublis
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")

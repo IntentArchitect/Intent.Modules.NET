@@ -83,9 +83,9 @@
     <application id="ad22f3ab-10e5-488a-b026-81346dc61c64" name="Intent.Modules.ValueObjects" relativePath="Intent.Modules.ValueObjects/Intent.Modules.ValueObjects.application.config" />
     <application id="0e64d2ec-20ae-488a-8d4c-0b34354032d5" name="Intent.Modules.Azure.BlobStorage" relativePath="Intent.Modules.Azure.BlobStorage/Intent.Modules.Azure.BlobStorage.application.config" />
     <application id="8c05ab5b-e166-4c12-8c8c-5c230905057a" name="Intent.Modules.Eventing.MassTransit" relativePath="Intent.Modules.Eventing.MassTransit/Intent.Modules.Eventing.MassTransit.application.config" />
-    <application id="5a945e2d-088e-4340-8f0b-02cf71457ab7" name="Intent.Modules.Eventing.MassTransit.OutboxPersistence" relativePath="Intent.Modules.Eventing.MassTransit.OutboxPersistence/Intent.Modules.Eventing.MassTransit.OutboxPersistence.application.config" />
     <application id="b989913b-9bcd-478b-9134-e53553efd5f8" name="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore" relativePath="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore/Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.application.config" />
     <application id="2ca84b5f-bb9f-4c13-8d89-a89a4d4c29c8" name="Intent.Modules.Eventing.MassTransit.AspNetCore" relativePath="Intent.Modules.Eventing.MassTransit.AspNetCore/Intent.Modules.Eventing.MassTransit.AspNetCore.application.config" />
     <application id="0caf7d78-4503-409b-80fd-83da44a6b855" name="Intent.Modules.Eventing.MassTransit.MediatR" relativePath="Intent.Modules.Eventing.MassTransit.MediatR/Intent.Modules.Eventing.MassTransit.MediatR.application.config" />
+    <application id="06df51fb-6745-4f57-a945-31d87e6d5df3" name="Intent.Modules.Eventing.MassTransit.OutboxPattern" relativePath="Intent.Modules.Eventing.MassTransit.OutboxPattern/Intent.Modules.Eventing.MassTransit.OutboxPattern.application.config" />
   </applications>
 </solution>

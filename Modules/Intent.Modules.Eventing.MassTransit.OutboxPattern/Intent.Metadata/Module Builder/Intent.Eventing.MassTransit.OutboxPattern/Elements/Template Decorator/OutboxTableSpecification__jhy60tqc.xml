@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c173f2ee-4621-4646-bc83-5274c04c7c6f" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>OutboxTableSpecification</name>
+  <display>OutboxTableSpecification: DbContextDecoratorBase</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="4308a397-0641-4e53-be35-6c44b68adcdb">
+    <typeId>c35164c7-3797-476e-89ba-c98b96de3176</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.EntityFrameworkCore</typePackageName>
+    <typePackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>c7fe1376-6229-48ce-bdad-c97447fd51d5</parentFolderId>
+  <packageId>c7fe1376-6229-48ce-bdad-c97447fd51d5</packageId>
+  <packageName>Intent.Eventing.MassTransit.OutboxPattern</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -66,7 +66,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             var parameters = new List<string>();
 
             parameters.Add($@"IServiceProvider serviceProvider");
-            
+
             parameters.AddRange(GetDecorators().SelectMany(s => s.RequiredServices()).Select(s => $@"{s.Type.ToPascalCase()} {s.Name.ToCamelCase()}"));
 
             return string.Join(", ", parameters);
@@ -77,7 +77,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             var statements = new List<string>();
 
             statements.Add($@"_serviceProvider = serviceProvider;");
-            
+
             statements.AddRange(GetDecorators().SelectMany(s => s.RequiredServices()).Select(s => $@"{s.FieldName.ToCamelCase()} = {s.Name.ToCamelCase()};"));
 
             if (!statements.Any())
