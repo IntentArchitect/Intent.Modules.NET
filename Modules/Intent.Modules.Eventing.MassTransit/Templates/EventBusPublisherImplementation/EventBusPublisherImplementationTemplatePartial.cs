@@ -25,8 +25,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherImpleme
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")
-                .ForInterface(GetTemplate<IClassProvider>(EventBusPublisherInterfaceTemplate.TemplateId))
                 .WithPerServiceCallLifeTime());
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Infrastructure")
+                .ForInterface(GetTemplate<IClassProvider>(EventBusPublisherInterfaceTemplate.TemplateId))
+                .WithResolveFromContainer());
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

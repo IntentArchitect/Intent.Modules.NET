@@ -93,7 +93,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             this.Write("\r\n            var eventBusPublisher = _serviceProvider.GetService<");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusPublisherInterfaceName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusPublisherImplementationName()));
             
             #line default
             #line hidden
