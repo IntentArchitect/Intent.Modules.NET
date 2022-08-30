@@ -21,12 +21,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventBusPublishBehaviourTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Templates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventBusPublishBehaviourTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

@@ -6,7 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.MassTransit.Templates.EventMessage;
+using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,7 +24,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
         public ConsumerTemplate(IOutputTarget outputTarget, MessageHandlerModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MassTransitAbstractions);
-            AddTypeSource(EventMessageTemplate.TemplateId);
+            AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

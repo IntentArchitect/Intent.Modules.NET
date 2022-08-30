@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.MassTransit.MediatR.Templates.MessageBusPublishBehaviour;
+using Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishBehaviour;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,9 +11,9 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetMessageBusPublishBehaviourName<T>(this IntentTemplateBase<T> template)
+        public static string GetEventBusPublishBehaviourName<T>(this IntentTemplateBase<T> template)
         {
-            return template.GetTypeName(MessageBusPublishBehaviourTemplate.TemplateId);
+            return template.GetTypeName(EventBusPublishBehaviourTemplate.TemplateId);
         }
 
     }

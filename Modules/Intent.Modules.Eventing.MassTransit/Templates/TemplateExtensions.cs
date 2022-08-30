@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.MassTransit.Templates.Consumer;
-using Intent.Modules.Eventing.MassTransit.Templates.EventHandlerImplementation;
-using Intent.Modules.Eventing.MassTransit.Templates.EventHandlerInterface;
-using Intent.Modules.Eventing.MassTransit.Templates.EventMessage;
+using Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherImplementation;
+using Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherInterface;
+using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
+using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerInterface;
+using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
-using Intent.Modules.Eventing.MassTransit.Templates.MessageBufferInterface;
-using Intent.Modules.Eventing.MassTransit.Templates.MessageBusPublisher;
-using Intent.Modules.Eventing.MassTransit.Templates.MessagePublishContext;
-using Intent.Modules.Eventing.MassTransit.Templates.PublisherInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -29,59 +27,49 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
             return template.GetTypeName(ConsumerTemplate.TemplateId, model);
         }
 
-        public static string GetEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
+        public static string GetEventBusPublisherImplementationName<T>(this IntentTemplateBase<T> template)
         {
-            return template.GetTypeName(EventHandlerImplementationTemplate.TemplateId, template.Model);
+            return template.GetTypeName(EventBusPublisherImplementationTemplate.TemplateId);
         }
 
-        public static string GetEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageHandlerModel model)
+        public static string GetEventBusPublisherInterfaceName<T>(this IntentTemplateBase<T> template)
         {
-            return template.GetTypeName(EventHandlerImplementationTemplate.TemplateId, model);
+            return template.GetTypeName(EventBusPublisherInterfaceTemplate.TemplateId);
         }
 
-        public static string GetEventHandlerInterfaceName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
+        public static string GetIntegrationEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
         {
-            return template.GetTypeName(EventHandlerInterfaceTemplate.TemplateId, template.Model);
+            return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetEventHandlerInterfaceName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageHandlerModel model)
+        public static string GetIntegrationEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageHandlerModel model)
         {
-            return template.GetTypeName(EventHandlerInterfaceTemplate.TemplateId, model);
+            return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
         }
 
-        public static string GetEventMessageName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageModel
+        public static string GetIntegrationEventHandlerInterfaceName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
         {
-            return template.GetTypeName(EventMessageTemplate.TemplateId, template.Model);
+            return template.GetTypeName(IntegrationEventHandlerInterfaceTemplate.TemplateId, template.Model);
         }
 
-        public static string GetEventMessageName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageModel model)
+        public static string GetIntegrationEventHandlerInterfaceName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageHandlerModel model)
         {
-            return template.GetTypeName(EventMessageTemplate.TemplateId, model);
+            return template.GetTypeName(IntegrationEventHandlerInterfaceTemplate.TemplateId, model);
+        }
+
+        public static string GetIntegrationEventMessageName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageModel
+        {
+            return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventMessageName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageModel model)
+        {
+            return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, model);
         }
 
         public static string GetMassTransitConfigurationName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MassTransitConfigurationTemplate.TemplateId);
-        }
-
-        public static string GetMessageBufferInterfaceName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(MessageBufferInterfaceTemplate.TemplateId);
-        }
-
-        public static string GetMessageBusPublisherName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(MessageBusPublisherTemplate.TemplateId);
-        }
-
-        public static string GetMessagePublishContextName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(MessagePublishContextTemplate.TemplateId);
-        }
-
-        public static string GetPublisherInterfaceName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(PublisherInterfaceTemplate.TemplateId);
         }
 
     }

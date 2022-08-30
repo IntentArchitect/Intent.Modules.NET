@@ -90,10 +90,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             
             #line default
             #line hidden
-            this.Write("\r\n            var messagePublishContext = _serviceProvider.GetService<");
+            this.Write("\r\n            var eventBusPublisher = _serviceProvider.GetService<");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetMessagePublishContextName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusPublisherInterfaceName()));
             
             #line default
             #line hidden
@@ -104,10 +104,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             
             #line default
             #line hidden
-            this.Write(";\r\n            messagePublishContext.Current = context;\r\n\r\n            var handler = _serviceProvider.GetService<");
+            this.Write(";\r\n            eventBusPublisher.Current = context;\r\n\r\n            var handler = _serviceProvider.GetService<");
             
             #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventHandlerInterfaceName(Model)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIntegrationEventHandlerInterfaceName(Model)));
             
             #line default
             #line hidden
@@ -118,7 +118,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
             
             #line default
             #line hidden
-            this.Write(";            \r\n            await handler.HandleAsync(context.Message, context.CancellationToken);\r\n            \r\n            await messagePublishContext.FlushAllAsync(context.CancellationToken);");
+            this.Write(";            \r\n            await handler.HandleAsync(context.Message, context.CancellationToken);\r\n            \r\n            await eventBusPublisher.FlushAllAsync(context.CancellationToken);");
             
             #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumeExitCode()));

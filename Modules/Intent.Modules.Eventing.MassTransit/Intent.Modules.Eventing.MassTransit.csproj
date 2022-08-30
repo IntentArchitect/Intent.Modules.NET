@@ -56,10 +56,30 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>PublisherInterfaceTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\MessageBufferInterface\MessageBufferInterfaceTemplate.cs">
+    <Compile Update="Templates\EventBusPublisherImplementation\EventBusPublisherImplementationTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>MessageBufferInterfaceTemplate.tt</DependentUpon>
+      <DependentUpon>EventBusPublisherImplementationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventBusPublisherInterface\EventBusPublisherInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventBusPublisherInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\IntegrationEventHandlerImplementation\IntegrationEventHandlerImplementationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IntegrationEventHandlerImplementationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\IntegrationEventHandlerInterface\IntegrationEventHandlerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IntegrationEventHandlerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\IntegrationEventMessage\IntegrationEventMessageTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IntegrationEventMessageTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -104,9 +124,25 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PublisherInterfaceTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\MessageBufferInterface\MessageBufferInterfaceTemplate.tt">
+    <None Update="Templates\EventBusPublisherImplementation\EventBusPublisherImplementationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MessageBufferInterfaceTemplate.cs</LastGenOutput>
+      <LastGenOutput>EventBusPublisherImplementationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventBusPublisherInterface\EventBusPublisherInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventBusPublisherInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\IntegrationEventHandlerImplementation\IntegrationEventHandlerImplementationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IntegrationEventHandlerImplementationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\IntegrationEventHandlerInterface\IntegrationEventHandlerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IntegrationEventHandlerInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\IntegrationEventMessage\IntegrationEventMessageTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IntegrationEventMessageTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
