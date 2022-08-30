@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
+namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
 {
     using Intent.Modelers.Eventing.Api;
     using Intent.Modules.Common.CSharp.Templates;
@@ -17,9 +17,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class ConsumerTemplate : CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel, Intent.Modules.Eventing.MassTransit.Templates.Consumer.ConsumerDecorator>
+    public partial class WrapperConsumerTemplate : CSharpTemplateBase<object, Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer.ConsumerDecorator>
     {
 #line hidden
         /// <summary>
@@ -29,98 +29,84 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
         {
             this.Write("using System;\r\nusing System.Threading.Tasks;\r\nusing MassTransit;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write(" : IConsumer<");
+            this.Write("<THandler, TMessage> : IConsumer<TMessage>\r\n        where TMessage : class\r\n        where THandler : ");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageName()));
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIntegrationEventHandlerInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(">\r\n    {");
+            this.Write("<TMessage>\r\n    {");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetClassMembers()));
             
             #line default
             #line hidden
             this.Write("\r\n        public ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorParameters()));
             
             #line default
             #line hidden
             this.Write(")\r\n        {");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConstructorImplementation()));
             
             #line default
             #line hidden
-            this.Write("\r\n        }\r\n\r\n        public async Task Consume(ConsumeContext<");
+            this.Write("\r\n        }\r\n\r\n        public async Task Consume(ConsumeContext<TMessage> context)\r\n        {");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageName()));
-            
-            #line default
-            #line hidden
-            this.Write("> context)\r\n        {");
-            
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumeEnterCode()));
             
             #line default
             #line hidden
             this.Write("\r\n            var eventBusPublisher = _serviceProvider.GetService<");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusPublisherImplementationName()));
             
             #line default
             #line hidden
             this.Write(">()");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(UseExplicitNullSymbol ? "!" : string.Empty));
             
             #line default
             #line hidden
-            this.Write(";\r\n            eventBusPublisher.Current = context;\r\n\r\n            var handler = _serviceProvider.GetService<");
+            this.Write(";\r\n            eventBusPublisher.Current = context;\r\n\r\n            var handler = _serviceProvider.GetService<THandler>()");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetIntegrationEventHandlerInterfaceName(Model)));
-            
-            #line default
-            #line hidden
-            this.Write(">()");
-            
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(UseExplicitNullSymbol ? "!" : string.Empty));
             
             #line default
             #line hidden
             this.Write(";            \r\n            await handler.HandleAsync(context.Message, context.CancellationToken);\r\n            \r\n            await eventBusPublisher.FlushAllAsync(context.CancellationToken);");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\Consumer\ConsumerTemplate.tt"
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumeExitCode()));
             
             #line default

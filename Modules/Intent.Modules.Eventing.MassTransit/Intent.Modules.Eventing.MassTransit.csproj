@@ -81,6 +81,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>IntegrationEventMessageTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\WrapperConsumer\WrapperConsumerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WrapperConsumerTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -143,6 +148,10 @@
     <None Update="Templates\IntegrationEventMessage\IntegrationEventMessageTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>IntegrationEventMessageTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\WrapperConsumer\WrapperConsumerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WrapperConsumerTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

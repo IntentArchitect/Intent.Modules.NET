@@ -53,7 +53,14 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerI
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        [IntentManaged(Mode.Ignore)]\r\n        public ");
+            this.Write("<");
+            
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\IntegrationEventHandlerImplementation\IntegrationEventHandlerImplementationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageName()));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n    {\r\n        [IntentManaged(Mode.Ignore)]\r\n        public ");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\IntegrationEventHandlerImplementation\IntegrationEventHandlerImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));

@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel, Intent.Modules.Eventing.MassTransit.Templates.Consumer.ConsumerDecorator>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<object, Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer.ConsumerDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ import namespace="Intent.Modelers.Eventing.Api" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
@@ -11,18 +11,20 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #> : IConsumer<<#= GetMessageName() #>>
+    public class <#= ClassName #><THandler, TMessage> : IConsumer<TMessage>
+        where TMessage : class
+        where THandler : <#=this.GetIntegrationEventHandlerInterfaceName() #><TMessage>
     {<#= GetClassMembers() #>
         public <#= ClassName #>(<#= GetConstructorParameters() #>)
         {<#= GetConstructorImplementation() #>
         }
 
-        public async Task Consume(ConsumeContext<<#= GetMessageName() #>> context)
+        public async Task Consume(ConsumeContext<TMessage> context)
         {<#= GetConsumeEnterCode() #>
             var eventBusPublisher = _serviceProvider.GetService<<#= this.GetEventBusPublisherImplementationName() #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;
             eventBusPublisher.Current = context;
 
-            var handler = _serviceProvider.GetService<<#= this.GetIntegrationEventHandlerInterfaceName(Model) #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;            
+            var handler = _serviceProvider.GetService<THandler>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;            
             await handler.HandleAsync(context.Message, context.CancellationToken);
             
             await eventBusPublisher.FlushAllAsync(context.CancellationToken);<#= GetConsumeExitCode() #>

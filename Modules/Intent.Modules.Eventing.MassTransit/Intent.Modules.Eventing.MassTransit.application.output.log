@@ -42,46 +42,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#dcbc9d8c-3261-4c3b-b6c6-f3da2dc7632c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Consumer/ConsumerDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Consumer/ConsumerDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Consumer/ConsumerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Consumer/ConsumerTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Consumer/ConsumerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Consumer/ConsumerTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Consumer/ConsumerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Consumer/ConsumerTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Consumer/ConsumerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Consumer/ConsumerTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#014ed2f0-99fc-422f-b070-67a01953c8a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EventBusPublisherImplementation/EventBusPublisherImplementationTemplate.cs</ApplicationRelativeFilePath>
@@ -202,7 +162,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f9b3467a-b1eb-41f0-bc1b-209c086b3801</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f9b3467a-b1eb-41f0-bc1b-209c086b3801</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -278,6 +238,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#dcbc9d8c-3261-4c3b-b6c6-f3da2dc7632c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/WrapperConsumer/ConsumerDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WrapperConsumer/ConsumerDecorator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/WrapperConsumer/WrapperConsumerTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WrapperConsumer/WrapperConsumerTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/WrapperConsumer/WrapperConsumerTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WrapperConsumer/WrapperConsumerTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/WrapperConsumer/WrapperConsumerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WrapperConsumer/WrapperConsumerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>208aeec8-be2b-41b1-a1fb-0a5462467a1b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#44bdbb4b-004d-410f-87e7-f4b39206879f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/WrapperConsumer/WrapperConsumerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WrapperConsumer/WrapperConsumerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

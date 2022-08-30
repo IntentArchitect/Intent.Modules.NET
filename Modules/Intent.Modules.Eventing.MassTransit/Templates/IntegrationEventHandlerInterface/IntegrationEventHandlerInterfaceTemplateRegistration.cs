@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
 namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class IntegrationEventHandlerInterfaceTemplateRegistration : FilePerModelTemplateRegistration<MessageHandlerModel>
+    public class IntegrationEventHandlerInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -26,15 +26,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerI
 
         public override string TemplateId => IntegrationEventHandlerInterfaceTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, MessageHandlerModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new IntegrationEventHandlerInterfaceTemplate(outputTarget, model);
-        }
-
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<MessageHandlerModel> GetModels(IApplication application)
-        {
-            return _metadataManager.Eventing(application).GetConsumerModels().SelectMany(s => s.MessageConsumers);
+            return new IntegrationEventHandlerInterfaceTemplate(outputTarget);
         }
     }
 }

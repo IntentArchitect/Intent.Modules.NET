@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageHandlerModel>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -15,8 +15,9 @@ using System.Threading.Tasks;
 
 namespace <#= Namespace #>
 {
-    public interface <#= ClassName #>
+    public interface <#= ClassName #><TMessage>
+        where TMessage : class
     {
-        Task HandleAsync(<#= GetMessageName() #> message, CancellationToken cancellationToken = default);
+        Task HandleAsync(TMessage message, CancellationToken cancellationToken = default);
     }
 }

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Intent.Engine;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Eventing.MassTransit.Templates.Consumer;
+using Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,9 +10,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
 {
     [Description(ConsumerTransactionDecorator.DecoratorId)]
-    public class ConsumerTransactionDecoratorRegistration : DecoratorRegistration<ConsumerTemplate, ConsumerDecorator>
+    public class ConsumerTransactionDecoratorRegistration : DecoratorRegistration<WrapperConsumerTemplate, ConsumerDecorator>
     {
-        public override ConsumerDecorator CreateDecoratorInstance(ConsumerTemplate template, IApplication application)
+        public override ConsumerDecorator CreateDecoratorInstance(WrapperConsumerTemplate template, IApplication application)
         {
             return new ConsumerTransactionDecorator(template, application);
         }

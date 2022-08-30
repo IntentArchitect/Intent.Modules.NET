@@ -13,15 +13,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
+namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class ConsumerTemplate : CSharpTemplateBase<MessageHandlerModel, ConsumerDecorator>
+    partial class WrapperConsumerTemplate : CSharpTemplateBase<object, ConsumerDecorator>
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.Consumer";
+        public const string TemplateId = "Intent.Eventing.MassTransit.WrapperConsumer";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ConsumerTemplate(IOutputTarget outputTarget, MessageHandlerModel model) : base(TemplateId, outputTarget, model)
+        public WrapperConsumerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MassTransitAbstractions);
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
@@ -31,17 +31,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.Consumer
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.TypeReference.Element.Name.ToPascalCase()}Consumer",
+                className: $"WrapperConsumer",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
         private bool UseExplicitNullSymbol => Project.GetProject().NullableEnabled;
-
-        private string GetMessageName()
-        {
-            return GetTypeName(Model.TypeReference);
-        }
 
         private string GetClassMembers()
         {

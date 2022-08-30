@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Constants;
-using Intent.Modules.Eventing.MassTransit.Templates.Consumer;
+using Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,11 +14,11 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
     {
         [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.Eventing.MassTransit.EntityFrameworkCore.ConsumerTransactionDecorator";
 
-        [IntentManaged(Mode.Fully)] private readonly ConsumerTemplate _template;
+        [IntentManaged(Mode.Fully)] private readonly WrapperConsumerTemplate _template;
         [IntentManaged(Mode.Fully)] private readonly IApplication _application;
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public ConsumerTransactionDecorator(ConsumerTemplate template, IApplication application)
+        public ConsumerTransactionDecorator(WrapperConsumerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
