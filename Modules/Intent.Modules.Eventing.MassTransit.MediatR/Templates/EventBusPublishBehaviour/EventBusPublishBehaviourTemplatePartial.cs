@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
-                .WithPriority(4)
+                .WithPriority(6)
                 .ForConcern("Application")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
