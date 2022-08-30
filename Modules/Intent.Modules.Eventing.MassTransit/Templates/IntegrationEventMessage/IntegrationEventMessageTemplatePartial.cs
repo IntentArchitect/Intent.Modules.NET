@@ -26,7 +26,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.Name}",
+                className: $"{Model.Name.RemoveSuffix("Event")}Event",
                 @namespace: $"{Model.InternalElement.Package.Name.ToPascalCase()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
