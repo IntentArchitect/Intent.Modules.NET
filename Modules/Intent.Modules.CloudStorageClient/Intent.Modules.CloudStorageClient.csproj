@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\AzureBlobStorageImplementation\AzureBlobStorageImplementationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AzureBlobStorageImplementationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\CloudStorageInterface\CloudStorageInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CloudStorageInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\AzureBlobStorageImplementation\AzureBlobStorageImplementationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AzureBlobStorageImplementationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\CloudStorageInterface\CloudStorageInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CloudStorageInterfaceTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.10" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.6" />
+    <PackageReference Include="Intent.Packager" Version="3.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
+  </ItemGroup>
+
+</Project>

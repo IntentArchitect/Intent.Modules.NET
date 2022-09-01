@@ -184,6 +184,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.ValueObjects", "Intent.Modules.ValueObjects\Intent.Modules.ValueObjects.csproj", "{BE53D805-6699-498D-A281-05F24E1B3E58}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.CloudStorageClient", "Intent.Modules.CloudStorageClient\Intent.Modules.CloudStorageClient.csproj", "{9C444948-CCB8-4E56-B1E1-CE39EEB402E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -530,6 +532,10 @@ Global
 		{BE53D805-6699-498D-A281-05F24E1B3E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE53D805-6699-498D-A281-05F24E1B3E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE53D805-6699-498D-A281-05F24E1B3E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C444948-CCB8-4E56-B1E1-CE39EEB402E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C444948-CCB8-4E56-B1E1-CE39EEB402E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C444948-CCB8-4E56-B1E1-CE39EEB402E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C444948-CCB8-4E56-B1E1-CE39EEB402E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -620,6 +626,7 @@ Global
 		{2F154FBE-BD9A-47D5-B1DF-287729FB872B} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{F03B9E59-821B-4F56-8EDF-052F10B68EFD} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{BE53D805-6699-498D-A281-05F24E1B3E58} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
+		{9C444948-CCB8-4E56-B1E1-CE39EEB402E2} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
