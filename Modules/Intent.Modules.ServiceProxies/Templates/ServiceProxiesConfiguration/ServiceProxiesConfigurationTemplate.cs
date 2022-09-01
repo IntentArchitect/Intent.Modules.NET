@@ -33,23 +33,23 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxiesConfiguration
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing Microsoft.Extensions.Configuration;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        public static void AddServiceProxies(this IServiceCollection services, IConfiguration configuration)\r\n        {\r\n");
+            this.Write("\r\n    {\r\n        public static void AddServiceProxies(this IServiceCollection services, IConfiguration configuration)\r\n        {\r\n            services.AddAccessTokenManagement(options =>\r\n            {\r\n                configuration.GetSection(\"IdentityClients\").Bind(options.Client.Clients);\r\n            }).ConfigureBackchannelHttpClient();\r\n\r\n");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
 
     foreach (var proxy in Model)
     {
@@ -59,35 +59,42 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxiesConfiguration
             #line hidden
             this.Write("            services.AddHttpClient<");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetServiceContractName(proxy)));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetServiceProxyClientName(proxy)));
             
             #line default
             #line hidden
             this.Write(">(http =>\r\n            {\r\n                http.BaseAddress = configuration.GetValue<Uri>(\"");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Uri")));
             
             #line default
             #line hidden
             this.Write("\");\r\n                http.Timeout = configuration.GetValue<TimeSpan?>(\"");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetConfigKey(proxy, "Timeout")));
             
             #line default
             #line hidden
-            this.Write("\") ?? TimeSpan.FromSeconds(100);\r\n            });\r\n");
+            this.Write("\") ?? TimeSpan.FromSeconds(100);\r\n            })");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetMessageHandlers(proxy)));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n");
+            
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt"
         
     }
 
