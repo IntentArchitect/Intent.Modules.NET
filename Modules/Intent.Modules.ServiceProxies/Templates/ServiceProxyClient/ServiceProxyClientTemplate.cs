@@ -114,7 +114,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             
             #line default
             #line hidden
-            this.Write("            var queryParams = new Dictionary<string, string>\r\n            {\r\n");
+            this.Write("            \r\n            var queryParams = new Dictionary<string, string>();\r\n");
             
             #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
@@ -124,7 +124,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             
             #line default
             #line hidden
-            this.Write("                { \"");
+            this.Write("            queryParams.Add(\"");
             
             #line 56 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(queryParameter.Name.ToCamelCase()));
@@ -134,11 +134,11 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             this.Write("\", ");
             
             #line 56 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(queryParameter.Name.ToParameterName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetParameterValueExpression(queryParameter)));
             
             #line default
             #line hidden
-            this.Write(".ToString() },\r\n");
+            this.Write(");\r\n");
             
             #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
@@ -147,7 +147,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             
             #line default
             #line hidden
-            this.Write("            };\r\n            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);\r\n");
+            this.Write("            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);\r\n\r\n");
             
             #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
@@ -192,34 +192,34 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             #line 73 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
         }
-        
+
         if (HasBodyParameter(operation))
         {
 
             
             #line default
             #line hidden
-            this.Write("            var content = JsonSerializer.Serialize(");
+            this.Write("            \r\n            var content = JsonSerializer.Serialize(");
             
-            #line 79 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 80 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetBodyParameterName(operation)));
             
             #line default
             #line hidden
             this.Write(", _serializerOptions);\r\n            request.Content = new StringContent(content, Encoding.Default, \"application/json\");\r\n\r\n");
             
-            #line 82 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 83 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
-        } 
+        }
         else if (HasFormUrlEncodedParameter(operation))
         {
 
             
             #line default
             #line hidden
-            this.Write("            var formVariables = new List<KeyValuePair<string, string>>();\r\n");
+            this.Write("            \r\n            var formVariables = new List<KeyValuePair<string, string>>();\r\n");
             
-            #line 88 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 90 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
             foreach (var formParameter in GetFormUrlEncodedParameters(operation))
             {
@@ -229,21 +229,21 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             #line hidden
             this.Write("            formVariables.Add(new KeyValuePair<string, string>(\"");
             
-            #line 92 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 94 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(formParameter.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 92 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(formParameter.Name.ToParameterName()));
+            #line 94 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetParameterValueExpression(formParameter)));
             
             #line default
             #line hidden
             this.Write("));\r\n");
             
-            #line 93 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 95 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
             }
 
@@ -252,16 +252,16 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             #line hidden
             this.Write("            var content = new FormUrlEncodedContent(formVariables);\r\n            request.Content = content;\r\n");
             
-            #line 98 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 100 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
         }
 
             
             #line default
             #line hidden
-            this.Write("            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))\r\n            {\r\n                if (!response.IsSuccessStatusCode)\r\n                {\r\n                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);\r\n                }\r\n");
+            this.Write("            \r\n            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))\r\n            {\r\n                if (!response.IsSuccessStatusCode)\r\n                {\r\n                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);\r\n                }\r\n");
             
-            #line 107 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 110 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
         if (HasResponseType(operation))
         {
@@ -271,14 +271,14 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             #line hidden
             this.Write("                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)\r\n                {\r\n                    return null;\r\n                }\r\n\r\n                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))\r\n                {\r\n                    return await JsonSerializer.DeserializeAsync<");
             
-            #line 118 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 121 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(operation.ReturnType)));
             
             #line default
             #line hidden
             this.Write(">(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);\r\n                }\r\n");
             
-            #line 120 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 123 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
         }
 
@@ -287,7 +287,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             #line hidden
             this.Write("            }\r\n        }\r\n");
             
-            #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 128 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
 
     }
 
@@ -296,14 +296,14 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             #line hidden
             this.Write("\r\n        public void Dispose()\r\n        {\r\n        }\r\n\r\n        private async Task<HttpRequestException> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)\r\n        {\r\n            var fullRequestUri = new Uri(_httpClient.BaseAddress");
             
-            #line 135 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 138 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(NotNull));
             
             #line default
             #line hidden
             this.Write(" ,request.RequestUri");
             
-            #line 135 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
+            #line 138 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(NotNull));
             
             #line default

@@ -47,18 +47,18 @@ namespace <#= Namespace #>
         if (HasQueryParameter(operation))
         {
 #>
-            var queryParams = new Dictionary<string, string>
-            {
+            
+            var queryParams = new Dictionary<string, string>();
 <#
             foreach (var queryParameter in GetQueryParameters(operation))
             {
 #>
-                { "<#= queryParameter.Name.ToCamelCase() #>", <#= queryParameter.Name.ToParameterName() #>.ToString() },
+            queryParams.Add("<#= queryParameter.Name.ToCamelCase() #>", <#= GetParameterValueExpression(queryParameter) #>);
 <#
             }
 #>
-            };
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+
 <#
         }
 #>
@@ -72,24 +72,26 @@ namespace <#= Namespace #>
 
 <#
         }
-        
+
         if (HasBodyParameter(operation))
         {
 #>
+            
             var content = JsonSerializer.Serialize(<#= GetBodyParameterName(operation) #>, _serializerOptions);
             request.Content = new StringContent(content, Encoding.Default, "application/json");
 
 <#
-        } 
+        }
         else if (HasFormUrlEncodedParameter(operation))
         {
 #>
+            
             var formVariables = new List<KeyValuePair<string, string>>();
 <#
             foreach (var formParameter in GetFormUrlEncodedParameters(operation))
             {
 #>
-            formVariables.Add(new KeyValuePair<string, string>("<#= formParameter.Name.ToPascalCase() #>", <#= formParameter.Name.ToParameterName() #>));
+            formVariables.Add(new KeyValuePair<string, string>("<#= formParameter.Name.ToPascalCase() #>", <#= GetParameterValueExpression(formParameter) #>));
 <#
             }
 #>
@@ -98,6 +100,7 @@ namespace <#= Namespace #>
 <#
         }
 #>
+            
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)

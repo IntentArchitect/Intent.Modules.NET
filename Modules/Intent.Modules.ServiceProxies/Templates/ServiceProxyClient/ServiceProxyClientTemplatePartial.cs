@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
@@ -29,12 +30,13 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceProxyClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
         {
+            WebApiQueries.Validate(model);
+            
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
             AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
+            
             AddTypeSource(ServiceContractTemplate.TemplateId);
             AddTypeSource(DtoContractTemplate.TemplateId).WithCollectionFormat("List<{0}>");
-
-            WebApiQueries.Validate(model);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("List<{0}>"));
         }
 
@@ -124,6 +126,16 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
         private bool HasResponseType(OperationModel operation)
         {
             return operation.ReturnType != null;
+        }
+
+        private string GetParameterValueExpression(ParameterModel parameter)
+        {
+            if (parameter.TypeReference.Element.Name != "string")
+            {
+                return parameter.Name.ToParameterName() + ".ToString()";
+            }
+
+            return parameter.Name.ToParameterName();
         }
     }
 }

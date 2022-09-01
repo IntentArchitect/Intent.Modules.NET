@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using Intent.Metadata.WebApi.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
@@ -16,8 +17,7 @@ public static class WebApiQueries
     {
         foreach (var operation in serviceProxy.MappedService.Operations)
         {
-            if (operation.Parameters.Any(par => par.GetParameterSettings()?.Source().IsFromBody() == true) &&
-                operation.Parameters.Any(par => par.GetParameterSettings()?.Source().IsFromForm() == true))
+            if (GetBodyParameter(operation) != null && GetFormUrlEncodedParameters(operation).Any())
             {
                 throw new InvalidOperationException(
                     $"Service Proxy [{serviceProxy.Name}] is mapped to Service [{serviceProxy.MappedService.Name}] which has Operation [{operation.Name}] that has a FORM parameter and a BODY parameter.");
@@ -56,7 +56,10 @@ public static class WebApiQueries
 
     public static ParameterModel GetBodyParameter(OperationModel operation)
     {
-        return operation.Parameters.FirstOrDefault(p => p.GetParameterSettings()?.Source().IsFromBody() == true);
+        return operation.Parameters
+            .FirstOrDefault(p => p.GetParameterSettings()?.Source().IsFromBody() == true
+                                 || (p.GetParameterSettings()?.Source().IsDefault() == true &&
+                                     p.TypeReference.Element.IsDTOModel()));
     }
 
     public static IReadOnlyCollection<ParameterModel> GetFormUrlEncodedParameters(OperationModel operation)
