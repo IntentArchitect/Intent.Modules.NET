@@ -81,6 +81,6 @@
     <application id="b40bf9f0-3286-4fe7-8a7d-39df74c0e322" name="Application.Dtos.Pagination" relativePath="Intent.Modules.Application.Dtos.Pagination/Application.Dtos.Pagination.application.config" />
     <application id="7d03c44e-7951-45b7-9a7b-9edd7d0c0cce" name="Intent.Modules.AspNetCore.Interop.EntityFrameworkCore" relativePath="Intent.Modules.AspNetCore.Interop.EntityFrameworkCore/Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.application.config" />
     <application id="ad22f3ab-10e5-488a-b026-81346dc61c64" name="Intent.Modules.ValueObjects" relativePath="Intent.Modules.ValueObjects/Intent.Modules.ValueObjects.application.config" />
-    <application id="c799cb74-e13e-49e8-a96d-7f6721edca23" name="Intent.Modules.CloudStorageClient" relativePath="Intent.Modules.CloudStorageClient/Intent.Modules.CloudStorageClient.application.config" />
+    <application id="0e64d2ec-20ae-488a-8d4c-0b34354032d5" name="Intent.Modules.Azure.BlobStorage" relativePath="Intent.Modules.Azure.BlobStorage/Intent.Modules.Azure.BlobStorage.application.config" />
   </applications>
 </solution>
