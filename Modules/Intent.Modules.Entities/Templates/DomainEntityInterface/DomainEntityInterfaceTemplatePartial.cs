@@ -58,7 +58,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                     {
                         @interface.ExtendsInterface(this.GetDomainEntityInterfaceName(Model.ParentClass));
                     }
-                    
+
                     foreach (var attribute in Model.Attributes)
                     {
                         @interface.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
@@ -66,7 +66,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                             property.AddMetadata("model", attribute);
                             if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
                             {
-                                property.PrivateSetter();
+                                property.ReadOnly();
                             }
                         });
                     }
@@ -79,7 +79,18 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                             property.Virtual();
                             if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
                             {
-                                property.PrivateSetter();
+                                property.ReadOnly();
+                            }
+                        });
+                    }
+
+                    foreach (var operation in Model.Operations)
+                    {
+                        @interface.AddMethod(GetTypeName(operation), operation.Name, method =>
+                        {
+                            foreach (var parameter in operation.Parameters)
+                            {
+                                method.AddParameter(GetTypeName(parameter), parameter.Name);
                             }
                         });
                     }
@@ -95,12 +106,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
-        public override bool CanRunTemplate()
-        {
-            return ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Ignore, Body = Mode.Ignore)]
         public override string TransformText()
         {
             return CSharpFile.ToString();

@@ -9,10 +9,12 @@
   <ItemGroup>
     <Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceDecoratorBase.cs" />
     <Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.cs" />
+    <Compile Remove="Templates\DomainEntity\DomainEntityTemplate.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.tt" />
+    <None Remove="Templates\DomainEntity\DomainEntityTemplate.tt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,10 +41,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEntityStateTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\DomainEntity\DomainEntityTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DomainEntityTemplate.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -59,11 +57,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEntityStateTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DomainEntity\DomainEntityTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DomainEntityTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\DomainEnum\DomainEnumTemplate.cs">
       <DesignTime>True</DesignTime>

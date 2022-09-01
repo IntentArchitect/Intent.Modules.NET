@@ -37,10 +37,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, EntityTypeConfigurationDecorator>, ICSharpFileBuilderTemplate
     {
-        //private readonly List<AttributeModel> _explicitPrimaryKeys;
-        private readonly List<Action<CSharpClass>> _requiredChangesToDomainEntity = new List<Action<CSharpClass>>();
+        private IIntentTemplate _entityTemplate;
 
-        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
+        [IntentManaged(Mode.Fully)] 
+        public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
@@ -54,11 +54,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .AddUsing("Microsoft.EntityFrameworkCore.Metadata.Builders")
                 .AddClass($"{Model.Name}Configuration", @class =>
                 {
-                    var entityTemplate = GetTemplate<IIntentTemplate>("Domain.Entity", Model);
-                    @class.ImplementsInterface($"IEntityTypeConfiguration<{GetTypeName(entityTemplate)}>")
+                    if (!TryGetTemplate("Domain.Entity.State", Model, out _entityTemplate))
+                    {
+                        _entityTemplate = GetTemplate<IIntentTemplate>("Domain.Entity", Model);
+                    }
+                    @class.ImplementsInterface($"IEntityTypeConfiguration<{GetTypeName(_entityTemplate)}>")
                         .AddMethod("void", "Configure", method =>
                         {
-                            method.AddParameter($"EntityTypeBuilder<{GetTypeName(entityTemplate)}>", "builder");
+                            method.AddParameter($"EntityTypeBuilder<{GetTypeName(_entityTemplate)}>", "builder");
                             method.AddStatements(new[] {
                                 GetTableMapping(Model),
                                 GetKeyMapping(Model),
@@ -66,43 +69,44 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 GetBeforeAttributeStatements()
                             }.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray());
 
-                            if (entityTemplate is ICSharpFileBuilderTemplate builderTemplate)
+                            foreach (var attribute in GetAttributes(Model))
                             {
+                                method.AddStatement(GetAttributeMapping(attribute, @class));
+                            }
+                            foreach (var associationEnd in GetAssociations(Model))
+                            {
+                                method.AddStatement(GetAssociationMapping(associationEnd, @class));
+                            }
+
+                            if (_entityTemplate is ICSharpFileBuilderTemplate builderTemplate)
+                            {
+                                // GCB - this approach (using the properties) is potentially worth exploring as it decouples the EF Core from the Domain designer
+                                //builderTemplate.CSharpFile.OnBuild(file =>
+                                //{
+                                //    foreach (var property in file.Classes.First().GetAllProperties())
+                                //    {
+                                //        if (property.TryGetMetadata<AttributeModel>("model", out var attribute))
+                                //        {
+                                //            method.AddStatement(GetAttributeMapping(attribute, @class));
+                                //        }
+                                //        else if (property.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
+                                //        {
+                                //            method.AddStatement(GetAssociationMapping(associationEnd, @class));
+                                //        }
+                                //    }
+                                //    method.Statements.SeparateAll();
+                                //});
                                 builderTemplate.CSharpFile.OnBuild(file =>
                                 {
-                                    foreach (var requiredChange in _requiredChangesToDomainEntity)
+                                    foreach (var property in file.Classes.First().GetAllProperties())
                                     {
-                                        requiredChange.Invoke(file.Classes.First());
-                                    }
-                                    foreach (var property in file.Classes.First().Properties.ToList())
-                                    {
-                                        if (property.TryGetMetadata<AttributeModel>("model", out var attribute))
-                                        {
-                                            method.AddStatement(GetAttributeMapping(attribute, @class));
-                                        }
-                                        else if (property.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
-                                        {
-                                            method.AddStatement(GetAssociationMapping(associationEnd, @class));
-                                        }
                                         if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent)
                                         {
                                             method.AddStatement($"builder.Ignore(e => e.{property.Name});");
                                         }
                                     }
                                     method.Statements.SeparateAll();
-                                }, 100);
-                            }
-                            else
-                            {
-                                // Backward compatibility
-                                foreach (var attribute in GetAttributes(Model))
-                                {
-                                    method.AddStatement(GetAttributeMapping(attribute, @class));
-                                }
-                                foreach (var associationEnd in GetAssociations(Model))
-                                {
-                                    method.AddStatement(GetAssociationMapping(associationEnd, @class));
-                                }
+                                }, order: 100); // Needs to run after other decorators of the entity
                             }
 
                             method.AddStatements(GetIndexes(Model));
@@ -134,20 +138,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetTableMapping(ClassModel model)
         {
+            if (model.HasTable() && !string.IsNullOrWhiteSpace(model.GetTable().Name()))
+            {
+                return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+            }
+
+            if ((model.ParentClass != null || model.ChildClasses.Any()) && !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
+                    .IsTPH())
+            {
+                return $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+            }
+
             if (model.ParentClass != null && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
                     .IsTPH())
             {
-                return $@"
-            builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();
-";
-            }
-
-            if (model.HasTable() || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
-                    .IsTPH())
-            {
-                return $@"
-            builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});
-";
+                return $@"builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();";
             }
 
             if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
@@ -160,9 +165,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     ? OutputTarget.ApplicationName()
                     : cosmosSettings.ContainerName();
 
-                return $@"
-            builder.ToContainer(""{containerName}"");
-";
+                return $@"builder.ToContainer(""{containerName}"");";
             }
 
             return string.Empty;
@@ -183,10 +186,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     return "";
                 }
 
-                _requiredChangesToDomainEntity.Add((@class) =>
+                var rootEntity = model;
+                while (rootEntity.ParentClass != null)
                 {
-                    @class.InsertProperty(0, this.GetDefaultSurrogateKeyType(), "Id");
-                });
+                    rootEntity = rootEntity.ParentClass;
+                }
+                EnsureColumnsOnEntity(rootEntity.InternalElement, new RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
 
                 return $@"builder.HasKey(x => x.Id);";
             }
@@ -305,13 +310,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         statements.Add($".HasColumnType(\"nvarchar({maxLength?.ToString() ?? "max"})\")");
                         break;
                     case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
-                        Logging.Log.Warning(
-                            $"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                        Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
                         statements.Add($".HasColumnType(\"text\")");
                         break;
                     case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT:
-                        Logging.Log.Warning(
-                            $"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
+                        Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
                         statements.Add($".HasColumnType(\"ntext\")");
                         break;
                     default:
@@ -346,7 +349,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
             }
 
-            if (Intent.EntityFrameworkCore.Api.AttributeModelStereotypeExtensions.HasRowVersion(attribute))
+            if (attribute.HasRowVersion())
             {
                 statements.Add($".IsRowVersion()");
             }
@@ -436,7 +439,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         if (associationEnd.OtherEnd().IsNullable)
                         {
                             statements.Add($"    .HasForeignKey<{associationEnd.OtherEnd().Class.Name}>({GetForeignKeyLambda(associationEnd.OtherEnd(), out var columns)})");
-                            EnsureColumnsOnEntity(associationEnd.OtherEnd(), columns);
+                            EnsureColumnsOnEntity(associationEnd.OtherEnd().Element, columns);
                         }
                         else
                         {
@@ -465,7 +468,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         statements.Add($"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
                         statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd(), out var columns)})");
                         statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
-                        EnsureColumnsOnEntity(associationEnd.OtherEnd(), columns);
+                        EnsureColumnsOnEntity(associationEnd.OtherEnd().Element, columns);
                         break;
                     }
                 case RelationshipType.OneToMany:
@@ -474,11 +477,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         {
                             @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                             {
-                                (string Type, string Name)[] columns = null;
+                                RequiredColumn[] columns = null;
                                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                                 method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd, out columns)})" : "")};");
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
-                                EnsureColumnsOnEntity(associationEnd, columns ?? Array.Empty<(string Type, string Name)>());
+                                EnsureColumnsOnEntity(associationEnd.Element, columns ?? Array.Empty<RequiredColumn>());
                                 method.Statements.SeparateAll();
                             });
                             return $@"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
@@ -487,7 +490,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
                         statements.Add($"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
                         statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd, out var columns)})");
-                        EnsureColumnsOnEntity(associationEnd, columns);
+                        EnsureColumnsOnEntity(associationEnd.Element, columns);
                         if (!associationEnd.OtherEnd().IsNullable)
                         {
                             statements.Add($"    .IsRequired()");
@@ -512,6 +515,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
                         statements.Add($"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
                         statements.Add($"    .UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
+                        EnsureColumnsOnEntity(associationEnd.Element, new RequiredColumn(_entityTemplate.GetTypeName(associationEnd.OtherEnd()), associationEnd.OtherEnd().Name.ToPascalCase(), IsPrivate: true));
                     }
 
                     break;
@@ -523,23 +527,36 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             ", statements)};";
         }
 
-        private void EnsureColumnsOnEntity(AssociationEndModel associationEnd, params (string Type, string Name)[] columns)
+        private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params RequiredColumn[] columns)
         {
-            if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", associationEnd.Element.Id, out var template))
+            if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
             {
                 var associatedClass = template.CSharpFile.Classes.First();
                 foreach (var column in columns)
                 {
-                    if (!associatedClass.Properties.Any(x => x.Name.Equals(column.Name)))
+                    if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name)))
                     {
-                        var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
-                        if (associationProperty != null)
+                        var associationProperty = associatedClass.GetAllProperties().SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
+
+                        void ConfigureProperty(CSharpProperty property)
                         {
-                            associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), column.Type, column.Name);
+                            if (column.IsPrivate)
+                            {
+                                property.Private();
+                            }
+                        }
+
+                        if (column.Order.HasValue)
+                        {
+                            associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
+                        }
+                        else if (associationProperty != null)
+                        {
+                            associatedClass.InsertProperty(associatedClass.GetAllProperties().ToList().IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
                         }
                         else
                         {
-                            associatedClass.AddProperty(column.Type, column.Name);
+                            associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
                         }
                     }
                 }
@@ -682,7 +699,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 : $"{prefix}{column.Name.ToPascalCase()}";
         }
 
-        private string GetForeignKeyLambda(AssociationEndModel associationEnd, out (string Type, string Name)[] columns)
+        private string GetForeignKeyLambda(AssociationEndModel associationEnd, out RequiredColumn[] columns)
         {
             //if (associationEnd.HasForeignKey() &&
             //    !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
@@ -694,12 +711,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
             {
                 columns = associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
-                    (Type: GetTypeName(x), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
+                    new RequiredColumn(Type: GetTypeName(x), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
                     .ToArray();
             }
             else // implicit Id
             {
-                columns = new[] { (Type: this.GetDefaultSurrogateKeyType(), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id") };
+                columns = new[] { new RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id") };
             }
 
             if (columns?.Length == 1)
@@ -756,5 +773,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             associations.AddRange(model.AssociatedClasses.Where(RequiresConfiguration).ToList());
             return associations;
         }
+
+        protected record RequiredColumn(string Type, string Name, int? Order = null, bool IsPrivate = false);
     }
+
+
 }

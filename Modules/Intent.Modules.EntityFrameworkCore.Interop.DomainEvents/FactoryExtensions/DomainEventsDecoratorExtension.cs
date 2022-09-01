@@ -36,6 +36,10 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
+                    if (@class.BaseType != null) // GCB - This is not reliable. Find way to know for sure.
+                    {
+                        return;
+                    }
                     @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
                     @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
                     {
@@ -48,6 +52,9 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
             var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");
             dbContext?.CSharpFile.OnBuild(file =>
             {
+                file.AddUsing("System.Linq");
+                file.AddUsing("System.Threading");
+                file.AddUsing("System.Threading.Tasks");
                 var @class = file.Classes.First();
                 @class.Constructors.First().AddParameter(dbContext.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId), "domainEventService", param =>
                 {
@@ -76,11 +83,11 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
                 @class.AddMethod("Task", "DispatchEvents", method =>
                 {
                     method.Private().Async()
-                        .AddStatements(@"
+                        .AddStatements($@"
 while (true)
-{
+{{
     var domainEventEntity = ChangeTracker
-        .Entries<IHasDomainEvent>()
+        .Entries<{dbContext.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()
         .Select(x => x.Entity.DomainEvents)
         .SelectMany(x => x)
         .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
@@ -89,7 +96,7 @@ while (true)
 
     domainEventEntity.IsPublished = true;
     await _domainEventService.Publish(domainEventEntity);
-}");
+}}");
                 });
             });
         }

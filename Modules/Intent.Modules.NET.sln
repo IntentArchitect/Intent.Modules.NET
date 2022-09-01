@@ -28,8 +28,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.VisualStudio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Framework", "NET Framework", "{46C61870-A203-487D-9680-8D143871AA1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.DDD", "Intent.Modules.Entities.DDD\Intent.Modules.Entities.DDD.csproj", "{E1044E5B-715F-4AE8-8FAB-2B95BF05289D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramework.Repositories", "Intent.Modules.EntityFramework.Repositories\Intent.Modules.EntityFramework.Repositories.csproj", "{B51489BA-5826-4F55-9A1F-51B3E8ADB142}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Templates", "Application Templates", "{02E19E01-F2C6-4FAC-A57B-2A496B6129AD}"
@@ -43,8 +41,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Core", "NET Core", "{F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Standard", "NET Standard", "{3621A3CE-CF23-4454-B901-013B2A16A5FE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Keys", "Intent.Modules.Entities.Keys\Intent.Modules.Entities.Keys.csproj", "{6F137540-606F-4E35-89E6-E73ADAACDC52}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNet.WebApi.Interop.Unity", "Intent.Modules.AspNet.WebApi.Interop.Unity\Intent.Modules.AspNet.WebApi.Interop.Unity.csproj", "{4513F60A-02D8-48EC-B7C5-456BE83E4759}"
 EndProject
@@ -180,9 +176,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Interop.EntityFrameworkCore", "Intent.Modules.AspNetCore.Interop.EntityFrameworkCore\Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.csproj", "{F03B9E59-821B-4F56-8EDF-052F10B68EFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Interop.EntityFrameworkCore", "Intent.Modules.AspNetCore.Interop.EntityFrameworkCore\Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.csproj", "{F03B9E59-821B-4F56-8EDF-052F10B68EFD}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.ValueObjects", "Intent.Modules.ValueObjects\Intent.Modules.ValueObjects.csproj", "{BE53D805-6699-498D-A281-05F24E1B3E58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ValueObjects", "Intent.Modules.ValueObjects\Intent.Modules.ValueObjects.csproj", "{BE53D805-6699-498D-A281-05F24E1B3E58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -234,10 +230,6 @@ Global
 		{7FEA24FE-C3AC-43BF-A8B0-099AABFBD526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FEA24FE-C3AC-43BF-A8B0-099AABFBD526}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FEA24FE-C3AC-43BF-A8B0-099AABFBD526}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1044E5B-715F-4AE8-8FAB-2B95BF05289D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1044E5B-715F-4AE8-8FAB-2B95BF05289D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1044E5B-715F-4AE8-8FAB-2B95BF05289D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1044E5B-715F-4AE8-8FAB-2B95BF05289D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B51489BA-5826-4F55-9A1F-51B3E8ADB142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B51489BA-5826-4F55-9A1F-51B3E8ADB142}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B51489BA-5826-4F55-9A1F-51B3E8ADB142}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -254,10 +246,6 @@ Global
 		{DC43DD5D-0776-4345-853D-DEF3A95F0CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC43DD5D-0776-4345-853D-DEF3A95F0CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC43DD5D-0776-4345-853D-DEF3A95F0CDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F137540-606F-4E35-89E6-E73ADAACDC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F137540-606F-4E35-89E6-E73ADAACDC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F137540-606F-4E35-89E6-E73ADAACDC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F137540-606F-4E35-89E6-E73ADAACDC52}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4513F60A-02D8-48EC-B7C5-456BE83E4759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4513F60A-02D8-48EC-B7C5-456BE83E4759}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4513F60A-02D8-48EC-B7C5-456BE83E4759}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -546,12 +534,10 @@ Global
 		{42C35856-BD4B-42E8-B720-E3DBA4762A0D} = {46C61870-A203-487D-9680-8D143871AA1F}
 		{DE177367-D476-4299-B9E6-71934B434FC5} = {46C61870-A203-487D-9680-8D143871AA1F}
 		{7FEA24FE-C3AC-43BF-A8B0-099AABFBD526} = {B78BC13A-910C-4D34-B966-EC3B815D83B8}
-		{E1044E5B-715F-4AE8-8FAB-2B95BF05289D} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{B51489BA-5826-4F55-9A1F-51B3E8ADB142} = {46C61870-A203-487D-9680-8D143871AA1F}
 		{43F7EB29-6F2C-4C2E-8072-7B9278A38244} = {46C61870-A203-487D-9680-8D143871AA1F}
 		{3695D671-4A21-4586-86F9-434602EA241C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{DC43DD5D-0776-4345-853D-DEF3A95F0CDF} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
-		{6F137540-606F-4E35-89E6-E73ADAACDC52} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{4513F60A-02D8-48EC-B7C5-456BE83E4759} = {46C61870-A203-487D-9680-8D143871AA1F}
 		{935E6089-3EE2-4661-B04F-EBE893629E83} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{24FE0487-D6F3-4B85-9942-7CB8E422221B} = {46C61870-A203-487D-9680-8D143871AA1F}

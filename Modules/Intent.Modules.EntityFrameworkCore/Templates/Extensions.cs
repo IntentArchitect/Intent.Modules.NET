@@ -28,7 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
 
         public static string GetDefaultSurrogateKeyType(this ICSharpTemplate template)
         {
-            return template.UseType(GetDefaultSurrogateKeyType(template.ExecutionContext));
+            return GetDefaultSurrogateKeyType(template.ExecutionContext);
         }
         public static RelationshipType GetRelationshipType(this AssociationModel association)
         {

@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
@@ -32,21 +33,35 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEntityStateTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-            AddTypeSource(TemplateId, "ICollection<{0}>");
-            AddTypeSource(DomainEnumTemplate.TemplateId, "ICollection<{0}>");
-            AddTypeSource("Domain.ValueObject", "ICollection<{0}>");
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
+            AddTypeSource(TemplateId);
+            AddTypeSource(DomainEnumTemplate.TemplateId);
+            AddTypeSource("Domain.ValueObject");
             Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"), InterfaceContext);
+
+            if (!ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
+            {
+                FulfillsRole("Domain.Entity.Interface");
+            }
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
                 {
+                    @class.AddMetadata("model", Model);
                     if (ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {
                         @class.Partial();
+                    }
+
+                    if (Model.ParentClass != null)
+                    {
+                        @class.ExtendsClass(GetTemplate<DomainEntityStateTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First());
                     }
                     if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
                     {
                         @class.ImplementsInterface(this.GetDomainEntityInterfaceName());
                     }
+
                     foreach (var attribute in Model.Attributes)
                     {
                         @class.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
@@ -78,10 +93,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         protected override CSharpFileConfig DefineFileConfig()
         {
             var config = CSharpFile.GetConfig();
-            if (ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
-            {
-                config.FileName = $"{Model.Name}State";
-            }
+            config.FileName = $"{Model.Name}State";
             return config;
         }
 

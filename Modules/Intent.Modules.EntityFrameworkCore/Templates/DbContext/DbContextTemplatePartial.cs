@@ -115,10 +115,7 @@ modelBuilder.Entity<Car>().HasData(
         {
             return new CSharpFileConfig(
                 className: $"ApplicationDbContext",
-                @namespace: $"{OutputTarget.GetNamespace()}")
-            {
-                AutoFormat = false
-            };
+                @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
         public override string TransformText()

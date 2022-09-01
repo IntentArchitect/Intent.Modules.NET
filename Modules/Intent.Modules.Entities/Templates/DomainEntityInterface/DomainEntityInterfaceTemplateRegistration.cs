@@ -8,6 +8,8 @@ using Intent.Modelers.Domain;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Entities.Settings;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.SoftwareFactory;
 using Intent.Templates;
@@ -37,7 +39,12 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels();
+            if (application.Settings.GetDomainSettings().CreateEntityInterfaces())
+            {
+                return _metadataManager.Domain(application).GetClassModels();
+            }
+
+            return Array.Empty<ClassModel>();
         }
     }
 }

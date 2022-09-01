@@ -24,6 +24,7 @@
     <Compile Remove="Decorators\UnidirectionalManyToManyEntityStateDecoratorRegistration.cs" />
     <Compile Remove="Decorators\ZeroOrOneToZeroOrOneEntityStateDecorator.cs" />
     <Compile Remove="Decorators\ZeroOrOneToZeroOrOneEntityStateDecoratorRegistration.cs" />
+    <Compile Remove="FactoryExtensions\DomainEntityKeysExtension.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,6 +62,7 @@
 
   <ItemGroup>
     <Folder Include="Decorators\" />
+    <Folder Include="FactoryExtensions\" />
   </ItemGroup>
 
 </Project>
