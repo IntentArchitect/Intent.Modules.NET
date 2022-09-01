@@ -22,11 +22,6 @@ namespace Intent.Modules.CloudStorageClient.Templates.CloudStorageInterface
         {
         }
 
-        public override void BeforeTemplateExecution()
-        {
-            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorage", "UseDevelopmentStorage=true"));
-        }
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {

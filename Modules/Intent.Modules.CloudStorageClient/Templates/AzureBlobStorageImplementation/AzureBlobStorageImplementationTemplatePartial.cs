@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.CloudStorageClient.Templates.CloudStorageInterface;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -20,6 +23,14 @@ namespace Intent.Modules.CloudStorageClient.Templates.AzureBlobStorageImplementa
         public AzureBlobStorageImplementationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.AzureStorageBlobs);
+        }
+        
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("AzureBlobStorage", "UseDevelopmentStorage=true"));
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface(GetTemplate<IClassProvider>(CloudStorageInterfaceTemplate.TemplateId))
+                .ForConcern("Infrastructure"));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

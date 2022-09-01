@@ -19,7 +19,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #>
+    public class <#= ClassName #> : <#= this.GetCloudStorageInterfaceName() #>
     {
     private readonly BlobServiceClient _client;
 
@@ -45,7 +45,7 @@ namespace <#= Namespace #>
         public Task UploadContent(Uri cloudStorageLocation, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default)
         {
             var blobUriBuilder = new BlobUriBuilder(cloudStorageLocation);
-            return UploadContent(blobUriBuilder.BlobContainerName, blobUriBuilder.BlobName, overwrite, cancellationToken);
+            return UploadContent(blobUriBuilder.BlobContainerName, blobUriBuilder.BlobName, streamToUpload, overwrite, cancellationToken);
         }
 
         public async Task UploadContent(string containerName, string blobName, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default)
