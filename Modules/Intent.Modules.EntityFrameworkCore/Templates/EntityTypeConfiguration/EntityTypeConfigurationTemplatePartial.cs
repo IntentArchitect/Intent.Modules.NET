@@ -454,7 +454,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
                     break;
                 case RelationshipType.OneToMany:
-                    if (IsValueObject(associationEnd.Element))
+                    if (IsOwned(associationEnd.Element))
                     {
                         _ownedTypeConfigMethods.Add(@$"
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)

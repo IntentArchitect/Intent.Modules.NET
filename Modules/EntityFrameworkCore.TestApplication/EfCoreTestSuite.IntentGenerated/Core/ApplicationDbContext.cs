@@ -91,7 +91,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
             modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
 
-
         }
 
         [IntentManaged(Mode.Ignore)]

@@ -23,9 +23,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
 
             builder.HasOne(x => x.PK_CompositeKey)
-            .WithMany()
-            .HasForeignKey(x => new { x.PK_CompositeKeyCompositeKeyA, x.PK_CompositeKeyCompositeKeyB })
-            .OnDelete(DeleteBehavior.Restrict);
+                .WithMany()
+                .HasForeignKey(x => new { x.PK_CompositeKeyCompositeKeyA, x.PK_CompositeKeyCompositeKeyB })
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
