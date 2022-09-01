@@ -3,7 +3,6 @@
   <name>RolesAuthorizationDecorator</name>
   <display>RolesAuthorizationDecorator: ControllerDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
   <genericTypes />
   <typeReference id="b367ec55-0066-48de-86e4-b901932b808d">
     <typeId>2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</typeId>

@@ -310,7 +310,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromBody => "[FromBody]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromForm => "[FromForm]",
-                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => "[FromHeader]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => $@"[FromHeader(Name = ""{parameter.GetParameterSettings().HeaderName()}"")]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromQuery => "[FromQuery]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => "[FromRoute]",
                 _ => string.Empty

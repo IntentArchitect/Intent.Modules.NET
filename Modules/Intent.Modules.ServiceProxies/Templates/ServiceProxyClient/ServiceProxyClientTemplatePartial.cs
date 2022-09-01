@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
@@ -31,10 +32,10 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
         public ServiceProxyClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
         {
             WebApiQueries.Validate(model);
-            
+
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
             AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
-            
+
             AddTypeSource(ServiceContractTemplate.TemplateId);
             AddTypeSource(DtoContractTemplate.TemplateId).WithCollectionFormat("List<{0}>");
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("List<{0}>"));
