@@ -34,6 +34,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>52c881ea-24c6-49f7-ab42-97692c892ef7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#92ea9f84-3828-457f-af70-28e2ba5ca4da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52c881ea-24c6-49f7-ab42-97692c892ef7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#92ea9f84-3828-457f-af70-28e2ba5ca4da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52c881ea-24c6-49f7-ab42-97692c892ef7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#92ea9f84-3828-457f-af70-28e2ba5ca4da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52c881ea-24c6-49f7-ab42-97692c892ef7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#92ea9f84-3828-457f-af70-28e2ba5ca4da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52c881ea-24c6-49f7-ab42-97692c892ef7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#52debd5f-faca-4a1b-aaff-5332bf5c5996</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ServiceProxyClient/ServiceProxyClientTemplate.cs</ApplicationRelativeFilePath>

@@ -10,12 +10,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ServiceProxyClientTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceProxiesConfigurationTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ServiceProxyClientTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceProxiesConfigurationTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

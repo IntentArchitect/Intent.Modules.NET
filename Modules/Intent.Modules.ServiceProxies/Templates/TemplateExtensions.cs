@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.ServiceProxies.Templates.ServiceProxiesConfiguration;
 using Intent.Modules.ServiceProxies.Templates.ServiceProxyClient;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,6 +12,10 @@ namespace Intent.Modules.ServiceProxies.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetServiceProxiesConfigurationName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(ServiceProxiesConfigurationTemplate.TemplateId);
+        }
         public static string GetServiceProxyClientName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
         {
             return template.GetTypeName(ServiceProxyClientTemplate.TemplateId, template.Model);
