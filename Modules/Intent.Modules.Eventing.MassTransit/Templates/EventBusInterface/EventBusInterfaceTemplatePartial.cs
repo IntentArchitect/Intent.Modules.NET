@@ -9,15 +9,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherInterface
+namespace Intent.Modules.Eventing.MassTransit.Templates.EventBusInterface
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class EventBusPublisherInterfaceTemplate : CSharpTemplateBase<object>
+    partial class EventBusInterfaceTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Eventing.MassTransit.EventBusPublisherInterface";
+        public const string TemplateId = "Intent.Eventing.MassTransit.EventBusInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EventBusPublisherInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public EventBusInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
@@ -25,7 +25,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherInterfa
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"IEventBusPublisher",
+                className: $"IEventBus",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

@@ -19,18 +19,18 @@ namespace <#= Namespace #>
     public class <#= ClassName #><TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
     {
-        private readonly <#= this.GetEventBusPublisherInterfaceName() #> _eventBusPublisher;
+        private readonly <#= this.GetEventBusInterfaceName() #> _eventBus;
 
-        public <#= ClassName #>(<#= this.GetEventBusPublisherInterfaceName() #> eventBusPublisher)
+        public <#= ClassName #>(<#= this.GetEventBusInterfaceName() #> eventBus)
         {
-            _eventBusPublisher = eventBusPublisher;
+            _eventBus = eventBus;
         }
         
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             var response = await next();
 
-            await _eventBusPublisher.FlushAllAsync(cancellationToken);
+            await _eventBus.FlushAllAsync(cancellationToken);
 
             return response;
         }

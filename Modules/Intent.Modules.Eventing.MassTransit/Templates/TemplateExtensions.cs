@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherImplementation;
-using Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherInterface;
+using Intent.Modules.Eventing.MassTransit.Templates.EventBusInterface;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerInterface;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
+using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
 using Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer;
 using Intent.RoslynWeaver.Attributes;
 
@@ -17,15 +17,9 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
 {
     public static class TemplateExtensions
     {
-
-        public static string GetEventBusPublisherImplementationName<T>(this IntentTemplateBase<T> template)
+        public static string GetEventBusInterfaceName<T>(this IntentTemplateBase<T> template)
         {
-            return template.GetTypeName(EventBusPublisherImplementationTemplate.TemplateId);
-        }
-
-        public static string GetEventBusPublisherInterfaceName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(EventBusPublisherInterfaceTemplate.TemplateId);
+            return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
         }
 
         public static string GetIntegrationEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
@@ -56,6 +50,11 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         public static string GetMassTransitConfigurationName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MassTransitConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetMassTransitEventBusName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MassTransitEventBusTemplate.TemplateId);
         }
 
         public static string GetWrapperConsumerName<T>(this IntentTemplateBase<T> template)

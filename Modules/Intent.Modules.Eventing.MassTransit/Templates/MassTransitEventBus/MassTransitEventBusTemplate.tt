@@ -16,7 +16,7 @@ using MassTransit;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #> : <#= this.GetEventBusPublisherInterfaceName() #>
+    public class <#= ClassName #> : <#= this.GetEventBusInterfaceName() #>
     {
         private readonly List<object> _messagesToPublish = new List<object>();
 

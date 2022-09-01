@@ -32,22 +32,22 @@ namespace Intent.Modules.Eventing.MassTransit.AspNetCore.Decorators
 
         public override string EnterClass()
         {
-            return $@"private readonly {_template.GetEventBusPublisherInterfaceName()} _eventBusPublisher;";
+            return $@"private readonly {_template.GetEventBusInterfaceName()} _eventBus;";
         }
 
         public override IEnumerable<string> ConstructorParameters()
         {
-            yield return $@"{_template.GetEventBusPublisherInterfaceName()} eventBusPublisher";
+            yield return $@"{_template.GetEventBusInterfaceName()} eventBus";
         }
 
         public override string ConstructorImplementation()
         {
-            return $@"_eventBusPublisher = eventBusPublisher;";
+            return $@"_eventBus = eventBus;";
         }
 
         public override string MidOperationBody(OperationModel operationModel)
         {
-            return $@"await _eventBusPublisher.FlushAllAsync(cancellationToken);";
+            return $@"await _eventBus.FlushAllAsync(cancellationToken);";
         }
     }
 }

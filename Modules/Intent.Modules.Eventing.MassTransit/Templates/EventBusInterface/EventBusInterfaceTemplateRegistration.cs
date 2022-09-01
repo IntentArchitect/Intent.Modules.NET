@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.Templates.EventBusPublisherInterface
+namespace Intent.Modules.Eventing.MassTransit.Templates.EventBusInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class EventBusPublisherInterfaceTemplateRegistration : SingleFileTemplateRegistration
+    public class EventBusInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => EventBusPublisherInterfaceTemplate.TemplateId;
+        public override string TemplateId => EventBusInterfaceTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new EventBusPublisherInterfaceTemplate(outputTarget);
+            return new EventBusInterfaceTemplate(outputTarget);
         }
     }
 }

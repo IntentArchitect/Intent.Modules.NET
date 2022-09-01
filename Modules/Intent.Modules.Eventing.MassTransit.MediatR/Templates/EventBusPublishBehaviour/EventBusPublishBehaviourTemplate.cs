@@ -50,11 +50,11 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n    where TRequest : IRequest<TResponse>\r\n    {\r\n        private readonly ");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusPublisherInterfaceName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(" _eventBusPublisher;\r\n\r\n        public ");
+            this.Write(" _eventBus;\r\n\r\n        public ");
             
             #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
@@ -64,11 +64,11 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
             this.Write("(");
             
             #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusPublisherInterfaceName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(" eventBusPublisher)\r\n        {\r\n            _eventBusPublisher = eventBusPublisher;\r\n        }\r\n        \r\n        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)\r\n        {\r\n            var response = await next();\r\n\r\n            await _eventBusPublisher.FlushAllAsync(cancellationToken);\r\n\r\n            return response;\r\n        }\r\n    }\r\n}");
+            this.Write(" eventBus)\r\n        {\r\n            _eventBus = eventBus;\r\n        }\r\n        \r\n        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)\r\n        {\r\n            var response = await next();\r\n\r\n            await _eventBus.FlushAllAsync(cancellationToken);\r\n\r\n            return response;\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
