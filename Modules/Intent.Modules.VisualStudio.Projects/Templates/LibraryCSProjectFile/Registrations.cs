@@ -12,7 +12,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LibraryCSProjectFile
     [Description("Library CS Project - VS Projects")]
     public class Registrations : ITemplateRegistration
     {
-        public string TemplateId => LibraryCSProjectFileTemplate.IDENTIFIER;
+        public string TemplateId => LibraryCSProjectFileTemplate.TemplateId;
         private readonly IMetadataManager _metadataManager;
 
         public Registrations(IMetadataManager metadataManager)

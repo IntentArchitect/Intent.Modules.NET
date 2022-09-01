@@ -68,11 +68,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
                 );
         }
 
-        public override string TransformText()
+        public override string RunTemplate()
         {
-            var location = FileMetadata.GetFullLocationPathWithFileName();
+            if (!TryGetExistingFileContent(out var content))
+            {
+                content = TransformText();
+            }
 
-            var doc = LoadOrCreateWebConfig(location);
+            var doc = XDocument.Parse(content);
             if (doc == null) throw new Exception("doc is null");
             if (doc.Root == null) throw new Exception("doc.Root is null");
 
@@ -143,16 +146,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
             return doc.ToStringUTF8();
         }
 
-        private static XDocument LoadOrCreateWebConfig(string filePath)
+        public override string TransformText()
         {
-            XDocument doc;
-            if (File.Exists(filePath))
-            {
-                doc = XDocument.Load(filePath);
-            }
-            else
-            {
-                doc = XDocument.Parse(@"<!--
+            return @"<!--
   For more information on how to configure your ASP.NET application, please visit
   http://go.microsoft.com/fwlink/?LinkId=301879
   -->
@@ -177,9 +173,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebConfig
     <assemblyBinding xmlns=""urn:schemas-microsoft-com:asm.v1"">
     </assemblyBinding>
   </runtime>
-</configuration>");
-            }
-            return doc;
+</configuration>";
         }
 
         public IEnumerable<IWebConfigDecorator> GetDecorators()

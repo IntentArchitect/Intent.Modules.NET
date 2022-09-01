@@ -2,83 +2,82 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
+using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
 {
-    public class FrameworkProjectSyncProcessor
+    internal class FrameworkProjectSyncProcessor
     {
-        private readonly IXmlFileCache _xmlFileCache;
-        private readonly IChanges _changeManager;
-        private readonly string _projectPath;
+        private readonly IVisualStudioProjectTemplate _template;
         private readonly ISoftwareFactoryEventDispatcher _sfEventDispatcher;
-        private readonly IOutputTarget _project;
-
-        private Action<string, string> _syncProjectFile;
-        private XDocument _doc;
-        private XmlNamespaceManager _namespaces;
-        private XNamespace _namespace;
-        private XElement _projectElement;
+        private readonly IChanges _changes;
 
         public FrameworkProjectSyncProcessor(
-            string projectPath,
+            IVisualStudioProjectTemplate template,
             ISoftwareFactoryEventDispatcher sfEventDispatcher,
-            IXmlFileCache xmlFileCache,
-            IChanges changeManager,
-            IOutputTarget project)
+            IChanges changes)
         {
-            _projectPath = projectPath;
+            _template = template;
             _sfEventDispatcher = sfEventDispatcher;
-            _xmlFileCache = xmlFileCache;
-            _changeManager = changeManager;
-            _project = project;
-            _syncProjectFile = UpdateFileOnHdd;
-
+            _changes = changes;
         }
 
         public void Process(List<SoftwareFactoryEvent> events)
         {
-            var filename = LoadProjectFile();
+            var change = _changes.FindChange(_template.FilePath);
 
-            if (string.IsNullOrWhiteSpace(filename))
+            var content = change?.Content;
+            if (content == null &&
+                !_template.TryGetExistingFileContent(out content))
+            {
+                throw new Exception($"Could not find content for {_template.FilePath}");
+            }
+
+            var xml = new ProjectFileXml(content);
+
+            SyncAssemblyReferences(xml);
+            SyncProjectReferences(xml);
+
+            ProcessEvents(xml, events);
+
+            var updatedContent = xml.Document.ToStringUTF8();
+            if (XmlHelper.IsSemanticallyTheSame(content, updatedContent))
+            {
                 return;
-
-            filename = Path.GetFullPath(filename);
-
-            //run events
-            ProcessEvents(events);
-            SyncAssemblyReferences();
-            SyncProjectReferences();
-
-            var currentProjectFileContent = "";
-            if (File.Exists(filename))
-            {
-                var currentProjectFile = XDocument.Parse(File.ReadAllText(filename));
-                currentProjectFileContent = currentProjectFile.ToString();
             }
 
-            // Re-parsing prevents issue where not all elements get created on a new line.
-            var outputContent = XDocument.Parse(_doc.ToString()).ToString();
-
-            //trying to do a schemantic comparision as VS does inconsistence formatting 
-            if (currentProjectFileContent != outputContent)
+            Logging.Log.Debug($"Syncing changes to Project File {ProjectPath}");
+            if (change == null)
             {
-                Logging.Log.Debug($"Syncing changes to Project File {filename}");
-                //string content = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + Environment.NewLine + outputContent;
+                _sfEventDispatcher.Publish(new SoftwareFactoryEvent(
+                    eventIdentifier: SoftwareFactoryEvents.OverwriteFileCommand,
+                    additionalInfo: new Dictionary<string, string>
+                    {
+                        ["FullFileName"] = ProjectPath,
+                        ["Context"] = _template.ToString(),
+                        ["Content"] = string.Empty
+                    }));
 
-                _syncProjectFile(filename, $"<?xml version=\"1.0\" encoding=\"utf-8\"?>{Environment.NewLine}{outputContent}");
+                change = _changes.FindChange(ProjectPath);
             }
+
+            change.ChangeContent(updatedContent);
         }
 
-        public void ProcessEvents(List<SoftwareFactoryEvent> events)
+        private string ProjectPath => _template.FilePath;
+
+        public void ProcessEvents(
+            ProjectFileXml xml,
+            List<SoftwareFactoryEvent> events)
         {
             foreach (var @event in events)
             {
@@ -86,6 +85,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 {
                     case SoftwareFactoryEvents.FileAddedEvent:
                         ProcessAddProjectItem(
+                            xml: xml,
                             path: @event.GetValue("Path"),
                             itemType: @event.TryGetValue("ItemType"),
                             dependsOn: @event.TryGetValue("Depends On"),
@@ -93,41 +93,48 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                         break;
                     case SoftwareFactoryEvents.FileRemovedEvent:
                         ProcessRemoveProjectItem(
+                            xml: xml,
                             path: @event.GetValue("Path"));
                         break;
                     case SoftwareFactoryEvents.AddTargetEvent:
                         ProcessTargetElement(
+                            xml: xml,
                             name: @event.GetValue("Name"),
-                            xml: @event.GetValue("Xml"));
+                            inputXml: @event.GetValue("Xml"));
                         break;
                     case SoftwareFactoryEvents.AddTaskEvent:
                         ProcessUsingTask(
+                            xml: xml,
                             taskName: @event.GetValue("TaskName"),
                             assemblyFile: @event.GetValue("AssemblyFile"));
                         break;
                     case SoftwareFactoryEvents.ChangeProjectItemTypeEvent:
                         ProcessChangeProjectItemType(
-                            project: _project,
+                            xml: xml,
                             relativeFileName: @event.GetValue("RelativeFileName"),
                             itemType: @event.GetValue("ItemType"));
                         break;
                     case CsProjectEvents.AddCompileDependsOn:
                         ProcessCompileDependsOn(
+                            xml: xml,
                             targetName: @event.GetValue("TargetName"));
                         break;
                     case CsProjectEvents.AddImport:
                         ProcessImport(
+                            xml: xml,
                             project: @event.GetValue("Project"),
                             condition: @event.GetValue("Condition"));
                         break;
                     case CsProjectEvents.AddBeforeBuild:
                         ProcessBeforeBuild(
-                            xml: @event.GetValue("Xml"));
+                            xml: xml,
+                            inputXml: @event.GetValue("Xml"));
                         break;
                     case CsProjectEvents.AddContentFile:
                         // This and SoftwareFactoryEvents.AddProjectItemEvent can potentially be merged, this one is just
                         // a more explicit version, the other one tends to "work it out".
                         ProcessContent(
+                            xml: xml,
                             include: @event.GetValue("Include"),
                             link: @event.GetValue("Link"),
                             copyToOutputDirectory: @event.GetValue("CopyToOutputDirectory"));
@@ -139,63 +146,19 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
         }
 
-        private void UpdateFileOnHdd(string filename, string outputContent)
+        private void SyncProjectReferences(ProjectFileXml xml)
         {
-            var se = new SoftwareFactoryEvent(SoftwareFactoryEvents.OverwriteFileCommand, new Dictionary<string, string>
-                                        {
-                                            {"FullFileName", filename},
-                                            {"Content", outputContent},
-                                        });
-            _sfEventDispatcher.Publish(se);
-        }
-
-        private string LoadProjectFile()
-        {
-            if (string.IsNullOrWhiteSpace(_projectPath))
-                return null;
-
-            var change = _changeManager.FindChange(_projectPath);
-            if (change == null)
-            {
-                _doc = _xmlFileCache.GetFile(_projectPath);
-                if (_doc == null)
-                {
-                    throw new Exception($"Trying to sync project file, but unable to find csproj content. {_projectPath}");
-                }
-            }
-            else
-            {
-                _doc = XDocument.Parse(change.Content, LoadOptions.PreserveWhitespace);
-                _syncProjectFile = (f, c) => change.ChangeContent(c);
-            }
-
-            if (_doc.Root == null)
-            {
-                throw new Exception("_doc.Root is null");
-            }
-
-            _namespaces = new XmlNamespaceManager(new NameTable());
-            _namespace = _doc.Root.GetDefaultNamespace();
-            _namespaces.AddNamespace("ns", _namespace.NamespaceName);
-
-            _projectElement = _doc.XPathSelectElement("/ns:Project", _namespaces);
-
-            return _projectPath;
-        }
-
-        private void SyncProjectReferences()
-        {
-            if (_project.Dependencies().Count <= 0)
+            if (_template.OutputTarget.Dependencies().Count <= 0)
             {
                 return;
             }
 
-            var itemGroupElement = FindOrCreateProjectReferenceItemGroup();
+            var itemGroupElement = FindOrCreateProjectReferenceItemGroup(xml);
 
-            foreach (var dependency in _project.Dependencies())
+            foreach (var dependency in _template.OutputTarget.Dependencies())
             {
                 var projectUrl = string.Format("..\\{0}\\{0}.csproj", dependency.Name);
-                var projectReferenceItem = _doc.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:ProjectReference[@Include='{projectUrl}']", _namespaces);
+                var projectReferenceItem = xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:ProjectReference[@Include='{projectUrl}']", xml.Namespaces);
                 if (projectReferenceItem != null)
                 {
                     continue;
@@ -205,16 +168,16 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 <ProjectReference Include="..\Intent.SoftwareFactory\Intent.SoftwareFactory.csproj"/>
                 */
 
-                var item = new XElement(XName.Get("ProjectReference", _namespace.NamespaceName));
+                var item = new XElement(XName.Get("ProjectReference", xml.Namespace.NamespaceName));
                 item.Add(new XAttribute("Include", projectUrl));
 
-                var projectIdElement = new XElement(XName.Get("Project", _namespace.NamespaceName))
+                var projectIdElement = new XElement(XName.Get("Project", xml.Namespace.NamespaceName))
                 {
                     Value = $"{{{dependency.Id}}}"
                 };
                 item.Add(projectIdElement);
 
-                var projectNameElement = new XElement(XName.Get("Name", _namespace.NamespaceName))
+                var projectNameElement = new XElement(XName.Get("Name", xml.Namespace.NamespaceName))
                 {
                     Value = $"{dependency.Name}"
                 };
@@ -224,14 +187,14 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
         }
 
-        private void SyncAssemblyReferences()
+        private void SyncAssemblyReferences(ProjectFileXml xml)
         {
-            if (_project.References().Count == 0)
+            if (_template.OutputTarget.References().Count == 0)
             {
                 return;
             }
 
-            var aReferenceElement = _doc.XPathSelectElement("/ns:Project/ns:ItemGroup/ns:Reference", _namespaces);
+            var aReferenceElement = xml.Document.XPathSelectElement("/ns:Project/ns:ItemGroup/ns:Reference", xml.Namespaces);
             if (aReferenceElement == null)
             {
                 throw new Exception("aReferenceElement is null");
@@ -242,9 +205,9 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             {
                 throw new Exception("itemGroupElement is null");
             }
-            foreach (var refrence in _project.References())
+            foreach (var reference in _template.OutputTarget.References())
             {
-                var projectReferenceItem = _doc.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:Reference[@Include='{refrence.Library}']", _namespaces);
+                var projectReferenceItem = xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup/ns:Reference[@Include='{reference.Library}']", xml.Namespaces);
                 if (projectReferenceItem == null)
                 {
                     /*
@@ -256,13 +219,13 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
       <Private>True</Private>
     </Reference>                   
                     */
-                    var item = new XElement(XName.Get("Reference", _namespace.NamespaceName));
-                    item.Add(new XAttribute("Include", refrence.Library));
-                    if (refrence.HasHintPath())
+                    var item = new XElement(XName.Get("Reference", xml.Namespace.NamespaceName));
+                    item.Add(new XAttribute("Include", reference.Library));
+                    if (reference.HasHintPath())
                     {
-                        var projectIdElement = new XElement(XName.Get("HintPath", _namespace.NamespaceName))
+                        var projectIdElement = new XElement(XName.Get("HintPath", xml.Namespace.NamespaceName))
                         {
-                            Value = refrence.HintPath
+                            Value = reference.HintPath
                         };
                         item.Add(projectIdElement);
                     }
@@ -272,58 +235,36 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
         }
 
-        private XElement FindOrCreateProjectReferenceItemGroup()
+        private static XElement FindOrCreateProjectReferenceItemGroup(ProjectFileXml xml)
         {
-            var aProjectReferenceElement = _doc.XPathSelectElement("/ns:Project/ns:ItemGroup/ns:ProjectReference", _namespaces);
+            var aProjectReferenceElement = xml.Document.XPathSelectElement("/ns:Project/ns:ItemGroup/ns:ProjectReference", xml.Namespaces);
 
             if (aProjectReferenceElement != null)
             {
                 return aProjectReferenceElement.Parent;
             }
-            else
-            {
-                var result = new XElement(XName.Get("ItemGroup", _namespace.NamespaceName));
-                _projectElement.Add(result);
-                return result;
-            }
 
-            //var lastItemGroup = _doc.XPathSelectElements("/ns:Project/ns:ItemGroup", _namespaces).LastOrDefault();
-            //if (lastItemGroup == null)
-            //{
-            //    _projectElement.Add(_codeItems);
-            //}
-            //else
-            //{
-            //    if (!lastItemGroup.Elements().Any())
-            //    {
-            //        result = lastItemGroup;
-            //    }
-            //    else
-            //    {
-            //        result = new XElement(XName.Get("ItemGroup", _namespace.NamespaceName));
-            //        lastItemGroup.AddAfterSelf(result);
-            //    }
-            //}
-
-            //return result;
+            var result = new XElement(XName.Get("ItemGroup", xml.Namespace.NamespaceName));
+            xml.ProjectElement.Add(result);
+            return result;
         }
 
-        private XElement FindItemGroupForCodeFiles()
+        private static XElement FindItemGroupForCodeFiles(ProjectFileXml xml)
         {
-            var codeItems = _doc.XPathSelectElement("/ns:Project/ns:ItemGroup[ns:Compile or ns:Content or ns:None]", _namespaces);
+            var codeItems = xml.Document.XPathSelectElement("/ns:Project/ns:ItemGroup[ns:Compile or ns:Content or ns:None]", xml.Namespaces);
 
             return codeItems;
         }
 
-        private XElement AddItemGroupForCodeFiles()
+        private static XElement AddItemGroupForCodeFiles(ProjectFileXml xml)
         {
-            var codeItems = new XElement(XName.Get("ItemGroup", _namespace.NamespaceName));
+            var codeItems = new XElement(XName.Get("ItemGroup", xml.Namespace.NamespaceName));
 
-            var lastItemGroup = _doc.XPathSelectElements("/ns:Project/ns:ItemGroup", _namespaces).LastOrDefault();
+            var lastItemGroup = xml.Document.XPathSelectElements("/ns:Project/ns:ItemGroup", xml.Namespaces).LastOrDefault();
 
             if (lastItemGroup == null)
             {
-                _projectElement.Add(codeItems);
+                xml.ProjectElement.Add(codeItems);
             }
             else
             {
@@ -340,7 +281,9 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return codeItems;
         }
 
-        private void ProcessCompileDependsOn(string targetName)
+        private static void ProcessCompileDependsOn(
+            ProjectFileXml xml,
+            string targetName)
         {
             /*
               <PropertyGroup>
@@ -348,28 +291,34 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
               </PropertyGroup>
             */
 
-            var element = _doc.XPathSelectElement($"/ns:Project/ns:PropertyGroup/ns:CompileDependsOn[contains(text(),'$(CompileDependsOn);') and contains(text(),'{targetName};')]", _namespaces);
+            var element = xml.Document.XPathSelectElement($"/ns:Project/ns:PropertyGroup/ns:CompileDependsOn[contains(text(),'$(CompileDependsOn);') and contains(text(),'{targetName};')]", xml.Namespaces);
             if (element == null)
             {
-                _projectElement.Add(CreateElement(
+                xml.ProjectElement.Add(CreateElement(
+                    xml: xml,
                     name: "PropertyGroup",
                     subElements: new[]
                     {
                         CreateElement(
+                            xml: xml,
                             name: "CompileDependsOn",
                             value: $"$(CompileDependsOn);{targetName};")
                     }));
             }
         }
 
-        private void ProcessImport(string project, string condition)
+        private static void ProcessImport(
+            ProjectFileXml xml,
+            string project,
+            string condition)
         {
             project = NormalizePath(project);
 
-            var element = _doc.XPathSelectElement($"/ns:Project/ns:Import[@Project=\"{project}\"]", _namespaces);
+            var element = xml.Document.XPathSelectElement($"/ns:Project/ns:Import[@Project=\"{project}\"]", xml.Namespaces);
             if (element == null)
             {
-                _projectElement.Add(element = CreateElement(
+                xml.ProjectElement.Add(element = CreateElement(
+                    xml: xml,
                     name: "Import",
                     attributes: new[]
                     {
@@ -381,14 +330,18 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             SetOrClearAttribute(attributeName: "Condition", value: condition, xElement: element);
         }
 
-        private void ProcessUsingTask(string taskName, string assemblyFile)
+        private static void ProcessUsingTask(
+            ProjectFileXml xml,
+            string taskName,
+            string assemblyFile)
         {
             assemblyFile = NormalizePath(assemblyFile);
 
-            var element = _doc.XPathSelectElement($"/ns:Project/ns:UsingTask[@TaskName=\"{taskName}\"]", _namespaces);
+            var element = xml.Document.XPathSelectElement($"/ns:Project/ns:UsingTask[@TaskName=\"{taskName}\"]", xml.Namespaces);
             if (element == null)
             {
-                _projectElement.Add(element = CreateElement(
+                xml.ProjectElement.Add(element = CreateElement(
+                    xml: xml,
                     name: "UsingTask",
                     attributes: new[]
                     {
@@ -400,23 +353,32 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             SetOrClearAttribute(attributeName: "AssemblyFile", value: assemblyFile, xElement: element);
         }
 
-        private XElement GetProjectItem(string fileName)
+        private static XElement GetProjectItem(
+            ProjectFileXml xml,
+            string fileName)
         {
-            var projectItem = _doc.XPathSelectElement($"/ns:Project/ns:ItemGroup/*[@Include='{fileName}']", _namespaces);
+            var projectItem = xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup/*[@Include='{fileName}']", xml.Namespaces);
             return projectItem;
         }
 
-        private void ProcessRemoveProjectItem(string path)
+        private void ProcessRemoveProjectItem(
+            ProjectFileXml xml,
+            string path)
         {
-            var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_projectPath), path));
+            var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(ProjectPath)!, path));
 
-            var projectItem = GetProjectItem(relativeFileName);
+            var projectItem = GetProjectItem(xml, relativeFileName);
             projectItem?.Remove();
         }
 
-        private void ProcessAddProjectItem(string path, string itemType, string dependsOn, string copyToOutputDirectory)
+        private void ProcessAddProjectItem(
+            ProjectFileXml xml,
+            string path,
+            string itemType,
+            string dependsOn,
+            string copyToOutputDirectory)
         {
-            var relativePath = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(_projectPath), path));
+            var relativePath = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(ProjectPath)!, path));
             dependsOn = NormalizePath(dependsOn);
 
             if (string.IsNullOrWhiteSpace(relativePath))
@@ -458,16 +420,16 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 metadata.Add("LastGenOutput", Path.GetFileNameWithoutExtension(relativePath) + ".cs");
             }
 
-            var codeItems = FindItemGroupForCodeFiles() ?? AddItemGroupForCodeFiles();
+            var codeItems = FindItemGroupForCodeFiles(xml) ?? AddItemGroupForCodeFiles(xml);
 
-            var projectItem = GetProjectItem(relativePath);
+            var projectItem = GetProjectItem(xml, relativePath);
             if (projectItem == null)
             {
-                var item = new XElement(XName.Get(itemType, _namespace.NamespaceName));
+                var item = new XElement(XName.Get(itemType, xml.Namespace.NamespaceName));
                 item.Add(new XAttribute("Include", relativePath));
                 foreach (var data in metadata)
                 {
-                    var child = new XElement(XName.Get(data.Key, _namespace.NamespaceName))
+                    var child = new XElement(XName.Get(data.Key, xml.Namespace.NamespaceName))
                     {
                         Value = data.Value
                     };
@@ -485,10 +447,10 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 projectItem.RemoveNodes();
                 foreach (var data in metadata)
                 {
-                    var child = new XElement(XName.Get(data.Key, _namespace.NamespaceName)) { Value = data.Value };
+                    var child = new XElement(XName.Get(data.Key, xml.Namespace.NamespaceName)) { Value = data.Value };
                     projectItem.Add(child);
                 }
-                foreach (var userAddedMetadata in children.Where(x => metadata.All(y => XName.Get(y.Key, _namespace.NamespaceName) != x.Name)))
+                foreach (var userAddedMetadata in children.Where(x => metadata.All(y => XName.Get(y.Key, xml.Namespace.NamespaceName) != x.Name)))
                 {
                     var child = new XElement(userAddedMetadata.Name) { Value = userAddedMetadata.Value };
                     projectItem.Add(child);
@@ -496,14 +458,17 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
         }
 
-        private void ProcessBeforeBuild(string xml)
+        private static void ProcessBeforeBuild(
+            ProjectFileXml xml,
+            string inputXml)
         {
-            var parsedXml = GetParsedXml(xml);
+            var parsedXml = GetParsedXml(xml, inputXml);
 
-            var beforeBuildElement = _doc.XPathSelectElement("/ns:Project/ns:Target[@Name=\"BeforeBuild\"]", _namespaces);
+            var beforeBuildElement = xml.Document.XPathSelectElement("/ns:Project/ns:Target[@Name=\"BeforeBuild\"]", xml.Namespaces);
             if (beforeBuildElement == null)
             {
-                _projectElement.Add(beforeBuildElement = CreateElement(
+                xml.ProjectElement.Add(beforeBuildElement = CreateElement(
+                    xml: xml,
                     name: "Target",
                     attributes: new[]
                     {
@@ -517,7 +482,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
         }
 
-        private void ProcessContent(string include, string link, string copyToOutputDirectory)
+        private static void ProcessContent(
+            ProjectFileXml xml,
+            string include,
+            string link,
+            string copyToOutputDirectory)
         {
             include = NormalizePath(include);
             link = NormalizePath(link);
@@ -525,15 +494,22 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             var subElements = new List<XElement>();
             if (!string.IsNullOrWhiteSpace(link))
             {
-                subElements.Add(CreateElement(name: "Link", value: link));
+                subElements.Add(CreateElement(
+                    xml: xml,
+                    name: "Link",
+                    value: link));
             }
 
             if (!string.IsNullOrWhiteSpace(copyToOutputDirectory))
             {
-                subElements.Add(CreateElement(name: "CopyToOutputDirectory", value: copyToOutputDirectory));
+                subElements.Add(CreateElement(
+                    xml: xml,
+                    name: "CopyToOutputDirectory",
+                    value: copyToOutputDirectory));
             }
 
             var desiredElement = CreateElement(
+                xml: xml,
                 name: "Content",
                 attributes: new[]
                 {
@@ -541,10 +517,10 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 },
                 subElements: subElements);
 
-            var element = GetProjectItem(include);
+            var element = GetProjectItem(xml, include);
             if (element == null)
             {
-                var codeItems = FindItemGroupForCodeFiles() ?? AddItemGroupForCodeFiles();
+                var codeItems = FindItemGroupForCodeFiles(xml) ?? AddItemGroupForCodeFiles(xml);
                 codeItems.Add(desiredElement);
                 return;
             }
@@ -552,29 +528,35 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             ReplaceElementIfNotMatch(element, desiredElement);
         }
 
-        private void ProcessTargetElement(string name, string xml)
+        private static void ProcessTargetElement(
+            ProjectFileXml xml,
+            string name,
+            string inputXml)
         {
-            var desiredContent = GetParsedXml(xml);
+            var desiredContent = GetParsedXml(xml, inputXml);
 
-            var targetElement = _doc.XPathSelectElement($"/ns:Project/ns:Target[@Name=\"{name}\"]", _namespaces);
+            var targetElement = xml.Document.XPathSelectElement($"/ns:Project/ns:Target[@Name=\"{name}\"]", xml.Namespaces);
             if (targetElement == null)
             {
-                _projectElement.Add(desiredContent);
+                xml.ProjectElement.Add(desiredContent);
                 return;
             }
 
             ReplaceElementIfNotMatch(targetElement, desiredContent);
         }
 
-        private void ProcessChangeProjectItemType(IOutputTarget project, string relativeFileName, string itemType)
+        private void ProcessChangeProjectItemType(
+            ProjectFileXml xml,
+            string relativeFileName,
+            string itemType)
         {
             relativeFileName = NormalizePath(relativeFileName);
 
-            var projectItem = GetProjectItem(relativeFileName);
+            var projectItem = GetProjectItem(xml, relativeFileName);
             if (projectItem == null)
             {
                 //WTF
-                throw new Exception($"Cant from config file {relativeFileName} in project file {_projectPath}");
+                throw new Exception($"Cant from config file {relativeFileName} in project file {ProjectPath}");
             }
 
             //Make sure it's None not Content
@@ -585,12 +567,17 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         }
 
-        private XElement CreateElement(string name, string value = null, IEnumerable<XAttribute> attributes = null, IEnumerable<XElement> subElements = null)
+        private static XElement CreateElement(
+            ProjectFileXml xml,
+            string name,
+            string value = null,
+            IEnumerable<XAttribute> attributes = null,
+            IEnumerable<XElement> subElements = null)
         {
-            attributes = attributes ?? new XAttribute[0];
-            subElements = subElements ?? new XElement[0];
+            attributes ??= Enumerable.Empty<XAttribute>();
+            subElements ??= Enumerable.Empty<XElement>();
 
-            var newElement = new XElement(XName.Get(name, _namespace.NamespaceName));
+            var newElement = new XElement(XName.Get(name, xml.Namespace.NamespaceName));
             if (value != null)
             {
                 newElement.Value = value;
@@ -609,12 +596,14 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return newElement;
         }
 
-        private XElement GetParsedXml(string xml)
+        private static XElement GetParsedXml(
+            ProjectFileXml xml,
+            string inputXml)
         {
-            var parsedXml = XElement.Parse(xml);
+            var parsedXml = XElement.Parse(inputXml);
             foreach (var xElement in parsedXml.DescendantsAndSelf())
             {
-                xElement.Name = _namespace + xElement.Name.LocalName;
+                xElement.Name = xml.Namespace + xElement.Name.LocalName;
             }
 
             return parsedXml;
@@ -676,13 +665,12 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             // .csproj and solution files use backslashes even on Mac
             value = value.Replace("/", @"\");
 
-            // Replace double occurrences of folder seperators with single seperator. IE, turn a path like Dev\\Folder to Dev\Folder
+            // Replace double occurrences of folder separators with single separator. IE, turn a path like Dev\\Folder to Dev\Folder
             while (value.Contains(@"\\"))
                 value = value.Replace(@"\\", @"\");
 
             return value;
         }
-
     }
 }
 

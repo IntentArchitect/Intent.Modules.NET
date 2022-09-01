@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD</id>
-  <version>3.3.8</version>
+  <version>3.3.9</version>
   <supportedClientVersions>[3.3.12-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Crud conventions for commands and queries.</summary>
   <description>Crud conventions for commands and queries.</description>
@@ -14,22 +14,22 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="3.3.4" />
-    <dependency id="Intent.Common" version="3.3.9" />
-    <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.Entities.Repositories.Api" version="3.3.5" />
-    <dependency id="Intent.Modelers.Services" version="3.3.3" />
-    <dependency id="Intent.Modelers.Services.CQRS" version="3.3.2" />
+    <dependency id="Intent.Application.MediatR" version="3.3.5" />
+    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.Common.Types" version="3.3.5" />
+    <dependency id="Intent.Entities.Repositories.Api" version="3.3.6" />
+    <dependency id="Intent.Modelers.Services" version="3.3.4" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="3.3.3" />
   </dependencies>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.EntityFrameworkCore.Repositories" version="3.3.10" />
+        <package id="Intent.EntityFrameworkCore.Repositories" version="3.3.11" />
       </install>
     </detect>
     <detect id="Intent.EntityFramework">
       <install>
-        <package id="Intent.EntityFramework.Repositories" version="3.3.5" />
+        <package id="Intent.EntityFramework.Repositories" version="3.3.6" />
       </install>
     </detect>
   </interoperability>

@@ -1,4 +1,4 @@
-﻿<#@ template  debug="true"  inherits="VisualStudioProjectTemplateBase"#>
+﻿<#@ template  debug="true"  inherits="VisualStudioProjectTemplateBase<ASPNETCoreWebApplicationModel>"#>
 <#@ output extension=".csproj" #>
 <#@ Assembly Name="System.Core" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
@@ -9,6 +9,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Collections" #> 
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Intent.Modules.VisualStudio.Projects.Api" #>
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>

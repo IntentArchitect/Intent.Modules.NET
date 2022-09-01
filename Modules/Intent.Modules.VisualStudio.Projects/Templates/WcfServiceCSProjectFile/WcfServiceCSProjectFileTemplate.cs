@@ -1,42 +1,25 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Xml.Linq;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.SoftwareFactory;
 using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Events;
-using Intent.Templates;
 using Microsoft.Build.Construction;
+using Microsoft.Build.Evaluation;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.WcfServiceCSProjectFile
 {
-    public class WcfServiceCSProjectFileTemplate : VisualStudioProjectTemplateBase, IHasNugetDependencies
+    public class WcfServiceCSProjectFileTemplate : VisualStudioProjectTemplateBase<WCFServiceApplicationModel>
     {
-        public const string IDENTIFIER = "Intent.VisualStudio.Projects.WcfServiceCSProjectFile";
+        public const string TemplateId = "Intent.VisualStudio.Projects.WcfServiceCSProjectFile";
 
-        public WcfServiceCSProjectFileTemplate(IOutputTarget project, IVisualStudioProject model)
-            : base(IDENTIFIER, project, model)
+        public WcfServiceCSProjectFileTemplate(IOutputTarget project, WCFServiceApplicationModel model)
+            : base(TemplateId, project, model)
         {
         }
 
         public override string TransformText()
         {
-            if (!TryGetExistingFileContent(out var content))
-            {
-                content = CreateTemplate();
-            }
-
-            var doc = XDocument.Parse(content);
-            return doc.ToStringUTF8();
-        }
-
-        private string CreateTemplate()
-        {
-            var root = ProjectRootElement.Create();
+            var root = ProjectRootElement.Create(NewProjectFileOptions.IncludeXmlDeclaration);
             root.ToolsVersion = "14.0";
             root.DefaultTargets = "Build";
 
@@ -47,7 +30,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WcfServiceCSProjectFile
             group.AddProperty("Platform", "AnyCPU").Condition = " '$(Platform)' == '' ";
             group.AddProperty("ProductVersion", "");
             group.AddProperty("SchemaVersion", "2.0");
-            group.AddProperty("ProjectGuid", Project.Id.ToString());
+            group.AddProperty("ProjectGuid", Project.Id);
             group.AddProperty("ProjectTypeGuids", "{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}");
             group.AddProperty("OutputType", "Library");
             group.AddProperty("AppDesignerFolder", "Properties");
@@ -150,7 +133,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WcfServiceCSProjectFile
             //  </FlavorProperties>
             //</VisualStudio>";
 
-            return root.RawXml.Replace("utf-16", "utf-8");
+            return root.ToUtf8String();
         }
 
         private string GetTargetFrameworkVersion()
@@ -181,11 +164,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WcfServiceCSProjectFile
                 metadata.Add(new KeyValuePair<string, string>("HintPath", reference.HintPath));
             }
             AddItem(itemGroup, "Reference", reference.Library, metadata);
-        }
-
-        public IEnumerable<INugetPackageInfo> GetNugetDependencies()
-        {
-            return new INugetPackageInfo[0];
         }
     }
 }

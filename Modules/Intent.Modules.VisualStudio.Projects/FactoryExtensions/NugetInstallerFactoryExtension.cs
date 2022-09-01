@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -8,13 +7,11 @@ using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Templates;
-using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 using NuGet.Versioning;
@@ -69,17 +66,14 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
             base.Configure(settings);
         }
 
-        public void OnStep(IApplication application, string step)
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
-            if (step == ExecutionLifeCycleSteps.BeforeTemplateRegistrations)
-            {
-                application.EventDispatcher.Subscribe<VisualStudioProjectCreatedEvent>(HandleEvent);
-            }
-            if (step != ExecutionLifeCycleSteps.AfterTemplateExecution)
-            {
-                return;
-            }
+            application.EventDispatcher.Subscribe<VisualStudioProjectCreatedEvent>(HandleEvent);
+            base.OnBeforeTemplateRegistrations(application);
+        }
 
+        protected override void OnAfterTemplateExecution(IApplication application)
+        {
             var tracing = new TracingWithPrefix(Logging.Log, "NuGet - ");
 
             tracing.Info("Start processing packages");
@@ -91,25 +85,17 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                 saveProjectDelegate: SaveProject);
 
             tracing.Info("Package processing complete");
+            base.OnAfterTemplateExecution(application);
         }
 
         private void HandleEvent(VisualStudioProjectCreatedEvent @event)
         {
-            if (_projectRegistry.ContainsKey(@event.ProjectId))
+            if (_projectRegistry.ContainsKey(@event.TemplateInstance.ProjectId))
             {
-                throw new Exception($"Attempted to add project with same project Id [{@event.ProjectId}] (location: {@event.TemplateInstance.FilePath})");
+                throw new Exception($"Attempted to add project with same project Id [{@event.TemplateInstance.ProjectId}] (location: {@event.TemplateInstance.FilePath})");
             }
-            _projectRegistry.Add(@event.ProjectId, @event.TemplateInstance);
+            _projectRegistry.Add(@event.TemplateInstance.ProjectId, @event.TemplateInstance);
         }
-
-        //private string LoadProject(string projectFilePath)
-        //{
-        //    var change = _changeManager.FindChange(projectFilePath);
-
-        //    return change != null
-        //        ? change.Content
-        //        : File.ReadAllText(Path.GetFullPath(projectFilePath));
-        //}
 
         private void SaveProject(string filePath, string content)
         {
@@ -359,7 +345,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
         }
     }
 
-    internal static class VSProjectExtensions
+    internal static class VsProjectExtensions
     {
         internal static VisualStudioProjectScheme ResolveProjectScheme(this XDocument xNode)
         {
@@ -368,7 +354,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                 return VisualStudioProjectScheme.Unsupported;
             }
 
-            var (prefix, namespaceManager, namespaceName) = xNode.Document.GetNamespaceManager();
+            var (prefix, namespaceManager, _) = xNode.Document.GetNamespaceManager();
 
             if (xNode.XPathSelectElement($"/{prefix}:Project[@Sdk]", namespaceManager) != null)
             {

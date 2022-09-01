@@ -8,37 +8,34 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Templates;
 using Microsoft.Build.Construction;
+using Microsoft.Build.Evaluation;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectFile
 {
-    public class WebApiServiceCSProjectFileTemplate : VisualStudioProjectTemplateBase, IHasNugetDependencies, /*IProjectTemplate,*/ IHasDecorators<IWebApiServiceCSProjectDecorator>
+    public class WebApiServiceCSProjectFileTemplate : VisualStudioProjectTemplateBase<ASPNETWebApplicationNETFrameworkModel>, IHasNugetDependencies, IHasDecorators<IWebApiServiceCSProjectDecorator>
     {
         public const string Identifier = "Intent.VisualStudio.Projects.WebApiServiceCSProjectFile";
-        private readonly string _sslPort = "";
 
-        public WebApiServiceCSProjectFileTemplate(IOutputTarget project, IVisualStudioProject model)
+        public WebApiServiceCSProjectFileTemplate(IOutputTarget project, ASPNETWebApplicationNETFrameworkModel model)
             : base(Identifier, project, model)
         {
         }
 
-        public override string TransformText()
+        protected override string ApplyAdditionalTransforms(string existingFileOrTransformTextContent)
         {
-            var doc = TryGetExistingFileContent(out var content)
-                ? XDocument.Parse(content, LoadOptions.PreserveWhitespace)
-                : XDocument.Parse(CreateTemplate());
+            var doc = XDocument.Parse(existingFileOrTransformTextContent, LoadOptions.PreserveWhitespace);
 
             foreach (var xmlDecorator in GetDecorators())
             {
                 xmlDecorator.Install(doc, Project);
             }
 
-            var text = doc.ToStringUTF8();
-            return text;
+            return doc.ToStringUTF8();
         }
 
-        public string CreateTemplate()
+        public override string TransformText()
         {
-            var root = ProjectRootElement.Create();
+            var root = ProjectRootElement.Create(NewProjectFileOptions.IncludeXmlDeclaration);
             root.ToolsVersion = "12.0";
             root.DefaultTargets = "Build";
 
@@ -59,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
             group.AddProperty("WcfConfigValidationEnabled", "True");
             group.AddProperty("AutoGenerateBindingRedirects", "true");
             group.AddProperty("UseIISExpress", "True");
-            group.AddProperty("IISExpressSSLPort", _sslPort);
+            group.AddProperty("IISExpressSSLPort", "");
             group.AddProperty("IISExpressAnonymousAuthentication", "");
             group.AddProperty("IISExpressWindowsAuthentication", "");
             group.AddProperty("IISExpressUseClassicPipelineMode", "");
@@ -111,31 +108,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
             group.AddProperty("VisualStudioVersion", "10.0").Condition = "'$(VisualStudioVersion)' == ''";
             group.AddProperty("VSToolsPath", @"$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)").Condition = "'$(VSToolsPath)' == ''";
 
-            if (!string.IsNullOrEmpty(_sslPort))
-            {
-                var extension = root.CreateProjectExtensionsElement();
-                extension.Content =
-                    $@"    <VisualStudio>
-      <FlavorProperties GUID=""{{349c5851-65df-11da-9384-00065b846f21}}"">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:{_sslPort}/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-";
-                root.AppendChild(extension);
-            }
-
-            return root.RawXml.Replace("utf-16", "utf-8");
+            return root.ToUtf8String();
         }
 
         private string GetTargetFrameworkVersion()
@@ -148,7 +121,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
             itemGroup.AddItem(groupName, item, metadata);
         }
 
-        private void AddReference(ProjectItemGroupElement itemGroup, IAssemblyReference reference)
+        private static void AddReference(ProjectItemGroupElement itemGroup, IAssemblyReference reference)
         {
             var metadata = new List<KeyValuePair<string, string>>();
             if (reference.HasHintPath())

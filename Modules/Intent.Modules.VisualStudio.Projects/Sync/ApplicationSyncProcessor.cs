@@ -6,8 +6,8 @@ using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
-using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
+using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 
@@ -18,18 +18,16 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
     {
         private readonly ISoftwareFactoryEventDispatcher _sfEventDispatcher;
         private readonly IChanges _changeManager;
-        private readonly IXmlFileCache _fileCache;
         private readonly Dictionary<string, List<SoftwareFactoryEvent>> _actions;
-        private readonly Dictionary<string, string> _projectFilePathMap = new();
+        private readonly Dictionary<string, IVisualStudioProjectTemplate> _projectTemplatesById = new();
 
         public override string Id => "Intent.ApplicationSyncProcessor";
 
         public override int Order { get; set; } = 90;
 
-        public ApplicationSyncProcessor(ISoftwareFactoryEventDispatcher sfEventDispatcher, IXmlFileCache fileCache, IChanges changeManager)
+        public ApplicationSyncProcessor(ISoftwareFactoryEventDispatcher sfEventDispatcher, IChanges changeManager)
         {
             _changeManager = changeManager;
-            _fileCache = fileCache;
             _actions = new Dictionary<string, List<SoftwareFactoryEvent>>();
             _sfEventDispatcher = sfEventDispatcher;
             //Subscribe to all the project change events
@@ -46,16 +44,15 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         }
 
-        public void OnStep(IApplication application, string step)
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
-            if (step == ExecutionLifeCycleSteps.BeforeTemplateRegistrations)
-            {
-                application.EventDispatcher.Subscribe<VisualStudioSolutionProjectCreatedEvent>(HandleEvent);
-            }
-            if (step == ExecutionLifeCycleSteps.AfterTemplateExecution)
-            {
-                SyncProjectFiles(application);
-            }
+            application.EventDispatcher.Subscribe<VisualStudioProjectCreatedEvent>(Handle);
+            base.OnBeforeTemplateRegistrations(application);
+        }
+
+        protected override void OnAfterTemplateExecution(IApplication application)
+        {
+            SyncProjectFiles(application);
         }
 
         public void SyncProjectFiles(IApplication application)
@@ -69,34 +66,32 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     continue;
                 }
 
-                var vsProject = outputTarget.GetTargetPath()[0];
-                if (vsProject.Metadata == null ||
-                    !vsProject.Metadata.TryGetValue(ProjectConfig.MetadataKey.IsMatch, out var value) ||
-                    value is not true)
+                var projectId = outputTarget.GetTargetPath()[0].Id;
+                if (!_projectTemplatesById.TryGetValue(projectId, out var templateInstance))
                 {
-                    continue;
+                    throw new Exception($"No project found for id \"{projectId}\"");
                 }
 
-                switch (vsProject.Type)
+                switch (templateInstance.Project.ProjectTypeId)
                 {
                     case VisualStudioProjectTypeIds.CSharpLibrary:
                     case VisualStudioProjectTypeIds.ConsoleAppNetFramework:
                     case VisualStudioProjectTypeIds.NodeJsConsoleApplication:
                     case VisualStudioProjectTypeIds.WcfApplication:
                     case VisualStudioProjectTypeIds.WebApiApplication:
-                        new FrameworkProjectSyncProcessor(_projectFilePathMap[vsProject.Id], _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
+                        new FrameworkProjectSyncProcessor(templateInstance, _sfEventDispatcher, _changeManager).Process(events);
                         break;
                     case VisualStudioProjectTypeIds.CoreCSharpLibrary:
                     case VisualStudioProjectTypeIds.CoreWebApp:
                     case VisualStudioProjectTypeIds.CoreConsoleApp:
                     case VisualStudioProjectTypeIds.AzureFunctionsProject:
-                        new CoreProjectSyncProcessor(_projectFilePathMap[vsProject.Id], _sfEventDispatcher, _fileCache, _changeManager, vsProject).Process(events);
+                        new CoreProjectSyncProcessor(templateInstance, _sfEventDispatcher, _changeManager).Process(events);
                         break;
                     case VisualStudioProjectTypeIds.SQLServerDatabaseProject:
-                        new SqlProjectSyncProcessor(_projectFilePathMap[vsProject.Id], _sfEventDispatcher, _fileCache, _changeManager).Process(events);
+                        new SqlProjectSyncProcessor(templateInstance, _sfEventDispatcher, _changeManager).Process(events);
                         break;
                     default:
-                        Logging.Log.Warning("No project synchronizer could be found for project: " + vsProject.Name);
+                        Logging.Log.Warning("No project synchronizer could be found for project: " + templateInstance.Name);
                         continue;
                 }
             }
@@ -104,13 +99,16 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             _actions.Clear();
         }
 
-        private void HandleEvent(VisualStudioSolutionProjectCreatedEvent @event)
+        private void Handle(VisualStudioProjectCreatedEvent @event)
         {
-            if (_projectFilePathMap.ContainsKey(@event.ProjectId))
+            var outputTargetId = @event.TemplateInstance.OutputTarget.Id;
+
+            if (_projectTemplatesById.ContainsKey(outputTargetId))
             {
-                throw new Exception($"Attempted to add project with same project Id [{@event.ProjectId}] (location: {@event.FilePath})");
+                throw new Exception($"Attempted to add project with same project Id [{outputTargetId}] (name: {@event.TemplateInstance.Name})");
             }
-            _projectFilePathMap.Add(@event.ProjectId, @event.FilePath);
+
+            _projectTemplatesById.Add(outputTargetId, @event.TemplateInstance);
         }
 
         public void Handle(SoftwareFactoryEvent @event)

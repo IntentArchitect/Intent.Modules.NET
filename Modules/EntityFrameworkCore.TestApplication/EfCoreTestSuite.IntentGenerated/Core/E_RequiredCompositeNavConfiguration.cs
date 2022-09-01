@@ -20,8 +20,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
                 .IsRequired();
 
 
-            builder.OwnsOne(x => x.E_RequiredDependent, ConfigureE_RequiredDependent);
-            builder.Navigation(x => x.E_RequiredDependent).IsRequired();
+            builder.OwnsOne(x => x.E_RequiredDependent, ConfigureE_RequiredDependent)
+                .Navigation(x => x.E_RequiredDependent).IsRequired();
 
         }
 

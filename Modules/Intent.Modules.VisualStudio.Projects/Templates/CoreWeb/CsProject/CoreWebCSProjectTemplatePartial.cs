@@ -1,20 +1,14 @@
-﻿using System;
-using Intent.Modules.Common.Templates;
-using Intent.Engine;
-using Intent.Eventing;
-using Intent.Modules.Common;
+﻿using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Events;
-using Intent.Templates;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
 {
-    partial class CoreWebCSProjectTemplate : VisualStudioProjectTemplateBase, ITemplate
+    partial class CoreWebCSProjectTemplate : VisualStudioProjectTemplateBase<ASPNETCoreWebApplicationModel>
     {
-        public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.CSProject";
+        public const string TemplateId = "Intent.VisualStudio.Projects.CoreWeb.CSProject";
 
         public CoreWebCSProjectTemplate(IOutputTarget project, ASPNETCoreWebApplicationModel model)
-            : base (Identifier, project, model)
+            : base(TemplateId, project, model)
         {
         }
     }

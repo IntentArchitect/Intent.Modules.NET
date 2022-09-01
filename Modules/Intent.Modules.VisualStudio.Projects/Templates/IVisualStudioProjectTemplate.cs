@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
@@ -15,5 +16,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
         IEnumerable<INugetPackageInfo> RequestedNugetPackages();
         IEnumerable<string> GetTargetFrameworks();
         IVisualStudioProject Project { get; }
+        IOutputTarget OutputTarget { get; }
+        bool TryGetExistingFileContent(out string content);
     }
 }

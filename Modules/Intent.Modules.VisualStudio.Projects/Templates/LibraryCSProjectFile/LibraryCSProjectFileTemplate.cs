@@ -1,42 +1,25 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Xml.Linq;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.SoftwareFactory;
 using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Events;
-using Intent.Templates;
 using Microsoft.Build.Construction;
+using Microsoft.Build.Evaluation;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.LibraryCSProjectFile
 {
-    public class LibraryCSProjectFileTemplate : VisualStudioProjectTemplateBase, IHasNugetDependencies
+    public class LibraryCSProjectFileTemplate : VisualStudioProjectTemplateBase<ClassLibraryNETFrameworkModel>
     {
-        public const string IDENTIFIER = "Intent.VisualStudio.Projects.LibraryCSProjectFile";
+        public const string TemplateId = "Intent.VisualStudio.Projects.LibraryCSProjectFile";
 
-        public LibraryCSProjectFileTemplate(IOutputTarget project, IVisualStudioProject model)
-            : base (IDENTIFIER, project, model)
+        public LibraryCSProjectFileTemplate(IOutputTarget project, ClassLibraryNETFrameworkModel model)
+            : base(TemplateId, project, model)
         {
         }
 
         public override string TransformText()
         {
-            if (!TryGetExistingFileContent(out var content))
-            {
-                content = CreateTemplate();
-            }
-
-            var doc = XDocument.Parse(content);
-            return doc.ToStringUTF8();
-        }
-
-        private string CreateTemplate()
-        {
-            var root = ProjectRootElement.Create();
+            var root = ProjectRootElement.Create(NewProjectFileOptions.IncludeXmlDeclaration);
             root.ToolsVersion = "14.0";
             root.DefaultTargets = "Build";
 
@@ -73,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LibraryCSProjectFile
             group.AddProperty("WarningLevel", "4");
             group.AddProperty("LangVersion", "latest");
 
-            var itemGroup = AddItems(root, "Reference", 
+            var itemGroup = AddItems(root, "Reference",
                 "Microsoft.CSharp"
                 , "System"
                 , "System.Core"
@@ -98,8 +81,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LibraryCSProjectFile
             }
 
             root.AddImport("$(MSBuildToolsPath)\\Microsoft.CSharp.targets");
-
-            return root.RawXml.Replace("utf-16", "utf-8");
+            return root.ToUtf8String();
         }
 
         private string GetTargetFrameworkVersion()
@@ -130,11 +112,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LibraryCSProjectFile
                 metadata.Add(new KeyValuePair<string, string>("HintPath", reference.HintPath));
             }
             AddItem(itemGroup, "Reference", reference.Library, metadata);
-        }
-
-        public IEnumerable<INugetPackageInfo> GetNugetDependencies()
-        {
-            return new INugetPackageInfo[0];
         }
     }
 }

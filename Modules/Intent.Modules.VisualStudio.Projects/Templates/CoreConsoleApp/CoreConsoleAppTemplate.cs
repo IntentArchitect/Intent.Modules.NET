@@ -15,6 +15,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreConsoleApp
     using Intent.Modules.Common.Templates;
     using Intent.Metadata.Models;
     using Intent.Modules.VisualStudio.Projects.Templates;
+    using Intent.Modules.VisualStudio.Projects.Api;
     using System;
     
     /// <summary>
@@ -23,7 +24,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreConsoleApp
     
     #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreConsoleApp\CoreConsoleAppTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class CoreConsoleAppTemplate : VisualStudioProjectTemplateBase
+    public partial class CoreConsoleAppTemplate : VisualStudioProjectTemplateBase<ConsoleAppNETCoreModel>
     {
 #line hidden
         /// <summary>
@@ -31,6 +32,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreConsoleApp
         /// </summary>
         public override string TransformText()
         {
+            this.Write("\n");
             this.Write("<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n    <OutputType>Exe</Outp" +
                     "utType>\r\n    <TargetFramework>");
             

@@ -3,7 +3,7 @@ using Intent.Modules.VisualStudio.Projects.Api;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.CoreConsoleApp
 {
-    partial class CoreConsoleAppTemplate : VisualStudioProjectTemplateBase
+    partial class CoreConsoleAppTemplate : VisualStudioProjectTemplateBase<ConsoleAppNETCoreModel>
     {
         public const string TemplateId = "Intent.VisualStudio.Projects.CoreConsoleApp";
 
