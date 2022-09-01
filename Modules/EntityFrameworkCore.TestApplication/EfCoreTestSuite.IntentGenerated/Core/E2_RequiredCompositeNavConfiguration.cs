@@ -19,8 +19,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
                 .IsRequired();
 
 
-            builder.OwnsOne(x => x.E2_RequiredDependent, ConfigureE2_RequiredDependent);
-            builder.Navigation(x => x.E2_RequiredDependent).IsRequired();
+            builder.OwnsOne(x => x.E2_RequiredDependent, ConfigureE2_RequiredDependent)
+                .Navigation(x => x.E2_RequiredDependent).IsRequired();
 
         }
 
