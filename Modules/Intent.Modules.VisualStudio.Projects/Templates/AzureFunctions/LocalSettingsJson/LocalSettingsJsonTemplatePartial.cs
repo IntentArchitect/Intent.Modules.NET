@@ -109,11 +109,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
 
             foreach (var request in _registrationRequestsByKey)
             {
-                valuesObj[request.Key] ??= new JValue(request.Value.Request.Value);
+                valuesObj.SetFieldValue(request.Key, request.Value.Request.Value, allowReplacement: false);
             }
+
             foreach (var request in _connectionStringRequestByName)
             {
-                valuesObj[request.Key] ??= new JValue(request.Value.Request.ConnectionString);
+                valuesObj.SetFieldValue(request.Key, request.Value.Request.ConnectionString, allowReplacement: false);
             }
 
             return JsonConvert.SerializeObject(json, Formatting.Indented);
