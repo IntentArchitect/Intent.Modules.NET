@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Entities.Settings;
@@ -28,7 +29,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public const string TemplateId = "Intent.Entities.DomainEntityInterface";
         private readonly IMetadataManager _metadataManager;
         public const string Identifier = "Intent.Entities.DomainEntityInterface";
-        public const string InterfaceContext = "Interface";
         public CSharpFile CSharpFile { get; set; }
 
         //private readonly IList<DomainEntityInterfaceDecoratorBase> _decorators = new List<DomainEntityInterfaceDecoratorBase>();
@@ -37,15 +37,17 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public DomainEntityInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             _metadataManager = ExecutionContext.MetadataManager;
-            AddTypeSource("Domain.ValueObject", "ICollection<{0}>");
+            if (!ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+            {
+                SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
+            }
+            AddTypeSource(TemplateId);
+            AddTypeSource(DomainEnumTemplate.TemplateId);
+            AddTypeSource("Domain.ValueObject");
         }
 
         public override void OnCreated()
         {
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityStateTemplate.TemplateId, "ICollection<{0}>"));
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEnumTemplate.TemplateId, "ICollection<{0}>"));
-            Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, Identifier, "IEnumerable<{0}>"), InterfaceContext);
-
             if (Model.Operations.Any(x => x.IsAsync()))
             {
                 AddUsing("System.Threading.Tasks");
@@ -86,7 +88,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 
                     foreach (var operation in Model.Operations)
                     {
-                        @interface.AddMethod(GetTypeName(operation), operation.Name, method =>
+                        @interface.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
                         {
                             foreach (var parameter in operation.Parameters)
                             {
@@ -206,20 +208,14 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         //    return GetDecorators().All(x => x.CanWriteDefaultOperation(operation));
         //}
 
-        public string GetParametersDefinition(OperationModel operation)
-        {
-            return operation.Parameters.Any()
-                ? operation.Parameters.Select(x => UseType(Types.InContext(InterfaceContext).Get(x.TypeReference)) + " " + x.Name.ToCamelCase()).Aggregate((x, y) => x + ", " + y)
-                : "";
-        }
 
-        public string EmitOperationReturnType(OperationModel o)
+        public string GetOperationReturnType(OperationModel o)
         {
             if (o.TypeReference.Element == null)
             {
                 return o.IsAsync() ? "Task" : "void";
             }
-            return o.IsAsync() ? $"Task<{UseType(Types.InContext(InterfaceContext).Get(o.TypeReference))}>" : UseType(Types.InContext(InterfaceContext).Get(o.TypeReference));
+            return o.IsAsync() ? $"Task<{GetTypeName(o.TypeReference)}>" : GetTypeName(o.TypeReference);
         }
     }
 }

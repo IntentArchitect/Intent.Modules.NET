@@ -39,6 +39,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
             AddTypeSource("Domain.ValueObject");
             Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"), InterfaceContext);
 
+            FulfillsRole("Domain.Entity");
             if (!ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
             {
                 FulfillsRole("Domain.Entity.Interface");

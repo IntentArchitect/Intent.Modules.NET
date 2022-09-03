@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.19-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.6" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>

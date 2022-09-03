@@ -33,10 +33,19 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         public DomainEntityTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
-            AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"));
             AddTypeSource(TemplateId);
+            AddTypeSource(DomainEntityInterfaceTemplate.Identifier);
             AddTypeSource(DomainEnumTemplate.TemplateId);
             AddTypeSource("Domain.ValueObject");
+
+            if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
+            {
+                FulfillsRole("Domain.Entity");
+                if (!ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
+                {
+                    FulfillsRole("Domain.Entity.Interface");
+                }
+            }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
@@ -57,6 +66,15 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {
+                        if (Model.ParentClass != null)
+                        {
+                            @class.ExtendsClass(GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First());
+                        }
+                        if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
+                        {
+                            @class.ImplementsInterface(this.GetDomainEntityInterfaceName());
+                        }
+
                         foreach (var attribute in Model.Attributes)
                         {
                             @class.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
