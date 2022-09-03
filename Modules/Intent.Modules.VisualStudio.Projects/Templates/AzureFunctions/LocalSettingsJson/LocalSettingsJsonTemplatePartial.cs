@@ -59,6 +59,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
                 return;
             }
 
+            if (@event.Value is not null and not string &&
+                !@event.Value.GetType().IsPrimitive)
+            {
+                Logging.Log.Warning($"Azure Functions local.settings.json files do not support objects for settings values. Key=\"{@event.Key}\", Value=\"{@event.Value}\"");
+            }
+
             if (_registrationRequestsByKey.TryGetValue(@event.Key, out var value))
             {
                 Logging.Log.Warning($"A request already existed for {@event.Key}{Environment.NewLine}" +
@@ -107,13 +113,24 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             var json = JsonConvert.DeserializeObject<JObject>(content);
             var valuesObj = json["Values"] ??= new JObject();
 
-            foreach (var request in _registrationRequestsByKey)
+            foreach (var (key, (request, _)) in _registrationRequestsByKey)
             {
-                valuesObj[request.Key] ??= new JValue(request.Value.Request.Value);
+                if (request.Value == null)
+                {
+                    continue;
+                }
+
+                valuesObj[key] ??= JToken.FromObject(request.Value);
             }
-            foreach (var request in _connectionStringRequestByName)
+
+            foreach (var (key, (request, _)) in _connectionStringRequestByName)
             {
-                valuesObj[request.Key] ??= new JValue(request.Value.Request.ConnectionString);
+                if (request.ConnectionString == null)
+                {
+                    continue;
+                }
+
+                valuesObj[key] ??= JToken.FromObject(request.ConnectionString);
             }
 
             return JsonConvert.SerializeObject(json, Formatting.Indented);

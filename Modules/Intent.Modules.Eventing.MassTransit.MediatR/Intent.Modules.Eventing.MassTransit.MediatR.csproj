@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.16" />
+    <PackageReference Include="Intent.Packager" Version="3.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventBusPublishBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventBusPublishBehaviourTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Eventing.MassTransit\Intent.Modules.Eventing.MassTransit.csproj" />
+  </ItemGroup>
+
+</Project>

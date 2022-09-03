@@ -472,6 +472,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         break;
                     }
                 case RelationshipType.OneToMany:
+                    if (IsOwned(associationEnd.Element))
                     {
                         if (IsOwned(associationEnd.Element))
                         {

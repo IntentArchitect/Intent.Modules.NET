@@ -31,28 +31,9 @@ internal static class ApplicationSettingsJsonHelper
             return;
         }
 
-        bool.TryParse("", out _);
-
-        jToken[fieldName!] = value switch
-        {
-            bool primitive => primitive,
-            byte primitive => primitive,
-            sbyte primitive => primitive,
-            char primitive => primitive,
-            decimal primitive => primitive,
-            double primitive => primitive,
-            float primitive => primitive,
-            int primitive => primitive,
-            uint primitive => primitive,
-            long primitive => primitive,
-            ulong primitive => primitive,
-            short primitive => primitive,
-            ushort primitive => primitive,
-            string primitive => primitive,
-            IEnumerable enumerable => JArray.FromObject(enumerable),
-            null => null,
-            _ => JObject.FromObject(value)
-        };
+        jToken[fieldName!] = value == null
+            ? null
+            : JToken.FromObject(value);
     }
 
     public static bool TryGetFieldValue(this JToken jToken, string key, out object value)

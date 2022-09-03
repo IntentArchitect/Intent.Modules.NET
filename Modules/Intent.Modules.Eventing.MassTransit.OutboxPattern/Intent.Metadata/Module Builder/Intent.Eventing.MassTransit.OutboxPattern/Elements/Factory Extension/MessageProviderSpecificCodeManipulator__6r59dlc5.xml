@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9440a161-e9e7-4884-8276-dc7940ed994d" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MessageProviderSpecificCodeManipulator</name>
+  <display>MessageProviderSpecificCodeManipulator</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c7fe1376-6229-48ce-bdad-c97447fd51d5</parentFolderId>
+  <packageId>c7fe1376-6229-48ce-bdad-c97447fd51d5</packageId>
+  <packageName>Intent.Eventing.MassTransit.OutboxPattern</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

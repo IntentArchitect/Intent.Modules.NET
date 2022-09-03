@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -19,13 +20,14 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Infrastructure.DependencyInjection.DependencyInjection";
 
-        private readonly IList<ContainerRegistrationRequest> _registrationRequests =
-            new List<ContainerRegistrationRequest>();
+        private readonly IList<ContainerRegistrationRequest> _containerRegistrationRequests = new List<ContainerRegistrationRequest>();
+        private readonly IList<ServiceConfigurationRequest> _serviceConfigurationRequests = new List<ServiceConfigurationRequest>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DependencyInjectionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
+            ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
         }
 
         public override void BeforeTemplateExecution()
@@ -45,9 +47,30 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             }
 
             @event.MarkAsHandled();
-            _registrationRequests.Add(@event);
+            _containerRegistrationRequests.Add(@event);
             foreach (var templateDependency in @event.TemplateDependencies)
             {
+                AddTemplateDependency(templateDependency);
+            }
+        }
+        
+        private void HandleEvent(ServiceConfigurationRequest @event)
+        {
+            if (@event.Concern != "Infrastructure")
+            {
+                return;
+            }
+
+            @event.MarkAsHandled();
+            _serviceConfigurationRequests.Add(@event);
+            foreach (var templateDependency in @event.TemplateDependencies)
+            {
+                var template = GetTemplate<IClassProvider>(templateDependency);
+                if (template != null)
+                {
+                    AddUsing(template.Namespace);
+                }
+
                 AddTemplateDependency(templateDependency);
             }
         }
@@ -109,6 +132,38 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                 _ => throw new InvalidOperationException()
             };
             // ReSharper restore ConditionIsAlwaysTrueOrFalse
+        }
+        
+        private string ServiceConfigurationRegistration(ServiceConfigurationRequest registration)
+        {
+            string GetExtensionMethodParameterList()
+            {
+                if (registration.ExtensionMethodParameterList?.Any() != true)
+                {
+                    return string.Empty;
+                }
+
+                var paramList = new List<string>();
+
+                foreach (var param in registration.ExtensionMethodParameterList)
+                {
+                    switch (param)
+                    {
+                        case ServiceConfigurationRequest.ParameterType.Configuration:
+                            paramList.Add("configuration");
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(
+                                paramName: nameof(registration.ExtensionMethodParameterList),
+                                actualValue: param,
+                                message: "Type specified in parameter list is not known or supported");
+                    }
+                }
+
+                return string.Join(", ", paramList);
+            }
+            
+            return $"services.{registration.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
     }
 }

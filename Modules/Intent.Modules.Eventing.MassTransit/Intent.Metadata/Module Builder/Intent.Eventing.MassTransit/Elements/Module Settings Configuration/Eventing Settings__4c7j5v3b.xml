@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Eventing Settings</name>
+  <display>Eventing Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6502ee82-f515-4007-9635-bade3eb88e72</parentFolderId>
+  <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+  <packageName>Intent.Eventing.MassTransit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2888b373-0419-4d33-ba56-2d8d0bf98eb9" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Messaging Service Provider</name>
+      <display>Messaging Service Provider</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b1c11f3f-63ce-4917-8ffb-b6c7698346c7</parentFolderId>
+      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+      <packageName>Intent.Eventing.MassTransit</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="in-memory" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3efd2ca6-8bc8-4f82-8276-02aa447a8652" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>In Memory</name>
+          <display>In Memory = in-memory</display>
+          <isAbstract>false</isAbstract>
+          <value>in-memory</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="24246c29-feaf-4e55-a5aa-3d2fdedb20c8" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Rabbit MQ</name>
+          <display>Rabbit MQ = rabbitmq</display>
+          <isAbstract>false</isAbstract>
+          <value>rabbitmq</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c8dbeb41-83a5-42f7-9a5c-7eabb9d3c0ec" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Azure Service Bus</name>
+          <display>Azure Service Bus = azure-service-bus</display>
+          <isAbstract>false</isAbstract>
+          <value>azure-service-bus</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="09e41888-3f16-4762-905a-b66a16d94fed" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Amazon SQS</name>
+          <display>Amazon SQS = amazon-sqs</display>
+          <isAbstract>false</isAbstract>
+          <value>amazon-sqs</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2888b373-0419-4d33-ba56-2d8d0bf98eb9</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
