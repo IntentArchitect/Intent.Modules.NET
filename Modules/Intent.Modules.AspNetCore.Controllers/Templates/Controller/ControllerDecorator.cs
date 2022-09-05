@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -17,45 +18,23 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     {
         public virtual int Priority { get; protected set; } = 0;
 
-        public virtual string BaseClass()
-        {
-            return null;
-        }
+        public virtual IEnumerable<string> GetControllerAttributes() => Enumerable.Empty<string>();
 
-        public virtual string EnterClass()
-        {
-            return null;
-        }
+        public virtual string BaseClass() => null;
 
-        public virtual string ExitClass()
-        {
-            return null;
-        }
+        public virtual string EnterClass() => null;
 
-        public virtual string ConstructorImplementation()
-        {
-            return null;
-        }
+        public virtual string ExitClass() => null;
 
-        public virtual IEnumerable<string> ConstructorParameters()
-        {
-            return new string[0];
-        }
+        public virtual string ConstructorImplementation() => null;
 
-        public virtual string EnterOperationBody(OperationModel operationModel)
-        {
-            return null;
-        }
+        public virtual IEnumerable<string> ConstructorParameters() => Enumerable.Empty<string>();
 
-        public virtual string MidOperationBody(OperationModel operationModel)
-        {
-            return null;
-        }
+        public virtual string EnterOperationBody(OperationModel operationModel) => null;
 
-        public virtual string ExitOperationBody(OperationModel operationModel)
-        {
-            return null;
-        }
+        public virtual string MidOperationBody(OperationModel operationModel) => null;
+
+        public virtual string ExitOperationBody(OperationModel operationModel) => null;
 
         public virtual void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
         {
