@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modules.Application.FluentValidation.Templates.ValidationBehaviour;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
@@ -28,6 +30,8 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         {
             _template = template;
             _application = application;
+
+            _requestDtoTypeName = _template.Model.GetRequestDtoParameter()?.Name?.ToParameterName();
         }
 
         public void BeforeTemplateExecution()
@@ -109,7 +113,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 yield break;
             }
 
-            yield return $"await _validation.Handle({_template.GetRequestDtoParameterName()}, default);";
+            yield return $"await _validation.Handle({_requestDtoTypeName}, default);";
         }
 
         public override IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()

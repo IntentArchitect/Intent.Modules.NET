@@ -33,6 +33,10 @@
         <option>From Route</option>
       </valueOptions>
       <lookupTypes />
+      <isActiveFunction>return element.getParent("Operation")
+    .getStereotype("Azure Function")
+    ?.getProperty("Type")
+    ?.getValue() === "Http Trigger";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>

@@ -8,6 +8,7 @@
     <Authors>Intent Architect</Authors>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <Copyright>Copyright 2022</Copyright>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>
