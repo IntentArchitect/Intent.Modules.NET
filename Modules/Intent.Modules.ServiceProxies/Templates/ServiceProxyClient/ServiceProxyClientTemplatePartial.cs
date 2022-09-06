@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.WebApi.Api;
-using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
@@ -12,9 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
@@ -31,7 +26,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceProxyClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
         {
-            WebApiQueries.Validate(model);
+            ServiceMetadataQueries.Validate(model);
 
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
             AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
@@ -80,48 +75,48 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
 
         private string GetRelativeUri(OperationModel operation)
         {
-            var relativeUri = WebApiQueries.GetRelativeUri(operation);
+            var relativeUri = ServiceMetadataQueries.GetRelativeUri(operation);
             return relativeUri;
         }
 
         private bool HasQueryParameter(OperationModel operation)
         {
-            return WebApiQueries.GetQueryParameters(operation).Any();
+            return ServiceMetadataQueries.GetQueryParameters(operation).Any();
         }
 
         private IReadOnlyCollection<ParameterModel> GetQueryParameters(OperationModel operation)
         {
-            return WebApiQueries.GetQueryParameters(operation);
+            return ServiceMetadataQueries.GetQueryParameters(operation);
         }
 
         private string GetHttpVerb(OperationModel operation)
         {
-            return $"HttpMethod.{operation.GetHttpSettings()?.Verb().Value.ToLower().ToPascalCase()}";
+            return $"HttpMethod.{ServiceMetadataQueries.GetHttpVerb(operation)}";
         }
 
-        private IReadOnlyCollection<WebApiQueries.HeaderParameter> GetHeaderParameters(OperationModel operation)
+        private IReadOnlyCollection<ServiceMetadataQueries.HeaderParameter> GetHeaderParameters(OperationModel operation)
         {
-            return WebApiQueries.GetHeaderParameters(operation);
+            return ServiceMetadataQueries.GetHeaderParameters(operation);
         }
 
         private bool HasBodyParameter(OperationModel operation)
         {
-            return WebApiQueries.GetBodyParameter(operation) != null;
+            return ServiceMetadataQueries.GetBodyParameter(operation) != null;
         }
 
         private string GetBodyParameterName(OperationModel operation)
         {
-            return WebApiQueries.GetBodyParameter(operation).Name.ToParameterName();
+            return ServiceMetadataQueries.GetBodyParameter(operation).Name.ToParameterName();
         }
 
         private bool HasFormUrlEncodedParameter(OperationModel operation)
         {
-            return WebApiQueries.GetFormUrlEncodedParameters(operation).Any();
+            return ServiceMetadataQueries.GetFormUrlEncodedParameters(operation).Any();
         }
 
         private IReadOnlyCollection<ParameterModel> GetFormUrlEncodedParameters(OperationModel operation)
         {
-            return WebApiQueries.GetFormUrlEncodedParameters(operation);
+            return ServiceMetadataQueries.GetFormUrlEncodedParameters(operation);
         }
 
         private bool HasResponseType(OperationModel operation)
