@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using JetBrains.Annotations;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
@@ -16,9 +17,11 @@ namespace Intent.Modules.ServiceProxies.Templates;
 public static class ServiceMetadataQueries
 {
     private const string StereotypeHttpServiceSettings = "Http Service Settings";
+    private const string StereotypeHttpSettings = "Http Settings";
     private const string StereotypeAzureFunction = "Azure Function";
     private const string StereotypeHttpServiceParameterSettings = "Parameter Settings";
     private const string StereotypeAzureFunctionParameterSettings = "Parameter Setting";
+    private const string IntentCommonTypes = "Intent.Common.Types";
 
     public static void Validate(ServiceProxyModel serviceProxy)
     {
@@ -38,16 +41,30 @@ public static class ServiceMetadataQueries
         var serviceName = operation.ParentService.Name.RemoveSuffix("Controller", "Service");
         serviceRoute = serviceRoute.Replace("[controller]", serviceName);
 
+        if (string.IsNullOrWhiteSpace(serviceRoute))
+        {
+            serviceRoute = $"api/{serviceName}";
+        }
+
         var operationRoute = GetRoute(operation) ?? string.Empty;
         operationRoute = operationRoute.Replace("[action]", operation.Name);
 
-        return $"/{serviceRoute}/{operationRoute}";
+        return $"/{serviceRoute}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute}";
     }
 
     public static IReadOnlyCollection<ParameterModel> GetQueryParameters(OperationModel operation)
     {
+        if (operation.Parameters.Count(p => p.TypeReference.Element.Package.Name == IntentCommonTypes
+                                            && GetSource(operation, p).IsDefault()) == 1)
+        {
+            return Array.Empty<ParameterModel>();
+        }
+
+        var route = GetRoute(operation);
         return operation.Parameters
-            .Where(p => GetSource(operation, p).IsFromQuery() == true)
+            .Where(p => GetSource(operation, p).IsFromQuery() == true || 
+                        (p.TypeReference.Element.Package.Name == IntentCommonTypes && GetSource(operation, p).IsDefault() &&
+                         !route.Contains($"{{{p.Name.ToCamelCase()}}}")))
             .ToArray();
     }
 
@@ -66,7 +83,7 @@ public static class ServiceMetadataQueries
         return operation.Parameters
             .FirstOrDefault(p => GetSource(operation, p).IsFromBody() == true
                                  || (GetSource(operation, p).IsDefault() == true &&
-                                     p.TypeReference.Element.IsDTOModel()));
+                                     p.TypeReference.Element.Package.Name != IntentCommonTypes));
     }
 
     public static IReadOnlyCollection<ParameterModel> GetFormUrlEncodedParameters(OperationModel operation)
@@ -83,13 +100,13 @@ public static class ServiceMetadataQueries
 
     public static string GetHttpVerb(OperationModel operation)
     {
-        var webApiVerb = operation.GetStereotype(StereotypeHttpServiceSettings)?.GetProperty<string>("Verb");
+        var webApiVerb = operation.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Verb");
         if (webApiVerb != null)
         {
             return webApiVerb.ToLower().ToPascalCase();
         }
 
-        var azFuncMethod = operation.GetStereotype(StereotypeHttpServiceSettings)?.GetProperty<string>("Method");
+        var azFuncMethod = operation.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Method");
         if (AzureFunctionIsHttpTrigger(operation) && azFuncMethod != null)
         {
             return azFuncMethod.ToLower().ToPascalCase();
@@ -113,7 +130,7 @@ public static class ServiceMetadataQueries
 
     private static string GetRoute(OperationModel operationModel)
     {
-        var webApiRoute = operationModel.GetStereotype(StereotypeHttpServiceSettings)?.GetProperty<string>("Route");
+        var webApiRoute = operationModel.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Route");
         if (webApiRoute != null)
         {
             return webApiRoute;
@@ -187,11 +204,9 @@ public static class ServiceMetadataQueries
     {
         return source == "From Header";
     }
-    
+
     private static bool IsFromForm([CanBeNull] this string source)
     {
         return source == "From Form";
     }
-    
-    
 }

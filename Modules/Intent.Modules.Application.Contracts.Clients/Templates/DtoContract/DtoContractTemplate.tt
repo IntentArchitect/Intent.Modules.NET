@@ -2,6 +2,7 @@
 <#@ assembly name="System.Core" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
