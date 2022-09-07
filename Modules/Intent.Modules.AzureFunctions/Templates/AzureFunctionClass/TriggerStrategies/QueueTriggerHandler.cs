@@ -42,8 +42,7 @@ public class QueueTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        yield return NuGetPackages.AzureStorageQueues;
-        yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsStorage;
+        yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsStorageQueues;
     }
 
     public IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()
