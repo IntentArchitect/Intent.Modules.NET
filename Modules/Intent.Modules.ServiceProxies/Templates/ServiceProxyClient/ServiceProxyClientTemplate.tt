@@ -135,7 +135,7 @@ namespace <#= Namespace #>
 
         private async Task<HttpRequestException> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
         {
-            var fullRequestUri = new Uri(_httpClient.BaseAddress<#= NotNull #> ,request.RequestUri<#= NotNull #>);
+            var fullRequestUri = new Uri(_httpClient.BaseAddress<#= NotNull #>, request.RequestUri<#= NotNull #>);
             var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
             return new HttpRequestException(
                 $"Request to {fullRequestUri} failed with status code {(int)response.StatusCode} {response.ReasonPhrase}.{Environment.NewLine}{content}",

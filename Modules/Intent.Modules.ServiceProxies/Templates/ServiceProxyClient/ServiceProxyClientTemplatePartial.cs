@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -26,7 +27,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceProxyClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
         {
-            ServiceMetadataQueries.Validate(model);
+            ServiceMetadataQueries.Validate(this, model);
 
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
             AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities);
@@ -81,12 +82,12 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
 
         private bool HasQueryParameter(OperationModel operation)
         {
-            return ServiceMetadataQueries.GetQueryParameters(operation).Any();
+            return ServiceMetadataQueries.GetQueryParameters(this, operation).Any();
         }
 
         private IReadOnlyCollection<ParameterModel> GetQueryParameters(OperationModel operation)
         {
-            return ServiceMetadataQueries.GetQueryParameters(operation);
+            return ServiceMetadataQueries.GetQueryParameters(this, operation);
         }
 
         private string GetHttpVerb(OperationModel operation)
@@ -101,12 +102,12 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
 
         private bool HasBodyParameter(OperationModel operation)
         {
-            return ServiceMetadataQueries.GetBodyParameter(operation) != null;
+            return ServiceMetadataQueries.GetBodyParameter(this, operation) != null;
         }
 
         private string GetBodyParameterName(OperationModel operation)
         {
-            return ServiceMetadataQueries.GetBodyParameter(operation).Name.ToParameterName();
+            return ServiceMetadataQueries.GetBodyParameter(this, operation).Name.ToParameterName();
         }
 
         private bool HasFormUrlEncodedParameter(OperationModel operation)
@@ -126,12 +127,9 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
 
         private string GetParameterValueExpression(ParameterModel parameter)
         {
-            if (parameter.TypeReference.Element.Name != "string")
-            {
-                return parameter.Name.ToParameterName() + ".ToString()";
-            }
-
-            return parameter.Name.ToParameterName();
+            return parameter.TypeReference?.Element?.Name.Equals("string", StringComparison.OrdinalIgnoreCase) == true
+                ? $"{parameter.Name.ToParameterName()}.ToString()"
+                : parameter.Name.ToParameterName();
         }
     }
 }

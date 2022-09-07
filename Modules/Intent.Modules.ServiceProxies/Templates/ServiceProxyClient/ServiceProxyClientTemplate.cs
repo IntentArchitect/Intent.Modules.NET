@@ -301,7 +301,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
             
             #line default
             #line hidden
-            this.Write(" ,request.RequestUri");
+            this.Write(", request.RequestUri");
             
             #line 138 "C:\Dev\Intent.Modules.NET_Proxy\Modules\Intent.Modules.ServiceProxies\Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(NotNull));

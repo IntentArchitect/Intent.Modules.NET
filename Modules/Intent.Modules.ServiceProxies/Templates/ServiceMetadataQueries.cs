@@ -21,13 +21,12 @@ public static class ServiceMetadataQueries
     private const string StereotypeAzureFunction = "Azure Function";
     private const string StereotypeHttpServiceParameterSettings = "Parameter Settings";
     private const string StereotypeAzureFunctionParameterSettings = "Parameter Setting";
-    private const string IntentCommonTypes = "Intent.Common.Types";
 
-    public static void Validate(ServiceProxyModel serviceProxy)
+    public static void Validate(IntentTemplateBase template, ServiceProxyModel serviceProxy)
     {
         foreach (var operation in serviceProxy.MappedService.Operations)
         {
-            if (GetBodyParameter(operation) != null && GetFormUrlEncodedParameters(operation).Any())
+            if (GetBodyParameter(template, operation) != null && GetFormUrlEncodedParameters(operation).Any())
             {
                 throw new InvalidOperationException(
                     $"Service Proxy [{serviceProxy.Name}] is mapped to Service [{serviceProxy.MappedService.Name}] which has Operation [{operation.Name}] that has a FORM parameter and a BODY parameter.");
@@ -52,9 +51,9 @@ public static class ServiceMetadataQueries
         return $"/{serviceRoute}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute}";
     }
 
-    public static IReadOnlyCollection<ParameterModel> GetQueryParameters(OperationModel operation)
+    public static IReadOnlyCollection<ParameterModel> GetQueryParameters(IntentTemplateBase template, OperationModel operation)
     {
-        if (operation.Parameters.Count(p => p.TypeReference.Element.Package.Name == IntentCommonTypes
+        if (operation.Parameters.Count(p => template.GetTypeInfo(p.TypeReference).IsPrimitive
                                             && GetSource(operation, p).IsDefault()) == 1)
         {
             return Array.Empty<ParameterModel>();
@@ -63,7 +62,7 @@ public static class ServiceMetadataQueries
         var route = GetRoute(operation);
         return operation.Parameters
             .Where(p => GetSource(operation, p).IsFromQuery() == true || 
-                        (p.TypeReference.Element.Package.Name == IntentCommonTypes && GetSource(operation, p).IsDefault() &&
+                        (template.GetTypeInfo(p.TypeReference).IsPrimitive && GetSource(operation, p).IsDefault() &&
                          !route.Contains($"{{{p.Name.ToCamelCase()}}}")))
             .ToArray();
     }
@@ -78,12 +77,12 @@ public static class ServiceMetadataQueries
             .ToArray();
     }
 
-    public static ParameterModel GetBodyParameter(OperationModel operation)
+    public static ParameterModel GetBodyParameter(IntentTemplateBase template, OperationModel operation)
     {
         return operation.Parameters
             .FirstOrDefault(p => GetSource(operation, p).IsFromBody() == true
                                  || (GetSource(operation, p).IsDefault() == true &&
-                                     p.TypeReference.Element.Package.Name != IntentCommonTypes));
+                                     !template.GetTypeInfo(p.TypeReference).IsPrimitive));
     }
 
     public static IReadOnlyCollection<ParameterModel> GetFormUrlEncodedParameters(OperationModel operation)
@@ -106,7 +105,7 @@ public static class ServiceMetadataQueries
             return webApiVerb.ToLower().ToPascalCase();
         }
 
-        var azFuncMethod = operation.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Method");
+        var azFuncMethod = operation.GetStereotype(StereotypeAzureFunction)?.GetProperty<string>("Method");
         if (AzureFunctionIsHttpTrigger(operation) && azFuncMethod != null)
         {
             return azFuncMethod.ToLower().ToPascalCase();
