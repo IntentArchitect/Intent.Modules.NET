@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -47,7 +48,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         
         foreach (var param in GetQueryParams())
         {
-            if (_template.GetTypeName(param.Type) == "string")
+            if(param.TypeReference.HasStringType())
             {
                 statementList.Add(
                     $@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");

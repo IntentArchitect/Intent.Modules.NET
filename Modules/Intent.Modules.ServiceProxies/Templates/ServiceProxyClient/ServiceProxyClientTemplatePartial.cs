@@ -127,7 +127,7 @@ namespace Intent.Modules.ServiceProxies.Templates.ServiceProxyClient
 
         private string GetParameterValueExpression(ParameterModel parameter)
         {
-            return parameter.TypeReference?.Element?.Name.Equals("string", StringComparison.OrdinalIgnoreCase) == true
+            return !parameter.TypeReference.HasStringType()
                 ? $"{parameter.Name.ToParameterName()}.ToString()"
                 : parameter.Name.ToParameterName();
         }
