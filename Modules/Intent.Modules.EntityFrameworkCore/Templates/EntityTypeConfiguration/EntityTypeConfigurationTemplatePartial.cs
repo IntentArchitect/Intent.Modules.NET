@@ -39,7 +39,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     {
         private IIntentTemplate _entityTemplate;
 
-        [IntentManaged(Mode.Fully)] 
+        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
@@ -497,9 +497,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             statements.Add($"    .IsRequired()");
                             statements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
                         }
-
-                        break;
                     }
+                    break;
                 case RelationshipType.ManyToMany:
                     if (Project.GetProject().IsNetCore2App || Project.GetProject().IsNetCore3App)
                     {

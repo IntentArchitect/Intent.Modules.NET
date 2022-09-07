@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
@@ -26,6 +28,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEntity";
 
+        private const string InterfaceTypeContext = "interface";
+
         private readonly IList<DomainEntityDecoratorBase> _decorators = new List<DomainEntityDecoratorBase>();
         public CSharpFile CSharpFile { get; set; }
 
@@ -34,7 +38,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
             AddTypeSource(TemplateId);
-            AddTypeSource(DomainEntityInterfaceTemplate.Identifier);
             AddTypeSource(DomainEnumTemplate.TemplateId);
             AddTypeSource("Domain.ValueObject");
 
@@ -50,6 +53,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass(Model.Name, @class =>
                 {
+                    Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.TemplateId, "IEnumerable<{0}>"), contextName: InterfaceTypeContext);
+
                     if (Model.IsAbstract)
                     {
                         @class.Abstract();
@@ -85,6 +90,18 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                     property.PrivateSetter();
                                 }
                             });
+
+                            if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
+                                ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
+                                attribute.TypeReference.IsCollection)
+                            {
+                                @class.AddProperty($"{GetTypeName(attribute, "IEnumerable<{0}>")}", $"{this.GetDomainEntityInterfaceName()}.{attribute.Name.ToPascalCase()}", property =>
+                                {
+                                    property.ReadOnly();
+                                    property.WithoutAccessModifier();
+                                    property.Getter.WithExpressionImplementation(attribute.Name.ToPascalCase());
+                                });
+                            }
                         }
 
                         foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
@@ -98,6 +115,18 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                     property.PrivateSetter();
                                 }
                             });
+
+                            if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
+                                ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
+                                !GetTypeName(associationEnd).Equals(TryGetInterfaceTypeName(associationEnd)))
+                            {
+                                @class.AddProperty($"{TryGetInterfaceTypeName(associationEnd)}", $"{this.GetDomainEntityInterfaceName()}.{associationEnd.Name.ToPascalCase()}", property =>
+                                {
+                                    property.ReadOnly();
+                                    property.WithoutAccessModifier();
+                                    property.Getter.WithExpressionImplementation(associationEnd.Name.ToPascalCase());
+                                });
+                            }
                         }
                     }
 
@@ -117,14 +146,32 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     }
                     foreach (var operation in Model.Operations)
                     {
-                        @class.AddMethod(GetTypeName(operation), operation.Name, method =>
+                        @class.AddMethod(GetOperationTypeName(operation), operation.Name, method =>
                         {
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter), parameter.Name);
+                                method.AddParameter(GetOperationTypeName(parameter), parameter.Name);
                             }
                             method.AddStatement(@"throw new NotImplementedException(""Replace with your implementation..."");");
                         });
+
+                        if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
+                            ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
+                            (!TryGetInterfaceTypeName(operation).Equals(GetOperationTypeName(operation)) ||
+                             !Enumerable.SequenceEqual(operation.Parameters.Select(TryGetInterfaceTypeName), operation.Parameters.Select(GetOperationTypeName))))
+                        {
+                            @class.AddMethod(TryGetInterfaceTypeName(operation), $"{this.GetDomainEntityInterfaceName()}.{operation.Name}", method =>
+                            {
+                                method.AddAttribute("IntentManaged(Mode.Fully)");
+                                method.WithoutAccessModifier();
+                                foreach (var parameter in operation.Parameters)
+                                {
+                                    method.AddParameter(TryGetInterfaceTypeName(parameter), parameter.Name);
+                                }
+
+                                method.AddStatement($"{(operation.ReturnType != null ? "return " : string.Empty)}{operation.Name}({string.Join(", ", operation.Parameters.Select(x => $"{CastArgumentIfNecessary(x)}"))});");
+                            });
+                        }
                     }
                 });
             if (Model.Operations.Any(x => x.IsAsync()))
@@ -175,6 +222,47 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 return o.IsAsync() ? "async Task" : "void";
             }
             return o.IsAsync() ? $"async Task<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.ReturnType);
+        }
+
+        private string GetOperationTypeName(IHasTypeReference hasTypeReference)
+        {
+            return GetOperationTypeName(hasTypeReference.TypeReference);
+        }
+
+        private string GetOperationTypeName(ITypeReference type)
+        {
+            return GetTypeName(type, "IEnumerable<{0}>"); // fall back on normal type resolution.
+        }
+
+        private string TryGetInterfaceTypeName(IHasTypeReference hasTypeReference)
+        {
+            return TryGetInterfaceTypeName(hasTypeReference.TypeReference);
+        }
+
+        private string TryGetInterfaceTypeName(ITypeReference type)
+        {
+            var interfaceType = Types.InContext(InterfaceTypeContext).Get(type);
+            if (interfaceType.Template != null || interfaceType.GenericTypeParameters.Any(x => x.Template != null)) // found interface type
+            {
+                return UseType(interfaceType);
+            }
+
+            return GetOperationTypeName(type); // fall back on normal type resolution.
+        }
+
+        private string CastArgumentIfNecessary(ParameterModel parameter)
+        {
+            var interfaceType = Types.InContext(InterfaceTypeContext).Get(parameter.TypeReference);
+            if (interfaceType.Template != null || interfaceType.GenericTypeParameters.Any(x => x.Template != null)) // found interface type
+            {
+                if (interfaceType.Name.Equals("IEnumerable"))
+                {
+                    return $"{parameter.Name}.Cast<{GetTypeName((IElement)parameter.TypeReference.Element)}>()";
+                }
+                return $"({GetTypeName((IElement)parameter.TypeReference.Element)}) {parameter.Name}";
+            }
+
+            return string.Empty;
         }
     }
 }
