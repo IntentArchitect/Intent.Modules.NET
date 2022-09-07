@@ -22,5 +22,7 @@ namespace <#= Namespace #>
         Task<Stream> DownloadContentAsync(string containerName, string blobName, CancellationToken cancellationToken = default);
         Task UploadContent(Uri cloudStorageLocation, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default);
         Task UploadContent(string containerName, string blobName, Stream streamToUpload, bool overwrite = true, CancellationToken cancellationToken = default);
+        Task DeleteContent(Uri cloudStorageLocation, CancellationToken cancellationToken = default);
+        Task DeleteContent(string containerName, string blobName, CancellationToken cancellationToken = default);
     }
 }
