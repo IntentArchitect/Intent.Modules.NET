@@ -5,7 +5,7 @@ using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
 
-public static class TriggerStrategyResolver
+internal static class TriggerStrategyResolver
 {
     public static IFunctionTriggerHandler GetFunctionTriggerHandler(AzureFunctionClassTemplate template, OperationModel model)
     {

@@ -7,7 +7,7 @@ using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
 
-public class QueueTriggerHandler : IFunctionTriggerHandler
+internal class QueueTriggerHandler : IFunctionTriggerHandler
 {
     private readonly AzureFunctionClassTemplate _template;
     private readonly OperationModel _operationModel;

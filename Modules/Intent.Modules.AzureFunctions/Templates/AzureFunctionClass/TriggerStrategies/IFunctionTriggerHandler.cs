@@ -3,7 +3,7 @@ using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
 
-public interface IFunctionTriggerHandler
+internal interface IFunctionTriggerHandler
 {
     IEnumerable<string> GetMethodParameterDefinitionList();
     IEnumerable<string> GetRunMethodEntryStatementList();
