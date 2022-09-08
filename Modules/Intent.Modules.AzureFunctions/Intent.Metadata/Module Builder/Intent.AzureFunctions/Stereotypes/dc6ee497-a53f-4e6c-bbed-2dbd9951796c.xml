@@ -114,5 +114,19 @@ return Type;</displayFunction>
       <isActiveFunction>return Type === "Service Bus Trigger" || Type === "Queue Trigger";</isActiveFunction>
       <isRequiredFunction />
     </property>
+    <property id="a6952628-d858-432d-a9fb-3bb08081a37f">
+      <name>Return Type Mediatype</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>Default</defaultValue>
+      <valueOptions>
+        <option>Default</option>
+        <option>application/json</option>
+      </valueOptions>
+      <lookupTypes />
+      <isActiveFunction>return Type === "Http Trigger";</isActiveFunction>
+    </property>
   </properties>
 </stereotypeDefinition>

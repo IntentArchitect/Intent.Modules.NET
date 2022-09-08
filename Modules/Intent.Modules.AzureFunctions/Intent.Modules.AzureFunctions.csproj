@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -58,6 +58,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AzureFunctionClassHelperTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\ReturnTypes\JsonResponse\JsonResponseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -100,6 +104,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AzureFunctionClassHelperTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ReturnTypes\JsonResponse\JsonResponseTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JsonResponseTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

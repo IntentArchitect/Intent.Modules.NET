@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
+using Intent.Modules.AzureFunctions.Templates;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -80,24 +81,40 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
                 OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.GET => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
-                        : $"return new OkObjectResult(result);",
+                        : $"return new OkObjectResult({GetResultExpression()});",
                 OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.POST =>
                     _template.Model.ReturnType == null
                         ? $"return new CreatedResult(string.Empty, null);"
-                        : $"return new CreatedResult(string.Empty, result);",
+                        : $"return new CreatedResult(string.Empty, {GetResultExpression()});",
                 OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT or
                     OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PATCH => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
-                        : $"return new OkObjectResult(result);",
+                        : $"return new OkObjectResult({GetResultExpression()});",
                 OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.DELETE => _template.Model.ReturnType ==
                     null
                         ? $"return new OkResult();"
-                        : $"return new OkObjectResult(result);",
+                        : $"return new OkObjectResult({GetResultExpression()});",
                 _ => throw new ArgumentOutOfRangeException()
             };
 
             return new[] { result };
+        }
+        
+        private string GetResultExpression()
+        {
+            if (_template.Model.ReturnType == null)
+            {
+                throw new ArgumentException($@"{nameof(_template.Model.ReturnType)} is expected to be specified with a Type");
+            }
+
+            if (_template.Model.GetAzureFunction().ReturnTypeMediatype().IsApplicationJson()
+                && _template.GetTypeInfo(_template.Model.ReturnType).IsPrimitive)
+            {
+                return $@"new {_template.GetJsonResponseName()}<{_template.GetTypeName(_template.Model.ReturnType)}>(result)";
+            }
+
+            return "result";
         }
     }
 }

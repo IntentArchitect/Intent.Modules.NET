@@ -25,6 +25,14 @@
       <role>Distribution</role>
       <location></location>
     </template>
+    <template id="Intent.AzureFunctions.ReturnTypes.JsonResponse" externalReference="6be4e869-4171-4d7f-babf-4163b0a5de0f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.JsonResponse</role>
+      <location>ResponseTypes</location>
+    </template>
     <template id="Intent.AzureFunctions.ReturnTypes.ResourceLocationClass" externalReference="a8bb8b25-bd0b-4ebb-b78e-f6c328430707">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

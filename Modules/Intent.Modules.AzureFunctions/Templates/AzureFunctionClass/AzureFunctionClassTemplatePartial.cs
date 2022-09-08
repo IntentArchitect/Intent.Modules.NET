@@ -86,8 +86,9 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             definitionList.AddRange(GetDecorators()
                 .SelectMany(s => s.GetClassEntryDefinitionList()));
 
-            return string.Join(@"
-        ", definitionList);
+            const string newLine = @"
+        ";
+            return string.Join(newLine, definitionList);
         }
 
         private string GetConstructorParameterDefinitionList()

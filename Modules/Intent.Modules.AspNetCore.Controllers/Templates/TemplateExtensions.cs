@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -18,6 +19,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
         public static string GetControllerName(this IntentTemplateBase template, Intent.Modelers.Services.Api.ServiceModel model)
         {
             return template.GetTypeName(ControllerTemplate.TemplateId, model);
+        }
+
+        public static string GetJsonResponseName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(JsonResponseTemplate.TemplateId);
         }
 
     }

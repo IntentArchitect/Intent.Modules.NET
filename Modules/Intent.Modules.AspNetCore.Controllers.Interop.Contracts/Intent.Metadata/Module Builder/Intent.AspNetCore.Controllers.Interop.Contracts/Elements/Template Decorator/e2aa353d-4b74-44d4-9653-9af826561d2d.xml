@@ -3,7 +3,6 @@
   <name>ContractDispatchDecorator</name>
   <display>ContractDispatchDecorator: ControllerDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="1d45d5cf-bc08-4484-a5c2-8923064d8fb4">
     <typeId>2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</typeId>

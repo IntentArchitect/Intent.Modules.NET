@@ -163,7 +163,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 attributes.Add("[AllowAnonymous]");
             }
-            var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : $"";
+            
+            var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
+            if (operation.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson()
+                && GetTypeInfo(operation.ReturnType).IsPrimitive)
+            {
+                apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
+            }
+
             switch (GetHttpVerb(operation))
             {
                 case HttpVerb.Get:

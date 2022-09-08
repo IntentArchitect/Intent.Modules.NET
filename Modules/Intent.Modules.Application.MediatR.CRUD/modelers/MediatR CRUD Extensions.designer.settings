@@ -87,6 +87,9 @@ if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
     param.typeReference.setType(command.id);
 
     operation.typeReference.setType(pkTypeId);
+    if (pkTypeId) {
+        operation.getStereotype("Http Settings").getProperty("Return Type Mediatype").setValue("application/json");
+    }
 
     operation.collapse();
 }
@@ -327,6 +330,9 @@ if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
     param.typeReference.setType(command.id);
 
     operation.typeReference.setType(pkTypeId);
+    if (pkTypeId) {
+        operation.getStereotype("Http Settings").getProperty("Return Type Mediatype").setValue("application/json");
+    }
 
     operation.collapse();
 }

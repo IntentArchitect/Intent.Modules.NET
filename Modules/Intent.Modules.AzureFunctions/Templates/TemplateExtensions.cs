@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper;
+using Intent.Modules.AzureFunctions.Templates.ReturnTypes.JsonResponse;
 using Intent.Modules.AzureFunctions.Templates.ReturnTypes.ResourceLocationClass;
 using Intent.Modules.AzureFunctions.Templates.Startup;
 using Intent.Modules.Common.Templates;
@@ -27,6 +28,11 @@ namespace Intent.Modules.AzureFunctions.Templates
         public static string GetAzureFunctionClassHelperName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(AzureFunctionClassHelperTemplate.TemplateId);
+        }
+
+        public static string GetJsonResponseName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(JsonResponseTemplate.TemplateId);
         }
 
         public static string GetResourceLocationClassName<T>(this IntentTemplateBase<T> template)
