@@ -54,8 +54,24 @@ var folder = existing || createElement("Folder", pluralize(entityName), service.
 // CREATE:
 if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
 {
+    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let pkTypeId;
+    switch (true) {
+        case pks.length == 0:
+            pkTypeId = getSurrogateKeyType();
+            break;
+        case pks.length == 1:
+            pkTypeId = pks[0].typeReference?.typeId ?? getSurrogateKeyType();
+            break;
+        case pks.length &gt; 1:
+            pkTypeId = null;
+            break;
+    }
+
     let command = createElement("Command", `Create${entityName}Command`, folder.id);
     command.setMapping(entity.id);
+    command.typeReference.setType(pkTypeId);
+
     for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
         let field = createElement("DTO-Field", attribute.name, command.id);
         field.typeReference.setType(attribute.typeReference.typeId)
@@ -69,6 +85,9 @@ if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
 
     let param = createElement("Parameter", "command", operation.id);
     param.typeReference.setType(command.id);
+
+    operation.typeReference.setType(pkTypeId);
+
     operation.collapse();
 }
 
@@ -275,8 +294,24 @@ var folder = existing || createElement("Folder", pluralize(entityName), service.
 // CREATE:
 if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
 {
+    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let pkTypeId;
+    switch (true) {
+        case pks.length == 0:
+            pkTypeId = getSurrogateKeyType();
+            break;
+        case pks.length == 1:
+            pkTypeId = pks[0].typeReference?.typeId ?? getSurrogateKeyType();
+            break;
+        case pks.length &gt; 1:
+            pkTypeId = null;
+            break;
+    }
+
     let command = createElement("Command", `Create${entityName}Command`, folder.id);
     command.setMapping(entity.id);
+    command.typeReference.setType(pkTypeId);
+
     for(let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
         let field = createElement("DTO-Field", attribute.name, command.id);
         field.typeReference.setType(attribute.typeReference.typeId)
@@ -290,6 +325,9 @@ if (!folder.getChildren().some(x =&gt; x.name == `Create${entityName}Command`))
 
     let param = createElement("Parameter", "command", operation.id);
     param.typeReference.setType(command.id);
+
+    operation.typeReference.setType(pkTypeId);
+
     operation.collapse();
 }
 
