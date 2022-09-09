@@ -31,7 +31,9 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             _template = template;
             _application = application;
 
-            _requestDtoTypeName = _template.Model.GetRequestDtoParameter()?.Name?.ToParameterName();
+            _requestDtoTypeName = _template.Model.GetRequestDtoParameter() != null
+                ? _template.GetTypeName(_template.Model.GetRequestDtoParameter().TypeReference)
+                : null;
         }
 
         public void BeforeTemplateExecution()
@@ -113,7 +115,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 yield break;
             }
 
-            yield return $"await _validation.Handle({_requestDtoTypeName}, default);";
+            yield return $"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);";
         }
 
         public override IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()
