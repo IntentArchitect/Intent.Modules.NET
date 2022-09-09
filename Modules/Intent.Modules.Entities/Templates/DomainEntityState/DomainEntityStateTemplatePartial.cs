@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
@@ -10,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Settings;
+using Intent.Modules.Entities.Templates.DomainEntity;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
@@ -22,23 +24,15 @@ using Intent.Templates;
 namespace Intent.Modules.Entities.Templates.DomainEntityState
 {
     [IntentManaged(Mode.Ignore, Body = Mode.Merge)]
-    partial class DomainEntityStateTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
+    public partial class DomainEntityStateTemplate : DomainEntityStateTemplateBase
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEntityState";
         public const string InterfaceContext = "Interface";
 
-        public CSharpFile CSharpFile { get; set; }
-
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEntityStateTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
-            AddTypeSource(TemplateId);
-            AddTypeSource(DomainEnumTemplate.TemplateId);
-            AddTypeSource("Domain.ValueObject");
-            Types.AddTypeSource(CSharpTypeSource.Create(ExecutionContext, DomainEntityInterfaceTemplate.Identifier, "IEnumerable<{0}>"), InterfaceContext);
-
             FulfillsRole("Domain.Entity");
             if (!ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
             {
@@ -49,43 +43,27 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
                 .AddClass(Model.Name, @class =>
                 {
                     @class.AddMetadata("model", Model);
-                    if (ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
-                    {
-                        @class.Partial();
-                    }
+                    @class.Partial();
 
                     if (Model.ParentClass != null)
                     {
-                        @class.ExtendsClass(GetTemplate<DomainEntityStateTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First());
+                        @class.ExtendsClass(GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First());
                     }
                     if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
                     {
                         @class.ImplementsInterface(this.GetDomainEntityInterfaceName());
                     }
 
-                    foreach (var attribute in Model.Attributes)
-                    {
-                        @class.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
-                        {
-                            property.AddMetadata("model", attribute);
-                            if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-                            {
-                                property.PrivateSetter();
-                            }
-                        });
-                    }
+                    AddProperties(@class);
 
-                    foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
+                    foreach (var operation in Model.Operations)
                     {
-                        @class.AddProperty(GetTypeName(associationEnd), associationEnd.Name.ToPascalCase(), property =>
+                        if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
+                            (!InterfaceTemplate.GetOperationTypeName(operation).Equals(this.GetOperationTypeName(operation)) ||
+                             !operation.Parameters.Select(InterfaceTemplate.GetOperationTypeName).SequenceEqual(operation.Parameters.Select(this.GetOperationTypeName))))
                         {
-                            property.AddMetadata("model", associationEnd);
-                            property.Virtual();
-                            if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-                            {
-                                property.PrivateSetter();
-                            }
-                        });
+                            AddInterfaceQualifiedMethod(@class, operation);
+                        }
                     }
                 });
         }
@@ -103,15 +81,5 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
         {
             return CSharpFile.ToString();
         }
-
-        //[IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        //protected override CSharpFileConfig DefineFileConfig()
-        //{
-        //    return new CSharpFileConfig(
-        //        className: $"{Model.Name}",
-        //        @namespace: $"{this.GetNamespace()}",
-        //        relativeLocation: $"{this.GetFolderPath()}",
-        //        fileName: $"{Model.Name}State");
-        //}
     }
 }

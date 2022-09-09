@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
@@ -23,7 +24,7 @@ using Intent.Templates;
 namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 {
     [IntentManaged(Mode.Ignore, Body = Mode.Merge)]
-    partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, ITemplatePostCreationHook, IDeclareUsings, ICSharpFileBuilderTemplate
+    public partial class DomainEntityInterfaceTemplate : CSharpTemplateBase<ClassModel>, ITemplate, ITemplatePostCreationHook, IDeclareUsings, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Entities.DomainEntityInterface";
@@ -41,7 +42,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             {
                 SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
             }
-            AddTypeSource(TemplateId);
+            AddTypeSource(TemplateId, "IEnumerable<{0}>");
             AddTypeSource(DomainEnumTemplate.TemplateId);
             AddTypeSource("Domain.ValueObject");
         }
@@ -84,6 +85,21 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                                 property.ReadOnly();
                             }
                         });
+                        if (associationEnd.IsCollection &&
+                            associationEnd.Class != null &&
+                            !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                        {
+                            @interface.AddMethod("void", $"Add{associationEnd.Name.ToPascalCase().Singularize()}",
+                                method =>
+                                {
+                                    method.AddParameter(GetTypeName((IElement)associationEnd.Element), $"{associationEnd.Name.ToCamelCase().Singularize()}");
+                                });
+                            @interface.AddMethod("void", $"Remove{associationEnd.Name.ToPascalCase().Singularize()}",
+                                method =>
+                                {
+                                    method.AddParameter(GetTypeName((IElement)associationEnd.Element), $"{associationEnd.Name.ToCamelCase().Singularize()}");
+                                });
+                        }
                     }
 
                     foreach (var operation in Model.Operations)
@@ -92,7 +108,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                         {
                             foreach (var parameter in operation.Parameters)
                             {
-                                method.AddParameter(GetTypeName(parameter), parameter.Name);
+                                method.AddParameter(GetOperationTypeName(parameter), parameter.Name);
                             }
                         });
                     }
@@ -134,24 +150,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 
         //    return string.Join(", ", interfaces);
         //}
-
-        private string GetBaseTypeInterface()
-        {
-            var typeId = Model.GetStereotypeProperty<string>("Base Type", "Type");
-            if (typeId == null)
-            {
-                return null;
-            }
-
-
-            // GCB - There is definitely a better way to handle this now (V3.0)
-            var type = _metadataManager.Domain(OutputTarget.Application).GetTypeDefinitionModels().FirstOrDefault(x => x.Id == typeId);
-            if (type != null)
-            {
-                return $"I{type.Name}";
-            }
-            throw new Exception($"Could not find Base Type for class {Model.Name}");
-        }
 
         //public string InterfaceAnnotations(ClassModel @class)
         //{
@@ -215,7 +213,17 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             {
                 return o.IsAsync() ? "Task" : "void";
             }
-            return o.IsAsync() ? $"Task<{GetTypeName(o.TypeReference)}>" : GetTypeName(o.TypeReference);
+            return o.IsAsync() ? $"Task<{GetTypeName(o.TypeReference, "IEnumerable<{0}>")}>" : GetTypeName(o.TypeReference, "IEnumerable<{0}>");
+        }
+
+        public string GetOperationTypeName(IHasTypeReference hasTypeReference)
+        {
+            return GetOperationTypeName(hasTypeReference.TypeReference);
+        }
+
+        public string GetOperationTypeName(ITypeReference type)
+        {
+            return GetTypeName(type, "IEnumerable<{0}>"); // fall back on normal type resolution.
         }
     }
 }
