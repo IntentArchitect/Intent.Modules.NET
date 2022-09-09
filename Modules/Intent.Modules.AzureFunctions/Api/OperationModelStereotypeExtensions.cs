@@ -90,14 +90,25 @@ namespace Intent.AzureFunctions.Api
             }
 
             [IntentManaged(Mode.Ignore)]
-            public ServiceBusTriggerView GetServiceBusTriggerView()
+            public QueueDetailView GetServiceBusTriggerView()
             {
                 if (!Type().IsServiceBusTrigger())
                 {
                     return null;
                 }
 
-                return new ServiceBusTriggerView(this.QueueName(), this.Connection());
+                return new QueueDetailView(this.QueueName(), this.Connection());
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public QueueDetailView GetQueueTriggerView()
+            {
+                if (!Type().IsQueueTrigger())
+                {
+                    return null;
+                }
+
+                return new QueueDetailView(this.QueueName(), this.Connection());
             }
 
             [IntentManaged(Mode.Ignore)]
@@ -131,12 +142,12 @@ namespace Intent.AzureFunctions.Api
             }
 
             [IntentManaged(Mode.Ignore)]
-            public class ServiceBusTriggerView
+            public class QueueDetailView
             {
                 private readonly string _queueName;
                 private readonly string _connection;
 
-                public ServiceBusTriggerView(string queueName, string connection)
+                public QueueDetailView(string queueName, string connection)
                 {
                     _queueName = queueName;
                     _connection = connection;
@@ -170,6 +181,8 @@ namespace Intent.AzureFunctions.Api
                             return TypeOptionsEnum.HttpTrigger;
                         case "Service Bus Trigger":
                             return TypeOptionsEnum.ServiceBusTrigger;
+                        case "Queue Trigger":
+                            return TypeOptionsEnum.QueueTrigger;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -184,12 +197,17 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "Service Bus Trigger";
                 }
+                public bool IsQueueTrigger()
+                {
+                    return Value == "Queue Trigger";
+                }
             }
 
             public enum TypeOptionsEnum
             {
                 HttpTrigger,
-                ServiceBusTrigger
+                ServiceBusTrigger,
+                QueueTrigger
             }
 
             public class AuthorizationLevelOptions

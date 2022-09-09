@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -8,17 +8,45 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.17" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.4" />
-    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.3" />
-    <PackageReference Include="Intent.Packager" Version="3.3.0">
+    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.3-pre.0" />
+    <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\DtoContract\DtoContractTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DtoContractTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ServiceContract\ServiceContractTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceContractTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\DtoContract\DtoContractTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DtoContractTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ServiceContract\ServiceContractTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceContractTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

@@ -72,7 +72,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
                                  && field.Mapping.Element?.TypeReference != null
                                  && _template.GetTypeInfo(field.TypeReference).Name != EntityTemplate.GetTypeInfo(field.Mapping.Element.TypeReference).Name;
                 var mappingExpression = GetMappingExpression(field);
-                if (field.Name.ToPascalCase() != mappingExpression || shouldCast)
+                if ("src." + field.Name.ToPascalCase() != mappingExpression || shouldCast)
                 {
                     memberMappings.Add($@"
                 .ForMember(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({_template.GetTypeName(field)})" : string.Empty)}{mappingExpression}))");
@@ -96,9 +96,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             var path = field.Mapping.Path;
 
             if (path.Count != 1
-                || !path.First().Element.IsAssociationEndModel())
+                || !path.First().Element.IsAssociationEndModel()
+                || !_template.GetTypeInfo(field.TypeReference).IsPrimitive)
             {
-                return GetPath(path);
+                return $"src.{GetPath(path)}";
             }
 
             var association = path.First().Element.AsAssociationEndModel().Association;

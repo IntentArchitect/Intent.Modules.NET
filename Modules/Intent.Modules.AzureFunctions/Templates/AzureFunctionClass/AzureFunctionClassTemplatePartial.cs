@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -24,19 +25,20 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         public const string TemplateId = "Intent.AzureFunctions.AzureFunctionClass";
 
         private readonly bool _hasMultipleServices;
+        private readonly IFunctionTriggerHandler _triggerStrategyHandler;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionClassTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
         {
+            _triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
+
             AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
             AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
-            AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp);
             AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
 
-            if (model.GetAzureFunction()?.Type().IsServiceBusTrigger() == true)
+            foreach (var dependency in _triggerStrategyHandler.GetNugetDependencies())
             {
-                AddNugetDependency(NuGetPackages.MicrosoftAzureServiceBus);
-                AddNugetDependency(NuGetPackages.MicrosoftAzureWebJobsExtensionsServiceBus);
+                AddNugetDependency(dependency);
             }
 
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
@@ -128,35 +130,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             var paramList = new List<string>();
 
-            if (Model.GetAzureFunction()?.Type()?.IsHttpTrigger() == true)
-            {
-                var httpTriggersView = Model.GetAzureFunction().GetHttpTriggerView();
-                var method = @$"""{httpTriggersView.Method().Value.ToLower()}""";
-                var route = !string.IsNullOrWhiteSpace(httpTriggersView.Route())
-                    ? $@"""{httpTriggersView.Route()}"""
-                    : @"""""";
-                paramList.Add(
-                    @$"[HttpTrigger(AuthorizationLevel.{httpTriggersView.AuthorizationLevel().Value}, {method}, Route = {route})] HttpRequest req");
-            }
-
-            if (Model.GetAzureFunction()?.Type()?.IsServiceBusTrigger() == true)
-            {
-                var serviceBusTriggerView = Model.GetAzureFunction().GetServiceBusTriggerView();
-                var attrParamList = new List<string>();
-                attrParamList.Add($@"""{serviceBusTriggerView.QueueName()}""");
-                if (!string.IsNullOrEmpty(serviceBusTriggerView.Connection()))
-                {
-                    attrParamList.Add($@"Connection = ""{serviceBusTriggerView.Connection()}""");
-                }
-
-                paramList.Add(
-                    $@"[ServiceBusTrigger({string.Join(", ", attrParamList)})] {GetRequestDtoType()} {GetRequestDtoParameterName()}");
-            }
-
-            foreach (var parameterModel in Model.Parameters.Where(IsParameterRoute))
-            {
-                paramList.Add($@"{GetTypeName(parameterModel.Type)} {parameterModel.Name.ToParameterName()}");
-            }
+            paramList.AddRange(_triggerStrategyHandler.GetMethodParameterDefinitionList());
 
             paramList.Add("ILogger log");
 
@@ -177,25 +151,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             var statementList = new List<string>();
 
-            foreach (var param in GetQueryParams())
-            {
-                if (GetTypeName(param.Type) == "string")
-                {
-                    statementList.Add(
-                        $@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
-                    continue;
-                }
-
-                statementList.Add(
-                    $@"{GetTypeName(param.Type)} {param.Name.ToParameterName()} = {this.GetAzureFunctionClassHelperName()}.{(param.Type.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {GetTypeName(param.Type).Replace("?", string.Empty)} parsed) => {GetTypeName(param.Type).Replace("?", string.Empty)}.TryParse(val, out parsed));");
-            }
-
-            if (Model.GetAzureFunction()?.Type()?.IsHttpTrigger() == true
-                && !string.IsNullOrWhiteSpace(GetRequestDtoType()))
-            {
-                statementList.Add($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                statementList.Add($@"var {GetRequestDtoParameterName()} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
-            }
+            statementList.AddRange(_triggerStrategyHandler.GetRunMethodEntryStatementList());
 
             statementList.AddRange(GetDecorators()
                 .SelectMany(s => s.GetRunMethodEntryStatementList()));
@@ -232,14 +188,16 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         private bool HasExceptionCatchBlocks()
         {
             return GetDecorators().SelectMany(p => p.GetExceptionCatchBlocks()).Any()
-                   || GetQueryParams().Any();
+                   || _triggerStrategyHandler.GetExceptionCatchBlocks().Any();
         }
 
         private string GetExceptionCatchBlocks()
         {
             var blockLines = new List<string>();
 
-            foreach (var block in GetDecorators().SelectMany(s => s.GetExceptionCatchBlocks()))
+            foreach (var block in GetDecorators()
+                         .SelectMany(s => s.GetExceptionCatchBlocks())
+                         .Union(_triggerStrategyHandler.GetExceptionCatchBlocks()))
             {
                 blockLines.Add($"catch ({block.ExceptionType})");
                 blockLines.Add("{");
@@ -247,69 +205,9 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                 blockLines.Add("}");
             }
 
-            if (GetQueryParams().Any())
-            {
-                blockLines.Add($"catch (FormatException exception)");
-                blockLines.Add("{");
-                blockLines.Add("    return new BadRequestObjectResult(new { Message = exception.Message });");
-                blockLines.Add("}");
-            }
-
             const string newLine = @"
             ";
             return string.Join(newLine, blockLines);
-        }
-
-        private ParameterModel GetRequestDtoParameter()
-        {
-            var dtoParams = Model.Parameters
-                .Where(IsParameterBody)
-                .ToArray();
-            switch (dtoParams.Length)
-            {
-                case 0:
-                    return null;
-                case > 1:
-                    throw new Exception($"Multiple DTOs not supported on {Model.Name} operation");
-                default:
-                    {
-                        var param = dtoParams.First();
-                        return param;
-                    }
-            }
-        }
-
-        public string GetRequestDtoParameterName()
-        {
-            return GetRequestDtoParameter().Name.ToParameterName();
-        }
-
-        private static bool IsParameterBody(ParameterModel parameterModel)
-        {
-            return parameterModel.GetParameterSetting()?.Source().IsFromBody() == true
-                   || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
-                       parameterModel.TypeReference.Element.IsDTOModel());
-        }
-
-        private static bool IsParameterRoute(ParameterModel parameterModel)
-        {
-            return parameterModel.GetParameterSetting()?.Source().IsFromRoute() == true
-                   || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
-                       !parameterModel.TypeReference.Element.IsDTOModel());
-        }
-
-        public string GetRequestDtoType()
-        {
-            var dtoParameter = GetRequestDtoParameter();
-            return dtoParameter == null
-                ? null
-                : this.GetDtoModelName(dtoParameter.TypeReference.Element.AsDTOModel());
-        }
-
-        private IEnumerable<ParameterModel> GetQueryParams()
-        {
-            return Model.Parameters
-                .Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true);
         }
     }
 }

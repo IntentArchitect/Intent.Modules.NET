@@ -36,6 +36,7 @@ return Type;</displayFunction>
       <valueOptions>
         <option>Http Trigger</option>
         <option>Service Bus Trigger</option>
+        <option>Queue Trigger</option>
       </valueOptions>
       <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
@@ -98,7 +99,7 @@ return Type;</displayFunction>
       <placeholder />
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return Type === "Service Bus Trigger";</isActiveFunction>
+      <isActiveFunction>return Type === "Service Bus Trigger" || Type === "Queue Trigger";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="b2bfad15-1818-4fa5-86ec-15c34b3bd7ee">
@@ -110,7 +111,7 @@ return Type;</displayFunction>
       <placeholder />
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return Type === "Service Bus Trigger";</isActiveFunction>
+      <isActiveFunction>return Type === "Service Bus Trigger" || Type === "Queue Trigger";</isActiveFunction>
       <isRequiredFunction />
     </property>
   </properties>

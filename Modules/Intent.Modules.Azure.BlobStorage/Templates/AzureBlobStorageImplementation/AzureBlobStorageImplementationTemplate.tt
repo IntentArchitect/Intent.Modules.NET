@@ -54,5 +54,18 @@ namespace <#= Namespace #>
             var blobClient = containerClient.GetBlobClient(blobName);
             await blobClient.UploadAsync(streamToUpload, overwrite, cancellationToken).ConfigureAwait(false);
         }
+
+        public Task DeleteContent(Uri cloudStorageLocation, CancellationToken cancellationToken = default)
+        {
+            var blobUriBuilder = new BlobUriBuilder(cloudStorageLocation);
+            return DeleteContent(blobUriBuilder.BlobContainerName, blobUriBuilder.BlobName, cancellationToken);
+        }
+
+        public async Task DeleteContent(string containerName, string blobName, CancellationToken cancellationToken = default)
+        {
+            var containerClient = _client.GetBlobContainerClient(containerName);
+            var blobClient = containerClient.GetBlobClient(blobName);
+            await blobClient.DeleteAsync(cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
     }
 }

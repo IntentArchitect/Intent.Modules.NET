@@ -197,6 +197,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Mas
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.MassTransit.OutboxPattern", "Intent.Modules.Eventing.MassTransit.OutboxPattern\Intent.Modules.Eventing.MassTransit.OutboxPattern.csproj", "{26B2D2E3-9229-4B3B-9122-A9D13AA1A324}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.ServiceProxies", "Intent.Modules.ServiceProxies\Intent.Modules.ServiceProxies.csproj", "{BC7837BF-9F3A-4731-A149-364DA2014CB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -559,6 +561,10 @@ Global
 		{26B2D2E3-9229-4B3B-9122-A9D13AA1A324}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26B2D2E3-9229-4B3B-9122-A9D13AA1A324}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26B2D2E3-9229-4B3B-9122-A9D13AA1A324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7837BF-9F3A-4731-A149-364DA2014CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7837BF-9F3A-4731-A149-364DA2014CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7837BF-9F3A-4731-A149-364DA2014CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7837BF-9F3A-4731-A149-364DA2014CB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -653,6 +659,7 @@ Global
 		{4F560BE4-F3A7-4162-8C16-5166DCDDB079} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B730F5B5-0924-41A7-B41A-849B7E119B37} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{26B2D2E3-9229-4B3B-9122-A9D13AA1A324} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{BC7837BF-9F3A-4731-A149-364DA2014CB9} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -52,11 +52,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AutofacConfigTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DomainEntityState\DomainEntityStateTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DomainEntityStateTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\DomainEnum\DomainEnumTemplate.cs">
       <DesignTime>True</DesignTime>

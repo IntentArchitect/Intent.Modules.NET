@@ -2,20 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageVersion>3.3.8</PackageVersion>
+    <PackageVersion>3.3.9-pre.0</PackageVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
     <Authors>Intent Architect</Authors>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <Copyright>Copyright 2022</Copyright>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.6" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.17" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.6-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.4" />
-    <PackageReference Include="Intent.Packager" Version="3.3.0">
+    <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

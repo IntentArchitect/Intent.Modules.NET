@@ -3,7 +3,6 @@
   <name>ControllerDecorator</name>
   <display>ControllerDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</parentFolderId>

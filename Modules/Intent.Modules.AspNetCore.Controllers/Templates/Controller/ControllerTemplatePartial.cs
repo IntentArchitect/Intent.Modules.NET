@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -12,10 +11,8 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
+using Intent.SdkEvolutionHelpers;
 using Intent.Templates;
-using Intent.Utils;
-using Enum = System.Enum;
-using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -40,7 +37,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return new CSharpFileConfig(
                 className: $"{Model.Name.RemoveSuffix("Controller", "Service")}Controller",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: ModelHasFolderTemplateExtensions.GetFolderPath(this));
+                relativeLocation: this.GetFolderPath());
         }
 
         public string GetEnterClass()
@@ -71,7 +68,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         public HttpVerb GetHttpVerb(OperationModel operation)
         {
             var verb = operation.GetHttpSettings().Verb();
-            return Enum.TryParse(verb.Value, out HttpVerb verbEnum) ? verbEnum : HttpVerb.POST;
+            return Enum.TryParse(verb.Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
         }
 
 
@@ -92,6 +89,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attributes.Add(GetAuthorizationAttribute(authModel));
             }
             attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
+            attributes.AddRange(GetDecorators().SelectMany(x => x.GetControllerAttributes()));
             return string.Join(@"
     ", attributes);
         }
@@ -99,6 +97,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetOperationComments(OperationModel operation)
         {
             var lines = new List<string>();
+
             lines.Add($"/// <summary>");
             if (!string.IsNullOrWhiteSpace(operation.Comment))
             {
@@ -110,17 +109,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             lines.Add($"/// </summary>");
             switch (GetHttpVerb(operation))
             {
-                case HttpVerb.GET:
+                case HttpVerb.Get:
                     lines.Add($"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
-                case HttpVerb.POST:
+                case HttpVerb.Post:
                     lines.Add($"/// <response code=\"201\">Successfully created.</response>");
                     break;
-                case HttpVerb.PATCH:
-                case HttpVerb.PUT:
+                case HttpVerb.Patch:
+                case HttpVerb.Put:
                     lines.Add($"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
                     break;
-                case HttpVerb.DELETE:
+                case HttpVerb.Delete:
                     lines.Add($"/// <response code=\"200\">Successfully deleted.</response>");
                     break;
                 default:
@@ -136,7 +135,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 lines.Add($"/// <response code=\"401\">Unauthorized request.</response>");
                 lines.Add($"/// <response code=\"403\">Forbidden request.</response>");
             }
-            if (GetHttpVerb(operation) == HttpVerb.GET && operation.ReturnType?.IsCollection == false)
+            if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
                 lines.Add($"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
             }
@@ -167,19 +166,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : $"";
             switch (GetHttpVerb(operation))
             {
-                case HttpVerb.GET:
+                case HttpVerb.Get:
                     attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
                     break;
-                case HttpVerb.POST:
+                case HttpVerb.Post:
                     attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]");
                     break;
-                case HttpVerb.PUT:
-                case HttpVerb.PATCH:
+                case HttpVerb.Put:
+                case HttpVerb.Patch:
                     attributes.Add(operation.ReturnType != null
                         ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
                         : $@"[ProducesResponseType(StatusCodes.Status204NoContent)]");
                     break;
-                case HttpVerb.DELETE:
+                case HttpVerb.Delete:
                     attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
                     break;
                 default:
@@ -195,7 +194,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status401Unauthorized)]");
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]");
             }
-            if (GetHttpVerb(operation) == HttpVerb.GET && operation.ReturnType?.IsCollection == false)
+            if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
                 attributes.Add($@"[ProducesResponseType(StatusCodes.Status404NotFound)]");
             }
@@ -254,11 +253,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             var verb = GetHttpVerb(operation);
             switch (verb)
             {
-                case HttpVerb.POST:
-                case HttpVerb.PUT:
-                case HttpVerb.GET:
-                case HttpVerb.DELETE:
-                case HttpVerb.PATCH:
+                case HttpVerb.Post:
+                case HttpVerb.Put:
+                case HttpVerb.Get:
+                case HttpVerb.Delete:
+                case HttpVerb.Patch:
                     parameters.AddRange(operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
                     break;
                 default:
@@ -271,20 +270,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private string GetReturnType(OperationModel operation)
         {
-            if (operation.ReturnType == null)
-            {
-                return "ActionResult";
-            }
-            return $"ActionResult<{GetTypeName(operation.TypeReference)}>";
+            return operation.ReturnType == null
+                ? "ActionResult"
+                : $"ActionResult<{GetTypeName(operation.TypeReference)}>";
         }
 
-        private string GetPath(OperationModel operation)
+        private static string GetPath(OperationModel operation)
         {
             var path = operation.GetHttpSettings().Route();
             return !string.IsNullOrWhiteSpace(path) ? path : null;
         }
 
-        private string GetParameterBindingAttribute(OperationModel operation, ParameterModel parameter)
+        private static string GetParameterBindingAttribute(OperationModel operation, ParameterModel parameter)
         {
             if (parameter.GetParameterSettings().Source().IsDefault())
             {
@@ -313,7 +310,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromBody => "[FromBody]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromForm => "[FromForm]",
-                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => "[FromHeader]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => $@"[FromHeader(Name = ""{parameter.GetParameterSettings().HeaderName()}"")]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromQuery => "[FromQuery]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => "[FromRoute]",
                 _ => string.Empty
@@ -333,11 +330,43 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         public enum HttpVerb
         {
-            GET,
-            POST,
-            PUT,
-            PATCH,
-            DELETE
+            Get,
+            Post,
+            Put,
+            Patch,
+            Delete,
+
+            // ReSharper disable InconsistentNaming
+            /// <summary>
+            /// Obsolete. Use <see cref="Get"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)]
+            GET = 0,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Post"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)]
+            POST = 1,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Put"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)]
+            PUT = 2,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Patch"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)]
+            PATCH = 3,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Delete"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)]
+            DELETE = 4
+            // ReSharper restore InconsistentNaming
         }
     }
 }

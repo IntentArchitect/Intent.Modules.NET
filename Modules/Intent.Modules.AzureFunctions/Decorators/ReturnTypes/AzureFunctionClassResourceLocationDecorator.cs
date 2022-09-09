@@ -36,14 +36,13 @@ namespace Intent.Modules.AzureFunctions.Decorators.ReturnTypes
             yield return $"if (result?.HasLocation() == true)";
             yield return "{";
 
-            switch (_template.Model.ReturnType.Element.Id)
+            if (_template.Model.ReturnType.Element.Id == TypeDefinitionIds.ResourceLocationVoidTypeDefId)
             {
-                case TypeDefinitionIds.ResourceLocationVoidTypeDefId:
-                    yield return $@"    return new AcceptedResult(result.Location, null);";
-                    break;
-                case TypeDefinitionIds.ResourceLocationPayloadTypeDefId:
-                    yield return $@"    return new AcceptedResult(result.Location, result.Payload);";
-                    break;
+                yield return $@"    return new AcceptedResult(result.Location, null);";
+            }
+            else if (_template.Model.ReturnType.Element.Id == TypeDefinitionIds.ResourceLocationPayloadTypeDefId)
+            {
+                yield return $@"    return new AcceptedResult(result.Location, result.Payload);";
             }
 
             yield return "}";

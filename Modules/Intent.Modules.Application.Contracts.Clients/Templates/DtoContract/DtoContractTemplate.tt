@@ -1,0 +1,36 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+using System.Collections.Generic;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>
+{
+    public class <#= ClassName #><#= GenericTypes #>
+    {
+        public static <#= ClassName #><#= GenericTypes #> Create(<#= ConstructorParameters() #>) 
+        {
+            return new <#= ClassName #><#= GenericTypes #>
+            {
+<#
+    foreach (var field in Model.Fields)
+    {
+#>
+                <#= field.Name.ToPascalCase() #> = <#= field.Name.ToLocalVariableName() #>,
+<#
+    }
+#>
+            };
+        }
+<#
+    foreach (var field in Model.Fields)
+    {
+#>
+        public <#= GetTypeName(field.TypeReference) #> <#= field.Name.ToPascalCase() #> { get; set; }
+<#
+    }
+#>
+    }
+}

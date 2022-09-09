@@ -3,7 +3,6 @@
   <name>DefaultControllerEndpointStartupDecorator</name>
   <display>DefaultControllerEndpointStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="0a14aba5-4ba4-4b72-b3fb-5ed7aea89456">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>
