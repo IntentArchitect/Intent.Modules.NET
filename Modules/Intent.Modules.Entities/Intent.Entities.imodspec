@@ -70,14 +70,19 @@
   <moduleSettingsExtensions>
     <groupExtension id="d389da9e-720a-4581-8e79-8fd02f612648" groupId="c4d1e35c-7c0d-4926-afe0-18f17563ce17" externalReference="d389da9e-720a-4581-8e79-8fd02f612648">
       <settings>
-        <setting id="0456dafe-a46e-466b-bf23-1fb35c094899" title="Create Entity Interfaces" type="switch">
-          <isRequired>false</isRequired>
-        </setting>
         <setting id="0cf704e1-9a61-499a-bb91-b20717e334f5" title="Ensure Private Property Setters" type="switch">
           <isRequired>false</isRequired>
+          <hint>Useful for ensuring a rich domain model and preventing anaemic access to properties.</hint>
+          <defaultValue>false</defaultValue>
         </setting>
         <setting id="7692b7ce-4eb7-4245-ade9-d6b5fb684d80" title="Separate State from Behaviour" type="switch">
           <isRequired>false</isRequired>
+          <hint>Separates the business logic and state into two partial classes.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="0456dafe-a46e-466b-bf23-1fb35c094899" title="Create Entity Interfaces" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Recommended only when very strict control to the domain is necessary.</hint>
         </setting>
       </settings>
     </groupExtension>
