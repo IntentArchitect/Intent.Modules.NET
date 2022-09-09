@@ -113,7 +113,7 @@ namespace <#= Namespace #>
 #>
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
-                    return null;
+                    return default;
                 }
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))

@@ -37,12 +37,14 @@ public static class ServiceMetadataQueries
     public static string GetRelativeUri(OperationModel operation)
     {
         var serviceRoute = GetRoute(operation.ParentService) ?? string.Empty;
-        var serviceName = operation.ParentService.Name.RemoveSuffix("Controller", "Service");
+        var serviceName = operation.ParentService.HasStereotype(StereotypeHttpServiceSettings)
+            ? operation.ParentService.Name.RemoveSuffix("Controller", "Service")
+            : string.Empty;
         serviceRoute = serviceRoute.Replace("[controller]", serviceName);
 
         if (string.IsNullOrWhiteSpace(serviceRoute))
         {
-            serviceRoute = $"api/{serviceName}";
+            serviceRoute = $"api{(!string.IsNullOrWhiteSpace(serviceName) ? "/" : string.Empty)}{serviceName}";
         }
 
         var operationRoute = GetRoute(operation) ?? string.Empty;
@@ -61,7 +63,7 @@ public static class ServiceMetadataQueries
 
         var route = GetRoute(operation);
         return operation.Parameters
-            .Where(p => GetSource(operation, p).IsFromQuery() == true || 
+            .Where(p => GetSource(operation, p).IsFromQuery() == true ||
                         (template.GetTypeInfo(p.TypeReference).IsPrimitive && GetSource(operation, p).IsDefault() &&
                          !route.Contains($"{{{p.Name.ToCamelCase()}}}")))
             .ToArray();
