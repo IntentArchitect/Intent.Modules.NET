@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>3.3.0-pre.0</version>
+  <version>3.3.0</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -71,17 +71,17 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="3.3.0-pre.0" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="3.3.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.AspNetCore" version="3.3.0-pre.0" />
+        <package id="Intent.Eventing.MassTransit.AspNetCore" version="3.3.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Eventing.MassTransit.MediatR" version="3.3.0-pre.0" />
+        <package id="Intent.Eventing.MassTransit.MediatR" version="3.3.0" />
       </install>
     </detect>
   </interoperability>
@@ -102,11 +102,11 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.10" />
-    <dependency id="Intent.Common.CSharp" version="3.3.6" />
-    <dependency id="Intent.Common.Types" version="3.3.1" />
-    <dependency id="Intent.Modelers.Eventing" version="3.3.3-pre.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.1" />
+    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.Common.CSharp" version="3.3.18" />
+    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.Modelers.Eventing" version="3.3.3" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
