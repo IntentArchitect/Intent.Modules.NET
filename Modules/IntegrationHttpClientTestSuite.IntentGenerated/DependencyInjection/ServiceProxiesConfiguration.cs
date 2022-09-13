@@ -1,4 +1,5 @@
 using System;
+using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts;
 using IntegrationHttpClientTestSuite.IntentGenerated.Contracts;
 using IntegrationHttpClientTestSuite.IntentGenerated.Proxies;
 using Intent.RoslynWeaver.Attributes;
@@ -8,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Integration.HttpClient.ServiceProxiesConfiguration", Version = "1.0")]
 
-namespace IntegrationHttpClientTestSuite.IntentGenerated
+namespace IntegrationHttpClientTestSuite.IntentGenerated.DependencyInjection
 {
     public static class ServiceProxiesConfiguration
     {

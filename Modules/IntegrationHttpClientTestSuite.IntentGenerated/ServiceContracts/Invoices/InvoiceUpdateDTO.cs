@@ -1,13 +1,19 @@
+using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.Contracts.Clients.DtoContract", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace IntegrationHttpClientTestSuite.IntentGenerated.Contracts.Invoices
+namespace IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts.Invoices
 {
+
     public class InvoiceUpdateDTO
     {
+        public InvoiceUpdateDTO()
+        {
+        }
+
         public static InvoiceUpdateDTO Create(
             string reference)
         {
@@ -16,6 +22,8 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Contracts.Invoices
                 Reference = reference,
             };
         }
+
         public string Reference { get; set; }
+
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -7,8 +8,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts;
+using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoices;
 using IntegrationHttpClientTestSuite.IntentGenerated.Contracts;
-using IntegrationHttpClientTestSuite.IntentGenerated.Contracts.Invoices;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
 
@@ -49,6 +51,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task<InvoiceDTO> FindById(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/{id}";
@@ -72,6 +75,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task<List<InvoiceDTO>> FindAll(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice";
@@ -95,6 +99,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task Update(Guid id, InvoiceUpdateDTO dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/{id}";
@@ -113,6 +118,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task Delete(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/{id}";
@@ -127,6 +133,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task<InvoiceDTO> QueryParamOp(string param1, int param2, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/QueryParamOp";
@@ -156,6 +163,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task HeaderParamOp(string param1, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/HeaderParamOp";
@@ -172,6 +180,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task FormParamOp(string param1, int param2, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/FormParamOp";
@@ -192,6 +201,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task RouteParamOp(string param1, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/RouteParamOp/{param1}";
@@ -206,6 +216,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
                 }
             }
         }
+
         public async Task BodyParamOp(InvoiceDTO param1, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/Invoice/BodyParamOp";

@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using IntegrationHttpClientTestSuite.IntentGenerated.Contracts.Invoices;
+using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoices;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Contracts.Clients.ServiceContract", Version = "1.0")]
 
-namespace IntegrationHttpClientTestSuite.IntentGenerated.Contracts
+namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts
 {
     public interface IInvoiceService : IDisposable
     {
