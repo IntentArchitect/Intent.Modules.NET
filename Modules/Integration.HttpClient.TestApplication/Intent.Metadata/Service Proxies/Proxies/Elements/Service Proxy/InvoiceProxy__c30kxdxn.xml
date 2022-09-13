@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="18cd91a0-b891-4aaf-992b-3f6b3e523dc4" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>InvoiceProxy</name>
+  <display>InvoiceProxy</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass>
+    <applicationId>008f828c-4832-4ed1-8e07-04cfcf259d71</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="e2c3dba3-5ed4-47a1-8fcf-b888f81677e5" name="InvoiceService" type="element" specialization="Service" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>0474c210-1037-47b4-b02d-660a40510797</parentFolderId>
+  <packageId>0474c210-1037-47b4-b02d-660a40510797</packageId>
+  <packageName>Proxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

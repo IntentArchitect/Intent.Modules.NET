@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d503f58c-0d5b-46b3-ab9a-57a650232c3f" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>InvoiceCreateDTO</name>
+  <display>InvoiceCreateDTO</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b2ff341a-efdc-4ca7-8a30-8c416ad7788d</parentFolderId>
+  <packageId>3ca06157-097f-448b-8587-1be6fe40d1e3</packageId>
+  <packageName>Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="18b5181e-e85c-40cb-b479-55016efee620" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Reference</name>
+      <display>Reference: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a6b090ea-ac67-4bd7-9237-2f6f63fe3380">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d503f58c-0d5b-46b3-ab9a-57a650232c3f</parentFolderId>
+      <packageId>3ca06157-097f-448b-8587-1be6fe40d1e3</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
