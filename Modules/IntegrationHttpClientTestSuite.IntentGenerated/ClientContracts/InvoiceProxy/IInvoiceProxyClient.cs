@@ -2,15 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoices;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Contracts.Clients.ServiceContract", Version = "1.0")]
 
-namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts
+namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.InvoiceProxy
 {
-    public interface IInvoiceService : IDisposable
+    public interface IInvoiceProxyClient : IDisposable
     {
         Task Create(InvoiceCreateDTO dto, CancellationToken cancellationToken = default);
         Task<InvoiceDTO> FindById(Guid id, CancellationToken cancellationToken = default);
@@ -22,5 +21,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts
         Task FormParamOp(string param1, int param2, CancellationToken cancellationToken = default);
         Task RouteParamOp(string param1, CancellationToken cancellationToken = default);
         Task BodyParamOp(InvoiceDTO param1, CancellationToken cancellationToken = default);
+        Task ThrowsException(CancellationToken cancellationToken = default);
     }
 }

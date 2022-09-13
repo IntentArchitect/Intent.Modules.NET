@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.HttpClient.Templates.RequestHttpException;
 using Intent.Modules.Integration.HttpClient.Templates.ServiceProxiesConfiguration;
 using Intent.Modules.Integration.HttpClient.Templates.ServiceProxyClient;
 using Intent.RoslynWeaver.Attributes;
@@ -12,6 +13,10 @@ namespace Intent.Modules.Integration.HttpClient.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetRequestHttpExceptionName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(RequestHttpExceptionTemplate.TemplateId);
+        }
         public static string GetServiceProxiesConfigurationName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(ServiceProxiesConfigurationTemplate.TemplateId);

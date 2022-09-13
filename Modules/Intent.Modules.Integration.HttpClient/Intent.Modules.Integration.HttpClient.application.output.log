@@ -34,6 +34,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#cc5d11e5-be38-40cb-b020-2b748e031a14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestHttpException/RequestHttpExceptionTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestHttpException/RequestHttpExceptionTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#cc5d11e5-be38-40cb-b020-2b748e031a14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestHttpException/RequestHttpExceptionTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestHttpException/RequestHttpExceptionTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cc5d11e5-be38-40cb-b020-2b748e031a14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestHttpException/RequestHttpExceptionTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestHttpException/RequestHttpExceptionTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#cc5d11e5-be38-40cb-b020-2b748e031a14</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RequestHttpException/RequestHttpExceptionTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestHttpException/RequestHttpExceptionTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#e9b86a42-6ac3-412f-96e9-8521215ffe55</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ServiceProxiesConfiguration/ServiceProxiesConfigurationTemplate.cs</ApplicationRelativeFilePath>

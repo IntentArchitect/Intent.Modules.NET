@@ -5,6 +5,8 @@ using IdentityServer4.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Xunit.Abstractions;
 
 namespace IntegrationHttpClientTestSuite.IntentGenerated.TestUtils;
 
@@ -17,7 +19,7 @@ public static class TestIdentityHost
         JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
     }
 
-    public static async Task<IWebHost> SetupIdentityServer()
+    public static async Task<IWebHost> SetupIdentityServer(ITestOutputHelper outputHelper = null)
     {
         var hostBuilder = new WebHostBuilder()
             .UseUrls(IdentityServerUri)
@@ -47,6 +49,10 @@ public static class TestIdentityHost
                         new ApiScope("api")
                     })
                     ;
+                if (outputHelper != null)
+                {
+                    services.AddLogging((builder) => builder.AddXUnit(outputHelper));
+                }
             })
             .Configure((app) =>
             {

@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Xunit.Abstractions;
 
 namespace IntegrationHttpClientTestSuite.IntentGenerated.TestUtils;
 
@@ -12,7 +14,7 @@ public static class TestAspNetCoreHost
 {
     public const string BackendFacingServerUri = "http://localhost:5002";
 
-    public static async Task<IWebHost> SetupApiServer(Action<IServiceCollection> serviceConfig = null)
+    public static async Task<IWebHost> SetupApiServer(ITestOutputHelper outputHelper = null, Action<IServiceCollection> serviceConfig = null)
     {
         var hostBuilder = new WebHostBuilder()
             .UseUrls(BackendFacingServerUri)
@@ -30,6 +32,10 @@ public static class TestAspNetCoreHost
                         };
                     });
                 services.AddAuthorization();
+                if (outputHelper != null)
+                {
+                    services.AddLogging((builder) => builder.AddXUnit(outputHelper));
+                }
                 serviceConfig?.Invoke(services);
             })
             .Configure(app =>

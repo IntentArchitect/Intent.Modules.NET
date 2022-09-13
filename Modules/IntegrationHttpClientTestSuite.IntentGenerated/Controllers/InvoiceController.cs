@@ -225,6 +225,23 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
             return Created(string.Empty, null);
         }
 
+        /// <summary>
+        /// </summary>
+        /// <response code="201">Successfully created.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        [HttpPost("[action]")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> ThrowsException(CancellationToken cancellationToken)
+        {
+
+            await _appService.ThrowsException();
+            return Created(string.Empty, null);
+        }
+
 
     }
 }

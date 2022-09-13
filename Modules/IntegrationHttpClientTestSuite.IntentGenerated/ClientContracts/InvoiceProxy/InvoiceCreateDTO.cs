@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Contracts.Clients.DtoContract", Version = "1.0")]
 
-namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoices
+namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.InvoiceProxy
 {
     public class InvoiceCreateDTO
     {

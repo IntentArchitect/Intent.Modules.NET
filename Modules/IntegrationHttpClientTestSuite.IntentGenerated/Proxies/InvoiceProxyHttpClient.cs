@@ -9,8 +9,8 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts;
-using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoices;
-using IntegrationHttpClientTestSuite.IntentGenerated.Contracts;
+using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.InvoiceProxy;
+using IntegrationHttpClientTestSuite.IntentGenerated.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
 
@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
 {
-    public class InvoiceProxy : IInvoiceService
+    public class InvoiceProxyHttpClient : IInvoiceProxyClient
     {
         private readonly HttpClient _httpClient;
 
@@ -28,7 +28,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };
 
-        public InvoiceProxy(HttpClient httpClient)
+        public InvoiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
@@ -236,18 +236,31 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Proxies
             }
         }
 
+        public async Task ThrowsException(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"/api/Invoice/ThrowsException";
+            var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
         public void Dispose()
         {
         }
 
-        private async Task<HttpRequestException> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
+        private async Task<RequestHttpException> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
         {
             var fullRequestUri = new Uri(_httpClient.BaseAddress, request.RequestUri);
             var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-            return new HttpRequestException(
-                $"Request to {fullRequestUri} failed with status code {(int)response.StatusCode} {response.ReasonPhrase}.{Environment.NewLine}{content}",
-                null,
-                response.StatusCode);
+            var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
+            return new RequestHttpException(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
         }
     }
 }

@@ -6,32 +6,32 @@
       <ProjectId>30fdf594-0f56-44c8-b0ee-1594c7c2183a</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#18cd91a0-b891-4aaf-992b-3f6b3e523dc4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/IInvoiceService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IInvoiceService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/InvoiceProxy/IInvoiceProxyClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceProxy/IInvoiceProxyClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>30fdf594-0f56-44c8-b0ee-1594c7c2183a</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#d503f58c-0d5b-46b3-ab9a-57a650232c3f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/Invoices/InvoiceCreateDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceCreateDTO.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/InvoiceProxy/InvoiceCreateDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceProxy/InvoiceCreateDTO.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>30fdf594-0f56-44c8-b0ee-1594c7c2183a</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#332e7407-174c-4bed-9e9d-465bec7dd0a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/Invoices/InvoiceDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceDTO.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/InvoiceProxy/InvoiceDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceProxy/InvoiceDTO.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>30fdf594-0f56-44c8-b0ee-1594c7c2183a</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#78cdd148-09fb-4aab-84d1-9ce2d9aee164</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/Invoices/InvoiceUpdateDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/InvoiceUpdateDTO.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/ClientContracts/InvoiceProxy/InvoiceUpdateDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceProxy/InvoiceUpdateDTO.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -48,6 +48,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/DependencyInjection/ServiceProxiesConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceProxiesConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d08fe0ec-f21a-4fac-b7b9-b9045486879e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClient.RequestHttpException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/Exceptions/RequestHttpException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RequestHttpException.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -78,8 +86,8 @@
       <ProjectId>a08d16f6-0fad-4e82-abdb-8e56c4128540</ProjectId>
       <CorrelationId>Intent.Integration.HttpClient.ServiceProxyClient#18cd91a0-b891-4aaf-992b-3f6b3e523dc4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/Proxies/InvoiceProxy.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InvoiceProxy.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/Proxies/InvoiceProxyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceProxyHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

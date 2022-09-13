@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoices;
+using IntegrationHttpClientTestSuite.IntentGenerated.Exceptions;
 using IntegrationHttpClientTestSuite.IntentGenerated.TestUtils;
 using Microsoft.Extensions.DependencyInjection;
-using NSubstitute;
 using Xunit;
+using Xunit.Abstractions;
 using Backend = IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts;
 using BackendDto = IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts.Invoices;
 using Client = IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts;
@@ -14,93 +14,77 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated;
 
 public class IntegrationHttpClientTests
 {
+    public IntegrationHttpClientTests(ITestOutputHelper outputHelper)
+    {
+        OutputHelper = outputHelper;
+    }
+
+    private ITestOutputHelper OutputHelper { get; }
+
     [Fact]
     public async Task TestCreateOperation()
     {
-        const string refNum = "abc";
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, BackendDto.InvoiceCreateDTO>(
-            (service, request) => service.Create(request),
-            r => Assert.Equal(refNum, r.Reference));
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.Create(InvoiceCreateDTO.Create(refNum));
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.Create(Client.InvoiceProxy.InvoiceCreateDTO.Create(MockInvoiceService.ReferenceNumber));
     }
 
     [Fact]
     public async Task TestDeleteOperation()
     {
-        var id = Guid.NewGuid();
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, Guid>(
-            (service, request) => service.Delete(request),
-            r => Assert.Equal(id, r));
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.Delete(id);
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.Delete(MockInvoiceService.DefaultId);
     }
 
     [Fact]
     public async Task TestUpdateOperation()
     {
-        var id = Guid.NewGuid();
-        const string refNum = "abc";
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, Guid, BackendDto.InvoiceUpdateDTO>(
-            (service, r1, r2) => service.Update(r1, r2),
-            (r1, r2) =>
-            {
-                Assert.Equal(id, r1);
-                Assert.Equal(refNum, r2.Reference);
-            });
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.Update(id, InvoiceUpdateDTO.Create(refNum));
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.Update(MockInvoiceService.DefaultId, Client.InvoiceProxy.InvoiceUpdateDTO.Create(MockInvoiceService.ReferenceNumber));
     }
 
     [Fact]
     public async Task TestFindByIdOperation()
     {
-        var id = Guid.NewGuid();
-        const string refNo = "abc";
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = Substitute.For<Backend.IInvoiceService>();
-        serviceMock.FindById(Arg.Any<Guid>()).Returns(BackendDto.InvoiceDTO.Create(id, refNo));
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        var result = await invoiceService.FindById(id);
-        Assert.Equal(id, result.Id);
-        Assert.Equal(refNo, result.Reference);
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        var result = await invoiceService.FindById(MockInvoiceService.DefaultId);
+        Assert.Equal(MockInvoiceService.DefaultId, result.Id);
+        Assert.Equal(MockInvoiceService.ReferenceNumber, result.Reference);
     }
 
     [Fact]
     public async Task TestFindAllOperation()
     {
-        var serviceMock = Substitute.For<Backend.IInvoiceService>();
-        serviceMock.FindAll()
-            .Returns(new List<BackendDto.InvoiceDTO> { BackendDto.InvoiceDTO.Create(Guid.NewGuid(), "item1") });
+        var serviceMock = new MockInvoiceService();
 
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
         var result = await invoiceService.FindAll();
         Assert.NotEmpty(result);
         Assert.Single(result);
@@ -109,131 +93,157 @@ public class IntegrationHttpClientTests
     [Fact]
     public async Task TestQueryParamOperation()
     {
-        const string param1 = "value";
-        const int param2 = 55;
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, string, int>(
-            (service, r1, r2) => service.QueryParamOp(r1, r2),
-            (r1, r2) =>
-            {
-                Assert.Equal(param1, r1);
-                Assert.Equal(param2, r2);
-            });
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.QueryParamOp(param1, param2);
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.QueryParamOp(MockInvoiceService.DefaultString, MockInvoiceService.DefaultInt);
     }
 
     [Fact]
     public async Task TestBodyParamOperation()
     {
-        var param1 = Guid.NewGuid();
-        const string param2 = "abc";
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, BackendDto.InvoiceDTO>(
-            (service, r) => service.BodyParamOp(r),
-            (r) =>
-            {
-                Assert.Equal(param1, r.Id);
-                Assert.Equal(param2, r.Reference);
-            });
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.BodyParamOp(InvoiceDTO.Create(param1, param2));
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.BodyParamOp(Client.InvoiceProxy.InvoiceDTO.Create(MockInvoiceService.DefaultId, MockInvoiceService.ReferenceNumber));
     }
-    
+
     [Fact]
     public async Task TestFormParamOperation()
     {
-        const string param1 = "value";
-        const int param2 = 55;
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, string, int>(
-            (service, r1, r2) => service.FormParamOp(r1, r2),
-            (r1, r2) =>
-            {
-                Assert.Equal(param1, r1);
-                Assert.Equal(param2, r2);
-            });
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.FormParamOp(param1, param2);
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.FormParamOp(MockInvoiceService.DefaultString, MockInvoiceService.DefaultInt);
     }
-    
+
     [Fact]
     public async Task TestHeaderParamOperation()
     {
-        const string param1 = "value";
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, string>(
-            (service, r1) => service.HeaderParamOp(r1),
-            (r1) =>
-            {
-                Assert.Equal(param1, r1);
-            });
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.HeaderParamOp(param1);
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.HeaderParamOp(MockInvoiceService.DefaultString);
     }
-    
+
     [Fact]
     public async Task TestRouteParamOperation()
     {
-        const string param1 = "value";
+        var serviceMock = new MockInvoiceService();
 
-        var serviceMock = CreateMock<Backend.IInvoiceService, string>(
-            (service, r1) => service.RouteParamOp(r1),
-            (r1) =>
-            {
-                Assert.Equal(param1, r1);
-            });
-
-        using var identityServer = await TestIdentityHost.SetupIdentityServer();
-        using var backendServer = await TestAspNetCoreHost.SetupApiServer(x => x.AddTransient(_ => serviceMock));
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
-        var invoiceService = sp.GetService<Client.IInvoiceService>()!;
-        await invoiceService.RouteParamOp(param1);
-    }
-    
-    
-    private static TService CreateMock<TService, TRequest>(
-        Func<TService, TRequest, Task> serviceOperationTestFunc,
-        Action<TRequest> verifyServiceOperationAction)
-        where TService : class
-    {
-        var mock = Substitute.For<TService>();
-
-        mock.WhenForAnyArgs(s => serviceOperationTestFunc(s, Arg.Any<TRequest>()))
-            .Do(x => verifyServiceOperationAction(x.ArgAt<TRequest>(0)));
-        return mock;
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        await invoiceService.RouteParamOp(MockInvoiceService.DefaultString);
     }
 
-    private static TService CreateMock<TService, TRequest1, TRequest2>(
-        Func<TService, TRequest1, TRequest2, Task> serviceOperationTestFunc,
-        Action<TRequest1, TRequest2> verifyServiceOperationAction)
-        where TService : class
+    [Fact]
+    public async Task ThrowsExceptionOperation()
     {
-        var mock = Substitute.For<TService>();
+        var serviceMock = new MockInvoiceService();
 
-        mock.WhenForAnyArgs(s => serviceOperationTestFunc(s, Arg.Any<TRequest1>(), Arg.Any<TRequest2>()))
-            .Do(x => verifyServiceOperationAction(x.ArgAt<TRequest1>(0), x.ArgAt<TRequest2>(1)));
-        return mock;
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        var exception = await Assert.ThrowsAsync<RequestHttpException>(async () => { await invoiceService.ThrowsException(); });
+        Assert.NotEmpty(exception.Message);
+        Assert.Contains(MockInvoiceService.ExceptionMessage, exception.ResponseContent);
+    }
+
+    public class MockInvoiceService : Backend.IInvoiceService
+    {
+        public const string ReferenceNumber = "refnumber_1234";
+        public static readonly Guid DefaultId = Guid.Parse("762602ee-d55e-4211-b9b3-e273c3214443");
+        public const string DefaultString = "string value";
+        public const int DefaultInt = 55;
+        public const string ExceptionMessage = "Some exception message";
+
+        public void Dispose()
+        {
+        }
+
+        public async Task Create(BackendDto.InvoiceCreateDTO dto)
+        {
+            Assert.Equal(ReferenceNumber, dto.Reference);
+        }
+
+        public async Task<BackendDto.InvoiceDTO> FindById(Guid id)
+        {
+            Assert.Equal(DefaultId, id);
+            return BackendDto.InvoiceDTO.Create(id, ReferenceNumber);
+        }
+
+        public async Task<List<BackendDto.InvoiceDTO>> FindAll()
+        {
+            return new List<BackendDto.InvoiceDTO>
+            {
+                BackendDto.InvoiceDTO.Create(DefaultId, ReferenceNumber)
+            };
+        }
+
+        public async Task Update(Guid id, BackendDto.InvoiceUpdateDTO dto)
+        {
+            Assert.Equal(DefaultId, id);
+            Assert.Equal(ReferenceNumber, dto.Reference);
+        }
+
+        public async Task Delete(Guid id)
+        {
+            Assert.Equal(DefaultId, id);
+        }
+
+        public async Task<BackendDto.InvoiceDTO> QueryParamOp(string param1, int param2)
+        {
+            Assert.Equal(DefaultString, param1);
+            Assert.Equal(DefaultInt, param2);
+            return BackendDto.InvoiceDTO.Create(DefaultId, ReferenceNumber);
+        }
+
+        public async Task HeaderParamOp(string param1)
+        {
+            Assert.Equal(DefaultString, param1);
+        }
+
+        public async Task FormParamOp(string param1, int param2)
+        {
+            Assert.Equal(DefaultString, param1);
+            Assert.Equal(DefaultInt, param2);
+        }
+
+        public async Task RouteParamOp(string param1)
+        {
+            Assert.Equal(DefaultString, param1);
+        }
+
+        public async Task BodyParamOp(BackendDto.InvoiceDTO param1)
+        {
+            Assert.Equal(DefaultId, param1.Id);
+            Assert.Equal(ReferenceNumber, param1.Reference);
+        }
+
+        public async Task ThrowsException()
+        {
+            throw new Exception(ExceptionMessage);
+        }
     }
 }

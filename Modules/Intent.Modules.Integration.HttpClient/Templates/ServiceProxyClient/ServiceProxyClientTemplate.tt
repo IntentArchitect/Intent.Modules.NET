@@ -137,14 +137,12 @@ namespace <#= Namespace #>
         {
         }
 
-        private async Task<HttpRequestException> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
+        private async Task<<#= this.GetRequestHttpExceptionName() #>> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
         {
             var fullRequestUri = new Uri(_httpClient.BaseAddress<#= NotNull #>, request.RequestUri<#= NotNull #>);
             var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-            return new HttpRequestException(
-                $"Request to {fullRequestUri} failed with status code {(int)response.StatusCode} {response.ReasonPhrase}.{Environment.NewLine}{content}",
-                null,
-                response.StatusCode);
+            var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
+            return new <#= this.GetRequestHttpExceptionName() #>(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
         }
     }
 }

@@ -774,5 +774,36 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="c9b1bf33-80f2-4b20-91b3-20c7be769787" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ThrowsException</name>
+      <display>ThrowsException(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="867a1183-2c5f-4223-8954-934f754e3bb3">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e2c3dba3-5ed4-47a1-8fcf-b888f81677e5</parentFolderId>
+      <packageId>3ca06157-097f-448b-8587-1be6fe40d1e3</packageId>
+      <packageName>Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="[action]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

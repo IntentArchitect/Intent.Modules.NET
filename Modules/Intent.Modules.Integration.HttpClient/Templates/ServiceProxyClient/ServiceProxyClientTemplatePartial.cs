@@ -41,7 +41,7 @@ namespace Intent.Modules.Integration.HttpClient.Templates.ServiceProxyClient
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"{Model.Name}",
+                className: $"{Model.Name}HttpClient",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

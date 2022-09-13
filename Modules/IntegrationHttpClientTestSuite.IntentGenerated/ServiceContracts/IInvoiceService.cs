@@ -33,5 +33,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts
 
         Task BodyParamOp(InvoiceDTO param1);
 
+        Task ThrowsException();
+
     }
 }

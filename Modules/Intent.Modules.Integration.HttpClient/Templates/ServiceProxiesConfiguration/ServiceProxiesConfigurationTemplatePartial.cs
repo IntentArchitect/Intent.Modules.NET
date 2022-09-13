@@ -39,7 +39,7 @@ namespace Intent.Modules.Integration.HttpClient.Templates.ServiceProxiesConfigur
         {
             foreach (var proxy in Model.Distinct(new ServiceModelComparer()))
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Uri"), "https://localhost/"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Uri"), "https://localhost:{app_port}/"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "IdentityClientKey"), "default"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Timeout"), "00:01:00"));
             }
@@ -57,7 +57,7 @@ namespace Intent.Modules.Integration.HttpClient.Templates.ServiceProxiesConfigur
 
         private string GetConfigKey(ServiceProxyModel proxy, string key)
         {
-            return $"Proxies:{proxy.MappedService.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
+            return $"Proxies:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
         }
 
         private string GetMessageHandlers(ServiceProxyModel proxy)

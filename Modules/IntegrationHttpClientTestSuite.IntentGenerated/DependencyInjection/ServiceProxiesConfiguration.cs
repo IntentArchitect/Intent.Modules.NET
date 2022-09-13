@@ -1,6 +1,6 @@
 using System;
 using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts;
-using IntegrationHttpClientTestSuite.IntentGenerated.Contracts;
+using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.InvoiceProxy;
 using IntegrationHttpClientTestSuite.IntentGenerated.Proxies;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -20,11 +20,11 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.DependencyInjection
                 configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
             }).ConfigureBackchannelHttpClient();
 
-            services.AddHttpClient<IInvoiceService, InvoiceProxy>(http =>
+            services.AddHttpClient<IInvoiceProxyClient, InvoiceProxyHttpClient>(http =>
             {
-                http.BaseAddress = configuration.GetValue<Uri>("Proxies:InvoiceService:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("Proxies:InvoiceService:Timeout") ?? TimeSpan.FromSeconds(100);
-            }).AddClientAccessTokenHandler(configuration.GetValue<string>("Proxies:InvoiceService:IdentityClientKey") ?? "default");
+                http.BaseAddress = configuration.GetValue<Uri>("Proxies:InvoiceProxy:Uri");
+                http.Timeout = configuration.GetValue<TimeSpan?>("Proxies:InvoiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+            }).AddClientAccessTokenHandler(configuration.GetValue<string>("Proxies:InvoiceProxy:IdentityClientKey") ?? "default");
         }
     }
 }
