@@ -1,5 +1,6 @@
 using System;
 using IntegrationHttpClientTestSuite.IntentGenerated.DependencyInjection;
+using IntegrationHttpClientTestSuite.IntentGenerated.HttpClients;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,7 +15,7 @@ public static class TestIntegrationHttpClient
             .Build();
         
         var services = new ServiceCollection();
-        services.AddServiceProxies(config);
+        services.AddHttpClients(config);
 
         var sp = services.BuildServiceProvider();
 

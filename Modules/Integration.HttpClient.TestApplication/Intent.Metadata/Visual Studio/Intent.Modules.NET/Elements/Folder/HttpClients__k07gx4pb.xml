@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e92f0ba9-ae37-4dad-a649-f7210508f920" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>DependencyInjection</name>
-  <display>DependencyInjection</display>
+<class id="a08d16f6-0fad-4e82-abdb-8e56c4128540" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>HttpClients</name>
+  <display>HttpClients</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -21,14 +21,30 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5c617a91-c724-460f-bcf1-4e0ffdf43b0d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Integration.HttpClients.HttpClientConfiguration</name>
-      <display>Intent.Integration.HttpClients.HttpClientConfiguration</display>
+    <childElement id="5767c202-ca59-4acb-af9c-7da5bcaddb3d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClient</name>
+      <display>Intent.Integration.HttpClients.HttpClient</display>
       <externalReference>Intent.Integration.HttpClients</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>e92f0ba9-ae37-4dad-a649-f7210508f920</parentFolderId>
+      <parentFolderId>a08d16f6-0fad-4e82-abdb-8e56c4128540</parentFolderId>
+      <packageId>f45b7b23-1139-4d96-9549-c801c4d1f91d</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="72045395-68df-415f-9029-2641627753e7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.RequestHttpException</name>
+      <display>Intent.Integration.HttpClients.RequestHttpException</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a08d16f6-0fad-4e82-abdb-8e56c4128540</parentFolderId>
       <packageId>f45b7b23-1139-4d96-9549-c801c4d1f91d</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />

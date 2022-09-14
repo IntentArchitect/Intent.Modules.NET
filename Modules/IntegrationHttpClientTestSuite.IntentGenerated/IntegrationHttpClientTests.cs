@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using IntegrationHttpClientTestSuite.IntentGenerated.Exceptions;
+using IntegrationHttpClientTestSuite.IntentGenerated.HttpClients;
 using IntegrationHttpClientTestSuite.IntentGenerated.TestUtils;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;

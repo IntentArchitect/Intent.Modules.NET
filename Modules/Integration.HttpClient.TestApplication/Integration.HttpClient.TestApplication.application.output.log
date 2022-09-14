@@ -44,17 +44,25 @@
     </FileLog>
     <FileLog>
       <ProjectId>e92f0ba9-ae37-4dad-a649-f7210508f920</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClient.ServiceProxiesConfiguration</CorrelationId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/DependencyInjection/ServiceProxiesConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ServiceProxiesConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/DependencyInjection/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d08fe0ec-f21a-4fac-b7b9-b9045486879e</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClient.RequestHttpException</CorrelationId>
+      <ProjectId>a08d16f6-0fad-4e82-abdb-8e56c4128540</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#18cd91a0-b891-4aaf-992b-3f6b3e523dc4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/Exceptions/RequestHttpException.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/HttpClients/InvoiceProxyHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InvoiceProxyHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a08d16f6-0fad-4e82-abdb-8e56c4128540</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.RequestHttpException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/HttpClients/RequestHttpException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestHttpException.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -80,14 +88,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/NotNeeded/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a08d16f6-0fad-4e82-abdb-8e56c4128540</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClient.ServiceProxyClient#18cd91a0-b891-4aaf-992b-3f6b3e523dc4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/Proxies/InvoiceProxyHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InvoiceProxyHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

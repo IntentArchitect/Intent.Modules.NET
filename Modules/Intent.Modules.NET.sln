@@ -201,7 +201,7 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Mas
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.MassTransit.OutboxPattern", "Intent.Modules.Eventing.MassTransit.OutboxPattern\Intent.Modules.Eventing.MassTransit.OutboxPattern.csproj", "{26B2D2E3-9229-4B3B-9122-A9D13AA1A324}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Integration.HttpClient", "Intent.Modules.Integration.HttpClient\Intent.Modules.Integration.HttpClient.csproj", "{46AD781B-04FC-4D8D-9A46-4DBFFE73628D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Integration.HttpClients", "Intent.Modules.Integration.HttpClients\Intent.Modules.Integration.HttpClients.csproj", "{46AD781B-04FC-4D8D-9A46-4DBFFE73628D}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "IntegrationHttpClientTestSuite.IntentGenerated", "IntegrationHttpClientTestSuite.IntentGenerated\IntegrationHttpClientTestSuite.IntentGenerated.csproj", "{C4E79B07-64CD-406C-86C8-0A61F69DFF7D}"
 EndProject

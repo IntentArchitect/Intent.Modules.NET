@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IntegrationHttpClientTestSuite.IntentGenerated.DependencyInjection;
+using IntegrationHttpClientTestSuite.IntentGenerated.HttpClients;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -32,7 +33,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.NotNeeded
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddServiceProxies(Configuration);
+            services.AddHttpClients(Configuration);
 
         }
 
