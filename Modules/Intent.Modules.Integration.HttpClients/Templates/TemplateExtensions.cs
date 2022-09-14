@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClient;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
-using Intent.Modules.Integration.HttpClients.Templates.RequestHttpException;
+using Intent.Modules.Integration.HttpClients.Templates.HttpClientRequestException;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -27,9 +27,10 @@ namespace Intent.Modules.Integration.HttpClients.Templates
         {
             return template.GetTypeName(HttpClientConfigurationTemplate.TemplateId);
         }
-        public static string GetRequestHttpExceptionName<T>(this IntentTemplateBase<T> template)
+
+        public static string GetHttpClientRequestExceptionName<T>(this IntentTemplateBase<T> template)
         {
-            return template.GetTypeName(RequestHttpExceptionTemplate.TemplateId);
+            return template.GetTypeName(HttpClientRequestExceptionTemplate.TemplateId);
         }
 
     }

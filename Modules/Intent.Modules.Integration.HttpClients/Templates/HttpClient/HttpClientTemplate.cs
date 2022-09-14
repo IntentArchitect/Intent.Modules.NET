@@ -264,7 +264,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             
             #line default
             #line hidden
-            this.Write("            \r\n            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))\r\n            {\r\n                if (!response.IsSuccessStatusCode)\r\n                {\r\n                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);\r\n                }\r\n");
+            this.Write("            \r\n            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))\r\n            {\r\n                if (!response.IsSuccessStatusCode)\r\n                {\r\n                    throw await ");
+            
+            #line 113 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetHttpClientRequestExceptionName()));
+            
+            #line default
+            #line hidden
+            this.Write(".Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);\r\n                }\r\n");
             
             #line 115 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
@@ -299,35 +306,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             
             #line default
             #line hidden
-            this.Write("\r\n        public void Dispose()\r\n        {\r\n        }\r\n\r\n        private async Task<");
-            
-            #line 141 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetRequestHttpExceptionName()));
-            
-            #line default
-            #line hidden
-            this.Write("> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)\r\n        {\r\n            var fullRequestUri = new Uri(_httpClient.BaseAddress");
-            
-            #line 143 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(NotNull));
-            
-            #line default
-            #line hidden
-            this.Write(", request.RequestUri");
-            
-            #line 143 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(NotNull));
-            
-            #line default
-            #line hidden
-            this.Write(");\r\n            var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);\r\n            var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);\r\n            return new ");
-            
-            #line 146 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetRequestHttpExceptionName()));
-            
-            #line default
-            #line hidden
-            this.Write("(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);\r\n        }\r\n    }\r\n}");
+            this.Write("\r\n        public void Dispose()\r\n        {\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

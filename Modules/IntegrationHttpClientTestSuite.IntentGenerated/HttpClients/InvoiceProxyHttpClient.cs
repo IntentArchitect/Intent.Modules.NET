@@ -9,11 +9,12 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.InvoiceProxy;
+using IntegrationHttpClientTestSuite.IntentGenerated.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Integration.HttpClients.ServiceProxyClient", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Integration.HttpClients.HttpClient", Version = "1.0")]
 
 namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
 {
@@ -45,7 +46,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -59,7 +60,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -82,7 +83,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -109,7 +110,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -123,7 +124,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -143,7 +144,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
                 if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
                 {
@@ -168,7 +169,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -188,7 +189,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -202,7 +203,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -220,7 +221,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
@@ -234,21 +235,13 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }
 
         public void Dispose()
         {
-        }
-
-        private async Task<RequestHttpException> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
-        {
-            var fullRequestUri = new Uri(_httpClient.BaseAddress, request.RequestUri);
-            var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-            var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
-            return new RequestHttpException(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
         }
     }
 }

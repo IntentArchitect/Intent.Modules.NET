@@ -9,15 +9,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Integration.HttpClients.Templates.RequestHttpException
+namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientRequestException
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class RequestHttpExceptionTemplate : CSharpTemplateBase<object>
+    partial class HttpClientRequestExceptionTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Integration.HttpClients.RequestHttpException";
+        public const string TemplateId = "Intent.Integration.HttpClients.HttpClientRequestException";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public RequestHttpExceptionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public HttpClientRequestExceptionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
@@ -25,7 +25,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.RequestHttpException
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"RequestHttpException",
+                className: $"HttpClientRequestException",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

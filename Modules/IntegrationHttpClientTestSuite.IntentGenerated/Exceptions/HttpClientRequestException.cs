@@ -2,16 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Integration.HttpClients.RequestHttpException", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Integration.HttpClients.HttpClientRequestException", Version = "1.0")]
 
-namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
+namespace IntegrationHttpClientTestSuite.IntentGenerated.Exceptions
 {
-    public class RequestHttpException : Exception
+    public class HttpClientRequestException : Exception
     {
-        public RequestHttpException(
+        public static async Task<HttpClientRequestException> Create(Uri baseAddress, HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = new Uri(baseAddress, request.RequestUri!);
+            var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+            var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
+            return new HttpClientRequestException(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
+        }
+
+        public HttpClientRequestException(
             Uri requestUri,
             HttpStatusCode statusCode,
             IReadOnlyDictionary<string, IEnumerable<string>> responseHeaders,

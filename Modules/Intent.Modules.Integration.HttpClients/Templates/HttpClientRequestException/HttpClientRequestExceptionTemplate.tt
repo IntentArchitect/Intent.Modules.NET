@@ -9,7 +9,12 @@
 <#@ import namespace="Intent.Metadata.Models" #>
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -17,6 +22,14 @@ namespace <#= Namespace #>
 {
     public class <#= ClassName #> : Exception
     {
+        public static async Task<<#= ClassName #>> Create(Uri baseAddress, HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = new Uri(baseAddress, request.RequestUri!);
+            var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+            var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
+            return new <#= ClassName #>(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
+        }
+
         public <#= ClassName #>(
             Uri requestUri, 
             HttpStatusCode statusCode, 

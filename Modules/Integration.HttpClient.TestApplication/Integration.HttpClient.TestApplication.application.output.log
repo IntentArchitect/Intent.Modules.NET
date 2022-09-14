@@ -51,19 +51,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d08fe0ec-f21a-4fac-b7b9-b9045486879e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a08d16f6-0fad-4e82-abdb-8e56c4128540</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClient#18cd91a0-b891-4aaf-992b-3f6b3e523dc4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/HttpClients/InvoiceProxyHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceProxyHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a08d16f6-0fad-4e82-abdb-8e56c4128540</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.RequestHttpException</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/HttpClients/RequestHttpException.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RequestHttpException.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

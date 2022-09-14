@@ -25,12 +25,12 @@
       <role>Infrastructure.DependencyInjection.HttpClient</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Integration.HttpClients.RequestHttpException" externalReference="cc5d11e5-be38-40cb-b020-2b748e031a14">
+    <template id="Intent.Integration.HttpClients.HttpClientRequestException" externalReference="cc5d11e5-be38-40cb-b020-2b748e031a14">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Application.RequestHttpException</role>
+      <role>Application.HttpClientRequestException</role>
       <location>Common/Exceptions</location>
     </template>
   </templates>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using IntegrationHttpClientTestSuite.IntentGenerated.Exceptions;
 using IntegrationHttpClientTestSuite.IntentGenerated.HttpClients;
 using IntegrationHttpClientTestSuite.IntentGenerated.TestUtils;
 using Microsoft.Extensions.DependencyInjection;
@@ -165,7 +166,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var exception = await Assert.ThrowsAsync<RequestHttpException>(async () => { await invoiceService.ThrowsException(); });
+        var exception = await Assert.ThrowsAsync<HttpClientRequestException>(async () => { await invoiceService.ThrowsException(); });
         Assert.NotEmpty(exception.Message);
         Assert.Contains(MockInvoiceService.ExceptionMessage, exception.ResponseContent);
     }

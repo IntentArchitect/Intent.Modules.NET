@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Integration.HttpClients.Templates.RequestHttpException
+namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientRequestException
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class RequestHttpExceptionTemplateRegistration : SingleFileTemplateRegistration
+    public class HttpClientRequestExceptionTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => RequestHttpExceptionTemplate.TemplateId;
+        public override string TemplateId => HttpClientRequestExceptionTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new RequestHttpExceptionTemplate(outputTarget);
+            return new HttpClientRequestExceptionTemplate(outputTarget);
         }
     }
 }

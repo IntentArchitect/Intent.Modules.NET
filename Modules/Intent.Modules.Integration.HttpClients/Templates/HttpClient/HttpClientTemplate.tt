@@ -110,7 +110,7 @@ namespace <#= Namespace #>
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw await GetHttpRequestException(request, response, cancellationToken).ConfigureAwait(false);
+                    throw await <#= this.GetHttpClientRequestExceptionName() #>.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
                 }
 <#
         if (HasResponseType(operation))
@@ -136,14 +136,6 @@ namespace <#= Namespace #>
 
         public void Dispose()
         {
-        }
-
-        private async Task<<#= this.GetRequestHttpExceptionName() #>> GetHttpRequestException(HttpRequestMessage request, HttpResponseMessage response, CancellationToken cancellationToken)
-        {
-            var fullRequestUri = new Uri(_httpClient.BaseAddress<#= NotNull #>, request.RequestUri<#= NotNull #>);
-            var content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-            var headers = response.Headers.ToDictionary(k => k.Key, v => v.Value);
-            return new <#= this.GetRequestHttpExceptionName() #>(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
         }
     }
 }
