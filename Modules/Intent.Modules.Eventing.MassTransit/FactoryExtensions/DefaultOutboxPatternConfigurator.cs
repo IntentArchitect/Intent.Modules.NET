@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -6,6 +7,7 @@ using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -17,8 +19,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
     {
         public override string Id => "Intent.Eventing.MassTransit.DefaultOutboxPatternConfigurator";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         /// <summary>
         /// This is an example override which would extend the
@@ -46,10 +47,11 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                 template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
                 return;
             }
-            
-            if (application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework())
+
+            if (application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework()
+                && !application.GetApplicationConfig().Modules.Any(p => p.ModuleId == "Intent.Eventing.MassTransit.EntityFrameworkCore"))
             {
-                template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("#warning Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
+                Logging.Log.Warning("Please install Intent.Eventing.MassTransit.EntityFrameworkCore module for the Outbox pattern to persist to the database");
                 return;
             }
         }

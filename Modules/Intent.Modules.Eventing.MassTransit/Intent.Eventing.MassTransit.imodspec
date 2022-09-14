@@ -31,7 +31,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Eventing.EventHandlerInterface</role>
-      <location>Interfaces/Eventing</location>
+      <location>Common/Eventing</location>
     </template>
     <template id="Intent.Eventing.MassTransit.IntegrationEventMessage" externalReference="6e6cd535-3b09-4bcb-8ee5-83a6f8ba9a73">
       <config>

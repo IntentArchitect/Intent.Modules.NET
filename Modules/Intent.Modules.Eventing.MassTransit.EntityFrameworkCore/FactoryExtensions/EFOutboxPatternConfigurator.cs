@@ -44,13 +44,6 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
                 return;
             }
 
-            var index = template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines
-                .FindIndex(p => p.Contains("Intent.Eventing.MassTransit.EntityFrameworkCore", StringComparison.OrdinalIgnoreCase));
-            if (index >= 0)
-            {
-                template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.RemoveAt(index);
-            }
-
             switch (application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
                 // Assume In-Memory outbox pattern when an unsupported (or in-memory) option is selected
