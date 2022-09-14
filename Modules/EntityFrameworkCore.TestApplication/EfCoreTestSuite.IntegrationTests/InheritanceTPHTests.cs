@@ -3,11 +3,16 @@ using System.Linq;
 using EfCoreTestSuite.TPH.IntentGenerated.Core;
 using EfCoreTestSuite.TPH.IntentGenerated.Entities;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
 public class InheritanceTPHTests : SharedDatabaseFixture<ApplicationDbContext>
 {
+    public InheritanceTPHTests(ITestOutputHelper outputHelper) : base(outputHelper)
+    {
+    }
+    
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_Inheritance_TPH_ConcreteBaseClass()
     {

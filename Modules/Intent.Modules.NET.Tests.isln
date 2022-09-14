@@ -16,5 +16,6 @@
     <application id="e4d11b2e-4e93-4ecc-b85c-d290412beaf4" name="EntityFrameworkCore.ExplicitKeyCreation.TestApplication" relativePath="EntityFrameworkCore.ExplicitKeyCreation.TestApplication/EntityFrameworkCore.ExplicitKeyCreation.TestApplication.application.config" />
     <application id="454aab6f-4c66-40ee-8b77-02dcd82f4040" name="EntityFrameworkCore.Repositories.TestApplication" relativePath="EntityFrameworkCore.Repositories.TestApplication/EntityFrameworkCore.Repositories.TestApplication.application.config" />
     <application id="008f828c-4832-4ed1-8e07-04cfcf259d71" name="Integration.HttpClient.TestApplication" relativePath="Integration.HttpClient.TestApplication/Integration.HttpClient.TestApplication.application.config" />
+    <application id="23854784-a89c-47a8-b308-c2eb02994f51" name="EntityFrameworkCore.CosmosDb.TestApplication" relativePath="EntityFrameworkCore.CosmosDb.TestApplication/EntityFrameworkCore.CosmosDb.TestApplication.application.config" />
   </applications>
 </solution>

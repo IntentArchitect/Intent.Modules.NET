@@ -7,11 +7,16 @@ using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
 public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
 {
+    public GeneralEFTests(ITestOutputHelper outputHelper) : base(outputHelper)
+    {
+    }
+    
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_A_Unidirectional_1_To_0to1_Association()
     {

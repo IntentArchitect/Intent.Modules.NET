@@ -3,11 +3,16 @@ using System.Linq;
 using EfCoreTestSuite.TPC.IntentGenerated.Core;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
 public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
 {
+    public InheritanceTPCTests(ITestOutputHelper outputHelper) : base(outputHelper)
+    {
+    }
+    
     [Fact(Skip = Helpers.SkipMessage)]
     public void Test_Inheritance_TPC_ConcreteBaseClass()
     {

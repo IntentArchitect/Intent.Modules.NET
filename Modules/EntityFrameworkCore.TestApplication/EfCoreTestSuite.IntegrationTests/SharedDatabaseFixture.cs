@@ -8,6 +8,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
@@ -23,7 +24,7 @@ public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
     private static IConfigurationRoot _config;
     private static bool _initialized;
 
-    protected SharedDatabaseFixture()
+    protected SharedDatabaseFixture(ITestOutputHelper outputHelper)
     {
         if (!_initialized)
         {
@@ -31,6 +32,8 @@ public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
                 .AddJsonFile($"appsettings.json", false, true)
                 .Build();
         }
+
+        OutputHelper = outputHelper;
 
         var connectionStringBuilder = new SqlConnectionStringBuilder
         {
@@ -60,6 +63,8 @@ public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
         Connection.Dispose();
     }
 
+    protected ITestOutputHelper OutputHelper { get; private set; }
+
     protected TDbContext DbContext { get; private set; }
 
     private DbConnection Connection { get; set; }
@@ -67,7 +72,7 @@ public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
     private TDbContext CreateContext(DbTransaction transaction = null)
     {
         var context = (TDbContext)Activator.CreateInstance(typeof(TDbContext),
-            new DbContextOptionsBuilder<TDbContext>().UseSqlServer(Connection).Options)!;
+            new DbContextOptionsBuilder<TDbContext>().LogTo(OutputHelper.WriteLine).UseSqlServer(Connection).Options)!;
 
         if (transaction != null)
         {
