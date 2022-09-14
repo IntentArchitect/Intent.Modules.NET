@@ -25,6 +25,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#58f6ca28-016d-40b3-8d9a-16ad7e8ec3a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/OutboxTableSpecification.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OutboxTableSpecification.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#58f6ca28-016d-40b3-8d9a-16ad7e8ec3a3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Decorators/OutboxTableSpecificationRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OutboxTableSpecificationRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bb6301fb-7541-46b2-854d-8f95bea37d24</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#ef7c0f8f-14aa-4c0f-b0ea-3c1e876f4f8b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EFOutboxPatternConfigurator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EFOutboxPatternConfigurator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c66b22d9-d49e-4639-b8de-661e59f23d9a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

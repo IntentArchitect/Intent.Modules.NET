@@ -1,3 +1,4 @@
+using System;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -13,15 +14,14 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.MassTransit.OutboxPattern.FactoryExtensions
+namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class MessageProviderSpecificCodeManipulator : FactoryExtensionBase
+    public class EFOutboxPatternConfigurator : FactoryExtensionBase
     {
-        public override string Id => "Intent.Eventing.MassTransit.OutboxPattern.MessageProviderSpecificCodeManipulator";
+        public override string Id => "Intent.Eventing.MassTransit.EntityFrameworkCore.EFOutboxPatternConfigurator";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 10;
 
         /// <summary>
         /// This is an example override which would extend the
@@ -33,16 +33,22 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPattern.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
+            if (!application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework())
+            {
+                return;
+            }
+
             var template = application.FindTemplateInstance<MassTransitConfigurationTemplate>(TemplateDependency.OnTemplate(MassTransitConfigurationTemplate.TemplateId));
             if (template == null)
             {
                 return;
             }
 
-            if (application.Settings.GetEventingSettings().MessagingServiceProvider().IsInMemory())
+            var index = template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines
+                .FindIndex(p => p.Contains("Intent.Eventing.MassTransit.EntityFrameworkCore", StringComparison.OrdinalIgnoreCase));
+            if (index >= 0)
             {
-                template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
-                return;
+                template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.RemoveAt(index);
             }
 
             switch (application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
@@ -55,21 +61,23 @@ namespace Intent.Modules.Eventing.MassTransit.OutboxPattern.FactoryExtensions
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
-                    template.AdditionalConfiguration.Add(new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
-                        .AppendNestedLines(new[]
-                        {
-                            "o.UseSqlServer();",
-                            "o.UseBusOutbox();"
-                        }));
+                    template.AdditionalConfiguration.Add(
+                        new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
+                            .AppendNestedLines(new[]
+                            {
+                                "o.UseSqlServer();",
+                                "o.UseBusOutbox();"
+                            }));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
-                    template.AdditionalConfiguration.Add(new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
-                        .AppendNestedLines(new[]
-                        {
-                            "o.UsePostgres();",
-                            "o.UseBusOutbox();"
-                        }));
+                    template.AdditionalConfiguration.Add(
+                        new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
+                            .AppendNestedLines(new[]
+                            {
+                                "o.UsePostgres();",
+                                "o.UseBusOutbox();"
+                            }));
                     break;
             }
         }
