@@ -1,4 +1,8 @@
-﻿### Version 3.3.13
+﻿### Version 3.3.15
+
+ * Fixed: Cosmos DB Partition Key logic in Domain Designer for Inherited Classes.
+
+### Version 3.3.13
  
  * Fixed: Compositional One-to-Many relationships modelled as "HasMany" instead of "OwnsMany".
 

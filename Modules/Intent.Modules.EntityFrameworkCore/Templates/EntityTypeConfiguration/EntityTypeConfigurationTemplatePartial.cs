@@ -226,7 +226,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statements.Add($".Navigation(x => x.{attribute.Name.ToPascalCase()}).IsRequired()");
                 }
             }
-            
+
             return $@"
             {string.Join(@"
                 ", statements)};";
