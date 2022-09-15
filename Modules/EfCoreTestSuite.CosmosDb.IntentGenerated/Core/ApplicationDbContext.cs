@@ -23,7 +23,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         }
 
         public DbSet<Associated> Associateds { get; set; }
-        public DbSet<Base> Bases { get; set; }
         public DbSet<BaseAssociated> BaseAssociateds { get; set; }
         public DbSet<Derived> Deriveds { get; set; }
 
@@ -42,7 +41,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             ConfigureModel(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new AssociatedConfiguration());
-            modelBuilder.ApplyConfiguration(new BaseConfiguration());
             modelBuilder.ApplyConfiguration(new BaseAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedConfiguration());
             if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))

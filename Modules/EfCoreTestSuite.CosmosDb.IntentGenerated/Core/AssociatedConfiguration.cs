@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Associated> builder)
         {
-            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+            builder.ToTable("Associated");
 
             builder.HasKey(x => x.Id);
 

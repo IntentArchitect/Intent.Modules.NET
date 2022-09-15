@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities
 {
 
-    public partial class Base : IBase
+    public abstract partial class Base : IBase
     {
         public Base()
         {

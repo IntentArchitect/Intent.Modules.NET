@@ -12,7 +12,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     public interface IApplicationDbContext
     {
         DbSet<Associated> Associateds { get; set; }
-        DbSet<Base> Bases { get; set; }
         DbSet<BaseAssociated> BaseAssociateds { get; set; }
         DbSet<Derived> Deriveds { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));

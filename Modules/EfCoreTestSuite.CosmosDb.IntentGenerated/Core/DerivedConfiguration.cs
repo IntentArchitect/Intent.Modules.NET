@@ -13,8 +13,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Derived> builder)
         {
-            builder.HasBaseType<Base>();
+            builder.ToTable("Derived");
 
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.BaseField1)
+                .IsRequired();
 
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
@@ -22,6 +26,11 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.DerivedField1)
                 .IsRequired();
             builder.HasPartitionKey(x => x.PartitionKey);
+
+            builder.HasOne(x => x.BaseAssociated)
+                .WithMany()
+                .HasForeignKey(x => x.BaseAssociatedId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Associated)
                 .WithMany()
@@ -35,6 +44,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public void ConfigureComposites(OwnedNavigationBuilder<Derived, Composite> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.DerivedId);
+            builder.ToTable("Composite");
+
 
             builder.Property(x => x.CompositeField1)
                 .IsRequired();
