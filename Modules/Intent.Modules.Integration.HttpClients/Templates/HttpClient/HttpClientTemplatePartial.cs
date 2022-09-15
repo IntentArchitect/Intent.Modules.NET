@@ -132,7 +132,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
 
         private bool IsReturnTypePrimitive(OperationModel operation)
         {
-            return GetTypeInfo(operation.ReturnType).IsPrimitive;
+            return GetTypeInfo(operation.ReturnType).IsPrimitive && !operation.ReturnType.IsCollection;
         }
 
         private string GetParameterValueExpression(ParameterModel parameter)

@@ -132,7 +132,7 @@ namespace <#= Namespace #>
                     return wrappedObj.Value;
 <#   
             }
-            else if (operation.ReturnType.HasStringType())
+            else if (operation.ReturnType.HasStringType() && !operation.ReturnType.IsCollection)
             {
 #>
                     var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);

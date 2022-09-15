@@ -47,5 +47,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts
 
         Task<int> GetPrimitiveInt();
 
+        Task<List<string>> GetPrimitiveStringList();
+
     }
 }

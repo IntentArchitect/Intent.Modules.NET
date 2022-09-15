@@ -310,7 +310,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line 133 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
    
             }
-            else if (operation.ReturnType.HasStringType())
+            else if (operation.ReturnType.HasStringType() && !operation.ReturnType.IsCollection)
             {
 
             

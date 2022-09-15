@@ -28,5 +28,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoice
         Task<Guid> GetPrimitiveGuid(CancellationToken cancellationToken = default);
         Task<string> GetPrimitiveString(CancellationToken cancellationToken = default);
         Task<int> GetPrimitiveInt(CancellationToken cancellationToken = default);
+        Task<List<string>> GetPrimitiveStringList(CancellationToken cancellationToken = default);
     }
 }

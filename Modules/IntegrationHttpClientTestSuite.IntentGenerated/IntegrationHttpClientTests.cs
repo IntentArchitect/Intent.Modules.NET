@@ -170,7 +170,7 @@ public class IntegrationHttpClientTests
         Assert.NotEmpty(exception.Message);
         Assert.Contains(MockInvoiceService.ExceptionMessage, exception.ResponseContent);
     }
-    
+
     [Fact]
     public async Task TestGetPrimitiveGuid()
     {
@@ -186,7 +186,7 @@ public class IntegrationHttpClientTests
         result = await invoiceService.GetPrimitiveGuid();
         Assert.Equal(MockInvoiceService.DefaultGuid, result);
     }
-    
+
     [Fact]
     public async Task TestGetPrimitiveString()
     {
@@ -202,7 +202,7 @@ public class IntegrationHttpClientTests
         result = await invoiceService.GetPrimitiveString();
         Assert.Equal(MockInvoiceService.DefaultString, result);
     }
-    
+
     [Fact]
     public async Task TestGetPrimitiveInt()
     {
@@ -217,6 +217,20 @@ public class IntegrationHttpClientTests
         Assert.Equal(MockInvoiceService.DefaultInt, result);
         result = await invoiceService.GetPrimitiveInt();
         Assert.Equal(MockInvoiceService.DefaultInt, result);
+    }
+
+    [Fact]
+    public async Task TestGetPrimitiveStringList()
+    {
+        var serviceMock = new MockInvoiceService();
+
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        var result = await invoiceService.GetPrimitiveStringList();
+        Assert.Equal(new List<string> { MockInvoiceService.DefaultString }, result);
     }
 
     public class MockInvoiceService : Backend.IInvoiceService
@@ -295,7 +309,7 @@ public class IntegrationHttpClientTests
         {
             throw new Exception(ExceptionMessage);
         }
-        
+
         public Task<Guid> GetWrappedPrimitiveGuid()
         {
             return Task.FromResult(DefaultGuid);
@@ -324,6 +338,11 @@ public class IntegrationHttpClientTests
         public Task<int> GetPrimitiveInt()
         {
             return Task.FromResult(DefaultInt);
+        }
+
+        public Task<List<string>> GetPrimitiveStringList()
+        {
+            return Task.FromResult(new List<string> { DefaultString });
         }
     }
 }

@@ -368,6 +368,25 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;string&gt;.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(List<string>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<string>>> GetPrimitiveStringList(CancellationToken cancellationToken)
+        {
+            var result = default(List<string>);
+
+            result = await _appService.GetPrimitiveStringList();
+
+            return Ok(result);
+        }
+
 
     }
 }
