@@ -19,7 +19,7 @@ public class GeneralEFTests
         _dataContainerFixture = dataContainerFixture;
     }
 
-    [Fact(Skip = "Runs Docker Containers")]
+    [IgnoreOnCiBuildFact]
     public void TestInitialSetup()
     {
         var builder = new DbContextOptionsBuilder<ApplicationDbContext>();

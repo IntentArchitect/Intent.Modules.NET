@@ -12,7 +12,7 @@ public class ExplicitKeyCreationTests : SharedDatabaseFixture<ApplicationDbConte
     {
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_ExplicitCompositeKeys_ExplicitCompositeForeignKeys()
     {
         var pk = new ExplicitKeysCompositeKey();

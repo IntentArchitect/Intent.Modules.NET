@@ -44,32 +44,21 @@ public class DataContainerFixture : IAsyncLifetime
 
     public async Task InitializeAsync()
     {
-        await _dbContainer.StartAsync();
-
-        // everything below here is about creating the test database and container
+        if (string.Equals(Environment.GetEnvironmentVariable("TF_BUILD"), true.ToString(), StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
         
-        // var mappedPort = _dbContainer.GetMappedPublicPort(8081);
-        // var updated = string.Format(accountEndpoint, mappedPort);
-        // var cosmosClientBuilder = new CosmosClientBuilder(updated, accountKey);
-        // cosmosClientBuilder.WithHttpClientFactory(() =>
-        // {
-        //     HttpMessageHandler httpMessageHandler = new HttpClientHandler
-        //     {
-        //         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-        //     };
-        //
-        //     return new HttpClient(new FixRequestLocationHandler(mappedPort, httpMessageHandler));
-        // });
-        // cosmosClientBuilder.WithConnectionModeGateway();
-        //
-        // var cosmosClient = cosmosClientBuilder.Build();
-        //
-        // var response = await cosmosClient.CreateDatabaseAsync("Database", 4000);
-        // await response.Database.CreateContainerAsync("data2", "/id", 4000);
+        await _dbContainer.StartAsync();
     }
 
     public async Task DisposeAsync()
     {
+        if (string.Equals(Environment.GetEnvironmentVariable("TF_BUILD"), true.ToString(), StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+        
         await _dbContainer.StopAsync();
     }
 }
