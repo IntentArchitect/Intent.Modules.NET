@@ -278,6 +278,15 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         /// Ultimately all sync processors should derive from this class, hence putting it here
         /// but as internal static for now. It can later be changed to private.
         /// </remarks>
+        internal static bool IsIgnored(XElement element)
+        {
+            return string.Equals(element?.Attribute("IntentIgnore")?.Value, true.ToString(), StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <remarks>
+        /// Ultimately all sync processors should derive from this class, hence putting it here
+        /// but as internal static for now. It can later be changed to private.
+        /// </remarks>
         internal static FileAddedData GetFileAddedData(IDictionary<string, string> input)
         {
             var data = new FileAddedData();

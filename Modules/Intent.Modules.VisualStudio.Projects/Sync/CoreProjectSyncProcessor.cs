@@ -196,14 +196,15 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             }
 
             var itemElement = GetFileItem(xml, relativeFileName);
-            if (itemElement?.Attribute("IntentIgnore")?.Value.Equals(true.ToString(), StringComparison.OrdinalIgnoreCase) == true)
+            if (ProjectSyncProcessorBase.IsIgnored(itemElement))
             {
                 return;
             }
 
             if (!data.AlwaysGenerateProjectItem &&
                 data.Attributes.Count == 0 &&
-                data.Elements.Count == 0)
+                data.Elements.Count == 0 &&
+                itemElement?.Descendants().Any(ProjectSyncProcessorBase.IsIgnored) != true)
             {
                 itemElement?.Remove();
                 return;
@@ -269,7 +270,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
             foreach (var element in itemElement.Elements())
             {
-                if (!data.Elements.ContainsKey(element.Name.LocalName))
+                if (!element.DescendantsAndSelf().Any(ProjectSyncProcessorBase.IsIgnored) &&
+                    !data.Elements.ContainsKey(element.Name.LocalName))
                 {
                     element.Remove();
                 }
