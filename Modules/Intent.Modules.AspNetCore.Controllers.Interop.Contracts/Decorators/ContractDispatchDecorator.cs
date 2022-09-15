@@ -8,6 +8,7 @@ using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -108,7 +109,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
             }
 
             if (operationModel.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson()
-                && _template.GetTypeInfo(operationModel.ReturnType).IsPrimitive)
+                && (_template.GetTypeInfo(operationModel.ReturnType).IsPrimitive || operationModel.ReturnType.HasStringType()))
             {
                 return $@"new {_template.GetJsonResponseName()}<{_template.GetTypeName(operationModel.ReturnType)}>(result)";
             }

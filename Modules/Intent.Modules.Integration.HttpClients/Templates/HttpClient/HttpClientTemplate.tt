@@ -10,6 +10,7 @@
 <#@ import namespace="Intent.Modules.Application.Contracts.Clients.Templates" #>
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -123,7 +124,37 @@ namespace <#= Namespace #>
 
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
+<#
+            if (HasWrappedReturnType(operation))
+            {
+#>
+                    var wrappedObj = await JsonSerializer.DeserializeAsync<<#= this.GetJsonResponseName() #><<#= GetTypeName(operation.ReturnType) #>>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return wrappedObj.Value;
+<#   
+            }
+            else if (operation.ReturnType.HasStringType())
+            {
+#>
+                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    return str;
+<#
+            }
+            else if (IsReturnTypePrimitive(operation))
+            {
+#>
+                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    return <#= GetTypeName(operation.ReturnType) #>.Parse(str);
+<#              
+            }
+            else
+            {
+#>
                     return await JsonSerializer.DeserializeAsync<<#= GetTypeName(operation.ReturnType) #>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+<#
+            }
+#>
                 }
 <#
         }

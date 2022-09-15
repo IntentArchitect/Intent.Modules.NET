@@ -45,6 +45,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>HttpClientRequestExceptionTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\JsonResponse\JsonResponseTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JsonResponseTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -80,11 +85,16 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HttpClientRequestExceptionTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\JsonResponse\JsonResponseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.6" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.4" />
     <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="3.3.3" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">

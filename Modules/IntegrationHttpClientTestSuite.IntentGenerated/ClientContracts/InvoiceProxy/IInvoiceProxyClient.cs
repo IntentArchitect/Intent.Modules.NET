@@ -22,5 +22,11 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.Invoice
         Task RouteParamOp(string param1, CancellationToken cancellationToken = default);
         Task BodyParamOp(InvoiceDTO param1, CancellationToken cancellationToken = default);
         Task ThrowsException(CancellationToken cancellationToken = default);
+        Task<Guid> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default);
+        Task<string> GetWrappedPrimitiveString(CancellationToken cancellationToken = default);
+        Task<int> GetWrappedPrimitiveInt(CancellationToken cancellationToken = default);
+        Task<Guid> GetPrimitiveGuid(CancellationToken cancellationToken = default);
+        Task<string> GetPrimitiveString(CancellationToken cancellationToken = default);
+        Task<int> GetPrimitiveInt(CancellationToken cancellationToken = default);
     }
 }

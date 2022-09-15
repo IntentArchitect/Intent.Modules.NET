@@ -166,7 +166,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
             if (operation.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson()
-                && GetTypeInfo(operation.ReturnType).IsPrimitive)
+                && (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType()))
             {
                 apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
             }

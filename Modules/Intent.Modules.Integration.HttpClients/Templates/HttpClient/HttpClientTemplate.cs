@@ -33,37 +33,37 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing System.Net;\r\nusing System.Net.Http;\r\nusing System.Net.Http.Headers;\r\nusing System.Text;\r\nusing System.Text.Json;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\nusing Microsoft.AspNetCore.WebUtilities;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.IO;\r\nusing System.Linq;\r\nusing System.Net;\r\nusing System.Net.Http;\r\nusing System.Net.Http.Headers;\r\nusing System.Text;\r\nusing System.Text.Json;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\nusing Microsoft.AspNetCore.WebUtilities;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetServiceContractName()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        private readonly HttpClient _httpClient;\r\n\r\n        private readonly JsonSerializerOptions _serializerOptions = new JsonSerializerOptions()\r\n        {\r\n            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,\r\n        };\r\n\r\n        public ");
             
-            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(HttpClient httpClient)\r\n        {\r\n            _httpClient = httpClient;\r\n        }\r\n\r\n");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
     foreach (var operation in Model.MappedService.Operations)
     {
@@ -73,28 +73,28 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("        public async ");
             
-            #line 45 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetReturnType(operation)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 45 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationName(operation)));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 45 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationParameters(operation)));
             
             #line default
             #line hidden
             this.Write(")\r\n        {");
             
-            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         // We're leveraging the C# $"" notation to actually take leverage of the parameters
         // that are meant to be Route-based.
@@ -104,14 +104,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            var relativeUri = $\"");
             
-            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetRelativeUri(operation)));
             
             #line default
             #line hidden
             this.Write("\";\r\n");
             
-            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         if (HasQueryParameter(operation))
         {
@@ -121,7 +121,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            \r\n            var queryParams = new Dictionary<string, string>();\r\n");
             
-            #line 57 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 58 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
             foreach (var queryParameter in GetQueryParameters(operation))
             {
@@ -131,21 +131,21 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            queryParams.Add(\"");
             
-            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(queryParameter.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetParameterValueExpression(queryParameter)));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 63 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
             }
 
@@ -154,7 +154,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);\r\n\r\n");
             
-            #line 67 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 68 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         }
 
@@ -163,14 +163,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            var request = new HttpRequestMessage(");
             
-            #line 70 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 71 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetHttpVerb(operation)));
             
             #line default
             #line hidden
             this.Write(", relativeUri);\r\n            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(\"application/json\"));\r\n");
             
-            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 73 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         foreach (var headerParameter in GetHeaderParameters(operation))
         {
@@ -180,21 +180,21 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            request.Headers.Add(\"");
             
-            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 77 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(headerParameter.HeaderName));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 77 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(headerParameter.Parameter.Name.ToParameterName()));
             
             #line default
             #line hidden
             this.Write(");\r\n\r\n");
             
-            #line 78 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 79 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         }
 
@@ -206,14 +206,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            \r\n            var content = JsonSerializer.Serialize(");
             
-            #line 85 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 86 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetBodyParameterName(operation)));
             
             #line default
             #line hidden
             this.Write(", _serializerOptions);\r\n            request.Content = new StringContent(content, Encoding.Default, \"application/json\");\r\n\r\n");
             
-            #line 88 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 89 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         }
         else if (HasFormUrlEncodedParameter(operation))
@@ -224,7 +224,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            \r\n            var formVariables = new List<KeyValuePair<string, string>>();\r\n");
             
-            #line 95 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 96 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
             foreach (var formParameter in GetFormUrlEncodedParameters(operation))
             {
@@ -234,21 +234,21 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            formVariables.Add(new KeyValuePair<string, string>(\"");
             
-            #line 99 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 100 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(formParameter.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 99 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 100 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetParameterValueExpression(formParameter)));
             
             #line default
             #line hidden
             this.Write("));\r\n");
             
-            #line 100 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 101 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
             }
 
@@ -257,7 +257,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            var content = new FormUrlEncodedContent(formVariables);\r\n            request.Content = content;\r\n");
             
-            #line 105 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 106 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         }
 
@@ -266,14 +266,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            \r\n            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))\r\n            {\r\n                if (!response.IsSuccessStatusCode)\r\n                {\r\n                    throw await ");
             
-            #line 113 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 114 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetHttpClientRequestExceptionName()));
             
             #line default
             #line hidden
             this.Write(".Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);\r\n                }\r\n");
             
-            #line 115 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 116 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         if (HasResponseType(operation))
         {
@@ -281,16 +281,89 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             
             #line default
             #line hidden
-            this.Write("                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)\r\n                {\r\n                    return default;\r\n                }\r\n\r\n                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))\r\n                {\r\n                    return await JsonSerializer.DeserializeAsync<");
+            this.Write("                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)\r\n                {\r\n                    return default;\r\n                }\r\n\r\n                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))\r\n                {\r\n");
             
-            #line 126 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 127 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+
+            if (HasWrappedReturnType(operation))
+            {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    var wrappedObj = await JsonSerializer.DeserializeAsync<");
+            
+            #line 131 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetJsonResponseName()));
+            
+            #line default
+            #line hidden
+            this.Write("<");
+            
+            #line 131 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(operation.ReturnType)));
             
             #line default
             #line hidden
-            this.Write(">(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);\r\n                }\r\n");
+            this.Write(">>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);\r\n                    return wrappedObj.Value;\r\n");
             
-            #line 128 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 133 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+   
+            }
+            else if (operation.ReturnType.HasStringType())
+            {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);\r\n                    if (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")) { str = str.Substring(1, str.Length - 2); }\r\n                    return str;\r\n");
+            
+            #line 141 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+
+            }
+            else if (IsReturnTypePrimitive(operation))
+            {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);\r\n                    if (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")) { str = str.Substring(1, str.Length - 2); }\r\n                    return ");
+            
+            #line 148 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(operation.ReturnType)));
+            
+            #line default
+            #line hidden
+            this.Write(".Parse(str);\r\n");
+            
+            #line 149 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+              
+            }
+            else
+            {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    return await JsonSerializer.DeserializeAsync<");
+            
+            #line 154 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(operation.ReturnType)));
+            
+            #line default
+            #line hidden
+            this.Write(">(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);\r\n");
+            
+            #line 155 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+
+            }
+
+            
+            #line default
+            #line hidden
+            this.Write("                }\r\n");
+            
+            #line 159 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
         }
 
@@ -299,7 +372,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line hidden
             this.Write("            }\r\n        }\r\n");
             
-            #line 133 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
+            #line 164 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
     }
 

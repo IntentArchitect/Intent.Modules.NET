@@ -242,6 +242,132 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
             return Created(string.Empty, null);
         }
 
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified Guid.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">Can't find an Guid with the parameters provided.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<Guid>> GetWrappedPrimitiveGuid(CancellationToken cancellationToken)
+        {
+            var result = default(Guid);
+
+            result = await _appService.GetWrappedPrimitiveGuid();
+
+            return Ok(new JsonResponse<Guid>(result));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified string.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">Can't find an string with the parameters provided.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<string>> GetWrappedPrimitiveString(CancellationToken cancellationToken)
+        {
+            var result = default(string);
+
+            result = await _appService.GetWrappedPrimitiveString();
+
+            return Ok(new JsonResponse<string>(result));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified int.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">Can't find an int with the parameters provided.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(JsonResponse<int>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<int>> GetWrappedPrimitiveInt(CancellationToken cancellationToken)
+        {
+            var result = default(int);
+
+            result = await _appService.GetWrappedPrimitiveInt();
+
+            return Ok(new JsonResponse<int>(result));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified Guid.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">Can't find an Guid with the parameters provided.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<Guid>> GetPrimitiveGuid(CancellationToken cancellationToken)
+        {
+            var result = default(Guid);
+
+            result = await _appService.GetPrimitiveGuid();
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified string.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">Can't find an string with the parameters provided.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<string>> GetPrimitiveString(CancellationToken cancellationToken)
+        {
+            var result = default(string);
+
+            result = await _appService.GetPrimitiveString();
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified int.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">Can't find an int with the parameters provided.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<int>> GetPrimitiveInt(CancellationToken cancellationToken)
+        {
+            var result = default(int);
+
+            result = await _appService.GetPrimitiveInt();
+
+            return Ok(result);
+        }
+
 
     }
 }

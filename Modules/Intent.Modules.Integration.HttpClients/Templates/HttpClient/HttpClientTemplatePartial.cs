@@ -125,6 +125,16 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             return operation.ReturnType != null;
         }
 
+        private bool HasWrappedReturnType(OperationModel operationModel)
+        {
+            return ServiceMetadataQueries.HasJsonWrappedReturnType(operationModel);
+        }
+
+        private bool IsReturnTypePrimitive(OperationModel operation)
+        {
+            return GetTypeInfo(operation.ReturnType).IsPrimitive;
+        }
+
         private string GetParameterValueExpression(ParameterModel parameter)
         {
             return !parameter.TypeReference.HasStringType()

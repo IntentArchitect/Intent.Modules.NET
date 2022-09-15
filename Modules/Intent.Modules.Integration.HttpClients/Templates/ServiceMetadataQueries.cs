@@ -180,6 +180,23 @@ public static class ServiceMetadataQueries
         return operationModel.GetStereotype(StereotypeAzureFunction)?.GetProperty<string>("Type") == "Http Trigger";
     }
 
+    public static bool HasJsonWrappedReturnType(OperationModel operationModel)
+    {
+        var webApiMediatype = operationModel.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Return Type Mediatype");
+        if (webApiMediatype != null)
+        {
+            return webApiMediatype == "application/json";
+        }
+
+        var azFuncMediatype = operationModel.GetStereotype(StereotypeAzureFunction)?.GetProperty<string>("Return Type Mediatype");
+        if (AzureFunctionIsHttpTrigger(operationModel) && azFuncMediatype != null)
+        {
+            return azFuncMediatype == "application/json";
+        }
+
+        return false;
+    }
+
     private static bool IsDefault([CanBeNull] this string source)
     {
         return source == "Default";

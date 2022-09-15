@@ -35,5 +35,17 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts
 
         Task ThrowsException();
 
+        Task<Guid> GetWrappedPrimitiveGuid();
+
+        Task<string> GetWrappedPrimitiveString();
+
+        Task<int> GetWrappedPrimitiveInt();
+
+        Task<Guid> GetPrimitiveGuid();
+
+        Task<string> GetPrimitiveString();
+
+        Task<int> GetPrimitiveInt();
+
     }
 }

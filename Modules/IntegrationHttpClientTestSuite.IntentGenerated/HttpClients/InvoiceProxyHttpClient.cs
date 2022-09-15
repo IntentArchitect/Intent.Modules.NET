@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using IntegrationHttpClientTestSuite.IntentGenerated.ClientContracts.InvoiceProxy;
@@ -236,6 +238,153 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 if (!response.IsSuccessStatusCode)
                 {
                     throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+        public async Task<Guid> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"/api/Invoice/GetWrappedPrimitiveGuid";
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
+                {
+                    return default;
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<Guid>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return wrappedObj.Value;
+                }
+            }
+        }
+        public async Task<string> GetWrappedPrimitiveString(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"/api/Invoice/GetWrappedPrimitiveString";
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
+                {
+                    return default;
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<string>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return wrappedObj.Value;
+                }
+            }
+        }
+        public async Task<int> GetWrappedPrimitiveInt(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"/api/Invoice/GetWrappedPrimitiveInt";
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
+                {
+                    return default;
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var wrappedObj = await JsonSerializer.DeserializeAsync<JsonResponse<int>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                    return wrappedObj.Value;
+                }
+            }
+        }
+        public async Task<Guid> GetPrimitiveGuid(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"/api/Invoice/GetPrimitiveGuid";
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
+                {
+                    return default;
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    return Guid.Parse(str);
+                }
+            }
+        }
+        public async Task<string> GetPrimitiveString(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"/api/Invoice/GetPrimitiveString";
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
+                {
+                    return default;
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    return str;
+                }
+            }
+        }
+        public async Task<int> GetPrimitiveInt(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"/api/Invoice/GetPrimitiveInt";
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
+                {
+                    return default;
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
+                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    return int.Parse(str);
                 }
             }
         }

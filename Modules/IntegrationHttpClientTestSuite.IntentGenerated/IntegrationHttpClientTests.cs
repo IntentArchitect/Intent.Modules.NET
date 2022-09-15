@@ -170,6 +170,54 @@ public class IntegrationHttpClientTests
         Assert.NotEmpty(exception.Message);
         Assert.Contains(MockInvoiceService.ExceptionMessage, exception.ResponseContent);
     }
+    
+    [Fact]
+    public async Task TestGetPrimitiveGuid()
+    {
+        var serviceMock = new MockInvoiceService();
+
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        var result = await invoiceService.GetWrappedPrimitiveGuid();
+        Assert.Equal(MockInvoiceService.DefaultGuid, result);
+        result = await invoiceService.GetPrimitiveGuid();
+        Assert.Equal(MockInvoiceService.DefaultGuid, result);
+    }
+    
+    [Fact]
+    public async Task TestGetPrimitiveString()
+    {
+        var serviceMock = new MockInvoiceService();
+
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        var result = await invoiceService.GetWrappedPrimitiveString();
+        Assert.Equal(MockInvoiceService.DefaultString, result);
+        result = await invoiceService.GetPrimitiveString();
+        Assert.Equal(MockInvoiceService.DefaultString, result);
+    }
+    
+    [Fact]
+    public async Task TestGetPrimitiveInt()
+    {
+        var serviceMock = new MockInvoiceService();
+
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        var result = await invoiceService.GetWrappedPrimitiveInt();
+        Assert.Equal(MockInvoiceService.DefaultInt, result);
+        result = await invoiceService.GetPrimitiveInt();
+        Assert.Equal(MockInvoiceService.DefaultInt, result);
+    }
 
     public class MockInvoiceService : Backend.IInvoiceService
     {
@@ -178,6 +226,7 @@ public class IntegrationHttpClientTests
         public const string DefaultString = "string value";
         public const int DefaultInt = 55;
         public const string ExceptionMessage = "Some exception message";
+        public static readonly Guid DefaultGuid = Guid.Parse("b7698947-5237-4686-9571-442335426771");
 
         public void Dispose()
         {
@@ -245,6 +294,36 @@ public class IntegrationHttpClientTests
         public async Task ThrowsException()
         {
             throw new Exception(ExceptionMessage);
+        }
+        
+        public Task<Guid> GetWrappedPrimitiveGuid()
+        {
+            return Task.FromResult(DefaultGuid);
+        }
+
+        public Task<string> GetWrappedPrimitiveString()
+        {
+            return Task.FromResult(DefaultString);
+        }
+
+        public Task<int> GetWrappedPrimitiveInt()
+        {
+            return Task.FromResult(DefaultInt);
+        }
+
+        public Task<Guid> GetPrimitiveGuid()
+        {
+            return Task.FromResult(DefaultGuid);
+        }
+
+        public Task<string> GetPrimitiveString()
+        {
+            return Task.FromResult(DefaultString);
+        }
+
+        public Task<int> GetPrimitiveInt()
+        {
+            return Task.FromResult(DefaultInt);
         }
     }
 }
