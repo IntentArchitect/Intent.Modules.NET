@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.Templates;
@@ -201,7 +202,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 return;
             }
 
-            if (!data.AlwaysGenerateProjectItem &&
+            if (data.MsBuildFileItemGenerationBehaviour != MsBuildFileItemGenerationBehaviour.Always &&
                 data.Attributes.Count == 0 &&
                 data.Elements.Count == 0 &&
                 itemElement?.Descendants().Any(ProjectSyncProcessorBase.IsIgnored) != true)

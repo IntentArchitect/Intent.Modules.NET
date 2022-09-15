@@ -60,8 +60,8 @@
     <factoryExtension id="Intent.VSProjects.ProjectDependencyResolver" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.11" />
-    <dependency id="Intent.Common.CSharp" version="3.3.18" />
+    <dependency id="Intent.Common" version="3.3.12-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.19-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
   </dependencies>
   <metadata>

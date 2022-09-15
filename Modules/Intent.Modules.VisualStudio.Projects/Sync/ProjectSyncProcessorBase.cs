@@ -92,7 +92,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                         AddProjectItem(
                             xml: xml,
                             path: @event.GetValue("Path"),
-                            data: GetFileAddedDataP(@event.AdditionalInfo));
+                            data: GetFileAddedDataProtected(@event.AdditionalInfo));
                         break;
                     case SoftwareFactoryEvents.FileRemovedEvent:
                         RemoveProjectItem(
@@ -211,8 +211,15 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             var itemGroup = FindItemGroup(xml, data.ItemType) ?? AddItemGroup(xml);
 
             var itemElement = GetProjectItem(xml, relativeFileName);
-            if (itemElement?.Attribute("IntentIgnore")?.Value.ToLower() == "true")
+            if (IsIgnored(itemElement))
             {
+                return;
+            }
+
+            if (data.MsBuildFileItemGenerationBehaviour == MsBuildFileItemGenerationBehaviour.Never &&
+                itemElement?.Descendants().Any(IsIgnored) != true)
+            {
+                itemElement?.Remove();
                 return;
             }
 
@@ -243,7 +250,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
             foreach (var element in itemElement.Elements())
             {
-                if (!data.Elements.ContainsKey(element.Name.LocalName))
+                if (!element.DescendantsAndSelf().Any(IsIgnored) &&
+                    !data.Elements.ContainsKey(element.Name.LocalName))
                 {
                     element.Remove();
                 }
@@ -269,7 +277,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return value;
         }
 
-        protected virtual FileAddedData GetFileAddedDataP(IDictionary<string, string> input)
+        protected virtual FileAddedData GetFileAddedDataProtected(IDictionary<string, string> input)
         {
             return GetFileAddedData(input);
         }
@@ -308,9 +316,9 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     data.ItemType = value;
                 }
 
-                if (key == CustomMetadataKeys.AlwaysGenerateProjectItem)
+                if (key == CustomMetadataKeys.MsBuildFileItemGenerationBehaviour)
                 {
-                    data.AlwaysGenerateProjectItem = true.ToString().Equals(value, StringComparison.OrdinalIgnoreCase);
+                    data.MsBuildFileItemGenerationBehaviour = Enum.Parse<MsBuildFileItemGenerationBehaviour>(value);
                 }
             }
 
@@ -346,8 +354,17 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     case "Build Action":
                         data.ItemType ??= value;
                         break;
+                    case "ExcludeFromProject":
+                        data.MsBuildFileItemGenerationBehaviour = MsBuildFileItemGenerationBehaviour.Never;
+                        break;
                     default:
-                        continue;
+                        #pragma warning disable CS0618 // Type or member is obsolete
+                        if (key == CustomMetadataKeys.AlwaysGenerateProjectItem)
+                        {
+                            data.MsBuildFileItemGenerationBehaviour = MsBuildFileItemGenerationBehaviour.Always;
+                        }
+                        #pragma warning restore CS0618 // Type or member is obsolete
+                        break;
                 }
             }
 
@@ -359,9 +376,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     break;
                 case ".tt":
                     data.ItemType ??= "None";
-                    data.AlwaysGenerateProjectItem = true;
+                    data.MsBuildFileItemGenerationBehaviour ??= MsBuildFileItemGenerationBehaviour.Always;
                     data.Elements.Add("Generator", "TextTemplatingFilePreprocessor");
                     data.Elements.Add("LastGenOutput", $"{Path.GetFileNameWithoutExtension(path)}.cs");
+                    break;
+                default:
                     break;
             }
         }
