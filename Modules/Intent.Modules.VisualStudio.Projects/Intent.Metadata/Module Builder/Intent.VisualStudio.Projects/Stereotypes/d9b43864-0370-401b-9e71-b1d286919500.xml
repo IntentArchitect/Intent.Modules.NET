@@ -64,11 +64,14 @@
     <property id="415a5406-0517-4c0e-ab60-bc809a23c308">
       <name>Nullable Enabled</name>
       <type>string</type>
-      <controlType>checkbox</controlType>
-      <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(default)</placeholder>
       <defaultValue>false</defaultValue>
-      <valueOptions />
+      <valueOptions>
+        <option>false</option>
+        <option>true</option>
+      </valueOptions>
       <lookupTypes />
     </property>
   </properties>

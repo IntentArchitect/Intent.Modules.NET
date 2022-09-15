@@ -6,6 +6,7 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
@@ -63,10 +64,19 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 var projectOptions = template.Project.GetCSharpProjectOptions();
                 if (projectOptions != null)
                 {
-                    hasChange |= SyncProperty(doc, "LangVersion", projectOptions.LanguageVersion().IsDefault()
+                    var langVersionValue = projectOptions.LanguageVersion().IsDefault()
                         ? null
-                        : projectOptions.LanguageVersion().Value);
-                    hasChange |= SyncProperty(doc, "Nullable", projectOptions.NullableEnabled() ? "enable" : null);
+                        : projectOptions.LanguageVersion().Value;
+
+                    var nullableValue = projectOptions.NullableEnabledNew().Value switch
+                    {
+                        "false" => "disable",
+                        "true" => "enabled",
+                        _ => null
+                    };
+
+                    hasChange |= SyncProperty(doc, "LangVersion", langVersionValue, removeIfNullOrEmpty: true);
+                    hasChange |= SyncProperty(doc, "Nullable", nullableValue);
                 }
 
                 if (!hasChange)
@@ -121,12 +131,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         }
 
         /// <returns>True if there was a change.</returns>
-        private static bool SyncProperty(XDocument doc, string propertyName, string value)
+        private static bool SyncProperty(XDocument doc, string propertyName, string value, bool removeIfNullOrEmpty = false)
         {
             var element = GetPropertyGroupElement(doc, propertyName);
             if (string.IsNullOrWhiteSpace(value))
             {
-                if (element == null)
+                if (!removeIfNullOrEmpty ||
+                    element == null)
                 {
                     return false;
                 }
