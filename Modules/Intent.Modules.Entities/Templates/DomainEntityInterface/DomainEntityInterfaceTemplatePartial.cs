@@ -42,7 +42,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             {
                 SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateICollection());
             }
-            AddTypeSource(TemplateId, "IEnumerable<{0}>");
+            AddTypeSource(TemplateId);
             AddTypeSource(DomainEnumTemplate.TemplateId);
             AddTypeSource("Domain.ValueObject");
         }
@@ -85,21 +85,21 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                                 property.ReadOnly();
                             }
                         });
-                        if (associationEnd.IsCollection &&
-                            associationEnd.Class != null &&
-                            !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-                        {
-                            @interface.AddMethod("void", $"Add{associationEnd.Name.ToPascalCase().Singularize()}",
-                                method =>
-                                {
-                                    method.AddParameter(GetTypeName((IElement)associationEnd.Element), $"{associationEnd.Name.ToCamelCase().Singularize()}");
-                                });
-                            @interface.AddMethod("void", $"Remove{associationEnd.Name.ToPascalCase().Singularize()}",
-                                method =>
-                                {
-                                    method.AddParameter(GetTypeName((IElement)associationEnd.Element), $"{associationEnd.Name.ToCamelCase().Singularize()}");
-                                });
-                        }
+                        //if (associationEnd.IsCollection &&
+                        //    associationEnd.Class != null &&
+                        //    !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                        //{
+                        //    @interface.AddMethod("void", $"Add{associationEnd.Name.ToPascalCase().Singularize()}",
+                        //        method =>
+                        //        {
+                        //            method.AddParameter(GetTypeName((IElement)associationEnd.Element), $"{associationEnd.Name.ToCamelCase().Singularize()}");
+                        //        });
+                        //    @interface.AddMethod("void", $"Remove{associationEnd.Name.ToPascalCase().Singularize()}",
+                        //        method =>
+                        //        {
+                        //            method.AddParameter(GetTypeName((IElement)associationEnd.Element), $"{associationEnd.Name.ToCamelCase().Singularize()}");
+                        //        });
+                        //}
                     }
 
                     foreach (var operation in Model.Operations)

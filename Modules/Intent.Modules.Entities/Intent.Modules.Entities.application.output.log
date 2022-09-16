@@ -42,6 +42,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#f5b37691-80dc-4e35-94fa-e40e5df08b88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionWrapper/CollectionWrapperTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionWrapper/CollectionWrapperTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#f5b37691-80dc-4e35-94fa-e40e5df08b88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionWrapper/CollectionWrapperTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionWrapper/CollectionWrapperTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f5b37691-80dc-4e35-94fa-e40e5df08b88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionWrapper/CollectionWrapperTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionWrapper/CollectionWrapperTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f5b37691-80dc-4e35-94fa-e40e5df08b88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionWrapper/CollectionWrapperTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionWrapper/CollectionWrapperTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3d25a607-58e9-42bd-b578-6fd47f8767e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEntity/DomainEntityTemplatePartial.cs</ApplicationRelativeFilePath>

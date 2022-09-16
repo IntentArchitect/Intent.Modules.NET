@@ -1,25 +1,24 @@
-using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Settings;
+using Intent.Modules.Entities.Templates.CollectionWrapper;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEnum;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 
-namespace Intent.Modules.Entities.Templates.DomainEntityState;
+namespace Intent.Modules.Entities.Templates;
 
 public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
 {
     private DomainEntityInterfaceTemplate _interfaceTemplate;
-    protected DomainEntityInterfaceTemplate InterfaceTemplate => _interfaceTemplate ?? GetTemplate<DomainEntityInterfaceTemplate>(DomainEntityInterfaceTemplate.TemplateId, Model);
+    protected DomainEntityInterfaceTemplate InterfaceTemplate => _interfaceTemplate ??= GetTemplate<DomainEntityInterfaceTemplate>(DomainEntityInterfaceTemplate.TemplateId, Model);
     protected static string IsMerged => "is-merged";
     public CSharpFile CSharpFile { get; set; }
 
@@ -79,7 +78,6 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         });
     }
 
-
     protected void AddInterfaceQualifiedProperty(CSharpClass @class, string propertyName, ITypeReference typeReference)
     {
         @class.AddProperty($"{InterfaceTemplate.GetTypeName(typeReference)}",
@@ -95,42 +93,44 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 }
 
                 property.WithoutAccessModifier();
-                property.Getter.WithExpressionImplementation(propertyName.ToPascalCase());
+                property.Getter.WithExpressionImplementation(typeReference.IsCollection && !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters()
+                    ? $"{propertyName.ToPascalCase()}.{UseStaticMethod(CollectionWrapperTemplate.TemplateId, "CreateWrapper")}<{InterfaceTemplate.GetTypeName((IElement)typeReference.Element)}, {GetTypeName((IElement)typeReference.Element)}>()"
+                    : $"{propertyName.ToPascalCase()}");
             });
 
-        if (typeReference.IsCollection &&
-            !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-        {
-            @class.AddMethod("void",
-                $"{this.GetDomainEntityInterfaceName()}.Add{propertyName.ToPascalCase().Singularize()}",
-                method =>
-                {
-                    if (@class.TryGetMetadata<bool>(IsMerged, out var isMerged) && isMerged)
-                    {
-                        method.AddAttribute($"IntentManaged(Mode.Fully)");
-                    }
+        //if (typeReference.IsCollection &&
+        //    !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+        //{
+        //    @class.AddMethod("void",
+        //        $"{this.GetDomainEntityInterfaceName()}.Add{propertyName.ToPascalCase().Singularize()}",
+        //        method =>
+        //        {
+        //            if (@class.TryGetMetadata<bool>(IsMerged, out var isMerged) && isMerged)
+        //            {
+        //                method.AddAttribute($"IntentManaged(Mode.Fully)");
+        //            }
 
-                    method.WithoutAccessModifier();
-                    method.AddParameter(InterfaceTemplate.GetTypeName((IElement)typeReference.Element),
-                        $"{propertyName.ToCamelCase().Singularize()}");
-                    method.AddStatement(
-                        $"{propertyName.ToPascalCase()}.Add(({GetTypeName((IElement)typeReference.Element)}){propertyName.ToCamelCase().Singularize()});");
-                });
-            @class.AddMethod("void",
-                $"{this.GetDomainEntityInterfaceName()}.Remove{propertyName.ToPascalCase().Singularize()}",
-                method =>
-                {
-                    if (@class.TryGetMetadata<bool>(IsMerged, out var isMerged) && isMerged)
-                    {
-                        method.AddAttribute($"IntentManaged(Mode.Fully)");
-                    }
-                    method.WithoutAccessModifier();
-                    method.AddParameter(InterfaceTemplate.GetTypeName((IElement)typeReference.Element),
-                        $"{propertyName.ToCamelCase().Singularize()}");
-                    method.AddStatement(
-                        $"{propertyName.ToPascalCase()}.Remove(({GetTypeName((IElement)typeReference.Element)}){propertyName.ToCamelCase().Singularize()});");
-                });
-        }
+        //            method.WithoutAccessModifier();
+        //            method.AddParameter(InterfaceTemplate.GetTypeName((IElement)typeReference.Element),
+        //                $"{propertyName.ToCamelCase().Singularize()}");
+        //            method.AddStatement(
+        //                $"{propertyName.ToPascalCase()}.Add(({GetTypeName((IElement)typeReference.Element)}){propertyName.ToCamelCase().Singularize()});");
+        //        });
+        //    @class.AddMethod("void",
+        //        $"{this.GetDomainEntityInterfaceName()}.Remove{propertyName.ToPascalCase().Singularize()}",
+        //        method =>
+        //        {
+        //            if (@class.TryGetMetadata<bool>(IsMerged, out var isMerged) && isMerged)
+        //            {
+        //                method.AddAttribute($"IntentManaged(Mode.Fully)");
+        //            }
+        //            method.WithoutAccessModifier();
+        //            method.AddParameter(InterfaceTemplate.GetTypeName((IElement)typeReference.Element),
+        //                $"{propertyName.ToCamelCase().Singularize()}");
+        //            method.AddStatement(
+        //                $"{propertyName.ToPascalCase()}.Remove(({GetTypeName((IElement)typeReference.Element)}){propertyName.ToCamelCase().Singularize()});");
+        //        });
+        //}
     }
 
     protected void AddInterfaceQualifiedMethod(CSharpClass @class, OperationModel operation)
@@ -170,6 +170,12 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
     protected string GetOperationTypeName(ITypeReference type)
     {
         return GetTypeName(type, "IEnumerable<{0}>"); // fall back on normal type resolution.
+    }
+
+    private string UseStaticMethod(string templateIdOrRole, string methodName)
+    {
+        AddUsing(GetTemplate<ICSharpTemplate>(templateIdOrRole).Namespace);
+        return methodName;
     }
 
     private string CastArgumentIfNecessary(ITypeReference typeReference, string argument)

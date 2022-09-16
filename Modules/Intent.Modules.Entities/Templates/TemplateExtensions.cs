@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Templates.CollectionWrapper;
 using Intent.Modules.Entities.Templates.DomainEntity;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEntityState;
@@ -13,6 +14,10 @@ namespace Intent.Modules.Entities.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetCollectionWrapperName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(CollectionWrapperTemplate.TemplateId);
+        }
         public static string GetDomainEntityName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
         {
             return template.GetTypeName(DomainEntityTemplate.TemplateId, template.Model);
