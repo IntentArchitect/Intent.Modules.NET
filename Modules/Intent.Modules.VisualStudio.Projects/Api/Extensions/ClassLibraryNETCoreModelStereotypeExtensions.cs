@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
+using Intent.SdkEvolutionHelpers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions", Version = "1.0")]
@@ -17,6 +18,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             var stereotype = model.GetStereotype(".NET Core Settings");
             return stereotype != null ? new NETCoreSettings(stereotype) : null;
         }
+
 
         public static bool HasNETCoreSettings(this ClassLibraryNETCoreModel model)
         {
@@ -41,6 +43,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             return stereotype != null ? new CSharpProjectOptions(stereotype) : null;
         }
 
+
         public static bool HasCSharpProjectOptions(this ClassLibraryNETCoreModel model)
         {
             return model.HasStereotype("C# Project Options");
@@ -57,7 +60,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             stereotype = new CSharpProjectOptions(model.GetStereotype("C# Project Options"));
             return true;
         }
-
 
         public class NETCoreSettings
         {
@@ -148,7 +150,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     return Value == "(unspecified)";
                 }
-
                 public bool IsFalse()
                 {
                     return Value == "false";
@@ -193,7 +194,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 {
                     return Value == "(unspecified)";
                 }
-
                 public bool IsFalse()
                 {
                     return Value == "false";
@@ -233,9 +233,26 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<string>("Relative Location");
             }
 
+            /// <remarks>
+            /// For backwards compatibility this method's signature has been maintained. In Intent v4
+            /// it will be changed to return <see cref="NullableEnabledOptions"/>.
+            /// </remarks>
+            [FixFor_Version4("Remove the IntentManaged attribute and let the Software Factory change this method's signature.")]
+            [IntentManaged(Mode.Ignore)]
             public bool NullableEnabled()
             {
-                return _stereotype.GetProperty<bool>("Nullable Enabled");
+                return NullableEnabledNew().IsTrue();
+            }
+
+            /// <remarks>
+            /// This is a manual copy and rename of the <see cref="NullableEnabled"/> method which
+            /// was not changed for compatibility reasons.
+            /// </remarks>
+            [FixFor_Version4("Remove the IntentManaged attribute and let the Software Factory remove this method.")]
+            [IntentManaged(Mode.Ignore)]
+            public NullableEnabledOptions NullableEnabledNew()
+            {
+                return new NullableEnabledOptions(_stereotype.GetProperty<string>("Nullable Enabled"));
             }
 
             public class LanguageVersionOptions
@@ -365,6 +382,43 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 _3,
                 _2,
                 _1
+            }
+            public class NullableEnabledOptions
+            {
+                public readonly string Value;
+
+                public NullableEnabledOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public NullableEnabledOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "false":
+                            return NullableEnabledOptionsEnum.False;
+                        case "true":
+                            return NullableEnabledOptionsEnum.True;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsFalse()
+                {
+                    return Value == "false";
+                }
+                public bool IsTrue()
+                {
+                    return Value == "true";
+                }
+            }
+
+            public enum NullableEnabledOptionsEnum
+            {
+                False,
+                True
             }
         }
 

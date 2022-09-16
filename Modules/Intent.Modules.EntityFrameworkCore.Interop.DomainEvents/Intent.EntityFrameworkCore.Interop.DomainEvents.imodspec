@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Interop.DomainEvents</id>
   <version>3.4.0-pre.0</version>
@@ -17,9 +17,9 @@
     <factoryExtension id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDecoratorExtension" externalReference="bfc65889-d5a2-409c-8aa7-edf702502270" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.9" />
-    <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.11" />
+    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.3.14" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

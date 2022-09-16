@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
     <Compile Remove="Decorators\DomainEventsConfigurationsDecorator.cs" />
     <Compile Remove="Decorators\DomainEventsConfigurationsDecoratorRegistration.cs" />
     <Compile Remove="Decorators\DomainEventsEntityStateDecorator.cs" />
@@ -16,7 +18,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.2" />
   </ItemGroup>
 
   <ItemGroup>

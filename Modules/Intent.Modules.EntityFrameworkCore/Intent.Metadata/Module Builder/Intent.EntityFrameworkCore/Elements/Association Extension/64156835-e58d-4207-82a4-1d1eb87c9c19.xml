@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="64156835-e58d-4207-82a4-1d1eb87c9c19" type="Association Extension" typeId="41cb9c1a-063e-4ff4-889a-7501235351eb">
+  <name>Generalization Extension</name>
+  <display>Generalization Extension: Generalization</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="8b854ef7-9461-497c-aae1-7e17345a44d5">
+    <typeId>5de35973-3ac7-4e65-b48c-385605aec561</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain</typePackageName>
+    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>78be924b-a4c6-40f9-ac4e-103fd8f17ce0</parentFolderId>
+  <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+  <packageName>Intent.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b93daffb-7690-4880-9fb3-33a802dcbd70" type="Association Source End Extension" typeId="66ec1dcd-a0c3-45ac-ad62-f2d9d7064bb3">
+      <name>[source]</name>
+      <display>[source end extension]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>64156835-e58d-4207-82a4-1d1eb87c9c19</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cd7ee9e-614e-4770-a831-d6cdaa56027c" name="Association End Extension Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e7d1e8c5-6748-4f56-8a92-4f413b598412" display="Display Name" isActive="true" />
+            <property name="f957891b-3aef-48b2-9241-71c8a45a8fbb" display="Hint" isActive="true" />
+            <property name="05d63939-2d01-4b12-8bcf-d6751c7c32b8" display="Target Types" isActive="true" />
+            <property name="ced53770-7796-42de-850e-5cd523e368f9" display="Default Type Id" isActive="true" />
+            <property name="585f6851-b6a5-4d39-9804-256cefcb10ab" display="Allow Navigable" value="Inherit" isActive="true" />
+            <property name="c5da195d-90af-4d23-9a62-6aca60a9b304" display="Allow Nullable" value="Inherit" isActive="true" />
+            <property name="558c27e8-dc8b-40ae-8633-fd42f0077268" display="Allow Collection" value="Inherit" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="65c86a8e-d579-404b-82f7-af8f342b313d" type="Association Target End Extension" typeId="1cc6c731-af5f-41a0-9e82-44486f45b903">
+      <name>[destination]</name>
+      <display>[target end extension]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>64156835-e58d-4207-82a4-1d1eb87c9c19</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cd7ee9e-614e-4770-a831-d6cdaa56027c" name="Association End Extension Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e7d1e8c5-6748-4f56-8a92-4f413b598412" display="Display Name" isActive="true" />
+            <property name="f957891b-3aef-48b2-9241-71c8a45a8fbb" display="Hint" isActive="true" />
+            <property name="05d63939-2d01-4b12-8bcf-d6751c7c32b8" display="Target Types" isActive="true" />
+            <property name="ced53770-7796-42de-850e-5cd523e368f9" display="Default Type Id" isActive="true" />
+            <property name="585f6851-b6a5-4d39-9804-256cefcb10ab" display="Allow Navigable" value="Inherit" isActive="true" />
+            <property name="c5da195d-90af-4d23-9a62-6aca60a9b304" display="Allow Nullable" value="Inherit" isActive="true" />
+            <property name="558c27e8-dc8b-40ae-8633-fd42f0077268" display="Allow Collection" value="Inherit" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="52b2e6ff-c4b4-483b-bb9a-b9ea2b005043" type="Association Event Settings" typeId="1bdee938-8569-4fbf-84b4-8522d2cbee32">
+      <name>[events]</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>64156835-e58d-4207-82a4-1d1eb87c9c19</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="bb1c146e-74f0-4a06-b066-ecc1bc948b04" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cf3b520b-a305-4a72-8c3b-ad34dd792fe8">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>52b2e6ff-c4b4-483b-bb9a-b9ea2b005043</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="// Update class depending on whether it is an aggregate root or not&#xD;&#xA;&#xD;&#xA;const dbSettingsId = &quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;;&#xD;&#xA;const partitionKeyStereotypeId = &quot;3a203a3e-116e-4a7c-b375-e690570efc3f&quot;;&#xD;&#xA;&#xD;&#xA;if (!association.isTargetEnd()) { return; } &#xD;&#xA;&#xD;&#xA;let element = association?.typeReference?.getType(); &#xD;&#xA;&#xD;&#xA;if (!element) { return; } &#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider() || !isAggregateRoot(element) || isBaseClass(element)) { &#xD;&#xA;    element.getChildren(&quot;Attribute&quot;)&#xD;&#xA;        .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))&#xD;&#xA;        .forEach(x =&gt; {&#xD;&#xA;            x.removeStereotype(partitionKeyStereotypeId);&#xD;&#xA;            x.delete();&#xD;&#xA;        });&#xD;&#xA;    return; &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (! (element.getPackage()?.getStereotype(&quot;Cosmos DB Container Settings&quot;)?.getProperty(&quot;Partition Key&quot;))) { return; }&#xD;&#xA;&#xD;&#xA;let partitionKey = element.getPackage().getStereotype(&quot;Cosmos DB Container Settings&quot;).getProperty(&quot;Partition Key&quot;).value;&#xD;&#xA;if (!partitionKey) { &#xD;&#xA;    let namingConvetion = getNamingConvention();&#xD;&#xA;    let defaultPkName = namingConvetion == &quot;pascal-case&quot; ? &quot;PartitionKey&quot; : &quot;partitionKey&quot;;&#xD;&#xA;    partitionKey = defaultPkName;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let attributePartitionKeys = element.getChildren(&quot;Attribute&quot;).filter(x =&gt; x.getName() == partitionKey);&#xD;&#xA;if (attributePartitionKeys.length == 0) { return; }&#xD;&#xA;if (! attributePartitionKeys[0].hasStereotype(partitionKeyStereotypeId)) {&#xD;&#xA;    attributePartitionKeys[0].addStereotype(partitionKeyStereotypeId);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// === FUNCTIONS ===&#xD;&#xA;&#xD;&#xA;function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return ! element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isBaseClass(element) {&#xD;&#xA;    return element.getAssociations(&quot;Generalization&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd());&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getNamingConvention() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        .getField(&quot;Key Naming Convention&quot;)?.value ?? &quot;pascal-case&quot;;&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

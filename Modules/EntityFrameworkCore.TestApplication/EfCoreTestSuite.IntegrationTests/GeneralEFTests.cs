@@ -7,12 +7,17 @@ using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
 public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
 {
-    [Fact(Skip = Helpers.SkipMessage)]
+    public GeneralEFTests(ITestOutputHelper outputHelper) : base(outputHelper)
+    {
+    }
+    
+    [IgnoreOnCiBuildFact]
     public void Test_A_Unidirectional_1_To_0to1_Association()
     {
         var src = new A_RequiredComposite() { Attribute = "test 1" };
@@ -28,7 +33,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.NotNull(owner.A_OptionalDependent);
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_B_Unidirectional_0to1_To_0to1_Association()
     {
         var src = new B_OptionalAggregate() { Attribute = "test 1" };
@@ -54,7 +59,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Null(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.B_OptionalDependentId == dst.Id));
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_C_Unidirectional_1_To_Many_Association()
     {
         var src = new C_RequiredComposite();
@@ -84,7 +89,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         // });
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_D_Unidirectional_0to1_To_Many_Association()
     {
         var src = new D_OptionalAggregate();
@@ -109,7 +114,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(dstList.Count, DbContext.D_MultipleDependents.Count(p => dstList.Contains(p)));
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_E_Bidirectional_1_To_1_Association()
     {
         var src = new E_RequiredCompositeNav() { Attribute = "test 1" };
@@ -137,7 +142,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         });
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_E2_Bidirectional_1_To_1_Association()
     {
         var src = new E2_RequiredCompositeNav() { Attribute = "test 1" };
@@ -166,7 +171,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         });
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_F_Bidirectional_0to1_To_0to1_Association()
     {
         var src = new F_OptionalAggregateNav();
@@ -194,7 +199,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Null(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.F_OptionalAggregateNav);
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_G_Bidirectional_1_To_Many_Association()
     {
         var src = new G_RequiredCompositeNav();
@@ -223,7 +228,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         // });
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_H_Bidirectional_0to1_To_Many_Association()
     {
         var src = new H_OptionalAggregateNav();
@@ -248,7 +253,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(dstList.Count, DbContext.H_MultipleDependents.Count(p => dstList.Contains(p)));
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_J_Unidirectional_Many_To_1_Association()
     {
         var dst = new J_RequiredDependent();
@@ -278,7 +283,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         });
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_K_Unidirectional_Many_To_0to1_Association()
     {
         var root = new K_SelfReference();
@@ -302,7 +307,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => p.K_SelfReferenceAssociationId == root.Id));
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_L_Unidirectional_Many_To_Many_Association()
     {
         var listA = new List<L_SelfReferenceMultiple>
@@ -337,7 +342,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(listB.Count * listC.Count, listC.Sum(x => x.L_SelfReferenceMultiplesDst.Count));
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_M_Bidirectional_Many_To_0to1_Association()
     {
         var root = new M_SelfReferenceBiNav();
@@ -361,7 +366,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(children.Count, root.M_SelfReferenceBiNavs.Count);
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_PK_PrimaryKeyInt()
     {
         var pk = new PK_PrimaryKeyInt();
@@ -371,7 +376,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(1, pk.PrimaryKeyId);
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_PK_PrimaryKeyLong()
     {
         var pk = new PK_PrimaryKeyLong();
@@ -381,7 +386,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(1, pk.PrimaryKeyLong);
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_PK_A_CompositeKeys_FK_A_CompositeForeignKeys()
     {
         var pk = new PK_A_CompositeKey();
@@ -400,7 +405,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(pk.CompositeKeyB, fk.ForeignCompositeKeyB);
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_PK_B_CompositeKeys_FK_B_CompositeForeignKeys()
     {
         var pk = new PK_B_CompositeKey();

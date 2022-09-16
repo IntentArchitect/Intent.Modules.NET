@@ -89,5 +89,49 @@ namespace Intent.Modules.Eventing.MassTransit.Settings
             AzureServiceBus,
             AmazonSqs,
         }
+        public OutboxPatternOptions OutboxPattern() => new OutboxPatternOptions(_groupSettings.GetSetting("52006faf-54dc-4b4c-8251-284cdaef7b89")?.Value);
+
+        public class OutboxPatternOptions
+        {
+            public readonly string Value;
+
+            public OutboxPatternOptions(string value)
+            {
+                Value = value;
+            }
+
+            public OutboxPatternOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "none" => OutboxPatternOptionsEnum.None,
+                    "in-memory" => OutboxPatternOptionsEnum.InMemory,
+                    "entity-framework" => OutboxPatternOptionsEnum.EntityFramework,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsNone()
+            {
+                return Value == "none";
+            }
+
+            public bool IsInMemory()
+            {
+                return Value == "in-memory";
+            }
+
+            public bool IsEntityFramework()
+            {
+                return Value == "entity-framework";
+            }
+        }
+
+        public enum OutboxPatternOptionsEnum
+        {
+            None,
+            InMemory,
+            EntityFramework,
+        }
     }
 }

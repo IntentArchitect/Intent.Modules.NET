@@ -21,21 +21,15 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         {
         }
 
-        protected override FileAddedData GetFileAddedDataP(IDictionary<string, string> input)
+        protected override FileAddedData GetFileAddedDataProtected(IDictionary<string, string> input)
         {
-            if (!input.ContainsKey(CustomMetadataKeys.ItemType) && 
-                input.ContainsKey("ExcludeFromProject"))
-            {
-                input[CustomMetadataKeys.ItemType] = "None";
-            }
-
             if (!input.ContainsKey(CustomMetadataKeys.ItemType) &&
                 ".sql".Equals(Path.GetExtension(input["Path"]), StringComparison.OrdinalIgnoreCase))
             {
                 input[CustomMetadataKeys.ItemType] = "Build";
             }
 
-            return base.GetFileAddedDataP(input);
+            return base.GetFileAddedDataProtected(input);
         }
 
         protected override void AddProjectItem(ProjectFileXml xml, string path, FileAddedData fileAddedData)

@@ -6,6 +6,7 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
@@ -28,57 +29,65 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             _sfEventDispatcher = sfEventDispatcher;
         }
 
-        public void OnStep(IApplication application, string step)
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
-            switch (step)
+            application.EventDispatcher.Subscribe<VisualStudioProjectCreatedEvent>(@event => _projectTemplates.Add(@event.TemplateInstance));
+            base.OnBeforeTemplateRegistrations(application);
+        }
+
+        protected override void OnAfterTemplateExecution(IApplication application)
+        {
+            foreach (var template in _projectTemplates)
             {
-                case ExecutionLifeCycleSteps.BeforeTemplateRegistrations:
-                    application.EventDispatcher.Subscribe<VisualStudioProjectCreatedEvent>(@event => _projectTemplates.Add(@event.TemplateInstance));
-                    break;
-                case ExecutionLifeCycleSteps.AfterTemplateExecution:
-                    foreach (var template in _projectTemplates)
+                var doc = XDocument.Parse(template.LoadContent());
+                if (doc.ResolveProjectScheme() != VisualStudioProjectScheme.Lean)
+                {
+                    continue;
+                }
+
+                var hasChange = false;
+
+                hasChange |= SyncFrameworks(doc, template);
+
+                var netCoreSettings = template.Project.GetNETCoreSettings();
+                if (netCoreSettings != null)
+                {
+                    hasChange |= SyncProperty(doc, "Configurations", netCoreSettings.Configurations());
+                    hasChange |= SyncProperty(doc, "RuntimeIdentifiers", netCoreSettings.RuntimeIdentifiers());
+                    hasChange |= SyncProperty(doc, "UserSecretsId", netCoreSettings.UserSecretsId());
+                    hasChange |= SyncProperty(doc, "RootNamespace", netCoreSettings.RootNamespace());
+                    hasChange |= SyncProperty(doc, "AssemblyName", netCoreSettings.AssemblyName());
+                    hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netCoreSettings.GenerateRuntimeConfigurationFiles().Value);
+                    hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netCoreSettings.GenerateDocumentationFile().Value);
+                }
+
+                var projectOptions = template.Project.GetCSharpProjectOptions();
+                if (projectOptions != null)
+                {
+                    var langVersionValue = projectOptions.LanguageVersion().IsDefault()
+                        ? null
+                        : projectOptions.LanguageVersion().Value;
+
+                    var nullableValue = projectOptions.NullableEnabledNew().Value switch
                     {
-                        var doc = XDocument.Parse(template.LoadContent());
-                        if (doc.ResolveProjectScheme() != VisualStudioProjectScheme.Lean)
-                        {
-                            continue;
-                        }
+                        "false" => "disable",
+                        "true" => "enabled",
+                        _ => null
+                    };
 
-                        var hasChange = false;
+                    hasChange |= SyncProperty(doc, "LangVersion", langVersionValue, removeIfNullOrEmpty: true);
+                    hasChange |= SyncProperty(doc, "Nullable", nullableValue);
+                }
 
-                        hasChange |= SyncFrameworks(doc, template);
+                if (!hasChange)
+                {
+                    continue;
+                }
 
-                        var netCoreSettings = template.Project.GetNETCoreSettings();
-                        if (netCoreSettings != null)
-                        {
-                            hasChange |= SyncProperty(doc, "Configurations", netCoreSettings.Configurations());
-                            hasChange |= SyncProperty(doc, "RuntimeIdentifiers", netCoreSettings.RuntimeIdentifiers());
-                            hasChange |= SyncProperty(doc, "UserSecretsId", netCoreSettings.UserSecretsId());
-                            hasChange |= SyncProperty(doc, "RootNamespace", netCoreSettings.RootNamespace());
-                            hasChange |= SyncProperty(doc, "AssemblyName", netCoreSettings.AssemblyName());
-                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netCoreSettings.GenerateRuntimeConfigurationFiles().Value);
-                            hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netCoreSettings.GenerateDocumentationFile().Value);
-                        }
-
-                        var projectOptions = template.Project.GetCSharpProjectOptions();
-                        if (projectOptions != null)
-                        {
-                            hasChange |= SyncProperty(doc, "LangVersion", projectOptions.LanguageVersion().IsDefault()
-                                ? null
-                                : projectOptions.LanguageVersion().Value);
-                            hasChange |= SyncProperty(doc, "Nullable", projectOptions.NullableEnabled() ? "enable" : null);
-                        }
-
-                        if (!hasChange)
-                        {
-                            continue;
-                        }
-
-                        template.UpdateContent(doc.ToFormattedProjectString(), _sfEventDispatcher);
-                    }
-
-                    break;
+                template.UpdateContent(doc.ToFormattedProjectString(), _sfEventDispatcher);
             }
+
+            base.OnAfterTemplateExecution(application);
         }
 
         /// <summary>
@@ -122,12 +131,13 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         }
 
         /// <returns>True if there was a change.</returns>
-        private static bool SyncProperty(XDocument doc, string propertyName, string value)
+        private static bool SyncProperty(XDocument doc, string propertyName, string value, bool removeIfNullOrEmpty = false)
         {
             var element = GetPropertyGroupElement(doc, propertyName);
             if (string.IsNullOrWhiteSpace(value))
             {
-                if (element == null)
+                if (!removeIfNullOrEmpty ||
+                    element == null)
                 {
                     return false;
                 }

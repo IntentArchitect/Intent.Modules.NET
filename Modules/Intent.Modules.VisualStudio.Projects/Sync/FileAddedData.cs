@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Intent.Modules.Common.CSharp.VisualStudio;
 
 namespace Intent.Modules.VisualStudio.Projects.Sync
 {
@@ -10,6 +11,6 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         public string ItemType { get; set; }
 
-        public bool AlwaysGenerateProjectItem { get; set; }
+        public MsBuildFileItemGenerationBehaviour? MsBuildFileItemGenerationBehaviour { get; set; }
     }
 }

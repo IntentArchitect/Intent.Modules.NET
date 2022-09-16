@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.2" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack" version="3.3.7" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -62,12 +62,6 @@
     <application id="37e998f1-a36d-4036-a5af-f4c126280df0" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture/Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.CleanArchitecture.application.config" />
     <application id="9f716012-fac8-4345-916f-20f06cd58527" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer/Intent.ApplicationTemplates.NET.Metadata.AspNetCore6.0.IdentityServer.application.config" />
     <application id="cf054ca4-89ca-4c22-8bbe-3f15409ae0ec" name="Intent.Modules.AspNetCore.Logging.Serilog" relativePath="Intent.Modules.AspNetCore.Logging.Serilog/Intent.Modules.AspNetCore.Logging.Serilog.application.config" />
-    <application id="9c8d451f-373a-4c17-b74d-12489ffcd7e3" name="EntityFrameworkCore.TestApplication" relativePath="EntityFrameworkCore.TestApplication/EntityFrameworkCore.TestApplication.application.config" />
-    <application id="918c64eb-2d32-404f-adac-97e76c885346" name="EntityFrameworkCore.TPH.TestApplication" relativePath="EntityFrameworkCore.TPH.TestApplication/EntityFrameworkCore.TPH.TestApplication.application.config" />
-    <application id="61d32320-3962-403d-95b3-fd5d486d1822" name="EntityFrameworkCore.TPT.TestApplication" relativePath="EntityFrameworkCore.TPT.TestApplication/EntityFrameworkCore.TPT.TestApplication.application.config" />
-    <application id="e184c209-f4ce-4ca3-850e-5cf2a2232c28" name="EntityFrameworkCore.TPC.TestApplication" relativePath="EntityFrameworkCore.TPC.TestApplication/EntityFrameworkCore.TPC.TestApplication.application.config" />
-    <application id="e4d11b2e-4e93-4ecc-b85c-d290412beaf4" name="EntityFrameworkCore.ExplicitKeyCreation.TestApplication" relativePath="EntityFrameworkCore.ExplicitKeyCreation.TestApplication/EntityFrameworkCore.ExplicitKeyCreation.TestApplication.application.config" />
-    <application id="454aab6f-4c66-40ee-8b77-02dcd82f4040" name="EntityFrameworkCore.Repositories.TestApplication" relativePath="EntityFrameworkCore.Repositories.TestApplication/EntityFrameworkCore.Repositories.TestApplication.application.config" />
     <application id="b43e280b-5711-433f-87d1-ba8bba65465c" name="Intent.Modules.Application.ServiceImplementations" relativePath="Intent.Modules.Application.ServiceImplementations/Intent.Modules.Application.ServiceImplementations.application.config" />
     <application id="411531a2-eb34-4b48-b722-ffd07f1ede61" name="Intent.Modules.AzureFunctions" relativePath="Intent.Modules.AzureFunctions/Intent.Modules.AzureFunctions.application.config" />
     <application id="1a48b51c-571c-45e5-964a-bd434271a742" name="Intent.Modules.AzureFunctions.Interop.Contracts" relativePath="Intent.Modules.AzureFunctions.Interop.Contracts/Intent.Modules.AzureFunctions.Interop.Contracts.application.config" />
@@ -86,8 +80,7 @@
     <application id="b989913b-9bcd-478b-9134-e53553efd5f8" name="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore" relativePath="Intent.Modules.Eventing.MassTransit.EntityFrameworkCore/Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.application.config" />
     <application id="2ca84b5f-bb9f-4c13-8d89-a89a4d4c29c8" name="Intent.Modules.Eventing.MassTransit.AspNetCore" relativePath="Intent.Modules.Eventing.MassTransit.AspNetCore/Intent.Modules.Eventing.MassTransit.AspNetCore.application.config" />
     <application id="0caf7d78-4503-409b-80fd-83da44a6b855" name="Intent.Modules.Eventing.MassTransit.MediatR" relativePath="Intent.Modules.Eventing.MassTransit.MediatR/Intent.Modules.Eventing.MassTransit.MediatR.application.config" />
-    <application id="06df51fb-6745-4f57-a945-31d87e6d5df3" name="Intent.Modules.Eventing.MassTransit.OutboxPattern" relativePath="Intent.Modules.Eventing.MassTransit.OutboxPattern/Intent.Modules.Eventing.MassTransit.OutboxPattern.application.config" />
     <application id="e3d5f673-e092-4556-bd5f-6a67ecc23233" name="Intent.Modules.Application.Contracts.Clients" relativePath="Intent.Modules.Application.Contracts.Clients/Intent.Modules.Application.Contracts.Clients.application.config" />
-    <application id="c2922c7f-3b25-49b8-a6fc-07342215ad94" name="Intent.Modules.ServiceProxies" relativePath="Intent.Modules.ServiceProxies/Intent.Modules.ServiceProxies.application.config" />
+    <application id="33b7e4f8-9dd8-4db5-8a97-d9bb549f9ecc" name="Intent.Modules.Integration.HttpClients" relativePath="Intent.Modules.Integration.HttpClients/Intent.Modules.Integration.HttpClients.application.config" />
   </applications>
 </solution>

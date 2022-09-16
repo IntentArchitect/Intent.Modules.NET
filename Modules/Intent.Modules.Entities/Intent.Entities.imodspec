@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
   <version>3.4.0-pre.0</version>
@@ -51,21 +51,21 @@
   <interoperability>
     <detect id="Intent.EntityFramework">
       <install>
-        <package id="Intent.Entities.Keys" version="3.3.8" />
+        <package id="Intent.Entities.Keys" version="3.3.9" />
       </install>
     </detect>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Entities.Keys" version="3.3.8" />
+        <package id="Intent.Entities.Keys" version="3.3.9" />
       </install>
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.10" />
-    <dependency id="Intent.Common.CSharp" version="3.3.16" />
-    <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.Modelers.Domain" version="3.3.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
+    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.Common.CSharp" version="3.3.18" />
+    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.Modelers.Domain" version="3.3.7" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

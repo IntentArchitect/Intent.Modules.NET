@@ -186,6 +186,23 @@ resultDto.setMapping(entity.id);
 
     await setOperationStereotype(operation, entity);
 
+    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let pkTypeId;
+    switch (true) {
+        case pks.length == 0:
+            pkTypeId = getSurrogateKeyType();
+            operation.getStereotype("Azure Function").getProperty("Return Type Mediatype").setValue("application/json");
+            break;
+        case pks.length == 1:
+            pkTypeId = pks[0].typeReference?.typeId ?? getSurrogateKeyType();
+            operation.getStereotype("Azure Function").getProperty("Return Type Mediatype").setValue("application/json");
+            break;
+        case pks.length &gt; 1:
+            pkTypeId = null;
+            break;
+    }
+    operation.typeReference.setType(pkTypeId);
+
     operation.collapse();
 }
 
@@ -473,6 +490,23 @@ resultDto.setMapping(entity.id);
     operationParameter.typeReference.setType(dto.id);
 
     await setOperationStereotype(operation, entity);
+
+    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let pkTypeId;
+    switch (true) {
+        case pks.length == 0:
+            pkTypeId = getSurrogateKeyType();
+            operation.getStereotype("Azure Function").getProperty("Return Type Mediatype").setValue("application/json");
+            break;
+        case pks.length == 1:
+            pkTypeId = pks[0].typeReference?.typeId ?? getSurrogateKeyType();
+            operation.getStereotype("Azure Function").getProperty("Return Type Mediatype").setValue("application/json");
+            break;
+        case pks.length &gt; 1:
+            pkTypeId = null;
+            break;
+    }
+    operation.typeReference.setType(pkTypeId);
 
     operation.collapse();
 }

@@ -3,12 +3,17 @@ using System.Linq;
 using EfCoreTestSuite.TPC.IntentGenerated.Core;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
 public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
 {
-    [Fact(Skip = Helpers.SkipMessage)]
+    public InheritanceTPCTests(ITestOutputHelper outputHelper) : base(outputHelper)
+    {
+    }
+    
+    [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_ConcreteBaseClass()
     {
         var test = new DerivedClassForConcrete();
@@ -21,7 +26,7 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(test, DbContext.DerivedClassForConcretes.SingleOrDefault(p => p.BaseAttribute == test.BaseAttribute && p.DerivedAttribute == test.DerivedAttribute));
     }
     
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_AbstractBaseClass()
     {
         var test = new DerivedClassForAbstract();
@@ -33,7 +38,7 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(test, DbContext.DerivedClassForAbstracts.SingleOrDefault(p => p.BaseAttribute == test.BaseAttribute && p.DerivedAttribute == test.DerivedAttribute));
     }
 
-    [Fact(Skip = Helpers.SkipMessage)]
+    [IgnoreOnCiBuildFact]
     public void Test_Inheritance_CompositeForeignKey()
     {
         var derived = new FkDerivedClass();

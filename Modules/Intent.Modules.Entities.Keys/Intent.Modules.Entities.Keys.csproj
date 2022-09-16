@@ -12,28 +12,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Decorators\ForeignKeyEntityInterfaceDecorator.cs" />
-    <Compile Remove="Decorators\ForeignKeyEntityInterfaceDecoratorRegistration.cs" />
-    <Compile Remove="Decorators\ForeignKeyEntityStateDecorator.cs" />
-    <Compile Remove="Decorators\ForeignKeyEntityStateDecoratorRegistration.cs" />
-    <Compile Remove="Decorators\SurrogatePrimaryKeyEntityStateDecorator.cs" />
-    <Compile Remove="Decorators\SurrogatePrimaryKeyEntityStateDecoratorRegistration.cs" />
-    <Compile Remove="Decorators\SurrogatePrimaryKeyInterfaceDecorator.cs" />
-    <Compile Remove="Decorators\SurrogatePrimaryKeyInterfaceDecoratorRegistration.cs" />
-    <Compile Remove="Decorators\UnidirectionalManyToManyEntityStateDecorator.cs" />
-    <Compile Remove="Decorators\UnidirectionalManyToManyEntityStateDecoratorRegistration.cs" />
-    <Compile Remove="Decorators\ZeroOrOneToZeroOrOneEntityStateDecorator.cs" />
-    <Compile Remove="Decorators\ZeroOrOneToZeroOrOneEntityStateDecoratorRegistration.cs" />
-    <Compile Remove="FactoryExtensions\DomainEntityKeysExtension.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.5" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.8" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,11 +45,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>IdentityGeneratorTemplate.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Decorators\" />
-    <Folder Include="FactoryExtensions\" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
   <version>3.4.0-pre.0</version>
@@ -49,28 +49,28 @@
     </detect>
     <detect id="Intent.DomainEvents">
       <install>
-        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.3.7" />
+        <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.3.9" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.10" />
-        <package id="Intent.AspNetCore.Interop.EntityFrameworkCore" version="3.3.1" />
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.12" />
+        <package id="Intent.AspNetCore.Interop.EntityFrameworkCore" version="3.3.3" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.10" />
+        <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.12" />
       </install>
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.9" />
-    <dependency id="Intent.Common.CSharp" version="3.3.16" />
-    <dependency id="Intent.Common.Types" version="3.3.4" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.3.5" />
-    <dependency id="Intent.Modelers.Domain" version="3.3.5" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.2" />
+    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.Common.CSharp" version="3.3.18" />
+    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.3.8" />
+    <dependency id="Intent.Modelers.Domain" version="3.3.7" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

@@ -6,18 +6,34 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.17" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.8-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\JsonResponse\JsonResponseTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JsonResponseTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\JsonResponse\JsonResponseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -154,6 +154,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#6be4e869-4171-4d7f-babf-4163b0a5de0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/JsonResponse/JsonResponseTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/JsonResponse/JsonResponseTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#6be4e869-4171-4d7f-babf-4163b0a5de0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/JsonResponse/JsonResponseTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/JsonResponse/JsonResponseTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6be4e869-4171-4d7f-babf-4163b0a5de0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/JsonResponse/JsonResponseTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/JsonResponse/JsonResponseTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#6be4e869-4171-4d7f-babf-4163b0a5de0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ReturnTypes/JsonResponse/JsonResponseTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ReturnTypes/JsonResponse/JsonResponseTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#a8bb8b25-bd0b-4ebb-b78e-f6c328430707</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplate.cs</ApplicationRelativeFilePath>

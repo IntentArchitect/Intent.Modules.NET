@@ -29,12 +29,12 @@
   <factoryExtensions></factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.11" />
-    <dependency id="Intent.Common.CSharp" version="3.3.17" />
-    <dependency id="Intent.Common.Types" version="3.3.5" />
-    <dependency id="Intent.EntityFrameworkCore" version="3.3.12" />
-    <dependency id="Intent.Infrastructure.DependencyInjection" version="3.3.7" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.3.7" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.6" />
+    <dependency id="Intent.Common.CSharp" version="3.3.18" />
+    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.EntityFrameworkCore" version="3.3.14" />
+    <dependency id="Intent.Infrastructure.DependencyInjection" version="3.3.8" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.3.8" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

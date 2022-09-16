@@ -1,0 +1,116 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceProxiesConfigurationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ServiceProxyClient\ServiceProxyClientTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceProxyClientTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ApiException\ApiExceptionTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiExceptionTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\HttpRequestException\HttpRequestExceptionTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HttpRequestExceptionTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\RequestHttpException\RequestHttpExceptionTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RequestHttpExceptionTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\HttpClient\HttpClientTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HttpClientTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HttpClientConfigurationTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\HttpClientRequestException\HttpClientRequestExceptionTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HttpClientRequestExceptionTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\JsonResponse\JsonResponseTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JsonResponseTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\ServiceProxiesConfiguration\ServiceProxiesConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceProxiesConfigurationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ServiceProxyClient\ServiceProxyClientTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceProxyClientTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ApiException\ApiExceptionTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiExceptionTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\HttpRequestException\HttpRequestExceptionTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HttpRequestExceptionTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\RequestHttpException\RequestHttpExceptionTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RequestHttpExceptionTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\HttpClient\HttpClientTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HttpClientTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HttpClientConfigurationTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\HttpClientRequestException\HttpClientRequestExceptionTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HttpClientRequestExceptionTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\JsonResponse\JsonResponseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.4" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="3.3.3" />
+    <PackageReference Include="Intent.Packager" Version="3.3.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Application.Contracts.Clients\Intent.Modules.Application.Contracts.Clients.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>
