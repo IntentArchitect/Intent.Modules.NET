@@ -8,17 +8,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IM_SelfReferenceBiNav
+    public interface IM_SelfReferenceBiNav
     {
+        IM_SelfReferenceBiNav M_SelfReferenceBiNavDst { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
-        Guid? M_SelfReferenceBiNavDstId { get; }
-        M_SelfReferenceBiNav M_SelfReferenceBiNavDst { get; set; }
-
-        ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        ICollection<IM_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
 
     }
 }

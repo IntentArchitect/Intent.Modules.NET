@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class D_OptionalAggregate
+    public partial class D_OptionalAggregate : ID_OptionalAggregate
     {
 
     }

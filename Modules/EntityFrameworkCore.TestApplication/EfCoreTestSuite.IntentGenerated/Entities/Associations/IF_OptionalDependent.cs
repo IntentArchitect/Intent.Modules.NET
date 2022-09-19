@@ -8,14 +8,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IF_OptionalDependent
+    public interface IF_OptionalDependent
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
-        F_OptionalAggregateNav F_OptionalAggregateNav { get; set; }
+        IF_OptionalAggregateNav F_OptionalAggregateNav { get; set; }
 
     }
 }

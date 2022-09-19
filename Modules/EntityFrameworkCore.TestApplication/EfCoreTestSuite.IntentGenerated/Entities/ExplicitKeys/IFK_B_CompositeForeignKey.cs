@@ -8,18 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 {
 
-    public partial interface IFK_B_CompositeForeignKey
+    public interface IFK_B_CompositeForeignKey
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         Guid PK_CompositeKeyCompositeKeyA { get; set; }
 
         Guid PK_CompositeKeyCompositeKeyB { get; set; }
 
-        PK_B_CompositeKey PK_CompositeKey { get; set; }
+        IPK_B_CompositeKey PK_CompositeKey { get; set; }
 
     }
 }

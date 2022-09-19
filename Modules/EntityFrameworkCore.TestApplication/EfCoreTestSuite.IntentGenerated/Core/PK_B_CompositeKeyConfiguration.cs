@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<PK_B_CompositeKey> builder)
         {
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
-
-
         }
     }
 }

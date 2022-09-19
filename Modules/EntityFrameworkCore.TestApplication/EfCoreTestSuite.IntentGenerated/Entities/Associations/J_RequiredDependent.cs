@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class J_RequiredDependent
+    public partial class J_RequiredDependent : IJ_RequiredDependent
     {
 
     }

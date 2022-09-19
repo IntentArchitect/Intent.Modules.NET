@@ -8,12 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IJ_RequiredDependent
+    public interface IJ_RequiredDependent
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
     }
 }

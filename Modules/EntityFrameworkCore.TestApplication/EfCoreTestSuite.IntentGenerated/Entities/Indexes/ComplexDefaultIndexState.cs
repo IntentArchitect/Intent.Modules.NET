@@ -11,42 +11,15 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 
     public partial class ComplexDefaultIndex : IComplexDefaultIndex
     {
-        public ComplexDefaultIndex()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private Guid _fieldA;
+        public Guid Id
+        { get; set; }
 
         public Guid FieldA
-        {
-            get { return _fieldA; }
-            set
-            {
-                _fieldA = value;
-            }
-        }
-
-        private Guid _fieldB;
+        { get; set; }
 
         public Guid FieldB
-        {
-            get { return _fieldB; }
-            set
-            {
-                _fieldB = value;
-            }
-        }
+        { get; set; }
 
     }
 }

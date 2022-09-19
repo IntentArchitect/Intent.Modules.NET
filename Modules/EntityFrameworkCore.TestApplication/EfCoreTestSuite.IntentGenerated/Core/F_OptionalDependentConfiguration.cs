@@ -15,8 +15,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<F_OptionalDependent> builder)
         {
             builder.HasKey(x => x.Id);
-
-
         }
     }
 }

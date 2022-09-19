@@ -11,31 +11,12 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 
     public partial class CustomIndex : ICustomIndex
     {
-        public CustomIndex()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private Guid _indexField;
+        public Guid Id
+        { get; set; }
 
         public Guid IndexField
-        {
-            get { return _indexField; }
-            set
-            {
-                _indexField = value;
-            }
-        }
+        { get; set; }
 
     }
 }

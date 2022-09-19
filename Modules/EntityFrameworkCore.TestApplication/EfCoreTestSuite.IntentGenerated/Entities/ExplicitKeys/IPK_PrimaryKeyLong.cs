@@ -8,9 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 {
 
-    public partial interface IPK_PrimaryKeyLong
+    public interface IPK_PrimaryKeyLong
     {
-
         long PrimaryKeyLong { get; set; }
 
     }

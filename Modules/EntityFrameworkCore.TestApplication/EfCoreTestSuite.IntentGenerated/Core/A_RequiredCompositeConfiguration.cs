@@ -19,14 +19,12 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.Property(x => x.Attribute)
                 .IsRequired();
 
-
             builder.OwnsOne(x => x.A_OptionalDependent, ConfigureA_OptionalDependent);
-
         }
 
         public void ConfigureA_OptionalDependent(OwnedNavigationBuilder<A_RequiredComposite, A_OptionalDependent> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.WithOwner();
 
             builder.Property(x => x.Attribute)
                 .IsRequired();

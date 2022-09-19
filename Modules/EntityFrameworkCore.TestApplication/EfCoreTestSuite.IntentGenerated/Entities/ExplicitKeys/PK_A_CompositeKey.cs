@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class PK_A_CompositeKey
+    public partial class PK_A_CompositeKey : IPK_A_CompositeKey
     {
 
     }

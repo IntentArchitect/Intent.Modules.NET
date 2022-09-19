@@ -11,31 +11,9 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class A_OptionalDependent : IA_OptionalDependent
     {
-        public A_OptionalDependent()
-        {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _attribute;
 
         public string Attribute
-        {
-            get { return _attribute; }
-            set
-            {
-                _attribute = value;
-            }
-        }
+        { get; set; }
 
 
     }

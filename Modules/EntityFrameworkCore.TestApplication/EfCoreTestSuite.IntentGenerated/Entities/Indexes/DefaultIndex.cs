@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class DefaultIndex
+    public partial class DefaultIndex : IDefaultIndex
     {
 
     }

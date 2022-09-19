@@ -10,21 +10,9 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 
     public partial class PK_PrimaryKeyInt : IPK_PrimaryKeyInt
     {
-        public PK_PrimaryKeyInt()
-        {
-        }
-
-
-        private int _primaryKeyId;
 
         public int PrimaryKeyId
-        {
-            get { return _primaryKeyId; }
-            set
-            {
-                _primaryKeyId = value;
-            }
-        }
+        { get; set; }
 
     }
 }

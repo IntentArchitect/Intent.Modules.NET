@@ -8,13 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 {
 
-    public partial interface IComplexDefaultIndex
+    public interface IComplexDefaultIndex
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         Guid FieldA { get; set; }
 
         Guid FieldB { get; set; }

@@ -11,35 +11,20 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class K_SelfReference : IK_SelfReference
     {
-        public K_SelfReference()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public Guid Id
+        { get; set; }
 
 
         public Guid? K_SelfReferenceAssociationId { get; set; }
-        private K_SelfReference _k_SelfReferenceAssociation;
 
         public virtual K_SelfReference K_SelfReferenceAssociation
+        { get; set; }
+
+        IK_SelfReference IK_SelfReference.K_SelfReferenceAssociation
         {
-            get
-            {
-                return _k_SelfReferenceAssociation;
-            }
-            set
-            {
-                _k_SelfReferenceAssociation = value;
-            }
+            get => K_SelfReferenceAssociation;
+            set => K_SelfReferenceAssociation = (K_SelfReference)value;
         }
 
 

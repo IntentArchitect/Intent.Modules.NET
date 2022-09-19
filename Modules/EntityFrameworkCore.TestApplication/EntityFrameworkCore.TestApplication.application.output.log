@@ -259,7 +259,7 @@
     <FileLog>
       <ProjectId>bf8f742b-f7e7-41f7-b825-84f886e15074</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#bf8f742b-f7e7-41f7-b825-84f886e15074</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/EfCoreTestSuite.IntentGenerated.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfCoreTestSuite.IntentGenerated.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -770,6 +770,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionWrapper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/CollectionWrapper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionWrapper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#6825bb11-6c60-41fe-902c-e754a85071ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/E2_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
@@ -942,14 +950,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/PK_PrimaryKeyLongState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/PK_PrimaryKeyLongState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
-      <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/IdentityGenerator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

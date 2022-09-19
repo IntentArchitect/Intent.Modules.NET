@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using EfCoreTestSuite.IntentGenerated.Entities;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,49 +12,29 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class M_SelfReferenceBiNav : IM_SelfReferenceBiNav
     {
-        public M_SelfReferenceBiNav()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public Guid Id
+        { get; set; }
 
 
         public Guid? M_SelfReferenceBiNavDstId { get; set; }
-        private M_SelfReferenceBiNav _m_SelfReferenceBiNavDst;
 
         public virtual M_SelfReferenceBiNav M_SelfReferenceBiNavDst
+        { get; set; }
+
+        IM_SelfReferenceBiNav IM_SelfReferenceBiNav.M_SelfReferenceBiNavDst
         {
-            get
-            {
-                return _m_SelfReferenceBiNavDst;
-            }
-            set
-            {
-                _m_SelfReferenceBiNavDst = value;
-            }
+            get => M_SelfReferenceBiNavDst;
+            set => M_SelfReferenceBiNavDst = (M_SelfReferenceBiNav)value;
         }
 
-        private ICollection<M_SelfReferenceBiNav> _m_SelfReferenceBiNavs;
-
         public virtual ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs
+        { get; set; } = new List<M_SelfReferenceBiNav>();
+
+        ICollection<IM_SelfReferenceBiNav> IM_SelfReferenceBiNav.M_SelfReferenceBiNavs
         {
-            get
-            {
-                return _m_SelfReferenceBiNavs ?? (_m_SelfReferenceBiNavs = new List<M_SelfReferenceBiNav>());
-            }
-            set
-            {
-                _m_SelfReferenceBiNavs = value;
-            }
+            get => M_SelfReferenceBiNavs.CreateWrapper<IM_SelfReferenceBiNav, M_SelfReferenceBiNav>();
+            set => M_SelfReferenceBiNavs = value.Cast<M_SelfReferenceBiNav>().ToList();
         }
 
 

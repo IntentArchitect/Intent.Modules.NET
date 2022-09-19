@@ -11,35 +11,20 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class J_MultipleAggregate : IJ_MultipleAggregate
     {
-        public J_MultipleAggregate()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public Guid Id
+        { get; set; }
 
 
         public Guid J_RequiredDependentId { get; set; }
-        private J_RequiredDependent _j_RequiredDependent;
 
         public virtual J_RequiredDependent J_RequiredDependent
+        { get; set; }
+
+        IJ_RequiredDependent IJ_MultipleAggregate.J_RequiredDependent
         {
-            get
-            {
-                return _j_RequiredDependent;
-            }
-            set
-            {
-                _j_RequiredDependent = value;
-            }
+            get => J_RequiredDependent;
+            set => J_RequiredDependent = (J_RequiredDependent)value;
         }
 
 

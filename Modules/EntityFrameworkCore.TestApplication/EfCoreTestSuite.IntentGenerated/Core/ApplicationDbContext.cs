@@ -48,20 +48,11 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
         public DbSet<StereotypeIndex> StereotypeIndexes { get; set; }
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
@@ -90,7 +81,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
             modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
-
         }
 
         [IntentManaged(Mode.Ignore)]

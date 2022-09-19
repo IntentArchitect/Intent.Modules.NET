@@ -48,18 +48,6 @@
     </template>
   </templates>
   <decorators></decorators>
-  <interoperability>
-    <detect id="Intent.EntityFramework">
-      <install>
-        <package id="Intent.Entities.Keys" version="3.3.9" />
-      </install>
-    </detect>
-    <detect id="Intent.EntityFrameworkCore">
-      <install>
-        <package id="Intent.Entities.Keys" version="3.3.9" />
-      </install>
-    </detect>
-  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.11" />
     <dependency id="Intent.Common.CSharp" version="3.3.18" />

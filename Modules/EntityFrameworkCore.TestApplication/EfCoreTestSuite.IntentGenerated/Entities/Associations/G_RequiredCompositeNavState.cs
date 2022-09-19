@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using EfCoreTestSuite.IntentGenerated.Entities;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,33 +12,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class G_RequiredCompositeNav : IG_RequiredCompositeNav
     {
-        public G_RequiredCompositeNav()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private ICollection<G_MultipleDependent> _g_MultipleDependents;
+        public Guid Id
+        { get; set; }
 
         public virtual ICollection<G_MultipleDependent> G_MultipleDependents
+        { get; set; } = new List<G_MultipleDependent>();
+
+        ICollection<IG_MultipleDependent> IG_RequiredCompositeNav.G_MultipleDependents
         {
-            get
-            {
-                return _g_MultipleDependents ?? (_g_MultipleDependents = new List<G_MultipleDependent>());
-            }
-            set
-            {
-                _g_MultipleDependents = value;
-            }
+            get => G_MultipleDependents.CreateWrapper<IG_MultipleDependent, G_MultipleDependent>();
+            set => G_MultipleDependents = value.Cast<G_MultipleDependent>().ToList();
         }
 
 

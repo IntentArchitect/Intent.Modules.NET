@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class F_OptionalAggregateNav
+    public partial class F_OptionalAggregateNav : IF_OptionalAggregateNav
     {
 
     }

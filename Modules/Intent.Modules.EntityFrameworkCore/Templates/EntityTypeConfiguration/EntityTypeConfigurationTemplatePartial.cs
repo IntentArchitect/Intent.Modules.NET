@@ -417,8 +417,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
                             method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")};");
-                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                            method.AddStatement(@$"builder.WithOwner({
+                                (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")
+                            });");
+                            //}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")}; ");
+                        method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
                         });
                         statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
@@ -473,7 +476,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         break;
                     }
                 case RelationshipType.OneToMany:
-                    if (IsOwned(associationEnd.Element))
                     {
                         if (IsOwned(associationEnd.Element))
                         {
@@ -717,7 +719,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
             else // implicit Id
             {
-                columns = new[] { new RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id") };
+                columns = new[] { new RequiredColumn(Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id") };
             }
 
             if (columns?.Length == 1)

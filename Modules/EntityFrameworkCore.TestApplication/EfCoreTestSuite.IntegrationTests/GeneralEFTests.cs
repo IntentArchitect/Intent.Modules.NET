@@ -395,14 +395,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
         DbContext.PK_A_CompositeKeys.Add(pk);
 
         var fk = new FK_A_CompositeForeignKey();
-        fk.PK_CompositeKey = pk;
+        fk.PK_A_CompositeKey = pk;
         DbContext.FK_A_CompositeForeignKeys.Add(fk);
 
         DbContext.SaveChanges();
 
-        Assert.Equal(pk, fk.PK_CompositeKey);
-        Assert.Equal(pk.CompositeKeyA, fk.ForeignCompositeKeyA);
-        Assert.Equal(pk.CompositeKeyB, fk.ForeignCompositeKeyB);
+        Assert.Equal(pk, fk.PK_A_CompositeKey);
+        Assert.Equal(pk.CompositeKeyA, fk.PK_A_CompositeKeyCompositeKeyA);
+        Assert.Equal(pk.CompositeKeyB, fk.PK_A_CompositeKeyCompositeKeyB);
     }
 
     [IgnoreOnCiBuildFact]

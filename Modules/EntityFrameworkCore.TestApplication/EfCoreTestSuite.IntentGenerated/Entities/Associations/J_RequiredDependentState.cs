@@ -11,20 +11,9 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class J_RequiredDependent : IJ_RequiredDependent
     {
-        public J_RequiredDependent()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public Guid Id
+        { get; set; }
 
 
     }

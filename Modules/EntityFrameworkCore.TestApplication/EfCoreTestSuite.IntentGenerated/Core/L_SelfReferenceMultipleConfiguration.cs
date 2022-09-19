@@ -16,11 +16,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
-
             builder.HasMany(x => x.L_SelfReferenceMultiplesDst)
                 .WithMany("L_SelfReferenceMultiplesSrc")
                 .UsingEntity(x => x.ToTable("L_SelfReferenceMultipleL_SelfReferenceMultiples"));
-
         }
     }
 }

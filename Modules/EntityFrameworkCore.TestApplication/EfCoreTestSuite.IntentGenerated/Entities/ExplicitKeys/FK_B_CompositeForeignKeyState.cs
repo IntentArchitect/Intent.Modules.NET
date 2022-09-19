@@ -11,55 +11,23 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 
     public partial class FK_B_CompositeForeignKey : IFK_B_CompositeForeignKey
     {
-        public FK_B_CompositeForeignKey()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private Guid _pK_CompositeKeyCompositeKeyA;
+        public Guid Id
+        { get; set; }
 
         public Guid PK_CompositeKeyCompositeKeyA
-        {
-            get { return _pK_CompositeKeyCompositeKeyA; }
-            set
-            {
-                _pK_CompositeKeyCompositeKeyA = value;
-            }
-        }
-
-        private Guid _pK_CompositeKeyCompositeKeyB;
+        { get; set; }
 
         public Guid PK_CompositeKeyCompositeKeyB
-        {
-            get { return _pK_CompositeKeyCompositeKeyB; }
-            set
-            {
-                _pK_CompositeKeyCompositeKeyB = value;
-            }
-        }
-
-        private PK_B_CompositeKey _pK_CompositeKey;
+        { get; set; }
 
         public virtual PK_B_CompositeKey PK_CompositeKey
+        { get; set; }
+
+        IPK_B_CompositeKey IFK_B_CompositeForeignKey.PK_CompositeKey
         {
-            get
-            {
-                return _pK_CompositeKey;
-            }
-            set
-            {
-                _pK_CompositeKey = value;
-            }
+            get => PK_CompositeKey;
+            set => PK_CompositeKey = (PK_B_CompositeKey)value;
         }
 
 
