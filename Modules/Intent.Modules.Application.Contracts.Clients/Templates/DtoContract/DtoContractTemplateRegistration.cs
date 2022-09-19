@@ -36,7 +36,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceProxyDTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetServiceProxyDTOModels();
+            return _metadataManager.ServiceProxies(application).GetProxyMappedServiceDTOModels();
         }
     }
 }
