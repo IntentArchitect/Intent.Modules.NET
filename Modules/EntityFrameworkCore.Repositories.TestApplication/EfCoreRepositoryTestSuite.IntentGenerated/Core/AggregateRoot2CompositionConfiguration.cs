@@ -16,7 +16,8 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
             builder.HasKey(x => x.Id);
 
 
-            builder.OwnsOne(x => x.AggregateRoot2Single, ConfigureAggregateRoot2Single);
+            builder.OwnsOne(x => x.AggregateRoot2Single, ConfigureAggregateRoot2Single)
+                .Navigation(x => x.AggregateRoot2Single).IsRequired();
 
             builder.OwnsOne(x => x.AggregateRoot2Nullable, ConfigureAggregateRoot2Nullable);
 

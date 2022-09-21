@@ -99,7 +99,7 @@
     <FileLog>
       <ProjectId>30620f7a-fcc3-406f-93c0-d407f46855fb</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#30620f7a-fcc3-406f-93c0-d407f46855fb</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPT.IntentGenerated/EfCoreTestSuite.TPT.IntentGenerated.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfCoreTestSuite.TPT.IntentGenerated.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>

@@ -13,9 +13,7 @@ variables:
   value: '**/*.sln'
 - group: 'Intent Architect Credentials'
 - name: 'intent-solution'
-  value: 'Modules/Intent.Modules.NET.isln'
-- name: 'intent-application-id'
-  value: '9c8d451f-373a-4c17-b74d-12489ffcd7e3'
+  value: 'Modules/Intent.Modules.NET.Tests.isln'
 - name: 'warning-logging-command'
   value: '##vso[task.logissue type=warning;]{@m} {@x}\n'
 - name: 'error-logging-command'
@@ -98,4 +96,13 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: intent-cli "$(intent-architect-user)" "$(intent-architect-password)" "$(intent-solution)" "$(intent-application-id)" "--warning-logging-command" "$(warning-logging-command)" "--error-logging-command" "$(error-logging-command)"
+    script:
+      ./prepare-intent-testing.ps1;
+      $testSln = [xml] (Get-Content ./Modules/Intent.Modules.NET.Tests.isln -Encoding UTF8);
+      $testSln.solution.applications.application | % {
+        $appId = $_.id;
+        Write-Host ==================================================;
+        Write-Host Application = $_.name;
+        Write-Host ==================================================;
+        intent-cli "$(intent-architect-user)" "$(intent-architect-password)" "$(intent-solution)" "$($appId)" "--warning-logging-command" "$(warning-logging-command)" "--error-logging-command" "$(error-logging-command)";
+      }

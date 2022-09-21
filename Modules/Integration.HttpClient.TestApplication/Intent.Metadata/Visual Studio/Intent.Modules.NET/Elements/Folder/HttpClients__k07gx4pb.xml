@@ -37,7 +37,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a6c4842a-a6ea-4cc8-959d-3d629e91c7fc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="1006f02d-1765-47c3-b01f-a74afb9673fc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Integration.HttpClients.JsonResponse</name>
       <display>Intent.Integration.HttpClients.JsonResponse</display>
       <externalReference>Intent.Integration.HttpClients</externalReference>

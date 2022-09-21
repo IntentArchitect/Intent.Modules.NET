@@ -37,7 +37,6 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new ExplicitKeysCompositeForeignKeyConfiguration());
             modelBuilder.ApplyConfiguration(new ExplicitKeysCompositeKeyConfiguration());
 
-
         }
 
         [IntentManaged(Mode.Ignore)]

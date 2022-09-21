@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,8 +11,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Associated.cs</DependentUpon>
     </Compile>
-    
-    
     <Compile Update="Entities\CompositeState.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -27,8 +26,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Associated.cs</DependentUpon>
     </Compile>
-    
-    
     <Compile Update="Entities\IComposite.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

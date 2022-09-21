@@ -47,6 +47,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new FkAssociatedClassConfiguration());
             modelBuilder.ApplyConfiguration(new FkBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new FkDerivedClassConfiguration());
+
         }
 
         [IntentManaged(Mode.Ignore)]

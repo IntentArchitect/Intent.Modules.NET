@@ -57,7 +57,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new AggregateRoot4SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot5Configuration());
 
-
         }
 
         [IntentManaged(Mode.Ignore)]

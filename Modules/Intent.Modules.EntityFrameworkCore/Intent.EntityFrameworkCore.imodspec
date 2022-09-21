@@ -42,11 +42,6 @@
   </templates>
   <decorators />
   <interoperability>
-    <detect id="Intent.AspNetCore.WebApi">
-      <install>
-        <package id="Intent.EntityFrameworkCore.Interop.WebApi" version="3.1.0" />
-      </install>
-    </detect>
     <detect id="Intent.DomainEvents">
       <install>
         <package id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="3.3.9" />
@@ -55,7 +50,6 @@
     <detect id="Intent.AspNetCore">
       <install>
         <package id="Intent.DependencyInjection.EntityFrameworkCore" version="3.3.12" />
-        <package id="Intent.AspNetCore.Interop.EntityFrameworkCore" version="3.3.3" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions">

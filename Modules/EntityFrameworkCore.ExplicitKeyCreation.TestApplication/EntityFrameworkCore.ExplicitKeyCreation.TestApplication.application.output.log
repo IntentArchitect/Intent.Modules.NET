@@ -59,7 +59,7 @@
     <FileLog>
       <ProjectId>1303e57e-1275-42a4-b433-05e88a85e9b1</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#1303e57e-1275-42a4-b433-05e88a85e9b1</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
