@@ -69,7 +69,9 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 var projectId = outputTarget.GetTargetPath()[0].Id;
                 if (!_projectTemplatesById.TryGetValue(projectId, out var templateInstance))
                 {
-                    throw new Exception($"No project found for id \"{projectId}\"");
+                    // This scenario occurs when a "Template Output" is inside a solution folder
+                    // for example for solution items.
+                    continue;
                 }
 
                 switch (templateInstance.Project.ProjectTypeId)

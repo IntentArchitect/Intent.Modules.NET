@@ -1,4 +1,10 @@
-﻿### Version 3.3.13
+﻿### Version 3.3.14
+
+- If a `.csproj` file has a defined value when its corresponding property in the `.NET Core Settings` stereotype is blank, it will no longer be removed from the `.csproj` file.
+- `IntentIgnore="true"` can now be applied to file item sub-elements in `.csproj` files.
+- Fixed: `No project found for id "{projectId}"` exception would be thrown when a `Template Output` was in a solution folder and not a project.
+
+### Version 3.3.13
 
 - Fixed: local.settings.json doesn't support object values and better measures have been applied. 
 
