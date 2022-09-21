@@ -32,7 +32,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         {
             get
             {
-                return _l_SelfReferenceMultiplesDst ?? (_l_SelfReferenceMultiplesDst = new List<L_SelfReferenceMultiple>());
+                return _l_SelfReferenceMultiplesDst ??= new List<L_SelfReferenceMultiple>();
             }
             set
             {

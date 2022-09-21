@@ -48,7 +48,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         {
             get
             {
-                return _m_SelfReferenceBiNavs ?? (_m_SelfReferenceBiNavs = new List<M_SelfReferenceBiNav>());
+                return _m_SelfReferenceBiNavs ??= new List<M_SelfReferenceBiNav>();
             }
             set
             {

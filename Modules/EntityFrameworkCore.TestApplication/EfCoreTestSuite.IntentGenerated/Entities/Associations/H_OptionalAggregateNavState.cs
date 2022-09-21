@@ -32,7 +32,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         {
             get
             {
-                return _h_MultipleDependents ?? (_h_MultipleDependents = new List<H_MultipleDependent>());
+                return _h_MultipleDependents ??= new List<H_MultipleDependent>();
             }
             set
             {

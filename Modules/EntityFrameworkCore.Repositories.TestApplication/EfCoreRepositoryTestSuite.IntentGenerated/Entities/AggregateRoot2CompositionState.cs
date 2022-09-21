@@ -59,7 +59,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
         {
             get
             {
-                return _aggregateRoot2Collections ?? (_aggregateRoot2Collections = new List<AggregateRoot2Collection>());
+                return _aggregateRoot2Collections ??= new List<AggregateRoot2Collection>();
             }
             set
             {
