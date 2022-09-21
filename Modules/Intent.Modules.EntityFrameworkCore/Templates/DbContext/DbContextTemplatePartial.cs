@@ -73,6 +73,11 @@ modelBuilder.Entity<Car>().HasData(
     new Car() { CarId = 3, Make = ""Labourghini"", Model = ""Countach"" });
 */");
                     });
+
+                    foreach (var decorator in GetDecorators())
+                    {
+                        decorator.DecorateDbContext(@class);
+                    }
                 });
 
             ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(typeConfiguration =>
@@ -83,7 +88,7 @@ modelBuilder.Entity<Car>().HasData(
                 @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityName(typeConfiguration.Template.Model).ToPluralName());
                 
                 @class.Methods.Single(x => x.Name.Equals("OnModelCreating"))
-                    .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}({GetTypeConfigurationParameters(typeConfiguration)}));");
+                    .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}());");
 
                 AddTemplateDependency(TemplateDependency.OnTemplate(typeConfiguration.Template)); // needed? GetTypeName does the same thing?
             });
@@ -147,19 +152,19 @@ modelBuilder.Entity<Car>().HasData(
         public bool UseLazyLoadingProxies =>
             !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
 
-        private string GetMethods()
-        {
-            var code = string.Join(Environment.NewLine + Environment.NewLine,
-                GetDecorators()
-                    .SelectMany(s => s.GetMethods())
-                    .Where(p => !string.IsNullOrEmpty(p)));
-            if (string.IsNullOrWhiteSpace(code))
-            {
-                return string.Empty;
-            }
+        //private string GetMethods()
+        //{
+        //    var code = string.Join(Environment.NewLine + Environment.NewLine,
+        //        GetDecorators()
+        //            .SelectMany(s => s.GetMethods())
+        //            .Where(p => !string.IsNullOrEmpty(p)));
+        //    if (string.IsNullOrWhiteSpace(code))
+        //    {
+        //        return string.Empty;
+        //    }
 
-            return Environment.NewLine + Environment.NewLine + code;
-        }
+        //    return Environment.NewLine + Environment.NewLine + code;
+        //}
 
         public IEnumerable<string> GetInterfaces()
         {
@@ -197,11 +202,11 @@ modelBuilder.Entity<Car>().HasData(
             return statements;
         }
 
-        private string GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
-        {
-            var parameters = GetDecorators().SelectMany(s => s.GetTypeConfigurationParameters(@event));
-            return string.Join(",", parameters);
-        }
+        //private string GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
+        //{
+        //    var parameters = GetDecorators().SelectMany(s => s.GetTypeConfigurationParameters(@event));
+        //    return string.Join(",", parameters);
+        //}
 
     }
 }

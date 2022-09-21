@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.Eventing.MassTransit.Settings;
@@ -26,21 +28,38 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
             _application = application;
         }
 
-        public override IEnumerable<string> GetOnModelCreatingStatements()
+        public override void DecorateDbContext(CSharpClass @class)
         {
             if (!_application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() ||
                 (!_application.Settings.GetDatabaseSettings().DatabaseProvider().IsSqlServer() &&
-                !_application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql()))
+                 !_application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql()))
             {
-                yield break;
+                return;
             }
-
             _template.AddUsing("MassTransit");
 
-            yield return @$"";
-            yield return @$"modelBuilder.AddInboxStateEntity();";
-            yield return @$"modelBuilder.AddOutboxMessageEntity();";
-            yield return @$"modelBuilder.AddOutboxStateEntity();";
+            var onModelCreatingMethod = @class.Methods.Single(x => x.Name.Equals("OnModelCreating"));
+            onModelCreatingMethod.AddStatement(""); // GCB - new line (not sure if this is the best way).
+            onModelCreatingMethod.AddStatement("modelBuilder.AddInboxStateEntity();");
+            onModelCreatingMethod.AddStatement("modelBuilder.AddOutboxMessageEntity();");
+            onModelCreatingMethod.AddStatement("modelBuilder.AddOutboxStateEntity();");
         }
+
+        //public override IEnumerable<string> GetOnModelCreatingStatements()
+        //{
+        //    if (!_application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() ||
+        //        (!_application.Settings.GetDatabaseSettings().DatabaseProvider().IsSqlServer() &&
+        //        !_application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql()))
+        //    {
+        //        yield break;
+        //    }
+
+        //    _template.AddUsing("MassTransit");
+
+        //    yield return @$"";
+        //    yield return @$"modelBuilder.AddInboxStateEntity();";
+        //    yield return @$"modelBuilder.AddOutboxMessageEntity();";
+        //    yield return @$"modelBuilder.AddOutboxStateEntity();";
+        //}
     }
 }

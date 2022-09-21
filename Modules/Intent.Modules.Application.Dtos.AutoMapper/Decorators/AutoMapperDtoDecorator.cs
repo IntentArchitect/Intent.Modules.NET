@@ -8,8 +8,9 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.AutoMapper.Templates.MapFromInterface;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Templates.DomainEntityState;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 
@@ -33,10 +34,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             _application = application;
         }
 
-        private DomainEntityStateTemplate _entityTemplate;
+        private ICSharpFileBuilderTemplate _entityTemplate;
 
-        public DomainEntityStateTemplate EntityTemplate => _entityTemplate ??=
-            _template.GetTemplate<DomainEntityStateTemplate>(DomainEntityStateTemplate.TemplateId, _template.Model.Mapping.ElementId);
+        public ICSharpFileBuilderTemplate EntityTemplate => _entityTemplate ??=
+            _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, _template.Model.Mapping.ElementId);
 
         public IEnumerable<string> DeclareUsings()
         {
@@ -70,7 +71,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             {
                 var shouldCast = _template.GetTypeInfo(field.TypeReference).IsPrimitive
                                  && field.Mapping.Element?.TypeReference != null
-                                 && _template.GetTypeInfo(field.TypeReference).Name != EntityTemplate.GetTypeInfo(field.Mapping.Element.TypeReference).Name;
+                                 && _template.GetFullyQualifiedTypeName(field.TypeReference) != EntityTemplate.GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference);
                 var mappingExpression = GetMappingExpression(field);
                 if ("src." + field.Name.ToPascalCase() != mappingExpression || shouldCast)
                 {
@@ -87,7 +88,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             return $@"
         public void Mapping(Profile profile)
         {{
-            profile.CreateMap<{_template.GetTypeName(DomainEntityStateTemplate.TemplateId, _template.Model.Mapping.ElementId)}, {_template.ClassName}>(){string.Join(string.Empty, memberMappings)};
+            profile.CreateMap<{_template.GetTypeName(EntityTemplate)}, {_template.ClassName}>(){string.Join(string.Empty, memberMappings)};
         }}";
         }
 

@@ -541,14 +541,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         var associationProperty = associatedClass.GetAllProperties().SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
 
-                        void ConfigureProperty(CSharpProperty property)
-                        {
-                            if (column.IsPrivate)
-                            {
-                                property.Private();
-                            }
-                        }
-
                         if (column.Order.HasValue)
                         {
                             associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
@@ -560,6 +552,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         else
                         {
                             associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
+                        }
+
+                        void ConfigureProperty(CSharpProperty property)
+                        {
+                            if (column.IsPrivate)
+                            {
+                                property.Private();
+                            }
                         }
                     }
                 }

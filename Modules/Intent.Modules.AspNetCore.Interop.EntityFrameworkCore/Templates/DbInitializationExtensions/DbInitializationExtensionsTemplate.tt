@@ -8,6 +8,8 @@
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
 <#@ import namespace="Intent.Modules.EntityFrameworkCore.Templates" #>
+<#@ import namespace="Intent.Modules.EntityFrameworkCore.Templates" #>
+<#@ import namespace="Intent.Modules.EntityFrameworkCore.Templates" #>
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;

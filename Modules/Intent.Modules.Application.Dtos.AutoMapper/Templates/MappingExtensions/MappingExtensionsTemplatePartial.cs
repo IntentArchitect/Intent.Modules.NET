@@ -6,8 +6,7 @@ using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Templates.DomainEntity;
-using Intent.Modules.Entities.Templates.DomainEntityInterface;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -44,7 +43,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
 
         private string GetEntityName()
         {
-            return GetTypeName(DomainEntityInterfaceTemplate.Identifier, Model.Mapping.ElementId);
+            return GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, Model.Mapping.ElementId);
         }
     }
 }
