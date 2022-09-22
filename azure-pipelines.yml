@@ -106,3 +106,13 @@ steps:
         Write-Host ==================================================;
         intent-cli "$(intent-architect-user)" "$(intent-architect-password)" "$(intent-solution)" "$($appId)" "--warning-logging-command" "$(warning-logging-command)" "--error-logging-command" "$(error-logging-command)";
       }
+
+- task: PowerShell@2
+  displayName: 'Install Intent.IArchitect.Packager.CommandLine'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: dotnet tool install Intent.IArchitect.Packager.CommandLine --global --add-source '$(vstsFeedUrl)'
+
+
