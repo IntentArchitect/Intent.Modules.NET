@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6db8169b-04b1-478f-b93a-72899c30c0c2">
+  <sourceEnd id="85430fa6-3562-4913-90a5-d040b4a20af6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>F_OptionalAggregateNav</name>
+    <display>F_OptionalAggregateNav: F_OptionalAggregateNav?</display>
+    <order>2</order>
+    <typeReference id="a86917f5-4700-4212-86ad-02af0c40944c">
+      <typeId>05aca390-f009-4ad8-a078-0d09ff0ed125</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="6db8169b-04b1-478f-b93a-72899c30c0c2" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>F_OptionalDependent</name>
+    <display>F_OptionalDependent: F_OptionalDependent?</display>
+    <order>2</order>
+    <typeReference id="4f482ce4-9e4b-4ced-8bf9-d4478a8840ff">
+      <typeId>0e174bb5-1415-4ef5-9752-af5a0269b526</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _selfRefBiNavAttr;
+
+        public string SelfRefBiNavAttr
+        {
+            get { return _selfRefBiNavAttr; }
+            set
+            {
+                _selfRefBiNavAttr = value;
+            }
+        }
+
 
         public Guid? M_SelfReferenceBiNavDstId { get; set; }
         private M_SelfReferenceBiNav _m_SelfReferenceBiNavDst;

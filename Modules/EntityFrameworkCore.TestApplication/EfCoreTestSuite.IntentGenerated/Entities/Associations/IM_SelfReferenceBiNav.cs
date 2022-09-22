@@ -15,6 +15,8 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         /// Get the persistent object's identifier
         /// </summary>
         Guid Id { get; }
+        string SelfRefBiNavAttr { get; set; }
+
         Guid? M_SelfReferenceBiNavDstId { get; }
         M_SelfReferenceBiNav M_SelfReferenceBiNavDst { get; set; }
 

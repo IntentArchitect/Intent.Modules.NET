@@ -15,6 +15,8 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         /// Get the persistent object's identifier
         /// </summary>
         Guid Id { get; }
+        string OptionalAggrAttr { get; set; }
+
         ICollection<D_MultipleDependent> D_MultipleDependents { get; set; }
 
     }

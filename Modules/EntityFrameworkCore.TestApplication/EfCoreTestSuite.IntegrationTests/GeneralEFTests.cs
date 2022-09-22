@@ -16,15 +16,15 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     public GeneralEFTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {
     }
-    
+
     [IgnoreOnCiBuildFact]
     public void Test_A_Unidirectional_1_To_0to1_Association()
     {
-        var src = new A_RequiredComposite() { Attribute = "test 1" };
+        var src = new A_RequiredComposite() { RequiredCompAttr = "test 1" };
         DbContext.A_RequiredComposites.Add(src);
         DbContext.SaveChanges();
 
-        var dst = new A_OptionalDependent() { Attribute = "test 2" };
+        var dst = new A_OptionalDependent() { OptionalDepAttr = "test 2" };
         src.A_OptionalDependent = dst;
         DbContext.SaveChanges();
 
@@ -36,11 +36,11 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_B_Unidirectional_0to1_To_0to1_Association()
     {
-        var src = new B_OptionalAggregate() { Attribute = "test 1" };
+        var src = new B_OptionalAggregate() { OptionalAggrAttr = "test 1" };
         DbContext.B_OptionalAggregates.Add(src);
         DbContext.SaveChanges();
 
-        var dst = new B_OptionalDependent() { Attribute = "test 2" };
+        var dst = new B_OptionalDependent() { OptionalDepAttr = "test 2" };
         DbContext.B_OptionalDependents.Add(dst);
         DbContext.SaveChanges();
 
@@ -62,14 +62,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_C_Unidirectional_1_To_Many_Association()
     {
-        var src = new C_RequiredComposite();
+        var src = new C_RequiredComposite() { RequiredCompAttr = "test 1" };
         DbContext.C_RequiredComposites.Add(src);
         DbContext.SaveChanges();
 
         var dstList = new List<C_MultipleDependent>
         {
-            new C_MultipleDependent(),
-            new C_MultipleDependent()
+            new C_MultipleDependent() { MultipleDepAttr = "test 2" },
+            new C_MultipleDependent() { MultipleDepAttr = "test 3" }
         };
 
         src.C_MultipleDependents.AddRange(dstList);
@@ -92,14 +92,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_D_Unidirectional_0to1_To_Many_Association()
     {
-        var src = new D_OptionalAggregate();
+        var src = new D_OptionalAggregate() { OptionalAggrAttr = "test 1" };
         DbContext.D_OptionalAggregates.Add(src);
         DbContext.SaveChanges();
 
         var dstList = new List<D_MultipleDependent>
         {
-            new D_MultipleDependent(),
-            new D_MultipleDependent()
+            new D_MultipleDependent() { MultipleDepAttr = "test 2" },
+            new D_MultipleDependent() { MultipleDepAttr = "test 3" }
         };
 
         src.D_MultipleDependents.AddRange(dstList);
@@ -117,10 +117,10 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_E_Bidirectional_1_To_1_Association()
     {
-        var src = new E_RequiredCompositeNav() { Attribute = "test 1" };
+        var src = new E_RequiredCompositeNav() { RequiredCompNavAttr = "test 1" };
         DbContext.E_RequiredCompositeNavs.Add(src);
 
-        var dst = new E_RequiredDependent() { Attribute = "test 2" };
+        var dst = new E_RequiredDependent() { RequiredDepAttr = "test 2" };
         src.E_RequiredDependent = dst;
 
         DbContext.SaveChanges();
@@ -131,7 +131,7 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
 
         Assert.Throws<Microsoft.EntityFrameworkCore.DbUpdateException>(() =>
         {
-            DbContext.E_RequiredCompositeNavs.Add(new E_RequiredCompositeNav() { Attribute = "test 3" });
+            DbContext.E_RequiredCompositeNavs.Add(new E_RequiredCompositeNav() { RequiredCompNavAttr = "test 3" });
             DbContext.SaveChanges();
         });
 
@@ -145,10 +145,10 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_E2_Bidirectional_1_To_1_Association()
     {
-        var src = new E2_RequiredCompositeNav() { Attribute = "test 1" };
+        var src = new E2_RequiredCompositeNav() { ReqCompNavAttr = "test 1" };
         DbContext.E2_RequiredCompositeNavs.Add(src);
 
-        var dst = new E2_RequiredDependent() { Attribute = "test 2" };
+        var dst = new E2_RequiredDependent() { ReqDepAttr = "test 2" };
         src.E2_RequiredDependent = dst;
 
         DbContext.SaveChanges();
@@ -174,11 +174,11 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_F_Bidirectional_0to1_To_0to1_Association()
     {
-        var src = new F_OptionalAggregateNav();
+        var src = new F_OptionalAggregateNav() { OptionalAggrNavAttr = "test 1" };
         DbContext.F_OptionalAggregateNavs.Add(src);
         DbContext.SaveChanges();
 
-        var dst = new F_OptionalDependent();
+        var dst = new F_OptionalDependent() { OptionalDepAttr = "test 2" };
         DbContext.F_OptionalDependents.Add(dst);
         DbContext.SaveChanges();
 
@@ -202,14 +202,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_G_Bidirectional_1_To_Many_Association()
     {
-        var src = new G_RequiredCompositeNav();
+        var src = new G_RequiredCompositeNav() { ReqCompNavAttr = "test 1" };
         DbContext.G_RequiredCompositeNavs.Add(src);
         DbContext.SaveChanges();
 
         var dstList = new List<G_MultipleDependent>
         {
-            new G_MultipleDependent(),
-            new G_MultipleDependent()
+            new G_MultipleDependent() { MultipleDepAttr = "test 2" },
+            new G_MultipleDependent() { MultipleDepAttr = "test 3" }
         };
 
         src.G_MultipleDependents.AddRange(dstList);
@@ -231,14 +231,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_H_Bidirectional_0to1_To_Many_Association()
     {
-        var src = new H_OptionalAggregateNav();
+        var src = new H_OptionalAggregateNav() { OptionalAggrNavAttr = "test 1" };
         DbContext.H_OptionalAggregateNavs.Add(src);
         DbContext.SaveChanges();
 
         var dstList = new List<H_MultipleDependent>
         {
-            new H_MultipleDependent(),
-            new H_MultipleDependent()
+            new H_MultipleDependent() { MultipleDepAttr = "test 2" },
+            new H_MultipleDependent() { MultipleDepAttr = "test 3" }
         };
 
         src.H_MultipleDependents.AddRange(dstList);
@@ -256,14 +256,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_J_Unidirectional_Many_To_1_Association()
     {
-        var dst = new J_RequiredDependent();
+        var dst = new J_RequiredDependent() { ReqDepAttr = "test 1" };
         DbContext.J_RequiredDependents.Add(dst);
         DbContext.SaveChanges();
 
         var srcList = new List<J_MultipleAggregate>
         {
-            new J_MultipleAggregate(),
-            new J_MultipleAggregate()
+            new J_MultipleAggregate() { MultipleAggrAttr = "test 2" },
+            new J_MultipleAggregate() { MultipleAggrAttr = "test 3" }
         };
         srcList.ForEach(x =>
         {
@@ -286,14 +286,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_K_Unidirectional_Many_To_0to1_Association()
     {
-        var root = new K_SelfReference();
+        var root = new K_SelfReference() { SelfRefAttr = "test 1" };
         DbContext.K_SelfReferences.Add(root);
         DbContext.SaveChanges();
 
         var children = new List<K_SelfReference>
         {
-            new K_SelfReference(),
-            new K_SelfReference()
+            new K_SelfReference() { SelfRefAttr = "test 2" },
+            new K_SelfReference() { SelfRefAttr = "test 3" }
         };
         children.ForEach(x =>
         {
@@ -312,18 +312,18 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     {
         var listA = new List<L_SelfReferenceMultiple>
         {
-            new L_SelfReferenceMultiple()
+            new L_SelfReferenceMultiple() { SelfRefMultipleAttr = "test 1" }
         };
         var listB = new List<L_SelfReferenceMultiple>
         {
-            new L_SelfReferenceMultiple(),
-            new L_SelfReferenceMultiple()
+            new L_SelfReferenceMultiple() { SelfRefMultipleAttr = "test 2" },
+            new L_SelfReferenceMultiple() { SelfRefMultipleAttr = "test 3" }
         };
         var listC = new List<L_SelfReferenceMultiple>
         {
-            new L_SelfReferenceMultiple(),
-            new L_SelfReferenceMultiple(),
-            new L_SelfReferenceMultiple()
+            new L_SelfReferenceMultiple() { SelfRefMultipleAttr = "test 4" },
+            new L_SelfReferenceMultiple() { SelfRefMultipleAttr = "test 5" },
+            new L_SelfReferenceMultiple() { SelfRefMultipleAttr = "test 6" }
         };
 
         listA.First().L_SelfReferenceMultiplesDst.AddRange(listB);
@@ -345,14 +345,14 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_M_Bidirectional_Many_To_0to1_Association()
     {
-        var root = new M_SelfReferenceBiNav();
+        var root = new M_SelfReferenceBiNav() { SelfRefBiNavAttr = "test 1" };
         DbContext.M_SelfReferenceBiNavs.Add(root);
         DbContext.SaveChanges();
 
         var children = new List<M_SelfReferenceBiNav>
         {
-            new M_SelfReferenceBiNav(),
-            new M_SelfReferenceBiNav()
+            new M_SelfReferenceBiNav() { SelfRefBiNavAttr = "test 2" },
+            new M_SelfReferenceBiNav() { SelfRefBiNavAttr = "test 3" }
         };
         children.ForEach(x =>
         {

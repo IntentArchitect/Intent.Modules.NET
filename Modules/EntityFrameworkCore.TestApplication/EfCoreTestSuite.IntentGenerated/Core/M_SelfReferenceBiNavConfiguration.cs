@@ -16,6 +16,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.SelfRefBiNavAttr)
+                .IsRequired();
+
 
             builder.HasOne(x => x.M_SelfReferenceBiNavDst)
                 .WithMany(x => x.M_SelfReferenceBiNavs)

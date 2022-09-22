@@ -16,7 +16,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Attribute)
+            builder.Property(x => x.RequiredCompNavAttr)
                 .IsRequired();
 
 
@@ -29,7 +29,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.WithOwner(x => x.E_RequiredCompositeNav).HasForeignKey(x => x.Id);
 
-            builder.Property(x => x.Attribute)
+            builder.Property(x => x.RequiredDepAttr)
                 .IsRequired();
         }
     }

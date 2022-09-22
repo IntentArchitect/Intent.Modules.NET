@@ -15,6 +15,8 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         /// Get the persistent object's identifier
         /// </summary>
         Guid Id { get; }
+        string MultipleDepAttr { get; set; }
+
         Guid G_RequiredCompositeNavId { get; }
         G_RequiredCompositeNav G_RequiredCompositeNav { get; set; }
 

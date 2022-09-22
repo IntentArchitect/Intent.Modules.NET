@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _requiredCompAttr;
+
+        public string RequiredCompAttr
+        {
+            get { return _requiredCompAttr; }
+            set
+            {
+                _requiredCompAttr = value;
+            }
+        }
+
         private ICollection<C_MultipleDependent> _c_MultipleDependents;
 
         public virtual ICollection<C_MultipleDependent> C_MultipleDependents

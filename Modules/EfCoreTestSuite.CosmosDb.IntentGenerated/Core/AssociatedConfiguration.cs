@@ -1,5 +1,6 @@
 using System;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

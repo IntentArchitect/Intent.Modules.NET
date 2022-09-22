@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _multipleDepAttr;
+
+        public string MultipleDepAttr
+        {
+            get { return _multipleDepAttr; }
+            set
+            {
+                _multipleDepAttr = value;
+            }
+        }
+
 
         public Guid G_RequiredCompositeNavId { get; set; }
         private G_RequiredCompositeNav _g_RequiredCompositeNav;

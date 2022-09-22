@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _optionalDepAttr;
+
+        public string OptionalDepAttr
+        {
+            get { return _optionalDepAttr; }
+            set
+            {
+                _optionalDepAttr = value;
+            }
+        }
+
         private F_OptionalAggregateNav _f_OptionalAggregateNav;
 
         public virtual F_OptionalAggregateNav F_OptionalAggregateNav

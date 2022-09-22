@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _selfRefAttr;
+
+        public string SelfRefAttr
+        {
+            get { return _selfRefAttr; }
+            set
+            {
+                _selfRefAttr = value;
+            }
+        }
+
 
         public Guid? K_SelfReferenceAssociationId { get; set; }
         private K_SelfReference _k_SelfReferenceAssociation;

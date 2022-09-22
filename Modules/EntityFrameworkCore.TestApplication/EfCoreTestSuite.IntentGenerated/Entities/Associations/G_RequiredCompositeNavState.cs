@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _reqCompNavAttr;
+
+        public string ReqCompNavAttr
+        {
+            get { return _reqCompNavAttr; }
+            set
+            {
+                _reqCompNavAttr = value;
+            }
+        }
+
         private ICollection<G_MultipleDependent> _g_MultipleDependents;
 
         public virtual ICollection<G_MultipleDependent> G_MultipleDependents

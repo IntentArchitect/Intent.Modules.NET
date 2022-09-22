@@ -26,14 +26,14 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
-        private string _attribute;
+        private string _requiredCompNavAttr;
 
-        public string Attribute
+        public string RequiredCompNavAttr
         {
-            get { return _attribute; }
+            get { return _requiredCompNavAttr; }
             set
             {
-                _attribute = value;
+                _requiredCompNavAttr = value;
             }
         }
 

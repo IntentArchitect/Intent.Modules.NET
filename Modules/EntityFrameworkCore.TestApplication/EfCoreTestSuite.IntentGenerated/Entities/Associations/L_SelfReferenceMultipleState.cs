@@ -26,6 +26,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set { _id = value; }
         }
 
+        private string _selfRefMultipleAttr;
+
+        public string SelfRefMultipleAttr
+        {
+            get { return _selfRefMultipleAttr; }
+            set
+            {
+                _selfRefMultipleAttr = value;
+            }
+        }
+
         private ICollection<L_SelfReferenceMultiple> _l_SelfReferenceMultiplesDst;
 
         public virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesDst
