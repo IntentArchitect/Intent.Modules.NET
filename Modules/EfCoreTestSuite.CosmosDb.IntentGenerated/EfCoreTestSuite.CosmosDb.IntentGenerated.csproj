@@ -316,6 +316,36 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\ClassAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassCState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

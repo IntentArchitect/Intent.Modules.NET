@@ -31,6 +31,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
         public DbSet<BaseAssociated> BaseAssociateds { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
+        public DbSet<ClassA> ClassAs { get; set; }
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         public DbSet<Derived> Deriveds { get; set; }
@@ -66,6 +67,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new BaseAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
+            modelBuilder.ApplyConfiguration(new ClassAConfiguration());
             modelBuilder.ApplyConfiguration(new D_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new D_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedConfiguration());
