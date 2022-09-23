@@ -30,7 +30,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureA_OptionalDependent(OwnedNavigationBuilder<A_RequiredComposite, A_OptionalDependent> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.WithOwner();
             builder.ToTable("A_OptionalDependent");
 
 

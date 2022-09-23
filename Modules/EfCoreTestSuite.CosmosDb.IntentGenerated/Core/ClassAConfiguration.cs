@@ -30,7 +30,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureClassC(OwnedNavigationBuilder<ClassB, ClassC> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.WithOwner();
             builder.ToTable("ClassC");
 
 
