@@ -1,3 +1,7 @@
+### Version 3.3.1
+
+- Update: Merged Outbox pattern into this module (separate Outbox pattern module is no more).
+
 ### Version 3.3.0
 
 - New: This introduces [MassTransit](https://masstransit-project.com/) as a framework for modeling Publisher/Subscriber communication between applications.
