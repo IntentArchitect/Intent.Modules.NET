@@ -20,43 +20,44 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class IdentityDbContextDecorator : DbContextDecoratorBase
+    public class IdentityDbContextDecorator : DecoratorBase
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.Identity.EFCore.IdentityDbContextDecorator";
 
 
         [IntentManaged(Mode.Fully)]
-        private readonly DbContextTemplate _template;
+        private readonly ICSharpFileBuilderTemplate _template;
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]
-        public IdentityDbContextDecorator(DbContextTemplate template, IApplication application)
+        public IdentityDbContextDecorator(ICSharpFileBuilderTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
             _template.FulfillsRole("Infrastructure.Data.IdentityDbContext");
             _template.AddNugetDependency(NugetPackages.IdentityServer4EntityFramework);
             _template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(_template.OutputTarget.GetProject()));
-        }
 
-        public override void DecorateDbContext(CSharpClass @class)
-        {
-            _template.AddUsing("Microsoft.AspNetCore.Identity.EntityFrameworkCore");
-            @class.WithBaseType($"IdentityDbContext<{_template.GetIdentityUserClass()}>");
+            _template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                _template.AddUsing("Microsoft.AspNetCore.Identity.EntityFrameworkCore");
+                @class.WithBaseType($"IdentityDbContext<{_template.GetIdentityUserClass()}>");
+            });
         }
     }
 
     public static class IdentityHelperExtensions
     {
-        public static string GetIdentityUserClass<T>(this CSharpTemplateBase<T> template)
+        public static string GetIdentityUserClass(this ICSharpTemplate template)
         {
             var identityModel = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels()
                 .SingleOrDefault(x => x.HasIdentityUser());
             var identityUserClass = identityModel != null
                 ? template.GetTypeName("Domain.Entity", identityModel)
-                : template.TryGetTypeName("Domain.IdentityUser");
+                : template.GetTypeName("Domain.IdentityUser", TemplateDiscoveryOptions.DoNotThrow);
 
             return identityUserClass ?? template.UseType("Microsoft.AspNetCore.Identity.IdentityUser");
         }

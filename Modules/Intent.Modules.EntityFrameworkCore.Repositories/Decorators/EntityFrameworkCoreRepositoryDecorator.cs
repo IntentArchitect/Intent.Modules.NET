@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.Templates;
@@ -5,6 +6,7 @@ using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -12,7 +14,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class EntityFrameworkCoreRepositoryDecorator : DbContextDecoratorBase
+    public class EntityFrameworkCoreRepositoryDecorator : DecoratorBase
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.EntityFrameworkCore.Repositories.EntityFrameworkCoreRepositoryDecorator";
@@ -27,15 +29,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators
         {
             _template = template;
             _application = application;
-        }
 
-        public override string GetBaseInterfaces()
-        {
-            return _template.GetUnitOfWorkInterfaceName();
-        }
+            _template.CSharpFile.OnBuild(file =>
+            {
+                file.Classes.First().ImplementsInterface(_template.GetUnitOfWorkInterfaceName());
+            });
 
-        public override void OnBeforeTemplateExecution()
-        {
             _template.ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(_template)
                 .ForInterface(_template.GetTemplate<IClassProvider>(UnitOfWorkInterfaceTemplate.TemplateId))

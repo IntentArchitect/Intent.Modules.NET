@@ -21,7 +21,7 @@ using Intent.Templates;
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public partial class DbContextTemplate : CSharpTemplateBase<IList<ClassModel>, DbContextDecoratorBase>, ICSharpFileBuilderTemplate
+    public partial class DbContextTemplate : CSharpTemplateBase<IList<ClassModel>, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
@@ -35,8 +35,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddClass("ApplicationDbContext", @class =>
                 {
-                    @class.WithBaseType(UseType(GetDecorators().Select(x => x.GetBaseClass()).SingleOrDefault(x => x != null)
-                                                ?? "Microsoft.EntityFrameworkCore.DbContext"));
+                    @class.WithBaseType(UseType("Microsoft.EntityFrameworkCore.DbContext"));
                     @class.ImplementsInterfaces(GetInterfaces());
                     @class.AddConstructor(ctor =>
                     {
@@ -54,7 +53,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                         method.AddStatement("base.OnModelCreating(modelBuilder);");
                         method.AddStatement("ConfigureModel(modelBuilder);", s => s.SeparatedFromPrevious());
 
-                        method.AddStatements(GetOnModelCreatingStatements());
+                        //method.AddStatements(GetOnModelCreatingStatements());
                     });
 
                     @class.AddMethod("void", "ConfigureModel", method =>
@@ -74,10 +73,10 @@ modelBuilder.Entity<Car>().HasData(
 */");
                     });
 
-                    foreach (var decorator in GetDecorators())
-                    {
-                        decorator.DecorateDbContext(@class);
-                    }
+                    //foreach (var decorator in GetDecorators())
+                    //{
+                    //    decorator.DecorateDbContext(CSharpFile);
+                    //}
                 });
 
             ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(typeConfiguration =>
@@ -97,10 +96,10 @@ modelBuilder.Entity<Car>().HasData(
 
         public override void BeforeTemplateExecution()
         {
-            foreach (var decorator in GetDecorators())
-            {
-                decorator.OnBeforeTemplateExecution();
-            }
+            //foreach (var decorator in GetDecorators())
+            //{
+            //    decorator.OnBeforeTemplateExecution();
+            //}
 
             if (!TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkInterface))
             {
@@ -176,7 +175,6 @@ modelBuilder.Entity<Car>().HasData(
                     interfaces.Add(dbContextInterface);
                 }
 
-                interfaces.AddRange(GetDecorators().Select(x => x.GetBaseInterfaces()).Where(x => x != null));
                 return interfaces;
             }
             catch (InvalidOperationException)
@@ -196,11 +194,11 @@ modelBuilder.Entity<Car>().HasData(
         }
         
 
-        private IEnumerable<string> GetOnModelCreatingStatements()
-        {
-            var statements = GetDecorators().SelectMany(x => x.GetOnModelCreatingStatements() ?? Enumerable.Empty<string>()).ToList();
-            return statements;
-        }
+        //private IEnumerable<string> GetOnModelCreatingStatements()
+        //{
+        //    var statements = GetDecorators().SelectMany(x => x.GetOnModelCreatingStatements() ?? Enumerable.Empty<string>()).ToList();
+        //    return statements;
+        //}
 
         //private string GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
         //{

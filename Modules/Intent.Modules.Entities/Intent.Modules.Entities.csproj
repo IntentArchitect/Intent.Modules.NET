@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.3.12</Version>
+    <Version>4.0.0-pre.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +29,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.19-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.6" />
-    <PackageReference Include="Intent.Packager" Version="3.3.0">
+    <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
