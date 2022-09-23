@@ -7,4 +7,4 @@ These include the following options:
 * Support for separating state from behaviour - for when keeping rich domain behaviours separate from the state properties is preferred.
 * Support for entity interfaces - recommended only when very strict control to the domain is necessary.
 
-This verion is implementing the templates using the CSharpFile builder pattern.
+> This verion is implemented using the `CSharpFile` builder pattern for the various templates.
