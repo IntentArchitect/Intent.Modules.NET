@@ -71,7 +71,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     var nullableValue = projectOptions.NullableEnabledNew().Value switch
                     {
                         "false" => "disable",
-                        "true" => "enabled",
+                        "true" => "enable",
                         _ => null
                     };
 
