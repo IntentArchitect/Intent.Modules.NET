@@ -133,7 +133,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
             base.BeforeTemplateExecution();
             if (!File.Exists(GetMetadata().GetFilePath()))
             {
-                _randomPort = new Random().Next(40000, 65535);
+                _randomPort = new Random().Next(56600, 65535);
                 _randomSslPort = new Random().Next(44300, 44399);
                 ExecutionContext.EventDispatcher.Publish(
                     new HostingSettingsCreatedEvent($"http://localhost:{_randomPort}/", _randomPort, _randomSslPort));
