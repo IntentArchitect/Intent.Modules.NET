@@ -21,6 +21,7 @@
     <dependency id="Intent.Entities.Repositories.Api" version="3.3.7" />
     <dependency id="Intent.Modelers.Services" version="3.3.5" />
     <dependency id="Intent.Modelers.Services.CQRS" version="3.3.4" />
+    <dependency id="Intent.Metadata.WebApi" version="3.3.8" />
   </dependencies>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
