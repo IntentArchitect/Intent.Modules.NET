@@ -207,6 +207,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EfCoreTestSuite.CosmosDb.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCoreTestSuite.CosmosDb.IntegrationTests", "EfCoreTestSuite.CosmosDb.IntegrationTests\EfCoreTestSuite.CosmosDb.IntegrationTests.csproj", "{81643EFC-B944-40EE-B9E2-2E5313BB8361}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AspNetCore.TestSuite.IntentGenerated", "AspNetCore.TestApplication\AspNetCore.TestSuite.IntentGenerated\AspNetCore.TestSuite.IntentGenerated.csproj", "{736B10B4-F1A4-4A2C-8FA4-0D9B0DA1F590}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -589,6 +591,10 @@ Global
 		{81643EFC-B944-40EE-B9E2-2E5313BB8361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81643EFC-B944-40EE-B9E2-2E5313BB8361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81643EFC-B944-40EE-B9E2-2E5313BB8361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{736B10B4-F1A4-4A2C-8FA4-0D9B0DA1F590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{736B10B4-F1A4-4A2C-8FA4-0D9B0DA1F590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{736B10B4-F1A4-4A2C-8FA4-0D9B0DA1F590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{736B10B4-F1A4-4A2C-8FA4-0D9B0DA1F590}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -688,6 +694,7 @@ Global
 		{C4E79B07-64CD-406C-86C8-0A61F69DFF7D} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{B0977200-E3A8-44D6-8FB2-A7AE33C2DBAE} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{81643EFC-B944-40EE-B9E2-2E5313BB8361} = {A319FB02-C635-433C-9446-8A7FB29162DE}
+		{736B10B4-F1A4-4A2C-8FA4-0D9B0DA1F590} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
