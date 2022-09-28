@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<PK_PrimaryKeyLong> builder)
         {
             builder.HasKey(x => x.PrimaryKeyLong);
-
-
         }
     }
 }

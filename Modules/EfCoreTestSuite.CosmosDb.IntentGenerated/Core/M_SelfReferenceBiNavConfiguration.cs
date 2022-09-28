@@ -28,7 +28,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
                 .WithMany(x => x.M_SelfReferenceBiNavs)
                 .HasForeignKey(x => x.M_SelfReferenceBiNavAssocationId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

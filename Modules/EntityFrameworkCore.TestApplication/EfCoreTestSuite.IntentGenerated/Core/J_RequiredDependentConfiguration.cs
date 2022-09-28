@@ -18,8 +18,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
             builder.Property(x => x.ReqDepAttr)
                 .IsRequired();
-
-
         }
     }
 }

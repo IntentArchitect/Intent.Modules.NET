@@ -28,7 +28,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
                 .WithOne()
                 .HasForeignKey<B_OptionalAggregate>(x => x.B_OptionalDependentId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

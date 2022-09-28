@@ -346,6 +346,76 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ClassC.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\ClassDState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassEState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassD.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassE.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassCState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassDState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassEState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassD.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassE.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

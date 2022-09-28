@@ -27,7 +27,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.HasMany(x => x.H_MultipleDependents)
                 .WithOne(x => x.H_OptionalAggregateNav)
                 .HasForeignKey(x => x.H_OptionalAggregateNavId);
-
         }
     }
 }

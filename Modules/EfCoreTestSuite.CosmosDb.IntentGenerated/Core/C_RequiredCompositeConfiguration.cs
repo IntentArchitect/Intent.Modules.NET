@@ -25,7 +25,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.OwnsMany(x => x.C_MultipleDependents, ConfigureC_MultipleDependents);
-
         }
 
         public void ConfigureC_MultipleDependents(OwnedNavigationBuilder<C_RequiredComposite, C_MultipleDependent> builder)
@@ -33,6 +32,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.WithOwner().HasForeignKey(x => x.C_RequiredCompositeId);
             builder.ToTable("C_MultipleDependent");
 
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.MultipleDependentAttr)
                 .IsRequired();

@@ -5,20 +5,17 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.DomainEntityInterface", Version = "1.0")]
 
-namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities
+namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
 
-    public partial interface IClassB
+    public partial interface IClassC
     {
 
         /// <summary>
         /// Get the persistent object's identifier
         /// </summary>
         Guid Id { get; }
-        string ClassBAttr { get; set; }
+        string ClassCAttr { get; set; }
 
-        ClassC ClassC { get; set; }
-
-        Guid ClassAId { get; }
     }
 }

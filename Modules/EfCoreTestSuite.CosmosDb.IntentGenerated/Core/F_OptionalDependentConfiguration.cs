@@ -23,7 +23,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.OptionalDependentAttr)
                 .IsRequired();
             builder.HasPartitionKey(x => x.PartitionKey);
-
         }
     }
 }

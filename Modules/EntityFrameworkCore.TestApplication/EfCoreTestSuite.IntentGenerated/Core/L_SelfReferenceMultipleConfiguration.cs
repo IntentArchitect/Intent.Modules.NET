@@ -19,11 +19,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.Property(x => x.SelfRefMultipleAttr)
                 .IsRequired();
 
-
             builder.HasMany(x => x.L_SelfReferenceMultiplesDst)
                 .WithMany("L_SelfReferenceMultiplesSrc")
                 .UsingEntity(x => x.ToTable("L_SelfReferenceMultipleL_SelfReferenceMultiples"));
-
         }
     }
 }

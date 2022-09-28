@@ -19,7 +19,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.Property(x => x.IndexField)
                 .IsRequired();
 
-
             builder.HasIndex(x => x.IndexField);
         }
     }

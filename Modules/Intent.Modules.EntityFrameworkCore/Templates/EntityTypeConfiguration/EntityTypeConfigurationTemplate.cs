@@ -78,86 +78,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             this.Write("> builder)\r\n        {");
             
             #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetTableMapping(Model)));
-            
-            #line default
-            #line hidden
-            
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyMapping(Model)));
-            
-            #line default
-            #line hidden
-            
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetCheckConstraints()));
-            
-            #line default
-            #line hidden
-            
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetBeforeAttributeStatements()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-  foreach(var attribute in GetAttributes(Model)) { 
-            
-            #line default
-            #line hidden
-            this.Write("            ");
-            
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetAttributeMapping(attribute)));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-  } 
-            
-            #line default
-            #line hidden
-            
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetAfterAttributeStatements()));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-  foreach(var attribute in GetAssociations(Model)) { 
-            
-            #line default
-            #line hidden
-            this.Write("            ");
-            
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetAssociationMapping(attribute)));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-  } 
-            
-            #line default
-            #line hidden
-            
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(@"
-			", GetIndexes(Model))));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeConfiguration()));
             
             #line default
             #line hidden
             this.Write("\r\n        }");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAdditionalMethods()));
             
             #line default

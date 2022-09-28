@@ -19,7 +19,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
                 .IsRequired()
                 .HasMaxLength(250);
 
-
             builder.HasIndex(x => x.IndexField);
         }
     }

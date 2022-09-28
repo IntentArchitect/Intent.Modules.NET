@@ -28,7 +28,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
                 .WithMany()
                 .HasForeignKey(x => x.J_RequiredDependentId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

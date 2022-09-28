@@ -19,12 +19,10 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.Property(x => x.OptionalAggrAttr)
                 .IsRequired();
 
-
             builder.HasOne(x => x.B_OptionalDependent)
                 .WithOne()
                 .HasForeignKey<B_OptionalAggregate>(x => x.B_OptionalDependentId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

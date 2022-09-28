@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="a7d36719-3e18-42c8-9d7c-d0765b5a6829">
-  <sourceEnd id="d6d0745a-3a36-4c99-8fa4-ceeae04834ad" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
-    <name>ClassA</name>
-    <display>ClassA: ClassA</display>
-    <order>3</order>
-    <typeReference id="bda746ef-ba77-4886-9d51-3dbbb5668268">
-      <typeId>ac315ad3-af1a-4809-98e2-97bd54f7593f</typeId>
+<association id="42656cae-8b31-43a6-b93c-4bf5d2d3e9df">
+  <sourceEnd id="5f2bfcf4-3099-4479-a2b3-0ac62bfab34b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ClassD</name>
+    <display>ClassD: ClassD</display>
+    <order>0</order>
+    <typeReference id="fce7ae94-f079-4c61-a7a8-57d221ab1e3e">
+      <typeId>f6cfbb0c-08c4-4b57-bff0-e57125782700</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,15 +18,15 @@
     <stereotypes />
     <metadata />
   </sourceEnd>
-  <targetEnd id="a7d36719-3e18-42c8-9d7c-d0765b5a6829" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
-    <name>ClassBS</name>
-    <display>ClassBS: ClassB[*]</display>
-    <order>2</order>
-    <typeReference id="8340483a-8edc-4a09-98ec-c2bcf4166764">
-      <typeId>012ac484-4858-45b9-ab8d-3c0e32fa2e73</typeId>
+  <targetEnd id="42656cae-8b31-43a6-b93c-4bf5d2d3e9df" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ClassE</name>
+    <display>ClassE: ClassE</display>
+    <order>0</order>
+    <typeReference id="1185e006-07bf-4e18-9bdb-575881892e7e">
+      <typeId>84e2e545-10be-4229-8d85-bdb479ff61c6</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
-      <isCollection>true</isCollection>
+      <isCollection>false</isCollection>
       <isRequired>true</isRequired>
       <typePackageName>Domain</typePackageName>
       <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>

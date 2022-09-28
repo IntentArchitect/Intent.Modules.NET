@@ -18,14 +18,7 @@ namespace <#= Namespace #>
     public class <#= ClassName #> : IEntityTypeConfiguration<<#= GetEntityName() #>>
     {<#= GetClassMembers() #><#= GetConstructor() #>
         public void Configure(EntityTypeBuilder<<#= GetEntityName() #>> builder)
-        {<#= GetTableMapping(Model) #><#= GetKeyMapping(Model) #><#= GetCheckConstraints() #><#= GetBeforeAttributeStatements() #>
-<#  foreach(var attribute in GetAttributes(Model)) { #>
-            <#= GetAttributeMapping(attribute) #>
-<#  } #><#= GetAfterAttributeStatements() #>
-<#  foreach(var attribute in GetAssociations(Model)) { #>
-            <#= GetAssociationMapping(attribute) #>
-<#  } #><#= string.Join(@"
-			", GetIndexes(Model)) #>
+        {<#= GetTypeConfiguration() #>
         }<#= GetAdditionalMethods() #>
     }
 }

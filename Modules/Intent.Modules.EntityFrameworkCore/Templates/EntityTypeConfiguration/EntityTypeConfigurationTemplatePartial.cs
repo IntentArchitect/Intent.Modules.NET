@@ -120,16 +120,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     .IsTPH())
             {
                 return $@"
-            builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();
-";
+            builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();";
             }
 
             if (model.HasTable() || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
                     .IsTPH())
             {
                 return $@"
-            builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});
-";
+            builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
             }
 
             if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
@@ -143,8 +141,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     : cosmosSettings.ContainerName();
 
                 return $@"
-            builder.ToContainer(""{containerName}"");
-";
+            builder.ToContainer(""{containerName}"");";
             }
 
             return string.Empty;
@@ -160,11 +157,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (!model.GetExplicitPrimaryKey().Any())
             {
-                if (IsOwned(model.InternalElement))
-                {
-                    return "";
-                }
-
                 return $@"
                 builder.HasKey(x => x.Id);";
                 //    return $@"
@@ -185,7 +177,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private bool RequiresConfiguration(AttributeModel attribute)
         {
-            return Model.GetExplicitPrimaryKey().All(key => !key.Equals(attribute)) &&
+            return attribute.InternalElement.ParentElement.AsClassModel()?.GetExplicitPrimaryKey().All(key => !key.Equals(attribute)) == true &&
                    !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase);
         }
 
@@ -359,7 +351,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     partitionKey = "PartitionKey";
                 }
-                if (GetAttributes(Model).Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
+                if (GetAttributes(Model.InternalElement).Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
                 {
                     statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
                 }
@@ -398,7 +390,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         _ownedTypeConfigMethods.Add(@$"
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")});{string.Join(@"
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})" +
@@ -508,41 +500,45 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             ", statements)};";
         }
 
+        private string GetTypeConfiguration()
+        {
+            return string.Join(@"
+", GetTypeConfiguration(Model.InternalElement));
+        }
+
         private List<string> GetTypeConfiguration(IElement targetType)
         {
             var statements = new List<string>();
-            var attributes = targetType.ChildElements
-                .Where(x => x.IsAttributeModel())
-                .Select(x => x.AsAttributeModel())
-                .ToList();
-
-            var associations = targetType.AssociatedElements
-                .Where(x => x.IsAssociationEndModel())
-                .Select(x => x.AsAssociationEndModel())
-                .ToList();
 
             if (targetType.IsClassModel())
             {
                 statements.Add(GetTableMapping(targetType.AsClassModel()));
-                if (targetType.AsClassModel().GetExplicitPrimaryKey().Any())
-                {
-                    statements.Add(GetKeyMapping(targetType.AsClassModel()));
-                }
+                statements.Add(GetKeyMapping(targetType.AsClassModel()));
+                statements.Add(GetCheckConstraints(targetType.AsClassModel()));
             }
 
-            statements.AddRange(attributes.Where(RequiresConfiguration).Select(GetAttributeMapping));
-            statements.AddRange(associations.Where(RequiresConfiguration).Select(GetAssociationMapping));
+            if (targetType.Id.Equals(Model.Id))
+            {
+                statements.Add(GetBeforeAttributeStatements());
+            }
+            statements.AddRange(GetAttributes(targetType).Where(RequiresConfiguration).Select(GetAttributeMapping));
+
+            if (targetType.Id.Equals(Model.Id))
+            {
+                statements.Add(GetAfterAttributeStatements());
+            }
+            statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(GetAssociationMapping));
             if (targetType.IsClassModel())
             {
                 statements.AddRange(GetIndexes(targetType.AsClassModel()));
             }
 
-            return statements;
+            return statements.Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
         }
 
-        private string GetCheckConstraints()
+        private string GetCheckConstraints(ClassModel model)
         {
-            var checkConstraints = Model.GetCheckConstraints();
+            var checkConstraints = model.GetCheckConstraints();
             if (checkConstraints.Count == 0)
             {
                 return string.Empty;
@@ -657,11 +653,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             else if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
             {
                 columns.AddRange(associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
-                    $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"));
+                    $"{(!associationEnd.Association.IsOneToOne() ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}{x.Name.ToPascalCase()}"));
             }
             else // implicit Id
             {
-                columns.Add($"{associationEnd.OtherEnd().Name.ToPascalCase()}Id");
+                columns.Add($"{(!associationEnd.Association.IsOneToOne() ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id");
             }
 
             if (columns.Count == 1)
@@ -693,29 +689,37 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return string.Empty;
         }
 
-        private IEnumerable<AttributeModel> GetAttributes(ClassModel model)
+        private IEnumerable<AttributeModel> GetAttributes(IElement model)
         {
             var attributes = new List<AttributeModel>();
-            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings
+            var @class = model.AsClassModel();
+            if (@class?.ParentClass != null && @class.ParentClass.IsAbstract && ExecutionContext.Settings
                     .GetDatabaseSettings().InheritanceStrategy().IsTPC())
             {
-                attributes.AddRange(GetAttributes(model.ParentClass));
+                attributes.AddRange(GetAttributes(@class.ParentClass.InternalElement));
             }
 
-            attributes.AddRange(model.Attributes.Where(RequiresConfiguration).ToList());
+            attributes.AddRange(model.ChildElements
+                .Where(x => x.IsAttributeModel() && RequiresConfiguration(x.AsAttributeModel()))
+                .Select(x => x.AsAttributeModel())
+                .ToList());
             return attributes;
         }
 
-        private IEnumerable<AssociationEndModel> GetAssociations(ClassModel model)
+        private IEnumerable<AssociationEndModel> GetAssociations(IElement model)
         {
             var associations = new List<AssociationEndModel>();
-            if (model.ParentClass != null && model.ParentClass.IsAbstract && ExecutionContext.Settings
+            var @class = model.AsClassModel();
+            if (@class?.ParentClass != null && @class.ParentClass.IsAbstract && ExecutionContext.Settings
                     .GetDatabaseSettings().InheritanceStrategy().IsTPC())
             {
-                associations.AddRange(GetAssociations(model.ParentClass));
+                associations.AddRange(GetAssociations(@class.ParentClass.InternalElement));
             }
 
-            associations.AddRange(model.AssociatedClasses.Where(RequiresConfiguration).ToList());
+            associations.AddRange(model.AssociatedElements
+                .Where(x => x.IsAssociationEndModel() && RequiresConfiguration(x.AsAssociationEndModel()))
+                .Select(x => x.AsAssociationEndModel())
+                .ToList());
             return associations;
         }
 

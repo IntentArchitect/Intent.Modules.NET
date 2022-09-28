@@ -3,6 +3,7 @@
   <name>NestedComposition</name>
   <display>NestedComposition</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9e512d5a-048e-470d-ae7b-b02162bf1b20</parentFolderId>

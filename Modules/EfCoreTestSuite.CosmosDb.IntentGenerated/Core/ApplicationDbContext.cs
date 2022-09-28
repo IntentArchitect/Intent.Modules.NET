@@ -5,6 +5,7 @@ using EfCoreTestSuite.CosmosDb.IntentGenerated.DependencyInjection;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
