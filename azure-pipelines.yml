@@ -92,7 +92,7 @@ steps:
     script: dotnet tool install Intent.SoftwareFactory.CLI --global
 
 - task: PowerShell@2
-  displayName: 'Run Intent CLI'
+  displayName: 'Template Testing'
   inputs:
     targetType: 'inline'
     pwsh: true
@@ -111,7 +111,7 @@ steps:
         }
       }
       if ($testsFailed -eq $true) {
-        throw "Intnet CLI Tests failed."
+        throw "Template Testing failed. Please review [error] tags."
       }
 
 - task: PowerShell@2
