@@ -122,9 +122,9 @@ steps:
   inputs:
     targetType: inline
     pwsh: true
-    script:
+    script: |
       $regex = '(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$'
-      Get-ChildItem .\.intent-modules\*.imod | Where-Object { $_.Name -Match $regex } | Remove-Item
+      Get-ChildItem ./Modules/Intent.Modules/*.imod | Where-Object { $_.Name -Match $regex } | Remove-Item
 
 - task: PowerShell@2
   displayName: 'Publish to official repository'
