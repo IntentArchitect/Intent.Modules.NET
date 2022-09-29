@@ -1,5 +1,5 @@
 trigger:
-  batch: true
+  batch: 'true'
   branches:
     include:
     - '*'
@@ -25,8 +25,8 @@ pool:
 steps:
 
 - checkout: 'self'
-  persistCredentials: true
-  fetchDepth: 1
+  persistCredentials: 'true'
+  fetchDepth: '1'
   submodules: 'recursive'
 
 # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
@@ -96,15 +96,22 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script:
-      ./prepare-intent-testing.ps1;
-      $testSln = [xml] (Get-Content ./Modules/Intent.Modules.NET.Tests.isln -Encoding UTF8);
+    script: |
+      ./prepare-intent-testing.ps1
+      $testSln = [xml] (Get-Content ./Modules/Intent.Modules.NET.Tests.isln -Encoding UTF8)
+      $testsFailed = $failed
       $testSln.solution.applications.application | % {
-        $appId = $_.id;
-        Write-Host ==================================================;
-        Write-Host Application = $_.name;
-        Write-Host ==================================================;
-        intent-cli "$(intent-architect-user)" "$(intent-architect-password)" "$(intent-solution)" "$($appId)" "--warning-logging-command" "$(warning-logging-command)" "--error-logging-command" "$(error-logging-command)";
+        $appId = $_.id
+        Write-Host ==================================================
+        Write-Host Application = $_.name
+        Write-Host ==================================================
+        intent-cli "$(intent-architect-user)" "$(intent-architect-password)" "$(intent-solution)" "$($appId)" "--warning-logging-command" "$(warning-logging-command)" "--error-logging-command" "$(error-logging-command)"
+        if ($LASTEXITCODE -ne 0) {
+            $testsFailed = $true
+        }
+      }
+      if ($testsFailed -eq $true) {
+        throw "Intnet CLI Tests failed."
       }
 
 - task: PowerShell@2
@@ -113,7 +120,7 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script:
+    script: |
       dotnet tool install Intent.IArchitect.Packager.CommandLine --global --add-source '$(vstsFeedUrl)'
 
 - task: PowerShell@2
@@ -124,13 +131,15 @@ steps:
     pwsh: true
     script: |
       $regex = '(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$'
-      Get-ChildItem ./Modules/Intent.Modules/*.imod | Where-Object { $_.Name -Match $regex } | Remove-Item
+      Get-ChildItem "./Modules/Intent.Modules/*.imod" | Where-Object { $_.Name -Match $regex } | Remove-Item
 
 - task: PowerShell@2
   displayName: 'Publish to official repository'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  env:
+    DOTNET_NOLOGO: '1'
   inputs:
     targetType: inline
     pwsh: true
-    script:
-      intent-package-management BulkUploadModules -directory ./Modules/Intent.Modules -address https://intentarchitect.com/
+    script: |
+      intent-package-management BulkUploadModules -directory "./Modules/Intent.Modules" -address "https://intentarchitect.com/" -username "$(intent-architect-user)" -password "$(intent-architect-password)"
