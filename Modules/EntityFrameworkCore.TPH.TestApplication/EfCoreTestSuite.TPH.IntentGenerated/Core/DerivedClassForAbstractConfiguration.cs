@@ -15,12 +15,9 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
         {
             builder.HasBaseType<AbstractBaseClass>();
 
-
             builder.Property(x => x.DerivedAttribute)
                 .IsRequired()
                 .HasMaxLength(250);
-
-
         }
     }
 }

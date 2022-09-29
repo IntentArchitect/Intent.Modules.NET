@@ -15,7 +15,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
-
             builder.HasOne(x => x.AggregateRoot4Single)
                 .WithOne()
                 .HasForeignKey<AggregateRoot4AggNullable>(x => x.Id)
@@ -29,7 +28,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
                 .WithOne()
                 .HasForeignKey<AggregateRoot4AggNullable>(x => x.AggregateRoot4NullableId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

@@ -15,15 +15,14 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
-
             builder.OwnsOne(x => x.AggregateRoot5EntityWithRepo, ConfigureAggregateRoot5EntityWithRepo)
                 .Navigation(x => x.AggregateRoot5EntityWithRepo).IsRequired();
-
         }
 
         public void ConfigureAggregateRoot5EntityWithRepo(OwnedNavigationBuilder<AggregateRoot5, AggregateRoot5EntityWithRepo> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.HasKey(x => x.Id);
         }
     }
 }

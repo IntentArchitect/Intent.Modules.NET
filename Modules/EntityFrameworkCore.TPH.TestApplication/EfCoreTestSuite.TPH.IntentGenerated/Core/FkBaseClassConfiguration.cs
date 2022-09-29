@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<FkBaseClass> builder)
         {
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
-
-
         }
     }
 }

@@ -21,12 +21,10 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
             builder.Property(x => x.ExplicitKeysCompositeKeyCompositeKeyB)
                 .IsRequired();
 
-
             builder.HasOne(x => x.ExplicitKeysCompositeKey)
                 .WithMany()
                 .HasForeignKey(x => new { x.ExplicitKeysCompositeKeyCompositeKeyA, x.ExplicitKeysCompositeKeyCompositeKeyB })
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

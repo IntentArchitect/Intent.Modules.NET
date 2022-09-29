@@ -15,12 +15,9 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
         {
             builder.ToTable("DerivedClassForAbstract");
 
-
             builder.Property(x => x.DerivedAttribute)
                 .IsRequired()
                 .HasMaxLength(250);
-
-
         }
     }
 }

@@ -15,29 +15,30 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
-
             builder.OwnsOne(x => x.AggregateRoot2Single, ConfigureAggregateRoot2Single)
                 .Navigation(x => x.AggregateRoot2Single).IsRequired();
 
             builder.OwnsOne(x => x.AggregateRoot2Nullable, ConfigureAggregateRoot2Nullable);
 
             builder.OwnsMany(x => x.AggregateRoot2Collections, ConfigureAggregateRoot2Collections);
-
         }
 
         public void ConfigureAggregateRoot2Single(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Single> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.HasKey(x => x.Id);
         }
 
         public void ConfigureAggregateRoot2Nullable(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Nullable> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.HasKey(x => x.Id);
         }
 
         public void ConfigureAggregateRoot2Collections(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Collection> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.AggregateRoot2CompositionId);
+            builder.HasKey(x => x.Id);
         }
     }
 }

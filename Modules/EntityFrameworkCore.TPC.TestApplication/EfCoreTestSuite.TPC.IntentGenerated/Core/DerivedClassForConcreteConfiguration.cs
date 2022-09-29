@@ -15,12 +15,9 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         {
             builder.ToTable("DerivedClassForConcrete");
 
-
             builder.Property(x => x.DerivedAttribute)
                 .IsRequired()
                 .HasMaxLength(250);
-
-
         }
     }
 }
