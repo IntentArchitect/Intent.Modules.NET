@@ -1061,5 +1061,26 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="18df4e9a-2d5a-43f2-8399-6779c524a1d1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>NonHttpSettingsOperation</name>
+      <display>NonHttpSettingsOperation(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5a419547-2905-4fda-9d18-88ebd90d6180">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e2c3dba3-5ed4-47a1-8fcf-b888f81677e5</parentFolderId>
+      <packageId>3ca06157-097f-448b-8587-1be6fe40d1e3</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

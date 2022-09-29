@@ -34,6 +34,7 @@
     <dependency id="Intent.Common.CSharp" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.Modelers.ServiceProxies" version="3.3.6-pre.0" />
+    <dependency id="Intent.Metadata.WebApi" version="3.3.9-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>

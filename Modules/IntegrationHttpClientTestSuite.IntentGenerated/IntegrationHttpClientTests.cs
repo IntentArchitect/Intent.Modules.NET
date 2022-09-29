@@ -344,5 +344,10 @@ public class IntegrationHttpClientTests
         {
             return Task.FromResult(new List<string> { DefaultString });
         }
+
+        public Task NonHttpSettingsOperation()
+        {
+            return Task.CompletedTask;
+        }
     }
 }

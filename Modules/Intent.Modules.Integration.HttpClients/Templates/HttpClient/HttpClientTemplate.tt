@@ -8,6 +8,7 @@
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
 <#@ import namespace="Intent.Modules.Application.Contracts.Clients.Templates" #>
+<#@ import namespace="Intent.Metadata.WebApi.Api" #>
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,7 +41,7 @@ namespace <#= Namespace #>
         }
 
 <#
-    foreach (var operation in Model.MappedService.Operations)
+    foreach (var operation in Model.MappedService.Operations.Where(p => p.HasHttpSettings()))
     {
 #>
         public async <#= GetReturnType(operation) #> <#= GetOperationName(operation) #>(<#= GetOperationParameters(operation) #>)
