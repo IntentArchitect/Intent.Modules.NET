@@ -89,7 +89,7 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: dotnet tool install Intent.SoftwareFactory.CLI --global
+    script: dotnet tool install Intent.SoftwareFactory.CLI --global --prerelease
 
 - task: PowerShell@2
   displayName: 'Template Testing'
