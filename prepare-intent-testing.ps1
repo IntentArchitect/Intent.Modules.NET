@@ -1,4 +1,6 @@
 $modulesFolderPath = "Intent.Modules"
+$pathToModules = "Modules"
+$solutionFile = "Intent.Modules.NET.Tests.isln"
 
 $repoConfigContent = 
 "<?xml version=""1.0"" encoding=""utf-8""?>
@@ -14,7 +16,7 @@ $repoConfigContent =
 </assetRepositories>"
 
 $moduleLookup = @{}
-$moduleFileNames = Get-ChildItem "./Modules/$($modulesFolderPath)/*.imod" | % {
+$moduleFileNames = Get-ChildItem "./$($pathToModules)/$($modulesFolderPath)/*.imod" | % {
     $file = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
     $dotNumber = 0
     $dotIndex = -1
@@ -43,13 +45,13 @@ $moduleFileNames = Get-ChildItem "./Modules/$($modulesFolderPath)/*.imod" | % {
     }
 }
 
-$repoConfigContent | Set-Content ./Modules/intent.repositories.config -Encoding UTF8
+$repoConfigContent | Set-Content ./$pathToModules/intent.repositories.config -Encoding UTF8
 
-$testSln = [xml] (Get-Content ./Modules/Intent.Modules.NET.Tests.isln -Encoding UTF8)
+$testSln = [xml] (Get-Content ./$pathToModules/$solutionFile -Encoding UTF8)
 
 $testSln.solution.applications.application | % {
     $curLocation = Get-Location;
-    $appRelPath = [System.IO.Path]::Combine($curLocation, "Modules", $_.relativePath)
+    $appRelPath = [System.IO.Path]::Combine($curLocation, $pathToModules, $_.relativePath)
     $basePath = [System.IO.Path]::GetDirectoryName($appRelPath)
     $modulesConfig = [System.IO.Path]::Combine($basePath, "modules.config")
 

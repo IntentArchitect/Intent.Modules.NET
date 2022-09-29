@@ -98,8 +98,8 @@ steps:
     pwsh: true
     script: |
       ./prepare-intent-testing.ps1
-      $testSln = [xml] (Get-Content ./Modules/Intent.Modules.NET.Tests.isln -Encoding UTF8)
-      $testsFailed = $failed
+      $testSln = [xml] (Get-Content './$(intent-solution)' -Encoding UTF8)
+      $testsFailed = $false
       $testSln.solution.applications.application | % {
         $appId = $_.id
         Write-Host ==================================================
