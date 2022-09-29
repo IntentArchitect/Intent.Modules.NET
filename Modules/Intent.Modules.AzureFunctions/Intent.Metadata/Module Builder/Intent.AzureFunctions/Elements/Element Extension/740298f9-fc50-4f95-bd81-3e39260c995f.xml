@@ -86,7 +86,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let serviceElement = element.getParent();&#xD;&#xA;let stereotype = element.getStereotype(&quot;Azure Function&quot;);&#xD;&#xA;if (stereotype.getProperty(&quot;Route&quot;).getValue() == null) {&#xD;&#xA;    stereotype.getProperty(&quot;Route&quot;).setValue(serviceElement.getName().toLowerCase());&#xD;&#xA;}" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const azureFunctionStereotypeId = &quot;dc6ee497-a53f-4e6c-bbed-2dbd9951796c&quot;;&#xD;&#xA;element.addStereotype(azureFunctionStereotypeId);&#xD;&#xA;&#xD;&#xA;let serviceElement = element.getParent();&#xD;&#xA;&#xD;&#xA;let stereotype = element.getStereotype(azureFunctionStereotypeId);&#xD;&#xA;if (stereotype.getProperty(&quot;Route&quot;).getValue() == null) {&#xD;&#xA;    stereotype.getProperty(&quot;Route&quot;).setValue(serviceElement.getName().toLowerCase());&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

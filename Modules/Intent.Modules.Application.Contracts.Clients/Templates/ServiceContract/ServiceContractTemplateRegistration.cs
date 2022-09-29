@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
-                .Where(p => p.MappedService.Operations.Any(q => q.HasHttpSettings()))
+                .Where(p => p.MappedService.Operations.Any(ContractMetadataQueries.IsAbleToReference))
                 .ToArray();
         }
     }

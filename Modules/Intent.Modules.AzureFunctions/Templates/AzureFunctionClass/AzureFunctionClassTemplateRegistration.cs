@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -33,6 +34,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             var models = _metadataManager.Services(applicationManager)
                 .GetServiceModels()
                 .SelectMany(s => s.Operations)
+                .Where(p => p.HasAzureFunction())
                 .ToArray();
 
             var serviceSet = new HashSet<ServiceModel>();

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8e95e3c6-9540-4013-bf55-cd0148856a97" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ListedUnlistedServices</name>
+  <display>ListedUnlistedServices</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2c306a0a-4442-4a40-a5be-18866522fa0b</parentFolderId>
+  <packageId>2c306a0a-4442-4a40-a5be-18866522fa0b</packageId>
+  <packageName>Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2d7d1a9b-712a-4976-b9b6-ff6f720ccf7c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ListedServiceFunc</name>
+      <display>ListedServiceFunc(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a7974eb2-53af-4698-bb10-dd75fe173419">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8e95e3c6-9540-4013-bf55-cd0148856a97</parentFolderId>
+      <packageId>2c306a0a-4442-4a40-a5be-18866522fa0b</packageId>
+      <packageName>Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="dc6ee497-a53f-4e6c-bbed-2dbd9951796c" name="Azure Function">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="707d002a-e612-4112-bf5a-22bc194e71e2" display="Type" value="Http Trigger" isActive="true" />
+            <property name="a1910492-781d-42ab-bb76-e5db6810240f" display="Authorization Level" value="Function" isActive="true" />
+            <property name="8b1d6b10-b9c9-4562-a8cf-bf3eb9123621" display="Method" value="POST" isActive="true" />
+            <property name="095baa56-16b2-4aaa-91e2-a43c1698b7e0" display="Route" value="listedunlistedservices" isActive="true" />
+            <property name="43a2e28b-7c0c-4c81-88f4-8404c7ddff02" display="Queue Name" isActive="false" />
+            <property name="b2bfad15-1818-4fa5-86ec-15c34b3bd7ee" display="Connection" isActive="false" />
+            <property name="a6952628-d858-432d-a9fb-3bb08081a37f" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b0ed92a5-191b-47cd-ba45-b6d30d8e70ef" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5aed400b-ca1e-4666-a0d5-4a2d5a44beb0">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2d7d1a9b-712a-4976-b9b6-ff6f720ccf7c</parentFolderId>
+          <packageId>2c306a0a-4442-4a40-a5be-18866522fa0b</packageId>
+          <packageName>Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cf211d4f-7c26-4a16-b969-b677103a0aaa" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UnlistedServiceFunc</name>
+      <display>UnlistedServiceFunc(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f96e82ec-8b40-4926-ab44-a95fd417580c">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8e95e3c6-9540-4013-bf55-cd0148856a97</parentFolderId>
+      <packageId>2c306a0a-4442-4a40-a5be-18866522fa0b</packageId>
+      <packageName>Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

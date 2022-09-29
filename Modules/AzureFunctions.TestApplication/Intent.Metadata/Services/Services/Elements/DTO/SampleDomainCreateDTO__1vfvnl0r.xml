@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7830d01a-7f0a-4909-bf32-a719c72db282" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>SampleDomainCreateDTO</name>
+  <display>SampleDomainCreateDTO</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7168842-13bb-47f2-bdc1-feee893c737c</parentFolderId>
+  <packageId>2c306a0a-4442-4a40-a5be-18866522fa0b</packageId>
+  <packageName>Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

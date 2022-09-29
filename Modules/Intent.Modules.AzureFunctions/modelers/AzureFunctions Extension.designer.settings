@@ -14,8 +14,12 @@
       <mappingSettings />
       <macros>
         <macro trigger="on-created">
-          <script>let serviceElement = element.getParent();
-let stereotype = element.getStereotype("Azure Function");
+          <script>const azureFunctionStereotypeId = "dc6ee497-a53f-4e6c-bbed-2dbd9951796c";
+element.addStereotype(azureFunctionStereotypeId);
+
+let serviceElement = element.getParent();
+
+let stereotype = element.getStereotype(azureFunctionStereotypeId);
 if (stereotype.getProperty("Route").getValue() == null) {
     stereotype.getProperty("Route").setValue(serviceElement.getName().toLowerCase());
 }</script>
@@ -32,6 +36,15 @@ if (!httpVerb) {
         element.getStereotype("Azure Function")?.getProperty("Method")?.setValue("POST");
     }
 }</script>
+        </macro>
+      </macros>
+    </elementExtension>
+    <elementExtension type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>const parameterSteteotypeId = "9c43b6a8-7d38-4799-b441-399923e5790b";
+element.addStereotype(parameterSteteotypeId);</script>
         </macro>
       </macros>
     </elementExtension>
