@@ -56,21 +56,5 @@
       <ProjectRelativeFilePath>NonHttpServiceAppliedService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
-    <FileLog>
-      <ProjectId>21f33d78-6ac4-44cf-bf8a-eb74eec7b6fb</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.TestSuite.IntentGenerated/Program.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>21f33d78-6ac4-44cf-bf8a-eb74eec7b6fb</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.TestSuite.IntentGenerated/Startup.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
   </FileLogs>
 </outputLog>
