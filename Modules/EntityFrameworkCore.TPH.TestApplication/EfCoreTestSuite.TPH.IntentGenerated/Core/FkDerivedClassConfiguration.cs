@@ -14,9 +14,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<FkDerivedClass> builder)
         {
             builder.HasBaseType<FkBaseClass>();
-
-
-
         }
     }
 }

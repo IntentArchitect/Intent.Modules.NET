@@ -1,5 +1,6 @@
 using System;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -38,7 +39,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.OwnsMany(x => x.Composites, ConfigureComposites);
-
         }
 
         public void ConfigureComposites(OwnedNavigationBuilder<Derived, Composite> builder)
@@ -46,6 +46,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.WithOwner().HasForeignKey(x => x.DerivedId);
             builder.ToTable("Composite");
 
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.CompositeField1)
                 .IsRequired();

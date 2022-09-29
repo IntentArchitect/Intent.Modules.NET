@@ -16,6 +16,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.SelfRefAttr)
+                .IsRequired();
+
             builder.HasOne(x => x.K_SelfReferenceAssociation)
                 .WithMany()
                 .HasForeignKey(x => x.K_SelfReferenceAssociationId)

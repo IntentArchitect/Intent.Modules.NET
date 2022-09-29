@@ -18,8 +18,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
             builder.Property(x => x.BaseAttribute)
                 .IsRequired()
                 .HasMaxLength(250);
-
-
         }
     }
 }

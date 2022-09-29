@@ -706,6 +706,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>E2_RequiredDependent.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\Associations\E2_RequiredCompositeNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E2_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\E2_RequiredDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E2_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IE2_RequiredCompositeNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E2_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IE2_RequiredDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E2_RequiredDependent.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

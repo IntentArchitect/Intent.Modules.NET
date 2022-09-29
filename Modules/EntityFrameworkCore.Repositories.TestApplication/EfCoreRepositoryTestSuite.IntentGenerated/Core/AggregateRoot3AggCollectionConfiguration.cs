@@ -15,7 +15,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
-
             builder.HasOne(x => x.AggregateRoot3Single)
                 .WithMany()
                 .HasForeignKey(x => x.AggregateRoot3SingleId)
@@ -29,7 +28,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
             builder.HasMany(x => x.AggregateRoot3Collections)
                 .WithMany("AggregateRoot3AggCollections")
                 .UsingEntity(x => x.ToTable("AggregateRoot3AggCollectionAggregateRoot3Collections"));
-
         }
     }
 }

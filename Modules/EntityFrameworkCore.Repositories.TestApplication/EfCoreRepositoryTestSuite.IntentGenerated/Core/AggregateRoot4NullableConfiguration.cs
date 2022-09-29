@@ -14,8 +14,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<AggregateRoot4Nullable> builder)
         {
             builder.HasKey(x => x.Id);
-
-
         }
     }
 }

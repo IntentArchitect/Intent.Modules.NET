@@ -15,6 +15,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<H_MultipleDependent> builder)
         {
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.MultipleDepAttr)
+                .IsRequired();
         }
     }
 }

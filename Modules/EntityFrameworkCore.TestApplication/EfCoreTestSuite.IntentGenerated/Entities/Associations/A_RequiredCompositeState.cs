@@ -11,20 +11,44 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class A_RequiredComposite : IA_RequiredComposite
     {
+        public A_RequiredComposite()
+        {
+        }
 
-        public Guid Id
-        { get; set; }
+        private Guid? _id = null;
 
-        public string Attribute
-        { get; set; }
+        /// <summary>
+        /// Get the persistent object's identifier
+        /// </summary>
+        public virtual Guid Id
+        {
+            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
+            set { _id = value; }
+        }
+
+        private string _requiredCompAttr;
+
+        public string RequiredCompAttr
+        {
+            get { return _requiredCompAttr; }
+            set
+            {
+                _requiredCompAttr = value;
+            }
+        }
+
+        private A_OptionalDependent _a_OptionalDependent;
 
         public virtual A_OptionalDependent A_OptionalDependent
-        { get; set; }
-
-        IA_OptionalDependent IA_RequiredComposite.A_OptionalDependent
         {
-            get => A_OptionalDependent;
-            set => A_OptionalDependent = (A_OptionalDependent)value;
+            get
+            {
+                return _a_OptionalDependent;
+            }
+            set
+            {
+                _a_OptionalDependent = value;
+            }
         }
 
 

@@ -8,9 +8,17 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
 
-    public interface IK_SelfReference
+    public partial interface IK_SelfReference
     {
-        IK_SelfReference K_SelfReferenceAssociation { get; set; }
+
+        /// <summary>
+        /// Get the persistent object's identifier
+        /// </summary>
+        Guid Id { get; }
+        string SelfRefAttr { get; set; }
+
+        Guid? K_SelfReferenceAssociationId { get; }
+        K_SelfReference K_SelfReferenceAssociation { get; set; }
 
     }
 }

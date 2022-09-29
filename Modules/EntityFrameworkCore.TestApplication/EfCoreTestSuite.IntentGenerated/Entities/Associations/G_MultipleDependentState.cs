@@ -12,6 +12,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
     public partial class G_MultipleDependent : IG_MultipleDependent
     {
 
+        private string _multipleDepAttr;
+
+        public string MultipleDepAttr
+        {
+            get { return _multipleDepAttr; }
+            set
+            {
+                _multipleDepAttr = value;
+            }
+        }
+
 
         public Guid G_RequiredCompositeNavId { get; set; }
 

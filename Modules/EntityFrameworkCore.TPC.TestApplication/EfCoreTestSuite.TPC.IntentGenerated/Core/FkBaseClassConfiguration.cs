@@ -16,8 +16,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             builder.ToTable("FkBaseClass");
 
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
-
-
         }
     }
 }

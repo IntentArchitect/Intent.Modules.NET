@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using EfCoreTestSuite.IntentGenerated.Entities;
 using Intent.RoslynWeaver.Attributes;
 
@@ -12,17 +11,44 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class D_OptionalAggregate : ID_OptionalAggregate
     {
+        public D_OptionalAggregate()
+        {
+        }
 
-        public Guid Id
-        { get; set; }
+        private Guid? _id = null;
+
+        /// <summary>
+        /// Get the persistent object's identifier
+        /// </summary>
+        public virtual Guid Id
+        {
+            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
+            set { _id = value; }
+        }
+
+        private string _optionalAggrAttr;
+
+        public string OptionalAggrAttr
+        {
+            get { return _optionalAggrAttr; }
+            set
+            {
+                _optionalAggrAttr = value;
+            }
+        }
+
+        private ICollection<D_MultipleDependent> _d_MultipleDependents;
 
         public virtual ICollection<D_MultipleDependent> D_MultipleDependents
-        { get; set; } = new List<D_MultipleDependent>();
-
-        ICollection<ID_MultipleDependent> ID_OptionalAggregate.D_MultipleDependents
         {
-            get => D_MultipleDependents.CreateWrapper<ID_MultipleDependent, D_MultipleDependent>();
-            set => D_MultipleDependents = value.Cast<D_MultipleDependent>().ToList();
+            get
+            {
+                return _d_MultipleDependents ??= new List<D_MultipleDependent>();
+            }
+            set
+            {
+                _d_MultipleDependents = value;
+            }
         }
 
 

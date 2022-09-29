@@ -16,6 +16,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.OptionalAggrAttr)
+                .IsRequired();
+
             builder.HasMany(x => x.D_MultipleDependents)
                 .WithOne()
                 .HasForeignKey(x => x.D_OptionalAggregateId);

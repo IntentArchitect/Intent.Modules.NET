@@ -1,5 +1,6 @@
 using System;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -23,7 +24,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.AssociatedField1)
                 .IsRequired();
             builder.HasPartitionKey(x => x.PartitionKey);
-
         }
     }
 }

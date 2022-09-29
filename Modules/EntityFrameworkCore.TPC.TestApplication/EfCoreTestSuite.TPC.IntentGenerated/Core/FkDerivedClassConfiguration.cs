@@ -14,9 +14,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<FkDerivedClass> builder)
         {
             builder.ToTable("FkDerivedClass");
-
-
-
         }
     }
 }

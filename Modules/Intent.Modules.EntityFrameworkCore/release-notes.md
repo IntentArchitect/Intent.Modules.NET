@@ -1,6 +1,11 @@
-﻿### Version 3.3.15
+﻿### Version 3.3.16
+
+* Fixed: Primary key issues in deep compositional trees.
+
+### Version 3.3.15
 
  * Fixed: Cosmos DB Partition Key logic in Domain Designer for Inherited Classes.
+ * Fixed: Migration and DB creationg issues with a ClassA 1-->* ClassB 1-->1 ClassC.
 
 ### Version 3.3.13
  

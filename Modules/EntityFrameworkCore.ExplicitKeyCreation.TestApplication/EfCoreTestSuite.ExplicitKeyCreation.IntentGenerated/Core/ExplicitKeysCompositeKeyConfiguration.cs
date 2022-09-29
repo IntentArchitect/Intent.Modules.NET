@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<ExplicitKeysCompositeKey> builder)
         {
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
-
-
         }
     }
 }

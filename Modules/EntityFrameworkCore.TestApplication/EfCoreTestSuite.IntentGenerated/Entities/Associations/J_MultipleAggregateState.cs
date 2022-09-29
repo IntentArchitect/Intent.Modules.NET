@@ -15,6 +15,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         public Guid Id
         { get; set; }
 
+        private string _multipleAggrAttr;
+
+        public string MultipleAggrAttr
+        {
+            get { return _multipleAggrAttr; }
+            set
+            {
+                _multipleAggrAttr = value;
+            }
+        }
+
 
         public Guid J_RequiredDependentId { get; set; }
 

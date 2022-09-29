@@ -28,7 +28,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.Property(x => x.GroupedIndexFieldB)
                 .IsRequired();
 
-
             builder.HasIndex(x => x.DefaultIndexField);
 
 

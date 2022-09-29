@@ -15,6 +15,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
         public Guid Id
         { get; set; }
 
+        private string _reqDepAttr;
+
+        public string ReqDepAttr
+        {
+            get { return _reqDepAttr; }
+            set
+            {
+                _reqDepAttr = value;
+            }
+        }
+
 
     }
 }

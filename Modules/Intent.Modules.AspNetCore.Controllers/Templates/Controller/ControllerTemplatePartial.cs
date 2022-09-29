@@ -29,6 +29,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         public ControllerTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource("Domain.Enum");
         }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]

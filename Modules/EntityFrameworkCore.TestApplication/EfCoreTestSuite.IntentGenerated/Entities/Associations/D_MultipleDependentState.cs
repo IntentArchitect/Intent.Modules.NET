@@ -11,9 +11,32 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class D_MultipleDependent : ID_MultipleDependent
     {
+        public D_MultipleDependent()
+        {
+        }
 
-        public Guid Id
-        { get; set; }
+        private Guid? _id = null;
+
+        /// <summary>
+        /// Get the persistent object's identifier
+        /// </summary>
+        public virtual Guid Id
+        {
+            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
+            set { _id = value; }
+        }
+
+        private string _multipleDepAttr;
+
+        public string MultipleDepAttr
+        {
+            get { return _multipleDepAttr; }
+            set
+            {
+                _multipleDepAttr = value;
+            }
+        }
+
 
         public Guid? D_OptionalAggregateId { get; set; }
     }

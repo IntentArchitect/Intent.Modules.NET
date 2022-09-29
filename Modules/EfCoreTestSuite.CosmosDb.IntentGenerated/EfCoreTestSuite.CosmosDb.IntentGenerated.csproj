@@ -56,6 +56,366 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>BaseAssociated.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\Associations\A_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\A_RequiredCompositeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\AssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Associated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\B_OptionalAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\B_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\BaseState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Base.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\BaseAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\C_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\C_RequiredCompositeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\CompositeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Composite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\D_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\D_OptionalAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\DerivedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Derived.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\E_RequiredCompositeNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\E_RequiredDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\F_OptionalAggregateNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\F_OptionalDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\G_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\G_RequiredCompositeNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\H_MultipleDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\H_OptionalAggregateNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\J_MultipleAggregateState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_MultipleAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\J_RequiredDependentState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\K_SelfReferenceState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>K_SelfReference.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\L_SelfReferenceMultipleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\M_SelfReferenceBiNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IA_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IA_RequiredComposite.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\IAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Associated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IB_OptionalAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IB_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>B_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\IBase.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Base.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\IBaseAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IC_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IC_RequiredComposite.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>C_RequiredComposite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\IComposite.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Composite.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\ID_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\ID_OptionalAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>D_OptionalAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\IDerived.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Derived.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IE_RequiredCompositeNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IE_RequiredDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>E_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IF_OptionalAggregateNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IF_OptionalDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>F_OptionalDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IG_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IG_RequiredCompositeNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>G_RequiredCompositeNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IH_MultipleDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_MultipleDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IH_OptionalAggregateNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>H_OptionalAggregateNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IJ_MultipleAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_MultipleAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IJ_RequiredDependent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>J_RequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IK_SelfReference.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>K_SelfReference.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IL_SelfReferenceMultiple.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IM_SelfReferenceBiNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>M_SelfReferenceBiNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassCState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassDState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ClassEState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassD.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassE.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassCState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassDState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\ClassEState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassD.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassD.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedComposition\IClassE.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassE.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

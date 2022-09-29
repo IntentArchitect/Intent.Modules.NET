@@ -12,6 +12,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
     public partial class C_MultipleDependent : IC_MultipleDependent
     {
 
+        private string _multipleDepAttr;
+
+        public string MultipleDepAttr
+        {
+            get { return _multipleDepAttr; }
+            set
+            {
+                _multipleDepAttr = value;
+            }
+        }
+
 
         public Guid C_RequiredCompositeId { get; set; }
 
