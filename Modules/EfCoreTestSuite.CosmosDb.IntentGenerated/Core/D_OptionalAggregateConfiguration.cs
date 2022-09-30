@@ -13,7 +13,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<D_OptionalAggregate> builder)
         {
-            builder.ToTable("D_OptionalAggregate");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+
+            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasKey(x => x.Id);
 
@@ -22,7 +24,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.Property(x => x.OptionalAggregateAttr)
                 .IsRequired();
-            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasMany(x => x.D_MultipleDependents)
                 .WithOne()

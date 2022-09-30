@@ -10,42 +10,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
     public partial class J_RequiredDependent : IJ_RequiredDependent
     {
-        public J_RequiredDependent()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public string PartitionKey { get; set; }
 
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private string _requiredDepAttr;
-
-        public string RequiredDepAttr
-        {
-            get { return _requiredDepAttr; }
-            set
-            {
-                _requiredDepAttr = value;
-            }
-        }
+        public string RequiredDepAttr { get; set; }
 
 
     }

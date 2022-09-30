@@ -8,13 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
 {
 
-    public partial interface IConcreteBaseClass
+    public interface IConcreteBaseClass
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string BaseAttribute { get; set; }
 
     }

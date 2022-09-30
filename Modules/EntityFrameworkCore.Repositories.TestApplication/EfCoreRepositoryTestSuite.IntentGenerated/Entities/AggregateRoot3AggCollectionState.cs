@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,65 +11,37 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public partial class AggregateRoot3AggCollection : IAggregateRoot3AggCollection
     {
-        public AggregateRoot3AggCollection()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public Guid Id { get; set; }
 
 
         public Guid AggregateRoot3SingleId { get; set; }
-        private AggregateRoot3Single _aggregateRoot3Single;
 
-        public virtual AggregateRoot3Single AggregateRoot3Single
+        public virtual AggregateRoot3Single AggregateRoot3Single { get; set; }
+
+        IAggregateRoot3Single IAggregateRoot3AggCollection.AggregateRoot3Single
         {
-            get
-            {
-                return _aggregateRoot3Single;
-            }
-            set
-            {
-                _aggregateRoot3Single = value;
-            }
+            get => AggregateRoot3Single;
+            set => AggregateRoot3Single = (AggregateRoot3Single)value;
         }
 
 
         public Guid? AggregateRoot3NullableId { get; set; }
-        private AggregateRoot3Nullable _aggregateRoot3Nullable;
 
-        public virtual AggregateRoot3Nullable AggregateRoot3Nullable
+        public virtual AggregateRoot3Nullable AggregateRoot3Nullable { get; set; }
+
+        IAggregateRoot3Nullable IAggregateRoot3AggCollection.AggregateRoot3Nullable
         {
-            get
-            {
-                return _aggregateRoot3Nullable;
-            }
-            set
-            {
-                _aggregateRoot3Nullable = value;
-            }
+            get => AggregateRoot3Nullable;
+            set => AggregateRoot3Nullable = (AggregateRoot3Nullable)value;
         }
 
-        private ICollection<AggregateRoot3Collection> _aggregateRoot3Collections;
+        public virtual ICollection<AggregateRoot3Collection> AggregateRoot3Collections { get; set; } = new List<AggregateRoot3Collection>();
 
-        public virtual ICollection<AggregateRoot3Collection> AggregateRoot3Collections
+        ICollection<IAggregateRoot3Collection> IAggregateRoot3AggCollection.AggregateRoot3Collections
         {
-            get
-            {
-                return _aggregateRoot3Collections ??= new List<AggregateRoot3Collection>();
-            }
-            set
-            {
-                _aggregateRoot3Collections = value;
-            }
+            get => AggregateRoot3Collections.CreateWrapper<IAggregateRoot3Collection, AggregateRoot3Collection>();
+            set => AggregateRoot3Collections = value.Cast<AggregateRoot3Collection>().ToList();
         }
 
 

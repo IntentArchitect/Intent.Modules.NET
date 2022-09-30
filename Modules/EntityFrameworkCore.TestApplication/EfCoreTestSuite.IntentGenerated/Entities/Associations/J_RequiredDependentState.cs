@@ -12,19 +12,9 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
     public partial class J_RequiredDependent : IJ_RequiredDependent
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
-        private string _reqDepAttr;
-
-        public string ReqDepAttr
-        {
-            get { return _reqDepAttr; }
-            set
-            {
-                _reqDepAttr = value;
-            }
-        }
+        public string ReqDepAttr { get; set; }
 
 
     }

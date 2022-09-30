@@ -362,6 +362,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionWrapper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/CollectionWrapper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionWrapper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#ee44dfaf-14ac-4e3e-bb3b-7527485f4477</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot1.cs</ApplicationRelativeFilePath>
@@ -478,14 +486,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot5EntityWithRepo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot5EntityWithRepo.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
-      <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IdentityGenerator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

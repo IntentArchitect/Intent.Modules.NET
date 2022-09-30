@@ -10,9 +10,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities
 
     public partial class FkDerivedClass : FkBaseClass, IFkDerivedClass
     {
-        public FkDerivedClass()
-        {
-        }
 
 
 

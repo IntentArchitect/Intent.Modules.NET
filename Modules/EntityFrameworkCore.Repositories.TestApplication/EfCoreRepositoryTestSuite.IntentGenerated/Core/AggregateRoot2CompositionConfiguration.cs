@@ -26,18 +26,21 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         public void ConfigureAggregateRoot2Single(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Single> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.Id);
+
             builder.HasKey(x => x.Id);
         }
 
         public void ConfigureAggregateRoot2Nullable(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Nullable> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.Id);
+
             builder.HasKey(x => x.Id);
         }
 
         public void ConfigureAggregateRoot2Collections(OwnedNavigationBuilder<AggregateRoot2Composition, AggregateRoot2Collection> builder)
         {
             builder.WithOwner().HasForeignKey(x => x.AggregateRoot2CompositionId);
+
             builder.HasKey(x => x.Id);
         }
     }

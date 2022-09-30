@@ -10,46 +10,20 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
     public partial class G_MultipleDependent : IG_MultipleDependent
     {
-        public G_MultipleDependent()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _multipleDepAttr;
-
-        public string MultipleDepAttr
-        {
-            get { return _multipleDepAttr; }
-            set
-            {
-                _multipleDepAttr = value;
-            }
-        }
+        public string MultipleDepAttr { get; set; }
 
 
         public Guid G_RequiredCompositeNavId { get; set; }
-        private G_RequiredCompositeNav _g_RequiredCompositeNav;
 
-        public virtual G_RequiredCompositeNav G_RequiredCompositeNav
+        public virtual G_RequiredCompositeNav G_RequiredCompositeNav { get; set; }
+
+        IG_RequiredCompositeNav IG_MultipleDependent.G_RequiredCompositeNav
         {
-            get
-            {
-                return _g_RequiredCompositeNav;
-            }
-            set
-            {
-                _g_RequiredCompositeNav = value;
-            }
+            get => G_RequiredCompositeNav;
+            set => G_RequiredCompositeNav = (G_RequiredCompositeNav)value;
         }
 
 

@@ -13,7 +13,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<M_SelfReferenceBiNav> builder)
         {
-            builder.ToTable("M_SelfReferenceBiNav");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+
+            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasKey(x => x.Id);
 
@@ -22,7 +24,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.Property(x => x.SelfRefBiNavAttr)
                 .IsRequired();
-            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasOne(x => x.M_SelfReferenceBiNavAssocation)
                 .WithMany(x => x.M_SelfReferenceBiNavs)

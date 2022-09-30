@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class ClassD
+    public partial class ClassD : IClassD
     {
 
     }

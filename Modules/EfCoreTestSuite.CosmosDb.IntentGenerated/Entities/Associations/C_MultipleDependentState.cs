@@ -10,31 +10,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
     public partial class C_MultipleDependent : IC_MultipleDependent
     {
-        public C_MultipleDependent()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _multipleDependentAttr;
-
-        public string MultipleDependentAttr
-        {
-            get { return _multipleDependentAttr; }
-            set
-            {
-                _multipleDependentAttr = value;
-            }
-        }
+        public string MultipleDependentAttr { get; set; }
 
 
         public Guid C_RequiredCompositeId { get; set; }

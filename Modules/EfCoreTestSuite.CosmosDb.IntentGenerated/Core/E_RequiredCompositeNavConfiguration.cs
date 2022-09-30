@@ -13,7 +13,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<E_RequiredCompositeNav> builder)
         {
-            builder.ToTable("E_RequiredCompositeNav");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+
+            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasKey(x => x.Id);
 
@@ -22,7 +24,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
-            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.OwnsOne(x => x.E_RequiredDependent, ConfigureE_RequiredDependent)
                 .Navigation(x => x.E_RequiredDependent).IsRequired();
@@ -31,7 +32,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public void ConfigureE_RequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
         {
             builder.WithOwner(x => x.E_RequiredCompositeNav).HasForeignKey(x => x.Id);
-            builder.ToTable("E_RequiredDependent");
 
             builder.HasKey(x => x.Id);
 

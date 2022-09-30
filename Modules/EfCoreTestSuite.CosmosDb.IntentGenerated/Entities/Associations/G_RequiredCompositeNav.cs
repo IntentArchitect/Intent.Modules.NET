@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class G_RequiredCompositeNav
+    public partial class G_RequiredCompositeNav : IG_RequiredCompositeNav
     {
 
     }

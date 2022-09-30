@@ -19,8 +19,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         private readonly IOptions<DbContextConfiguration> _dbContextConfig;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IOptions<DbContextConfiguration> dbContextConfig) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IOptions<DbContextConfiguration> dbContextConfig) : base(options)
         {
             _dbContextConfig = dbContextConfig;
         }
@@ -48,20 +47,16 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
 
+            if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))
+            {
+                modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);
+            }
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new AssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
@@ -83,10 +78,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
-            if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))
-            {
-                modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);
-            }
         }
 
         [IntentManaged(Mode.Ignore)]

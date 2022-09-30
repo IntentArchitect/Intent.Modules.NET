@@ -8,15 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
 
-    public partial interface IComposite
+    public interface IComposite
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string CompositeField1 { get; set; }
-
-        Guid DerivedId { get; }
     }
 }

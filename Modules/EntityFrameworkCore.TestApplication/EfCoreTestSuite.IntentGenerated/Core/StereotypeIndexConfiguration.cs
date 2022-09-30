@@ -30,10 +30,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
             builder.HasIndex(x => x.DefaultIndexField);
 
-
             builder.HasIndex(x => x.CustomIndexField)
                 .HasDatabaseName("CustomIndexField");
-
 
             builder.HasIndex(x => new { x.GroupedIndexFieldA, x.GroupedIndexFieldB })
                 .IsUnique()

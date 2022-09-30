@@ -10,44 +10,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class E2_RequiredCompositeNav : IE2_RequiredCompositeNav
     {
-        public E2_RequiredCompositeNav()
+
+        public Guid Id { get; set; }
+
+        public string ReqCompNavAttr { get; set; }
+
+        public virtual E2_RequiredDependent E2_RequiredDependent { get; set; }
+
+        IE2_RequiredDependent IE2_RequiredCompositeNav.E2_RequiredDependent
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _reqCompNavAttr;
-
-        public string ReqCompNavAttr
-        {
-            get { return _reqCompNavAttr; }
-            set
-            {
-                _reqCompNavAttr = value;
-            }
-        }
-
-        private E2_RequiredDependent _e2_RequiredDependent;
-
-        public virtual E2_RequiredDependent E2_RequiredDependent
-        {
-            get
-            {
-                return _e2_RequiredDependent;
-            }
-            set
-            {
-                _e2_RequiredDependent = value;
-            }
+            get => E2_RequiredDependent;
+            set => E2_RequiredDependent = (E2_RequiredDependent)value;
         }
 
 

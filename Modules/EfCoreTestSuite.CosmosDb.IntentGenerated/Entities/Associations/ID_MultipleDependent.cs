@@ -8,17 +8,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
 
-    public partial interface ID_MultipleDependent
+    public interface ID_MultipleDependent
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string MultipleDependentAttr { get; set; }
 
         string PartitionKey { get; set; }
-
-        Guid? D_OptionalAggregateId { get; }
     }
 }

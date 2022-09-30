@@ -8,9 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities
 {
 
-    public partial interface IDerivedClassForConcrete : IConcreteBaseClass
+    public interface IDerivedClassForConcrete : IConcreteBaseClass
     {
-
         string DerivedAttribute { get; set; }
 
     }

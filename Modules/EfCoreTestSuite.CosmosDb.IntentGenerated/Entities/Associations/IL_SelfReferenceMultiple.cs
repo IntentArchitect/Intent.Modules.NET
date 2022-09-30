@@ -8,18 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IL_SelfReferenceMultiple
+    public interface IL_SelfReferenceMultiple
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string PartitionKey { get; set; }
 
         string SelfRefMulAttr { get; set; }
 
-        ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; }
+        ICollection<IL_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; }
 
     }
 }

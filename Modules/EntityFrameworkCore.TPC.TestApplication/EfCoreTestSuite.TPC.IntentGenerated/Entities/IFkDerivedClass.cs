@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities
 {
 
-    public partial interface IFkDerivedClass : IFkBaseClass
+    public interface IFkDerivedClass : IFkBaseClass
     {
 
     }

@@ -14,7 +14,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<BaseAssociated> builder)
         {
-            builder.ToTable("BaseAssociated");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+
+            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasKey(x => x.Id);
 
@@ -23,7 +25,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.Property(x => x.BaseAssociatedField1)
                 .IsRequired();
-            builder.HasPartitionKey(x => x.PartitionKey);
         }
     }
 }

@@ -11,35 +11,18 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities
 
     public partial class FkAssociatedClass : IFkAssociatedClass
     {
-        public FkAssociatedClass()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public Guid Id { get; set; }
 
         public Guid FkDerivedClassCompositeKeyA { get; set; }
         public Guid FkDerivedClassCompositeKeyB { get; set; }
-        private FkDerivedClass _fkDerivedClass;
 
-        public virtual FkDerivedClass FkDerivedClass
+        public virtual FkDerivedClass FkDerivedClass { get; set; }
+
+        IFkDerivedClass IFkAssociatedClass.FkDerivedClass
         {
-            get
-            {
-                return _fkDerivedClass;
-            }
-            set
-            {
-                _fkDerivedClass = value;
-            }
+            get => FkDerivedClass;
+            set => FkDerivedClass = (FkDerivedClass)value;
         }
 
 

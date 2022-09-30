@@ -12,20 +12,15 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
     public partial class StereotypeIndex : IStereotypeIndex
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
-        public Guid DefaultIndexField
-        { get; set; }
+        public Guid DefaultIndexField { get; set; }
 
-        public Guid CustomIndexField
-        { get; set; }
+        public Guid CustomIndexField { get; set; }
 
-        public Guid GroupedIndexFieldA
-        { get; set; }
+        public Guid GroupedIndexFieldA { get; set; }
 
-        public Guid GroupedIndexFieldB
-        { get; set; }
+        public Guid GroupedIndexFieldB { get; set; }
 
     }
 }

@@ -8,16 +8,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IE2_RequiredDependent
+    public interface IE2_RequiredDependent
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string ReqDepAttr { get; set; }
 
-        E2_RequiredCompositeNav E2_RequiredCompositeNav { get; set; }
+        IE2_RequiredCompositeNav E2_RequiredCompositeNav { get; set; }
 
     }
 }

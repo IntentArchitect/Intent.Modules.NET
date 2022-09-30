@@ -12,14 +12,11 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
     public partial class ComplexDefaultIndex : IComplexDefaultIndex
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
-        public Guid FieldA
-        { get; set; }
+        public Guid FieldA { get; set; }
 
-        public Guid FieldB
-        { get; set; }
+        public Guid FieldB { get; set; }
 
     }
 }

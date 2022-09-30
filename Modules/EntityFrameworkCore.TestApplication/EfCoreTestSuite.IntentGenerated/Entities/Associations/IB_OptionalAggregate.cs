@@ -8,16 +8,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IB_OptionalAggregate
+    public interface IB_OptionalAggregate
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string OptionalAggrAttr { get; set; }
 
-        B_OptionalDependent B_OptionalDependent { get; set; }
+        IB_OptionalDependent B_OptionalDependent { get; set; }
 
     }
 }

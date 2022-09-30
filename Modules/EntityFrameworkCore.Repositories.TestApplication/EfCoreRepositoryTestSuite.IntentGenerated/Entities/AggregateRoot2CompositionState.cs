@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,61 +11,31 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public partial class AggregateRoot2Composition : IAggregateRoot2Composition
     {
-        public AggregateRoot2Composition()
+
+        public Guid Id { get; set; }
+
+        public virtual AggregateRoot2Single AggregateRoot2Single { get; set; }
+
+        IAggregateRoot2Single IAggregateRoot2Composition.AggregateRoot2Single
         {
+            get => AggregateRoot2Single;
+            set => AggregateRoot2Single = (AggregateRoot2Single)value;
         }
 
-        private Guid? _id = null;
+        public virtual AggregateRoot2Nullable AggregateRoot2Nullable { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
+        IAggregateRoot2Nullable IAggregateRoot2Composition.AggregateRoot2Nullable
         {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
+            get => AggregateRoot2Nullable;
+            set => AggregateRoot2Nullable = (AggregateRoot2Nullable)value;
         }
 
-        private AggregateRoot2Single _aggregateRoot2Single;
+        public virtual ICollection<AggregateRoot2Collection> AggregateRoot2Collections { get; set; } = new List<AggregateRoot2Collection>();
 
-        public virtual AggregateRoot2Single AggregateRoot2Single
+        ICollection<IAggregateRoot2Collection> IAggregateRoot2Composition.AggregateRoot2Collections
         {
-            get
-            {
-                return _aggregateRoot2Single;
-            }
-            set
-            {
-                _aggregateRoot2Single = value;
-            }
-        }
-
-        private AggregateRoot2Nullable _aggregateRoot2Nullable;
-
-        public virtual AggregateRoot2Nullable AggregateRoot2Nullable
-        {
-            get
-            {
-                return _aggregateRoot2Nullable;
-            }
-            set
-            {
-                _aggregateRoot2Nullable = value;
-            }
-        }
-
-        private ICollection<AggregateRoot2Collection> _aggregateRoot2Collections;
-
-        public virtual ICollection<AggregateRoot2Collection> AggregateRoot2Collections
-        {
-            get
-            {
-                return _aggregateRoot2Collections ??= new List<AggregateRoot2Collection>();
-            }
-            set
-            {
-                _aggregateRoot2Collections = value;
-            }
+            get => AggregateRoot2Collections.CreateWrapper<IAggregateRoot2Collection, AggregateRoot2Collection>();
+            set => AggregateRoot2Collections = value.Cast<AggregateRoot2Collection>().ToList();
         }
 
 

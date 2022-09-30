@@ -12,25 +12,14 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
     public partial class K_SelfReference : IK_SelfReference
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
-        private string _selfRefAttr;
-
-        public string SelfRefAttr
-        {
-            get { return _selfRefAttr; }
-            set
-            {
-                _selfRefAttr = value;
-            }
-        }
+        public string SelfRefAttr { get; set; }
 
 
         public Guid? K_SelfReferenceAssociationId { get; set; }
 
-        public virtual K_SelfReference K_SelfReferenceAssociation
-        { get; set; }
+        public virtual K_SelfReference K_SelfReferenceAssociation { get; set; }
 
         IK_SelfReference IK_SelfReference.K_SelfReferenceAssociation
         {

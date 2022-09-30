@@ -26,6 +26,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public void ConfigureE_RequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
         {
             builder.WithOwner(x => x.E_RequiredCompositeNav).HasForeignKey(x => x.Id);
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.RequiredDepAttr)

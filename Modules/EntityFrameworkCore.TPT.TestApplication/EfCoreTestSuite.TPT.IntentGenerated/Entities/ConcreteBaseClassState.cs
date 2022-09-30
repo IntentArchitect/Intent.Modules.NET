@@ -11,31 +11,10 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities
 
     public partial class ConcreteBaseClass : IConcreteBaseClass
     {
-        public ConcreteBaseClass()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _baseAttribute;
-
-        public string BaseAttribute
-        {
-            get { return _baseAttribute; }
-            set
-            {
-                _baseAttribute = value;
-            }
-        }
+        public string BaseAttribute { get; set; }
 
     }
 }

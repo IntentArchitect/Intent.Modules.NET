@@ -13,25 +13,14 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
     public partial class M_SelfReferenceBiNav : IM_SelfReferenceBiNav
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
-        private string _selfRefBiNavAttr;
-
-        public string SelfRefBiNavAttr
-        {
-            get { return _selfRefBiNavAttr; }
-            set
-            {
-                _selfRefBiNavAttr = value;
-            }
-        }
+        public string SelfRefBiNavAttr { get; set; }
 
 
         public Guid? M_SelfReferenceBiNavDstId { get; set; }
 
-        public virtual M_SelfReferenceBiNav M_SelfReferenceBiNavDst
-        { get; set; }
+        public virtual M_SelfReferenceBiNav M_SelfReferenceBiNavDst { get; set; }
 
         IM_SelfReferenceBiNav IM_SelfReferenceBiNav.M_SelfReferenceBiNavDst
         {
@@ -39,8 +28,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set => M_SelfReferenceBiNavDst = (M_SelfReferenceBiNav)value;
         }
 
-        public virtual ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs
-        { get; set; } = new List<M_SelfReferenceBiNav>();
+        public virtual ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; } = new List<M_SelfReferenceBiNav>();
 
         ICollection<IM_SelfReferenceBiNav> IM_SelfReferenceBiNav.M_SelfReferenceBiNavs
         {

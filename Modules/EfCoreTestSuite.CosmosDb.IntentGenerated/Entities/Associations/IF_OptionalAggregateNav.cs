@@ -8,18 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IF_OptionalAggregateNav
+    public interface IF_OptionalAggregateNav
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string PartitionKey { get; set; }
 
         string OptionalAggrNavAttr { get; set; }
 
-        F_OptionalDependent F_OptionalDependent { get; set; }
+        IF_OptionalDependent F_OptionalDependent { get; set; }
 
     }
 }

@@ -10,31 +10,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 
     public partial class Composite : IComposite
     {
-        public Composite()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _compositeField1;
-
-        public string CompositeField1
-        {
-            get { return _compositeField1; }
-            set
-            {
-                _compositeField1 = value;
-            }
-        }
+        public string CompositeField1 { get; set; }
 
 
         public Guid DerivedId { get; set; }

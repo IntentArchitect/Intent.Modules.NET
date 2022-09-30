@@ -13,7 +13,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<F_OptionalDependent> builder)
         {
-            builder.ToTable("F_OptionalDependent");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+
+            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasKey(x => x.Id);
 
@@ -22,7 +24,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.Property(x => x.OptionalDependentAttr)
                 .IsRequired();
-            builder.HasPartitionKey(x => x.PartitionKey);
         }
     }
 }

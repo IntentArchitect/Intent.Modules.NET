@@ -9,7 +9,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class AggregateRoot5EntityWithRepo
+    public partial class AggregateRoot5EntityWithRepo : IAggregateRoot5EntityWithRepo
     {
 
     }

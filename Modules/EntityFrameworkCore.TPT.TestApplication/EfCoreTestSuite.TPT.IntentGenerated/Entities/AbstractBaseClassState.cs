@@ -9,33 +9,12 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities
 {
 
-    public abstract partial class AbstractBaseClass : IAbstractBaseClass
+    public partial class AbstractBaseClass : IAbstractBaseClass
     {
-        public AbstractBaseClass()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _baseAttribute;
-
-        public string BaseAttribute
-        {
-            get { return _baseAttribute; }
-            set
-            {
-                _baseAttribute = value;
-            }
-        }
+        public string BaseAttribute { get; set; }
 
     }
 }

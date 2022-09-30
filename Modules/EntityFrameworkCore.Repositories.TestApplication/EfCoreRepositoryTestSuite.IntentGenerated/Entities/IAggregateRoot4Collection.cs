@@ -8,13 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 {
 
-    public partial interface IAggregateRoot4Collection
+    public interface IAggregateRoot4Collection
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
-        Guid? AggregateRoot4AggNullableId { get; }
     }
 }

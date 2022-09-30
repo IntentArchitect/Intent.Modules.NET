@@ -3,7 +3,7 @@
   <name>EfCoreRepositoryTestSuite.IntentGenerated</name>
   <display>EfCoreRepositoryTestSuite.IntentGenerated</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8073d847-d563-4f2c-91c2-a36ae43100c6</parentFolderId>

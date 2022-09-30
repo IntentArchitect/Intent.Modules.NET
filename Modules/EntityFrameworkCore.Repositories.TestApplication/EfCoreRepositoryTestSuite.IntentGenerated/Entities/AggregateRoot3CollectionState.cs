@@ -10,22 +10,10 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public partial class AggregateRoot3Collection : IAggregateRoot3Collection
     {
-        public AggregateRoot3Collection()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        protected virtual ICollection<AggregateRoot3AggCollection> AggregateRoot3AggCollections { get; set; }
+        private ICollection<AggregateRoot3AggCollection> AggregateRoot3AggCollections { get; set; }
 
     }
 }

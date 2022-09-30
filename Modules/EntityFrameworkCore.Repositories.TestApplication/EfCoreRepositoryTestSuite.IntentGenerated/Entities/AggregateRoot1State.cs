@@ -10,20 +10,8 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public partial class AggregateRoot1 : IAggregateRoot1
     {
-        public AggregateRoot1()
-        {
-        }
 
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public Guid Id { get; set; }
 
     }
 }

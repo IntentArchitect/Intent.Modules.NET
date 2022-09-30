@@ -11,44 +11,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class F_OptionalAggregateNav : IF_OptionalAggregateNav
     {
-        public F_OptionalAggregateNav()
+
+        public Guid Id { get; set; }
+
+        public string OptionalAggrNavAttr { get; set; }
+
+        public virtual F_OptionalDependent F_OptionalDependent { get; set; }
+
+        IF_OptionalDependent IF_OptionalAggregateNav.F_OptionalDependent
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _optionalAggrNavAttr;
-
-        public string OptionalAggrNavAttr
-        {
-            get { return _optionalAggrNavAttr; }
-            set
-            {
-                _optionalAggrNavAttr = value;
-            }
-        }
-
-        private F_OptionalDependent _f_OptionalDependent;
-
-        public virtual F_OptionalDependent F_OptionalDependent
-        {
-            get
-            {
-                return _f_OptionalDependent;
-            }
-            set
-            {
-                _f_OptionalDependent = value;
-            }
+            get => F_OptionalDependent;
+            set => F_OptionalDependent = (F_OptionalDependent)value;
         }
         public Guid? F_OptionalDependentId { get; set; }
     }

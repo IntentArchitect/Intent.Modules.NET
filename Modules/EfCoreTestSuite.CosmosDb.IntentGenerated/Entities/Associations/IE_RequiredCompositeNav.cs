@@ -8,18 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
 
-    public partial interface IE_RequiredCompositeNav
+    public interface IE_RequiredCompositeNav
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string RequiredCompositeNavAttr { get; set; }
 
         string PartitionKey { get; set; }
 
-        E_RequiredDependent E_RequiredDependent { get; set; }
+        IE_RequiredDependent E_RequiredDependent { get; set; }
 
     }
 }

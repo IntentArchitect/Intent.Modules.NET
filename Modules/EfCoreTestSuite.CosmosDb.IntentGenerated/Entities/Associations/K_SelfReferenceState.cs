@@ -10,57 +10,22 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
     public partial class K_SelfReference : IK_SelfReference
     {
-        public K_SelfReference()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public string PartitionKey { get; set; }
 
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private string _selfRefAttr;
-
-        public string SelfRefAttr
-        {
-            get { return _selfRefAttr; }
-            set
-            {
-                _selfRefAttr = value;
-            }
-        }
+        public string SelfRefAttr { get; set; }
 
 
         public Guid? K_SelfReferenceAssociationId { get; set; }
-        private K_SelfReference _k_SelfReferenceAssociation;
 
-        public virtual K_SelfReference K_SelfReferenceAssociation
+        public virtual K_SelfReference K_SelfReferenceAssociation { get; set; }
+
+        IK_SelfReference IK_SelfReference.K_SelfReferenceAssociation
         {
-            get
-            {
-                return _k_SelfReferenceAssociation;
-            }
-            set
-            {
-                _k_SelfReferenceAssociation = value;
-            }
+            get => K_SelfReferenceAssociation;
+            set => K_SelfReferenceAssociation = (K_SelfReference)value;
         }
 
 

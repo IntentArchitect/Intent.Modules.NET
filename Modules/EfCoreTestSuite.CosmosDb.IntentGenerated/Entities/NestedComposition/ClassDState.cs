@@ -10,33 +10,15 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 
     public partial class ClassD : IClassD
     {
-        public ClassD()
+
+        public Guid Id { get; set; }
+
+        public virtual ClassE ClassE { get; set; }
+
+        IClassE IClassD.ClassE
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private ClassE _classE;
-
-        public virtual ClassE ClassE
-        {
-            get
-            {
-                return _classE;
-            }
-            set
-            {
-                _classE = value;
-            }
+            get => ClassE;
+            set => ClassE = (ClassE)value;
         }
 
 

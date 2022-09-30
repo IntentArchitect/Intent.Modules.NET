@@ -24,27 +24,17 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         public DbSet<FkBaseClass> FkBaseClasses { get; set; }
         public DbSet<FkDerivedClass> FkDerivedClasses { get; set; }
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForAbstractConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
             modelBuilder.ApplyConfiguration(new FkAssociatedClassConfiguration());
             modelBuilder.ApplyConfiguration(new FkBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new FkDerivedClassConfiguration());
-
         }
 
         [IntentManaged(Mode.Ignore)]

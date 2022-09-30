@@ -8,17 +8,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
 
-    public partial interface IBase
+    public interface IBase
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string BaseField1 { get; set; }
 
-        Guid BaseAssociatedId { get; }
-        BaseAssociated BaseAssociated { get; set; }
+        IBaseAssociated BaseAssociated { get; set; }
 
     }
 }

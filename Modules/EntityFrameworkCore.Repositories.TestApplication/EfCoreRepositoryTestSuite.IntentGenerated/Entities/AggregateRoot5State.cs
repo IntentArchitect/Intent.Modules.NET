@@ -10,33 +10,15 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public partial class AggregateRoot5 : IAggregateRoot5
     {
-        public AggregateRoot5()
+
+        public Guid Id { get; set; }
+
+        public virtual AggregateRoot5EntityWithRepo AggregateRoot5EntityWithRepo { get; set; }
+
+        IAggregateRoot5EntityWithRepo IAggregateRoot5.AggregateRoot5EntityWithRepo
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private AggregateRoot5EntityWithRepo _aggregateRoot5EntityWithRepo;
-
-        public virtual AggregateRoot5EntityWithRepo AggregateRoot5EntityWithRepo
-        {
-            get
-            {
-                return _aggregateRoot5EntityWithRepo;
-            }
-            set
-            {
-                _aggregateRoot5EntityWithRepo = value;
-            }
+            get => AggregateRoot5EntityWithRepo;
+            set => AggregateRoot5EntityWithRepo = (AggregateRoot5EntityWithRepo)value;
         }
 
 

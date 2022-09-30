@@ -4,7 +4,7 @@
   <name>NET Core Tests</name>
   <display>NET Core Tests</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8dda5ae2-53f3-404d-8ce7-389b9ad0f7b3</parentFolderId>

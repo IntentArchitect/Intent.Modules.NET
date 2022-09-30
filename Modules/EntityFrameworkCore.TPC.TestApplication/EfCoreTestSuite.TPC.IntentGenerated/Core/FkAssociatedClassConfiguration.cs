@@ -13,8 +13,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<FkAssociatedClass> builder)
         {
-            builder.ToTable("FkAssociatedClass");
-
             builder.HasKey(x => x.Id);
 
             builder.HasOne(x => x.FkDerivedClass)

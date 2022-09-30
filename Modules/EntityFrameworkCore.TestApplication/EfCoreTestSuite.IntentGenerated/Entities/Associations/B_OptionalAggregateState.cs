@@ -11,44 +11,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public partial class B_OptionalAggregate : IB_OptionalAggregate
     {
-        public B_OptionalAggregate()
+
+        public Guid Id { get; set; }
+
+        public string OptionalAggrAttr { get; set; }
+
+        public virtual B_OptionalDependent B_OptionalDependent { get; set; }
+
+        IB_OptionalDependent IB_OptionalAggregate.B_OptionalDependent
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _optionalAggrAttr;
-
-        public string OptionalAggrAttr
-        {
-            get { return _optionalAggrAttr; }
-            set
-            {
-                _optionalAggrAttr = value;
-            }
-        }
-
-        private B_OptionalDependent _b_OptionalDependent;
-
-        public virtual B_OptionalDependent B_OptionalDependent
-        {
-            get
-            {
-                return _b_OptionalDependent;
-            }
-            set
-            {
-                _b_OptionalDependent = value;
-            }
+            get => B_OptionalDependent;
+            set => B_OptionalDependent = (B_OptionalDependent)value;
         }
 
         public Guid? B_OptionalDependentId { get; set; }

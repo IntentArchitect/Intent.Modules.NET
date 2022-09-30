@@ -3,7 +3,7 @@
   <name>Core</name>
   <display>Core</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b68c4e1c-ab56-4f60-9fe9-714cc0584a1b</parentFolderId>
@@ -26,7 +26,6 @@
       <display>Intent.EntityFrameworkCore.DbContext</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b60c08de-0a5e-4008-a4e8-7533de4a9354</parentFolderId>
@@ -43,7 +42,6 @@
       <display>Intent.EntityFrameworkCore.DbContextInterface</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b60c08de-0a5e-4008-a4e8-7533de4a9354</parentFolderId>
@@ -60,7 +58,6 @@
       <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b60c08de-0a5e-4008-a4e8-7533de4a9354</parentFolderId>
@@ -77,7 +74,6 @@
       <display>Intent.EntityFrameworkCore.EntityTypeConfiguration</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b60c08de-0a5e-4008-a4e8-7533de4a9354</parentFolderId>

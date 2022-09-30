@@ -114,6 +114,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionWrapper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/CollectionWrapper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionWrapper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#97fab82a-feae-421e-be8c-2bf595bb194c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/ConcreteBaseClass.cs</ApplicationRelativeFilePath>
@@ -222,14 +230,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IConcreteBaseClass.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IConcreteBaseClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
-      <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/IdentityGenerator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

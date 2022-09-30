@@ -3,7 +3,7 @@
   <name>Core</name>
   <display>Core</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a3505075-b92b-4be8-bfe1-6908206cc14a</parentFolderId>
@@ -21,29 +21,11 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="9b336bd6-24f4-4039-bf4c-df5dc052693b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Keys.IdentityGenerator</name>
-      <display>Intent.Entities.Keys.IdentityGenerator</display>
-      <externalReference>Intent.Entities.Keys</externalReference>
-      <isAbstract>false</isAbstract>
-      <order>0</order>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>63ceccfc-0c63-404a-8475-103086278a63</parentFolderId>
-      <packageId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="e21c85d5-82d2-4bba-9568-9ec8a286630b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.DbContext</name>
       <display>Intent.EntityFrameworkCore.DbContext</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63ceccfc-0c63-404a-8475-103086278a63</parentFolderId>
@@ -60,7 +42,6 @@
       <display>Intent.EntityFrameworkCore.DbContextInterface</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63ceccfc-0c63-404a-8475-103086278a63</parentFolderId>
@@ -77,7 +58,6 @@
       <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63ceccfc-0c63-404a-8475-103086278a63</parentFolderId>
@@ -94,7 +74,6 @@
       <display>Intent.EntityFrameworkCore.EntityTypeConfiguration</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63ceccfc-0c63-404a-8475-103086278a63</parentFolderId>

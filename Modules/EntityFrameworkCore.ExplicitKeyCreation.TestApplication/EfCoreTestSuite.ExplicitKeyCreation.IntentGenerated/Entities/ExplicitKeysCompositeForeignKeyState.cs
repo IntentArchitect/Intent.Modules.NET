@@ -10,56 +10,19 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Entities
 
     public partial class ExplicitKeysCompositeForeignKey : IExplicitKeysCompositeForeignKey
     {
-        public ExplicitKeysCompositeForeignKey()
+
+        public Guid Id { get; set; }
+
+        public Guid ExplicitKeysCompositeKeyCompositeKeyA { get; set; }
+
+        public Guid ExplicitKeysCompositeKeyCompositeKeyB { get; set; }
+
+        public virtual ExplicitKeysCompositeKey ExplicitKeysCompositeKey { get; set; }
+
+        IExplicitKeysCompositeKey IExplicitKeysCompositeForeignKey.ExplicitKeysCompositeKey
         {
-        }
-
-
-        private Guid _id;
-
-        public Guid Id
-        {
-            get { return _id; }
-            set
-            {
-                _id = value;
-            }
-        }
-
-        private Guid _explicitKeysCompositeKeyCompositeKeyA;
-
-        public Guid ExplicitKeysCompositeKeyCompositeKeyA
-        {
-            get { return _explicitKeysCompositeKeyCompositeKeyA; }
-            set
-            {
-                _explicitKeysCompositeKeyCompositeKeyA = value;
-            }
-        }
-
-        private Guid _explicitKeysCompositeKeyCompositeKeyB;
-
-        public Guid ExplicitKeysCompositeKeyCompositeKeyB
-        {
-            get { return _explicitKeysCompositeKeyCompositeKeyB; }
-            set
-            {
-                _explicitKeysCompositeKeyCompositeKeyB = value;
-            }
-        }
-
-        private ExplicitKeysCompositeKey _explicitKeysCompositeKey;
-
-        public virtual ExplicitKeysCompositeKey ExplicitKeysCompositeKey
-        {
-            get
-            {
-                return _explicitKeysCompositeKey;
-            }
-            set
-            {
-                _explicitKeysCompositeKey = value;
-            }
+            get => ExplicitKeysCompositeKey;
+            set => ExplicitKeysCompositeKey = (ExplicitKeysCompositeKey)value;
         }
 
 

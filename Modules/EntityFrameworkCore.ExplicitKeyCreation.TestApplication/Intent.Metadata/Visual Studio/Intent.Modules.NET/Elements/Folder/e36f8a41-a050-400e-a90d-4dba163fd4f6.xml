@@ -3,7 +3,7 @@
   <name>Entities</name>
   <display>Entities</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1303e57e-1275-42a4-b433-05e88a85e9b1</parentFolderId>
@@ -21,12 +21,27 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="6c599214-fcaf-46a5-8ae0-852c814218c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.CollectionWrapper</name>
+      <display>Intent.Entities.CollectionWrapper</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e36f8a41-a050-400e-a90d-4dba163fd4f6</parentFolderId>
+      <packageId>ae6c1ca8-b6ea-43a4-9e51-3ee22932c4e3</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="89747d69-109a-4428-a5d5-dc9c66225b20" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.DomainEntity</name>
       <display>Intent.Entities.DomainEntity</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e36f8a41-a050-400e-a90d-4dba163fd4f6</parentFolderId>
@@ -43,7 +58,6 @@
       <display>Intent.Entities.DomainEntityInterface</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e36f8a41-a050-400e-a90d-4dba163fd4f6</parentFolderId>
@@ -60,7 +74,6 @@
       <display>Intent.Entities.DomainEntityState</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e36f8a41-a050-400e-a90d-4dba163fd4f6</parentFolderId>
@@ -77,7 +90,6 @@
       <display>Intent.Entities.DomainEnum</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e36f8a41-a050-400e-a90d-4dba163fd4f6</parentFolderId>

@@ -8,18 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
 
-    public partial interface IClassA
+    public interface IClassA
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string PartitionKey { get; set; }
 
         string ClassAAttr { get; set; }
 
-        ICollection<ClassB> ClassBS { get; set; }
+        ICollection<IClassB> ClassBS { get; set; }
 
     }
 }

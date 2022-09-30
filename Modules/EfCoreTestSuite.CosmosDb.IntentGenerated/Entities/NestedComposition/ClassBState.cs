@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,58 +11,25 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 
     public partial class ClassB : IClassB
     {
-        public ClassB()
+
+        public Guid Id { get; set; }
+
+        public string ClassBAttr { get; set; }
+
+        public virtual ClassC ClassC { get; set; }
+
+        IClassC IClassB.ClassC
         {
+            get => ClassC;
+            set => ClassC = (ClassC)value;
         }
 
-        private Guid? _id = null;
+        public virtual ICollection<ClassD> ClassDS { get; set; } = new List<ClassD>();
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
+        ICollection<IClassD> IClassB.ClassDS
         {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _classBAttr;
-
-        public string ClassBAttr
-        {
-            get { return _classBAttr; }
-            set
-            {
-                _classBAttr = value;
-            }
-        }
-
-        private ClassC _classC;
-
-        public virtual ClassC ClassC
-        {
-            get
-            {
-                return _classC;
-            }
-            set
-            {
-                _classC = value;
-            }
-        }
-
-        private ICollection<ClassD> _classDS;
-
-        public virtual ICollection<ClassD> ClassDS
-        {
-            get
-            {
-                return _classDS ??= new List<ClassD>();
-            }
-            set
-            {
-                _classDS = value;
-            }
+            get => ClassDS.CreateWrapper<IClassD, ClassD>();
+            set => ClassDS = value.Cast<ClassD>().ToList();
         }
 
 

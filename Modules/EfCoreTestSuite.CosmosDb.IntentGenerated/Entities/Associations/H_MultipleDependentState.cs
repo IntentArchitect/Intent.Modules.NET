@@ -10,57 +10,22 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
     public partial class H_MultipleDependent : IH_MultipleDependent
     {
-        public H_MultipleDependent()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public string PartitionKey { get; set; }
 
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private string _multipleDepAttr;
-
-        public string MultipleDepAttr
-        {
-            get { return _multipleDepAttr; }
-            set
-            {
-                _multipleDepAttr = value;
-            }
-        }
+        public string MultipleDepAttr { get; set; }
 
 
         public Guid? H_OptionalAggregateNavId { get; set; }
-        private H_OptionalAggregateNav _h_OptionalAggregateNav;
 
-        public virtual H_OptionalAggregateNav H_OptionalAggregateNav
+        public virtual H_OptionalAggregateNav H_OptionalAggregateNav { get; set; }
+
+        IH_OptionalAggregateNav IH_MultipleDependent.H_OptionalAggregateNav
         {
-            get
-            {
-                return _h_OptionalAggregateNav;
-            }
-            set
-            {
-                _h_OptionalAggregateNav = value;
-            }
+            get => H_OptionalAggregateNav;
+            set => H_OptionalAggregateNav = (H_OptionalAggregateNav)value;
         }
 
 

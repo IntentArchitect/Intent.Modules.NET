@@ -8,18 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 {
 
-    public partial interface IAggregateRoot4AggNullable
+    public interface IAggregateRoot4AggNullable
     {
+        IAggregateRoot4Single AggregateRoot4Single { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
-        AggregateRoot4Single AggregateRoot4Single { get; set; }
+        ICollection<IAggregateRoot4Collection> AggregateRoot4Collections { get; set; }
 
-        ICollection<AggregateRoot4Collection> AggregateRoot4Collections { get; set; }
-
-        AggregateRoot4Nullable AggregateRoot4Nullable { get; set; }
+        IAggregateRoot4Nullable AggregateRoot4Nullable { get; set; }
 
     }
 }

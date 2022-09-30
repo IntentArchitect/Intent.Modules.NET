@@ -8,48 +8,22 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
 
-    public abstract partial class Base : IBase
+    public partial class Base : IBase
     {
-        public Base()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _baseField1;
-
-        public string BaseField1
-        {
-            get { return _baseField1; }
-            set
-            {
-                _baseField1 = value;
-            }
-        }
+        public string BaseField1 { get; set; }
 
 
         public Guid BaseAssociatedId { get; set; }
-        private BaseAssociated _baseAssociated;
 
-        public virtual BaseAssociated BaseAssociated
+        public virtual BaseAssociated BaseAssociated { get; set; }
+
+        IBaseAssociated IBase.BaseAssociated
         {
-            get
-            {
-                return _baseAssociated;
-            }
-            set
-            {
-                _baseAssociated = value;
-            }
+            get => BaseAssociated;
+            set => BaseAssociated = (BaseAssociated)value;
         }
 
 

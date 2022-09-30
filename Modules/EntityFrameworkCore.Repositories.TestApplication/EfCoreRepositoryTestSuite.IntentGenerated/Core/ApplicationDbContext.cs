@@ -30,21 +30,11 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         public DbSet<AggregateRoot4Single> AggregateRoot4Singles { get; set; }
         public DbSet<AggregateRoot5> AggregateRoot5s { get; set; }
 
-
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
             modelBuilder.ApplyConfiguration(new AggregateRoot1Configuration());
             modelBuilder.ApplyConfiguration(new AggregateRoot2CompositionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3AggCollectionConfiguration());
@@ -56,7 +46,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new AggregateRoot4NullableConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot4SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot5Configuration());
-
         }
 
         [IntentManaged(Mode.Ignore)]

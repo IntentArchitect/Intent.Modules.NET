@@ -11,11 +11,9 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
     public partial class PK_A_CompositeKey : IPK_A_CompositeKey
     {
 
-        public Guid CompositeKeyA
-        { get; set; }
+        public Guid CompositeKeyA { get; set; }
 
-        public Guid CompositeKeyB
-        { get; set; }
+        public Guid CompositeKeyB { get; set; }
 
     }
 }

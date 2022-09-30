@@ -12,11 +12,9 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
     public partial class CustomIndex : ICustomIndex
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
-        public Guid IndexField
-        { get; set; }
+        public Guid IndexField { get; set; }
 
     }
 }

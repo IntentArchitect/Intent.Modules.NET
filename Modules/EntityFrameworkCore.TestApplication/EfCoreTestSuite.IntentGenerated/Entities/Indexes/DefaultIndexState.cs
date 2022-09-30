@@ -12,11 +12,9 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
     public partial class DefaultIndex : IDefaultIndex
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
-        public string IndexField
-        { get; set; }
+        public string IndexField { get; set; }
 
     }
 }

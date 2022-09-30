@@ -8,9 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
 {
 
-    public partial interface IDerivedClassForAbstract : IAbstractBaseClass
+    public interface IDerivedClassForAbstract : IAbstractBaseClass
     {
-
         string DerivedAttribute { get; set; }
 
     }

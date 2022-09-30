@@ -10,55 +10,19 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
     public partial class A_RequiredComposite : IA_RequiredComposite
     {
-        public A_RequiredComposite()
+
+        public Guid Id { get; set; }
+
+        public string RequiredCompositeAttr { get; set; }
+
+        public string PartitionKey { get; set; }
+
+        public virtual A_OptionalDependent A_OptionalDependent { get; set; }
+
+        IA_OptionalDependent IA_RequiredComposite.A_OptionalDependent
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _requiredCompositeAttr;
-
-        public string RequiredCompositeAttr
-        {
-            get { return _requiredCompositeAttr; }
-            set
-            {
-                _requiredCompositeAttr = value;
-            }
-        }
-
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private A_OptionalDependent _a_OptionalDependent;
-
-        public virtual A_OptionalDependent A_OptionalDependent
-        {
-            get
-            {
-                return _a_OptionalDependent;
-            }
-            set
-            {
-                _a_OptionalDependent = value;
-            }
+            get => A_OptionalDependent;
+            set => A_OptionalDependent = (A_OptionalDependent)value;
         }
 
 

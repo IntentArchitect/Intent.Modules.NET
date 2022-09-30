@@ -10,32 +10,10 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities
 
     public partial class FkBaseClass : IFkBaseClass
     {
-        public FkBaseClass()
-        {
-        }
 
+        public Guid CompositeKeyA { get; set; }
 
-        private Guid _compositeKeyA;
-
-        public Guid CompositeKeyA
-        {
-            get { return _compositeKeyA; }
-            set
-            {
-                _compositeKeyA = value;
-            }
-        }
-
-        private Guid _compositeKeyB;
-
-        public Guid CompositeKeyB
-        {
-            get { return _compositeKeyB; }
-            set
-            {
-                _compositeKeyB = value;
-            }
-        }
+        public Guid CompositeKeyB { get; set; }
 
     }
 }

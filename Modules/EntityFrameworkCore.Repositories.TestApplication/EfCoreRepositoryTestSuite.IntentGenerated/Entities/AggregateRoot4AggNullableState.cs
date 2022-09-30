@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,61 +11,31 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public partial class AggregateRoot4AggNullable : IAggregateRoot4AggNullable
     {
-        public AggregateRoot4AggNullable()
+
+        public Guid Id { get; set; }
+
+        public virtual AggregateRoot4Single AggregateRoot4Single { get; set; }
+
+        IAggregateRoot4Single IAggregateRoot4AggNullable.AggregateRoot4Single
         {
+            get => AggregateRoot4Single;
+            set => AggregateRoot4Single = (AggregateRoot4Single)value;
         }
 
-        private Guid? _id = null;
+        public virtual ICollection<AggregateRoot4Collection> AggregateRoot4Collections { get; set; } = new List<AggregateRoot4Collection>();
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
+        ICollection<IAggregateRoot4Collection> IAggregateRoot4AggNullable.AggregateRoot4Collections
         {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
+            get => AggregateRoot4Collections.CreateWrapper<IAggregateRoot4Collection, AggregateRoot4Collection>();
+            set => AggregateRoot4Collections = value.Cast<AggregateRoot4Collection>().ToList();
         }
 
-        private AggregateRoot4Single _aggregateRoot4Single;
+        public virtual AggregateRoot4Nullable AggregateRoot4Nullable { get; set; }
 
-        public virtual AggregateRoot4Single AggregateRoot4Single
+        IAggregateRoot4Nullable IAggregateRoot4AggNullable.AggregateRoot4Nullable
         {
-            get
-            {
-                return _aggregateRoot4Single;
-            }
-            set
-            {
-                _aggregateRoot4Single = value;
-            }
-        }
-
-        private ICollection<AggregateRoot4Collection> _aggregateRoot4Collections;
-
-        public virtual ICollection<AggregateRoot4Collection> AggregateRoot4Collections
-        {
-            get
-            {
-                return _aggregateRoot4Collections ??= new List<AggregateRoot4Collection>();
-            }
-            set
-            {
-                _aggregateRoot4Collections = value;
-            }
-        }
-
-        private AggregateRoot4Nullable _aggregateRoot4Nullable;
-
-        public virtual AggregateRoot4Nullable AggregateRoot4Nullable
-        {
-            get
-            {
-                return _aggregateRoot4Nullable;
-            }
-            set
-            {
-                _aggregateRoot4Nullable = value;
-            }
+            get => AggregateRoot4Nullable;
+            set => AggregateRoot4Nullable = (AggregateRoot4Nullable)value;
         }
         public Guid? AggregateRoot4NullableId { get; set; }
 

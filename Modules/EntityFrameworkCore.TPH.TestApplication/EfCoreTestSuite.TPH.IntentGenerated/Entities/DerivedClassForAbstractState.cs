@@ -10,21 +10,8 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
 
     public partial class DerivedClassForAbstract : AbstractBaseClass, IDerivedClassForAbstract
     {
-        public DerivedClassForAbstract()
-        {
-        }
 
-
-        private string _derivedAttribute;
-
-        public string DerivedAttribute
-        {
-            get { return _derivedAttribute; }
-            set
-            {
-                _derivedAttribute = value;
-            }
-        }
+        public string DerivedAttribute { get; set; }
 
     }
 }

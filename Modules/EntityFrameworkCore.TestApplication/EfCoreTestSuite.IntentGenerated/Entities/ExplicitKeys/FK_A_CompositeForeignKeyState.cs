@@ -13,8 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
     public partial class FK_A_CompositeForeignKey : IFK_A_CompositeForeignKey
     {
 
-        public Guid Id
-        { get; set; }
+        public Guid Id { get; set; }
 
         public virtual PK_A_CompositeKey PK_A_CompositeKey { get; set; }
 

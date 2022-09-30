@@ -136,26 +136,22 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return CSharpFile.ToString();
         }
 
-        private string GetTableMapping(ClassModel model)
+        private IEnumerable<string> GetTableMapping(ClassModel model)
         {
-            if (model.HasTable())
+            if (!ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
             {
-                return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
-            }
+                if (model.HasTable())
+                {
+                    yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+                }
 
-            if ((model.ParentClass != null || model.ChildClasses.Any()) && 
-                !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
-            {
-                return $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+                if ((model.ParentClass != null || model.ChildClasses.Any()) &&
+                    !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
+                {
+                    yield return $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+                }
             }
-
-            if (model.ParentClass != null && 
-                ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
-            {
-                return $@"builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();";
-            }
-
-            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
+            else if (model.IsAggregateRoot())
             {
                 // Is there an easier way to get this?
                 var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
@@ -165,10 +161,24 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     ? OutputTarget.ApplicationName()
                     : cosmosSettings.ContainerName();
 
-                return $@"builder.ToContainer(""{containerName}"");";
-            }
+                yield return $@"builder.ToContainer(""{containerName}"");";
 
-            return string.Empty;
+                var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
+                if (string.IsNullOrEmpty(partitionKey))
+                {
+                    partitionKey = "PartitionKey";
+                }
+                if (GetAttributes(Model.InternalElement).Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
+                {
+                    yield return $@"builder.HasPartitionKey(x => x.{partitionKey});";
+                }
+            }
+            if (model.ParentClass != null &&
+                ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
+            {
+                yield return $@"builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();";
+            }
+            yield return string.Empty;
         }
 
         private string GetKeyMapping(ClassModel model)
@@ -362,23 +372,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             var statements = new List<string>();
             statements.AddRange(GetDecorators().SelectMany(x => x.AfterAttributeStatements()));
 
-            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
-            {
-                // Is there an easier way to get this?
-                var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
-                var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
-
-                var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
-                if (string.IsNullOrEmpty(partitionKey))
-                {
-                    partitionKey = "PartitionKey";
-                }
-                if (GetAttributes(Model.InternalElement).Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
-                {
-                    statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
-                }
-            }
-
             if (statements.Count > 0)
             {
                 const string newLine = @"
@@ -538,7 +531,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
                         {
-                            var associationProperty = associatedClass.GetAllProperties().SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
+                            var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
 
                             if (column.Order.HasValue)
                             {
@@ -546,7 +539,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             }
                             else if (associationProperty != null)
                             {
-                                associatedClass.InsertProperty(associatedClass.GetAllProperties().ToList().IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
+                                associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
                             }
                             else
                             {
@@ -572,7 +565,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (targetType.IsClassModel())
             {
-                statements.Add(GetTableMapping(targetType.AsClassModel()));
+                statements.AddRange(GetTableMapping(targetType.AsClassModel()));
                 statements.Add(GetKeyMapping(targetType.AsClassModel()));
                 statements.Add(GetCheckConstraints(targetType.AsClassModel()));
             }

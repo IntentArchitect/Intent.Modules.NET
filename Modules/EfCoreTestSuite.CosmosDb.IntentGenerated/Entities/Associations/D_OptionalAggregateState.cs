@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,55 +11,19 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
     public partial class D_OptionalAggregate : ID_OptionalAggregate
     {
-        public D_OptionalAggregate()
+
+        public Guid Id { get; set; }
+
+        public string PartitionKey { get; set; }
+
+        public string OptionalAggregateAttr { get; set; }
+
+        public virtual ICollection<D_MultipleDependent> D_MultipleDependents { get; set; } = new List<D_MultipleDependent>();
+
+        ICollection<ID_MultipleDependent> ID_OptionalAggregate.D_MultipleDependents
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private string _optionalAggregateAttr;
-
-        public string OptionalAggregateAttr
-        {
-            get { return _optionalAggregateAttr; }
-            set
-            {
-                _optionalAggregateAttr = value;
-            }
-        }
-
-        private ICollection<D_MultipleDependent> _d_MultipleDependents;
-
-        public virtual ICollection<D_MultipleDependent> D_MultipleDependents
-        {
-            get
-            {
-                return _d_MultipleDependents ??= new List<D_MultipleDependent>();
-            }
-            set
-            {
-                _d_MultipleDependents = value;
-            }
+            get => D_MultipleDependents.CreateWrapper<ID_MultipleDependent, D_MultipleDependent>();
+            set => D_MultipleDependents = value.Cast<D_MultipleDependent>().ToList();
         }
 
 
