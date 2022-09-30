@@ -1,6 +1,7 @@
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Templates;
 
 namespace Intent.Modules.VisualStudio.Projects
 {
@@ -26,6 +27,25 @@ namespace Intent.Modules.VisualStudio.Projects
         public static bool HasCSharpProjectOptions(this IVisualStudioProject project)
         {
             return project.HasStereotype("C# Project Options");
+        }
+
+        public static bool NullableIsEnabled(this WCFServiceApplicationModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this ASPNETWebApplicationNETFrameworkModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this ClassLibraryNETCoreModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this ConsoleAppNETFrameworkModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this ClassLibraryNETFrameworkModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this AzureFunctionsProjectModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this ConsoleAppNETCoreModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this ASPNETCoreWebApplicationModel model) => model.InternalElement.NullableIsEnabled();
+
+        private static bool NullableIsEnabled(this IHasStereotypes element)
+        {
+            var stereotype = element.GetStereotype("C# Options");
+
+            return stereotype?.GetProperty<string>("Nullable") == "enable" ||
+                   stereotype?.GetProperty<string>("Nullable") == "warnings" ||
+                   stereotype?.GetProperty<string>("Nullable") == "annotations" ||
+                   stereotype?.GetProperty<bool>("Nullable Enabled") == true;
         }
     }
 

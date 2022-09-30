@@ -6,7 +6,6 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
@@ -64,19 +63,28 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 var projectOptions = template.Project.GetCSharpProjectOptions();
                 if (projectOptions != null)
                 {
-                    var langVersionValue = projectOptions.LanguageVersion().IsDefault()
-                        ? null
-                        : projectOptions.LanguageVersion().Value;
+                    hasChange |= SyncProperty(
+                        doc: doc,
+                        propertyName: "LangVersion",
+                        value: projectOptions.LanguageVersion().IsDefault()
+                            ? null
+                            : projectOptions.LanguageVersion().Value,
+                        removeIfNullOrEmpty: true);
 
-                    var nullableValue = projectOptions.NullableEnabledNew().Value switch
+                    if (projectOptions.Nullable()?.Value == "(unspecified)")
                     {
-                        "false" => "disable",
-                        "true" => "enable",
-                        _ => null
-                    };
-
-                    hasChange |= SyncProperty(doc, "LangVersion", langVersionValue, removeIfNullOrEmpty: true);
-                    hasChange |= SyncProperty(doc, "Nullable", nullableValue);
+                        hasChange |= SyncProperty(doc, "Nullable", null, removeIfNullOrEmpty: true);
+                    }
+                    else if (!string.IsNullOrWhiteSpace(projectOptions.Nullable()?.Value))
+                    {
+                        hasChange |= SyncProperty(doc, "Nullable", projectOptions.Nullable().Value);
+                    }
+                    else if (projectOptions.NullableEnabled())
+                    {
+                        // NullableEnabled() was the old property which is just a checkbox, we fall
+                        // back to it if Nullable() is unset.
+                        hasChange |= SyncProperty(doc, "Nullable", "enable");
+                    }
                 }
 
                 if (!hasChange)

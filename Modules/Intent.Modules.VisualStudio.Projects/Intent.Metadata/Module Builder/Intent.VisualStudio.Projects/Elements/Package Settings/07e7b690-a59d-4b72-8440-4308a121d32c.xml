@@ -623,5 +623,53 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="8009287d-0d0b-4fd0-ab21-a6b0748253cc" type="Package Event Settings" typeId="48bcdd5f-690c-425b-8f5e-99097a7188dc">
+      <name>NewPackageEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e7b690-a59d-4b72-8440-4308a121d32c</parentFolderId>
+      <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+      <packageName>Intent.VisualStudio.Projects</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e242a0c4-429d-44ba-82eb-2e90e984eb4b" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Loaded</name>
+          <display>On Loaded: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7d190e6c-3aaf-4be7-8dd9-5ed93db153c0">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8009287d-0d0b-4fd0-ab21-a6b0748253cc</parentFolderId>
+          <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+          <packageName>Intent.VisualStudio.Projects</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="var elementTypes = [&#xD;&#xA;    &quot;Class Library (.NET Core)&quot;,&#xD;&#xA;    &quot;ASP.NET Core Web Application&quot;,&#xD;&#xA;    &quot;Console App (.NET Framework)&quot;,&#xD;&#xA;    &quot;Class Library (.NET Framework)&quot;,&#xD;&#xA;    &quot;ASP.NET Web Application (.NET Framework)&quot;,&#xD;&#xA;    &quot;WCF Service Application&quot;,&#xD;&#xA;    &quot;Azure Functions Project&quot;,&#xD;&#xA;    &quot;Console App (.NET Core)&quot;&#xD;&#xA;];&#xD;&#xA;&#xD;&#xA;const elements = elementTypes.map(type =&gt; lookupTypesOf(type)).flat();&#xD;&#xA;&#xD;&#xA;for (let element of elements) {&#xD;&#xA;    const stereotype = element.getStereotype(&quot;C# Project Options&quot;);&#xD;&#xA;    const nullableProperty = stereotype?.getProperty(&quot;Nullable&quot;);&#xD;&#xA;    const nullableEnabledProperty = stereotype?.getProperty(&quot;Nullable Enabled&quot;);&#xD;&#xA;&#xD;&#xA;    if (nullableProperty?.value != null &amp;&amp; nullableProperty?.value?.trim() !== &quot;&quot;) {&#xD;&#xA;        nullableEnabledProperty.setValue(false);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    if (nullableEnabledProperty?.value == true) {&#xD;&#xA;        nullableEnabledProperty.setValue(false);&#xD;&#xA;        nullableProperty.setValue(&quot;enable&quot;);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
