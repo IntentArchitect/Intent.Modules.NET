@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Intent.Templates;
 using AttributeModelStereotypeExtensions = Intent.Metadata.RDBMS.Api.AttributeModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -35,7 +36,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     }
 
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, EntityTypeConfigurationDecorator>, ICSharpFileBuilderTemplate
+    public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {
         private IIntentTemplate _entityTemplate;
 
@@ -138,20 +139,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private IEnumerable<string> GetTableMapping(ClassModel model)
         {
-            if (!ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
-            {
-                if (model.HasTable())
-                {
-                    yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
-                }
-
-                if ((model.ParentClass != null || model.ChildClasses.Any()) &&
-                    !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
-                {
-                    yield return $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
-                }
-            }
-            else if (model.IsAggregateRoot())
+            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
             {
                 // Is there an easier way to get this?
                 var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
@@ -168,11 +156,29 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     partitionKey = "PartitionKey";
                 }
-                if (GetAttributes(Model.InternalElement).Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
+
+                if (GetAttributes(Model.InternalElement).Any(p =>
+                        p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
                 {
                     yield return $@"builder.HasPartitionKey(x => x.{partitionKey});";
                 }
             }
+            else
+            {
+                if (model.HasTable())
+                {
+                    yield return
+                        $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+                }
+
+                if ((model.ParentClass != null || model.ChildClasses.Any()) &&
+                    !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
+                {
+                    yield return
+                        $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+                }
+            }
+
             if (model.ParentClass != null &&
                 ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
             {
@@ -363,29 +369,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return statements;
         }
 
-        private string GetAfterAttributeStatements()
-        {
-            // These will have their own whitespace padding so we want to try and retain this.
-            // Once this can be deprecated, then it will simplify this method a lot.
-            string statementsCode = GetDecoratorsOutput(x => x.AfterAttributes() ?? string.Empty);
-
-            var statements = new List<string>();
-            statements.AddRange(GetDecorators().SelectMany(x => x.AfterAttributeStatements()));
-
-            if (statements.Count > 0)
-            {
-                const string newLine = @"
-            ";
-                var joined = string.Join(newLine, statements);
-
-                statementsCode = !string.IsNullOrEmpty(statementsCode)
-                    ? statementsCode + newLine + joined
-                    : joined;
-            }
-
-            return statementsCode;
-        }
-
         private string GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
         {
             var statements = new List<string>();
@@ -570,16 +553,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add(GetCheckConstraints(targetType.AsClassModel()));
             }
 
-            if (targetType.Id.Equals(Model.Id))
-            {
-                statements.Add(GetBeforeAttributeStatements());
-            }
             statements.AddRange(GetAttributes(targetType).Where(RequiresConfiguration).Select(x => GetAttributeMapping(x, @class)));
 
-            if (targetType.Id.Equals(Model.Id))
-            {
-                statements.Add(GetAfterAttributeStatements());
-            }
             statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(x => GetAssociationMapping(x, @class)));
             if (targetType.IsClassModel())
             {
@@ -721,28 +696,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             return $"x => new {{ {string.Join(", ", columns.Select(x => "x." + x.Name))}}}";
         }
-
-        private string GetBeforeAttributeStatements()
-        {
-            var statements = new List<string>();
-
-            statements.AddRange(GetDecorators().SelectMany(x => x.BeforeAttributeStatements()));
-
-            // These will have their own whitespace padding so we want to try and retain this.
-            // Once this can be deprecated, then it will simplify this method a lot.
-            string statementsCode = GetDecoratorsOutput(x => x.BeforeAttributes() ?? string.Empty);
-
-            if (statements.Count > 0 || !string.IsNullOrEmpty(statementsCode))
-            {
-                const string newLine = @"
-            ";
-                var joined = string.Join(newLine, statements);
-                return newLine + joined + (!string.IsNullOrWhiteSpace(statementsCode) ? newLine : string.Empty) + statementsCode;
-            }
-
-            return string.Empty;
-        }
-
         private IEnumerable<AttributeModel> GetAttributes(IElement model)
         {
             var attributes = new List<AttributeModel>();

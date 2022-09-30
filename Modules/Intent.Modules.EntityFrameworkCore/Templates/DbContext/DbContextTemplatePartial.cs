@@ -72,11 +72,6 @@ modelBuilder.Entity<Car>().HasData(
     new Car() { CarId = 3, Make = ""Labourghini"", Model = ""Countach"" });
 */");
                     });
-
-                    //foreach (var decorator in GetDecorators())
-                    //{
-                    //    decorator.DecorateDbContext(CSharpFile);
-                    //}
                 });
 
             ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(typeConfiguration =>
@@ -96,11 +91,6 @@ modelBuilder.Entity<Car>().HasData(
 
         public override void BeforeTemplateExecution()
         {
-            //foreach (var decorator in GetDecorators())
-            //{
-            //    decorator.OnBeforeTemplateExecution();
-            //}
-
             if (!TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkInterface))
             {
                 ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
@@ -150,21 +140,7 @@ modelBuilder.Entity<Car>().HasData(
 
         public bool UseLazyLoadingProxies =>
             !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
-
-        //private string GetMethods()
-        //{
-        //    var code = string.Join(Environment.NewLine + Environment.NewLine,
-        //        GetDecorators()
-        //            .SelectMany(s => s.GetMethods())
-        //            .Where(p => !string.IsNullOrEmpty(p)));
-        //    if (string.IsNullOrWhiteSpace(code))
-        //    {
-        //        return string.Empty;
-        //    }
-
-        //    return Environment.NewLine + Environment.NewLine + code;
-        //}
-
+        
         public IEnumerable<string> GetInterfaces()
         {
             try
@@ -192,19 +168,5 @@ modelBuilder.Entity<Car>().HasData(
         {
             return GetTypeName(EntityTypeConfigurationTemplate.TemplateId, model);
         }
-        
-
-        //private IEnumerable<string> GetOnModelCreatingStatements()
-        //{
-        //    var statements = GetDecorators().SelectMany(x => x.GetOnModelCreatingStatements() ?? Enumerable.Empty<string>()).ToList();
-        //    return statements;
-        //}
-
-        //private string GetTypeConfigurationParameters(EntityTypeConfigurationCreatedEvent @event)
-        //{
-        //    var parameters = GetDecorators().SelectMany(s => s.GetTypeConfigurationParameters(@event));
-        //    return string.Join(",", parameters);
-        //}
-
     }
 }

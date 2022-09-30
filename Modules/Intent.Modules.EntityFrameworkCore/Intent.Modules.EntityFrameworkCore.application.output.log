@@ -90,35 +90,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#c35164c7-3797-476e-89ba-c98b96de3176</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbContext/DbContextDecoratorBase.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContext/DbContextDecoratorBase.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#96f7b6e6-79da-4f5e-b095-3d603777968b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbContext/DbContextTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContext/DbContextTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#96f7b6e6-79da-4f5e-b095-3d603777968b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbContext/DbContextTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContext/DbContextTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#96f7b6e6-79da-4f5e-b095-3d603777968b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContext/DbContextTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContext/DbContextTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
@@ -206,7 +182,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityTypeConfiguration/EntityTypeConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
