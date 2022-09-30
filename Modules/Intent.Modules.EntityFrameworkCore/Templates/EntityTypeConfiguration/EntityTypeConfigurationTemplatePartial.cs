@@ -62,21 +62,22 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         .AddMethod("void", "Configure", method =>
                         {
                             method.AddParameter($"EntityTypeBuilder<{GetTypeName(_entityTemplate)}>", "builder");
-                            method.AddStatements(new[] {
-                                GetTableMapping(Model),
-                                GetKeyMapping(Model),
-                                GetCheckConstraints(),
-                                GetBeforeAttributeStatements()
-                            }.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray());
+                            method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
+                            //method.AddStatements(new[] {
+                            //    GetTableMapping(Model),
+                            //    GetKeyMapping(Model),
+                            //    GetCheckConstraints(Model),
+                            //    GetBeforeAttributeStatements()
+                            //}.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray());
 
-                            foreach (var attribute in GetAttributes(Model))
-                            {
-                                method.AddStatement(GetAttributeMapping(attribute, @class));
-                            }
-                            foreach (var associationEnd in GetAssociations(Model))
-                            {
-                                method.AddStatement(GetAssociationMapping(associationEnd, @class));
-                            }
+                            //foreach (var attribute in GetAttributes(Model.InternalElement))
+                            //{
+                            //    method.AddStatement(GetAttributeMapping(attribute, @class));
+                            //}
+                            //foreach (var associationEnd in GetAssociations(Model.InternalElement))
+                            //{
+                            //    method.AddStatement(GetAssociationMapping(associationEnd, @class));
+                            //}
 
                             if (_entityTemplate is ICSharpFileBuilderTemplate builderTemplate)
                             {
@@ -109,7 +110,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 }, order: 100); // Needs to run after other decorators of the entity
                             }
 
-                            method.AddStatements(GetIndexes(Model));
                             method.Statements.SeparateAll();
                         });
                 });
@@ -138,19 +138,19 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetTableMapping(ClassModel model)
         {
-            if (model.HasTable() && !string.IsNullOrWhiteSpace(model.GetTable().Name()))
+            if (model.HasTable())
             {
                 return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
             }
 
-            if ((model.ParentClass != null || model.ChildClasses.Any()) && !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
-                    .IsTPH())
+            if ((model.ParentClass != null || model.ChildClasses.Any()) && 
+                !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
             {
                 return $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
             }
 
-            if (model.ParentClass != null && ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy()
-                    .IsTPH())
+            if (model.ParentClass != null && 
+                ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
             {
                 return $@"builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();";
             }
@@ -411,13 +411,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
+                            RequiredColumn[] columns = null;
                             method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                             method.AddStatement(@$"builder.WithOwner({
                                 (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")
-                            });");
+                            }){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd, out columns)})" : "")};");
                             //}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")}; ");
-                        method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
+                            EnsureColumnsOnEntity(associationEnd.Element, columns ?? Array.Empty<RequiredColumn>());
                         });
                         statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
 
@@ -529,35 +531,38 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
             {
-                var associatedClass = template.CSharpFile.Classes.First();
-                foreach (var column in columns)
+                template.CSharpFile.OnBuild(file =>
                 {
-                    if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name)))
+                    var associatedClass = file.Classes.First();
+                    foreach (var column in columns)
                     {
-                        var associationProperty = associatedClass.GetAllProperties().SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
+                        if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
+                        {
+                            var associationProperty = associatedClass.GetAllProperties().SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
 
-                        if (column.Order.HasValue)
-                        {
-                            associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
-                        }
-                        else if (associationProperty != null)
-                        {
-                            associatedClass.InsertProperty(associatedClass.GetAllProperties().ToList().IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
-                        }
-                        else
-                        {
-                            associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
-                        }
-
-                        void ConfigureProperty(CSharpProperty property)
-                        {
-                            if (column.IsPrivate)
+                            if (column.Order.HasValue)
                             {
-                                property.Private();
+                                associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
+                            }
+                            else if (associationProperty != null)
+                            {
+                                associatedClass.InsertProperty(associatedClass.GetAllProperties().ToList().IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
+                            }
+                            else
+                            {
+                                associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
+                            }
+
+                            void ConfigureProperty(CSharpProperty property)
+                            {
+                                if (column.IsPrivate)
+                                {
+                                    property.Private();
+                                }
                             }
                         }
                     }
-                }
+                });
             }
         }
 
@@ -576,13 +581,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 statements.Add(GetBeforeAttributeStatements());
             }
-            statements.AddRange(GetAttributes(targetType).Where(RequiresConfiguration).Select(GetAttributeMapping));
+            statements.AddRange(GetAttributes(targetType).Where(RequiresConfiguration).Select(x => GetAttributeMapping(x, @class)));
 
             if (targetType.Id.Equals(Model.Id))
             {
                 statements.Add(GetAfterAttributeStatements());
             }
-            statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(GetAssociationMapping));
+            statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(x => GetAssociationMapping(x, @class)));
             if (targetType.IsClassModel())
             {
                 statements.AddRange(GetIndexes(targetType.AsClassModel()));
@@ -628,8 +633,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     ? GetIndexColumnPropertyName(index.KeyColumns.Single(), "x.")
                     : $"new {{ {string.Join(", ", index.KeyColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }}";
 
-                var sb = new StringBuilder($@"
-            builder.HasIndex(x => {indexFields})");
+                var sb = new StringBuilder($@"builder.HasIndex(x => {indexFields})");
 
                 if (index.IncludedColumns.Length > 0)
                 {
@@ -712,8 +716,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
             else // implicit Id
             {
-                columns.Add($"{(!associationEnd.Association.IsOneToOne() ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id");
-                columns = new[] { new RequiredColumn(Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id") };
+                columns = new[] { new RequiredColumn(
+                    Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""),
+                    Name: $"{(!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
             }
 
             if (columns?.Length == 1)
