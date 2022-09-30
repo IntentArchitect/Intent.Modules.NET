@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
+using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -16,10 +17,8 @@ namespace Intent.Modules.Eventing.MassTransit.AspNetCore.Decorators
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.Eventing.MassTransit.AspNetCore.PublisherDecorator";
 
-        [IntentManaged(Mode.Fully)]
-        private readonly ControllerTemplate _template;
-        [IntentManaged(Mode.Fully)]
-        private readonly IApplication _application;
+        [IntentManaged(Mode.Fully)] private readonly ControllerTemplate _template;
+        [IntentManaged(Mode.Fully)] private readonly IApplication _application;
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public PublisherDecorator(ControllerTemplate template, IApplication application)
@@ -28,7 +27,7 @@ namespace Intent.Modules.Eventing.MassTransit.AspNetCore.Decorators
             _application = application;
         }
 
-        public override int Priority => 90;
+        public override int Priority => IsTransactionalOutboxPatternSelected() ? 90 : -15;
 
         public override string EnterClass()
         {
@@ -47,7 +46,21 @@ namespace Intent.Modules.Eventing.MassTransit.AspNetCore.Decorators
 
         public override string MidOperationBody(OperationModel operationModel)
         {
-            return $@"await _eventBus.FlushAllAsync(cancellationToken);";
+            return IsTransactionalOutboxPatternSelected()
+                ? $@"await _eventBus.FlushAllAsync(cancellationToken);"
+                : string.Empty;
+        }
+
+        public override string ExitOperationBody(OperationModel operationModel)
+        {
+            return !IsTransactionalOutboxPatternSelected()
+                ? $@"await _eventBus.FlushAllAsync(cancellationToken);"
+                : string.Empty;
+        }
+
+        private bool IsTransactionalOutboxPatternSelected()
+        {
+            return _application.Settings.GetEventingSettings()?.OutboxPattern()?.IsEntityFramework() == true;
         }
     }
 }

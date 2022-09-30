@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>DbContextSaveControllerBeginDecorator</name>
-  <display>DbContextSaveControllerBeginDecorator: ControllerDecorator</display>
+<class id="e9b880a7-9b7a-402f-b3f2-0235fb329f57" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>DbContextSaveControllerEndDecorator</name>
+  <display>DbContextSaveControllerEndDecorator: ControllerDecorator</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="4050a055-3e0c-442a-ba89-5d94a74ce601">
+  <typeReference id="1878a4a8-d973-408a-97a1-cfb889d8e505">
     <typeId>2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

@@ -9,14 +9,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Decorators
 {
-    [Description(DbContextSaveControllerDecorator.DecoratorId)]
-    public class DbContextSaveControllerDecoratorRegistration : DecoratorRegistration<ControllerTemplate, ControllerDecorator>
+    [Description(DbContextSaveControllerEndDecorator.DecoratorId)]
+    public class DbContextSaveControllerEndDecoratorRegistration : DecoratorRegistration<ControllerTemplate, ControllerDecorator>
     {
         public override ControllerDecorator CreateDecoratorInstance(ControllerTemplate template, IApplication application)
         {
-            return new DbContextSaveControllerDecorator(template, application);
+            return new DbContextSaveControllerEndDecorator(template, application);
         }
 
-        public override string DecoratorId => DbContextSaveControllerDecorator.DecoratorId;
+        public override string DecoratorId => DbContextSaveControllerEndDecorator.DecoratorId;
     }
 }

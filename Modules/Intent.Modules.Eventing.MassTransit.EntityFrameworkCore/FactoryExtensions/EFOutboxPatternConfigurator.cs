@@ -10,6 +10,7 @@ using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -44,13 +45,21 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
                 return;
             }
 
-            switch (application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
+            var provider = application.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum();
+            switch (provider)
             {
-                // Assume In-Memory outbox pattern when an unsupported (or in-memory) option is selected
                 default:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
-                    template.MessageProviderSpecificConfigCode.NestedConfigurationCodeLines.Add("cfg.UseInMemoryOutbox();");
+                    Logging.Log.Warning($@"Database Provider {provider} is not supported for Entity Framework outbox pattern.");
+                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
+                    template.AdditionalConfiguration.Add(
+                        new MassTransitConfigurationTemplate.ScopedExtensionMethodConfiguration($"AddEntityFrameworkOutbox<{template.GetDbContextName()}>", "o")
+                            .AppendNestedLines(new[]
+                            {
+                                "o.UseBusOutbox();"
+                            }));
+                    break;
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);

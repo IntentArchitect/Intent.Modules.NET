@@ -14,7 +14,8 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
     [IntentManaged(Mode.Merge)]
     public class OutboxTableSpecification : DbContextDecoratorBase
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.Eventing.MassTransit.EntityFrameworkCore.OutboxTableSpecification";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.Eventing.MassTransit.EntityFrameworkCore.OutboxTableSpecification";
 
         [IntentManaged(Mode.Fully)] private readonly DbContextTemplate _template;
         [IntentManaged(Mode.Fully)] private readonly IApplication _application;
@@ -28,9 +29,7 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
 
         public override IEnumerable<string> GetOnModelCreatingStatements()
         {
-            if (!_application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() ||
-                (!_application.Settings.GetDatabaseSettings().DatabaseProvider().IsSqlServer() &&
-                !_application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql()))
+            if (!IsTransactionalOutboxPatternAndDatabaseProviderSelected())
             {
                 yield break;
             }
@@ -41,6 +40,13 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
             yield return @$"modelBuilder.AddInboxStateEntity();";
             yield return @$"modelBuilder.AddOutboxMessageEntity();";
             yield return @$"modelBuilder.AddOutboxStateEntity();";
+        }
+
+        private bool IsTransactionalOutboxPatternAndDatabaseProviderSelected()
+        {
+            return _application.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework() &&
+                   (_application.Settings.GetDatabaseSettings().DatabaseProvider().IsSqlServer() ||
+                    _application.Settings.GetDatabaseSettings().DatabaseProvider().IsPostgresql());
         }
     }
 }

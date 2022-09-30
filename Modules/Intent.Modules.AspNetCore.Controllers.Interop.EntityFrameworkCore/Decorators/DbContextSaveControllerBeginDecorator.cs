@@ -16,10 +16,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class DbContextSaveControllerDecorator : ControllerDecorator
+    public class DbContextSaveControllerBeginDecorator : ControllerDecorator
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerDecorator";
+        public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerBeginDecorator";
 
         [IntentManaged(Mode.Fully)]
         private readonly ControllerTemplate _template;
@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge, Body = Mode.Fully)]
-        public DbContextSaveControllerDecorator(ControllerTemplate template, IApplication application)
+        public DbContextSaveControllerBeginDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
@@ -55,7 +55,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         public override string EnterOperationBody(OperationModel operationModel)
         {
             _template.AddUsing("System.Transactions");
-            
+
             return $@"
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
@@ -71,11 +71,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
             return $@"
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             transaction.Complete();";
-        }
-
-        public override string ExitOperationBody(OperationModel operationModel)
-        {
-            return "}";
         }
 
         private string GetUnitOfWork()
