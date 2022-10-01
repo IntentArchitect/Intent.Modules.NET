@@ -226,17 +226,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return associationEnd.IsTargetEnd();
         }
 
-        private string GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
+        private EFCoreFieldConfigStatement GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
         {
-            var statements = new List<string>();
+            EFCoreFieldConfigStatement result = null;
 
             if (!IsOwned(attribute.TypeReference.Element))
             {
-                statements.Add($"builder.Property(x => x.{attribute.Name.ToPascalCase()})");
-                statements.AddRange(GetAttributeMappingStatements(attribute));
-
-                return $@"{string.Join(@"
-                ", statements)};";
+                return new EFCoreFieldConfigStatement($"builder.Property(x => x.{attribute.Name.ToPascalCase()})", attribute)
+                    .AddStatements(GetAttributeMappingStatements(attribute));
             }
 
             @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
@@ -248,24 +245,23 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (attribute.TypeReference.IsCollection)
             {
-                statements.Add($"builder.OwnsMany(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})");
+                return new EFCoreFieldConfigStatement($"builder.OwnsMany(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})", attribute);
             }
             else
             {
-                statements.Add($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})");
+                var field = new EFCoreFieldConfigStatement($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})", attribute);
                 if (!attribute.TypeReference.IsNullable)
                 {
-                    statements.Add($".Navigation(x => x.{attribute.Name.ToPascalCase()}).IsRequired()");
+                    field.AddStatement($".Navigation(x => x.{attribute.Name.ToPascalCase()}).IsRequired()");
                 }
-            }
 
-            return $@"{string.Join(@"
-                ", statements)};";
+                return field;
+            }
         }
 
-        private List<string> GetAttributeMappingStatements(AttributeModel attribute)
+        private List<CSharpStatement> GetAttributeMappingStatements(AttributeModel attribute)
         {
-            var statements = new List<string>();
+            var statements = new List<CSharpStatement>();
             if (!attribute.Type.IsNullable)
             {
                 statements.Add(".IsRequired()");
@@ -369,7 +365,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return statements;
         }
 
-        private string GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
+        private CSharpStatement GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
         {
             var statements = new List<string>();
 
@@ -542,13 +538,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private List<string> GetTypeConfiguration(IElement targetType, CSharpClass @class)
+        private List<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
         {
-            var statements = new List<string>();
+            var statements = new List<CSharpStatement>();
 
             if (targetType.IsClassModel())
             {
-                statements.AddRange(GetTableMapping(targetType.AsClassModel()));
+                statements.AddRange(GetTableMapping(targetType.AsClassModel()).Select(x => new CSharpStatement(x)));
                 statements.Add(GetKeyMapping(targetType.AsClassModel()));
                 statements.Add(GetCheckConstraints(targetType.AsClassModel()));
             }
@@ -561,7 +557,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.AddRange(GetIndexes(targetType.AsClassModel()));
             }
 
-            return statements.Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+            return statements.Where(x => !string.IsNullOrWhiteSpace(x.Text)).ToList();
         }
 
         private string GetCheckConstraints(ClassModel model)
@@ -585,12 +581,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return sb.ToString();
         }
 
-        private string[] GetIndexes(ClassModel model)
+        private CSharpStatement[] GetIndexes(ClassModel model)
         {
             var indexes = model.GetIndexes();
             if (indexes.Count == 0)
             {
-                return Array.Empty<string>();
+                return Array.Empty<CSharpStatement>();
             }
 
             var statements = new List<string>();
@@ -642,7 +638,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add(sb.ToString());
             }
 
-            return statements.ToArray();
+            return statements.Select(x => new CSharpStatement(x)).ToArray();
         }
 
         private bool IsValueObject(ICanBeReferencedType type)
@@ -733,5 +729,39 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         protected record RequiredColumn(string Type, string Name, int? Order = null, bool IsPrivate = false);
     }
 
+    public class EFCoreFieldConfigStatement : CSharpStatement
+    {
+        public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();
+        public EFCoreFieldConfigStatement(string text, IMetadataModel model) : base(text)
+        {
+            AddMetadata("model", model);
+        }
 
+        public EFCoreFieldConfigStatement(AssociationEndModel associationEnd) : base(associationEnd.Name.ToPascalCase())
+        {
+            AddMetadata("model", associationEnd);
+        }
+
+        public EFCoreFieldConfigStatement AddStatement(CSharpStatement statement)
+        {
+            Statements.Add(statement);
+            return this;
+        }
+
+        public EFCoreFieldConfigStatement AddStatements(IEnumerable<CSharpStatement> statements)
+        {
+            foreach (var statement in statements)
+            {
+                Statements.Add(statement);
+            }
+            return this;
+        }
+
+        public override string GetText(string indentation)
+        {
+            return $@"{indentation}{Text}{(Statements.Any() ? $@"
+    {string.Join(@"
+    ", Statements.Select(x => x.GetText(indentation)))}" : string.Empty)};";
+        }
+    }
 }
