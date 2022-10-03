@@ -28,7 +28,7 @@ namespace <#= Namespace #>
 foreach (var typeConfiguration in _entityTypeConfigurations)
 {
 #>
-        public DbSet<<#= GetEntityName(typeConfiguration.Template.Model) #>> <#= GetEntityName(typeConfiguration.Template.Model).ToPluralName()#> { get; set; }
+        public DbSet<<#= GetEntityName(typeConfiguration.Template.Model) #>> <#= GetEntityNameOnly(typeConfiguration.Template.Model).ToPluralName()#> { get; set; }
 <#
 }
 #>

@@ -70,6 +70,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         {
             return GetTypeName("Domain.Entity", model);
         }
+        
+        public string GetEntityNameOnly(ClassModel model)
+        {
+            var typeInfo = this.GetTypeInfo("Domain.Entity", model);
+            return typeInfo.Name;
+        }
 
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
