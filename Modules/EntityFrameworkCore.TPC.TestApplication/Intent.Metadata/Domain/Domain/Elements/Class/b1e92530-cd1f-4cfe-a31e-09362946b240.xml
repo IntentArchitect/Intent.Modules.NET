@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e1f1e3cc-004a-48e3-81ca-5f3d44baf5a4" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>DerivedClassForConcrete</name>
-  <display>DerivedClassForConcrete</display>
+<class id="b1e92530-cd1f-4cfe-a31e-09362946b240" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>OwnedClass</name>
+  <display>OwnedClass</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -12,12 +12,12 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="83eb1c18-dde6-408a-85b0-89ee31070674" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>derivedAttribute</name>
-      <display>derivedAttribute: string</display>
+    <childElement id="06477de2-0594-4acf-93c9-c37a3c2bbd35" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ownedField</name>
+      <display>ownedField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="9f371d21-c00d-4d19-8ab2-830443d9cddf">
+      <typeReference id="b26d3a93-bde0-45de-8c7a-61c6a11ea30b">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -29,7 +29,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>e1f1e3cc-004a-48e3-81ca-5f3d44baf5a4</parentFolderId>
+      <parentFolderId>b1e92530-cd1f-4cfe-a31e-09362946b240</parentFolderId>
       <packageId>839dc29b-ff64-4542-935b-f561cf1cd68c</packageId>
       <packageName>Domain</packageName>
       <stereotypes>
@@ -39,7 +39,7 @@
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
             <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
-            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" value="250" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
             <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
           </properties>
         </stereotype>

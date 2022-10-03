@@ -3,7 +3,6 @@
   <name>FkAssociatedClass</name>
   <display>FkAssociatedClass</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>839dc29b-ff64-4542-935b-f561cf1cd68c</parentFolderId>

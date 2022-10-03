@@ -17,6 +17,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         DbSet<FkAssociatedClass> FkAssociatedClasses { get; set; }
         DbSet<FkBaseClass> FkBaseClasses { get; set; }
         DbSet<FkDerivedClass> FkDerivedClasses { get; set; }
+        DbSet<OwnerClass> OwnerClasses { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

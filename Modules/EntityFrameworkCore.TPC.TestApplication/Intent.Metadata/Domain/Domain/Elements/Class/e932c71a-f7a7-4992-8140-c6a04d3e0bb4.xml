@@ -3,7 +3,7 @@
   <name>ConcreteBaseClass</name>
   <display>ConcreteBaseClass</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>839dc29b-ff64-4542-935b-f561cf1cd68c</parentFolderId>
@@ -16,7 +16,6 @@
       <name>baseAttribute</name>
       <display>baseAttribute: string</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="6d4eab7c-62e7-46f3-aade-af68cbd14487">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>

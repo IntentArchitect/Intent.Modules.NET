@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="174e222d-72b2-488d-a7f1-1ee251dad4b7" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>Entities</name>
-  <display>Entities</display>
+<class id="d8bab62f-1f19-4849-994b-e76b7aeddfc4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>DomainEvents</name>
+  <display>DomainEvents</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -21,14 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="cf33a3ff-5367-4974-928d-bf4eab77ed86" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEntity</name>
-      <display>Intent.Entities.DomainEntity</display>
-      <externalReference>Intent.Entities</externalReference>
+    <childElement id="05f958f4-be2b-4c55-b577-a48f91171387" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainEvents.DomainEvent</name>
+      <display>Intent.DomainEvents.DomainEvent</display>
+      <externalReference>Intent.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>174e222d-72b2-488d-a7f1-1ee251dad4b7</parentFolderId>
+      <parentFolderId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</parentFolderId>
       <packageId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -37,14 +37,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a9cdc60b-5a52-4f41-a0ef-d5bf902f43bb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEntityInterface</name>
-      <display>Intent.Entities.DomainEntityInterface</display>
-      <externalReference>Intent.Entities</externalReference>
+    <childElement id="540ca3d6-9a32-4b98-ad89-0d9ccb9f8bb1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainEvents.DomainEventBase</name>
+      <display>Intent.DomainEvents.DomainEventBase</display>
+      <externalReference>Intent.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>174e222d-72b2-488d-a7f1-1ee251dad4b7</parentFolderId>
+      <parentFolderId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</parentFolderId>
       <packageId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -53,14 +53,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="29983df1-e083-4341-9931-bd71ac9f99cf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEntityState</name>
-      <display>Intent.Entities.DomainEntityState</display>
-      <externalReference>Intent.Entities</externalReference>
+    <childElement id="4247f9f2-90ea-49d0-bb84-3b3bd014794f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainEvents.DomainEventServiceInterface</name>
+      <display>Intent.DomainEvents.DomainEventServiceInterface</display>
+      <externalReference>Intent.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>174e222d-72b2-488d-a7f1-1ee251dad4b7</parentFolderId>
+      <parentFolderId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</parentFolderId>
       <packageId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -69,14 +69,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="7448e12c-ce0d-403b-962f-760c77d85c3a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.DomainEnum</name>
-      <display>Intent.Entities.DomainEnum</display>
-      <externalReference>Intent.Entities</externalReference>
+    <childElement id="d7f73483-7053-4c91-b558-6f7fd67bb98a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.DomainEvents.HasDomainEventInterface</name>
+      <display>Intent.DomainEvents.HasDomainEventInterface</display>
+      <externalReference>Intent.DomainEvents</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>174e222d-72b2-488d-a7f1-1ee251dad4b7</parentFolderId>
+      <parentFolderId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</parentFolderId>
       <packageId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />

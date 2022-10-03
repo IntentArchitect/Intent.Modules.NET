@@ -126,6 +126,36 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FkDerivedClass.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\AbstractClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\OwnedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OwnedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\OwnerClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OwnerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAbstractClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IOwnedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OwnedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IOwnerClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OwnerClass.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
