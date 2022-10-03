@@ -4,7 +4,7 @@
   <display>2 - Application</display>
   <externalReference>34a34022-de9b-41f1-8ddf-3b059ed0557a</externalReference>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>67749b77-24df-418f-8182-3e3b857247a8</parentFolderId>

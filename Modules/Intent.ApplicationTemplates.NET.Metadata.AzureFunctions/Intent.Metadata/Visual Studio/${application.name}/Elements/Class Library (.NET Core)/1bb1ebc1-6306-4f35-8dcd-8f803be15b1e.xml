@@ -4,7 +4,7 @@
   <display>${application.name}.Application</display>
   <externalReference>08b3db47-8460-4832-a7df-4fc93a505b27</externalReference>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>54d80a73-fad8-4a64-a53f-db2fbcbefd24</parentFolderId>
@@ -46,7 +46,6 @@
       <display>Application</display>
       <externalReference>7daf3301-2e60-475c-b3e0-676549d1c6bf</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>1bb1ebc1-6306-4f35-8dcd-8f803be15b1e</parentFolderId>

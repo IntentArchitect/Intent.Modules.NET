@@ -3,7 +3,7 @@
   <name>${application.name}.Api</name>
   <display>${application.name}.Api</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1f28e28f-41b5-453c-ac71-809c984c86cb</parentFolderId>
@@ -53,7 +53,6 @@
       <display>Startup</display>
       <externalReference>a1ebfadf-c1bc-4b37-8156-5cab47fd1e0a</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>28b4ea3b-2275-4440-93e4-9050b664ebcf</parentFolderId>
@@ -68,7 +67,6 @@
       <display>Distribution</display>
       <externalReference>a0d2c141-8412-46c1-8aa9-851f0c644d0f</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>28b4ea3b-2275-4440-93e4-9050b664ebcf</parentFolderId>

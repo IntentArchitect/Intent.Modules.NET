@@ -4,7 +4,7 @@
   <display>${application.name}.Infrastructure</display>
   <externalReference>e202e73f-eac7-4769-9a19-c3023c093854</externalReference>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>433b1a34-b38f-4936-868f-a37be4d9944d</parentFolderId>
@@ -46,7 +46,6 @@
       <display>Infrastructure</display>
       <externalReference>73158ae5-7d6a-4fee-a61a-c1db635acfb1</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0808de74-fd86-4374-a516-d848d0a40a7b</parentFolderId>
@@ -61,7 +60,6 @@
       <display>Repository.Implementation</display>
       <externalReference>a9ee46ee-50a1-4476-b6d4-02e84442adb1</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0808de74-fd86-4374-a516-d848d0a40a7b</parentFolderId>
