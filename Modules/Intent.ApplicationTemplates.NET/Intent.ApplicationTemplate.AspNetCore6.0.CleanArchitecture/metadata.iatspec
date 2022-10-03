@@ -227,5 +227,14 @@
         </setting>
       </settings>
     </group>
+    <group id="fe3814c7-90cd-41f4-9bd3-45079e4b7ecb" title="Domain Settings">
+      <settings>
+        <setting id="c3789138-6649-47e4-901b-5f6469583cb7" title="Attribute Naming Convention" type="hidden">
+          <defaultValue>pascal-case</defaultValue>
+          <isRequired>true</isRequired>
+          <options />
+        </setting>
+      </settings>
+    </group>
   </additionalSettings>
 </applicationTemplate>

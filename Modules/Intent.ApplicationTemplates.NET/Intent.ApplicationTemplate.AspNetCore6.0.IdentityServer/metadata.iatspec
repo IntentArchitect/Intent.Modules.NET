@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</id>
-  <version>3.3.5</version>
+  <version>3.3.6-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <displayName>Identity Server .NET 6</displayName>
   <shortDescription>A Secure Token Server (STS) using IdentityServer4 and .NET 6.</shortDescription>
@@ -77,5 +77,15 @@
       </components>
     </group>
   </componentGroups>
-  <additionalSettings />
+  <additionalSettings>
+    <group id="cf5eb115-176f-4e50-b13f-7a88f8bd4523" title="Domain Settings">
+      <settings>
+        <setting id="c3789138-6649-47e4-901b-5f6469583cb7" title="Attribute Naming Convention" type="hidden">
+          <defaultValue>pascal-case</defaultValue>
+          <isRequired>true</isRequired>
+          <options />
+        </setting>
+      </settings>
+    </group>
+  </additionalSettings>
 </applicationTemplate>

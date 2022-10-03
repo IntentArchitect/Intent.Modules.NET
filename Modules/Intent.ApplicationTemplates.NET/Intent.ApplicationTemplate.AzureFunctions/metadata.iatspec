@@ -131,5 +131,15 @@
       </components>
     </group>
   </componentGroups>
-  <additionalSettings />
+  <additionalSettings>
+    <group id="71d7c11f-3c18-4e92-b65d-008488983d2f" title="Domain Settings">
+      <settings>
+        <setting id="c3789138-6649-47e4-901b-5f6469583cb7" title="Attribute Naming Convention" type="hidden">
+          <defaultValue>pascal-case</defaultValue>
+          <isRequired>true</isRequired>
+          <options />
+        </setting>
+      </settings>
+    </group>
+  </additionalSettings>
 </applicationTemplate>
