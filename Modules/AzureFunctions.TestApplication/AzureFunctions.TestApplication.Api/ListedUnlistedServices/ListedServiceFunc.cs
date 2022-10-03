@@ -31,7 +31,8 @@ namespace AzureFunctions.TestApplication.Api.ListedUnlistedServices
 
         [FunctionName("ListedUnlistedServices-ListedServiceFunc")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "listedunlistedservices")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "listedunlistedservices/{param}")] HttpRequest req,
+            string param,
             ILogger log)
         {
             try
