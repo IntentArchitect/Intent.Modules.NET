@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cdc98d98-4440-4a8d-b4e7-e9f75c9b337d">
+  <sourceEnd id="43c992ab-2271-4b3a-8284-02643d8b217c" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <name>AggregateClass</name>
+    <display>AggregateClass: AggregateClass</display>
+    <order>2</order>
+    <typeReference id="83e78dd0-b28e-48f2-a916-4ed9dd352c92">
+      <typeId>f523d293-6465-4c9e-8dfe-637527e80e7c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="cdc98d98-4440-4a8d-b4e7-e9f75c9b337d" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>AbstractClass</name>
+    <display>AbstractClass: AbstractClass</display>
+    <order>0</order>
+    <typeReference id="53ed055b-0b95-4041-b85a-a9340a52617d">
+      <typeId>89e0dd9e-6a17-40f2-a366-9a730d1df3e3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

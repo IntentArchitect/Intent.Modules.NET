@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using EfCoreTestSuite.TPC.IntentGenerated.Core;
 using EfCoreTestSuite.TPC.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
@@ -32,12 +33,8 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities
         public string AbstractField
         {
             get { return _abstractField; }
-            set
-            {
-                _abstractField = value;
-            }
+            set { _abstractField = value; }
         }
-
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

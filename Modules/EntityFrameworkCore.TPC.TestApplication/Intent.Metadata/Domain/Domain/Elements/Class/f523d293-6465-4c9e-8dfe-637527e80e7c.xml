@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f523d293-6465-4c9e-8dfe-637527e80e7c" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>AggregateClass</name>
+  <display>AggregateClass</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>839dc29b-ff64-4542-935b-f561cf1cd68c</parentFolderId>
+  <packageId>839dc29b-ff64-4542-935b-f561cf1cd68c</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

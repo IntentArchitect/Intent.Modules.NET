@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="851702e7-b3e6-42b0-b667-ae7a72a291b6">
+  <sourceEnd id="eea91675-d064-4a05-9866-3b5305b2cd8b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>OwnerClass2s</name>
+    <display>OwnerClass2s: OwnerClass2[*]</display>
+    <order>2</order>
+    <typeReference id="15090074-342d-4e5b-ac52-218b80f9f64c">
+      <typeId>70130f3e-e015-4e11-b803-4d11a9398e42</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="851702e7-b3e6-42b0-b667-ae7a72a291b6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggregateClass</name>
+    <display>AggregateClass: AggregateClass</display>
+    <order>2</order>
+    <typeReference id="bf886c5a-7e60-413a-8c95-bb35db63485f">
+      <typeId>f523d293-6465-4c9e-8dfe-637527e80e7c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
