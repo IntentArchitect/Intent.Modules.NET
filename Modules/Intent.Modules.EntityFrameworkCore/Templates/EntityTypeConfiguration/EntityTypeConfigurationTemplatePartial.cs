@@ -183,34 +183,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         //    }
         //    yield return string.Empty;
         //}
-
-        //private string GetKeyMapping(ClassModel model)
-        //{
-        //    if (model.ParentClass != null && (!model.ParentClass.IsAbstract || !ExecutionContext.Settings
-        //            .GetDatabaseSettings().InheritanceStrategy().IsTPC()))
-        //    {
-        //        return string.Empty;
-        //    }
-
-        //    if (!model.GetExplicitPrimaryKey().Any())
-        //    {
-        //        var rootEntity = model;
-        //        while (rootEntity.ParentClass != null)
-        //        {
-        //            rootEntity = rootEntity.ParentClass;
-        //        }
-        //        EnsureColumnsOnEntity(rootEntity.InternalElement, new RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
-
-        //        return $@"builder.HasKey(x => x.Id);";
-        //    }
-        //    else
-        //    {
-        //        var keys = model.GetExplicitPrimaryKey().Count() == 1
-        //            ? "x." + model.GetExplicitPrimaryKey().Single().Name.ToPascalCase()
-        //            : $"new {{ {string.Join(", ", model.GetExplicitPrimaryKey().Select(x => "x." + x.Name.ToPascalCase()))} }}";
-        //        return $@"builder.HasKey(x => {keys});";
-        //    }
-        //}
+        
 
         private bool RequiresConfiguration(AttributeModel attribute)
         {
@@ -224,7 +197,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return associationEnd.IsTargetEnd();
         }
 
-        private EFCoreFieldConfigStatement GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
+        private EFCoreConfigStatementBase GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
         {
             EFCoreFieldConfigStatement result = null;
 
@@ -266,105 +239,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.Add(".IsRequired()");
             }
 
-            //if (attribute.GetPrimaryKey()?.Identity() == true)
-            //{
-            //    statements.Add(".UseSqlServerIdentityColumn()");
-            //}
-
-            //if (attribute.HasDefaultConstraint())
-            //{
-            //    var treatAsSqlExpression = attribute.GetDefaultConstraint().TreatAsSQLExpression();
-            //    var defaultValue = attribute.GetDefaultConstraint()?.Value() ?? string.Empty;
-
-            //    if (!treatAsSqlExpression &&
-            //        !defaultValue.TrimStart().StartsWith("\"") &&
-            //        attribute.Type.Element.Name == "string")
-            //    {
-            //        defaultValue = $"\"{defaultValue}\"";
-            //    }
-
-            //    var method = treatAsSqlExpression
-            //        ? "HasDefaultValueSql"
-            //        : "HasDefaultValue";
-
-            //    statements.Add($".{method}({defaultValue})");
-            //}
-
-            //if (attribute.GetTextConstraints()?.SQLDataType().IsDEFAULT() == true)
-            //{
-            //    var maxLength = attribute.GetTextConstraints().MaxLength();
-            //    if (maxLength.HasValue && attribute.Type.Element.Name == "string")
-            //    {
-            //        statements.Add($".HasMaxLength({maxLength.Value})");
-            //    }
-
-            //    //var isUnicode = attribute.GetTextConstraints().SQLDataType().IsVARCHAR() == true;
-            //    //if (isUnicode)
-            //    //{
-            //    //    statements.Add($".IsUnicode(false)");
-            //    //}
-            //}
-            //else if (attribute.HasTextConstraints())
-            //{
-            //    var maxLength = attribute.GetTextConstraints().MaxLength();
-            //    switch (attribute.GetTextConstraints().SQLDataType().AsEnum())
-            //    {
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR:
-            //            statements.Add($".HasColumnType(\"varchar({maxLength?.ToString() ?? "max"})\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR:
-            //            statements.Add($".HasColumnType(\"nvarchar({maxLength?.ToString() ?? "max"})\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
-            //            Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
-            //            statements.Add($".HasColumnType(\"text\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT:
-            //            Logging.Log.Warning($"{Model.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
-            //            statements.Add($".HasColumnType(\"ntext\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT:
-            //        default:
-            //            throw new ArgumentOutOfRangeException();
-            //    }
-            //}
-            //else
-            //{
-            //    var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
-            //    var decimalScale = attribute.GetDecimalConstraints()?.Scale();
-            //    var columnType = attribute.GetColumn()?.Type();
-            //    if (decimalPrecision.HasValue && decimalScale.HasValue)
-            //    {
-            //        statements.Add($".HasColumnType(\"decimal({decimalPrecision}, {decimalScale})\")");
-            //    }
-            //    else if (!string.IsNullOrWhiteSpace(columnType))
-            //    {
-            //        statements.Add($".HasColumnType(\"{columnType}\")");
-            //    }
-            //}
-
-            //var columnName = attribute.GetColumn()?.Name();
-            //if (!string.IsNullOrWhiteSpace(columnName))
-            //{
-            //    statements.Add($".HasColumnName(\"{columnName}\")");
-            //}
-
-            //var computedValueSql = attribute.GetComputedValue()?.SQL();
-            //if (!string.IsNullOrWhiteSpace(computedValueSql))
-            //{
-            //    statements.Add(
-            //        $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
-            //}
-
-            //if (attribute.HasRowVersion())
-            //{
-            //    statements.Add($".IsRowVersion()");
-            //}
-
             return statements;
         }
 
-        private CSharpStatement GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
+        private EFCoreConfigStatementBase GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
         {
             var statements = new List<string>();
 
@@ -383,67 +261,35 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
                             RequiredColumn[] columns = null;
+                            method.AddMetadata("model", (IElement)associationEnd.Element);
                             method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()).GetText("        "));
-                            //method.AddStatement(@$"builder.WithOwner({
-                            //    (associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")
-                            //}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd, out columns)})" : "")};");
-                            ////}){(!IsValueObject(associationEnd.Element) ? ".HasForeignKey(x => x.Id)" : "")}; ");
+                            method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
                             method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
                             EnsureColumnsOnEntity(associationEnd.Element, columns ?? Array.Empty<RequiredColumn>());
                         });
-                        statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
 
-                        if (!associationEnd.IsNullable)
+                        var field = new EFCoreFieldConfigStatement($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})", associationEnd);
+                        if (!associationEnd.TypeReference.IsNullable)
                         {
-                            statements.Add($"    .Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
+                            field.AddStatement($".Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
                         }
 
-                        return $@"{string.Join(@"
-            ", statements)};";
+                        return field;
+            //            statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
+
+            //            if (!associationEnd.IsNullable)
+            //            {
+            //                statements.Add($"    .Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
+            //            }
+
+            //            return $@"{string.Join(@"
+            //", statements)};";
                     }
-
-                    //statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                    //statements.Add($"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
-
-                    //if (associationEnd.IsNullable)
-                    //{
-                    //    if (associationEnd.OtherEnd().IsNullable)
-                    //    {
-                    //        statements.Add($"    .HasForeignKey<{associationEnd.OtherEnd().Class.Name}>({GetForeignKeyLambda(associationEnd.OtherEnd(), out var columns)})");
-                    //        EnsureColumnsOnEntity(associationEnd.OtherEnd().Element, columns);
-                    //    }
-                    //    else
-                    //    {
-                    //        statements.Add($"    .HasForeignKey<{associationEnd.Class.Name}>(x => x.Id)");
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    statements.Add($"    .HasForeignKey<{Model.Name}>(x => x.Id)");
-                    //}
-
-                    //if (!associationEnd.OtherEnd().IsNullable)
-                    //{
-                    //    statements.Add($"    .IsRequired()");
-                    //    statements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
-                    //}
-                    //else
-                    //{
-                    //    statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
-                    //}
 
                     break;
                 case RelationshipType.ManyToOne:
-                    {
-                        //statements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                        //statements.Add($"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
-                        //statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd.OtherEnd(), out var columns)})");
-                        //statements.Add($"    .OnDelete(DeleteBehavior.Restrict)");
-                        //EnsureColumnsOnEntity(associationEnd.OtherEnd().Element, columns);
-                        break;
-                    }
+                    break;
                 case RelationshipType.OneToMany:
                     {
                         if (IsOwned(associationEnd.Element))
@@ -451,43 +297,26 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                             {
                                 RequiredColumn[] columns = null;
+                                method.AddMetadata("model", (IElement)associationEnd.Element);
                                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                                //method.AddStatement($"builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd, out columns)})" : "")};");
                                 method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
-                                EnsureColumnsOnEntity(associationEnd.Element, columns ?? Array.Empty<RequiredColumn>());
                                 method.Statements.SeparateAll();
+                                EnsureColumnsOnEntity(associationEnd.Element, columns ?? Array.Empty<RequiredColumn>());
                             });
-                            return $@"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
-                        }
+                            var field = new EFCoreFieldConfigStatement($"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})", associationEnd);
 
-                        //statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                        //statements.Add($"    .WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
-                        //statements.Add($"    .HasForeignKey({GetForeignKeyLambda(associationEnd, out var columns)})");
-                        //EnsureColumnsOnEntity(associationEnd.Element, columns);
-                        //if (!associationEnd.OtherEnd().IsNullable)
-                        //{
-                        //    statements.Add($"    .IsRequired()");
-                        //    statements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
-                        //}
+                            return field;
+                            //return $@"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
+                        }
                     }
                     break;
                 case RelationshipType.ManyToMany:
-
-                    //statements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                    //statements.Add($"    .WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
-                    //statements.Add($"    .UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
-                    //EnsureColumnsOnEntity(associationEnd.Element, new RequiredColumn(_entityTemplate.GetTypeName(associationEnd.OtherEnd()), associationEnd.OtherEnd().Name.ToPascalCase(), IsPrivate: true));
-
-
                     break;
                 default:
                     throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
             return new EFCoreAssociationConfigStatement(associationEnd);
-
-            //return $@"{string.Join(@"
-            //", statements)};";
         }
 
         private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params RequiredColumn[] columns)
@@ -531,106 +360,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private List<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
         {
-            var statements = new List<CSharpStatement>();
-
-            if (targetType.IsClassModel())
-            {
-                //statements.AddRange(GetTableMapping(targetType.AsClassModel()).Select(x => new CSharpStatement(x)));
-                //statements.Add(GetKeyMapping(targetType.AsClassModel()));
-                //statements.Add(GetCheckConstraints(targetType.AsClassModel()));
-            }
+            var statements = new List<EFCoreConfigStatementBase>();
 
             statements.AddRange(GetAttributes(targetType).Where(RequiresConfiguration).Select(x => GetAttributeMapping(x, @class)));
 
             statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(x => GetAssociationMapping(x, @class)));
-            if (targetType.IsClassModel())
-            {
-                //statements.AddRange(GetIndexes(targetType.AsClassModel()));
-            }
 
             return statements.Where(x => !string.IsNullOrWhiteSpace(x.ToString())).ToList();
         }
-
-        //private string GetCheckConstraints(ClassModel model)
-        //{
-        //    var checkConstraints = model.GetCheckConstraints();
-        //    if (checkConstraints.Count == 0)
-        //    {
-        //        return string.Empty;
-        //    }
-
-        //    var sb = new StringBuilder(@"
-        //    builder");
-
-        //    foreach (var checkConstraint in checkConstraints)
-        //    {
-        //        sb.Append(@$"
-        //        .HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"")");
-        //    }
-
-        //    sb.Append(";");
-        //    return sb.ToString();
-        //}
-
-        //private CSharpStatement[] GetIndexes(ClassModel model)
-        //{
-        //    var indexes = model.GetIndexes();
-        //    if (indexes.Count == 0)
-        //    {
-        //        return Array.Empty<CSharpStatement>();
-        //    }
-
-        //    var statements = new List<string>();
-
-        //    foreach (var index in indexes)
-        //    {
-        //        var indexFields = index.KeyColumns.Length == 1
-        //            ? GetIndexColumnPropertyName(index.KeyColumns.Single(), "x.")
-        //            : $"new {{ {string.Join(", ", index.KeyColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }}";
-
-        //        var sb = new StringBuilder($@"builder.HasIndex(x => {indexFields})");
-
-        //        if (index.IncludedColumns.Length > 0)
-        //        {
-        //            sb.Append($@"
-        //        .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})");
-        //        }
-
-        //        switch (index.FilterOption)
-        //        {
-        //            case FilterOption.Default:
-        //                break;
-        //            case FilterOption.None:
-        //                sb.Append(@"
-        //        .HasFilter(null)");
-        //                break;
-        //            case FilterOption.Custom:
-        //                sb.Append(@$"
-        //        .HasFilter(\""{index.Filter}"")");
-        //                break;
-        //            default:
-        //                throw new ArgumentOutOfRangeException();
-        //        }
-
-        //        if (index.IsUnique)
-        //        {
-        //            sb.Append(@"
-        //        .IsUnique()");
-        //        }
-
-        //        if (!index.UseDefaultName)
-        //        {
-        //            sb.Append(@$"
-        //        .HasDatabaseName(""{index.Name}"")");
-        //        }
-
-        //        sb.Append(";");
-
-        //        statements.Add(sb.ToString());
-        //    }
-
-        //    return statements.Select(x => new CSharpStatement(x)).ToArray();
-        //}
 
         private bool IsValueObject(ICanBeReferencedType type)
         {
@@ -647,35 +384,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return IsValueObject(type);
         }
 
-        //private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
-        //{
-        //    return column.SourceType.IsAssociationEndModel()
-        //        ? $"{prefix}{column.Name.ToPascalCase()}Id"
-        //        : $"{prefix}{column.Name.ToPascalCase()}";
-        //}
-
-        //private string GetForeignKeyLambda(AssociationEndModel associationEnd, out RequiredColumn[] columns)
-        //{
-        //    if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
-        //    {
-        //        columns = associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
-        //            new RequiredColumn(Type: GetTypeName(x), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
-        //            .ToArray();
-        //    }
-        //    else // implicit Id
-        //    {
-        //        columns = new[] { new RequiredColumn(
-        //            Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""),
-        //            Name: $"{(!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
-        //    }
-
-        //    if (columns?.Length == 1)
-        //    {
-        //        return $"x => x.{columns.Single().Name}";
-        //    }
-
-        //    return $"x => new {{ {string.Join(", ", columns.Select(x => "x." + x.Name))}}}";
-        //}
         private IEnumerable<AttributeModel> GetAttributes(IElement model)
         {
             var attributes = new List<AttributeModel>();
@@ -713,12 +421,28 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public record RequiredColumn(string Type, string Name, int? Order = null, bool IsPrivate = false);
     }
 
-    public class EFCoreAssociationConfigStatement : CSharpStatement
+    public abstract class EFCoreConfigStatementBase : CSharpStatement
     {
+        protected EFCoreConfigStatementBase() : base(null)
+        {
+        }
+
+        public bool IsRedundant { get; private set; }
+
+        public void MarkAsRedundant()
+        {
+            IsRedundant = true;
+        }
+    }
+
+    public class EFCoreAssociationConfigStatement : EFCoreConfigStatementBase
+    {
+        private readonly AssociationEndModel _associationEnd;
         public IList<CSharpStatement> RelationshipStatements { get; } = new List<CSharpStatement>();
         public IList<CSharpStatement> AdditionalStatements { get; } = new List<CSharpStatement>();
-        public EFCoreAssociationConfigStatement(AssociationEndModel associationEnd) : base(null)
+        public EFCoreAssociationConfigStatement(AssociationEndModel associationEnd)
         {
+            _associationEnd = associationEnd;
             AddMetadata("model", associationEnd);
 
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
@@ -730,7 +454,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (associationEnd.IsSourceEnd() && !associationEnd.IsNullable && !associationEnd.IsCollection)
             {
                 RelationshipStatements.Add(@$"builder.WithOwner({(associationEnd.IsNavigable ? $"x => x.{associationEnd.Name.ToPascalCase()}" : "")})");
-                //{ (!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd, out columns)})" : "")}
                 return;
             }
 
@@ -796,9 +519,42 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return this;
         }
 
+        public EFCoreAssociationConfigStatement AddForeignKey(params string[] columns)
+        {
+            string genericType = null;
+            if (_associationEnd.IsTargetEnd() &&
+                _associationEnd.Association.GetRelationshipType() == RelationshipType.OneToOne)
+            {
+                if (_associationEnd.IsNullable)
+                {
+                    if (_associationEnd.OtherEnd().IsNullable)
+                    {
+                        genericType = _associationEnd.OtherEnd().Class.Name;
+                    }
+                    else
+                    {
+                        genericType = _associationEnd.Class.Name;
+                    }
+                }
+                else
+                {
+                    genericType = _associationEnd.OtherEnd().Class.Name;
+                }
+            }
+
+            if (columns?.Length == 1)
+            {
+                RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => x.{columns.Single()})");
+                return this;
+            }
+
+            RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => new {{ {string.Join(", ", columns.Select(x => "x." + x))}}})");
+            return this;
+        }
+
         public override string GetText(string indentation)
         {
-            var x= $@"{indentation}{string.Join(@$"
+            var x = $@"{indentation}{string.Join(@$"
 {indentation}    ", RelationshipStatements.Select(x => x.GetText(string.Empty)))}{(AdditionalStatements.Any() ? $@"
 {indentation}    {string.Join(@$"
 {indentation}    ", AdditionalStatements.Select(x => x.GetText(string.Empty)))}" : string.Empty)};";

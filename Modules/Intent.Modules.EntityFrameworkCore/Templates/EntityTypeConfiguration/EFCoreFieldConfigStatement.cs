@@ -5,11 +5,12 @@ using Intent.Modules.Common.CSharp.Builder;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
-public class EFCoreFieldConfigStatement : CSharpStatement
+public class EFCoreFieldConfigStatement : EFCoreConfigStatementBase
 {
     public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();
-    public EFCoreFieldConfigStatement(string text, IMetadataModel model) : base(text)
+    public EFCoreFieldConfigStatement(string text, IMetadataModel model)
     {
+        Text = text;
         AddMetadata("model", model);
     }
 

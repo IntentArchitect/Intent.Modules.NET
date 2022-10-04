@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
@@ -11,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.SqlServer.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
+using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
@@ -45,7 +47,19 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                     {
                         if (model.IsClassModel())
                         {
-                            method.InsertStatement(0, GetKeyMapping(model.AsClassModel()).ToString());
+                            method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder.WithOwner"), -1) + 1,
+                                GetTableMapping(model.AsClassModel()).Concat(new CSharpStatement[]
+                                {
+                                    GetKeyMapping(model.AsClassModel()),
+                                    GetCheckConstraints(model.AsClassModel())
+                                }.Where(x => !string.IsNullOrWhiteSpace(x.Text))).ToArray(), s =>
+                                {
+                                    foreach (var cSharpStatement in s)
+                                    {
+                                        cSharpStatement.SeparatedFromPrevious();
+                                    }
+                                });
+                            method.AddStatements(GetIndexes(model.AsClassModel()));
                         }
                     }
                     foreach (var statement in method.Statements.OfType<EFCoreFieldConfigStatement>())
@@ -60,11 +74,134 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                     {
                         if (statement.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
                         {
-                            //statement.AddStatements(GetAttributeMappingStatements(associationEnd));
+                            switch (associationEnd.Association.GetRelationshipType())
+                            {
+                                case RelationshipType.OneToMany:
+                                    statement.AddForeignKey(GetForeignColumns(associationEnd).Select(x => x.Name).ToArray());
+                                    break;
+                                case RelationshipType.OneToOne:
+                                case RelationshipType.ManyToOne:
+                                    statement.AddForeignKey(GetForeignColumns(associationEnd.OtherEnd()).Select(x => x.Name).ToArray());
+                                    break;
+                                case RelationshipType.ManyToMany:
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
+                            }
                         }
                     }
                 }
             });
+        }
+
+        private IEnumerable<CSharpStatement> GetTableMapping(ClassModel model)
+        {
+            if (model.HasTable())
+            {
+                yield return
+                    $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+            }
+
+            if ((model.ParentClass != null || model.ChildClasses.Any()) &&
+                !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
+            {
+                yield return
+                    $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+            }
+
+            if (model.ParentClass != null &&
+                ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
+            {
+                yield return $@"builder.HasBaseType<{_template.GetTypeName("Domain.Entity", model.ParentClass)}>();";
+            }
+        }
+
+        private string GetCheckConstraints(ClassModel model)
+        {
+            var checkConstraints = model.GetCheckConstraints();
+            if (checkConstraints.Count == 0)
+            {
+                return string.Empty;
+            }
+
+            var sb = new StringBuilder(@"
+            builder");
+
+            foreach (var checkConstraint in checkConstraints)
+            {
+                sb.Append(@$"
+                .HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"")");
+            }
+
+            sb.Append(";");
+            return sb.ToString();
+        }
+
+        private CSharpStatement[] GetIndexes(ClassModel model)
+        {
+            var indexes = model.GetIndexes();
+            if (indexes.Count == 0)
+            {
+                return Array.Empty<CSharpStatement>();
+            }
+
+            var statements = new List<string>();
+
+            foreach (var index in indexes)
+            {
+                var indexFields = index.KeyColumns.Length == 1
+                    ? GetIndexColumnPropertyName(index.KeyColumns.Single(), "x.")
+                    : $"new {{ {string.Join(", ", index.KeyColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }}";
+
+                var sb = new StringBuilder($@"builder.HasIndex(x => {indexFields})");
+
+                if (index.IncludedColumns.Length > 0)
+                {
+                    sb.Append($@"
+                .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})");
+                }
+
+                switch (index.FilterOption)
+                {
+                    case FilterOption.Default:
+                        break;
+                    case FilterOption.None:
+                        sb.Append(@"
+                .HasFilter(null)");
+                        break;
+                    case FilterOption.Custom:
+                        sb.Append(@$"
+                .HasFilter(\""{index.Filter}"")");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+                if (index.IsUnique)
+                {
+                    sb.Append(@"
+                .IsUnique()");
+                }
+
+                if (!index.UseDefaultName)
+                {
+                    sb.Append(@$"
+                .HasDatabaseName(""{index.Name}"")");
+                }
+
+                sb.Append(";");
+
+                statements.Add(sb.ToString());
+            }
+
+            return statements.Select(x => new CSharpStatement(x)).ToArray();
+        }
+
+        private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
+        {
+            return column.SourceType.IsAssociationEndModel()
+                ? $"{prefix}{column.Name.ToPascalCase()}Id"
+                : $"{prefix}{column.Name.ToPascalCase()}";
         }
 
         private CSharpStatement GetKeyMapping(ClassModel model)
@@ -192,7 +329,22 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
             return statements;
         }
 
+        private EntityTypeConfigurationTemplate.RequiredColumn[] GetForeignColumns(AssociationEndModel associationEnd)
+        {
 
+            if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
+            {
+                return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
+                    new EntityTypeConfigurationTemplate.RequiredColumn(Type: _template.GetTypeName(x), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
+                    .ToArray();
+            }
+            else // implicit Id
+            {
+                return new[] { new EntityTypeConfigurationTemplate.RequiredColumn(
+                    Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""),
+                    Name: $"{(!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
+            }
+        }
         private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EntityTypeConfigurationTemplate.RequiredColumn[] columns)
         {
             if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
@@ -251,6 +403,20 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                 default:
                     return settingType;
             }
+        }
+    }
+
+    internal static class Extensions
+    {
+        public static int FindIndex(this IEnumerable<CSharpStatement> statements, Func<CSharpStatement, bool> matchFunc, int defaultIfNotFound = 0)
+        {
+            var found = statements.FirstOrDefault(matchFunc);
+            if (found != null)
+            {
+                return statements.ToList().IndexOf(found);
+            }
+
+            return defaultIfNotFound;
         }
     }
 }
