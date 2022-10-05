@@ -1,7 +1,12 @@
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Core;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.DependencyInjection;
+using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Fluent;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Xunit;
 
 namespace EfCoreTestSuite.CosmosDb.IntegrationTests;
@@ -42,6 +47,38 @@ public class DataContainerFixture : IAsyncLifetime
             .Build();
     }
 
+    private ApplicationDbContext? _dbContext;
+    public ApplicationDbContext DbContext {
+        get
+        {
+            if (_dbContext == null)
+            {
+                var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
+                builder.UseCosmos(ConnectionString,
+                    "TestDb",
+                    opt => opt.HttpClientFactory(() =>
+                        {
+                            HttpMessageHandler httpMessageHandler = new HttpClientHandler
+                            {
+                                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                            };
+                            return new HttpClient(httpMessageHandler)
+                            {
+                                BaseAddress = new Uri($"https://localhost:{GetMappedPort()}/")
+                            };
+                        })
+                        .ConnectionMode(ConnectionMode.Gateway)
+                );
+                _dbContext = new ApplicationDbContext(
+                    builder.Options,
+                    new OptionsWrapper<DbContextConfiguration>(new DbContextConfiguration()));
+                _dbContext.Database.EnsureCreated();
+            }
+
+            return _dbContext;
+        }
+    }
+    
     public async Task InitializeAsync()
     {
         if (string.Equals(Environment.GetEnvironmentVariable("TF_BUILD"), true.ToString(), StringComparison.OrdinalIgnoreCase))
