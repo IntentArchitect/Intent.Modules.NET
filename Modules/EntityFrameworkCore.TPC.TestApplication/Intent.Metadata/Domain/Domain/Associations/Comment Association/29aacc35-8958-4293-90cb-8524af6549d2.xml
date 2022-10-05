@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="29aacc35-8958-4293-90cb-8524af6549d2">
+  <sourceEnd id="3622b0a4-024f-474f-9000-c423a69387ce" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <name>While EFCore doesn't support TPC out the box, this kind of polymorphic relationship will not be possible unless you silently convert it to a TPT behind the scenes in which case the BaseClass needs to no longer indicate it has a Key and the RootAbstact makes its own table.</name>
+    <display>While EFCore doesn't support TPC out the box, this kind of polymorphic relationship will not be possible unless you silently convert it to a TPT behind the scenes in which case the BaseClass needs to no longer indicate it has a Key and the RootAbstact makes its own table.: While EFCore doesn't support TPC out the box, this kind of polymorphic relationship will not be possible unless you silently convert it to a TPT behind the scenes in which case the BaseClass needs to no longer indicate it has a Key and the RootAbstact makes its own table.</display>
+    <order>1</order>
+    <typeReference id="57faa1c5-7392-4f05-8722-d07f9927e0dd">
+      <typeId>42c5ef7a-89f0-4bb0-b685-15d5172b320e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="29aacc35-8958-4293-90cb-8524af6549d2" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <name>Poly_RootAbstract</name>
+    <display>Poly_RootAbstract: Poly_RootAbstract</display>
+    <order>1</order>
+    <typeReference id="97a968ed-60ec-4880-9bfc-08ef359c0a56">
+      <typeId>9ed82b14-a414-4923-b08c-f462c22347cf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>

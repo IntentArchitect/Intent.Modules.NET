@@ -116,13 +116,13 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
     [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_Polymorphic()
     {
-        var topLevelConcretes = CreateNewPolyClasses();
-        var topLevel = new Poly_TopLevel();
-        topLevel.TopField = "Top Level Value";
-        topLevel.RootAbstracts.Add(topLevelConcretes.Item1);
-        topLevel.RootAbstracts.Add(topLevelConcretes.Item2);
-        topLevel.RootAbstracts.Add(topLevelConcretes.Item3);
-        DbContext.Poly_TopLevels.Add(topLevel);
+        // var topLevelConcretes = CreateNewPolyClasses();
+        // var topLevel = new Poly_TopLevel();
+        // topLevel.TopField = "Top Level Value";
+        // topLevel.RootAbstracts.Add(topLevelConcretes.Item1);
+        // topLevel.RootAbstracts.Add(topLevelConcretes.Item2);
+        // topLevel.RootAbstracts.Add(topLevelConcretes.Item3);
+        // DbContext.Poly_TopLevels.Add(topLevel);
 
         var secondLevelConcretes = CreateNewPolyClasses();
         var secondLevel = new Poly_SecondLevel();

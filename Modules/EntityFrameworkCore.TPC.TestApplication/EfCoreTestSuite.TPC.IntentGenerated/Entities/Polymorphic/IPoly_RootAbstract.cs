@@ -16,7 +16,5 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
         /// </summary>
         Guid Id { get; }
         string AbstractField { get; set; }
-
-        Guid? TopLevelId { get; }
     }
 }

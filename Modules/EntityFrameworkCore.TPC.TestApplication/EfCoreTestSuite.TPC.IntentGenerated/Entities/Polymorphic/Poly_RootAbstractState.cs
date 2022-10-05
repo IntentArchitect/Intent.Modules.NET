@@ -36,8 +36,5 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
                 _abstractField = value;
             }
         }
-
-
-        public Guid? TopLevelId { get; set; }
     }
 }

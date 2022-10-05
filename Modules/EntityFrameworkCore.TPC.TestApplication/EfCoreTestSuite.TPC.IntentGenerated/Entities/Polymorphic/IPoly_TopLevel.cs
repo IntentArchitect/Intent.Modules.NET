@@ -17,7 +17,5 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
         Guid Id { get; }
         string TopField { get; set; }
 
-        ICollection<Poly_RootAbstract> RootAbstracts { get; set; }
-
     }
 }

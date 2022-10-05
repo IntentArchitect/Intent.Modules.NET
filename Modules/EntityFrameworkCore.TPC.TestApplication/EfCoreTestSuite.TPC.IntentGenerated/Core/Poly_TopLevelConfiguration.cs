@@ -22,10 +22,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
             builder.Ignore(e => e.DomainEvents);
 
-
-            builder.HasMany(x => x.RootAbstracts)
-                .WithOne()
-                .HasForeignKey(x => x.TopLevelId);
         }
     }
 }

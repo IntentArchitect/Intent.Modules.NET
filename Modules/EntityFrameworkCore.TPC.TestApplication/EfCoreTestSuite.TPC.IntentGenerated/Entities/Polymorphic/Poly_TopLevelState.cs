@@ -38,20 +38,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
             }
         }
 
-        private ICollection<Poly_RootAbstract> _rootAbstracts;
-
-        public virtual ICollection<Poly_RootAbstract> RootAbstracts
-        {
-            get
-            {
-                return _rootAbstracts ??= new List<Poly_RootAbstract>();
-            }
-            set
-            {
-                _rootAbstracts = value;
-            }
-        }
-
 
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

@@ -15,7 +15,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         {
             builder.ToTable("Poly_BaseClassNonAbstract");
 
-            //builder.HasKey(x => x.Id);
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.AbstractField)
                 .IsRequired();
