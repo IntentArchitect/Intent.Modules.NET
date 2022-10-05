@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="860b5837-6f87-44d6-9469-fc37f9d35e95">
+  <sourceEnd id="b798164c-485a-4e34-9fd9-d5df64ae0cb3" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>FkBaseClassAssociateds</name>
+    <display>FkBaseClassAssociateds: FkBaseClassAssociated[*]</display>
+    <order>2</order>
+    <typeReference id="7b1b3a4d-2fb2-4af7-ab76-ef3908fd6664">
+      <typeId>0e6ad222-e712-411e-90a5-b9d952ff150a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>1043a8cb-2ffb-451f-9188-abbb07731684</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="860b5837-6f87-44d6-9469-fc37f9d35e95" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>FkBaseClass</name>
+    <display>FkBaseClass: FkBaseClass</display>
+    <order>1</order>
+    <typeReference id="f57f108c-18f8-4522-b4a1-670eb7b4421c">
+      <typeId>a91a1edd-fca8-449a-8712-b60f43c8f44a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>1043a8cb-2ffb-451f-9188-abbb07731684</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

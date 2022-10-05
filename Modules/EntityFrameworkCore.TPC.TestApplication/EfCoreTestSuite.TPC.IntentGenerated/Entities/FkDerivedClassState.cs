@@ -16,6 +16,18 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities
         }
 
 
+        private string _derivedField;
+
+        public string DerivedField
+        {
+            get { return _derivedField; }
+            set
+            {
+                _derivedField = value;
+            }
+        }
+
+
 
     }
 }

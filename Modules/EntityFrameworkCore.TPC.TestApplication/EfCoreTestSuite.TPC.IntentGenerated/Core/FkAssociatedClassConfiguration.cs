@@ -17,6 +17,9 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.AssociatedField)
+                .IsRequired();
+
             builder.Ignore(e => e.DomainEvents);
 
 

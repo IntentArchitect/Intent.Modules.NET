@@ -35,6 +35,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
         DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        DbSet<WeirdClass> WeirdClasses { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

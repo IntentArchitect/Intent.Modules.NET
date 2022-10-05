@@ -10,10 +10,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/A_OwnerClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_OwnerClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0f814d76-95d1-4bad-bb72-73f35da969df</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/A_WeirdClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_WeirdClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#de361e28-3855-4a50-bdf9-de94c03f7413</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/ConcreteBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConcreteBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -26,10 +50,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4f1ed137-3fd6-445d-8a1b-4b1a46a200aa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/DerivedClassForAbstractAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForAbstractAssociatedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d898d8e6-9a99-4581-8004-dc4c5ea89827</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/DerivedClassForAbstractConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DerivedClassForAbstractConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#04e067b7-bd76-499e-bf39-8a23927359bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/DerivedClassForConcreteAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForConcreteAssociatedConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -46,6 +86,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/FkAssociatedClassConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FkAssociatedClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d8320ab0-e7d8-48ab-aaf9-eb03efdf0335</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/FkBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -89,14 +137,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>63ceccfc-0c63-404a-8475-103086278a63</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Core/OwnerClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OwnerClassConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</ProjectId>
       <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -130,6 +170,70 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#89e0dd9e-6a17-40f2-a366-9a730d1df3e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_AbstractClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_AbstractClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#89e0dd9e-6a17-40f2-a366-9a730d1df3e3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_AbstractClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_AbstractClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b1e92530-cd1f-4cfe-a31e-09362946b240</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_OwnedClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_OwnedClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#b1e92530-cd1f-4cfe-a31e-09362946b240</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_OwnedClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_OwnedClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_OwnerClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_OwnerClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_OwnerClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_OwnerClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0f814d76-95d1-4bad-bb72-73f35da969df</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_WeirdClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_WeirdClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#0f814d76-95d1-4bad-bb72-73f35da969df</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/A_WeirdClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>A_WeirdClassState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#d47177b3-40b9-4ebe-ae47-9287191b97e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/AbstractBaseClass.cs</ApplicationRelativeFilePath>
@@ -146,26 +250,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#89e0dd9e-6a17-40f2-a366-9a730d1df3e3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/AbstractClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AbstractClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityState#89e0dd9e-6a17-40f2-a366-9a730d1df3e3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/AbstractClassState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AbstractClassState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#e932c71a-f7a7-4992-8140-c6a04d3e0bb4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/ConcreteBaseClass.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ConcreteBaseClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#de361e28-3855-4a50-bdf9-de94c03f7413</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/ConcreteBaseClassAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConcreteBaseClassAssociated.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#de361e28-3855-4a50-bdf9-de94c03f7413</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/ConcreteBaseClassAssociatedState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConcreteBaseClassAssociatedState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -186,6 +290,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#4f1ed137-3fd6-445d-8a1b-4b1a46a200aa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/DerivedClassForAbstractAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForAbstractAssociated.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#4f1ed137-3fd6-445d-8a1b-4b1a46a200aa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/DerivedClassForAbstractAssociatedState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForAbstractAssociatedState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#d898d8e6-9a99-4581-8004-dc4c5ea89827</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/DerivedClassForAbstractState.cs</ApplicationRelativeFilePath>
@@ -198,6 +318,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/DerivedClassForConcrete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DerivedClassForConcrete.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#04e067b7-bd76-499e-bf39-8a23927359bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/DerivedClassForConcreteAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForConcreteAssociated.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#04e067b7-bd76-499e-bf39-8a23927359bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/DerivedClassForConcreteAssociatedState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DerivedClassForConcreteAssociatedState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -234,6 +370,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d8320ab0-e7d8-48ab-aaf9-eb03efdf0335</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/FkBaseClassAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkBaseClassAssociated.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#d8320ab0-e7d8-48ab-aaf9-eb03efdf0335</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/FkBaseClassAssociatedState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FkBaseClassAssociatedState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityState#d879fc4b-3b68-4620-b7e9-94274d42196c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/FkBaseClassState.cs</ApplicationRelativeFilePath>
@@ -258,18 +410,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#d47177b3-40b9-4ebe-ae47-9287191b97e8</CorrelationId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#89e0dd9e-6a17-40f2-a366-9a730d1df3e3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IAbstractBaseClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IAbstractBaseClass.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IA_AbstractClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IA_AbstractClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#89e0dd9e-6a17-40f2-a366-9a730d1df3e3</CorrelationId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#b1e92530-cd1f-4cfe-a31e-09362946b240</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IAbstractClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IAbstractClass.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IA_OwnedClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IA_OwnedClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IA_OwnerClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IA_OwnerClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#0f814d76-95d1-4bad-bb72-73f35da969df</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IA_WeirdClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IA_WeirdClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#d47177b3-40b9-4ebe-ae47-9287191b97e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IAbstractBaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAbstractBaseClass.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -282,6 +458,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#de361e28-3855-4a50-bdf9-de94c03f7413</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IConcreteBaseClassAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IConcreteBaseClassAssociated.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#d898d8e6-9a99-4581-8004-dc4c5ea89827</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IDerivedClassForAbstract.cs</ApplicationRelativeFilePath>
@@ -290,10 +474,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#4f1ed137-3fd6-445d-8a1b-4b1a46a200aa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IDerivedClassForAbstractAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedClassForAbstractAssociated.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#e1f1e3cc-004a-48e3-81ca-5f3d44baf5a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IDerivedClassForConcrete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDerivedClassForConcrete.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#04e067b7-bd76-499e-bf39-8a23927359bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IDerivedClassForConcreteAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDerivedClassForConcreteAssociated.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -314,58 +514,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#d8320ab0-e7d8-48ab-aaf9-eb03efdf0335</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IFkBaseClassAssociated.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFkBaseClassAssociated.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#475c74a6-a62a-49c6-8184-a1a70e5e7b18</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IFkDerivedClass.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IFkDerivedClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#b1e92530-cd1f-4cfe-a31e-09362946b240</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IOwnedClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IOwnedClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/IOwnerClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IOwnerClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#b1e92530-cd1f-4cfe-a31e-09362946b240</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/OwnedClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OwnedClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityState#b1e92530-cd1f-4cfe-a31e-09362946b240</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/OwnedClassState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OwnedClassState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/OwnerClass.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OwnerClass.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>174e222d-72b2-488d-a7f1-1ee251dad4b7</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityState#20fb0db6-94d6-4dd5-bebb-ec8972834108</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/Entities/OwnerClassState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OwnerClassState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

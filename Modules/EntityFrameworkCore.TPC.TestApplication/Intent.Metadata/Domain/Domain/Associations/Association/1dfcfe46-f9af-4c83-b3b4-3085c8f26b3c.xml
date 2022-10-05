@@ -2,7 +2,7 @@
 <association id="1dfcfe46-f9af-4c83-b3b4-3085c8f26b3c">
   <sourceEnd id="95615d09-f867-414a-a23d-2a1f54f3c8b2" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>OwnerClass</name>
-    <display>OwnerClass: OwnerClass</display>
+    <display>OwnerClass: A_OwnerClass</display>
     <order>2</order>
     <typeReference id="045b6648-96f9-411c-af13-753296ef41ad">
       <typeId>20fb0db6-94d6-4dd5-bebb-ec8972834108</typeId>
@@ -19,8 +19,8 @@
     <metadata />
   </sourceEnd>
   <targetEnd id="1dfcfe46-f9af-4c83-b3b4-3085c8f26b3c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
-    <name>OwnedClasses</name>
-    <display>OwnedClasses: OwnedClass[*]</display>
+    <name>A_OwnedClasses</name>
+    <display>A_OwnedClasses: A_OwnedClass[*]</display>
     <order>1</order>
     <typeReference id="675a612f-5534-4558-9f72-62ab5c198fe0">
       <typeId>b1e92530-cd1f-4cfe-a31e-09362946b240</typeId>

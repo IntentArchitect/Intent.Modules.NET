@@ -11,5 +11,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
     public partial interface IFkDerivedClass : IFkBaseClass
     {
 
+        string DerivedField { get; set; }
+
     }
 }

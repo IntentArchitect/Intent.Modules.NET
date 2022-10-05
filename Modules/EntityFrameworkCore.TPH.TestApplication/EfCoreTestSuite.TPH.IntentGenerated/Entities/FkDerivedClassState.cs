@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.TPH.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,10 +9,22 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
 {
 
-    public partial class FkDerivedClass : FkBaseClass, IFkDerivedClass
+    public partial class FkDerivedClass : FkBaseClass, IFkDerivedClass, IHasDomainEvent
     {
         public FkDerivedClass()
         {
+        }
+
+
+        private string _derivedField;
+
+        public string DerivedField
+        {
+            get { return _derivedField; }
+            set
+            {
+                _derivedField = value;
+            }
         }
 
 

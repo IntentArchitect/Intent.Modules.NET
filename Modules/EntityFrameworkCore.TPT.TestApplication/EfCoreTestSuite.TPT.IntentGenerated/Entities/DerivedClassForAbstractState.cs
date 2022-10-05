@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.TPT.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities
 {
 
-    public partial class DerivedClassForAbstract : AbstractBaseClass, IDerivedClassForAbstract
+    public partial class DerivedClassForAbstract : AbstractBaseClass, IDerivedClassForAbstract, IHasDomainEvent
     {
         public DerivedClassForAbstract()
         {
@@ -25,6 +26,9 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities
                 _derivedAttribute = value;
             }
         }
+
+
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
     }
 }

@@ -416,6 +416,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ClassE.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\WeirdClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WeirdClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IWeirdClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WeirdClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\WeirdClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WeirdClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Inheritance\IWeirdClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WeirdClass.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

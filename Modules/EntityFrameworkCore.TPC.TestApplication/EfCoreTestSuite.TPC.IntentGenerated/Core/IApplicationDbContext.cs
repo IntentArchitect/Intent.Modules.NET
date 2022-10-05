@@ -11,13 +11,18 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 {
     public interface IApplicationDbContext
     {
+        DbSet<A_OwnerClass> A_OwnerClasses { get; set; }
+        DbSet<A_WeirdClass> A_WeirdClasses { get; set; }
         DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
+        DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
         DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
+        DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
         DbSet<FkAssociatedClass> FkAssociatedClasses { get; set; }
         DbSet<FkBaseClass> FkBaseClasses { get; set; }
+        DbSet<FkBaseClassAssociated> FkBaseClassAssociateds { get; set; }
         DbSet<FkDerivedClass> FkDerivedClasses { get; set; }
-        DbSet<OwnerClass> OwnerClasses { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

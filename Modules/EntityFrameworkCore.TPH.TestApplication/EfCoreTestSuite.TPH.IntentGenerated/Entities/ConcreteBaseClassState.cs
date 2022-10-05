@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.TPH.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
 {
 
-    public partial class ConcreteBaseClass : IConcreteBaseClass
+    public partial class ConcreteBaseClass : IConcreteBaseClass, IHasDomainEvent
     {
         public ConcreteBaseClass()
         {
@@ -35,6 +36,9 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
                 _baseAttribute = value;
             }
         }
+
+
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
     }
 }

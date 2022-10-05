@@ -2,7 +2,7 @@
 <association id="690a44e5-ddf0-43f5-9bab-8a7359f86a45">
   <sourceEnd id="743f232b-ff13-4f89-9d16-f933b0c97f97" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>OwnedClass</name>
-    <display>OwnedClass: OwnedClass</display>
+    <display>OwnedClass: A_OwnedClass</display>
     <order>1</order>
     <typeReference id="b0ba8442-c54e-4ceb-a01a-1195838d4acf">
       <typeId>b1e92530-cd1f-4cfe-a31e-09362946b240</typeId>
@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="690a44e5-ddf0-43f5-9bab-8a7359f86a45" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>AbstractClass</name>
-    <display>AbstractClass: AbstractClass</display>
+    <display>AbstractClass: A_AbstractClass</display>
     <order>1</order>
     <typeReference id="8797d625-88b2-4bb6-bb6b-ecc9f443c8a5">
       <typeId>89e0dd9e-6a17-40f2-a366-9a730d1df3e3</typeId>

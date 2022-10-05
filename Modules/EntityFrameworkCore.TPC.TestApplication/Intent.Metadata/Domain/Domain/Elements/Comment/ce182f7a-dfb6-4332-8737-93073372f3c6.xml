@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ce182f7a-dfb6-4332-8737-93073372f3c6" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</name>
+  <display>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>839dc29b-ff64-4542-935b-f561cf1cd68c</parentFolderId>
+  <packageId>839dc29b-ff64-4542-935b-f561cf1cd68c</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

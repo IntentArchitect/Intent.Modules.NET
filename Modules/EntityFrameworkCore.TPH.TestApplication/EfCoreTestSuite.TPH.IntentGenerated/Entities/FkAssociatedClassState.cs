@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.TPH.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
 {
 
-    public partial class FkAssociatedClass : IFkAssociatedClass
+    public partial class FkAssociatedClass : IFkAssociatedClass, IHasDomainEvent
     {
         public FkAssociatedClass()
         {
@@ -23,6 +24,17 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
         {
             get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
             set { _id = value; }
+        }
+
+        private string _associatedField;
+
+        public string AssociatedField
+        {
+            get { return _associatedField; }
+            set
+            {
+                _associatedField = value;
+            }
         }
 
         public Guid FkDerivedClassCompositeKeyA { get; set; }
@@ -40,6 +52,10 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
                 _fkDerivedClass = value;
             }
         }
+
+
+
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
 
     }

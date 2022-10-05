@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities
 {
 
-    public abstract partial class AbstractBaseClass : IAbstractBaseClass, IHasDomainEvent
+    public abstract partial class AbstractBaseClass : IAbstractBaseClass
     {
         public AbstractBaseClass()
         {
@@ -37,9 +37,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities
                 _baseAttribute = value;
             }
         }
-
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
     }
 }

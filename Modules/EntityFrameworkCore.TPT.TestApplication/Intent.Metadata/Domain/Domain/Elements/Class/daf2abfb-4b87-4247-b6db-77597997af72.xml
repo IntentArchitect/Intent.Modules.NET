@@ -3,7 +3,7 @@
   <name>DerivedClassForConcrete</name>
   <display>DerivedClassForConcrete</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>1043a8cb-2ffb-451f-9188-abbb07731684</parentFolderId>
@@ -16,7 +16,6 @@
       <name>derivedAttribute</name>
       <display>derivedAttribute: string</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="91e88a72-4733-4d17-abde-de9e2896941e">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>

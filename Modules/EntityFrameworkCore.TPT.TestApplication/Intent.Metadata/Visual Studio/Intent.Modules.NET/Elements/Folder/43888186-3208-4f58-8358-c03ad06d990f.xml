@@ -3,7 +3,7 @@
   <name>Core</name>
   <display>Core</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>30620f7a-fcc3-406f-93c0-d407f46855fb</parentFolderId>
@@ -26,7 +26,6 @@
       <display>Intent.Entities.Keys.IdentityGenerator</display>
       <externalReference>Intent.Entities.Keys</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>43888186-3208-4f58-8358-c03ad06d990f</parentFolderId>
@@ -43,7 +42,6 @@
       <display>Intent.EntityFrameworkCore.DbContext</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>43888186-3208-4f58-8358-c03ad06d990f</parentFolderId>
@@ -60,7 +58,6 @@
       <display>Intent.EntityFrameworkCore.DbContextInterface</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>43888186-3208-4f58-8358-c03ad06d990f</parentFolderId>
@@ -77,7 +74,6 @@
       <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>43888186-3208-4f58-8358-c03ad06d990f</parentFolderId>
@@ -94,7 +90,6 @@
       <display>Intent.EntityFrameworkCore.EntityTypeConfiguration</display>
       <externalReference>Intent.EntityFrameworkCore</externalReference>
       <isAbstract>false</isAbstract>
-      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>43888186-3208-4f58-8358-c03ad06d990f</parentFolderId>

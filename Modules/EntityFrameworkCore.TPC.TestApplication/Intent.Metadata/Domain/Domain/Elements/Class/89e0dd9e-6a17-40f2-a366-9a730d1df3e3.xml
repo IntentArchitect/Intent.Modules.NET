@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="89e0dd9e-6a17-40f2-a366-9a730d1df3e3" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>AbstractClass</name>
-  <display>AbstractClass</display>
+  <name>A_AbstractClass</name>
+  <display>A_AbstractClass</display>
   <isAbstract>true</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

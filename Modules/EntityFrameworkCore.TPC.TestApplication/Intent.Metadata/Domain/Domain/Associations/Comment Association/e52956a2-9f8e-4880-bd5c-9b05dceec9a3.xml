@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e52956a2-9f8e-4880-bd5c-9b05dceec9a3">
+  <sourceEnd id="40764624-ae47-49eb-a9e0-769f4b6cc3f9" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <name>Assigning OwnerClass to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy"</name>
+    <display>Assigning OwnerClass to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy": Assigning OwnerClass to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy"</display>
+    <order>2</order>
+    <typeReference id="6ba653c8-af9d-4688-891f-b37273a6c737">
+      <typeId>110773bf-59d2-4b2c-ab90-76c9e139438f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="e52956a2-9f8e-4880-bd5c-9b05dceec9a3" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <name>A_WeirdClass</name>
+    <display>A_WeirdClass: A_WeirdClass</display>
+    <order>1</order>
+    <typeReference id="0e1ee801-ef76-4a7e-a4f8-d9b267fad08c">
+      <typeId>0f814d76-95d1-4bad-bb72-73f35da969df</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>

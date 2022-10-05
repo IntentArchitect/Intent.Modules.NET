@@ -96,6 +96,100 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FkDerivedClass.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\A_AbstractClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_AbstractClass.cs</DependentUpon>
+    </Compile>
+    
+    
+    <Compile Update="Entities\A_OwnedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OwnedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_OwnerClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OwnerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_WeirdClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_WeirdClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_AbstractClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_AbstractClass.cs</DependentUpon>
+    </Compile>
+    
+    
+    <Compile Update="Entities\IA_OwnedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OwnedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_OwnerClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_OwnerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_WeirdClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_WeirdClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForAbstractAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstractAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForConcreteAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcreteAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForAbstractAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstractAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForConcreteAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcreteAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AbstractBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ConcreteBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FkBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAbstractBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IConcreteBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFkBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociated.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

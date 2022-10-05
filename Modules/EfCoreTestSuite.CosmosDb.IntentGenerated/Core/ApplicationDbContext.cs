@@ -47,6 +47,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<WeirdClass> WeirdClasses { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -83,6 +84,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new WeirdClassConfiguration());
             if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))
             {
                 modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);

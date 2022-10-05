@@ -195,6 +195,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#36b5cc11-1468-4013-98b7-288ba1efe520</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/WeirdClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WeirdClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>26e7fecc-611f-4771-a607-e0b360d882e5</ProjectId>
       <CorrelationId>Intent.DependencyInjection.EntityFrameworkCore.DbContextConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -848,6 +856,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Inheritance/IDerived.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Inheritance/IDerived.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#36b5cc11-1468-4013-98b7-288ba1efe520</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Inheritance/IWeirdClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/IWeirdClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#36b5cc11-1468-4013-98b7-288ba1efe520</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Inheritance/WeirdClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/WeirdClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#36b5cc11-1468-4013-98b7-288ba1efe520</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Inheritance/WeirdClassState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/WeirdClassState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

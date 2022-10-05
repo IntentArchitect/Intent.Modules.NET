@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2f2384d2-7aaf-47e0-a99f-1b3d7765ba52" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>Due to a limitation with TPH, I couldn't add a test where a Class inherits from an owned Class since it would result in a compilation error and/or migration error. This might mean that we need to update the Domain designer to prevent it from being modelled.</name>
+  <display>Due to a limitation with TPH, I couldn't add a test where a Class inherits from an owned Class since it would result in a compilation error and/or migration error. This might mean that we need to update the Domain designer to prevent it from being modelled.</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b748206d-7507-4ed0-9a6a-3620e61dba75</parentFolderId>
+  <packageId>b748206d-7507-4ed0-9a6a-3620e61dba75</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

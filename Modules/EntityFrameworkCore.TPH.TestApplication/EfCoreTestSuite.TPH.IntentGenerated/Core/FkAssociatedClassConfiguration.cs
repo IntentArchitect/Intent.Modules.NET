@@ -15,6 +15,12 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.AssociatedField)
+                .IsRequired();
+
+            builder.Ignore(e => e.DomainEvents);
+
+
             builder.HasOne(x => x.FkDerivedClass)
                 .WithMany()
                 .HasForeignKey(x => new { x.FkDerivedClassCompositeKeyA, x.FkDerivedClassCompositeKeyB })

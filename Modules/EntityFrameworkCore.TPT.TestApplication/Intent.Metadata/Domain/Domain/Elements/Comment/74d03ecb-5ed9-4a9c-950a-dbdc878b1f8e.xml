@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="74d03ecb-5ed9-4a9c-950a-dbdc878b1f8e" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>Assigning OwnerClass to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy"</name>
+  <display>Assigning OwnerClass to WeirdClass results in an error because EF doen't know how to track WeirdClass since its "not in the same inheritance hierarchy"</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1043a8cb-2ffb-451f-9188-abbb07731684</parentFolderId>
+  <packageId>1043a8cb-2ffb-451f-9188-abbb07731684</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -27,5 +27,8 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities
             }
         }
 
+
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+
     }
 }

@@ -20,20 +20,25 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         {
             _domainEventService = new DomainEventService();
         }
-        
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
             IDomainEventService domainEventService) : base(options)
         {
             _domainEventService = domainEventService;
         }
+        public DbSet<A_OwnerClass> A_OwnerClasses { get; set; }
+        public DbSet<A_WeirdClass> A_WeirdClasses { get; set; }
 
         public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
+        public DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         public DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        public DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
         public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
+        public DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
         public DbSet<FkAssociatedClass> FkAssociatedClasses { get; set; }
         public DbSet<FkBaseClass> FkBaseClasses { get; set; }
+        public DbSet<FkBaseClassAssociated> FkBaseClassAssociateds { get; set; }
         public DbSet<FkDerivedClass> FkDerivedClasses { get; set; }
-        public DbSet<OwnerClass> OwnerClasses { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -49,13 +54,18 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
             ConfigureModel(modelBuilder);
 
+            modelBuilder.ApplyConfiguration(new A_OwnerClassConfiguration());
+            modelBuilder.ApplyConfiguration(new A_WeirdClassConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new ConcreteBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForAbstractConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForAbstractAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForConcreteAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new FkAssociatedClassConfiguration());
             modelBuilder.ApplyConfiguration(new FkBaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new FkBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new FkDerivedClassConfiguration());
-            modelBuilder.ApplyConfiguration(new OwnerClassConfiguration());
 
         }
 

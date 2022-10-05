@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="20fb0db6-94d6-4dd5-bebb-ec8972834108" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>OwnerClass</name>
-  <display>OwnerClass</display>
+  <name>A_OwnerClass</name>
+  <display>A_OwnerClass</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

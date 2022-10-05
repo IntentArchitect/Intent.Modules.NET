@@ -31,7 +31,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 
         public override string AfterProperties(ClassModel @class)
         {
-            if (Template.Model.ParentClass != null || !@class.IsAggregateRoot())
+            if (Template.Model.ParentClass?.IsAggregateRoot() == true || !@class.IsAggregateRoot())
             {
                 return null;
             }

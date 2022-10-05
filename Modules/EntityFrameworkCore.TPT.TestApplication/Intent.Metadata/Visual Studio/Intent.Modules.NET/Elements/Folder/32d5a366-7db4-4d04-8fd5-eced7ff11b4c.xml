@@ -3,7 +3,7 @@
   <name>Entities</name>
   <display>Entities</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>30620f7a-fcc3-406f-93c0-d407f46855fb</parentFolderId>
@@ -26,7 +26,6 @@
       <display>Intent.Entities.DomainEntity</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>32d5a366-7db4-4d04-8fd5-eced7ff11b4c</parentFolderId>
@@ -43,7 +42,6 @@
       <display>Intent.Entities.DomainEntityInterface</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>32d5a366-7db4-4d04-8fd5-eced7ff11b4c</parentFolderId>
@@ -60,7 +58,6 @@
       <display>Intent.Entities.DomainEntityState</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>32d5a366-7db4-4d04-8fd5-eced7ff11b4c</parentFolderId>
@@ -77,7 +74,6 @@
       <display>Intent.Entities.DomainEnum</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>32d5a366-7db4-4d04-8fd5-eced7ff11b4c</parentFolderId>

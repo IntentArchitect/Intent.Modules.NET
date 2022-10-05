@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d4433c50-eaa1-4560-9c39-9e1d3bbdcc27">
+  <sourceEnd id="4ef09a8c-5f4a-4216-b249-0e16d8020b61" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <name>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</name>
+    <display>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.: I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</display>
+    <order>1</order>
+    <typeReference id="77066f76-6f52-404c-a445-d7ca690c62e4">
+      <typeId>ce182f7a-dfb6-4332-8737-93073372f3c6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="d4433c50-eaa1-4560-9c39-9e1d3bbdcc27" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <name>AbstractBaseClass</name>
+    <display>AbstractBaseClass: AbstractBaseClass</display>
+    <order>0</order>
+    <typeReference id="14f25177-c288-45ef-8a2f-38bbd4184523">
+      <typeId>d47177b3-40b9-4ebe-ae47-9287191b97e8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>
