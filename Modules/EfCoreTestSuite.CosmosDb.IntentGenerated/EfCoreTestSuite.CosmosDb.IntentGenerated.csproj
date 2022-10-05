@@ -176,11 +176,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>K_SelfReference.cs</DependentUpon>
     </Compile>
-    <Compile Update="Entities\Associations\L_SelfReferenceMultipleState.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
-    </Compile>
+    
     <Compile Update="Entities\Associations\M_SelfReferenceBiNavState.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -306,11 +302,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>K_SelfReference.cs</DependentUpon>
     </Compile>
-    <Compile Update="Entities\Associations\IL_SelfReferenceMultiple.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>L_SelfReferenceMultiple.cs</DependentUpon>
-    </Compile>
+    
     <Compile Update="Entities\Associations\IM_SelfReferenceBiNav.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -519,6 +511,16 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Poly_SecondLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\L_SelfReferenceBiNavState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceBiNav.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Associations\IL_SelfReferenceBiNav.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>L_SelfReferenceBiNav.cs</DependentUpon>
     </Compile>
     
     

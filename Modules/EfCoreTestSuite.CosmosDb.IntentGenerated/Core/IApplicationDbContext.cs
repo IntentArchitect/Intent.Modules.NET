@@ -34,7 +34,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
-        DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }

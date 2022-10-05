@@ -84,7 +84,10 @@ public class InheritanceTPCTests
         //});
     }
 
-    // EF for Cosmos doesn't support any form of polymorphism at this point. I've attempted an abstract class, a normal class for inheritance. I'm keeping things here for future reference.
+    // EF for Cosmos doesn't support any form of polymorphism at this point.
+    // I've attempted an abstract class, a normal class for inheritance.
+    // Also the relationship has to be of a composite type. I'm keeping things here for future reference.
+    
     // [IgnoreOnCiBuildFact]
     // public void Test_Inheritance_TPC_Polymorphic()
     // {

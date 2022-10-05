@@ -172,14 +172,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c2b42a33-79ea-4537-b861-aa91b67c9b26</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/L_SelfReferenceMultipleConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>L_SelfReferenceMultipleConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f737d9c0-ba76-4389-b74a-847489b5be2f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/M_SelfReferenceBiNavConfiguration.cs</ApplicationRelativeFilePath>
@@ -660,14 +652,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#c2b42a33-79ea-4537-b861-aa91b67c9b26</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Associations/IL_SelfReferenceMultiple.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/IL_SelfReferenceMultiple.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#f737d9c0-ba76-4389-b74a-847489b5be2f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Associations/IM_SelfReferenceBiNav.cs</ApplicationRelativeFilePath>
@@ -720,22 +704,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Associations/K_SelfReferenceState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/K_SelfReferenceState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#c2b42a33-79ea-4537-b861-aa91b67c9b26</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Associations/L_SelfReferenceMultiple.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/L_SelfReferenceMultiple.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityState#c2b42a33-79ea-4537-b861-aa91b67c9b26</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Associations/L_SelfReferenceMultipleState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/L_SelfReferenceMultipleState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
