@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1d2c620a-fe4c-492f-9787-e1be1fc8001e" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>InheritanceAssociations</name>
+  <display>InheritanceAssociations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1043a8cb-2ffb-451f-9188-abbb07731684</parentFolderId>
+  <packageId>1043a8cb-2ffb-451f-9188-abbb07731684</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

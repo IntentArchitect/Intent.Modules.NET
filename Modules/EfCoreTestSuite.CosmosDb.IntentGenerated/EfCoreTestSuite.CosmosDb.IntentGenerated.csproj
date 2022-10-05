@@ -436,6 +436,94 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>WeirdClass.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\Polymorphic\BaseClassNonAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\ConcreteAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\ConcreteBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteB.cs</DependentUpon>
+    </Compile>
+    
+    <Compile Update="Entities\Polymorphic\SecondLevelState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SecondLevel.cs</DependentUpon>
+    </Compile>
+    
+    <Compile Update="Entities\Polymorphic\IBaseClassNonAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IConcreteA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IConcreteB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteB.cs</DependentUpon>
+    </Compile>
+    
+    <Compile Update="Entities\Polymorphic\ISecondLevel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SecondLevel.cs</DependentUpon>
+    </Compile>
+    
+    <Compile Update="Entities\Polymorphic\Poly_ConcreteAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_ConcreteBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_ConcreteA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_ConcreteB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_BaseClassNonAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_SecondLevelState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_SecondLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_BaseClassNonAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_SecondLevel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_SecondLevel.cs</DependentUpon>
+    </Compile>
+    
+    
+    
+    
   </ItemGroup>
 
   <ItemGroup>

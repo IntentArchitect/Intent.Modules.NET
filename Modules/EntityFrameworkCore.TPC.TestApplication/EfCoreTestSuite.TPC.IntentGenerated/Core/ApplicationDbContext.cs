@@ -3,6 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using EfCoreTestSuite.TPC.IntentGenerated.DomainEvents;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities;
+using EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations;
+using EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,8 +28,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         {
             _domainEventService = domainEventService;
         }
-        public DbSet<A_OwnerClass> A_OwnerClasses { get; set; }
-        public DbSet<A_WeirdClass> A_WeirdClasses { get; set; }
 
         public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
         public DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
@@ -39,6 +39,11 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         public DbSet<FkBaseClass> FkBaseClasses { get; set; }
         public DbSet<FkBaseClassAssociated> FkBaseClassAssociateds { get; set; }
         public DbSet<FkDerivedClass> FkDerivedClasses { get; set; }
+        public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
+        public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
+        public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
+        public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
+        public DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -54,8 +59,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
             ConfigureModel(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new A_OwnerClassConfiguration());
-            modelBuilder.ApplyConfiguration(new A_WeirdClassConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForAbstractConfiguration());
@@ -66,6 +69,11 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new FkBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new FkBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new FkDerivedClassConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_BaseClassNonAbstractConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_ConcreteAConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_ConcreteBConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_SecondLevelConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_TopLevelConfiguration());
 
         }
 

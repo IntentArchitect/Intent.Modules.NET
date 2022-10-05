@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b0705a80-90d5-40f8-9330-31e1fbb102c3" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Polymorphic</name>
+  <display>Polymorphic</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>839dc29b-ff64-4542-935b-f561cf1cd68c</parentFolderId>
+  <packageId>839dc29b-ff64-4542-935b-f561cf1cd68c</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

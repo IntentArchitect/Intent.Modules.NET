@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
 using EfCoreTestSuite.TPC.IntentGenerated.Core;
-using EfCoreTestSuite.TPC.IntentGenerated.Entities;
+using EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations;
+using EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -113,39 +114,45 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
     }
 
     [IgnoreOnCiBuildFact]
-    public void Test_Inheritance_TPC_InheritFromOwnedClass()
+    public void Test_Inheritance_TPC_Polymorphic()
     {
-        var ownedClass = new A_OwnedClass();
-        ownedClass.OwnedField = "Owned Class Value";
-        ownedClass.AbstractField = "Owned Class Value";
+        var topLevelConcretes = CreateNewPolyClasses();
+        var topLevel = new Poly_TopLevel();
+        topLevel.TopField = "Top Level Value";
+        topLevel.RootAbstracts.Add(topLevelConcretes.Item1);
+        topLevel.RootAbstracts.Add(topLevelConcretes.Item2);
+        topLevel.RootAbstracts.Add(topLevelConcretes.Item3);
+        DbContext.Poly_TopLevels.Add(topLevel);
 
-        var ownerClass = new A_OwnerClass();
-        ownerClass.OwnerField = "Owner Class Value";
-        ownerClass.A_OwnedClasses.Add(ownedClass);
-        DbContext.A_OwnerClasses.Add(ownerClass);
-
-        var weirdClass = new A_WeirdClass();
-        weirdClass.WeirdField = "Weird Class Value";
-        weirdClass.OwnedField = "Weird Class Value";
-        weirdClass.AbstractField = "Weird Class Value";
-        DbContext.A_WeirdClasses.Add(weirdClass);
+        var secondLevelConcretes = CreateNewPolyClasses();
+        var secondLevel = new Poly_SecondLevel();
+        secondLevel.SecondField = "Second Level Value";
+        secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item1);
+        secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item2);
+        secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item3);
+        DbContext.Poly_SecondLevels.Add(secondLevel);
         
         DbContext.SaveChanges();
-
-        var test = DbContext.A_OwnerClasses.Single(p => p.Id == ownerClass.Id)?.A_OwnedClasses;
-        Assert.Equal(ownedClass, test.Single(p => p.Id == ownedClass.Id));
-
-        // Until something changes, I'm keeping track of this limitation by attempting to assign
-        // this WeirdClass to OwnerClass and expecting an error.
-        Assert.Throws<InvalidOperationException>(() =>
+        
+        (Poly_BaseClassNonAbstract, Poly_ConcreteA, Poly_ConcreteB) CreateNewPolyClasses()
         {
-            ownerClass.A_OwnedClasses.Add(weirdClass);
+            var baseClass = new Poly_BaseClassNonAbstract();
+            baseClass.AbstractField = "Base Class Non Abstract Value";
+            baseClass.BaseField = "Base Class Non Abstract Value";
+        
+            var concreteA = new Poly_ConcreteA();
+            concreteA.ConcreteField = "Concrete Value";
+            concreteA.AbstractField = "Concrete Value";
+            concreteA.BaseField = "Concrete Value";
+            DbContext.Poly_ConcreteAs.Add(concreteA);
+        
+            var concreteB = new Poly_ConcreteB();
+            concreteB.ConcreteField = "Concrete Value";
+            concreteB.AbstractField = "Concrete Value";
+            concreteB.BaseField = "Concrete Value";
+            DbContext.Poly_ConcreteBs.Add(concreteB);
             
-            DbContext.SaveChanges();
-            
-            // And once this works somehow, we can add these checks and remove the "Throws" check.
-            //var test2 = DbContext.A_OwnerClasses.Single(p => p.Id == ownerClass.Id)?.OwnedClasses;
-            //Assert.Equal(weirdClass, test2.SingleOrDefault(p => p.Id == weirdClass.Id));
-        });
+            return (baseClass, concreteA, concreteB);
+        }
     }
 }

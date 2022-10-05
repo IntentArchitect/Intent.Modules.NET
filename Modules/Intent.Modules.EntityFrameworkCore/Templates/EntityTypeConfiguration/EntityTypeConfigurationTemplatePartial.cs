@@ -627,7 +627,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (type.IsClassModel())
             {
-                return !type.AsClassModel().IsAggregateRoot();
+                var classModel = type.AsClassModel();
+                return !classModel.IsAggregateRoot() && !classModel.IsAbstract;
             }
 
             return IsValueObject(type);

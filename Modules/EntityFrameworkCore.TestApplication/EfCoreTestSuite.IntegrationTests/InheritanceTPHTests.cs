@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
 using EfCoreTestSuite.TPH.IntentGenerated.Core;
-using EfCoreTestSuite.TPH.IntentGenerated.Entities;
+using EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations;
+using EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -110,5 +111,48 @@ public class InheritanceTPHTests : SharedDatabaseFixture<ApplicationDbContext>
         Assert.Equal(derived, DbContext.FkDerivedClasses.Single(p => p.CompositeKeyA == derived.CompositeKeyA && p.CompositeKeyB == derived.CompositeKeyB));
         Assert.Equal(derived, DbContext.FkAssociatedClasses.Single(p => p.Id == associated.Id).FkDerivedClass);
         Assert.Equal(derived, DbContext.FkBaseClassAssociateds.Single(p => p.Id == baseAssociated2.Id).FkBaseClass);
+    }
+    
+    [IgnoreOnCiBuildFact]
+    public void Test_Inheritance_TPH_Polymorphic()
+    {
+        var topLevelConcretes = CreateNewPolyClasses();
+        var topLevel = new Poly_TopLevel();
+        topLevel.TopField = "Top Level Value";
+        topLevel.RootAbstracts.Add(topLevelConcretes.Item1);
+        topLevel.RootAbstracts.Add(topLevelConcretes.Item2);
+        topLevel.RootAbstracts.Add(topLevelConcretes.Item3);
+        DbContext.Poly_TopLevels.Add(topLevel);
+
+        var secondLevelConcretes = CreateNewPolyClasses();
+        var secondLevel = new Poly_SecondLevel();
+        secondLevel.SecondField = "Second Level Value";
+        secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item1);
+        secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item2);
+        secondLevel.BaseClassNonAbstracts.Add(secondLevelConcretes.Item3);
+        DbContext.Poly_SecondLevels.Add(secondLevel);
+        
+        DbContext.SaveChanges();
+        
+        (Poly_BaseClassNonAbstract, Poly_ConcreteA, Poly_ConcreteB) CreateNewPolyClasses()
+        {
+            var baseClass = new Poly_BaseClassNonAbstract();
+            baseClass.AbstractField = "Base Class Non Abstract Value";
+            baseClass.BaseField = "Base Class Non Abstract Value";
+        
+            var concreteA = new Poly_ConcreteA();
+            concreteA.ConcreteField = "Concrete Value";
+            concreteA.AbstractField = "Concrete Value";
+            concreteA.BaseField = "Concrete Value";
+            DbContext.Poly_ConcreteAs.Add(concreteA);
+        
+            var concreteB = new Poly_ConcreteB();
+            concreteB.ConcreteField = "Concrete Value";
+            concreteB.AbstractField = "Concrete Value";
+            concreteB.BaseField = "Concrete Value";
+            DbContext.Poly_ConcreteBs.Add(concreteB);
+            
+            return (baseClass, concreteA, concreteB);
+        }
     }
 }

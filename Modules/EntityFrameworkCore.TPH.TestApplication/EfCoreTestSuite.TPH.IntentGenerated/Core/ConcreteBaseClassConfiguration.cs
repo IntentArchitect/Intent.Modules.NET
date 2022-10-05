@@ -1,5 +1,6 @@
 using System;
 using EfCoreTestSuite.TPH.IntentGenerated.Entities;
+using EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

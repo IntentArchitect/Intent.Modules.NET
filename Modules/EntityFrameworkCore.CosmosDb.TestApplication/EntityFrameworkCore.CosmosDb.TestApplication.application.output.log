@@ -196,6 +196,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#e28d6ae3-2678-417d-9439-61af20565720</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/Poly_ConcreteAConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Poly_ConcreteAConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#834328b4-0325-4c35-8043-a25fb9a7825a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/Poly_ConcreteBConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Poly_ConcreteBConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ccd7e035-cb2e-4dac-9e67-f84831167e49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/Poly_SecondLevelConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Poly_SecondLevelConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#36b5cc11-1468-4013-98b7-288ba1efe520</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/WeirdClassConfiguration.cs</ApplicationRelativeFilePath>
@@ -1000,6 +1024,102 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/NestedComposition/IClassE.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NestedComposition/IClassE.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#ad2a940d-37b1-42ac-aa59-51484cfc1ca5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/IPoly_BaseClassNonAbstract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/IPoly_BaseClassNonAbstract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#e28d6ae3-2678-417d-9439-61af20565720</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/IPoly_ConcreteA.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/IPoly_ConcreteA.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#834328b4-0325-4c35-8043-a25fb9a7825a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/IPoly_ConcreteB.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/IPoly_ConcreteB.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#ccd7e035-cb2e-4dac-9e67-f84831167e49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/IPoly_SecondLevel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/IPoly_SecondLevel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ad2a940d-37b1-42ac-aa59-51484cfc1ca5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_BaseClassNonAbstract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_BaseClassNonAbstract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#ad2a940d-37b1-42ac-aa59-51484cfc1ca5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_BaseClassNonAbstractState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_BaseClassNonAbstractState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#e28d6ae3-2678-417d-9439-61af20565720</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_ConcreteA.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteA.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#e28d6ae3-2678-417d-9439-61af20565720</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_ConcreteAState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteAState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#834328b4-0325-4c35-8043-a25fb9a7825a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_ConcreteB.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteB.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#834328b4-0325-4c35-8043-a25fb9a7825a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_ConcreteBState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteBState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ccd7e035-cb2e-4dac-9e67-f84831167e49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_SecondLevel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_SecondLevel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#ccd7e035-cb2e-4dac-9e67-f84831167e49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_SecondLevelState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_SecondLevelState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

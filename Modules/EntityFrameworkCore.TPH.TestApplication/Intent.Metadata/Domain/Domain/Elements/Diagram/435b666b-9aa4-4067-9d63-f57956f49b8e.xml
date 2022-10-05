@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="435b666b-9aa4-4067-9d63-f57956f49b8e" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
-  <name>Default Diagram</name>
-  <display>Default Diagram</display>
+  <name>Inheritance Associations</name>
+  <display>Inheritance Associations</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

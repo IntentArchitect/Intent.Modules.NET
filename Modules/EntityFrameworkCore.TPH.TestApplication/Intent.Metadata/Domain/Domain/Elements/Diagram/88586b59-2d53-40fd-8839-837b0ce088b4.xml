@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="88586b59-2d53-40fd-8839-837b0ce088b4" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Polymorphic</name>
+  <display>Polymorphic</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b748206d-7507-4ed0-9a6a-3620e61dba75</parentFolderId>
+  <packageId>b748206d-7507-4ed0-9a6a-3620e61dba75</packageId>
+  <packageName>Domain</packageName>
+  <diagram>
+    <targetPackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

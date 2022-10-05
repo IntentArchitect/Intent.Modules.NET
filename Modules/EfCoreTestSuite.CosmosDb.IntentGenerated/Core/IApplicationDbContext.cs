@@ -4,6 +4,7 @@ using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,6 +36,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
         DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
+        DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
+        DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
         DbSet<WeirdClass> WeirdClasses { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }

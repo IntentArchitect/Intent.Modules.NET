@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="eaf3ad6a-a557-4bcb-abcc-90fa3148546b">
+  <sourceEnd id="71be66d5-979a-4647-881b-325bfc3082c8" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>SecondLevel</name>
+    <display>SecondLevel: Poly_SecondLevel?</display>
+    <order>2</order>
+    <typeReference id="f5e090af-75a4-4859-93dd-3962473e37c0">
+      <typeId>5cc30eb0-664f-417e-a792-96927004a94a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>b748206d-7507-4ed0-9a6a-3620e61dba75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="eaf3ad6a-a557-4bcb-abcc-90fa3148546b" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>BaseClassNonAbstracts</name>
+    <display>BaseClassNonAbstracts: Poly_BaseClassNonAbstract[*]</display>
+    <order>1</order>
+    <typeReference id="9fa2436d-ee4e-4678-be41-bd22a43d9860">
+      <typeId>93cbd4c1-3549-4f13-9f4c-6f95247c0664</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>b748206d-7507-4ed0-9a6a-3620e61dba75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
