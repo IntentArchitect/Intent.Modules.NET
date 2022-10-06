@@ -312,6 +312,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     }
                     break;
                 case RelationshipType.ManyToMany:
+                    EnsureColumnsOnEntity(associationEnd.Element, new RequiredColumn(_entityTemplate.GetTypeName(associationEnd.OtherEnd()), associationEnd.OtherEnd().Name.ToPascalCase(), IsPrivate: true));
                     break;
                 default:
                     throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
@@ -319,7 +320,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return new EFCoreAssociationConfigStatement(associationEnd);
         }
 
-        private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params RequiredColumn[] columns)
+        public void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params RequiredColumn[] columns)
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
             {
@@ -358,7 +359,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private List<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
+        private IEnumerable<EFCoreConfigStatementBase> GetTypeConfiguration(IElement targetType, CSharpClass @class)
         {
             var statements = new List<EFCoreConfigStatementBase>();
 
@@ -366,7 +367,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(x => GetAssociationMapping(x, @class)));
 
-            return statements.Where(x => !string.IsNullOrWhiteSpace(x.ToString())).ToList();
+            return statements.ToList();
         }
 
         private bool IsValueObject(ICanBeReferencedType type)
@@ -426,13 +427,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         protected EFCoreConfigStatementBase() : base(null)
         {
         }
-
-        public bool IsRedundant { get; private set; }
-
-        public void MarkAsRedundant()
-        {
-            IsRedundant = true;
-        }
     }
 
     public class EFCoreAssociationConfigStatement : EFCoreConfigStatementBase
@@ -443,7 +437,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public EFCoreAssociationConfigStatement(AssociationEndModel associationEnd)
         {
             _associationEnd = associationEnd;
-            AddMetadata("model", associationEnd);
 
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
                 && associationEnd.Name.Equals(associationEnd.Element.Name))
@@ -453,10 +446,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (associationEnd.IsSourceEnd() && !associationEnd.IsNullable && !associationEnd.IsCollection)
             {
+                AddMetadata("model", associationEnd.OtherEnd());
                 RelationshipStatements.Add(@$"builder.WithOwner({(associationEnd.IsNavigable ? $"x => x.{associationEnd.Name.ToPascalCase()}" : "")})");
                 return;
             }
 
+            AddMetadata("model", associationEnd);
             switch (associationEnd.Association.GetRelationshipType())
             {
                 case RelationshipType.OneToOne:

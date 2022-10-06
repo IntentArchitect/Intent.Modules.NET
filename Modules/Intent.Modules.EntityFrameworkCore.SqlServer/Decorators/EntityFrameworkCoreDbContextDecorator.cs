@@ -43,7 +43,8 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                 var @class = file.Classes.First();
                 foreach (var method in @class.Methods)
                 {
-                    if (method.TryGetMetadata<IElement>("model", out var model))
+                    IElement model = null;
+                    if (method.TryGetMetadata<IElement>("model", out model))
                     {
                         if (model.IsClassModel())
                         {
@@ -62,11 +63,18 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                             method.AddStatements(GetIndexes(model.AsClassModel()));
                         }
                     }
-                    foreach (var statement in method.Statements.OfType<EFCoreFieldConfigStatement>())
+                    foreach (var statement in method.Statements.OfType<EFCoreFieldConfigStatement>().ToList())
                     {
                         if (statement.TryGetMetadata<AttributeModel>("model", out var attribute))
                         {
-                            statement.AddStatements(GetAttributeMappingStatements(attribute));
+                            if (model?.AsClassModel()?.GetExplicitPrimaryKey().Any(x => x.Equals(attribute)) == true)
+                            {
+                                statement.Remove();
+                            }
+                            else
+                            {
+                                statement.AddStatements(GetAttributeMappingStatements(attribute));
+                            }
                         }
                     }
 
@@ -74,19 +82,40 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                     {
                         if (statement.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
                         {
+                            EntityTypeConfigurationTemplate.RequiredColumn[] fks = null;
+                            IElement domainElement = null;
                             switch (associationEnd.Association.GetRelationshipType())
                             {
                                 case RelationshipType.OneToMany:
-                                    statement.AddForeignKey(GetForeignColumns(associationEnd).Select(x => x.Name).ToArray());
+                                    fks = GetForeignColumns(associationEnd);
+                                    domainElement = (IElement)associationEnd.Element;
                                     break;
                                 case RelationshipType.OneToOne:
+                                    if (associationEnd.IsSourceEnd() || associationEnd.OtherEnd().IsNullable)
+                                    {
+                                        fks = GetForeignColumns(associationEnd.OtherEnd());
+                                        domainElement = (IElement)associationEnd.OtherEnd().Element;
+                                    }
+                                    else
+                                    {
+                                        fks = GetForeignColumns(associationEnd);
+                                        domainElement = (IElement)associationEnd.Element;
+                                    }
+                                    break;
                                 case RelationshipType.ManyToOne:
-                                    statement.AddForeignKey(GetForeignColumns(associationEnd.OtherEnd()).Select(x => x.Name).ToArray());
+                                    fks = GetForeignColumns(associationEnd.OtherEnd());
+                                    domainElement = (IElement)associationEnd.OtherEnd().Element;
                                     break;
                                 case RelationshipType.ManyToMany:
                                     break;
                                 default:
                                     throw new ArgumentOutOfRangeException();
+                            }
+
+                            if (fks?.Any() == true)
+                            {
+                                statement.AddForeignKey(fks.Select(x => x.Name).ToArray());
+                                _template.EnsureColumnsOnEntity(domainElement, fks);
                             }
                         }
                     }
@@ -335,12 +364,16 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
             if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
             {
                 return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
-                    new EntityTypeConfigurationTemplate.RequiredColumn(Type: _template.GetTypeName(x), Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
+                    new EntityTypeConfigurationTemplate.RequiredColumn(
+                        //Entity: (IElement)associationEnd.OtherEnd().Element, 
+                        Type: _template.GetTypeName(x),
+                        Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
                     .ToArray();
             }
             else // implicit Id
             {
                 return new[] { new EntityTypeConfigurationTemplate.RequiredColumn(
+                    //Entity: (IElement)associationEnd.OtherEnd().Element,
                     Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""),
                     Name: $"{(!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
             }
