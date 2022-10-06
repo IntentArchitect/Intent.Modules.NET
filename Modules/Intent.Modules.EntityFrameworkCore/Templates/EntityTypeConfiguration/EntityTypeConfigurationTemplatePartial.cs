@@ -388,7 +388,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     if (IsOwned(associationEnd.Element))
                     {
                         _ownedTypeConfigMethods.Add(@$"
-        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
+        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetOwnerEntity(associationEnd)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
         {{
             builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
@@ -449,7 +449,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     if (IsOwned(associationEnd.Element))
                     {
                         _ownedTypeConfigMethods.Add(@$"
-        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
+        public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetOwnerEntity(associationEnd)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
         {{
             builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
@@ -498,6 +498,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return $@"
             {string.Join(@"
             ", statements)};";
+        }
+
+        private string GetOwnerEntity(AssociationEndModel associationEnd)
+        {
+            var element = (IElement)associationEnd.OtherEnd().Element;
+            if (element.IsAbstract)
+            {
+                return GetEntityName();
+            }
+
+            return GetTypeName(element);
         }
 
         private string GetTypeConfiguration()

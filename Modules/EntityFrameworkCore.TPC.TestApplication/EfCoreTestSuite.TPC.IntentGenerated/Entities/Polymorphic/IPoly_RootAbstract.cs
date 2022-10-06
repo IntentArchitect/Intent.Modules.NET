@@ -16,5 +16,10 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
         /// </summary>
         Guid Id { get; }
         string AbstractField { get; set; }
+
+        Guid? Poly_RootAbstract_AggrId { get; }
+        Poly_RootAbstract_Aggr Poly_RootAbstract_Aggr { get; set; }
+
+        Poly_RootAbstract_Comp Poly_RootAbstract_Comp { get; set; }
     }
 }

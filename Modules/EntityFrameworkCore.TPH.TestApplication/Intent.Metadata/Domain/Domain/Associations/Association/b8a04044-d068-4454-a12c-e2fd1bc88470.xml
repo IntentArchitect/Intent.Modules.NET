@@ -3,7 +3,7 @@
   <sourceEnd id="e5ac4e1e-a3cf-426d-9b26-11f4b456f62c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>TopLevel</name>
     <display>TopLevel: Poly_TopLevel?</display>
-    <order>1</order>
+    <order>3</order>
     <typeReference id="4b8a5684-c177-4156-bb4e-c0364e8c39f1">
       <typeId>053bd987-e679-4605-a341-5026daa8b0c6</typeId>
       <isNavigable>false</isNavigable>

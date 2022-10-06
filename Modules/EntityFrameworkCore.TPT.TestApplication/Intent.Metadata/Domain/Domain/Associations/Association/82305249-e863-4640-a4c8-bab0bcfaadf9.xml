@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="82305249-e863-4640-a4c8-bab0bcfaadf9">
+  <sourceEnd id="3357b416-b44f-44c8-ab59-107be03bdf3f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Poly_RootAbstracts</name>
+    <display>Poly_RootAbstracts: Poly_RootAbstract[*]</display>
+    <order>1</order>
+    <typeReference id="322af7a3-62d1-4a66-9274-d47c7778ea9e">
+      <typeId>93d20c65-ce52-46fc-bf4a-fec967bb9f14</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>1043a8cb-2ffb-451f-9188-abbb07731684</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="82305249-e863-4640-a4c8-bab0bcfaadf9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Poly_RootAbstract_Aggr</name>
+    <display>Poly_RootAbstract_Aggr: Poly_RootAbstract_Aggr?</display>
+    <order>1</order>
+    <typeReference id="2ea78e0f-30c7-47be-b2a1-5155c962bc41">
+      <typeId>99206f96-122b-4b4c-866c-64ea8c222e5c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>1043a8cb-2ffb-451f-9188-abbb07731684</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

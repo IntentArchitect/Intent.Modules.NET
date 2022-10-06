@@ -1,4 +1,5 @@
 using System;
+using EfCoreTestSuite.TPC.IntentGenerated.Entities;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,24 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
             builder.Ignore(e => e.DomainEvents);
 
+
+            builder.HasOne(x => x.Poly_RootAbstract_Aggr)
+                .WithMany()
+                .HasForeignKey(x => x.Poly_RootAbstract_AggrId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.OwnsOne(x => x.Poly_RootAbstract_Comp, ConfigurePoly_RootAbstract_Comp);
+        }
+
+        public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<Poly_BaseClassNonAbstract, Poly_RootAbstract_Comp> builder)
+        {
+            builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.ToTable("Poly_RootAbstract_Comp");
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.CompField)
+                .IsRequired();
         }
     }
 }

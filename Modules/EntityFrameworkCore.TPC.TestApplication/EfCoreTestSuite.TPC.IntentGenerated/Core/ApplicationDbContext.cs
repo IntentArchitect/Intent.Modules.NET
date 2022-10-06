@@ -42,6 +42,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
+        public DbSet<Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
         public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
         public DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }
 
@@ -72,6 +73,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new Poly_BaseClassNonAbstractConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_ConcreteAConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_ConcreteBConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_RootAbstract_AggrConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_SecondLevelConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_TopLevelConfiguration());
 

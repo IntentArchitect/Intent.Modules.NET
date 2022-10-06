@@ -38,6 +38,36 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
         }
 
 
+        public Guid? Poly_RootAbstract_AggrId { get; set; }
+        private Poly_RootAbstract_Aggr _poly_RootAbstract_Aggr;
+
+        public virtual Poly_RootAbstract_Aggr Poly_RootAbstract_Aggr
+        {
+            get
+            {
+                return _poly_RootAbstract_Aggr;
+            }
+            set
+            {
+                _poly_RootAbstract_Aggr = value;
+            }
+        }
+
+        private Poly_RootAbstract_Comp _poly_RootAbstract_Comp;
+
+        public virtual Poly_RootAbstract_Comp Poly_RootAbstract_Comp
+        {
+            get
+            {
+                return _poly_RootAbstract_Comp;
+            }
+            set
+            {
+                _poly_RootAbstract_Comp = value;
+            }
+        }
+
+
         public Guid? TopLevelId { get; set; }
     }
 }

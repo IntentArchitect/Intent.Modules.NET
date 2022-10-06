@@ -474,6 +474,46 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Poly_TopLevel.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\Poly_RootAbstract_AggrState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Poly_RootAbstract_CompState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IPoly_RootAbstract_Aggr.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IPoly_RootAbstract_Comp.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_RootAbstract_AggrState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_RootAbstract_CompState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_RootAbstract_Aggr.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_RootAbstract_Comp.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
     
     
     

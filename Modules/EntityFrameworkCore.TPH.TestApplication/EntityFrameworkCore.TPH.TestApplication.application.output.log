@@ -146,6 +146,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#412c3048-2803-4632-8145-142ff487672a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_RootAbstract_AggrConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Poly_RootAbstract_AggrConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5cc30eb0-664f-417e-a792-96927004a94a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_SecondLevelConfiguration.cs</ApplicationRelativeFilePath>
@@ -514,6 +522,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#412c3048-2803-4632-8145-142ff487672a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/IPoly_RootAbstract_Aggr.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/IPoly_RootAbstract_Aggr.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#e98eb08c-8f99-485d-b6f3-2648a36c8444</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/IPoly_RootAbstract_Comp.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/IPoly_RootAbstract_Comp.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntityInterface#edc78564-7dbb-480b-8b9d-eb5edbe7510d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/IPoly_RootAbstract.cs</ApplicationRelativeFilePath>
@@ -582,6 +606,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/Poly_ConcreteBState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteBState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#412c3048-2803-4632-8145-142ff487672a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/Poly_RootAbstract_Aggr.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_RootAbstract_Aggr.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#412c3048-2803-4632-8145-142ff487672a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/Poly_RootAbstract_AggrState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_RootAbstract_AggrState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#e98eb08c-8f99-485d-b6f3-2648a36c8444</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/Poly_RootAbstract_Comp.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_RootAbstract_Comp.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#e98eb08c-8f99-485d-b6f3-2648a36c8444</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/Poly_RootAbstract_CompState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_RootAbstract_CompState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
