@@ -43,8 +43,7 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                 var @class = file.Classes.First();
                 foreach (var method in @class.Methods)
                 {
-                    IElement model = null;
-                    if (method.TryGetMetadata<IElement>("model", out model))
+                    if (method.TryGetMetadata<IElement>("model", out var model))
                     {
                         if (model.IsClassModel())
                         {

@@ -61,21 +61,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             method.AddMetadata("model", Model.InternalElement);
                             method.AddParameter($"EntityTypeBuilder<{GetTypeName(_entityTemplate)}>", "builder");
                             method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
-                            //method.AddStatements(new[] {
-                            //    GetTableMapping(Model),
-                            //    GetKeyMapping(Model),
-                            //    GetCheckConstraints(Model),
-                            //    GetBeforeAttributeStatements()
-                            //}.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray());
-
-                            //foreach (var attribute in GetAttributes(Model.InternalElement))
-                            //{
-                            //    method.AddStatement(GetAttributeMapping(attribute, @class));
-                            //}
-                            //foreach (var associationEnd in GetAssociations(Model.InternalElement))
-                            //{
-                            //    method.AddStatement(GetAssociationMapping(associationEnd, @class));
-                            //}
 
                             if (_entityTemplate is ICSharpFileBuilderTemplate builderTemplate)
                             {
@@ -388,12 +373,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private IEnumerable<AttributeModel> GetAttributes(IElement model)
         {
             var attributes = new List<AttributeModel>();
-            //var @class = model.AsClassModel();
-            //if (@class?.ParentClass != null && @class.ParentClass.IsAbstract && ExecutionContext.Settings
-            //        .GetDatabaseSettings().InheritanceStrategy().IsTPC())
-            //{
-            //    attributes.AddRange(GetAttributes(@class.ParentClass.InternalElement));
-            //}
+            var @class = model.AsClassModel();
+            if (@class?.ParentClass != null && @class.ParentClass.IsAbstract && ExecutionContext.Settings
+                    .GetDatabaseSettings().InheritanceStrategy().IsTPC())
+            {
+                attributes.AddRange(GetAttributes(@class.ParentClass.InternalElement));
+            }
 
             attributes.AddRange(model.ChildElements
                 .Where(x => x.IsAttributeModel() && RequiresConfiguration(x.AsAttributeModel()))

@@ -11,104 +11,225 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.EntityFrameworkCore.Settings
 {
 
-    //public static class DatabaseSettingsExtensions
-    //{
+    public static class DatabaseSettingsExtensions
+    {
 
-    //    public static InheritanceStrategyOptions InheritanceStrategy(this DatabaseSettings groupSettings) => new InheritanceStrategyOptions(groupSettings.GetSetting("68f03894-248b-4569-bc76-52c67499bf7c")?.Value);
+        public static InheritanceStrategyOptions InheritanceStrategy(this DatabaseSettings groupSettings) => new InheritanceStrategyOptions(groupSettings.GetSetting("68f03894-248b-4569-bc76-52c67499bf7c")?.Value);
 
-    //    public class InheritanceStrategyOptions
-    //    {
-    //        public readonly string Value;
+        public class InheritanceStrategyOptions
+        {
+            public readonly string Value;
 
-    //        public InheritanceStrategyOptions(string value)
-    //        {
-    //            Value = value;
-    //        }
+            public InheritanceStrategyOptions(string value)
+            {
+                Value = value;
+            }
 
-    //        public InheritanceStrategyOptionsEnum AsEnum()
-    //        {
-    //            return Value switch
-    //            {
-    //                "TPH" => InheritanceStrategyOptionsEnum.TPH,
-    //                "TPT" => InheritanceStrategyOptionsEnum.TPT,
-    //                "TPC" => InheritanceStrategyOptionsEnum.TPC,
-    //                _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
-    //            };
-    //        }
+            public InheritanceStrategyOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "TPH" => InheritanceStrategyOptionsEnum.TPH,
+                    "TPT" => InheritanceStrategyOptionsEnum.TPT,
+                    "TPC" => InheritanceStrategyOptionsEnum.TPC,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
 
-    //        public bool IsTPH()
-    //        {
-    //            return Value == "TPH";
-    //        }
+            public bool IsTPH()
+            {
+                return Value == "TPH";
+            }
 
-    //        public bool IsTPT()
-    //        {
-    //            return Value == "TPT";
-    //        }
+            public bool IsTPT()
+            {
+                return Value == "TPT";
+            }
 
-    //        public bool IsTPC()
-    //        {
-    //            return Value == "TPC";
-    //        }
-    //    }
+            public bool IsTPC()
+            {
+                return Value == "TPC";
+            }
+        }
 
-    //    public enum InheritanceStrategyOptionsEnum
-    //    {
-    //        TPH,
-    //        TPT,
-    //        TPC,
-    //    }
+        public enum InheritanceStrategyOptionsEnum
+        {
+            TPH,
+            TPT,
+            TPC,
+        }
 
-    //    public static DatabaseProviderOptions DatabaseProvider(this DatabaseSettings groupSettings) => new DatabaseProviderOptions(groupSettings.GetSetting("00bb780c-57bf-43c1-b952-303f11096be7")?.Value);
+        public static DatabaseProviderOptions DatabaseProvider(this DatabaseSettings groupSettings) => new DatabaseProviderOptions(groupSettings.GetSetting("00bb780c-57bf-43c1-b952-303f11096be7")?.Value);
 
-    //    public class DatabaseProviderOptions
-    //    {
-    //        public readonly string Value;
+        public class DatabaseProviderOptions
+        {
+            public readonly string Value;
 
-    //        public DatabaseProviderOptions(string value)
-    //        {
-    //            Value = value;
-    //        }
+            public DatabaseProviderOptions(string value)
+            {
+                Value = value;
+            }
 
-    //        public DatabaseProviderOptionsEnum AsEnum()
-    //        {
-    //            return Value switch
-    //            {
-    //                "in-memory" => DatabaseProviderOptionsEnum.InMemory,
-    //                "sql-server" => DatabaseProviderOptionsEnum.SqlServer,
-    //                "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
-    //                "cosmos" => DatabaseProviderOptionsEnum.Cosmos,
-    //                _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
-    //            };
-    //        }
+            public DatabaseProviderOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "in-memory" => DatabaseProviderOptionsEnum.InMemory,
+                    "sql-server" => DatabaseProviderOptionsEnum.SqlServer,
+                    "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
+                    "cosmos" => DatabaseProviderOptionsEnum.Cosmos,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
 
-    //        public bool IsInMemory()
-    //        {
-    //            return Value == "in-memory";
-    //        }
+            public bool IsInMemory()
+            {
+                return Value == "in-memory";
+            }
 
-    //        public bool IsSqlServer()
-    //        {
-    //            return Value == "sql-server";
-    //        }
+            public bool IsSqlServer()
+            {
+                return Value == "sql-server";
+            }
 
-    //        public bool IsPostgresql()
-    //        {
-    //            return Value == "postgresql";
-    //        }
+            public bool IsPostgresql()
+            {
+                return Value == "postgresql";
+            }
 
-    //        public bool IsCosmos()
-    //        {
-    //            return Value == "cosmos";
-    //        }
-    //    }
+            public bool IsCosmos()
+            {
+                return Value == "cosmos";
+            }
+        }
 
-    //    public enum DatabaseProviderOptionsEnum
-    //    {
-    //        InMemory,
-    //        SqlServer,
-    //        Postgresql,
-    //        Cosmos,
-    //    }
-    //}
+        public enum DatabaseProviderOptionsEnum
+        {
+            InMemory,
+            SqlServer,
+            Postgresql,
+            Cosmos,
+        }
+    }
+
+    public static class ModuleSettingsExtensions
+    {
+        public static DatabaseSettings GetDatabaseSettings(this IApplicationSettingsProvider settings)
+        {
+            return new DatabaseSettings(settings.GetGroup("ac0a788e-d8b3-4eea-b56d-538608f1ded9"));
+        }
+    }
+
+    public class DatabaseSettings : IGroupSettings
+    {
+        private readonly IGroupSettings _groupSettings;
+
+        public DatabaseSettings(IGroupSettings groupSettings)
+        {
+            _groupSettings = groupSettings;
+        }
+
+        public string Id => _groupSettings.Id;
+
+        public string Title
+        {
+            get => _groupSettings.Title;
+            set => _groupSettings.Title = value;
+        }
+
+        public ISetting GetSetting(string settingId)
+        {
+            return _groupSettings.GetSetting(settingId);
+        }
+
+        public KeyTypeOptions KeyType() => new KeyTypeOptions(_groupSettings.GetSetting("ef83f85d-bb8d-4b10-8842-9f35f9f54165")?.Value);
+
+        public class KeyTypeOptions
+        {
+            public readonly string Value;
+
+            public KeyTypeOptions(string value)
+            {
+                Value = value;
+            }
+
+            public KeyTypeOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "guid" => KeyTypeOptionsEnum.Guid,
+                    "long" => KeyTypeOptionsEnum.Long,
+                    "int" => KeyTypeOptionsEnum.Int,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsGuid()
+            {
+                return Value == "guid";
+            }
+
+            public bool IsLong()
+            {
+                return Value == "long";
+            }
+
+            public bool IsInt()
+            {
+                return Value == "int";
+            }
+        }
+
+        public enum KeyTypeOptionsEnum
+        {
+            Guid,
+            Long,
+            Int,
+        }
+
+        public KeyCreationModeOptions KeyCreationMode() => new KeyCreationModeOptions(_groupSettings.GetSetting("5aca6e0c-1b64-425b-9046-f0bc81c44311")?.Value);
+
+        public class KeyCreationModeOptions
+        {
+            public readonly string Value;
+
+            public KeyCreationModeOptions(string value)
+            {
+                Value = value;
+            }
+
+            public KeyCreationModeOptionsEnum AsEnum()
+            {
+                return Value switch
+                {
+                    "manual" => KeyCreationModeOptionsEnum.Manual,
+                    "explicit" => KeyCreationModeOptionsEnum.Explicit,
+                    "implicit" => KeyCreationModeOptionsEnum.Implicit,
+                    _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
+                };
+            }
+
+            public bool IsManual()
+            {
+                return Value == "manual";
+            }
+
+            public bool IsImplicit()
+            {
+                return Value == "implicit";
+            }
+
+            public bool IsExplicit()
+            {
+                return Value == "explicit";
+            }
+        }
+
+        public enum KeyCreationModeOptionsEnum
+        {
+            Manual,
+            Implicit,
+            Explicit,
+        }
+    }
 }
