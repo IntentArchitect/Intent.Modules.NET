@@ -14,7 +14,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<ClassA> builder)
         {
-            builder.ToTable("ClassA");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
             builder.HasKey(x => x.Id);
 
@@ -30,9 +30,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureClassC(OwnedNavigationBuilder<ClassB, ClassC> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
-            builder.ToTable("ClassC");
-
+            builder.WithOwner();
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.ClassCAttr)
@@ -41,17 +39,13 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureClassE(OwnedNavigationBuilder<ClassD, ClassE> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
-            builder.ToTable("ClassE");
-
+            builder.WithOwner();
             builder.HasKey(x => x.Id);
         }
 
         public void ConfigureClassDS(OwnedNavigationBuilder<ClassB, ClassD> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.ClassBId);
-            builder.ToTable("ClassD");
-
+            builder.WithOwner();
             builder.HasKey(x => x.Id);
 
             builder.OwnsOne(x => x.ClassE, ConfigureClassE)
@@ -60,9 +54,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureClassBS(OwnedNavigationBuilder<ClassA, ClassB> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.ClassAId);
-            builder.ToTable("ClassB");
-
+            builder.WithOwner();
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.ClassBAttr)

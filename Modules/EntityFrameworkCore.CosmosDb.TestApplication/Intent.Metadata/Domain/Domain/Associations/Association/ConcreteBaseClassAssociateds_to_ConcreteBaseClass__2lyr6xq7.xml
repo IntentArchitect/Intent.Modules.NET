@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e9a2c925-a749-4d1b-b047-9801d52c0cbf">
+  <sourceEnd id="a30dca74-efef-40d2-9caf-2bc91612e82b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ConcreteBaseClassAssociateds</name>
+    <display>ConcreteBaseClassAssociateds: ConcreteBaseClassAssociated[*]</display>
+    <order>2</order>
+    <typeReference id="8e868be6-16d1-4a71-bcea-4df1c36ed485">
+      <typeId>4f1dae3f-6b97-438d-b672-1010ed38b67e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="e9a2c925-a749-4d1b-b047-9801d52c0cbf" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ConcreteBaseClass</name>
+    <display>ConcreteBaseClass: ConcreteBaseClass</display>
+    <order>2</order>
+    <typeReference id="d33bac77-55f8-49ba-9ace-32bfcf86a49e">
+      <typeId>d9ef8cb1-5ec4-42f6-9153-e238b3ca3de9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -47,17 +47,17 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
             }
         }
 
-        private Poly_BaseClassNonAbstract _baseClassNonAbstracts;
+        private ICollection<Poly_BaseClassNonAbstract> _poly_BaseClassNonAbstracts;
 
-        public virtual Poly_BaseClassNonAbstract BaseClassNonAbstracts
+        public virtual ICollection<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts
         {
             get
             {
-                return _baseClassNonAbstracts;
+                return _poly_BaseClassNonAbstracts ??= new List<Poly_BaseClassNonAbstract>();
             }
             set
             {
-                _baseClassNonAbstracts = value;
+                _poly_BaseClassNonAbstracts = value;
             }
         }
 

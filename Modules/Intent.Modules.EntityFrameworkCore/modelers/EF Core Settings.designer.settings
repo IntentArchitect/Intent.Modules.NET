@@ -97,7 +97,9 @@ if (! element.hasStereotype("Cosmos DB Container Settings")) {
 const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element.getParent()) || isBaseClass(element.getParent())) { 
+if (!isCosmosDbProvider() 
+    || !isAggregateRoot(element.getParent()) 
+    || hasOutgoingGeneralizations(element.getParent())) { 
     return; 
 }
 
@@ -127,9 +129,14 @@ function isAggregateRoot(element) {
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
-function isBaseClass(element) {
+function hasIncomingGeneralizations(element) {
     return element.getAssociations("Generalization")
         .some(x =&gt; x.isSourceEnd());
+}
+
+function hasOutgoingGeneralizations(element) {
+    return element.getAssociations("Generalization")
+        .some(x =&gt; x.isTargetEnd());
 }
 
 function getNamingConvention() {
@@ -149,7 +156,9 @@ const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isBaseClass(element)) { 
+if (!isCosmosDbProvider() 
+    || !isAggregateRoot(element) 
+    || hasOutgoingGeneralizations(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
@@ -190,9 +199,14 @@ function isAggregateRoot(element) {
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
-function isBaseClass(element) {
+function hasIncomingGeneralizations(element) {
     return element.getAssociations("Generalization")
         .some(x =&gt; x.isSourceEnd());
+}
+
+function hasOutgoingGeneralizations(element) {
+    return element.getAssociations("Generalization")
+        .some(x =&gt; x.isTargetEnd());
 }
 
 function getNamingConvention() {
@@ -207,7 +221,9 @@ const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isBaseClass(element)) { 
+if (!isCosmosDbProvider() 
+    || !isAggregateRoot(element) 
+    || hasOutgoingGeneralizations(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
@@ -247,9 +263,14 @@ function isAggregateRoot(element) {
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
-function isBaseClass(element) {
+function hasIncomingGeneralizations(element) {
     return element.getAssociations("Generalization")
         .some(x =&gt; x.isSourceEnd());
+}
+
+function hasOutgoingGeneralizations(element) {
+    return element.getAssociations("Generalization")
+        .some(x =&gt; x.isTargetEnd());
 }
 
 function getNamingConvention() {
@@ -264,7 +285,9 @@ const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isBaseClass(element)) { 
+if (!isCosmosDbProvider() 
+    || !isAggregateRoot(element) 
+    || hasOutgoingGeneralizations(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
@@ -304,9 +327,14 @@ function isAggregateRoot(element) {
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
-function isBaseClass(element) {
+function hasIncomingGeneralizations(element) {
     return element.getAssociations("Generalization")
         .some(x =&gt; x.isSourceEnd());
+}
+
+function hasOutgoingGeneralizations(element) {
+    return element.getAssociations("Generalization")
+        .some(x =&gt; x.isTargetEnd());
 }
 
 function getNamingConvention() {
@@ -351,7 +379,9 @@ let element = association?.typeReference?.getType();
 
 if (!element) { return; } 
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isBaseClass(element)) { 
+if (!isCosmosDbProvider() 
+    || !isAggregateRoot(element) 
+    || hasOutgoingGeneralizations(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
@@ -389,9 +419,14 @@ function isAggregateRoot(element) {
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
-function isBaseClass(element) {
+function hasIncomingGeneralizations(element) {
     return element.getAssociations("Generalization")
         .some(x =&gt; x.isSourceEnd());
+}
+
+function hasOutgoingGeneralizations(element) {
+    return element.getAssociations("Generalization")
+        .some(x =&gt; x.isTargetEnd());
 }
 
 function getNamingConvention() {
@@ -433,7 +468,9 @@ let element = association?.typeReference?.getType();
 
 if (!element) { return; } 
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isBaseClass(element)) { 
+if (!isCosmosDbProvider() 
+    || !isAggregateRoot(element) 
+    || hasOutgoingGeneralizations(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
@@ -471,9 +508,14 @@ function isAggregateRoot(element) {
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
-function isBaseClass(element) {
+function hasIncomingGeneralizations(element) {
     return element.getAssociations("Generalization")
         .some(x =&gt; x.isSourceEnd());
+}
+
+function hasOutgoingGeneralizations(element) {
+    return element.getAssociations("Generalization")
+        .some(x =&gt; x.isTargetEnd());
 }
 
 function getNamingConvention() {

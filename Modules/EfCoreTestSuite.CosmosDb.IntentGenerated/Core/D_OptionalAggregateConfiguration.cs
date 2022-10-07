@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<D_OptionalAggregate> builder)
         {
-            builder.ToTable("D_OptionalAggregate");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
             builder.HasKey(x => x.Id);
 
