@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Contracts.Clients</id>
-  <version>3.3.8-pre.0</version>
+  <version>3.3.8</version>
   <supportedClientVersions>[3.3.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Creates generic client application service contracts.</summary>
   <description>Creates generic client application service contracts.</description>
@@ -33,8 +33,8 @@
     <dependency id="Intent.Common" version="3.3.11" />
     <dependency id="Intent.Common.CSharp" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Modelers.ServiceProxies" version="3.3.6-pre.0" />
-    <dependency id="Intent.Metadata.WebApi" version="3.3.9-pre.0" />
+    <dependency id="Intent.Modelers.ServiceProxies" version="3.3.6" />
+    <dependency id="Intent.Metadata.WebApi" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>
