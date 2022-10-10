@@ -10,7 +10,6 @@ using Intent.Modules.EntityFrameworkCore;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection;
-using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]

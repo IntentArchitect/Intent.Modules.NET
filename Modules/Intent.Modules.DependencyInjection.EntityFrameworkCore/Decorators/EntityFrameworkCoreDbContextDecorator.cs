@@ -9,7 +9,6 @@ using Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
-using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

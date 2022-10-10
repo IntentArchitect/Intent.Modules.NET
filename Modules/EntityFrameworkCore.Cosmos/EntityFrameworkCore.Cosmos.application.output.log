@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>a00b9aa1-ee14-44d0-a92a-17d58a03fad6</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <ProjectId>b87269e9-e22e-4b9a-acc0-787e8cab5362</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.EntityFrameworkCore.Cosmos/Intent.EntityFrameworkCore.Cosmos.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.EntityFrameworkCore.Cosmos.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b87269e9-e22e-4b9a-acc0-787e8cab5362</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b87269e9-e22e-4b9a-acc0-787e8cab5362</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.EntityFrameworkCore.Cosmos/Intent.Modules.EntityFrameworkCore.Cosmos.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.Cosmos.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b87269e9-e22e-4b9a-acc0-787e8cab5362</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.EntityFrameworkCore.Cosmos/README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#ac7d2902-5327-435c-9b72-0a6786c134de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

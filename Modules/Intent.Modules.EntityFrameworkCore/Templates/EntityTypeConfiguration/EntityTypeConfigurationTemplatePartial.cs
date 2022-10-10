@@ -245,13 +245,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
-                            RequiredColumn[] columns = null;
                             method.AddMetadata("model", (IElement)associationEnd.Element);
                             method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                             method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
                             method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
-                            EnsureColumnsOnEntity(associationEnd.Element, columns ?? Array.Empty<RequiredColumn>());
                         });
 
                         var field = new EFCoreFieldConfigStatement($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})", associationEnd);
@@ -261,15 +259,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         }
 
                         return field;
-            //            statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
-
-            //            if (!associationEnd.IsNullable)
-            //            {
-            //                statements.Add($"    .Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
-            //            }
-
-            //            return $@"{string.Join(@"
-            //", statements)};";
                     }
 
                     break;
@@ -281,18 +270,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         {
                             @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                             {
-                                RequiredColumn[] columns = null;
                                 method.AddMetadata("model", (IElement)associationEnd.Element);
                                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                                 method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                                 method.Statements.SeparateAll();
-                                EnsureColumnsOnEntity(associationEnd.Element, columns ?? Array.Empty<RequiredColumn>());
                             });
                             var field = new EFCoreFieldConfigStatement($"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})", associationEnd);
 
                             return field;
-                            //return $@"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()});";
                         }
                     }
                     break;
