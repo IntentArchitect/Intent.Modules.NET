@@ -16,6 +16,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Repositories
         void Add(TDomain entity);
         void Remove(TDomain entity);
         Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);

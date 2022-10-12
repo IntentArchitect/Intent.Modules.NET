@@ -15,5 +15,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
         /// Get the persistent object's identifier
         /// </summary>
         Guid Id { get; }
+        string Tag { get; set; }
     }
 }

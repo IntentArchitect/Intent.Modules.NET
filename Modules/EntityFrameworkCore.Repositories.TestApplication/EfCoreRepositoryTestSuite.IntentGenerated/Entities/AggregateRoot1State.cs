@@ -25,5 +25,16 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
             set { _id = value; }
         }
 
+        private string _tag;
+
+        public string Tag
+        {
+            get { return _tag; }
+            set
+            {
+                _tag = value;
+            }
+        }
+
     }
 }

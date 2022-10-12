@@ -14,6 +14,10 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<AggregateRoot1> builder)
         {
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Tag)
+                .IsRequired()
+                .HasMaxLength(125);
         }
     }
 }
