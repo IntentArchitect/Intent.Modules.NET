@@ -24,7 +24,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
         public void ConfigureA_OptionalDependent(OwnedNavigationBuilder<A_RequiredComposite, A_OptionalDependent> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
 
             builder.HasKey(x => x.Id);
 

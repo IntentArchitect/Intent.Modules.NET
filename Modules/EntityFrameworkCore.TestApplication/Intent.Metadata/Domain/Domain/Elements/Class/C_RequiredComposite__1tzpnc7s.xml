@@ -43,12 +43,6 @@
             <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="41adb04f-ad7d-4969-8954-265e1ba8a783" name="Row Version">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.EntityFrameworkCore</definitionPackageName>
-          <definitionPackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</definitionPackageId>
-          <properties />
-        </stereotype>
       </stereotypes>
       <metadata />
       <childElements />

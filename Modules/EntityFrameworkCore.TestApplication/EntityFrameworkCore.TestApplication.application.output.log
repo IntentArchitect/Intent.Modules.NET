@@ -30,7 +30,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/B_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>B_OptionalAggregateConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
@@ -110,7 +110,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/F_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>F_OptionalAggregateNavConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
@@ -310,7 +310,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/B_OptionalAggregateState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/B_OptionalAggregateState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -342,7 +342,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/C_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/C_MultipleDependentState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -374,7 +374,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/D_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/D_MultipleDependentState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -470,7 +470,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/F_OptionalAggregateNavState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/F_OptionalAggregateNavState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -502,7 +502,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/G_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/G_MultipleDependentState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -534,7 +534,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/H_MultipleDependentState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/H_MultipleDependentState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -750,7 +750,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/J_MultipleAggregateState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/J_MultipleAggregateState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -782,7 +782,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/K_SelfReferenceState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/K_SelfReferenceState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -798,7 +798,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/L_SelfReferenceMultipleState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/L_SelfReferenceMultipleState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -814,7 +814,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/M_SelfReferenceBiNavState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/M_SelfReferenceBiNavState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
@@ -838,7 +838,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/ExplicitKeys/FK_A_CompositeForeignKeyState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/FK_A_CompositeForeignKeyState.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>

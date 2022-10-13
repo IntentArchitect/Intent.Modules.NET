@@ -24,7 +24,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
 
         public void ConfigureG_MultipleDependents(OwnedNavigationBuilder<G_RequiredCompositeNav, G_MultipleDependent> builder)
         {
-            builder.WithOwner(x => x.G_RequiredCompositeNav).HasForeignKey(x => x.G_RequiredCompositeNavId);
+            builder.WithOwner(x => x.G_RequiredCompositeNav)
+                .HasForeignKey(x => x.G_RequiredCompositeNavId);
 
             builder.HasKey(x => x.Id);
 
