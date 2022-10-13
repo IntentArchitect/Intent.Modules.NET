@@ -8,6 +8,7 @@ using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.CosmosDb.IntegrationTests;
 
@@ -16,9 +17,10 @@ public class InheritanceTPHTests
 {
     private readonly DataContainerFixture _fixture;
 
-    public InheritanceTPHTests(DataContainerFixture fixture)
+    public InheritanceTPHTests(DataContainerFixture fixture, ITestOutputHelper outputHelper)
     {
         _fixture = fixture;
+        fixture.OutputHelper = outputHelper;
     }
 
     private ApplicationDbContext DbContext => _fixture.DbContext;
