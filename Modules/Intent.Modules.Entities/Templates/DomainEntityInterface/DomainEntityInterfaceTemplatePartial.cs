@@ -33,6 +33,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         public DomainEntityInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             _metadataManager = ExecutionContext.MetadataManager;
+            AddTypeSource(DomainEnumTemplate.TemplateId).WithCollectionFormat("ICollection<{0}>");
             AddTypeSource("Domain.ValueObject", "ICollection<{0}>");
         }
 
