@@ -72,7 +72,11 @@ public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
     private TDbContext CreateContext(DbTransaction transaction = null)
     {
         var context = (TDbContext)Activator.CreateInstance(typeof(TDbContext),
-            new DbContextOptionsBuilder<TDbContext>().LogTo(OutputHelper.WriteLine).UseSqlServer(Connection).Options)!;
+            new DbContextOptionsBuilder<TDbContext>()
+                .LogTo(OutputHelper.WriteLine)
+                .UseSqlServer(Connection)
+                .EnableSensitiveDataLogging()
+                .Options)!;
 
         if (transaction != null)
         {
