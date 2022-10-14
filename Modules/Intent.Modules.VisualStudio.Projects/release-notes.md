@@ -1,4 +1,7 @@
-﻿### Version 3.3.15
+﻿### Version 3.3.16
+ - Fixed: Nullable types not being indicated when `Nullable` is set to `enable`.
+
+### Version 3.3.15
 
 - Updated `Nullable` stereotype property for the `C# Project Options` stereotype to have all available options for `.csproj` files.
 

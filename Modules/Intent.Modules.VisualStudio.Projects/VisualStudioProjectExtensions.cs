@@ -40,7 +40,7 @@ namespace Intent.Modules.VisualStudio.Projects
 
         private static bool NullableIsEnabled(this IHasStereotypes element)
         {
-            var stereotype = element.GetStereotype("C# Options");
+            var stereotype = element.GetStereotype("C# Project Options");
 
             return stereotype?.GetProperty<string>("Nullable") == "enable" ||
                    stereotype?.GetProperty<string>("Nullable") == "warnings" ||
