@@ -1,4 +1,5 @@
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Modules.Metadata.RDBMS.Settings;
@@ -29,7 +30,8 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
 
         public override string AfterAttributes()
         {
-            if (_template.Model.ParentClass != null && (!_template.Model.ParentClass.IsAbstract || !_template.ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()))
+            //if (_template.Model.ParentClass != null && (!_template.Model.ParentClass.IsAbstract || !_template.ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()))
+            if (_template.Model.ParentClass?.IsAggregateRoot() == true || !_template.Model.IsAggregateRoot())
             {
                 return null;
             }

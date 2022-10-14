@@ -149,6 +149,38 @@
         <type order="13">Template Output</type>
         <type order="14">Stereotype-Definition</type>
       </typeOrder>
+      <macros>
+        <macro trigger="on-loaded">
+          <script>var elementTypes = [
+    "Class Library (.NET Core)",
+    "ASP.NET Core Web Application",
+    "Console App (.NET Framework)",
+    "Class Library (.NET Framework)",
+    "ASP.NET Web Application (.NET Framework)",
+    "WCF Service Application",
+    "Azure Functions Project",
+    "Console App (.NET Core)"
+];
+
+const elements = elementTypes.map(type =&gt; lookupTypesOf(type)).flat();
+
+for (let element of elements) {
+    const stereotype = element.getStereotype("C# Project Options");
+    const nullableProperty = stereotype?.getProperty("Nullable");
+    const nullableEnabledProperty = stereotype?.getProperty("Nullable Enabled");
+
+    if (nullableProperty?.value != null &amp;&amp; nullableProperty?.value?.trim() !== "") {
+        nullableEnabledProperty.setValue(false);
+    }
+
+    if (nullableEnabledProperty?.value == true) {
+        nullableEnabledProperty.setValue(false);
+        nullableProperty.setValue("enable");
+    }
+}
+</script>
+        </macro>
+      </macros>
     </packageSetting>
   </packageSettings>
   <packageExtensions />

@@ -27,11 +27,10 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
             _element = element;
-
             RelativeLocation = this.GetCSharpProjectOptions()?.RelativeLocation();
             ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
             LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
-            NullableEnabled = this.GetCSharpProjectOptions()?.NullableEnabled() ?? false;
+            NullableEnabled = this.NullableIsEnabled();
         }
 
         public string RelativeLocation { get; }

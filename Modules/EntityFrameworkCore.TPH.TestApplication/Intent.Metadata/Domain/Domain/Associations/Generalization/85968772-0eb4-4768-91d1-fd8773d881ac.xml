@@ -3,7 +3,7 @@
   <sourceEnd id="5ae004fa-ae35-4109-947a-00f16971e9ad" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>FkDerivedClass</name>
     <display>FkDerivedClass: FkDerivedClass</display>
-    <order>2</order>
+    <order>3</order>
     <typeReference id="77244904-9909-4734-9755-01def9c36588">
       <typeId>4ac4980a-ce7d-4871-a7a3-9f6bb874ad0b</typeId>
       <isNavigable>false</isNavigable>
@@ -21,7 +21,7 @@
   <targetEnd id="85968772-0eb4-4768-91d1-fd8773d881ac" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>FkBaseClass</name>
     <display>FkBaseClass: FkBaseClass</display>
-    <order>0</order>
+    <order>1</order>
     <typeReference id="801f5b12-1f22-40ae-973a-c356a2a4fe03">
       <typeId>3fdfe3ff-2cb4-4642-baaa-6ce3c14bd826</typeId>
       <isNavigable>true</isNavigable>

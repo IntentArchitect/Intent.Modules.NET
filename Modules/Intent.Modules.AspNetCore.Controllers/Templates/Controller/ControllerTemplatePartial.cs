@@ -22,8 +22,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>
     {
-        [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
+        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public ControllerTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
@@ -69,13 +68,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         public HttpVerb GetHttpVerb(OperationModel operation)
         {
             var verb = operation.GetHttpSettings().Verb();
+
             return Enum.TryParse(verb.Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
         }
 
 
         private string GetControllerBase()
         {
-            return GetDecorators().Select(x => x.BaseClass()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x)) ?? "ControllerBase";
+            return GetDecorators().Select(x => x.BaseClass()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x)) ??
+                   "ControllerBase";
         }
 
         private string GetControllerAttributes()
@@ -86,10 +87,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 // We can extend this later (if desired) to have multiple Secure stereotypes create
                 // multiple Authorization Models.
                 var authModel = new AuthorizationModel();
-                GetDecorators().ToList().ForEach(x => x.UpdateServiceAuthorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
+                GetDecorators().ToList().ForEach(x =>
+                    x.UpdateServiceAuthorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
                 attributes.Add(GetAuthorizationAttribute(authModel));
             }
-            attributes.Add($@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
+
+            attributes.Add(
+                $@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
             attributes.AddRange(GetDecorators().SelectMany(x => x.GetControllerAttributes()));
             return string.Join(@"
     ", attributes);
@@ -102,23 +106,27 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             lines.Add($"/// <summary>");
             if (!string.IsNullOrWhiteSpace(operation.Comment))
             {
-                foreach (var commentLine in operation.Comment.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var commentLine in operation.Comment.Split(new[] { '\n', '\r' },
+                             StringSplitOptions.RemoveEmptyEntries))
                 {
                     lines.Add($"/// {commentLine}");
                 }
             }
+
             lines.Add($"/// </summary>");
             switch (GetHttpVerb(operation))
             {
                 case HttpVerb.Get:
-                    lines.Add($"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
+                    lines.Add(
+                        $"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
                 case HttpVerb.Post:
                     lines.Add($"/// <response code=\"201\">Successfully created.</response>");
                     break;
                 case HttpVerb.Patch:
                 case HttpVerb.Put:
-                    lines.Add($"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
+                    lines.Add(
+                        $"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
                     break;
                 case HttpVerb.Delete:
                     lines.Add($"/// <response code=\"200\">Successfully deleted.</response>");
@@ -131,15 +139,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 lines.Add($"/// <response code=\"400\">One or more validation errors have occurred.</response>");
             }
+
             if (IsOperationSecured(operation))
             {
                 lines.Add($"/// <response code=\"401\">Unauthorized request.</response>");
                 lines.Add($"/// <response code=\"403\">Forbidden request.</response>");
             }
+
             if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
-                lines.Add($"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
+                lines.Add(
+                    $"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
             }
+
             return string.Join(@"
         ", lines);
         }
@@ -148,7 +160,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             var attributes = new List<string>();
             attributes.Add(GetHttpVerbAndPath(operation));
-            if ((!IsControllerSecured() && operation.HasSecured()) || !string.IsNullOrWhiteSpace(operation.GetSecured()?.Roles()))
+            if ((!IsControllerSecured() && operation.HasSecured()) ||
+                !string.IsNullOrWhiteSpace(operation.GetSecured()?.Roles()))
             {
                 // We can extend this later (if desired) to have multiple Secure stereotypes create
                 // multiple Authorization Models.
@@ -157,14 +170,16 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 // better approach at a later stage.
                 // TODO: GCB - convert the auth system to use a generic role/policy based system that decouples it from WebApi module.
                 var authModel = new AuthorizationModel();
-                GetDecorators().ToList().ForEach(x => x.UpdateOperationAuthorization(authModel, new OperationSecureModel(operation, operation.GetSecured())));
+                GetDecorators().ToList().ForEach(x =>
+                    x.UpdateOperationAuthorization(authModel,
+                        new OperationSecureModel(operation, operation.GetSecured())));
                 attributes.Add(GetAuthorizationAttribute(authModel));
             }
             else if (IsControllerSecured() && operation.HasUnsecured())
             {
                 attributes.Add("[AllowAnonymous]");
             }
-            
+
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
             if (operation.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson()
                 && (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType()))
@@ -197,15 +212,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status400BadRequest)]");
             }
+
             if (IsOperationSecured(operation))
             {
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status401Unauthorized)]");
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]");
             }
+
             if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
                 attributes.Add($@"[ProducesResponseType(StatusCodes.Status404NotFound)]");
             }
+
             attributes.Add(@"[ProducesResponseType(StatusCodes.Status500InternalServerError)]");
             return string.Join(@"
         ", attributes);
@@ -213,7 +231,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private static string GetAuthorizationAttribute(AuthorizationModel authorizationModel)
         {
-            if (authorizationModel == null) { throw new ArgumentNullException(nameof(authorizationModel)); }
+            if (authorizationModel == null)
+            {
+                throw new ArgumentNullException(nameof(authorizationModel));
+            }
 
             var fieldExpressions = new List<string>();
 
@@ -252,7 +273,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private string GetHttpVerbAndPath(OperationModel o)
         {
-            return $"[Http{GetHttpVerb(o).ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]";
+            return
+                $"[Http{GetHttpVerb(o).ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]";
         }
 
         private string GetOperationParameters(OperationModel operation)
@@ -266,7 +288,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 case HttpVerb.Get:
                 case HttpVerb.Delete:
                 case HttpVerb.Patch:
-                    parameters.AddRange(operation.Parameters.Select(x => $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
+                    parameters.AddRange(operation.Parameters.Select(x =>
+                        $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
                     break;
                 default:
                     throw new NotSupportedException($"{verb} not supported");
@@ -318,7 +341,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromBody => "[FromBody]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromForm => "[FromForm]",
-                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader => $@"[FromHeader(Name = ""{parameter.GetParameterSettings().HeaderName()}"")]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader =>
+                    $@"[FromHeader(Name = ""{parameter.GetParameterSettings().HeaderName()}"")]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromQuery => "[FromQuery]",
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => "[FromRoute]",
                 _ => string.Empty
@@ -348,32 +372,27 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             /// <summary>
             /// Obsolete. Use <see cref="Get"/> instead.
             /// </summary>
-            [Obsolete(WillBeRemovedIn.Version4)]
-            GET = 0,
+            [Obsolete(WillBeRemovedIn.Version4)] GET = 0,
 
             /// <summary>
             /// Obsolete. Use <see cref="Post"/> instead.
             /// </summary>
-            [Obsolete(WillBeRemovedIn.Version4)]
-            POST = 1,
+            [Obsolete(WillBeRemovedIn.Version4)] POST = 1,
 
             /// <summary>
             /// Obsolete. Use <see cref="Put"/> instead.
             /// </summary>
-            [Obsolete(WillBeRemovedIn.Version4)]
-            PUT = 2,
+            [Obsolete(WillBeRemovedIn.Version4)] PUT = 2,
 
             /// <summary>
             /// Obsolete. Use <see cref="Patch"/> instead.
             /// </summary>
-            [Obsolete(WillBeRemovedIn.Version4)]
-            PATCH = 3,
+            [Obsolete(WillBeRemovedIn.Version4)] PATCH = 3,
 
             /// <summary>
             /// Obsolete. Use <see cref="Delete"/> instead.
             /// </summary>
-            [Obsolete(WillBeRemovedIn.Version4)]
-            DELETE = 4
+            [Obsolete(WillBeRemovedIn.Version4)] DELETE = 4
             // ReSharper restore InconsistentNaming
         }
     }

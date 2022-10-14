@@ -3,10 +3,10 @@
   <name>ConcreteBaseClass</name>
   <display>ConcreteBaseClass</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>1043a8cb-2ffb-451f-9188-abbb07731684</parentFolderId>
+  <parentFolderId>1d2c620a-fe4c-492f-9787-e1be1fc8001e</parentFolderId>
   <packageId>1043a8cb-2ffb-451f-9188-abbb07731684</packageId>
   <packageName>Domain</packageName>
   <stereotypes />
@@ -16,7 +16,6 @@
       <name>baseAttribute</name>
       <display>baseAttribute: string</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="59498a3e-6b6b-4e6a-af85-9f32904470cb">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>

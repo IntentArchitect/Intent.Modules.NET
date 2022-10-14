@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="307cad41-3168-417b-8510-3f73be462c28">
+  <sourceEnd id="261cbda4-0436-4f85-89ff-24813453343f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Poly_RootAbstract</name>
+    <display>Poly_RootAbstract: Poly_RootAbstract</display>
+    <order>1</order>
+    <typeReference id="5f33fbb2-b5ec-4525-9aa8-da2b07c6bc0a">
+      <typeId>edc78564-7dbb-480b-8b9d-eb5edbe7510d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>b748206d-7507-4ed0-9a6a-3620e61dba75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="307cad41-3168-417b-8510-3f73be462c28" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Poly_RootAbstract_Comp</name>
+    <display>Poly_RootAbstract_Comp: Poly_RootAbstract_Comp?</display>
+    <order>2</order>
+    <typeReference id="49af83c2-9d06-40bd-a20b-8bad4dccd1fb">
+      <typeId>e98eb08c-8f99-485d-b6f3-2648a36c8444</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>b748206d-7507-4ed0-9a6a-3620e61dba75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

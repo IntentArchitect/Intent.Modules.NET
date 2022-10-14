@@ -105,6 +105,412 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FkDerivedClass.cs</DependentUpon>
     </Compile>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Compile Update="Entities\DerivedClassForAbstractAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstractAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DerivedClassForConcreteAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcreteAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForAbstractAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstractAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedClassForConcreteAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcreteAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AbstractBaseClassAssociationState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ConcreteBaseClassAssociationState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FkBaseClassAssociationState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAbstractBaseClassAssociation.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IConcreteBaseClassAssociation.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFkBaseClassAssociation.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociation.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AbstractBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ConcreteBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FkBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAbstractBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IConcreteBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IFkBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_PolyBaseState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_PolyBase.cs</DependentUpon>
+    </Compile>
+    
+    
+    
+    
+    
+    
+    
+    <Compile Update="Entities\IA_PolyBase.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_PolyBase.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\BaseClassNonAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\ConcreteAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\ConcreteBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\RootAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RootAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\SecondLevelState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SecondLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\TopLevelState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TopLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IBaseClassNonAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IConcreteA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IConcreteB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IRootAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RootAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\ISecondLevel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SecondLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\ITopLevel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TopLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_ConcreteAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_ConcreteBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_ConcreteA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_ConcreteB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_ConcreteB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\AbstractBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\AbstractBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\ConcreteBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\ConcreteBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\DerivedClassForAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\DerivedClassForAbstractAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstractAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\DerivedClassForConcreteState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\DerivedClassForConcreteAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcreteAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\FkAssociatedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkAssociatedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\FkBaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\FkBaseClassAssociatedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\FkDerivedClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkDerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IAbstractBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IAbstractBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AbstractBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IConcreteBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IConcreteBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConcreteBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IDerivedClassForAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IDerivedClassForAbstractAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForAbstractAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IDerivedClassForConcrete.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcrete.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IDerivedClassForConcreteAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedClassForConcreteAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IFkAssociatedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkAssociatedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IFkBaseClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IFkBaseClassAssociated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkBaseClassAssociated.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\InheritanceAssociations\IFkDerivedClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FkDerivedClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_BaseClassNonAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_RootAbstractState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_SecondLevelState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_SecondLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_TopLevelState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_TopLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_BaseClassNonAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_BaseClassNonAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_RootAbstract.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_SecondLevel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_SecondLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_TopLevel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_TopLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Poly_RootAbstract_AggrState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Poly_RootAbstract_CompState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IPoly_RootAbstract_Aggr.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IPoly_RootAbstract_Comp.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_RootAbstract_AggrState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\Poly_RootAbstract_CompState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_RootAbstract_Aggr.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Aggr.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Polymorphic\IPoly_RootAbstract_Comp.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Poly_RootAbstract_Comp.cs</DependentUpon>
+    </Compile>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   </ItemGroup>
 
 </Project>

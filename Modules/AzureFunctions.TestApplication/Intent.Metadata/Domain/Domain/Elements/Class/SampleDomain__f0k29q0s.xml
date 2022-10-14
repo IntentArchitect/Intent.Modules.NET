@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="88205bbc-0e84-4485-97d0-fb014b7e5885" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>SampleDomain</name>
+  <display>SampleDomain</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ceda57f8-3dd9-4a6f-a4d7-369b83eb82ed</parentFolderId>
+  <packageId>ceda57f8-3dd9-4a6f-a4d7-369b83eb82ed</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

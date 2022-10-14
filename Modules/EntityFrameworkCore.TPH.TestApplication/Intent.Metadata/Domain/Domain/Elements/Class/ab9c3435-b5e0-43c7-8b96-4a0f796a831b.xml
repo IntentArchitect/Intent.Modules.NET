@@ -3,10 +3,10 @@
   <name>DerivedClassForConcrete</name>
   <display>DerivedClassForConcrete</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>b748206d-7507-4ed0-9a6a-3620e61dba75</parentFolderId>
+  <parentFolderId>bdcaafd7-1485-4b2f-800c-1f6a0f4c7063</parentFolderId>
   <packageId>b748206d-7507-4ed0-9a6a-3620e61dba75</packageId>
   <packageName>Domain</packageName>
   <stereotypes />
@@ -16,7 +16,6 @@
       <name>derivedAttribute</name>
       <display>derivedAttribute: string</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="82dc8f1a-82b2-4c43-8241-32e58e3f2c7b">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>

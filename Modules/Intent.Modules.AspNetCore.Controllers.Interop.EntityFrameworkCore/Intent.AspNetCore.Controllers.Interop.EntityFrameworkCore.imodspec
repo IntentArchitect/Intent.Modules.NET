@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</id>
-  <version>3.3.10-pre.0</version>
+  <version>3.3.11-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.Net.</summary>
   <description>A custom module for Intent.Modules.Net.</description>
@@ -21,7 +21,8 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <decorators>
-    <decorator id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerDecorator" externalReference="4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe" />
+    <decorator id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerBeginDecorator" externalReference="4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe" />
+    <decorator id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerEndDecorator" externalReference="e9b880a7-9b7a-402f-b3f2-0235fb329f57" />
   </decorators>
   <metadata />
   <moduleSettings />

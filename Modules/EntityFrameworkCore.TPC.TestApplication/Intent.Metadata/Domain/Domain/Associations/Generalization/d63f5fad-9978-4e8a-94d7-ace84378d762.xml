@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d63f5fad-9978-4e8a-94d7-ace84378d762">
+  <sourceEnd id="fb8545f9-7c45-4e64-9483-ce376bd0694e" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <name>ConcreteB</name>
+    <display>ConcreteB: Poly_ConcreteB</display>
+    <order>4</order>
+    <typeReference id="3bb4c008-b509-4da9-a388-d8b314927ef5">
+      <typeId>d071850f-1c8b-4118-9868-540938e7da28</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="d63f5fad-9978-4e8a-94d7-ace84378d762" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>BaseClassNonAbstract</name>
+    <display>BaseClassNonAbstract: Poly_BaseClassNonAbstract</display>
+    <order>1</order>
+    <typeReference id="f8c514a5-e92a-4b0e-88e2-0112522690fe">
+      <typeId>6e952030-872c-4ad3-846c-9f859eac0d86</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>839dc29b-ff64-4542-935b-f561cf1cd68c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

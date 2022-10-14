@@ -3,10 +3,10 @@
   <name>FkBaseClass</name>
   <display>FkBaseClass</display>
   <isAbstract>false</isAbstract>
-  <order>6</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>b748206d-7507-4ed0-9a6a-3620e61dba75</parentFolderId>
+  <parentFolderId>bdcaafd7-1485-4b2f-800c-1f6a0f4c7063</parentFolderId>
   <packageId>b748206d-7507-4ed0-9a6a-3620e61dba75</packageId>
   <packageName>Domain</packageName>
   <stereotypes />
@@ -16,7 +16,6 @@
       <name>compositeKeyA</name>
       <display>compositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="bce42e32-da0c-42fd-bb89-073a95ae2a89">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -50,7 +49,6 @@
       <name>compositeKeyB</name>
       <display>compositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <typeReference id="f79b400e-c189-4030-aa4d-01e9efe23008">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>

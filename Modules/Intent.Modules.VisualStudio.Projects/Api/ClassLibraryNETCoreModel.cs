@@ -16,6 +16,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     public class ClassLibraryNETCoreModel : IHasStereotypes, IMetadataModel, IVisualStudioProject, IHasName
     {
         public const string SpecializationType = "Class Library (.NET Core)";
+        public const string SpecializationTypeId = "52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE";
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Ignore)]
@@ -29,7 +30,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             RelativeLocation = this.GetCSharpProjectOptions()?.RelativeLocation();
             ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
             LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
-            NullableEnabled = this.GetCSharpProjectOptions()?.NullableEnabled() ?? false;
+            NullableEnabled = this.NullableIsEnabled();
         }
 
         public string RelativeLocation { get; }
@@ -104,7 +105,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .GetElementsOfType(FolderModel.SpecializationTypeId)
             .Select(x => new FolderModel(x))
             .ToList();
-        public const string SpecializationTypeId = "52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE";
 
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
             .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)

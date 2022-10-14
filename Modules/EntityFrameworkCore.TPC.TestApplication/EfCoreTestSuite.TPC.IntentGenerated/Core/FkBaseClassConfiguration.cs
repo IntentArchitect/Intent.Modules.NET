@@ -1,5 +1,6 @@
 using System;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities;
+using EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -16,6 +17,9 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             builder.ToTable("FkBaseClass");
 
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
+
+            builder.Ignore(e => e.DomainEvents);
+
         }
     }
 }

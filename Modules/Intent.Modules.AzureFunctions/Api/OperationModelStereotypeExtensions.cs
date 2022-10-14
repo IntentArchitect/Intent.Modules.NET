@@ -280,7 +280,7 @@ namespace Intent.AzureFunctions.Api
                 Default,
                 ApplicationJson
             }
-            
+
             [IntentManaged(Mode.Ignore)]
             public HttpTriggerView GetHttpTriggerView()
             {

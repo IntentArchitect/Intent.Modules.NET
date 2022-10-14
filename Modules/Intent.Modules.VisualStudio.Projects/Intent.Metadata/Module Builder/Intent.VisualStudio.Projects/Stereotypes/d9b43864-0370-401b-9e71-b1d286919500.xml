@@ -62,15 +62,30 @@
       <lookupTypes />
     </property>
     <property id="415a5406-0517-4c0e-ab60-bc809a23c308">
+      <comment>This stereotype property exists for backwards compatibility reasons, use the "Nullable" property instead which will take precedence over this one.</comment>
+      <hint />
       <name>Nullable Enabled</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return false;</isActiveFunction>
+    </property>
+    <property id="68a31b13-148b-45da-a6ea-5a6883f86438">
+      <name>Nullable</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue>false</defaultValue>
+      <placeholder>(unmanaged)</placeholder>
       <valueOptions>
-        <option>false</option>
-        <option>true</option>
+        <option>(unspecified)</option>
+        <option>disable</option>
+        <option>enable</option>
+        <option>warnings</option>
+        <option>annotations</option>
       </valueOptions>
       <lookupTypes />
     </property>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -34,7 +35,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetServiceModels();
+            return _metadataManager.Services(application).GetServiceModels()
+                .Where(p => p.Operations.Any(q => q.HasHttpSettings()))
+                .ToArray();
         }
     }
 }

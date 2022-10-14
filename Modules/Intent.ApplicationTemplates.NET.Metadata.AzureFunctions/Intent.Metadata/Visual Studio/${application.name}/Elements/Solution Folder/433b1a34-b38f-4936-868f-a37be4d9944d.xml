@@ -4,7 +4,7 @@
   <display>4 - Infrastructure</display>
   <externalReference>7b15410d-dfdf-4692-a562-7c173e4c8373</externalReference>
   <isAbstract>false</isAbstract>
-  <order>4</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>67749b77-24df-418f-8182-3e3b857247a8</parentFolderId>

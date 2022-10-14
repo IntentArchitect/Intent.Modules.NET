@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.12" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.20" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.5" />
     <PackageReference Include="Intent.Packager" Version="3.3.0">
@@ -14,7 +14,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.2" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
   </ItemGroup>
 
   <ItemGroup>

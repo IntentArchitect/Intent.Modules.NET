@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="42c5ef7a-89f0-4bb0-b685-15d5172b320e" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>While EFCore doesn't support TPC out the box, this kind of polymorphic relationship will not be possible unless you silently convert it to a TPT behind the scenes in which case the BaseClass needs to no longer indicate it has a Key and the RootAbstact makes its own table.</name>
+  <display>While EFCore doesn't support TPC out the box, this kind of polymorphic relationship will not be possible unless you silently convert it to a TPT behind the scenes in which case the BaseClass needs to no longer indicate it has a Key and the RootAbstact makes its own table.</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b0705a80-90d5-40f8-9330-31e1fbb102c3</parentFolderId>
+  <packageId>839dc29b-ff64-4542-935b-f561cf1cd68c</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

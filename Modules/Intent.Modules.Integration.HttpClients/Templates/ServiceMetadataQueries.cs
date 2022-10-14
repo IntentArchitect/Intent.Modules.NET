@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
@@ -15,10 +16,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates;
 // I've decided to abstract those concerns in this class.
 public static class ServiceMetadataQueries
 {
-    private const string StereotypeHttpServiceSettings = "Http Service Settings";
-    private const string StereotypeHttpSettings = "Http Settings";
     private const string StereotypeAzureFunction = "Azure Function";
-    private const string StereotypeHttpServiceParameterSettings = "Parameter Settings";
     private const string StereotypeAzureFunctionParameterSettings = "Parameter Setting";
 
     public static void Validate(IntentTemplateBase template, ServiceProxyModel serviceProxy)
@@ -36,7 +34,7 @@ public static class ServiceMetadataQueries
     public static string GetRelativeUri(OperationModel operation)
     {
         var serviceRoute = GetRoute(operation.ParentService) ?? string.Empty;
-        var serviceName = operation.ParentService.HasStereotype(StereotypeHttpServiceSettings)
+        var serviceName = operation.ParentService.HasHttpServiceSettings()
             ? operation.ParentService.Name.RemoveSuffix("Controller", "Service")
             : string.Empty;
         serviceRoute = serviceRoute.Replace("[controller]", serviceName);
@@ -49,7 +47,7 @@ public static class ServiceMetadataQueries
         var operationRoute = GetRoute(operation) ?? string.Empty;
         operationRoute = operationRoute.Replace("[action]", operation.Name);
 
-        return $"/{serviceRoute}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute}";
+        return $"/{serviceRoute.ToLower()}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute.ToLower()}";
     }
 
     public static IReadOnlyCollection<ParameterModel> GetQueryParameters(IntentTemplateBase template, OperationModel operation)
@@ -100,7 +98,7 @@ public static class ServiceMetadataQueries
 
     public static string GetHttpVerb(OperationModel operation)
     {
-        var webApiVerb = operation.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Verb");
+        var webApiVerb = operation.GetHttpSettings()?.Verb()?.Value;
         if (webApiVerb != null)
         {
             return webApiVerb.ToLower().ToPascalCase();
@@ -117,7 +115,7 @@ public static class ServiceMetadataQueries
 
     private static string GetRoute(ServiceModel serviceModel)
     {
-        var webApiRoute = serviceModel.GetStereotype(StereotypeHttpServiceSettings)?.GetProperty<string>("Route");
+        var webApiRoute = serviceModel.GetHttpServiceSettings()?.Route();
         if (webApiRoute != null)
         {
             return webApiRoute;
@@ -130,7 +128,7 @@ public static class ServiceMetadataQueries
 
     private static string GetRoute(OperationModel operationModel)
     {
-        var webApiRoute = operationModel.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Route");
+        var webApiRoute = operationModel.GetHttpSettings()?.Route();
         if (webApiRoute != null)
         {
             return webApiRoute;
@@ -147,7 +145,7 @@ public static class ServiceMetadataQueries
 
     private static string GetSource(OperationModel operationModel, ParameterModel parameterModel)
     {
-        var webApiSource = parameterModel.GetStereotype(StereotypeHttpServiceParameterSettings)?.GetProperty<string>("Source");
+        var webApiSource = parameterModel.GetParameterSettings()?.Source()?.Value;
         if (webApiSource != null)
         {
             return webApiSource;
@@ -164,7 +162,7 @@ public static class ServiceMetadataQueries
 
     private static string GetHeaderName(OperationModel operationModel, ParameterModel parameterModel)
     {
-        var webApiHeaderName = parameterModel.GetStereotype(StereotypeHttpServiceParameterSettings)?.GetProperty<string>("Header Name");
+        var webApiHeaderName = parameterModel.GetParameterSettings()?.HeaderName();
         if (webApiHeaderName != null)
         {
             return webApiHeaderName;
@@ -182,7 +180,7 @@ public static class ServiceMetadataQueries
 
     public static bool HasJsonWrappedReturnType(OperationModel operationModel)
     {
-        var webApiMediatype = operationModel.GetStereotype(StereotypeHttpSettings)?.GetProperty<string>("Return Type Mediatype");
+        var webApiMediatype = operationModel.GetHttpSettings()?.ReturnTypeMediatype()?.Value;
         if (webApiMediatype != null)
         {
             return webApiMediatype == "application/json";

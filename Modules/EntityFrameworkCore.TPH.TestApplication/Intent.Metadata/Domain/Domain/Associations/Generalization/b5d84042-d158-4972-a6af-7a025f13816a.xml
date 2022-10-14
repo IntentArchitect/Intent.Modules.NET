@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b5d84042-d158-4972-a6af-7a025f13816a">
+  <sourceEnd id="e7ce3cc6-f2a7-4bbd-ba5d-4d27182dc1ff" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <name>BaseClassNonAbstract</name>
+    <display>BaseClassNonAbstract: Poly_BaseClassNonAbstract</display>
+    <order>4</order>
+    <typeReference id="96f59537-5c9f-4f44-b639-d124dc37b9c4">
+      <typeId>93cbd4c1-3549-4f13-9f4c-6f95247c0664</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>b748206d-7507-4ed0-9a6a-3620e61dba75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="b5d84042-d158-4972-a6af-7a025f13816a" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>RootAbstract</name>
+    <display>RootAbstract: Poly_RootAbstract</display>
+    <order>1</order>
+    <typeReference id="00a658b7-3110-4976-9f65-2d9e3fe3d1c2">
+      <typeId>edc78564-7dbb-480b-8b9d-eb5edbe7510d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain</typePackageName>
+      <typePackageId>b748206d-7507-4ed0-9a6a-3620e61dba75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

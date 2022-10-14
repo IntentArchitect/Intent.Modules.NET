@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{C0770AE4-4DAE-43BC-9747-6472DCC95A39}"
+EndProject
+Project("{73E51385-5E20-4E2C-AA0B-6EB2DC8DE52E}") = "AzureFunctions.TestApplication.Api", "AzureFunctions.TestApplication.Api\AzureFunctions.TestApplication.Api.csproj", "{ACB70D7B-9233-45A2-B3AC-93DEBF6B113D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{CAF899DF-8FCC-4521-9034-9DCD0B88F600}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureFunctions.TestApplication.Application", "AzureFunctions.TestApplication.Application\AzureFunctions.TestApplication.Application.csproj", "{36265A32-EE09-4F41-A80C-76CD05D1E483}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{BCC3A360-05FC-4E07-84B6-86367BED4E29}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureFunctions.TestApplication.Domain", "AzureFunctions.TestApplication.Domain\AzureFunctions.TestApplication.Domain.csproj", "{6360F23C-E281-4BAD-A172-11A501720FEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{7410E761-975A-44F7-A1A6-3E9BE97C218D}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "AzureFunctions.TestApplication.Infrastructure", "AzureFunctions.TestApplication.Infrastructure\AzureFunctions.TestApplication.Infrastructure.csproj", "{9DDFEA50-0F17-4A44-8C59-3E9023911361}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACB70D7B-9233-45A2-B3AC-93DEBF6B113D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB70D7B-9233-45A2-B3AC-93DEBF6B113D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB70D7B-9233-45A2-B3AC-93DEBF6B113D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB70D7B-9233-45A2-B3AC-93DEBF6B113D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36265A32-EE09-4F41-A80C-76CD05D1E483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36265A32-EE09-4F41-A80C-76CD05D1E483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36265A32-EE09-4F41-A80C-76CD05D1E483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36265A32-EE09-4F41-A80C-76CD05D1E483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6360F23C-E281-4BAD-A172-11A501720FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6360F23C-E281-4BAD-A172-11A501720FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6360F23C-E281-4BAD-A172-11A501720FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6360F23C-E281-4BAD-A172-11A501720FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DDFEA50-0F17-4A44-8C59-3E9023911361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DDFEA50-0F17-4A44-8C59-3E9023911361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DDFEA50-0F17-4A44-8C59-3E9023911361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DDFEA50-0F17-4A44-8C59-3E9023911361}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ACB70D7B-9233-45A2-B3AC-93DEBF6B113D} = {C0770AE4-4DAE-43BC-9747-6472DCC95A39}
+		{36265A32-EE09-4F41-A80C-76CD05D1E483} = {CAF899DF-8FCC-4521-9034-9DCD0B88F600}
+		{6360F23C-E281-4BAD-A172-11A501720FEB} = {BCC3A360-05FC-4E07-84B6-86367BED4E29}
+		{9DDFEA50-0F17-4A44-8C59-3E9023911361} = {7410E761-975A-44F7-A1A6-3E9BE97C218D}
+	EndGlobalSection
+EndGlobal

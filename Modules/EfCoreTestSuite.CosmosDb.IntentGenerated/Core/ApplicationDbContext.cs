@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.DependencyInjection;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations;
-using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -19,22 +20,27 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         private readonly IOptions<DbContextConfiguration> _dbContextConfig;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IOptions<DbContextConfiguration> dbContextConfig) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            IOptions<DbContextConfiguration> dbContextConfig) : base(options)
         {
             _dbContextConfig = dbContextConfig;
         }
 
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
-
-        public DbSet<Associated> Associateds { get; set; }
+        public DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
+        public DbSet<AbstractBaseClassAssociated> AbstractBaseClassAssociateds { get; set; }
         public DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
-        public DbSet<BaseAssociated> BaseAssociateds { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         public DbSet<ClassA> ClassAs { get; set; }
+        public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
+        public DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
-        public DbSet<Derived> Deriveds { get; set; }
+        public DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        public DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
+        public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
+        public DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
@@ -44,8 +50,22 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
-        public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        public DbSet<Poly_RootAbstract> Poly_RootAbstracts { get; set; }
+        public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
+        public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
+        public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
+        public DbSet<Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
+        public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
+        public DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var result = await base.SaveChangesAsync(cancellationToken);
+
+            return result;
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -53,20 +73,21 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             ConfigureModel(modelBuilder);
 
-            if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))
-            {
-                modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);
-            }
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
-            modelBuilder.ApplyConfiguration(new AssociatedConfiguration());
+            modelBuilder.ApplyConfiguration(new AbstractBaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new AbstractBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
-            modelBuilder.ApplyConfiguration(new BaseAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new ClassAConfiguration());
+            modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
+            modelBuilder.ApplyConfiguration(new ConcreteBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new D_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new D_OptionalAggregateConfiguration());
-            modelBuilder.ApplyConfiguration(new DerivedConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForAbstractConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForAbstractAssociatedConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
+            modelBuilder.ApplyConfiguration(new DerivedClassForConcreteAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalDependentConfiguration());
@@ -76,8 +97,18 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new J_MultipleAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
-            modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_BaseClassNonAbstractConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_ConcreteAConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_ConcreteBConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_RootAbstractConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_RootAbstract_AggrConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_SecondLevelConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_TopLevelConfiguration());
+            if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))
+            {
+                modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);
+            }
         }
 
         [IntentManaged(Mode.Ignore)]

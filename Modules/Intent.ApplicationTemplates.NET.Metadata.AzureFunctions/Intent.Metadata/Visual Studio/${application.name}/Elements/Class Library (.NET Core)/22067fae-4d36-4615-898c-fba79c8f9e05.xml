@@ -4,7 +4,7 @@
   <display>${application.name}.Domain</display>
   <externalReference>c2fd7236-c566-4783-ba16-ad284452fa35</externalReference>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>85f2cf72-fa85-488f-8e75-8dc579b2bb2f</parentFolderId>
@@ -46,7 +46,6 @@
       <display>Domain</display>
       <externalReference>16c39b94-0e07-4e95-987f-b3e92ae11594</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>22067fae-4d36-4615-898c-fba79c8f9e05</parentFolderId>
@@ -61,7 +60,6 @@
       <display>Repository.Interface</display>
       <externalReference>3a437489-6d50-466b-8f34-8eaeb073c6ee</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>22067fae-4d36-4615-898c-fba79c8f9e05</parentFolderId>

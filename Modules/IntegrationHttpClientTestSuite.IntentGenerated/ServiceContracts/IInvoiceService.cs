@@ -49,5 +49,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts
 
         Task<List<string>> GetPrimitiveStringList();
 
+        Task NonHttpSettingsOperation();
+
     }
 }

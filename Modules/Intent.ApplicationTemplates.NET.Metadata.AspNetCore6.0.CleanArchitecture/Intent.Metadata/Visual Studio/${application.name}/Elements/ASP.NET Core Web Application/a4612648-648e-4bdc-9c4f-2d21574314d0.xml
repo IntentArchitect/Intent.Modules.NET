@@ -3,7 +3,7 @@
   <name>${application.name}.Api</name>
   <display>${application.name}.Api</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</parentFolderId>
@@ -24,6 +24,7 @@
         <property name="f2956d24-b6da-427b-8728-c4f44714ce69" display="User Secrets Id" value="254b1f62-4be1-4a3a-8e4d-8b1bd2f93976" isActive="true" />
         <property name="42cdb74e-d5fd-4969-94ca-585d0527b862" display="Generate Runtime Configuration Files" isActive="true" />
         <property name="6111c054-9a40-4f92-9f7c-3a8372af14b8" display="Generate Documentation File" isActive="true" />
+        <property name="f236ad27-a4ab-490a-92d4-b6faf2d1e033" display="Assembly Name" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -43,7 +44,6 @@
       <name>Distribution</name>
       <display>Distribution</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4612648-648e-4bdc-9c4f-2d21574314d0</parentFolderId>
@@ -57,7 +57,6 @@
       <name>Startup</name>
       <display>Startup</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a4612648-648e-4bdc-9c4f-2d21574314d0</parentFolderId>

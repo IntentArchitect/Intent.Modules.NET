@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f5fc5ec7-730e-4535-a62e-dd5671e3b4b5" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>SampleDomainUpdateDTO</name>
+  <display>SampleDomainUpdateDTO</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d7168842-13bb-47f2-bdc1-feee893c737c</parentFolderId>
+  <packageId>2c306a0a-4442-4a40-a5be-18866522fa0b</packageId>
+  <packageName>Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

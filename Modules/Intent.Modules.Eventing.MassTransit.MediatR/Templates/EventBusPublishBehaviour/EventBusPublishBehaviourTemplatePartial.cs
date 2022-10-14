@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -18,7 +19,8 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
         public const string TemplateId = "Intent.Eventing.MassTransit.MediatR.EventBusPublishBehaviour";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EventBusPublishBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public EventBusPublishBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
+            outputTarget, model)
         {
         }
 
@@ -35,10 +37,15 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
-                .WithPriority(6)
+                .WithPriority(IsTransactionalOutboxPatternSelected() ? 6 : 4)
                 .ForConcern("Application")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
+        }
+
+        private bool IsTransactionalOutboxPatternSelected()
+        {
+            return this.ExecutionContext.Settings.GetEventingSettings()?.OutboxPattern()?.IsEntityFramework() == true;
         }
     }
 }

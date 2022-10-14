@@ -28,9 +28,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             }
             _element = element;
             RelativeLocation = this.GetCSharpProjectOptions()?.RelativeLocation();
-            LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
-            NullableEnabled = this.GetCSharpProjectOptions()?.NullableEnabled() ?? false;
             ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
+            LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
+            NullableEnabled = this.NullableIsEnabled();
         }
 
         public string RelativeLocation { get; }

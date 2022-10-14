@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -36,7 +37,9 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetServiceProxyModels();
+            return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
+                .Where(p => p.MappedService.Operations.Any(ContractMetadataQueries.IsAbleToReference))
+                .ToArray();
         }
     }
 }

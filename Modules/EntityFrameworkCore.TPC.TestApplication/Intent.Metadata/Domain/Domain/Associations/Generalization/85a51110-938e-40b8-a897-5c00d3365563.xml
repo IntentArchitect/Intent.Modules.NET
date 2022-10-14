@@ -3,7 +3,7 @@
   <sourceEnd id="a750fdef-cbc7-46a2-abb4-cb0d775a9449" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>DerivedClassForAbstract</name>
     <display>DerivedClassForAbstract: DerivedClassForAbstract</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="585c74f3-6ab3-4a2b-8a00-160716a4cc60">
       <typeId>d898d8e6-9a99-4581-8004-dc4c5ea89827</typeId>
       <isNavigable>false</isNavigable>

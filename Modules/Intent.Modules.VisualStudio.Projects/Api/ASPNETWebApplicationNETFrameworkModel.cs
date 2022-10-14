@@ -16,6 +16,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     public class ASPNETWebApplicationNETFrameworkModel : IHasStereotypes, IMetadataModel, IVisualStudioProject, IHasName
     {
         public const string SpecializationType = "ASP.NET Web Application (.NET Framework)";
+        public const string SpecializationTypeId = "8AF747CF-58F0-449C-8B95-46080FEFC8C0";
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Ignore)]
@@ -27,9 +28,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             }
             _element = element;
             RelativeLocation = this.GetCSharpProjectOptions()?.RelativeLocation();
-            LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
-            NullableEnabled = this.GetCSharpProjectOptions()?.NullableEnabled() ?? false;
             ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
+            LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
+            NullableEnabled = this.NullableIsEnabled();
         }
 
         public string RelativeLocation { get; }
@@ -106,7 +107,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .GetElementsOfType(RuntimeEnvironmentModel.SpecializationTypeId)
             .Select(x => new RuntimeEnvironmentModel(x))
             .ToList();
-        public const string SpecializationTypeId = "8AF747CF-58F0-449C-8B95-46080FEFC8C0";
 
         public IList<TemplateOutputModel> TemplateOutputs => _element.ChildElements
             .GetElementsOfType(TemplateOutputModel.SpecializationTypeId)

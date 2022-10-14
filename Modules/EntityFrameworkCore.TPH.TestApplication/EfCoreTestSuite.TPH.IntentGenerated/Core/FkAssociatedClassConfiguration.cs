@@ -1,5 +1,6 @@
 using System;
 using EfCoreTestSuite.TPH.IntentGenerated.Entities;
+using EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -14,6 +15,12 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
         public void Configure(EntityTypeBuilder<FkAssociatedClass> builder)
         {
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.AssociatedField)
+                .IsRequired();
+
+            builder.Ignore(e => e.DomainEvents);
+
 
             builder.HasOne(x => x.FkDerivedClass)
                 .WithMany()

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07f2f1d3-1149-4bd5-a5c2-b9c87d8bfcc6" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>ResponseTypes</name>
+  <display>ResponseTypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>acb70d7b-9233-45a2-b3ac-93debf6b113d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4dc8a69f-e550-499e-bdc6-e2e039be29ff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.ReturnTypes.JsonResponse</name>
+      <display>Intent.AzureFunctions.ReturnTypes.JsonResponse</display>
+      <externalReference>Intent.AzureFunctions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07f2f1d3-1149-4bd5-a5c2-b9c87d8bfcc6</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -3,7 +3,7 @@
   <sourceEnd id="193d9e52-fa6f-4620-ae77-36cdcb0a70d9" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>DerivedClassForConcrete</name>
     <display>DerivedClassForConcrete: DerivedClassForConcrete</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="e38e5818-2b02-4905-b595-81704e842235">
       <typeId>e1f1e3cc-004a-48e3-81ca-5f3d44baf5a4</typeId>
       <isNavigable>false</isNavigable>

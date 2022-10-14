@@ -3,7 +3,7 @@
   <name>${application.name}.Application</name>
   <display>${application.name}.Application</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>27ae48e6-9402-439d-a222-431719f75c14</parentFolderId>
@@ -35,7 +35,6 @@
       <name>Application</name>
       <display>Application</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6f2f5c46-cb74-4db0-8e00-669188ba5559</parentFolderId>

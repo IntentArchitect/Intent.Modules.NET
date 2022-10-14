@@ -15,8 +15,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         {
             builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
-            builder.HasPartitionKey(x => x.PartitionKey);
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.PartitionKey)
@@ -24,6 +22,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.Property(x => x.OptionalAggrNavAttr)
                 .IsRequired();
+            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasOne(x => x.F_OptionalDependent)
                 .WithOne(x => x.F_OptionalAggregateNav)

@@ -122,6 +122,12 @@ modelBuilder.Entity<Car>().HasData(
             return GetTypeName("Domain.Entity", model);
         }
 
+        public string GetEntityNameOnly(ClassModel model)
+        {
+            var typeInfo = this.GetTypeInfo("Domain.Entity", model);
+            return typeInfo.Name;
+        }
+
         public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
             return (UseLazyLoadingProxies
