@@ -92,7 +92,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
                          .Eventing(ExecutionContext.GetApplicationConfig().Id).GetConsumerModels().SelectMany(x => x.MessageConsumers))
             {
                 var messageName = this.GetIntegrationEventMessageName(messageHandlerModel.TypeReference.Element.AsMessageModel());
-                consumers.Add($@"cfg.AddConsumer<{this.GetWrapperConsumerName()}<{this.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}>>();");
+                var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace("_", "-").Replace(" ", "-").Replace(".", "-");
+                consumers.Add($@"cfg.AddConsumer<{this.GetWrapperConsumerName()}<{this.GetIntegrationEventHandlerInterfaceName()}<{messageName}>, {messageName}>>().Endpoint(config => config.InstanceId = ""{sanitizedAppName}"");");
             }
 
             const string newLine = @"
