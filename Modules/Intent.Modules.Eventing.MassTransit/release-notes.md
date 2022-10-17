@@ -1,3 +1,7 @@
+### Version 3.3.3
+
+- Fixed: EventBus didn't clear the messages buffer after being flushed.
+
 ### Version 3.3.1
 
 - Update: Merged Outbox pattern into this module (separate Outbox pattern module is no more).

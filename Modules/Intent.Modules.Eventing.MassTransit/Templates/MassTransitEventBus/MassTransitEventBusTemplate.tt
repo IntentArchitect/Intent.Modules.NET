@@ -35,6 +35,7 @@ namespace <#= Namespace #>
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
         {
             await Current.PublishBatch(_messagesToPublish, cancellationToken);
+            _messagesToPublish.Clear();
         }
     }
 }
