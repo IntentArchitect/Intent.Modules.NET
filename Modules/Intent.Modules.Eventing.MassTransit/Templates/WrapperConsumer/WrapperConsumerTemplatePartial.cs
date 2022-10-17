@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -20,6 +21,8 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
     {
         public const string TemplateId = "Intent.Eventing.MassTransit.WrapperConsumer";
 
+        private int _flushAllPriority;
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public WrapperConsumerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
@@ -34,6 +37,35 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
                 className: $"WrapperConsumer",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            foreach (var decorator in GetDecorators())
+            {
+                decorator.BeforeTemplateExecution();
+            }
+        }
+
+        public void RepositionFlushAllStatement(ConsumerDecorator decorator, RepositionDirection direction)
+        {
+            switch (direction)
+            {
+                case RepositionDirection.BeforeThisDecorator:
+                    _flushAllPriority = decorator.Priority - 1;
+                    break;
+                case RepositionDirection.AfterThisDecorator:
+                    _flushAllPriority = decorator.Priority + 1;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+            }
+        }
+
+        public enum RepositionDirection
+        {
+            BeforeThisDecorator = 1,
+            AfterThisDecorator = 2
         }
 
         private bool UseExplicitNullSymbol => Project.GetProject().NullableEnabled;
@@ -100,7 +132,15 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
         {
             var lines = new List<string>();
 
-            lines.AddRange(GetDecorators().SelectMany(x => x.GetConsumeExitCode()));
+            lines.AddRange(GetDecorators()
+                .Select(s => new { s.Priority, ExitCode = s.GetConsumeExitCode() })
+                .Concat(new[] { new
+                {
+                    Priority = _flushAllPriority, 
+                    ExitCode = new[] { "await eventBus.FlushAllAsync(context.CancellationToken);" } as IEnumerable<string>
+                } })
+                .OrderBy(o => o.Priority)
+                .SelectMany(s => s.ExitCode));
 
             const string newLine = @"
         ";

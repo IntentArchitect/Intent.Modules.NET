@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer;
 using Intent.RoslynWeaver.Attributes;
 
@@ -22,6 +24,22 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
         {
             _template = template;
             _application = application;
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            switch (_template.ExecutionContext.Settings.GetEventingSettings().OutboxPattern().AsEnum())
+            {
+                case EventingSettings.OutboxPatternOptionsEnum.None:
+                    _template.RepositionFlushAllStatement(this, WrapperConsumerTemplate.RepositionDirection.AfterThisDecorator);
+                    break;
+                case EventingSettings.OutboxPatternOptionsEnum.InMemory:
+                case EventingSettings.OutboxPatternOptionsEnum.EntityFramework:
+                    _template.RepositionFlushAllStatement(this, WrapperConsumerTemplate.RepositionDirection.BeforeThisDecorator);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         public override IEnumerable<RequiredService> RequiredServices()

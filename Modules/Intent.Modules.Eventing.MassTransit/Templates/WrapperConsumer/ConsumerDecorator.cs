@@ -19,6 +19,10 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
 
         public virtual IEnumerable<RequiredService> RequiredServices() => Enumerable.Empty<RequiredService>();
 
+        public virtual void BeforeTemplateExecution()
+        {
+        }
+
         public class RequiredService
         {
             public RequiredService(string type, string name)
