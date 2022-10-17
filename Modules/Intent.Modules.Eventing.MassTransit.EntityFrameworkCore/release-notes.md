@@ -1,3 +1,7 @@
+### Version 3.3.3
+
+- Fixed: Publishing from Consumer when Outbox pattern is None will no longer execute within the same transaction as the DB.
+
 ### Version 3.3.1
 
 - Update: Merged Outbox pattern into this module (separate Outbox pattern module is no more).

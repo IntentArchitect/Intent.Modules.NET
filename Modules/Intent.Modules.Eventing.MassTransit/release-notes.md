@@ -1,6 +1,7 @@
 ### Version 3.3.3
 
 - Fixed: EventBus didn't clear the messages buffer after being flushed.
+- Fixed: Multiple subscribers for the same events will now be differentiated by App name.
 
 ### Version 3.3.1
 
