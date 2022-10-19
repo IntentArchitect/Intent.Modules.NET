@@ -22,7 +22,7 @@ namespace <#= Namespace #>
     foreach (var o in Model.MappedService.Operations.Where(p => p.HasHttpSettings()))
     {
 #>
-        <#= GetOperationReturnType(o) #> <#= o.Name.ToPascalCase() #>(<#= GetOperationDefinitionParameters(o) #>);
+        <#= GetOperationReturnType(o) #> <#= GetOperationName(o) #>(<#= GetOperationDefinitionParameters(o) #>);
 <#
     }
 #>

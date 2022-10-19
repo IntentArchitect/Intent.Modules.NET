@@ -34,7 +34,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
             _httpClient = httpClient;
         }
 
-        public async Task Create(InvoiceCreateDTO dto, CancellationToken cancellationToken = default)
+        public async Task CreateAsync(InvoiceCreateDTO dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
@@ -52,7 +52,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<InvoiceDTO> FindById(Guid id, CancellationToken cancellationToken = default)
+        public async Task<InvoiceDTO> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/{id}";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -75,7 +75,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<List<InvoiceDTO>> FindAll(CancellationToken cancellationToken = default)
+        public async Task<List<InvoiceDTO>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -98,7 +98,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task Update(Guid id, InvoiceUpdateDTO dto, CancellationToken cancellationToken = default)
+        public async Task UpdateAsync(Guid id, InvoiceUpdateDTO dto, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/{id}";
             var request = new HttpRequestMessage(HttpMethod.Put, relativeUri);
@@ -116,7 +116,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task Delete(Guid id, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/{id}";
             var request = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
@@ -130,7 +130,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<InvoiceDTO> QueryParamOp(string param1, int param2, CancellationToken cancellationToken = default)
+        public async Task<InvoiceDTO> QueryParamOpAsync(string param1, int param2, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/queryparamop";
 
@@ -159,7 +159,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task HeaderParamOp(string param1, CancellationToken cancellationToken = default)
+        public async Task HeaderParamOpAsync(string param1, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/headerparamop";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
@@ -175,7 +175,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task FormParamOp(string param1, int param2, CancellationToken cancellationToken = default)
+        public async Task FormParamOpAsync(string param1, int param2, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/formparamop";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
@@ -195,7 +195,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task RouteParamOp(string param1, CancellationToken cancellationToken = default)
+        public async Task RouteParamOpAsync(string param1, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/routeparamop/{param1}";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
@@ -209,7 +209,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task BodyParamOp(InvoiceDTO param1, CancellationToken cancellationToken = default)
+        public async Task BodyParamOpAsync(InvoiceDTO param1, CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/bodyparamop";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
@@ -227,7 +227,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task ThrowsException(CancellationToken cancellationToken = default)
+        public async Task ThrowsExceptionAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/throwsexception";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
@@ -241,7 +241,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<Guid> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default)
+        public async Task<Guid> GetWrappedPrimitiveGuidAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/getwrappedprimitiveguid";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -265,7 +265,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<string> GetWrappedPrimitiveString(CancellationToken cancellationToken = default)
+        public async Task<string> GetWrappedPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/getwrappedprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -289,7 +289,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<int> GetWrappedPrimitiveInt(CancellationToken cancellationToken = default)
+        public async Task<int> GetWrappedPrimitiveIntAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/getwrappedprimitiveint";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -313,7 +313,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<Guid> GetPrimitiveGuid(CancellationToken cancellationToken = default)
+        public async Task<Guid> GetPrimitiveGuidAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/getprimitiveguid";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -338,7 +338,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<string> GetPrimitiveString(CancellationToken cancellationToken = default)
+        public async Task<string> GetPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/getprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -363,7 +363,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<int> GetPrimitiveInt(CancellationToken cancellationToken = default)
+        public async Task<int> GetPrimitiveIntAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/getprimitiveint";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
@@ -388,7 +388,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 }
             }
         }
-        public async Task<List<string>> GetPrimitiveStringList(CancellationToken cancellationToken = default)
+        public async Task<List<string>> GetPrimitiveStringListAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"/api/invoice/getprimitivestringlist";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);

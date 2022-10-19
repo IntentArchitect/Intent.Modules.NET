@@ -67,7 +67,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
             this.Write(" ");
             
             #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\ServiceContract\ServiceContractTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(o.Name.ToPascalCase()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetOperationName(o)));
             
             #line default
             #line hidden
