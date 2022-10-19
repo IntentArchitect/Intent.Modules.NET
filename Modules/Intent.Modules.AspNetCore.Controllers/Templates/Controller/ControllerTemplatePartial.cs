@@ -79,6 +79,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                    "ControllerBase";
         }
 
+        private string ConstructorBaseCall()
+        {
+            var baseCallParameters = GetDecorators().Select(x => x.ConstructorBaseCall()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x));
+
+            return baseCallParameters != null
+                ? $" : base({baseCallParameters})"
+                : string.Empty;
+        }
+
         private string GetControllerAttributes()
         {
             var attributes = new List<string>();

@@ -29,7 +29,7 @@ namespace <#= Namespace #>
     public class <#= ClassName #> : <#= GetControllerBase() #>
     {<#= GetEnterClass() #>
 
-        public <#= ClassName #>(<#= GetConstructorParameters() #>)
+        public <#= ClassName #>(<#= GetConstructorParameters() #>)<#= ConstructorBaseCall() #>
         {<#= GetConstructorImplementation() #>
         }
 

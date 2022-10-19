@@ -28,6 +28,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         public virtual string ConstructorImplementation() => null;
 
+        public virtual string ConstructorBaseCall() => null;
+
         public virtual IEnumerable<string> ConstructorParameters() => Enumerable.Empty<string>();
 
         public virtual string EnterOperationBody(OperationModel operationModel) => null;
