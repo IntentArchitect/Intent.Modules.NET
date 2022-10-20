@@ -3,7 +3,6 @@
   <name>ForbiddenAccessException</name>
   <display>ForbiddenAccessException: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="410f25ac-1bdf-4820-86a0-e621cf6a9826">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

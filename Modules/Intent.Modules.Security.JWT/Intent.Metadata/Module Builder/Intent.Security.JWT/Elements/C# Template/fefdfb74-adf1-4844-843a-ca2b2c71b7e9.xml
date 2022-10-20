@@ -3,7 +3,6 @@
   <name>CurrentUserService</name>
   <display>CurrentUserService: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="88420e64-dcf4-4b0d-b3ea-c3d3eebc19c6">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

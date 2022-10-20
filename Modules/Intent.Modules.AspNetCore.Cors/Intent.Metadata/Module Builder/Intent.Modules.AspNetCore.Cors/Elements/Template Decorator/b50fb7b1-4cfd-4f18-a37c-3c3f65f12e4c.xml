@@ -3,7 +3,6 @@
   <name>CorsStartupDecorator</name>
   <display>CorsStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="3754d8a3-cfa9-4f27-842b-be2c7c48dc63">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

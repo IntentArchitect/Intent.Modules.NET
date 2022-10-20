@@ -3,7 +3,6 @@
   <name>DataContractDTOAttributeDecorator</name>
   <display>DataContractDTOAttributeDecorator: DtoModelDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="4d5e8483-bc62-4317-b9de-75ac54fb6383">
     <typeId>b0eb283a-13f0-4d72-8000-917fa9550574</typeId>

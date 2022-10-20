@@ -3,7 +3,6 @@
   <name>AngularStartupDecorator</name>
   <display>AngularStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="8a04f09f-b814-42c7-bdd1-ff276312649e">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

@@ -150,8 +150,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetKeyMapping(ClassModel model)
         {
-            if (model.ParentClass != null 
-                && ((!model.ParentClass.IsAbstract && !ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos()) 
+            if (model.ParentClass != null
+                && ((!model.ParentClass.IsAbstract && !ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
                     || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()))
             {
                 return string.Empty;
@@ -169,7 +169,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     keys.Add(GetPartitionKey());
                 }
-                
+
                 keys.Add("Id");
             }
             else
@@ -691,15 +691,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private string GetForeignKeyLambda(AssociationEndModel associationEnd)
         {
             var columns = new List<string>();
-            
+
             if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos()
-                && (associationEnd.OtherEnd().Class.ParentClass != null 
+                && (associationEnd.OtherEnd().Class.ParentClass != null
                     || associationEnd.OtherEnd().Class.IsAbstract
                     || HasIncomingGeneralization(associationEnd.OtherEnd().Class)))
             {
                 columns.Add(GetPartitionKey());
             }
-            
+
             if (associationEnd.HasForeignKey() &&
                 !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
             {

@@ -3,7 +3,6 @@
   <name>SerilogStartupDecorator</name>
   <display>SerilogStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="2eb01d0c-c706-4702-81a1-48d8f2c8050a">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

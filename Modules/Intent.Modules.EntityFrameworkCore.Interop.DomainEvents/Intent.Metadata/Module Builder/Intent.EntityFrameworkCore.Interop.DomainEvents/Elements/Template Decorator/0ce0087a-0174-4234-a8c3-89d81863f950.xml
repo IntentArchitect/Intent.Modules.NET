@@ -3,7 +3,6 @@
   <name>DomainEventsConfigurationsDecorator</name>
   <display>DomainEventsConfigurationsDecorator: EntityTypeConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="dfe4b306-7b9c-4f7f-83e2-f77637cbc0e4">
     <typeId>dddb9e20-11dd-49c9-b15e-08e98d0fd989</typeId>

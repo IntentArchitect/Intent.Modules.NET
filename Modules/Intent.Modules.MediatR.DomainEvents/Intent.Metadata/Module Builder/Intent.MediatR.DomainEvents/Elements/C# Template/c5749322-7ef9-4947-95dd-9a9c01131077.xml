@@ -3,7 +3,6 @@
   <name>DomainEventService</name>
   <display>DomainEventService: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
   <genericTypes />
   <typeReference id="4344c9d3-5992-4aeb-87b7-ee8afa323c10">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

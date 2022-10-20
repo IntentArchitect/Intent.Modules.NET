@@ -3,7 +3,6 @@
   <name>DomainEventServiceInterface</name>
   <display>DomainEventServiceInterface: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="ef4b0a56-be1f-41c0-8b4a-b95da11945f3">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

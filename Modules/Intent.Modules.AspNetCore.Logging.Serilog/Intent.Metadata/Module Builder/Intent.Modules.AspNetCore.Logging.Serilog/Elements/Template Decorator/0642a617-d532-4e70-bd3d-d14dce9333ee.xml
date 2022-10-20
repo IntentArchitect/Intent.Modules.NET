@@ -3,7 +3,6 @@
   <name>SerilogProgramDecorator</name>
   <display>SerilogProgramDecorator: ProgramDecoratorBase</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="ba6fd7db-8224-45ee-9105-5c98317a04da">
     <typeId>02e221e7-1e0c-4e5d-b434-8acd587a6bd3</typeId>

@@ -3,7 +3,6 @@
   <name>UnitOfWorkBehaviour</name>
   <display>UnitOfWorkBehaviour: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
   <genericTypes />
   <typeReference id="ae30bcf3-f3f5-46ce-a778-e83f4910ac34">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

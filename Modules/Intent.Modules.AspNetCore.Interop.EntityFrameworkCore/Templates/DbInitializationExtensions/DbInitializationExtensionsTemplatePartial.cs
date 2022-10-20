@@ -21,7 +21,7 @@ namespace Intent.Modules.AspNetCore.Interop.EntityFrameworkCore.Templates.DbInit
         public DbInitializationExtensionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest

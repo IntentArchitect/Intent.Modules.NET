@@ -3,7 +3,6 @@
   <name>CurrentUserServiceInterface</name>
   <display>CurrentUserServiceInterface: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="6a839af4-4477-4902-a620-20fa6a6eef47">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

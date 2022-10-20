@@ -3,7 +3,6 @@
   <name>MediatRDependencyInjectionDecorator</name>
   <display>MediatRDependencyInjectionDecorator: DependencyInjectionDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="f3bfe350-a0af-4fc3-b6ec-3a161752fe4f">
     <typeId>617c7ba4-0e1e-452a-ae2a-7cdd53f5f6c9</typeId>

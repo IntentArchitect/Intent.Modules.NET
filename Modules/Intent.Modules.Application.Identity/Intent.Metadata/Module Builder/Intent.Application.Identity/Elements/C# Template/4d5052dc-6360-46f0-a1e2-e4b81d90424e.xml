@@ -3,7 +3,6 @@
   <name>AuthorizeAttribute</name>
   <display>AuthorizeAttribute: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="abd670cb-bf11-4291-938d-b6e3595303e0">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

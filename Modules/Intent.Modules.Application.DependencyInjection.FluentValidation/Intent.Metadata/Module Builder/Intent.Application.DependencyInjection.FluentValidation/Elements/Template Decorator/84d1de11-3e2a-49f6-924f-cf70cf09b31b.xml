@@ -3,7 +3,6 @@
   <name>FluentValidationDependencyInjectionDecorator</name>
   <display>FluentValidationDependencyInjectionDecorator: DependencyInjectionDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="3d7f19b2-8c79-4d1b-9164-67ee7ec3cc90">
     <typeId>617c7ba4-0e1e-452a-ae2a-7cdd53f5f6c9</typeId>

@@ -30,10 +30,6 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         {
             _template = template;
             _application = application;
-
-            _requestDtoTypeName = _template.Model.GetRequestDtoParameter() != null
-                ? _template.GetTypeName(_template.Model.GetRequestDtoParameter().TypeReference)
-                : null;
         }
 
         public void BeforeTemplateExecution()

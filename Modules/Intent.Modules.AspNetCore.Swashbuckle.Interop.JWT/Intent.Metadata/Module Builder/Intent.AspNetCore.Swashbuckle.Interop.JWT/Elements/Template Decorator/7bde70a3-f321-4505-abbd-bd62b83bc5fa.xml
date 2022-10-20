@@ -3,7 +3,6 @@
   <name>InteropAppSettingsDecorator</name>
   <display>InteropAppSettingsDecorator: AppSettingsDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="8523e0fa-30f2-4b89-9426-1843b7241f5f">
     <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>

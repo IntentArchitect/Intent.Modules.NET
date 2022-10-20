@@ -3,7 +3,6 @@
   <name>PerformanceBehaviour</name>
   <display>PerformanceBehaviour: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="ed4bb7d9-2b68-415c-a1dc-773a7978906f">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

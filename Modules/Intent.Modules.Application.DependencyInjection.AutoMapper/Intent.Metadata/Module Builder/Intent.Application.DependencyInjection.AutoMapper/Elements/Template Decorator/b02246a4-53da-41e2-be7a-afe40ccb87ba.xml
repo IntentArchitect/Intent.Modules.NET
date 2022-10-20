@@ -3,7 +3,6 @@
   <name>AutoMapperDependencyInjectionDecorator</name>
   <display>AutoMapperDependencyInjectionDecorator: DependencyInjectionDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="0a089070-11f8-4896-9b26-457fca284561">
     <typeId>617c7ba4-0e1e-452a-ae2a-7cdd53f5f6c9</typeId>

@@ -3,7 +3,6 @@
   <name>UnitOfWorkInterface</name>
   <display>UnitOfWorkInterface: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
   <genericTypes />
   <typeReference id="14e8049d-fc04-4ef9-8362-e0be78a85a20">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

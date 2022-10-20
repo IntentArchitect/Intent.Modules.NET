@@ -3,7 +3,6 @@
   <name>MediatRControllerDecorator</name>
   <display>MediatRControllerDecorator: ControllerDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="87ffff00-f67b-4f83-a09d-8482804eda58">
     <typeId>2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</typeId>

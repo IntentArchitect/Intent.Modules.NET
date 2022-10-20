@@ -36,8 +36,8 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
                 ServiceConfigurationRequest
                     .ToRegister(
                         "AddApplication")
-                        // Do we want to have Configuration as part of the Application registration?
-                        // , ServiceConfigurationRequest.ParameterType.Configuration)
+                    // Do we want to have Configuration as part of the Application registration?
+                    // , ServiceConfigurationRequest.ParameterType.Configuration)
                     .HasDependency(this));
         }
 
@@ -61,7 +61,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
                 AddTemplateDependency(templateDependency);
             }
         }
-        
+
         private void HandleEvent(ServiceConfigurationRequest @event)
         {
             if (@event.Concern != "Application")
@@ -148,7 +148,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
 
                 return string.Join(", ", paramList);
             }
-            
+
             return $"services.{registration.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
     }
