@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Interop.EntityFrameworkCore</id>
-  <version>3.3.4-pre.0</version>
+  <version>3.3.4</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Supplies ASP.NET Core host start-up configuration to perform Database start-up routines</summary>
   <description>Supplies ASP.NET Core host start-up configuration to perform Database start-up routines</description>

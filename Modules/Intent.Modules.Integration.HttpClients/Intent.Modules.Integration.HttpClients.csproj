@@ -96,7 +96,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.6" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.6" />
-    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="3.3.5" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="3.3.6" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.9" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>

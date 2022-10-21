@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.Logging.Serilog</id>
-  <version>3.3.7-pre.0</version>
+  <version>3.3.7</version>
   <supportedClientVersions>[3.3.0,4.0.0)</supportedClientVersions>
   <summary>Provides Serilog logging for ASP.NET Core</summary>
   <description>Provides Serilog logging for ASP.NET Core</description>

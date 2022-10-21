@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Keys</id>
-  <version>3.3.10-pre.0</version>
+  <version>3.3.10</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Supports RDBMS Keys for Domain Entities</summary>
   <description>Supports RDBMS Keys for Domain Entities</description>

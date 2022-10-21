@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT</id>
-  <version>3.3.8-pre.0</version>
+  <version>3.3.8</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Configures Authorization Code OAuth client for Swagger UI Authentication</summary>
   <description>Configures Authorization Code OAuth client for Swagger UI Authentication</description>
