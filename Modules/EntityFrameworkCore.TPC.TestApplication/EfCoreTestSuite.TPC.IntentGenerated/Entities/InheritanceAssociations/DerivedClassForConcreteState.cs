@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public partial class DerivedClassForConcrete : ConcreteBaseClass, IDerivedClassForConcrete, IHasDomainEvent
+    public partial class DerivedClassForConcrete : ConcreteBaseClass, IDerivedClassForConcrete
     {
 
         public string DerivedAttribute { get; set; }

@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class Poly_RootAbstract
+    public abstract partial class Poly_RootAbstract : IPoly_RootAbstract
     {
 
     }

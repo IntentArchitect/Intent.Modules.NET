@@ -168,7 +168,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         //    }
         //    yield return string.Empty;
         //}
-        
+
 
         private bool RequiresConfiguration(AttributeModel attribute)
         {
@@ -229,8 +229,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private EFCoreConfigStatementBase GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
         {
-            var statements = new List<string>();
-
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
                 && associationEnd.Name.Equals(associationEnd.Element.Name))
             {
@@ -245,8 +243,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
+                            var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                             method.AddMetadata("model", (IElement)associationEnd.Element);
-                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                             method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
                             method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
@@ -270,8 +269,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         {
                             @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                             {
+                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                                 method.AddMetadata("model", (IElement)associationEnd.Element);
-                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName((IElement)associationEnd.OtherEnd().Element)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
                                 method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                                 method.Statements.SeparateAll();
@@ -360,8 +360,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var attributes = new List<AttributeModel>();
             var @class = model.AsClassModel();
-            if (@class?.ParentClass != null && @class.ParentClass.IsAbstract && ExecutionContext.Settings
-                    .GetDatabaseSettings().InheritanceStrategy().IsTPC())
+            if (@class?.ParentClass != null &&
+                @class.ParentClass.IsAbstract &&
+                ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC())
             {
                 attributes.AddRange(GetAttributes(@class.ParentClass.InternalElement));
             }
@@ -376,12 +377,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private IEnumerable<AssociationEndModel> GetAssociations(IElement model)
         {
             var associations = new List<AssociationEndModel>();
-            //var @class = model.AsClassModel();
-            //if (@class?.ParentClass != null && @class.ParentClass.IsAbstract && ExecutionContext.Settings
-            //        .GetDatabaseSettings().InheritanceStrategy().IsTPC())
-            //{
-            //    associations.AddRange(GetAssociations(@class.ParentClass.InternalElement));
-            //}
+            var @class = model.AsClassModel();
+            if (@class?.ParentClass != null &&
+                @class.ParentClass.IsAbstract &&
+                ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC())
+            {
+                associations.AddRange(GetAssociations(@class.ParentClass.InternalElement));
+            }
 
             associations.AddRange(model.AssociatedElements
                 .Where(x => x.IsAssociationEndModel() && RequiresConfiguration(x.AsAssociationEndModel()))

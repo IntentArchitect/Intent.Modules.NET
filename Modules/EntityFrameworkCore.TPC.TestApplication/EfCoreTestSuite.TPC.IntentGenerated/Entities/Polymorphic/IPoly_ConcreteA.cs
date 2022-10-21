@@ -8,9 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial interface IPoly_ConcreteA : IPoly_BaseClassNonAbstract
+    public interface IPoly_ConcreteA : IPoly_BaseClassNonAbstract
     {
-
         string ConcreteField { get; set; }
 
     }

@@ -24,7 +24,7 @@ using AttributeModelStereotypeExtensions = Intent.Metadata.RDBMS.Api.AttributeMo
 namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class EntityFrameworkCoreDbContextDecorator : DecoratorBase
+    public class EntityTypeConfigurationTemplateDecorator : DecoratorBase
     {
         private readonly EntityTypeConfigurationTemplate _template;
 
@@ -34,7 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
         public ISoftwareFactoryExecutionContext ExecutionContext { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EntityFrameworkCoreDbContextDecorator(EntityTypeConfigurationTemplate template, IApplication application)
+        public EntityTypeConfigurationTemplateDecorator(EntityTypeConfigurationTemplate template, IApplication application)
         {
             _template = template;
             ExecutionContext = application;
@@ -126,21 +126,19 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
         {
             if (model.HasTable())
             {
-                yield return
-                    $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+                yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
             }
-
-            if ((model.ParentClass != null || model.ChildClasses.Any()) &&
-                !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
-            {
-                yield return
-                    $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
-            }
-
-            if (model.ParentClass != null &&
-                ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
+            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH() && model.ParentClass != null)
             {
                 yield return $@"builder.HasBaseType<{_template.GetTypeName("Domain.Entity", model.ParentClass)}>();";
+            }
+            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPT())
+            {
+                yield return $@"builder.ToTable(""{model.Name}"");";
+            }
+            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() && !model.IsAbstract)
+            {
+                yield return $@"builder.ToTable(""{model.Name}"");";
             }
         }
 

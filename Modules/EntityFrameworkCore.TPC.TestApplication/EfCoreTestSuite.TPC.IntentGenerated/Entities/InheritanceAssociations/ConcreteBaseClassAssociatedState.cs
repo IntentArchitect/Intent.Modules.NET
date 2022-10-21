@@ -12,46 +12,20 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public partial class ConcreteBaseClassAssociated : IConcreteBaseClassAssociated, IHasDomainEvent
     {
-        public ConcreteBaseClassAssociated()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _associatedField;
-
-        public string AssociatedField
-        {
-            get { return _associatedField; }
-            set
-            {
-                _associatedField = value;
-            }
-        }
+        public string AssociatedField { get; set; }
 
 
         public Guid ConcreteBaseClassId { get; set; }
-        private ConcreteBaseClass _concreteBaseClass;
 
-        public virtual ConcreteBaseClass ConcreteBaseClass
+        public virtual ConcreteBaseClass ConcreteBaseClass { get; set; }
+
+        IConcreteBaseClass IConcreteBaseClassAssociated.ConcreteBaseClass
         {
-            get
-            {
-                return _concreteBaseClass;
-            }
-            set
-            {
-                _concreteBaseClass = value;
-            }
+            get => ConcreteBaseClass;
+            set => ConcreteBaseClass = (ConcreteBaseClass)value;
         }
 
 

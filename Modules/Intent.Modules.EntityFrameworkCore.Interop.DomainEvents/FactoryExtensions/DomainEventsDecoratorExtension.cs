@@ -27,7 +27,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
         public override string Id => "Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDecoratorExtension";
 
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        public override int Order => -10;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -37,8 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
-                    if (@class.BaseType != null || // GCB - This is not reliable. Find way to know for sure.
-                        (@class.TryGetMetadata<ClassModel>("model", out var model) && !model.IsAggregateRoot())) 
+                    if (@class.TryGetMetadata<ClassModel>("model", out var model) && (!model.IsAggregateRoot() || model.ParentClass?.IsAggregateRoot() == true))
                     {
                         return;
                     }

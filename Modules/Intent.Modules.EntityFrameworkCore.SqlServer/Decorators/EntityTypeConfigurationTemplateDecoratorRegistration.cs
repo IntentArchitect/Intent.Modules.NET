@@ -10,14 +10,14 @@ using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
 {
-    [Description(EntityFrameworkCoreDbContextDecorator.DecoratorId)]
-    public class EntityFrameworkCoreDbContextDecoratorRegistration : DecoratorRegistration<EntityTypeConfigurationTemplate, ITemplateDecorator>
+    [Description(EntityTypeConfigurationTemplateDecorator.DecoratorId)]
+    public class EntityTypeConfigurationTemplateDecoratorRegistration : DecoratorRegistration<EntityTypeConfigurationTemplate, ITemplateDecorator>
     {
         public override ITemplateDecorator CreateDecoratorInstance(EntityTypeConfigurationTemplate template, IApplication application)
         {
-            return new EntityFrameworkCoreDbContextDecorator(template, application);
+            return new EntityTypeConfigurationTemplateDecorator(template, application);
         }
 
-        public override string DecoratorId => EntityFrameworkCoreDbContextDecorator.DecoratorId;
+        public override string DecoratorId => EntityTypeConfigurationTemplateDecorator.DecoratorId;
     }
 }

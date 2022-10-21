@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class FkDerivedClass
+    public partial class FkDerivedClass : FkBaseClass, IFkDerivedClass
     {
 
     }

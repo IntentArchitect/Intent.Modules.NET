@@ -23,8 +23,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             _domainEventService = new DomainEventService();
         }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IDomainEventService domainEventService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventService domainEventService) : base(options)
         {
             _domainEventService = domainEventService;
         }
@@ -49,9 +48,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             await DispatchEvents();
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
+            return await base.SaveChangesAsync(cancellationToken);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -59,7 +56,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForAbstractConfiguration());
@@ -76,7 +72,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new Poly_RootAbstract_AggrConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_SecondLevelConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_TopLevelConfiguration());
-
         }
 
         [IntentManaged(Mode.Ignore)]

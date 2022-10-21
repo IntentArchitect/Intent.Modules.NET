@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="b49ccd82-79d1-43cd-83f4-619571549a0d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Keys.IdentityGenerator</name>
-      <display>Intent.Entities.Keys.IdentityGenerator</display>
-      <externalReference>Intent.Entities.Keys</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>43888186-3208-4f58-8358-c03ad06d990f</parentFolderId>
-      <packageId>8500789f-4277-48d8-944f-78e3667ddbb5</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="14a170bb-5266-4924-9e19-93f6260c43b5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.DbContext</name>
       <display>Intent.EntityFrameworkCore.DbContext</display>

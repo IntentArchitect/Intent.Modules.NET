@@ -21,6 +21,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="33f39920-1ff7-40b2-9631-6d8d18e90541" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.CollectionWrapper</name>
+      <display>Intent.Entities.CollectionWrapper</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9fd354e4-e029-44c3-bd25-2a7b7157b396</parentFolderId>
+      <packageId>7ad8594f-b5cd-4aaf-a3ba-aa55d0aebdf3</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="535f6ebd-08af-44e0-8663-d113c9801d99" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.DomainEntity</name>
       <display>Intent.Entities.DomainEntity</display>
@@ -73,22 +89,6 @@
       <name>Intent.Entities.DomainEnum</name>
       <display>Intent.Entities.DomainEnum</display>
       <externalReference>Intent.Entities</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9fd354e4-e029-44c3-bd25-2a7b7157b396</parentFolderId>
-      <packageId>7ad8594f-b5cd-4aaf-a3ba-aa55d0aebdf3</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="028c583e-42d0-4f71-ac01-f061e464915f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Entities.Keys.IdentityGenerator</name>
-      <display>Intent.Entities.Keys.IdentityGenerator</display>
-      <externalReference>Intent.Entities.Keys</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
