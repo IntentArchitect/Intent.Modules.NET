@@ -10,7 +10,7 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <templates />
   <dependencies>
-    <dependency id="Intent.Application.Contracts" version="3.3.7" />
+    <dependency id="Intent.Application.Contracts" version="3.3.8" />
     <dependency id="Intent.AspNetCore.Controllers" version="3.3.10" />
     <dependency id="Intent.Common" version="3.3.11" />
     <dependency id="Intent.Common.Types" version="3.3.6" />

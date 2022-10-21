@@ -33,12 +33,12 @@
     </detect>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.Modelers.Services.CRUD.ServiceDispatch" version="3.3.6" />
+        <package id="Intent.Modelers.Services.CRUD.ServiceDispatch" version="3.3.8" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions" version="3.3.6" />
+        <package id="Intent.Application.ServiceImplementations.Conventions.CRUD.Interop.AzureFunctions" version="3.3.9" />
       </install>
     </detect>
   </interoperability>

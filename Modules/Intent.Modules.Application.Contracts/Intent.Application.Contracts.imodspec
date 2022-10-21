@@ -16,7 +16,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Interop.Contracts" version="3.3.8" />
+        <package id="Intent.AspNetCore.Controllers.Interop.Contracts" version="3.3.11" />
       </install>
     </detect>
   </interoperability>
