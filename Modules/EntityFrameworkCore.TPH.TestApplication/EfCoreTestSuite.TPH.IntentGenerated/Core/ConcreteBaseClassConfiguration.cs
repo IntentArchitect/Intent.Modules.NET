@@ -21,7 +21,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
                 .HasMaxLength(250);
 
             builder.Ignore(e => e.DomainEvents);
-
         }
     }
 }

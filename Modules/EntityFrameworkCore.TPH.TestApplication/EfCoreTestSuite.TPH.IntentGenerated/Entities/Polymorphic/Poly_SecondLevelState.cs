@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using EfCoreTestSuite.TPH.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,44 +12,17 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 
     public partial class Poly_SecondLevel : IPoly_SecondLevel, IHasDomainEvent
     {
-        public Poly_SecondLevel()
+
+        public Guid Id { get; set; }
+
+        public string SecondField { get; set; }
+
+        public virtual ICollection<Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; } = new List<Poly_BaseClassNonAbstract>();
+
+        ICollection<IPoly_BaseClassNonAbstract> IPoly_SecondLevel.BaseClassNonAbstracts
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _secondField;
-
-        public string SecondField
-        {
-            get { return _secondField; }
-            set
-            {
-                _secondField = value;
-            }
-        }
-
-        private ICollection<Poly_BaseClassNonAbstract> _baseClassNonAbstracts;
-
-        public virtual ICollection<Poly_BaseClassNonAbstract> BaseClassNonAbstracts
-        {
-            get
-            {
-                return _baseClassNonAbstracts ??= new List<Poly_BaseClassNonAbstract>();
-            }
-            set
-            {
-                _baseClassNonAbstracts = value;
-            }
+            get => BaseClassNonAbstracts.CreateWrapper<IPoly_BaseClassNonAbstract, Poly_BaseClassNonAbstract>();
+            set => BaseClassNonAbstracts = value.Cast<Poly_BaseClassNonAbstract>().ToList();
         }
 
 

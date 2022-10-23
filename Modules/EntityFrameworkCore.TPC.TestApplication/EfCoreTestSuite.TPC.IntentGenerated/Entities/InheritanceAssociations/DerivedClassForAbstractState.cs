@@ -9,13 +9,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public partial class DerivedClassForAbstract : AbstractBaseClass, IDerivedClassForAbstract, IHasDomainEvent
+    public partial class DerivedClassForAbstract : AbstractBaseClass, IDerivedClassForAbstract
     {
 
         public string DerivedAttribute { get; set; }
-
-
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

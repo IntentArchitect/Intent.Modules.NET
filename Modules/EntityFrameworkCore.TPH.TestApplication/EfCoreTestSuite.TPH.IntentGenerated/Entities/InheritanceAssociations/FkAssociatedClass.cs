@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class FkAssociatedClass
+    public partial class FkAssociatedClass : IFkAssociatedClass
     {
 
     }

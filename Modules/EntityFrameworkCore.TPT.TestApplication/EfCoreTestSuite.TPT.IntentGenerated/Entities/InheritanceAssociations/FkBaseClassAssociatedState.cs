@@ -12,46 +12,20 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
 
     public partial class FkBaseClassAssociated : IFkBaseClassAssociated, IHasDomainEvent
     {
-        public FkBaseClassAssociated()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _associatedField;
-
-        public string AssociatedField
-        {
-            get { return _associatedField; }
-            set
-            {
-                _associatedField = value;
-            }
-        }
+        public string AssociatedField { get; set; }
 
         public Guid FkBaseClassCompositeKeyA { get; set; }
         public Guid FkBaseClassCompositeKeyB { get; set; }
-        private FkBaseClass _fkBaseClass;
 
-        public virtual FkBaseClass FkBaseClass
+        public virtual FkBaseClass FkBaseClass { get; set; }
+
+        IFkBaseClass IFkBaseClassAssociated.FkBaseClass
         {
-            get
-            {
-                return _fkBaseClass;
-            }
-            set
-            {
-                _fkBaseClass = value;
-            }
+            get => FkBaseClass;
+            set => FkBaseClass = (FkBaseClass)value;
         }
 
 

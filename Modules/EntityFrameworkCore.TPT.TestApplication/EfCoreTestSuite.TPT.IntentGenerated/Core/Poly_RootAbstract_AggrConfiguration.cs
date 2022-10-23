@@ -21,7 +21,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
                 .IsRequired();
 
             builder.Ignore(e => e.DomainEvents);
-
         }
     }
 }

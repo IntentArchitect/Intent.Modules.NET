@@ -18,12 +18,11 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
             builder.Property(x => x.SecondField)
                 .IsRequired();
 
-            builder.Ignore(e => e.DomainEvents);
-
-
             builder.HasMany(x => x.BaseClassNonAbstracts)
                 .WithOne()
                 .HasForeignKey(x => x.SecondLevelId);
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

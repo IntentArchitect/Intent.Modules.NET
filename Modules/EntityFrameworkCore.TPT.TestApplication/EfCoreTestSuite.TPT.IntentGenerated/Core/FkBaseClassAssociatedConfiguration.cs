@@ -21,13 +21,12 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
             builder.Property(x => x.AssociatedField)
                 .IsRequired();
 
-            builder.Ignore(e => e.DomainEvents);
-
-
             builder.HasOne(x => x.FkBaseClass)
                 .WithMany()
                 .HasForeignKey(x => new { x.FkBaseClassCompositeKeyA, x.FkBaseClassCompositeKeyB })
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

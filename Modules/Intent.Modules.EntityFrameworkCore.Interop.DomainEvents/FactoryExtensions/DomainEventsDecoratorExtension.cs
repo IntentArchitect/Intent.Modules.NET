@@ -37,69 +37,69 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
-                    if (@class.TryGetMetadata<ClassModel>("model", out var model) && (!model.IsAggregateRoot() || model.ParentClass?.IsAggregateRoot() == true))
+                    if (@class.TryGetMetadata<ClassModel>("model", out var model) && 
+                        model.IsAggregateRoot() && model.ParentClass == null)
                     {
-                        return;
+                        @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
+                        @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
+                        {
+                            property.WithInitialValue($"new {property.Type}()");
+                            property.AddMetadata("non-persistent", true);
+                        });
                     }
-                    @class.ImplementsInterface(template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId));
-                    @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents", property =>
-                    {
-                        property.WithInitialValue($"new {property.Type}()");
-                        property.AddMetadata("non-persistent", true);
-                    });
                 });
             }
 
-//            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");
-//            dbContext?.CSharpFile.OnBuild(file =>
-//            {
-//                file.AddUsing("System.Linq");
-//                file.AddUsing("System.Threading");
-//                file.AddUsing("System.Threading.Tasks");
-//                var @class = file.Classes.First();
-//                @class.Constructors.First().AddParameter(dbContext.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId), "domainEventService", param =>
-//                {
-//                    param.IntroduceReadonlyField();
-//                });
-//                var saveMethod = @class.Methods.SingleOrDefault(x => x.Name == "SaveChangesAsync");
-//                if (saveMethod != null)
-//                {
-//                    saveMethod.InsertStatement(0, $"await DispatchEvents();");
-//                }
-//                else
-//                {
-//                    @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
-//                    {
-//                        method.Override().Async()
-//                            .AddParameter($"CancellationToken", "cancellationToken",
-//                                param =>
-//                                {
-//                                    param.WithDefaultValue("default(CancellationToken)");
-//                                })
-//                            .AddStatement("await DispatchEvents();")
-//                            .AddStatement("return await base.SaveChangesAsync(cancellationToken);");
-//                    });
-//                }
+            //            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");
+            //            dbContext?.CSharpFile.OnBuild(file =>
+            //            {
+            //                file.AddUsing("System.Linq");
+            //                file.AddUsing("System.Threading");
+            //                file.AddUsing("System.Threading.Tasks");
+            //                var @class = file.Classes.First();
+            //                @class.Constructors.First().AddParameter(dbContext.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId), "domainEventService", param =>
+            //                {
+            //                    param.IntroduceReadonlyField();
+            //                });
+            //                var saveMethod = @class.Methods.SingleOrDefault(x => x.Name == "SaveChangesAsync");
+            //                if (saveMethod != null)
+            //                {
+            //                    saveMethod.InsertStatement(0, $"await DispatchEvents();");
+            //                }
+            //                else
+            //                {
+            //                    @class.InsertMethod(0, "Task<int>", "SaveChangesAsync", method =>
+            //                    {
+            //                        method.Override().Async()
+            //                            .AddParameter($"CancellationToken", "cancellationToken",
+            //                                param =>
+            //                                {
+            //                                    param.WithDefaultValue("default(CancellationToken)");
+            //                                })
+            //                            .AddStatement("await DispatchEvents();")
+            //                            .AddStatement("return await base.SaveChangesAsync(cancellationToken);");
+            //                    });
+            //                }
 
-//                @class.AddMethod("Task", "DispatchEvents", method =>
-//                {
-//                    method.Private().Async()
-//                        .AddStatements($@"
-//while (true)
-//{{
-//    var domainEventEntity = ChangeTracker
-//        .Entries<{dbContext.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()
-//        .Select(x => x.Entity.DomainEvents)
-//        .SelectMany(x => x)
-//        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
+            //                @class.AddMethod("Task", "DispatchEvents", method =>
+            //                {
+            //                    method.Private().Async()
+            //                        .AddStatements($@"
+            //while (true)
+            //{{
+            //    var domainEventEntity = ChangeTracker
+            //        .Entries<{dbContext.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()
+            //        .Select(x => x.Entity.DomainEvents)
+            //        .SelectMany(x => x)
+            //        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-//    if (domainEventEntity == null) break;
+            //    if (domainEventEntity == null) break;
 
-//    domainEventEntity.IsPublished = true;
-//    await _domainEventService.Publish(domainEventEntity);
-//}}");
-//                });
-//            });
+            //    domainEventEntity.IsPublished = true;
+            //    await _domainEventService.Publish(domainEventEntity);
+            //}}");
+            //                });
+            //            });
         }
     }
 }

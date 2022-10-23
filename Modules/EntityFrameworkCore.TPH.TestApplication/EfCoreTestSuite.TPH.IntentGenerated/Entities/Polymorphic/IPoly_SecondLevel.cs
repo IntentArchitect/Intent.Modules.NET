@@ -8,16 +8,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial interface IPoly_SecondLevel
+    public interface IPoly_SecondLevel
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string SecondField { get; set; }
 
-        ICollection<Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; }
+        ICollection<IPoly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; }
 
     }
 }

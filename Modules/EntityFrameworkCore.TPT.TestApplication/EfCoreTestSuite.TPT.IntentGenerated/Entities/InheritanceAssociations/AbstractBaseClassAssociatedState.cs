@@ -12,46 +12,20 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
 
     public partial class AbstractBaseClassAssociated : IAbstractBaseClassAssociated, IHasDomainEvent
     {
-        public AbstractBaseClassAssociated()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _associatedField;
-
-        public string AssociatedField
-        {
-            get { return _associatedField; }
-            set
-            {
-                _associatedField = value;
-            }
-        }
+        public string AssociatedField { get; set; }
 
 
         public Guid AbstractBaseClassId { get; set; }
-        private AbstractBaseClass _abstractBaseClass;
 
-        public virtual AbstractBaseClass AbstractBaseClass
+        public virtual AbstractBaseClass AbstractBaseClass { get; set; }
+
+        IAbstractBaseClass IAbstractBaseClassAssociated.AbstractBaseClass
         {
-            get
-            {
-                return _abstractBaseClass;
-            }
-            set
-            {
-                _abstractBaseClass = value;
-            }
+            get => AbstractBaseClass;
+            set => AbstractBaseClass = (AbstractBaseClass)value;
         }
 
 

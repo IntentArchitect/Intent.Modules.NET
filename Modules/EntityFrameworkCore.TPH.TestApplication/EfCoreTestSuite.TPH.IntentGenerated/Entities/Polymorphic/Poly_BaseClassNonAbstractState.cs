@@ -9,27 +9,12 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial class Poly_BaseClassNonAbstract : Poly_RootAbstract, IPoly_BaseClassNonAbstract, IHasDomainEvent
+    public partial class Poly_BaseClassNonAbstract : Poly_RootAbstract, IPoly_BaseClassNonAbstract
     {
-        public Poly_BaseClassNonAbstract()
-        {
-        }
 
-
-        private string _baseField;
-
-        public string BaseField
-        {
-            get { return _baseField; }
-            set
-            {
-                _baseField = value;
-            }
-        }
+        public string BaseField { get; set; }
 
 
         public Guid? SecondLevelId { get; set; }
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

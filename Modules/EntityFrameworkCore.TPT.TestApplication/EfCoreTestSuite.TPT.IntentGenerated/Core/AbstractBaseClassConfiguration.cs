@@ -1,5 +1,3 @@
-using System;
-using EfCoreTestSuite.TPT.IntentGenerated.Entities;
 using EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -10,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.TPT.IntentGenerated.Core
 {
-    public class ConcreteBaseClassConfiguration : IEntityTypeConfiguration<ConcreteBaseClass>
+    public class AbstractBaseClassConfiguration : IEntityTypeConfiguration<AbstractBaseClass>
     {
-        public void Configure(EntityTypeBuilder<ConcreteBaseClass> builder)
+        public void Configure(EntityTypeBuilder<AbstractBaseClass> builder)
         {
-            builder.ToTable("ConcreteBaseClass");
+            builder.ToTable("AbstractBaseClass");
 
             builder.HasKey(x => x.Id);
 

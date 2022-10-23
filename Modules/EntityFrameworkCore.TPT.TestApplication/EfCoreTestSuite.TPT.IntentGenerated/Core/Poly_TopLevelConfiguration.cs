@@ -20,12 +20,11 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
             builder.Property(x => x.TopField)
                 .IsRequired();
 
-            builder.Ignore(e => e.DomainEvents);
-
-
             builder.HasMany(x => x.RootAbstracts)
                 .WithOne()
                 .HasForeignKey(x => x.TopLevelId);
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

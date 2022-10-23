@@ -9,23 +9,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial class Poly_ConcreteB : Poly_BaseClassNonAbstract, IPoly_ConcreteB, IHasDomainEvent
+    public partial class Poly_ConcreteB : Poly_BaseClassNonAbstract, IPoly_ConcreteB
     {
-        public Poly_ConcreteB()
-        {
-        }
 
-
-        private string _concreteField;
-
-        public string ConcreteField
-        {
-            get { return _concreteField; }
-            set
-            {
-                _concreteField = value;
-            }
-        }
+        public string ConcreteField { get; set; }
 
     }
 }

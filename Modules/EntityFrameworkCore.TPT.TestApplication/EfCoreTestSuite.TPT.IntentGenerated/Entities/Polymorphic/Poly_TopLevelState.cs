@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using EfCoreTestSuite.TPT.IntentGenerated.Core;
 using EfCoreTestSuite.TPT.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
@@ -12,44 +13,17 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
 
     public partial class Poly_TopLevel : IPoly_TopLevel, IHasDomainEvent
     {
-        public Poly_TopLevel()
+
+        public Guid Id { get; set; }
+
+        public string TopField { get; set; }
+
+        public virtual ICollection<Poly_RootAbstract> RootAbstracts { get; set; } = new List<Poly_RootAbstract>();
+
+        ICollection<IPoly_RootAbstract> IPoly_TopLevel.RootAbstracts
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _topField;
-
-        public string TopField
-        {
-            get { return _topField; }
-            set
-            {
-                _topField = value;
-            }
-        }
-
-        private ICollection<Poly_RootAbstract> _rootAbstracts;
-
-        public virtual ICollection<Poly_RootAbstract> RootAbstracts
-        {
-            get
-            {
-                return _rootAbstracts ??= new List<Poly_RootAbstract>();
-            }
-            set
-            {
-                _rootAbstracts = value;
-            }
+            get => RootAbstracts.CreateWrapper<IPoly_RootAbstract, Poly_RootAbstract>();
+            set => RootAbstracts = value.Cast<Poly_RootAbstract>().ToList();
         }
 
 

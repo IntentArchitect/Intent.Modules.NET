@@ -19,13 +19,12 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
             builder.Property(x => x.AssociatedField)
                 .IsRequired();
 
-            builder.Ignore(e => e.DomainEvents);
-
-
             builder.HasOne(x => x.AbstractBaseClass)
                 .WithMany()
                 .HasForeignKey(x => x.AbstractBaseClassId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

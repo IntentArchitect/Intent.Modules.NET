@@ -8,13 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial interface IPoly_RootAbstract_Comp
+    public interface IPoly_RootAbstract_Comp
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string CompField { get; set; }
 
     }

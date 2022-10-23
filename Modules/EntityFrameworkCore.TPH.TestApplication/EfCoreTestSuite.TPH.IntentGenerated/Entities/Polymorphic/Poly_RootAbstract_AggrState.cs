@@ -11,31 +11,10 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 
     public partial class Poly_RootAbstract_Aggr : IPoly_RootAbstract_Aggr, IHasDomainEvent
     {
-        public Poly_RootAbstract_Aggr()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _aggrField;
-
-        public string AggrField
-        {
-            get { return _aggrField; }
-            set
-            {
-                _aggrField = value;
-            }
-        }
+        public string AggrField { get; set; }
 
 
 

@@ -9,23 +9,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public partial class FkDerivedClass : FkBaseClass, IFkDerivedClass, IHasDomainEvent
+    public partial class FkDerivedClass : FkBaseClass, IFkDerivedClass
     {
-        public FkDerivedClass()
-        {
-        }
 
-
-        private string _derivedField;
-
-        public string DerivedField
-        {
-            get { return _derivedField; }
-            set
-            {
-                _derivedField = value;
-            }
-        }
+        public string DerivedField { get; set; }
 
 
     }

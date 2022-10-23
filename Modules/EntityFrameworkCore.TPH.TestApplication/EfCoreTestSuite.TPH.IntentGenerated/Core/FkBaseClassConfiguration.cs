@@ -17,7 +17,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
 
             builder.Ignore(e => e.DomainEvents);
-
         }
     }
 }

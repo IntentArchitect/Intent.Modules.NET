@@ -19,9 +19,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
             builder.Property(x => x.DerivedAttribute)
                 .IsRequired()
                 .HasMaxLength(250);
-
-            builder.Ignore(e => e.DomainEvents);
-
         }
     }
 }

@@ -362,7 +362,6 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
             {
                 return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Select(x =>
                     new EntityTypeConfigurationTemplate.RequiredColumn(
-                        //Entity: (IElement)associationEnd.OtherEnd().Element, 
                         Type: _template.GetTypeName(x),
                         Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}"))
                     .ToArray();
@@ -370,7 +369,6 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
             else // implicit Id
             {
                 return new[] { new EntityTypeConfigurationTemplate.RequiredColumn(
-                    //Entity: (IElement)associationEnd.OtherEnd().Element,
                     Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""),
                     Name: $"{(!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
             }

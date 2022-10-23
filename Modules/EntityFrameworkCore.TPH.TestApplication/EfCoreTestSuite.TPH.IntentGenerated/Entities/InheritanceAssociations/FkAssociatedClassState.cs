@@ -14,16 +14,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations
 
         public Guid Id { get; set; }
 
-        private string _associatedField;
-
-        public string AssociatedField
-        {
-            get { return _associatedField; }
-            set
-            {
-                _associatedField = value;
-            }
-        }
+        public string AssociatedField { get; set; }
 
         public Guid FkDerivedClassCompositeKeyA { get; set; }
         public Guid FkDerivedClassCompositeKeyB { get; set; }

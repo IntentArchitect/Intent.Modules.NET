@@ -20,7 +20,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
                 .IsRequired();
 
             builder.Ignore(e => e.DomainEvents);
-
         }
     }
 }

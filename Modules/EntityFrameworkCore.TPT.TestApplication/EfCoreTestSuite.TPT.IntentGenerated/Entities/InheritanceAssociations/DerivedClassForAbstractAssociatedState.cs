@@ -12,46 +12,20 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
 
     public partial class DerivedClassForAbstractAssociated : IDerivedClassForAbstractAssociated, IHasDomainEvent
     {
-        public DerivedClassForAbstractAssociated()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _associatedField;
-
-        public string AssociatedField
-        {
-            get { return _associatedField; }
-            set
-            {
-                _associatedField = value;
-            }
-        }
+        public string AssociatedField { get; set; }
 
 
         public Guid DerivedClassForAbstractId { get; set; }
-        private DerivedClassForAbstract _derivedClassForAbstract;
 
-        public virtual DerivedClassForAbstract DerivedClassForAbstract
+        public virtual DerivedClassForAbstract DerivedClassForAbstract { get; set; }
+
+        IDerivedClassForAbstract IDerivedClassForAbstractAssociated.DerivedClassForAbstract
         {
-            get
-            {
-                return _derivedClassForAbstract;
-            }
-            set
-            {
-                _derivedClassForAbstract = value;
-            }
+            get => DerivedClassForAbstract;
+            set => DerivedClassForAbstract = (DerivedClassForAbstract)value;
         }
 
 

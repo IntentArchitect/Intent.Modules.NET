@@ -17,14 +17,15 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         private readonly IDomainEventService _domainEventService;
 
+        public DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
+
         [IntentManaged(Mode.Ignore)]
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             _domainEventService = new DomainEventService();
         }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IDomainEventService domainEventService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventService domainEventService) : base(options)
         {
             _domainEventService = domainEventService;
         }
@@ -42,6 +43,8 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
         public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
+
+        public DbSet<Poly_RootAbstract> Poly_RootAbstracts { get; set; }
         public DbSet<Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
         public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
         public DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }
@@ -49,9 +52,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             await DispatchEvents();
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
+            return await base.SaveChangesAsync(cancellationToken);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -59,7 +60,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
+            modelBuilder.ApplyConfiguration(new AbstractBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new AbstractBaseClassAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteBaseClassAssociatedConfiguration());
@@ -74,10 +75,10 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new Poly_BaseClassNonAbstractConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_ConcreteAConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_ConcreteBConfiguration());
+            modelBuilder.ApplyConfiguration(new Poly_RootAbstractConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_RootAbstract_AggrConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_SecondLevelConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_TopLevelConfiguration());
-
         }
 
         [IntentManaged(Mode.Ignore)]

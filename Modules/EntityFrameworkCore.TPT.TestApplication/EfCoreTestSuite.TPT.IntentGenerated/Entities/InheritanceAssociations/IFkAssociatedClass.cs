@@ -8,17 +8,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public partial interface IFkAssociatedClass
+    public interface IFkAssociatedClass
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string AssociatedField { get; set; }
-        Guid FkDerivedClassCompositeKeyA { get; }
-        Guid FkDerivedClassCompositeKeyB { get; }
-        FkDerivedClass FkDerivedClass { get; set; }
+
+        IFkDerivedClass FkDerivedClass { get; set; }
 
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using EfCoreTestSuite.TPC.IntentGenerated.Core;
+using EfCoreTestSuite.TPC.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

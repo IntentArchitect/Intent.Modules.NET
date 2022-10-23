@@ -14,18 +14,19 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<FkAssociatedClass> builder)
         {
+            builder.ToTable("FkAssociatedClass");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.AssociatedField)
                 .IsRequired();
 
-            builder.Ignore(e => e.DomainEvents);
-
-
             builder.HasOne(x => x.FkDerivedClass)
                 .WithMany()
                 .HasForeignKey(x => new { x.FkDerivedClassCompositeKeyA, x.FkDerivedClassCompositeKeyB })
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

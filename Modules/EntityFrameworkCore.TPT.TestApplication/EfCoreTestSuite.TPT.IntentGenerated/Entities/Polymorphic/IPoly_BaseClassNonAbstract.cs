@@ -8,11 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial interface IPoly_BaseClassNonAbstract : IPoly_RootAbstract
+    public interface IPoly_BaseClassNonAbstract : IPoly_RootAbstract
     {
-
         string BaseField { get; set; }
-
-        Guid? SecondLevelId { get; }
     }
 }
