@@ -17,8 +17,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
             builder.Property(x => x.ConcreteField)
                 .IsRequired();
-
-            builder.Ignore(e => e.DomainEvents);
         }
     }
 }

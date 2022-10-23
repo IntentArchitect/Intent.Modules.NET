@@ -84,7 +84,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 {
                                     foreach (var property in file.Classes.First().GetAllProperties())
                                     {
-                                        if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent)
+                                        if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent &&
+                                            !TryGetTemplate<EntityTypeConfigurationTemplate>(Id, Model.ParentClass?.Id, out var template))
                                         {
                                             method.AddStatement($"builder.Ignore(e => e.{property.Name});");
                                         }

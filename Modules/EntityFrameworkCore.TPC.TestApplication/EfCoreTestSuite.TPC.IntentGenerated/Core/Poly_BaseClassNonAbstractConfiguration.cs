@@ -28,10 +28,10 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
                 .WithMany()
                 .HasForeignKey(x => x.Poly_RootAbstract_AggrId)
                 .OnDelete(DeleteBehavior.Restrict);
-            
-            builder.Ignore(e => e.DomainEvents);
 
             builder.OwnsOne(x => x.Poly_RootAbstract_Comp, ConfigurePoly_RootAbstract_Comp);
+
+            builder.Ignore(e => e.DomainEvents);
         }
 
         public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<Poly_BaseClassNonAbstract, Poly_RootAbstract_Comp> builder)

@@ -18,8 +18,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
 
             builder.Property(x => x.DerivedField)
                 .IsRequired();
-
-            builder.Ignore(e => e.DomainEvents);
         }
     }
 }
