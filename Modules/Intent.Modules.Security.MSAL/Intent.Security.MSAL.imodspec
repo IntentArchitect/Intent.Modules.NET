@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Security.MSAL</id>
+  <version>3.3.0</version>
+  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <summary>For generating code to secure your API services using the Microsoft Authentication Library and Azure Active Directory or Azure Active Directory B2C</summary>
+  <description>For generating code to secure your API services using the Microsoft Authentication Library and Azure Active Directory or Azure Active Directory B2C</description>
+  <authors>Intent.Modules.NET.MSAL</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <templates>
+    <template id="Intent.Security.MSAL.ConfigurationMSALAuthentication" externalReference="1ee6fb0b-b80a-4432-83fb-d9ef6e1ca4ef">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Security.MSAL.CurrentUserService" externalReference="965ef977-232e-474c-b4cd-6d44a5dc0aeb">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup</role>
+      <location>Services</location>
+    </template>
+  </templates>
+  <decorators>
+    <decorator id="Intent.Security.MSAL.ConfigurationMSALAuthenticationDefaultDecorator" externalReference="d0554257-b886-402e-aa3c-9efb59301c27" />
+    <decorator id="Intent.Security.MSAL.ConfigurationSettingsMSALDecorator" externalReference="36fa751d-2e24-4b93-baf3-993c40791ce5" />
+    <decorator id="Intent.Security.MSAL.StartupDefaultMSALDecorator" externalReference="2592e70e-036c-4fec-abaf-933aa9d49497" />
+  </decorators>
+  <factoryExtensions></factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.AspNetCore" version="3.3.10" />
+    <dependency id="Intent.Common" version="3.3.10" />
+    <dependency id="Intent.Common.CSharp" version="3.3.6" />
+    <dependency id="Intent.Common.Types" version="3.3.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.1" />
+    <dependency id="Intent.Application.Identity" version="3.3.5" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata />
+</package>

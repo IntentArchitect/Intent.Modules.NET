@@ -20,14 +20,12 @@ namespace <#= Namespace #>
         }
 
         public async Task Consume(ConsumeContext<TMessage> context)
-        {<#= GetConsumeEnterCode() #>
+        {
             var eventBus = _serviceProvider.GetService<<#= this.GetMassTransitEventBusName() #>>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;
             eventBus.Current = context;
-
+<#= GetConsumeEnterCode() #>
             var handler = _serviceProvider.GetService<THandler>()<#= UseExplicitNullSymbol ? "!" : string.Empty #>;            
-            await handler.HandleAsync(context.Message, context.CancellationToken);
-            
-            await eventBus.FlushAllAsync(context.CancellationToken);<#= GetConsumeExitCode() #>
+            await handler.HandleAsync(context.Message, context.CancellationToken);<#= GetConsumeExitCode() #>
         }
     }
 }

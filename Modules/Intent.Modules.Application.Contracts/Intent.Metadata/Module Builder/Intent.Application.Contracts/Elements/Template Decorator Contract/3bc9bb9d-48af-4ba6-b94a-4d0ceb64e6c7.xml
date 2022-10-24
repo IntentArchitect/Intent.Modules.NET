@@ -3,7 +3,6 @@
   <name>ServiceContractDecorator</name>
   <display>ServiceContractDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f6981dd6-09ab-429f-9a86-ba62d02f307c</parentFolderId>

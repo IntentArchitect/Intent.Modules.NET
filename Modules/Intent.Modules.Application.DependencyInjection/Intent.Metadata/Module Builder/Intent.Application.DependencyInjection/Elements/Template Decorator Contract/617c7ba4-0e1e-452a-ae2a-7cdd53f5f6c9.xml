@@ -3,7 +3,6 @@
   <name>DependencyInjectionDecorator</name>
   <display>DependencyInjectionDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>56d59778-4f78-442e-8dbd-3803141a8b2b</parentFolderId>

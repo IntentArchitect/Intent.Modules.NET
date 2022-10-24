@@ -51,10 +51,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
-        public DbSet<Poly_RootAbstract> Poly_RootAbstracts { get; set; }
         public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
+        public DbSet<Poly_RootAbstract> Poly_RootAbstracts { get; set; }
         public DbSet<Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
         public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
         public DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }

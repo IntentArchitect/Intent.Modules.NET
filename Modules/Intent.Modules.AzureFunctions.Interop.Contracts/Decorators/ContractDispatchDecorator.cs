@@ -100,7 +100,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
 
             return new[] { result };
         }
-        
+
         private string GetResultExpression()
         {
             if (_template.Model.ReturnType == null)

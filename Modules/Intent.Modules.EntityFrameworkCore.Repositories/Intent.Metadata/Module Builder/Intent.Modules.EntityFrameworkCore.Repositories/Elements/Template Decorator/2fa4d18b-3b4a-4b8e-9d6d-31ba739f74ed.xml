@@ -3,7 +3,6 @@
   <name>EntityFrameworkCoreRepositoryDecorator</name>
   <display>EntityFrameworkCoreRepositoryDecorator: DbContextDecoratorBase</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
   <genericTypes />
   <typeReference id="7915fc39-78cb-4e56-b61b-654588a324ec">
     <typeId>c35164c7-3797-476e-89ba-c98b96de3176</typeId>

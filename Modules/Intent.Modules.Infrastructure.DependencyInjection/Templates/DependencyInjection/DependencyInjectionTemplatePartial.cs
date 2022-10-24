@@ -53,7 +53,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                 AddTemplateDependency(templateDependency);
             }
         }
-        
+
         private void HandleEvent(ServiceConfigurationRequest @event)
         {
             if (@event.Concern != "Infrastructure")
@@ -133,7 +133,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             };
             // ReSharper restore ConditionIsAlwaysTrueOrFalse
         }
-        
+
         private string ServiceConfigurationRegistration(ServiceConfigurationRequest registration)
         {
             string GetExtensionMethodParameterList()
@@ -162,7 +162,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
                 return string.Join(", ", paramList);
             }
-            
+
             return $"services.{registration.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
     }

@@ -8,3 +8,6 @@ These include the following options:
 * Support for entity interfaces - recommended only when very strict control to the domain is necessary.
 
 > This verion is implemented using the `CSharpFile` builder pattern for the various templates.
+### Version 3.3.13
+
+- Fixed: Entity Interface template now generates the `?` symbol when a nullable Enum is specified on the operation.

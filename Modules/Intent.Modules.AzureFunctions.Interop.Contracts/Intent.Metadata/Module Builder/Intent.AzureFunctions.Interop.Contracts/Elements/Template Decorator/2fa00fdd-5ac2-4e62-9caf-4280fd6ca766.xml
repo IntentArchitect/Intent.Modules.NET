@@ -3,7 +3,6 @@
   <name>ContractDispatchDecorator</name>
   <display>ContractDispatchDecorator: AzureFunctionClassDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="143d8b86-dd7b-4ae7-8d87-aa3e2278a64e">
     <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>

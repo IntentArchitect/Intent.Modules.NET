@@ -3,7 +3,6 @@
   <name>LoggingBehaviour</name>
   <display>LoggingBehaviour: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="3bd56dac-7303-43d7-bd2e-ff7f9097fdce">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="36fa751d-2e24-4b93-baf3-993c40791ce5" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+  <name>ConfigurationSettingsMSALDecorator</name>
+  <display>ConfigurationSettingsMSALDecorator: AppSettingsDecorator</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="da53b8ed-edbf-43a4-9b47-961ad1763d12">
+    <typeId>e2ec6205-819b-4c6c-8bbd-b15dd573c525</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.VisualStudio.Projects</typePackageName>
+    <typePackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>70332e9d-3459-4c78-a43c-11642f89fca2</parentFolderId>
+  <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+  <packageName>Intent.Security.MSAL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

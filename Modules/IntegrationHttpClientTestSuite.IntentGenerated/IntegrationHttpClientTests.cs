@@ -32,7 +32,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.Create(Client.InvoiceProxy.InvoiceCreateDTO.Create(MockInvoiceService.ReferenceNumber));
+        await invoiceService.CreateAsync(Client.InvoiceProxy.InvoiceCreateDTO.Create(MockInvoiceService.ReferenceNumber));
     }
 
     [Fact]
@@ -45,7 +45,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.Delete(MockInvoiceService.DefaultId);
+        await invoiceService.DeleteAsync(MockInvoiceService.DefaultId);
     }
 
     [Fact]
@@ -58,7 +58,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.Update(MockInvoiceService.DefaultId, Client.InvoiceProxy.InvoiceUpdateDTO.Create(MockInvoiceService.ReferenceNumber));
+        await invoiceService.UpdateAsync(MockInvoiceService.DefaultId, Client.InvoiceProxy.InvoiceUpdateDTO.Create(MockInvoiceService.ReferenceNumber));
     }
 
     [Fact]
@@ -71,7 +71,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var result = await invoiceService.FindById(MockInvoiceService.DefaultId);
+        var result = await invoiceService.FindByIdAsync(MockInvoiceService.DefaultId);
         Assert.Equal(MockInvoiceService.DefaultId, result.Id);
         Assert.Equal(MockInvoiceService.ReferenceNumber, result.Reference);
     }
@@ -86,7 +86,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var result = await invoiceService.FindAll();
+        var result = await invoiceService.FindAllAsync();
         Assert.NotEmpty(result);
         Assert.Single(result);
     }
@@ -101,7 +101,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.QueryParamOp(MockInvoiceService.DefaultString, MockInvoiceService.DefaultInt);
+        await invoiceService.QueryParamOpAsync(MockInvoiceService.DefaultString, MockInvoiceService.DefaultInt);
     }
 
     [Fact]
@@ -114,7 +114,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.BodyParamOp(Client.InvoiceProxy.InvoiceDTO.Create(MockInvoiceService.DefaultId, MockInvoiceService.ReferenceNumber));
+        await invoiceService.BodyParamOpAsync(Client.InvoiceProxy.InvoiceDTO.Create(MockInvoiceService.DefaultId, MockInvoiceService.ReferenceNumber));
     }
 
     [Fact]
@@ -127,7 +127,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.FormParamOp(MockInvoiceService.DefaultString, MockInvoiceService.DefaultInt);
+        await invoiceService.FormParamOpAsync(MockInvoiceService.DefaultString, MockInvoiceService.DefaultInt);
     }
 
     [Fact]
@@ -140,7 +140,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.HeaderParamOp(MockInvoiceService.DefaultString);
+        await invoiceService.HeaderParamOpAsync(MockInvoiceService.DefaultString);
     }
 
     [Fact]
@@ -153,7 +153,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        await invoiceService.RouteParamOp(MockInvoiceService.DefaultString);
+        await invoiceService.RouteParamOpAsync(MockInvoiceService.DefaultString);
     }
 
     [Fact]
@@ -166,7 +166,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var exception = await Assert.ThrowsAsync<HttpClientRequestException>(async () => { await invoiceService.ThrowsException(); });
+        var exception = await Assert.ThrowsAsync<HttpClientRequestException>(async () => { await invoiceService.ThrowsExceptionAsync(); });
         Assert.NotEmpty(exception.Message);
         Assert.Contains(MockInvoiceService.ExceptionMessage, exception.ResponseContent);
     }
@@ -181,9 +181,9 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var result = await invoiceService.GetWrappedPrimitiveGuid();
+        var result = await invoiceService.GetWrappedPrimitiveGuidAsync();
         Assert.Equal(MockInvoiceService.DefaultGuid, result);
-        result = await invoiceService.GetPrimitiveGuid();
+        result = await invoiceService.GetPrimitiveGuidAsync();
         Assert.Equal(MockInvoiceService.DefaultGuid, result);
     }
 
@@ -197,9 +197,9 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var result = await invoiceService.GetWrappedPrimitiveString();
+        var result = await invoiceService.GetWrappedPrimitiveStringAsync();
         Assert.Equal(MockInvoiceService.DefaultString, result);
-        result = await invoiceService.GetPrimitiveString();
+        result = await invoiceService.GetPrimitiveStringAsync();
         Assert.Equal(MockInvoiceService.DefaultString, result);
     }
 
@@ -213,9 +213,9 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var result = await invoiceService.GetWrappedPrimitiveInt();
+        var result = await invoiceService.GetWrappedPrimitiveIntAsync();
         Assert.Equal(MockInvoiceService.DefaultInt, result);
-        result = await invoiceService.GetPrimitiveInt();
+        result = await invoiceService.GetPrimitiveIntAsync();
         Assert.Equal(MockInvoiceService.DefaultInt, result);
     }
 
@@ -229,7 +229,7 @@ public class IntegrationHttpClientTests
         var sp = TestIntegrationHttpClient.SetupServiceProvider();
 
         var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
-        var result = await invoiceService.GetPrimitiveStringList();
+        var result = await invoiceService.GetPrimitiveStringListAsync();
         Assert.Equal(new List<string> { MockInvoiceService.DefaultString }, result);
     }
 

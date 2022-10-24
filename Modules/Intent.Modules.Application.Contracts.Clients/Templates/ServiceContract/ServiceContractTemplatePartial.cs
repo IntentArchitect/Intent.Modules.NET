@@ -57,5 +57,10 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
 
             return $"Task<{GetTypeName(o.ReturnType)}>";
         }
+        
+        private string GetOperationName(OperationModel operation)
+        {
+            return $"{operation.Name.ToPascalCase().RemoveSuffix("Async")}Async";
+        }
     }
 }

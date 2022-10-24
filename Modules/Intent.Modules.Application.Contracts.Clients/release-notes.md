@@ -1,3 +1,7 @@
+### Version 3.3.8
+
+- Fixed: Operation name suffix "Async" added.
+
 ### Version 3.3.7
 
 - New: HttpClientRequestException added which contains its own response content in error scenarios.

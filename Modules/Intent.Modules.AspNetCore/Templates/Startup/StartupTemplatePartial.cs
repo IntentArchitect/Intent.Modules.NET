@@ -42,7 +42,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         {
             _serviceConfigurationRequests.Add(request);
         }
-        
+
         private void Handle(ApplicationBuilderRegistrationRequest request)
         {
             _applicationBuilderRegistrationRequests.Add(request);
@@ -117,7 +117,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
                 return string.Join(", ", paramList);
             }
-            
+
             return $"services.{request.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
 
@@ -144,7 +144,7 @@ app.UseEndpoints(endpoints =>
             appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));
 
             var applicationBuilderRegistrationRequests = _applicationBuilderRegistrationRequests;
-            
+
             foreach (var request in applicationBuilderRegistrationRequests)
             {
                 foreach (var dependency in request.TemplateDependencies)
@@ -162,7 +162,7 @@ app.UseEndpoints(endpoints =>
 
                 appConfigElements.Add((GetApplicationBuilderExtensionMethodStatement(request), request.Priority));
             }
-            
+
             return GetCodeInNeatLines(appConfigElements, baseIndent);
         }
 
@@ -198,7 +198,7 @@ app.UseEndpoints(endpoints =>
 
                 return string.Join(", ", paramList);
             }
-            
+
             return $"app.{request.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
 

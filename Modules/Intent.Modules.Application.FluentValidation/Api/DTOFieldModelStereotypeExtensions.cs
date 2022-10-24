@@ -25,6 +25,18 @@ namespace Intent.Application.FluentValidation.Api
             return model.HasStereotype("Validations");
         }
 
+        public static bool TryGetValidations(this DTOFieldModel model, out Validations stereotype)
+        {
+            if (!HasValidations(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Validations(model.GetStereotype("Validations"));
+            return true;
+        }
+
 
         public class Validations
         {

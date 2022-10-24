@@ -209,6 +209,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.Cosmos", "Intent.Modules.EntityFrameworkCore.Cosmos\Intent.Modules.EntityFrameworkCore.Cosmos.csproj", "{B87269E9-E22E-4B9A-ACC0-787E8CAB5362}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intent.Modules.Security.MSAL", "Intent.Modules.Security.MSAL\Intent.Modules.Security.MSAL.csproj", "{8F477F9F-0ED7-4768-B2F5-2E473D83C041}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -595,6 +597,10 @@ Global
 		{B87269E9-E22E-4B9A-ACC0-787E8CAB5362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B87269E9-E22E-4B9A-ACC0-787E8CAB5362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B87269E9-E22E-4B9A-ACC0-787E8CAB5362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F477F9F-0ED7-4768-B2F5-2E473D83C041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F477F9F-0ED7-4768-B2F5-2E473D83C041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F477F9F-0ED7-4768-B2F5-2E473D83C041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F477F9F-0ED7-4768-B2F5-2E473D83C041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -695,6 +701,7 @@ Global
 		{736B10B4-F1A4-4A2C-8FA4-0D9B0DA1F590} = {A319FB02-C635-433C-9446-8A7FB29162DE}
 		{989DD053-C359-455D-B3F0-B04E7A4EB059} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B87269E9-E22E-4B9A-ACC0-787E8CAB5362} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{8F477F9F-0ED7-4768-B2F5-2E473D83C041} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

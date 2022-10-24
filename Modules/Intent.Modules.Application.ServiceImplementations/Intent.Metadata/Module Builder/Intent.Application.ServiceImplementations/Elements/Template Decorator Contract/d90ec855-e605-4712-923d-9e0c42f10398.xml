@@ -3,7 +3,6 @@
   <name>ServiceImplementationDecorator</name>
   <display>ServiceImplementationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>18e4bf9f-2cff-41f4-a98a-333dc4c1178a</parentFolderId>

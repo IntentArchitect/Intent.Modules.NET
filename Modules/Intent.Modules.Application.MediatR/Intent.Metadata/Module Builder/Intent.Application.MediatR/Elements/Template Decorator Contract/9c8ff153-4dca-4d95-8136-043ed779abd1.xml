@@ -3,7 +3,6 @@
   <name>CommandHandlerDecorator</name>
   <display>CommandHandlerDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4ba1d060-8722-4b1d-97e1-e7f070b8be2e</parentFolderId>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="30aa8400-a6c4-4769-a559-cfae9687e909" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+<class id="f405c898-def0-485f-ab90-4b0364485e91" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
   <name>Api</name>
   <display>Api</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>39362e67-e432-45bf-8901-84ae3a4dbf08</parentFolderId>
-  <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-  <packageName>Intent.Modules.NET</packageName>
+  <parentFolderId>768108c5-5757-47fb-b4c4-ccc16685bb58</parentFolderId>
+  <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+  <packageName>Intent.Modules.NET.MSAL</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
       <addedByDefault>true</addedByDefault>
@@ -21,136 +21,128 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="8737cc39-b4f4-4bad-b41c-c9ddbbddd514" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="c1dcf01c-5831-4778-9879-dc628889f092" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="71ae338a-a984-41e3-8240-a4569ba334e9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="55e649fe-49f7-4e3f-bb1b-c0335c5e27f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="40e02e0e-8720-4558-9b69-08187ec0666d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="6adc2f33-ee82-4cae-9466-6192a6b26006" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="447d3d02-4558-4dd3-b5ea-2c37b45feb94" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="7371b904-d9a7-4616-8e53-6871f4acce0e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiElementModel</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiElementModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0e64a95d-222e-42d9-abaa-f1cd757057c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="b277b661-8013-41d6-80db-8bfd75527a31" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>4</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3d8c9fb1-5381-4084-8893-d6fa8bff72fc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="0f79c999-6695-4005-bda6-de641f3c2d51" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiElementModelPartial</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiElementModelPartial</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>5</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e8cad071-7f56-4f16-a817-e8747347a796" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="4054651f-8402-41dd-aea0-5392982760fc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>6</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ec1710d2-c939-43d1-bf5b-fe29f391402c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="5008a35a-be43-4aae-9139-511742c1c5fb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiPackageModel</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiPackageModel</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>7</order>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>30aa8400-a6c4-4769-a559-cfae9687e909</parentFolderId>
-      <packageId>7b0d537a-77e8-4c17-8d8b-7cd7e11a62e4</packageId>
-      <packageName>Intent.Modules.NET</packageName>
+      <parentFolderId>f405c898-def0-485f-ab90-4b0364485e91</parentFolderId>
+      <packageId>7f2aecb9-82ea-4c22-8551-a3344f1f6c39</packageId>
+      <packageName>Intent.Modules.NET.MSAL</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

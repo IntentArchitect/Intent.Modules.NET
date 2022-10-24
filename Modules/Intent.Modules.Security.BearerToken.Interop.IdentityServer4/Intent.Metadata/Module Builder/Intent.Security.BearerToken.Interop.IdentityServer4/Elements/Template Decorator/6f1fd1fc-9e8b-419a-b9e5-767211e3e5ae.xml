@@ -3,7 +3,6 @@
   <name>ControllerAuthenticationSchemesDecorator</name>
   <display>ControllerAuthenticationSchemesDecorator: ControllerDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="162773b2-6ef5-4462-a2ea-71406bfd96a3">
     <typeId>2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</typeId>

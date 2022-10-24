@@ -3,7 +3,6 @@
   <name>JWTAuthenticationDecorator</name>
   <display>JWTAuthenticationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>55927007-83ce-479c-9a07-970a940dcb72</parentFolderId>

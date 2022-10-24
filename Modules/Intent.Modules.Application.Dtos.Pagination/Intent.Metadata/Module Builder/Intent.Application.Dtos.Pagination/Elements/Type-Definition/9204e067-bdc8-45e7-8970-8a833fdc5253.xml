@@ -3,7 +3,6 @@
   <name>PagedResult</name>
   <display>PagedResult&lt;TData&gt;</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes>
     <genericType id="b2e9202d-2fb1-426b-91a9-02b6a3a294bd">
       <name>TData</name>

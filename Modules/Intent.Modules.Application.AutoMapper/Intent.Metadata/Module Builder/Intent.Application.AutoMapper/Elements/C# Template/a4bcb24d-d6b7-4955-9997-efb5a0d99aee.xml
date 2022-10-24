@@ -3,7 +3,6 @@
   <name>MappingProfile</name>
   <display>MappingProfile: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="fc811a2b-783d-4d63-ac6d-c096bb26d3e1">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

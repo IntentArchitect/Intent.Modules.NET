@@ -3,7 +3,6 @@
   <name>AzureFunctionFluentValidationDecorator</name>
   <display>AzureFunctionFluentValidationDecorator: AzureFunctionClassDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="d18ca6f7-5342-440d-a711-5ce7029d0d52">
     <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>

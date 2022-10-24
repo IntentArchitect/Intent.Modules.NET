@@ -25,12 +25,12 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
 
         private readonly string _requestDtoTypeName;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionFluentValidationDecorator(AzureFunctionClassTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-
+            
             _requestDtoTypeName = _template.Model.GetRequestDtoParameter() != null
                 ? _template.GetTypeName(_template.Model.GetRequestDtoParameter().TypeReference)
                 : null;

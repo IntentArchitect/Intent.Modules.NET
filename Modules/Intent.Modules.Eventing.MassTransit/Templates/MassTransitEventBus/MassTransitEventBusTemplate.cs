@@ -60,7 +60,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
             
             #line default
             #line hidden
-            this.Write("(IPublishEndpoint publishEndpoint)\r\n        {\r\n            Current = publishEndpoint;\r\n        }\r\n\r\n        public IPublishEndpoint Current { get; set; }\r\n        \r\n        public void Publish<T>(T message) where T : class\r\n        {\r\n            _messagesToPublish.Add(message);\r\n        }\r\n\r\n        public async Task FlushAllAsync(CancellationToken cancellationToken = default)\r\n        {\r\n            await Current.PublishBatch(_messagesToPublish, cancellationToken);\r\n        }\r\n    }\r\n}");
+            this.Write("(IPublishEndpoint publishEndpoint)\r\n        {\r\n            Current = publishEndpoint;\r\n        }\r\n\r\n        public IPublishEndpoint Current { get; set; }\r\n        \r\n        public void Publish<T>(T message) where T : class\r\n        {\r\n            _messagesToPublish.Add(message);\r\n        }\r\n\r\n        public async Task FlushAllAsync(CancellationToken cancellationToken = default)\r\n        {\r\n            await Current.PublishBatch(_messagesToPublish, cancellationToken);\r\n            _messagesToPublish.Clear();\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

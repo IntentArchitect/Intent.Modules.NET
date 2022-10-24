@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
             _template = template;
             _application = application;
         }
-        
+
         public override int Priority => -25;
 
         public override string ExitOperationBody(OperationModel operationModel)

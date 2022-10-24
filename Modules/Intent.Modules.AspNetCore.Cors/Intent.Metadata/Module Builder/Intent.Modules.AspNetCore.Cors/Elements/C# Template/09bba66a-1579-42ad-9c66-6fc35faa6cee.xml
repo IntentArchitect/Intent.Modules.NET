@@ -3,7 +3,6 @@
   <name>CorsConfiguration</name>
   <display>CorsConfiguration: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="aa0b39c2-5200-4e5a-867d-50c7b40d26dc">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

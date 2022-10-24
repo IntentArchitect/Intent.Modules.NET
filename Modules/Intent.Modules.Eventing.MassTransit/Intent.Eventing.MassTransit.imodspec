@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>3.3.2</version>
+  <version>3.3.3</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -73,7 +73,7 @@
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
       <install>
-        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="3.3.2" />
+        <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="3.3.3" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore">

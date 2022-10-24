@@ -61,7 +61,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
 
         private string GetOperationName(OperationModel operation)
         {
-            return operation.Name.ToPascalCase();
+            return $"{operation.Name.ToPascalCase().RemoveSuffix("Async")}Async";
         }
 
         private string GetOperationParameters(OperationModel operation)

@@ -3,7 +3,7 @@
   <name>DtoModel</name>
   <display>DtoModel: File Per Model</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <typeReference id="7324454c-00ef-4c80-bf49-08b2830f1cfe">
     <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
