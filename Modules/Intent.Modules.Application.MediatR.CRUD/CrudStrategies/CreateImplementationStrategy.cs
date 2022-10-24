@@ -5,6 +5,7 @@ using System.Text;
 using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
@@ -50,30 +51,50 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var repository = _matchingElementDetails.Value.Repository;
             
             var entityName = _template.GetDomainEntityName(foundEntity);
-            var impl = $@"var new{foundEntity.Name} = new {entityName ?? foundEntity.Name}
-                {{
-{GetPropertyAssignments(foundEntity, _template.Model)}
-                }};
-                
-                {repository.FieldName}.Add(new{foundEntity.Name});";
+
+            var codeLines = new List<string>();
+            codeLines.Add($"var new{foundEntity.Name} = new {entityName ?? foundEntity.Name}");
+            codeLines.Add($"{{");
+            codeLines.AddRange(GetCommandPropertyAssignments(foundEntity, _template.Model).Select(s => $@"    {s}"));
+            codeLines.Add($"}}");
+            codeLines.Add(string.Empty);
+            codeLines.Add($"{repository.FieldName}.Add(new{foundEntity.Name});");
 
             if (_template.Model.TypeReference.Element != null)
             {
-                impl += $@"
-                await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);
-                return new{foundEntity.Name}.{foundEntity.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};";
+                codeLines.Add(string.Empty);
+                codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
+                codeLines.Add($"return new{foundEntity.Name}.{foundEntity.Attributes.FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
             else
             {
-                impl += @"
-                return Unit.Value;";
+                codeLines.Add(string.Empty);
+                codeLines.Add($"return Unit.Value;");
             }
-
-            return impl;
+            
+            const string newLine = @"
+            ";
+            return string.Join(newLine, codeLines);
         }
 
         private StrategyData GetMatchingElementDetails()
         {
+            if (_template.Model.Name.ToLower().Contains("create") 
+                &&  _template.Model.Mapping?.Element.IsClassModel() == true)
+            {
+                var foundEntity = _template.Model.Mapping.Element.AsClassModel();
+                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
+                if (repositoryInterface == null)
+                {
+                    return NoMatch;
+                }
+
+                var repository = new RequiredService(type: repositoryInterface,
+                    name: repositoryInterface.Substring(1).ToCamelCase());
+                
+                return new StrategyData(true, foundEntity, repository);
+            }
+            
             var matchingEntities = _metadataManager.Domain(_application)
                 .GetClassModels().Where(x => new[]
                 {
@@ -102,33 +123,92 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return NoMatch;
         }
 
-        private string GetPropertyAssignments(ClassModel domainModel, CommandModel command)
+        private List<string> GetCommandPropertyAssignments(ClassModel domainModel, CommandModel command)
         {
-            var sb = new StringBuilder();
+            var codeLines = new List<string>();
             foreach (var property in command.Properties)
             {
-                var attribute = property.Mapping?.Element != null
-                    ? property.Mapping.Element.AsAttributeModel()
-                    : domainModel.Attributes.FirstOrDefault(p =>
-                        p.Name.Equals(property.Name, StringComparison.OrdinalIgnoreCase));
-                if (attribute == null)
+                if (property.Mapping?.Element == null
+                    && domainModel.Attributes.All(p => p.Name != property.Name))
                 {
-                    sb.AppendLine($"                    #warning No matching field found for {property.Name}");
+                    codeLines.Add($"#warning No matching field found for {property.Name}");
                     continue;
                 }
 
-                if (attribute.Type.Element.Id != property.TypeReference.Element.Id)
-                {
-                    sb.AppendLine(
-                        $"                    #warning No matching type for Domain: {attribute.Name} and DTO: {property.Name}");
-                    continue;
-                }
+                const string newLine = @"
+    ";
 
-                sb.AppendLine(
-                    $"                    {attribute.Name.ToPascalCase()} = request.{property.Name.ToPascalCase()},");
+                switch (property.Mapping?.Element?.SpecializationTypeId)
+                {
+                    default:
+                        var mappedPropertyName = property.Mapping?.Element?.Name ?? "<null>";
+                        codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {property.Name}");
+                        break;
+                    case AttributeModel.SpecializationTypeId:
+                        var attribute = property.Mapping?.Element?.AsAttributeModel()
+                                        ?? domainModel.Attributes.First(p => p.Name == property.Name);
+                        codeLines.Add($"{attribute.Name.ToPascalCase()} = request.{property.Name.ToPascalCase()},");
+                        break;
+                    case AssociationTargetEndModel.SpecializationTypeId:
+                    {
+                        var association = property.Mapping.Element.AsAssociationTargetEndModel();
+                        var attributeClass = association.OtherEnd().Class;
+                        var attributeName = association.Name.ToPascalCase();
+                        codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()}?.Select({property.Name.ToCamelCase()} =>");
+                        codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
+                        codeLines.Add($"    {{");
+                        codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel()).Select(s => $"    {s}"));
+                        codeLines.Add($"    }}).ToList()");
+                    }
+                        break;
+                }
             }
 
-            return sb.ToString().Trim();
+            return codeLines;
+        }
+
+        private List<string> GetDTOPropertyAssignments(string accessorName, ClassModel domainModel, DTOModel dto)
+        {
+            var codeLines = new List<string>();
+            foreach (var field in dto.Fields)
+            {
+                if (field.Mapping?.Element == null
+                    && domainModel.Attributes.All(p => p.Name != field.Name))
+                {
+                    codeLines.Add($"#warning No matching field found for {field.Name}");
+                    continue;
+                }
+
+                const string newLine = @"
+    ";
+
+                switch (field.Mapping?.Element?.SpecializationTypeId)
+                {
+                    default:
+                        var mappedPropertyName = field.Mapping?.Element?.Name ?? "<null>";
+                        codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {field.Name}");
+                        break;
+                    case AttributeModel.SpecializationTypeId:
+                        var attribute = field.Mapping?.Element?.AsAttributeModel()
+                                        ?? domainModel.Attributes.First(p => p.Name == field.Name);
+                        codeLines.Add($"{attribute.Name.ToPascalCase()} = {accessorName}.{field.Name.ToPascalCase()},");
+                        break;
+                    case AssociationTargetEndModel.SpecializationTypeId:
+                    {
+                        var association = field.Mapping.Element.AsAssociationTargetEndModel();
+                        var attributeClass = association.OtherEnd().Class;
+                        var attributeName = association.Name.ToPascalCase();
+                        codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}?.Select({field.Name.ToCamelCase()} =>");
+                        codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
+                        codeLines.Add($"    {{");
+                        codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel()).Select(s => $"    {s}"));
+                        codeLines.Add($"    }}).ToList()");
+                    }
+                        break;
+                }
+            }
+
+            return codeLines;
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null);
