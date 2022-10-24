@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="6b4fc8c0-90d4-4aa3-83c1-93ab1442aa3c" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
-  <name>DTO Extension</name>
-  <display>DTO Extension: DTO</display>
+<class id="04a16b10-1a83-4e5a-aad8-ca86b9638847" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Command Extension</name>
+  <display>Command Extension: Command</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="e11f32ce-9e35-49f1-861f-4e53f6bfbfd9">
-    <typeId>fee0edca-4aa0-4f77-a524-6bbd84e78734</typeId>
+  <typeReference id="d5c7309d-9ed1-479d-9477-8e564aea5624">
+    <typeId>ccf14eb6-3a55-4d81-b5b9-d27311c70cb9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Modelers.Services</typePackageName>
-    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <typePackageName>Intent.Modelers.Services.CQRS</typePackageName>
+    <typePackageId>45fb22e9-f493-4de5-9fe0-845f783aa9d4</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
@@ -47,26 +47,25 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="8f00819e-6cd5-4832-ad78-beb0cde3b419" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+    <childElement id="e97592ba-34be-4ad3-9a49-3a181b97b74b" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
       <name>NewElementEventSettings</name>
       <display>[events]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>6b4fc8c0-90d4-4aa3-83c1-93ab1442aa3c</parentFolderId>
+      <parentFolderId>04a16b10-1a83-4e5a-aad8-ca86b9638847</parentFolderId>
       <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
       <packageName>Intent.Application.MediatR.CRUD</packageName>
       <stereotypes />
       <metadata />
       <childElements>
-        <childElement id="c7baae4d-ff78-4fda-9324-357949f8ceaf" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
-          <comment />
+        <childElement id="56d22886-ac9a-4d4f-b92a-fc1a3dd6f76a" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Mapped</name>
           <display>On Mapped: Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="6fd5a34f-5aef-44ed-9c03-827d13009866">
+          <typeReference id="b3d4b894-b4cd-4e4f-8423-0ecbf6143bdf">
             <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -78,7 +77,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>8f00819e-6cd5-4832-ad78-beb0cde3b419</parentFolderId>
+          <parentFolderId>e97592ba-34be-4ad3-9a49-3a181b97b74b</parentFolderId>
           <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
           <packageName>Intent.Application.MediatR.CRUD</packageName>
           <stereotypes>
