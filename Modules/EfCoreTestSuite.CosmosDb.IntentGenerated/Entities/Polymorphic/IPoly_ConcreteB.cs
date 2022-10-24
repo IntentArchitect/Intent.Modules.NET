@@ -8,9 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial interface IPoly_ConcreteB : IPoly_BaseClassNonAbstract
+    public interface IPoly_ConcreteB : IPoly_BaseClassNonAbstract
     {
-
         string ConcreteField { get; set; }
     }
 }

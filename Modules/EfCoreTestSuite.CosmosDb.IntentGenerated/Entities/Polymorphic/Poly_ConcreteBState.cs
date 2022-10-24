@@ -10,20 +10,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 
     public partial class Poly_ConcreteB : Poly_BaseClassNonAbstract, IPoly_ConcreteB
     {
-        public Poly_ConcreteB()
-        {
-        }
 
-
-        private string _concreteField;
-
-        public string ConcreteField
-        {
-            get { return _concreteField; }
-            set
-            {
-                _concreteField = value;
-            }
-        }
+        public string ConcreteField { get; set; }
     }
 }

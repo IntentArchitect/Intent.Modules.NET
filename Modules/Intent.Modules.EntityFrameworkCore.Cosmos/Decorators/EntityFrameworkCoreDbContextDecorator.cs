@@ -52,7 +52,10 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                                 statements.AddRange(GetTableMapping(model.AsClassModel()));
                             }
 
-                            statements.Add(GetKeyMapping(model.AsClassModel()));
+                            if (model.AsClassModel().ParentClass == null)
+                            {
+                                statements.Add(GetKeyMapping(model.AsClassModel()));
+                            }
 
                             method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder.WithOwner"), -1) + 1, statements, s =>
                             {
@@ -91,7 +94,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                                 case RelationshipType.OneToMany:
                                     if (associationEnd.IsSourceEnd() || associationEnd.OtherEnd().IsNullable)
                                     {
-                                        fks = GetForeignColumns(associationEnd);
+                                        fks = GetForeignColumns(associationEnd.OtherEnd());
                                         domainElement = (IElement)associationEnd.Element;
                                     }
 
@@ -99,7 +102,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                                 case RelationshipType.OneToOne:
                                     if (associationEnd.IsSourceEnd() || associationEnd.OtherEnd().IsNullable)
                                     {
-                                        fks = GetForeignColumns(associationEnd.OtherEnd());
+                                        fks = GetForeignColumns(associationEnd);
                                         domainElement = (IElement)associationEnd.OtherEnd().Element;
                                     }
                                     else
@@ -110,7 +113,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                                     }
                                     break;
                                 case RelationshipType.ManyToOne:
-                                    fks = GetForeignColumns(associationEnd.OtherEnd());
+                                    fks = GetForeignColumns(associationEnd);
                                     domainElement = (IElement)associationEnd.OtherEnd().Element;
                                     break;
                                 case RelationshipType.ManyToMany:
@@ -136,11 +139,36 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
             var domainPackage = new DomainPackageModel(model.InternalElement.Package);
             var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
 
-            var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
-                ? _template.OutputTarget.ApplicationName()
-                : cosmosSettings.ContainerName();
+            if (model.ParentClass == null)
+            {
+                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
+                    ? _template.OutputTarget.ApplicationName()
+                    : cosmosSettings.ContainerName();
 
-            yield return $@"builder.ToContainer(""{containerName}"");";
+                yield return $@"builder.ToContainer(""{containerName}"");";
+            }
+            else
+            {
+                yield return $"builder.HasBaseType<{_template.GetTypeName(model.ParentClass.InternalElement)}>();";
+            }
+
+            if (GetPartitionKey(model) != null)
+            {
+                yield return $@"builder.HasPartitionKey(x => x.{GetPartitionKey(model).Name.ToPascalCase()});";
+
+                if (model.ParentClass != null)
+                {
+                    yield return $@"builder.Property(x => x.PartitionKey)
+                .IsRequired();";
+                }
+            }
+        }
+
+        private AttributeModel GetPartitionKey(ClassModel model)
+        {
+            // Is there an easier way to get this?
+            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
+            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
 
             var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
             if (string.IsNullOrEmpty(partitionKey))
@@ -148,10 +176,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                 partitionKey = "PartitionKey";
             }
 
-            if (model.Attributes.Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
-            {
-                yield return $@"builder.HasPartitionKey(x => x.{partitionKey});";
-            }
+            return model.GetTypesInHierarchy().SelectMany(x => x.Attributes).SingleOrDefault(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey());
         }
 
         //private string GetCheckConstraints(ClassModel model)
@@ -251,6 +276,10 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
             }
             EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
 
+            if (model.ChildClasses.Any())
+            {
+                return @"builder.HasKey(x => new { x.PartitionKey, x.Id });";
+            }
             return $@"builder.HasKey(x => x.Id);";
         }
 
@@ -259,103 +288,27 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
         {
             var statements = new List<CSharpStatement>();
 
-            //if (attribute.GetPrimaryKey()?.Identity() == true)
-            //{
-            //    statements.Add(".UseSqlServerIdentityColumn()");
-            //}
-
-            //if (attribute.HasDefaultConstraint())
-            //{
-            //    var treatAsSqlExpression = attribute.GetDefaultConstraint().TreatAsSQLExpression();
-            //    var defaultValue = attribute.GetDefaultConstraint()?.Value() ?? string.Empty;
-
-            //    if (!treatAsSqlExpression &&
-            //        !defaultValue.TrimStart().StartsWith("\"") &&
-            //        attribute.Type.Element.Name == "string")
-            //    {
-            //        defaultValue = $"\"{defaultValue}\"";
-            //    }
-
-            //    var method = treatAsSqlExpression
-            //        ? "HasDefaultValueSql"
-            //        : "HasDefaultValue";
-
-            //    statements.Add($".{method}({defaultValue})");
-            //}
-
-            //if (attribute.GetTextConstraints()?.SQLDataType().IsDEFAULT() == true)
-            //{
-            //    var maxLength = attribute.GetTextConstraints().MaxLength();
-            //    if (maxLength.HasValue && attribute.Type.Element.Name == "string")
-            //    {
-            //        statements.Add($".HasMaxLength({maxLength.Value})");
-            //    }
-            //}
-            //else if (attribute.HasTextConstraints())
-            //{
-            //    var maxLength = attribute.GetTextConstraints().MaxLength();
-            //    switch (attribute.GetTextConstraints().SQLDataType().AsEnum())
-            //    {
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR:
-            //            statements.Add($".HasColumnType(\"varchar({maxLength?.ToString() ?? "max"})\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR:
-            //            statements.Add($".HasColumnType(\"nvarchar({maxLength?.ToString() ?? "max"})\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT:
-            //            Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
-            //            statements.Add($".HasColumnType(\"text\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT:
-            //            Logging.Log.Warning($"{attribute.InternalElement.ParentElement.Name}.{attribute.Name}: The ntext, text, and image data types will be removed in a future version of SQL Server. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use nvarchar(max), varchar(max), and varbinary(max) instead.");
-            //            statements.Add($".HasColumnType(\"ntext\")");
-            //            break;
-            //        case AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT:
-            //        default:
-            //            throw new ArgumentOutOfRangeException();
-            //    }
-            //}
-            //else
-            //{
-            //    var decimalPrecision = attribute.GetDecimalConstraints()?.Precision();
-            //    var decimalScale = attribute.GetDecimalConstraints()?.Scale();
-            //    var columnType = attribute.GetColumn()?.Type();
-            //    if (decimalPrecision.HasValue && decimalScale.HasValue)
-            //    {
-            //        statements.Add($".HasColumnType(\"decimal({decimalPrecision}, {decimalScale})\")");
-            //    }
-            //    else if (!string.IsNullOrWhiteSpace(columnType))
-            //    {
-            //        statements.Add($".HasColumnType(\"{columnType}\")");
-            //    }
-            //}
-
-            //var columnName = attribute.GetColumn()?.Name();
-            //if (!string.IsNullOrWhiteSpace(columnName))
-            //{
-            //    statements.Add($".HasColumnName(\"{columnName}\")");
-            //}
-
-            //var computedValueSql = attribute.GetComputedValue()?.SQL();
-            //if (!string.IsNullOrWhiteSpace(computedValueSql))
-            //{
-            //    statements.Add(
-            //        $".HasComputedColumnSql(\"{computedValueSql}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
-            //}
-
-            //if (attribute.HasRowVersion())
-            //{
-            //    statements.Add($".IsRowVersion()");
-            //}
-
             return statements;
         }
 
         private EntityTypeConfigurationTemplate.RequiredColumn[] GetForeignColumns(AssociationEndModel associationEnd)
         {
+            if ((associationEnd.Class?.ParentClass != null || associationEnd.Class?.ChildClasses.Any() == true) &&
+                GetPartitionKey(associationEnd.Class) != null)
+            {
+                return new[] {
+                    new EntityTypeConfigurationTemplate.RequiredColumn(
+                        Type: null,
+                        Name: GetPartitionKey(associationEnd.Class).Name.ToPascalCase()),
+                    new EntityTypeConfigurationTemplate.RequiredColumn(
+                        Type: this.GetDefaultSurrogateKeyType() + (associationEnd.IsNullable ? "?" : ""),
+                        Name: $"{(associationEnd.Association.GetRelationshipType() != RelationshipType.OneToOne || associationEnd.IsNullable ? associationEnd.Name.ToPascalCase() : string.Empty)}Id")
+                };
+            }
+
             return new[] { new EntityTypeConfigurationTemplate.RequiredColumn(
-                    Type: this.GetDefaultSurrogateKeyType() + (associationEnd.OtherEnd().IsNullable ? "?" : ""),
-                    Name: $"{(associationEnd.Association.GetRelationshipType() != RelationshipType.OneToOne || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
+                    Type: this.GetDefaultSurrogateKeyType() + (associationEnd.IsNullable ? "?" : ""),
+                    Name: $"{(associationEnd.Association.GetRelationshipType() != RelationshipType.OneToOne || associationEnd.IsNullable ? associationEnd.Name.ToPascalCase() : string.Empty)}Id") };
         }
 
         private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EntityTypeConfigurationTemplate.RequiredColumn[] columns)

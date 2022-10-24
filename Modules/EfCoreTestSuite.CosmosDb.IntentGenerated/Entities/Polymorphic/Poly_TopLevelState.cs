@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -10,55 +11,19 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 
     public partial class Poly_TopLevel : IPoly_TopLevel
     {
-        public Poly_TopLevel()
+
+        public Guid Id { get; set; }
+
+        public string TopField { get; set; }
+
+        public string PartitionKey { get; set; }
+
+        public virtual ICollection<Poly_RootAbstract> Poly_RootAbstracts { get; set; } = new List<Poly_RootAbstract>();
+
+        ICollection<IPoly_RootAbstract> IPoly_TopLevel.Poly_RootAbstracts
         {
-        }
-
-        private Guid? _id = null;
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
-
-        private string _topField;
-
-        public string TopField
-        {
-            get { return _topField; }
-            set
-            {
-                _topField = value;
-            }
-        }
-
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private ICollection<Poly_RootAbstract> _poly_RootAbstracts;
-
-        public virtual ICollection<Poly_RootAbstract> Poly_RootAbstracts
-        {
-            get
-            {
-                return _poly_RootAbstracts ??= new List<Poly_RootAbstract>();
-            }
-            set
-            {
-                _poly_RootAbstracts = value;
-            }
+            get => Poly_RootAbstracts.CreateWrapper<IPoly_RootAbstract, Poly_RootAbstract>();
+            set => Poly_RootAbstracts = value.Cast<Poly_RootAbstract>().ToList();
         }
 
 

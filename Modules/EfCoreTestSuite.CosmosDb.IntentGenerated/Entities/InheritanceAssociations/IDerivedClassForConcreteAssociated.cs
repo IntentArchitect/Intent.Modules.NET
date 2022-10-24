@@ -8,19 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public partial interface IDerivedClassForConcreteAssociated
+    public interface IDerivedClassForConcreteAssociated
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string AssociatedField { get; set; }
 
         string PartitionKey { get; set; }
 
-        Guid DerivedClassForConcreteId { get; }
-        DerivedClassForConcrete DerivedClassForConcrete { get; set; }
+        IDerivedClassForConcrete DerivedClassForConcrete { get; set; }
 
     }
 }

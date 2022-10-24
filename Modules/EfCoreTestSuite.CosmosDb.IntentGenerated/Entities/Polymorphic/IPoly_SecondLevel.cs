@@ -8,18 +8,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial interface IPoly_SecondLevel
+    public interface IPoly_SecondLevel
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string SecondField { get; set; }
 
         string PartitionKey { get; set; }
 
-        ICollection<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
+        ICollection<IPoly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
 
     }
 }

@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
     [IntentManaged(Mode.Merge)]
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class Poly_ConcreteB
+    public partial class Poly_ConcreteB : Poly_BaseClassNonAbstract, IPoly_ConcreteB
     {
 
     }

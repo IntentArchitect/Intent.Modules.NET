@@ -15,9 +15,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string MultipleDepAttr { get; set; }
 
-
-        public Guid G_RequiredCompositeNavId { get; set; }
-
         public virtual G_RequiredCompositeNav G_RequiredCompositeNav { get; set; }
 
         IG_RequiredCompositeNav IG_MultipleDependent.G_RequiredCompositeNav

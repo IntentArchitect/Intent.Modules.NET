@@ -14,8 +14,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
         public Guid Id { get; set; }
 
         public string MultipleDependentAttr { get; set; }
-
-
-        public Guid C_RequiredCompositeId { get; set; }
     }
 }

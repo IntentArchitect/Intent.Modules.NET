@@ -8,13 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial interface IPoly_RootAbstract_Aggr
+    public interface IPoly_RootAbstract_Aggr
     {
-
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        Guid Id { get; }
         string AggrField { get; set; }
 
         string PartitionKey { get; set; }

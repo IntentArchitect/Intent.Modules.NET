@@ -32,7 +32,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
@@ -284,19 +284,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>26e7fecc-611f-4771-a607-e0b360d882e5</ProjectId>
-      <CorrelationId>Intent.DependencyInjection.EntityFrameworkCore.DbContextConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/DependencyInjection/DbContextConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>26e7fecc-611f-4771-a607-e0b360d882e5</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/DependencyInjection/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b0977200-e3a8-44d6-8fb2-a7ae33c2dbae</ProjectId>
@@ -824,7 +816,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/InheritanceAssociations/AbstractBaseClassState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InheritanceAssociations/AbstractBaseClassState.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
@@ -856,7 +848,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/InheritanceAssociations/ConcreteBaseClassState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InheritanceAssociations/ConcreteBaseClassState.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
@@ -1120,7 +1112,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/IPoly_ConcreteA.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Polymorphic/IPoly_ConcreteA.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
@@ -1128,7 +1120,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/IPoly_ConcreteB.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Polymorphic/IPoly_ConcreteB.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
@@ -1200,7 +1192,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_ConcreteAState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteAState.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>
@@ -1216,7 +1208,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Entities/Polymorphic/Poly_ConcreteBState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteBState.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>65b9bb63-2303-46c4-982a-b49d8825e7d0</ProjectId>

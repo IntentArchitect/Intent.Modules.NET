@@ -31,8 +31,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
             get => ClassDS.CreateWrapper<IClassD, ClassD>();
             set => ClassDS = value.Cast<ClassD>().ToList();
         }
-
-
-        public Guid ClassAId { get; set; }
     }
 }

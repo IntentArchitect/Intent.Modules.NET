@@ -20,8 +20,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
             get => ClassE;
             set => ClassE = (ClassE)value;
         }
-
-
-        public Guid ClassBId { get; set; }
     }
 }

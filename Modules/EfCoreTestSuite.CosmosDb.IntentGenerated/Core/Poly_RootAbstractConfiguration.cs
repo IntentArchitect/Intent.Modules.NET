@@ -15,6 +15,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         {
             builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
+            builder.HasPartitionKey(x => x.PartitionKey);
+
             builder.HasKey(x => new { x.PartitionKey, x.Id });
 
             builder.Property(x => x.AbstractField)
@@ -22,7 +24,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
-            builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.HasOne(x => x.Poly_RootAbstract_Aggr)
                 .WithMany()
@@ -35,6 +36,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<Poly_RootAbstract, Poly_RootAbstract_Comp> builder)
         {
             builder.WithOwner();
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.CompField)

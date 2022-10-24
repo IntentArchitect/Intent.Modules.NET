@@ -8,9 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public partial interface IDerivedClassForAbstract : IAbstractBaseClass
+    public interface IDerivedClassForAbstract : IAbstractBaseClass
     {
-
         string DerivedAttribute { get; set; }
 
 

@@ -10,57 +10,22 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
 
     public partial class AbstractBaseClassAssociated : IAbstractBaseClassAssociated
     {
-        public AbstractBaseClassAssociated()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public string AssociatedField { get; set; }
 
-        private string _associatedField;
-
-        public string AssociatedField
-        {
-            get { return _associatedField; }
-            set
-            {
-                _associatedField = value;
-            }
-        }
-
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
+        public string PartitionKey { get; set; }
 
 
         public Guid AbstractBaseClassId { get; set; }
-        private AbstractBaseClass _abstractBaseClass;
 
-        public virtual AbstractBaseClass AbstractBaseClass
+        public virtual AbstractBaseClass AbstractBaseClass { get; set; }
+
+        IAbstractBaseClass IAbstractBaseClassAssociated.AbstractBaseClass
         {
-            get
-            {
-                return _abstractBaseClass;
-            }
-            set
-            {
-                _abstractBaseClass = value;
-            }
+            get => AbstractBaseClass;
+            set => AbstractBaseClass = (AbstractBaseClass)value;
         }
 
 

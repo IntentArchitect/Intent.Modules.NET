@@ -10,57 +10,22 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
 
     public partial class ConcreteBaseClassAssociated : IConcreteBaseClassAssociated
     {
-        public ConcreteBaseClassAssociated()
-        {
-        }
 
-        private Guid? _id = null;
+        public Guid Id { get; set; }
 
-        /// <summary>
-        /// Get the persistent object's identifier
-        /// </summary>
-        public virtual Guid Id
-        {
-            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
-            set { _id = value; }
-        }
+        public string AssociatedField { get; set; }
 
-        private string _associatedField;
-
-        public string AssociatedField
-        {
-            get { return _associatedField; }
-            set
-            {
-                _associatedField = value;
-            }
-        }
-
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
+        public string PartitionKey { get; set; }
 
 
         public Guid ConcreteBaseClassId { get; set; }
-        private ConcreteBaseClass _concreteBaseClass;
 
-        public virtual ConcreteBaseClass ConcreteBaseClass
+        public virtual ConcreteBaseClass ConcreteBaseClass { get; set; }
+
+        IConcreteBaseClass IConcreteBaseClassAssociated.ConcreteBaseClass
         {
-            get
-            {
-                return _concreteBaseClass;
-            }
-            set
-            {
-                _concreteBaseClass = value;
-            }
+            get => ConcreteBaseClass;
+            set => ConcreteBaseClass = (ConcreteBaseClass)value;
         }
 
 

@@ -11,21 +11,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 
     public partial class Poly_BaseClassNonAbstract : Poly_RootAbstract, IPoly_BaseClassNonAbstract
     {
-        public Poly_BaseClassNonAbstract()
-        {
-        }
 
-
-        private string _baseField;
-
-        public string BaseField
-        {
-            get { return _baseField; }
-            set
-            {
-                _baseField = value;
-            }
-        }
+        public string BaseField { get; set; }
 
 
         public Guid? Poly_SecondLevelId { get; set; }

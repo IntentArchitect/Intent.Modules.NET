@@ -15,12 +15,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         {
             builder.HasBaseType<AbstractBaseClass>();
 
-            builder.Property(x => x.DerivedAttribute)
-                .IsRequired()
-                .HasMaxLength(250);
             builder.HasPartitionKey(x => x.PartitionKey);
 
             builder.Property(x => x.PartitionKey)
+                .IsRequired();
+
+            builder.Property(x => x.DerivedAttribute)
                 .IsRequired();
         }
     }
