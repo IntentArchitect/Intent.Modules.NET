@@ -53,10 +53,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var entityName = _template.GetDomainEntityName(foundEntity);
 
             var codeLines = new List<string>();
+            codeLines.Add(string.Empty);
             codeLines.Add($"var new{foundEntity.Name} = new {entityName ?? foundEntity.Name}");
             codeLines.Add($"{{");
             codeLines.AddRange(GetCommandPropertyAssignments(foundEntity, _template.Model).Select(s => $@"    {s}"));
-            codeLines.Add($"}}");
+            codeLines.Add($"}};");
             codeLines.Add(string.Empty);
             codeLines.Add($"{repository.FieldName}.Add(new{foundEntity.Name});");
 
@@ -152,13 +153,28 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AssociationTargetEndModel.SpecializationTypeId:
                     {
                         var association = property.Mapping.Element.AsAssociationTargetEndModel();
-                        var attributeClass = association.OtherEnd().Class;
+                        var attributeClass = association.Class;
                         var attributeName = association.Name.ToPascalCase();
-                        codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()}?.Select({property.Name.ToCamelCase()} =>");
-                        codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
-                        codeLines.Add($"    {{");
-                        codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel()).Select(s => $"    {s}"));
-                        codeLines.Add($"    }}).ToList()");
+                        
+                        if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                        {
+                            codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()} != null");
+                            codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
+                            codeLines.Add($"    {{");
+                            codeLines.AddRange(GetDTOPropertyAssignments($"request.{property.Name.ToPascalCase()}", attributeClass, property.TypeReference.Element.AsDTOModel())
+                                .Select(s => $"        {s}"));
+                            codeLines.Add($"    }}");
+                            codeLines.Add($"    : null,");
+                        }
+                        else
+                        {
+                            codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()}?.Select({property.Name.ToCamelCase()} =>");
+                            codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
+                            codeLines.Add($"    {{");
+                            codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel())
+                                .Select(s => $"        {s}"));
+                            codeLines.Add($"    }}).ToList()");
+                        }
                     }
                         break;
                 }
@@ -196,13 +212,28 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AssociationTargetEndModel.SpecializationTypeId:
                     {
                         var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                        var attributeClass = association.OtherEnd().Class;
+                        var attributeClass = association.Class;
                         var attributeName = association.Name.ToPascalCase();
-                        codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}?.Select({field.Name.ToCamelCase()} =>");
-                        codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
-                        codeLines.Add($"    {{");
-                        codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel()).Select(s => $"    {s}"));
-                        codeLines.Add($"    }}).ToList()");
+                        
+                        if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                        {
+                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()} != null");
+                            codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
+                            codeLines.Add($"    {{");
+                            codeLines.AddRange(GetDTOPropertyAssignments($"{accessorName}.{field.Name.ToPascalCase()}", attributeClass, field.TypeReference.Element.AsDTOModel())
+                                .Select(s => $"        {s}"));
+                            codeLines.Add($"    }}");
+                            codeLines.Add($"    : null,");
+                        }
+                        else
+                        {
+                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}?.Select({field.Name.ToCamelCase()} =>");
+                            codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
+                            codeLines.Add($"    {{");
+                            codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel())
+                                .Select(s => $"        {s}"));
+                            codeLines.Add($"    }}).ToList()");
+                        }
                     }
                         break;
                 }
