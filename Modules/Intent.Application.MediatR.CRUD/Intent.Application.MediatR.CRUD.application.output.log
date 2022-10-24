@@ -4,6 +4,14 @@
   <FileLogs>
     <FileLog>
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#6b4fc8c0-90d4-4aa3-83c1-93ab1442aa3c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/DTOExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DTOExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#c2a6cff8-5143-4ad1-90cc-2d4bb808f0e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/PackageExtensionModel.cs</ApplicationRelativeFilePath>

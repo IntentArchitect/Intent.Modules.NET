@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6b4fc8c0-90d4-4aa3-83c1-93ab1442aa3c" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>DTO Extension</name>
+  <display>DTO Extension: DTO</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="e11f32ce-9e35-49f1-861f-4e53f6bfbfd9">
+    <typeId>fee0edca-4aa0-4f77-a524-6bbd84e78734</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Services</typePackageName>
+    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>46410048-55e6-4cc9-8ee0-dcd0e24a8ee2</parentFolderId>
+  <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+  <packageName>Intent.Application.MediatR.CRUD</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="8f00819e-6cd5-4832-ad78-beb0cde3b419" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6b4fc8c0-90d4-4aa3-83c1-93ab1442aa3c</parentFolderId>
+      <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+      <packageName>Intent.Application.MediatR.CRUD</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="c7baae4d-ff78-4fda-9324-357949f8ceaf" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Mapped</name>
+          <display>On Mapped: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6fd5a34f-5aef-44ed-9c03-827d13009866">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8f00819e-6cd5-4832-ad78-beb0cde3b419</parentFolderId>
+          <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+          <packageName>Intent.Application.MediatR.CRUD</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="//let element = lookup(&quot;29a81107-c71c-45b4-ba7b-982be63277a1&quot;)&#xD;&#xA;&#xD;&#xA;let fields = element.getChildren(&quot;DTO-Field&quot;)&#xD;&#xA;    .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === &quot;Association&quot;);&#xD;&#xA;&#xD;&#xA;fields.forEach(f =&gt; {&#xD;&#xA;    let mappedElement = f.getMapping().getElement();&#xD;&#xA;&#xD;&#xA;    let dto = getOrCreateDTO(mappedElement.getName(), element.getParent());&#xD;&#xA;    dto.setMapping(mappedElement.typeReference.getTypeId());&#xD;&#xA;&#xD;&#xA;    ensureDtoFields(mappedElement, dto);&#xD;&#xA;    &#xD;&#xA;    f.typeReference.setType(dto.id);&#xD;&#xA;});&#xD;&#xA;&#xD;&#xA;function getOrCreateDTO(elementName, parentElement) {&#xD;&#xA;    let existingDto = parentElement.getChildren(&quot;DTO&quot;).filter(x =&gt; x.name === `${elementName}DTO`)[0];&#xD;&#xA;    if (existingDto) {&#xD;&#xA;        return existingDto;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    let dto = createElement(&quot;DTO&quot;, `${elementName}DTO`, parentElement.id);&#xD;&#xA;    return dto;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function ensureDtoFields(mappedElement, dto) {&#xD;&#xA;    let dtoUpdated = false;&#xD;&#xA;    let mappedElementAttributes = mappedElement&#xD;&#xA;        .typeReference&#xD;&#xA;        .getType()&#xD;&#xA;        .getChildren(&quot;Attribute&quot;);&#xD;&#xA;    let dtoFields = dto.getChildren(&quot;DTO-Field&quot;);&#xD;&#xA;    for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {&#xD;&#xA;        let field = createElement(&quot;DTO-Field&quot;, attribute.name, dto.id);&#xD;&#xA;        field.typeReference.setType(attribute.typeReference.typeId);&#xD;&#xA;        field.typeReference.setIsNullable(attribute.typeReference.isNullable);&#xD;&#xA;        field.typeReference.setIsCollection(attribute.typeReference.isCollection);&#xD;&#xA;        field.setMapping(attribute.id);&#xD;&#xA;        dtoUpdated = true;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    if (dtoUpdated) {&#xD;&#xA;        dto.collapse();&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
