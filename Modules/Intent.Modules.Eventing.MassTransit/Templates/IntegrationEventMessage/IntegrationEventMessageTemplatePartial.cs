@@ -20,6 +20,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IntegrationEventMessageTemplate(IOutputTarget outputTarget, MessageModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(TemplateId);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
