@@ -80,8 +80,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private StrategyData GetMatchingElementDetails()
         {
-            if (_template.Model.Name.ToLower().Contains("create") 
-                &&  _template.Model.Mapping?.Element.IsClassModel() == true)
+            var commandNameLowercase = _template.Model.Name.ToLower();
+            if ((commandNameLowercase.Contains("create") ||
+                 commandNameLowercase.Contains("add") ||
+                 commandNameLowercase.Contains("new"))
+                && _template.Model.Mapping?.Element.IsClassModel() == true)
             {
                 var foundEntity = _template.Model.Mapping.Element.AsClassModel();
                 var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
@@ -92,10 +95,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var repository = new RequiredService(type: repositoryInterface,
                     name: repositoryInterface.Substring(1).ToCamelCase());
-                
+
                 return new StrategyData(true, foundEntity, repository);
             }
-            
+
             var matchingEntities = _metadataManager.Domain(_application)
                 .GetClassModels().Where(x => new[]
                 {
@@ -106,7 +109,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 }.Contains(_template.Model.Name.ToLower().RemoveSuffix("command")))
                 .ToList();
 
-            if (matchingEntities.Count() == 1)
+            if (matchingEntities.Count == 1)
             {
                 var foundEntity = matchingEntities.Single();
                 var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
@@ -173,7 +176,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             codeLines.Add($"    {{");
                             codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel())
                                 .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}).ToList()");
+                            codeLines.Add($"    }}).ToList(),");
                         }
                     }
                         break;
@@ -232,7 +235,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             codeLines.Add($"    {{");
                             codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel())
                                 .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}).ToList()");
+                            codeLines.Add($"    }}).ToList(),");
                         }
                     }
                         break;
