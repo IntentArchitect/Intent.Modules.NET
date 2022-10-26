@@ -5,18 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Templates\DependencyInjection\DependencyInjectionTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DependencyInjectionTemplate.cs</LastGenOutput>
-    </None>
+    <Compile Remove="Templates\DependencyInjection\DependencyInjectionTemplate.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\DependencyInjection\DependencyInjectionTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DependencyInjectionTemplate.tt</DependentUpon>
-    </Compile>
+    <None Remove="Templates\DependencyInjection\DependencyInjectionTemplate.tt" />
   </ItemGroup>
 
   <ItemGroup>

@@ -28,7 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
         private readonly EntityTypeConfigurationTemplate _template;
 
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.EntityFrameworkCore.SqlServer.EntityTypeConfigurationTemplateDecorator";
+        public const string DecoratorId = "Intent.EntityFrameworkCore.Cosmos.EntityTypeConfigurationTemplateDecorator";
 
         public ISoftwareFactoryExecutionContext ExecutionContext { get; }
 

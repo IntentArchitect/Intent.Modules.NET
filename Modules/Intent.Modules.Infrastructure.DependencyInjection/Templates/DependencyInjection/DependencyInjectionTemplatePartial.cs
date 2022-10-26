@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -14,8 +15,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class DependencyInjectionTemplate : CSharpTemplateBase<object, DependencyInjectionDecorator>
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    public class DependencyInjectionTemplate : CSharpTemplateBase<object, DependencyInjectionDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Infrastructure.DependencyInjection.DependencyInjection";
@@ -28,7 +29,39 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         {
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
+            CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
+                .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddClass(ClassName, @class =>
+                {
+                    @class.AddMethod("IServiceCollection", "AddInfrastructure", method =>
+                    {
+                        method.AddParameter("this IServiceCollection", "services");
+                        method.AddParameter("IConfiguration", "configuration");
+
+                        // delay execution
+                        CSharpFile.OnBuild(file =>
+                        {
+                            foreach (var decorator in GetDecorators())
+                            {
+                                method.AddStatement(decorator.ServiceRegistration().Trim());
+                            }
+
+                            foreach (var registration in _containerRegistrationRequests.OrderBy(x => x.Priority))
+                            {
+                                method.AddStatement(DefineServiceRegistration(registration));
+                            }
+
+                            foreach (var registration in _serviceConfigurationRequests.OrderBy(x => x.Priority))
+                            {
+                                method.AddStatement(ServiceConfigurationRegistration(registration));
+                            }
+                        }, order: 1);
+                    });
+                });
         }
+
+        public CSharpFile CSharpFile { get; }
 
         public override void BeforeTemplateExecution()
         {
@@ -81,6 +114,12 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             return new CSharpFileConfig(
                 className: $"DependencyInjection",
                 @namespace: $"{OutputTarget.GetNamespace()}");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
 
         private string DefineServiceRegistration(ContainerRegistrationRequest request)

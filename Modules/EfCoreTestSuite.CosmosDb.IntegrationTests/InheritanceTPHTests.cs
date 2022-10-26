@@ -36,7 +36,6 @@ public class InheritanceTPHTests
         DbContext.DerivedClassForAbstracts.Add(derived);
 
         var derivedAssociated = new DerivedClassForAbstractAssociated();
-        derivedAssociated.Id = Guid.NewGuid();
         derivedAssociated.PartitionKey = "ABC";
         derivedAssociated.AssociatedField = "Derived Associated Value";
         derivedAssociated.DerivedClassForAbstract = derived;
@@ -58,7 +57,6 @@ public class InheritanceTPHTests
         DbContext.ConcreteBaseClasses.Add(concreteBase);
 
         var concreteBaseAssociated = new ConcreteBaseClassAssociated();
-        concreteBaseAssociated.Id = Guid.NewGuid();
         concreteBaseAssociated.PartitionKey = "ABC";
         concreteBaseAssociated.AssociatedField = "Associated Value";
         concreteBaseAssociated.ConcreteBaseClass = concreteBase;
@@ -77,14 +75,12 @@ public class InheritanceTPHTests
         DbContext.DerivedClassForConcretes.Add(derived);
 
         var derivedAssociated = new DerivedClassForConcreteAssociated();
-        derivedAssociated.Id = Guid.NewGuid();
         derivedAssociated.PartitionKey = "ABC";
         derivedAssociated.AssociatedField = "Associated Value";
         derivedAssociated.DerivedClassForConcrete = derived;
         DbContext.DerivedClassForConcreteAssociateds.Add(derivedAssociated);
 
         var concreteBaseAssociatedForDerived = new ConcreteBaseClassAssociated();
-        concreteBaseAssociatedForDerived.Id = Guid.NewGuid();
         concreteBaseAssociatedForDerived.PartitionKey = "ABC";
         concreteBaseAssociatedForDerived.AssociatedField = "Associated Value";
         concreteBaseAssociatedForDerived.ConcreteBaseClass = derived;
@@ -102,7 +98,6 @@ public class InheritanceTPHTests
     {
         var topLevelConcretes = CreateNewPolyClasses();
         var topLevel = new Poly_TopLevel();
-        topLevel.Id = Guid.NewGuid();
         topLevel.TopField = "Top Level Value";
         topLevel.PartitionKey = "ABC";
         topLevel.Poly_RootAbstracts.Add(topLevelConcretes.Item2);
@@ -112,7 +107,6 @@ public class InheritanceTPHTests
 
         var secondLevelConcretes = CreateNewPolyClasses();
         var secondLevel = new Poly_SecondLevel();
-        secondLevel.Id = Guid.NewGuid();
         secondLevel.SecondField = "Second Level Value";
         secondLevel.PartitionKey = "ABC";
         secondLevel.Poly_BaseClassNonAbstracts.Add(secondLevelConcretes.Item2);
@@ -141,36 +135,35 @@ public class InheritanceTPHTests
         (Poly_RootAbstract_Aggr, Poly_BaseClassNonAbstract, Poly_ConcreteA, Poly_ConcreteB) CreateNewPolyClasses()
         {
             var rootAbstractAggr = new Poly_RootAbstract_Aggr();
-            rootAbstractAggr.Id = Guid.NewGuid();
             rootAbstractAggr.PartitionKey = "ABC";
             rootAbstractAggr.AggrField = "Root Abstract Aggregate Value";
             DbContext.Poly_RootAbstract_Aggrs.Add(rootAbstractAggr);
             
             var baseClass = new Poly_BaseClassNonAbstract();
-            baseClass.Id = Guid.NewGuid();
+            baseClass.Id = Guid.NewGuid(); 
             baseClass.PartitionKey = "ABC";
             baseClass.AbstractField = "Base Class Non Abstract Value";
             baseClass.BaseField = "Base Class Non Abstract Value";
-            baseClass.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { Id = Guid.NewGuid(), CompField = "Base Class Non Abstract Value" };
+            baseClass.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Base Class Non Abstract Value" };
             baseClass.Poly_RootAbstract_Aggr = rootAbstractAggr;
         
             var concreteA = new Poly_ConcreteA();
-            concreteA.Id = Guid.NewGuid();
+            concreteA.Id = Guid.NewGuid(); 
             concreteA.PartitionKey = "ABC";
             concreteA.ConcreteField = "Concrete Value";
             concreteA.AbstractField = "Concrete Value";
             concreteA.BaseField = "Concrete Value";
-            concreteA.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { Id = Guid.NewGuid(), CompField = "Concrete Value" };
+            concreteA.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
             concreteA.Poly_RootAbstract_Aggr = rootAbstractAggr;
             DbContext.Poly_ConcreteAs.Add(concreteA);
         
             var concreteB = new Poly_ConcreteB();
-            concreteB.Id = Guid.NewGuid();
+            concreteB.Id = Guid.NewGuid(); 
             concreteB.PartitionKey = "ABC";
             concreteB.ConcreteField = "Concrete Value";
             concreteB.AbstractField = "Concrete Value";
             concreteB.BaseField = "Concrete Value";
-            concreteB.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { Id = Guid.NewGuid(), CompField = "Concrete Value" };
+            concreteB.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
             concreteB.Poly_RootAbstract_Aggr = rootAbstractAggr;
             DbContext.Poly_ConcreteBs.Add(concreteB);
             

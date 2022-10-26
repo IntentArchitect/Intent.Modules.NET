@@ -42,22 +42,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DependencyInjection/DependencyInjectionTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2d57feb3-a884-4472-b1e9-5449c8e227b4</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#17a069d6-8dd9-4274-9a04-958f99ec486c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DependencyInjection/DependencyInjectionTemplatePartial.cs</ApplicationRelativeFilePath>
