@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>DbContextSaveControllerBeginDecorator</name>
-  <display>DbContextSaveControllerBeginDecorator: ControllerDecorator</display>
+  <name>SaveTransactionControllerDecorator</name>
+  <display>SaveTransactionControllerDecorator: ControllerDecorator</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="4050a055-3e0c-442a-ba89-5d94a74ce601">

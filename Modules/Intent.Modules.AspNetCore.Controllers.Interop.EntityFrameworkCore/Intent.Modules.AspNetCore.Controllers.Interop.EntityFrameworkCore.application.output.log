@@ -12,32 +12,16 @@
       <ProjectId>6371ca1a-9e96-446d-96ce-565f92ca7a88</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DbContextSaveControllerBeginDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextSaveControllerBeginDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/SaveTransactionControllerDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SaveTransactionControllerDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6371ca1a-9e96-446d-96ce-565f92ca7a88</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4bf23c06-0d4e-47d1-a9ab-56b00c05d0fe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DbContextSaveControllerBeginDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextSaveControllerBeginDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6371ca1a-9e96-446d-96ce-565f92ca7a88</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e9b880a7-9b7a-402f-b3f2-0235fb329f57</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DbContextSaveControllerEndDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextSaveControllerEndDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6371ca1a-9e96-446d-96ce-565f92ca7a88</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e9b880a7-9b7a-402f-b3f2-0235fb329f57</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DbContextSaveControllerEndDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextSaveControllerEndDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/SaveTransactionControllerDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SaveTransactionControllerDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

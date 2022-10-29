@@ -14,6 +14,7 @@ using Intent.Modules.EntityFrameworkCore.Cosmos.Settings;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 
@@ -179,94 +180,6 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
             return model.GetTypesInHierarchy().SelectMany(x => x.Attributes).SingleOrDefault(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey());
         }
 
-        //private string GetCheckConstraints(ClassModel model)
-        //{
-        //    var checkConstraints = model.GetCheckConstraints();
-        //    if (checkConstraints.Count == 0)
-        //    {
-        //        return string.Empty;
-        //    }
-
-        //    var sb = new StringBuilder(@"
-        //    builder");
-
-        //    foreach (var checkConstraint in checkConstraints)
-        //    {
-        //        sb.Append(@$"
-        //        .HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"")");
-        //    }
-
-        //    sb.Append(";");
-        //    return sb.ToString();
-        //}
-
-        //private CSharpStatement[] GetIndexes(ClassModel model)
-        //{
-        //    var indexes = model.GetIndexes();
-        //    if (indexes.Count == 0)
-        //    {
-        //        return Array.Empty<CSharpStatement>();
-        //    }
-
-        //    var statements = new List<string>();
-
-        //    foreach (var index in indexes)
-        //    {
-        //        var indexFields = index.KeyColumns.Length == 1
-        //            ? GetIndexColumnPropertyName(index.KeyColumns.Single(), "x.")
-        //            : $"new {{ {string.Join(", ", index.KeyColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }}";
-
-        //        var sb = new StringBuilder($@"builder.HasIndex(x => {indexFields})");
-
-        //        if (index.IncludedColumns.Length > 0)
-        //        {
-        //            sb.Append($@"
-        //        .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})");
-        //        }
-
-        //        switch (index.FilterOption)
-        //        {
-        //            case FilterOption.Default:
-        //                break;
-        //            case FilterOption.None:
-        //                sb.Append(@"
-        //        .HasFilter(null)");
-        //                break;
-        //            case FilterOption.Custom:
-        //                sb.Append(@$"
-        //        .HasFilter(\""{index.Filter}"")");
-        //                break;
-        //            default:
-        //                throw new ArgumentOutOfRangeException();
-        //        }
-
-        //        if (index.IsUnique)
-        //        {
-        //            sb.Append(@"
-        //        .IsUnique()");
-        //        }
-
-        //        if (!index.UseDefaultName)
-        //        {
-        //            sb.Append(@$"
-        //        .HasDatabaseName(""{index.Name}"")");
-        //        }
-
-        //        sb.Append(";");
-
-        //        statements.Add(sb.ToString());
-        //    }
-
-        //    return statements.Select(x => new CSharpStatement(x)).ToArray();
-        //}
-
-        //private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
-        //{
-        //    return column.SourceType.IsAssociationEndModel()
-        //        ? $"{prefix}{column.Name.ToPascalCase()}Id"
-        //        : $"{prefix}{column.Name.ToPascalCase()}";
-        //}
-
         private CSharpStatement GetKeyMapping(ClassModel model)
         {
             var rootEntity = model;
@@ -274,7 +187,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
             {
                 rootEntity = rootEntity.ParentClass;
             }
-            EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
+            _template.EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
 
             if (model.ChildClasses.Any())
             {
@@ -282,7 +195,6 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
             }
             return $@"builder.HasKey(x => x.Id);";
         }
-
 
         private List<CSharpStatement> GetAttributeMappingStatements(AttributeModel attribute)
         {
@@ -311,44 +223,44 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                     Name: $"{(associationEnd.Association.GetRelationshipType() != RelationshipType.OneToOne || associationEnd.IsNullable ? associationEnd.Name.ToPascalCase() : string.Empty)}Id") };
         }
 
-        private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EntityTypeConfigurationTemplate.RequiredColumn[] columns)
-        {
-            if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
-            {
-                template.CSharpFile.OnBuild(file =>
-                {
-                    var associatedClass = file.Classes.First();
-                    foreach (var column in columns)
-                    {
-                        if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
-                        {
-                            var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
+        //private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EntityTypeConfigurationTemplate.RequiredColumn[] columns)
+        //{
+        //    if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
+        //    {
+        //        template.CSharpFile.OnBuild(file =>
+        //        {
+        //            var associatedClass = file.Classes.First();
+        //            foreach (var column in columns)
+        //            {
+        //                if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
+        //                {
+        //                    var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
 
-                            if (column.Order.HasValue)
-                            {
-                                associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
-                            else if (associationProperty != null)
-                            {
-                                associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
-                            else
-                            {
-                                associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
+        //                    if (column.Order.HasValue)
+        //                    {
+        //                        associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
+        //                    }
+        //                    else if (associationProperty != null)
+        //                    {
+        //                        associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
+        //                    }
+        //                    else
+        //                    {
+        //                        associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
+        //                    }
 
-                            void ConfigureProperty(CSharpProperty property)
-                            {
-                                if (column.IsPrivate)
-                                {
-                                    property.Private();
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        }
+        //                    void ConfigureProperty(CSharpProperty property)
+        //                    {
+        //                        if (column.IsPrivate)
+        //                        {
+        //                            property.Private();
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        });
+        //    }
+        //}
 
         public string GetDefaultSurrogateKeyType()
         {

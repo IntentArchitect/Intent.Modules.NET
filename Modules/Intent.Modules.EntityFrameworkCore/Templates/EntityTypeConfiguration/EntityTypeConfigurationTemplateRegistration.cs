@@ -7,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 //using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;

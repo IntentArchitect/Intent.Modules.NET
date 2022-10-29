@@ -36,32 +36,16 @@
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/ControllerConfigurationStartupDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerConfigurationStartupDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#bbf150dc-49c3-4c10-93ac-4b13b3f449ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerEndpointStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerEndpointStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6da39ce1-ee1b-4fc0-9424-7e5a23272419</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#4c45c883-135c-4c22-a158-406357a9e7d0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/DefaultControllerServicesStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultControllerServicesStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/ControllerConfigurationStartupDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerConfigurationStartupDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -126,22 +110,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Controller/ControllerTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Controller/ControllerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

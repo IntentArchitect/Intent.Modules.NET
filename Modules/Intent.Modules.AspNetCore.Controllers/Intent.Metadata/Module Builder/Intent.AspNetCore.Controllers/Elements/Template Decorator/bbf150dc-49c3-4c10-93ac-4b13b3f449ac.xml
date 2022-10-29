@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="bbf150dc-49c3-4c10-93ac-4b13b3f449ac" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>DefaultControllerEndpointStartupDecorator</name>
-  <display>DefaultControllerEndpointStartupDecorator: StartupDecorator</display>
+  <name>ControllerConfigurationStartupDecorator</name>
+  <display>ControllerConfigurationStartupDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="0a14aba5-4ba4-4b72-b3fb-5ed7aea89456">

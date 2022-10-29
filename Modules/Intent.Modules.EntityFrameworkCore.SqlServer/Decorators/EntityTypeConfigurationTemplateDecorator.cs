@@ -232,8 +232,8 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
 
         private CSharpStatement GetKeyMapping(ClassModel model)
         {
-            if (model.ParentClass != null && (!model.ParentClass.IsAbstract || !ExecutionContext.Settings
-                    .GetDatabaseSettings().InheritanceStrategy().IsTPC()))
+            if (model.ParentClass != null && (!model.ParentClass.IsAbstract || 
+                                              !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()))
             {
                 return string.Empty;
             }
@@ -245,7 +245,7 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                 {
                     rootEntity = rootEntity.ParentClass;
                 }
-                EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
+                _template.EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
 
                 return $@"builder.HasKey(x => x.Id);";
             }
@@ -373,44 +373,44 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                     Name: $"{(!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
             }
         }
-        private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EntityTypeConfigurationTemplate.RequiredColumn[] columns)
-        {
-            if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
-            {
-                template.CSharpFile.OnBuild(file =>
-                {
-                    var associatedClass = file.Classes.First();
-                    foreach (var column in columns)
-                    {
-                        if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
-                        {
-                            var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
+        //private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EntityTypeConfigurationTemplate.RequiredColumn[] columns)
+        //{
+        //    if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
+        //    {
+        //        template.CSharpFile.OnBuild(file =>
+        //        {
+        //            var associatedClass = file.Classes.First();
+        //            foreach (var column in columns)
+        //            {
+        //                if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
+        //                {
+        //                    var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
 
-                            if (column.Order.HasValue)
-                            {
-                                associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
-                            else if (associationProperty != null)
-                            {
-                                associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
-                            else
-                            {
-                                associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
+        //                    if (column.Order.HasValue)
+        //                    {
+        //                        associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
+        //                    }
+        //                    else if (associationProperty != null)
+        //                    {
+        //                        associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
+        //                    }
+        //                    else
+        //                    {
+        //                        associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
+        //                    }
 
-                            void ConfigureProperty(CSharpProperty property)
-                            {
-                                if (column.IsPrivate)
-                                {
-                                    property.Private();
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        }
+        //                    void ConfigureProperty(CSharpProperty property)
+        //                    {
+        //                        if (column.IsPrivate)
+        //                        {
+        //                            property.Private();
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        });
+        //    }
+        //}
 
         public string GetDefaultSurrogateKeyType()
         {

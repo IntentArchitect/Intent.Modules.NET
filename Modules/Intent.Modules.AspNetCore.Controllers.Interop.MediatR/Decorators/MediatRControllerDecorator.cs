@@ -9,6 +9,7 @@ using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -35,6 +36,26 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             _template.AddTypeSource(CommandModelsTemplate.TemplateId);
             _template.AddTypeSource(QueryModelsTemplate.TemplateId);
             _template.AddTypeSource("Application.Contract.Dto", "List<{0}>");
+            _template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var ctor = @class.Constructors.First();
+                ctor.AddParameter(_template.UseType("MediatR.ISender"), "mediator", p =>
+                {
+                    p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
+                });
+
+                foreach (var method in @class.Methods)
+                {
+                    if (method.TryGetMetadata<OperationModel>("model", out var model) && 
+                        model.HasMapToCommandMapping() || model.HasMapToQueryMapping())
+                    {
+                        method.AddStatements(GetValidations(model));
+                        method.AddStatement(GetDispatchViaMediatorStatement(model), s => s.SeparatedFromPrevious());
+                        method.AddStatement(GetReturnStatement(model));
+                    }
+                }
+            });
         }
 
         public override string EnterClass()
@@ -54,15 +75,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));";
         }
 
-        public override string EnterOperationBody(OperationModel operationModel)
+        public IEnumerable<string> GetValidations(OperationModel operationModel)
         {
-            var validations = new StringBuilder();
+            var validations = new List<string>();
             var payloadParameter = GetPayloadParameter(operationModel);
             if (payloadParameter != null && operationModel.InternalElement.IsMapped)
             {
                 foreach (var mappedParameter in GetMappedParameters(operationModel))
                 {
-                    validations.Append($@"
+                    validations.Add($@"
             if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.InternalElement.MappedElement.Element.Name.ToPascalCase()})
             {{
                 return BadRequest();
@@ -71,10 +92,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 }
             }
 
-            return validations.ToString();
+            return validations;
         }
 
-        public override string MidOperationBody(OperationModel operationModel)
+        public CSharpStatement GetDispatchViaMediatorStatement(OperationModel operationModel)
         {
             var payload = GetPayloadParameter(operationModel)?.Name
                 ?? (operationModel.InternalElement.IsMapped ? GetMappedPayload(operationModel) : "UNKNOWN");
@@ -84,7 +105,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 : $@"await _mediator.Send({payload}, cancellationToken);";
         }
 
-        public override string ExitOperationBody(OperationModel operationModel)
+        public CSharpStatement GetReturnStatement(OperationModel operationModel)
         {
             switch (_template.GetHttpVerb(operationModel))
             {

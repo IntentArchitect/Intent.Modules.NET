@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -80,7 +81,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 //    }
                                 //    method.Statements.SeparateAll();
                                 //});
-                                builderTemplate.CSharpFile.OnBuild(file =>
+                                builderTemplate.CSharpFile.AfterBuild(file => // Needs to run after other decorators of the entity
                                 {
                                     foreach (var property in file.Classes.First().GetAllProperties())
                                     {
@@ -91,7 +92,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                         }
                                     }
                                     method.Statements.SeparateAll();
-                                }, order: 100); // Needs to run after other decorators of the entity
+                                }); 
                             }
 
                             method.Statements.SeparateAll();
@@ -296,7 +297,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
             {
-                template.CSharpFile.OnBuild(file =>
+                template.CSharpFile.AfterBuild(file =>
                 {
                     var associatedClass = file.Classes.First();
                     foreach (var column in columns)

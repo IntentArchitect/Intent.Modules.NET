@@ -6,6 +6,7 @@ using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
@@ -19,8 +20,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    public class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
 
@@ -29,7 +30,48 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource("Domain.Enum");
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("Microsoft.AspNetCore.Authorization")
+                .AddUsing("Microsoft.AspNetCore.Http")
+                .AddUsing("Microsoft.AspNetCore.Mvc")
+                .AddClass($"{Model.Name.RemoveSuffix("Controller", "Service")}Controller", @class =>
+                {
+                    @class.AddAttribute("[ApiController]");
+                    @class.WithBaseType("ControllerBase");
+                    @class.AddConstructor();
+                    foreach (var attribute in GetControllerAttributes())
+                    {
+                        @class.AddAttribute(attribute);
+                    }
+                    foreach (var operation in Model.Operations.Where(p => p.HasHttpSettings()))
+                    {
+                        @class.AddMethod($"Task<{GetReturnType(operation)}>", operation.Name.ToPascalCase(), method =>
+                        {
+                            method.AddMetadata("model", operation);
+                            method.Async();
+                            method.WithComments(GetOperationComments(operation));
+                            foreach (var attribute in GetOperationAttributes(operation))
+                            {
+                                method.AddAttribute(attribute);
+                            }
+                            foreach (var parameter in operation.Parameters)
+                            {
+                                method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
+                                {
+                                    param.AddAttribute(GetParameterBindingAttribute(operation, parameter));
+                                });
+                            }
+
+                            method.AddParameter("CancellationToken", "cancellationToken");
+                        });
+                    }
+                });
         }
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
@@ -38,6 +80,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 className: $"{Model.Name.RemoveSuffix("Controller", "Service")}Controller",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: this.GetFolderPath());
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
 
         public string GetEnterClass()
@@ -88,7 +136,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 : string.Empty;
         }
 
-        private string GetControllerAttributes()
+        private IEnumerable<string> GetControllerAttributes()
         {
             var attributes = new List<string>();
             if (IsControllerSecured())
@@ -104,11 +152,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             attributes.Add(
                 $@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
             attributes.AddRange(GetDecorators().SelectMany(x => x.GetControllerAttributes()));
-            return string.Join(@"
-    ", attributes);
+            return attributes;
         }
 
-        private string GetOperationComments(OperationModel operation)
+        private IEnumerable<string> GetOperationComments(OperationModel operation)
         {
             var lines = new List<string>();
 
@@ -161,11 +208,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     $"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
             }
 
-            return string.Join(@"
-        ", lines);
+            return lines;
         }
 
-        private string GetOperationAttributes(OperationModel operation)
+        private IEnumerable<string> GetOperationAttributes(OperationModel operation)
         {
             var attributes = new List<string>();
             attributes.Add(GetHttpVerbAndPath(operation));
@@ -234,8 +280,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             attributes.Add(@"[ProducesResponseType(StatusCodes.Status500InternalServerError)]");
-            return string.Join(@"
-        ", attributes);
+            return attributes;
         }
 
         private static string GetAuthorizationAttribute(AuthorizationModel authorizationModel)
@@ -404,5 +449,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             [Obsolete(WillBeRemovedIn.Version4)] DELETE = 4
             // ReSharper restore InconsistentNaming
         }
+
     }
 }

@@ -32,15 +32,17 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddClass(ClassName, @class =>
+                .AddClass("DependencyInjection", @class =>
                 {
+                    @class.Static();
                     @class.AddMethod("IServiceCollection", "AddInfrastructure", method =>
                     {
+                        method.Static();
                         method.AddParameter("this IServiceCollection", "services");
                         method.AddParameter("IConfiguration", "configuration");
 
                         // delay execution
-                        CSharpFile.OnBuild(file =>
+                        CSharpFile.AfterBuild(file =>
                         {
                             foreach (var decorator in GetDecorators())
                             {
@@ -56,7 +58,9 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                             {
                                 method.AddStatement(ServiceConfigurationRegistration(registration));
                             }
-                        }, order: 1);
+
+                            method.AddStatement("return services;");
+                        });
                     });
                 });
         }
@@ -65,6 +69,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
         public override void BeforeTemplateExecution()
         {
+            base.BeforeTemplateExecution();
             ExecutionContext.EventDispatcher.Publish(
                 ServiceConfigurationRequest.ToRegister(
                         extensionMethodName: "AddInfrastructure",

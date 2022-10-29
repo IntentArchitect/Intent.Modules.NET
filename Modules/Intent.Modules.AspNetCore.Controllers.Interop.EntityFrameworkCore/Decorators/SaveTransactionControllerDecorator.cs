@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -15,21 +16,46 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class DbContextSaveControllerBeginDecorator : ControllerDecorator
+    public class SaveTransactionControllerDecorator : ControllerDecorator
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.DbContextSaveControllerBeginDecorator";
+        public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore.SaveTransactionControllerDecorator";
 
         [IntentManaged(Mode.Fully)]
         private readonly ControllerTemplate _template;
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
-        [IntentManaged(Mode.Merge, Body = Mode.Fully)]
-        public DbContextSaveControllerBeginDecorator(ControllerTemplate template, IApplication application)
+        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        public SaveTransactionControllerDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
+            _template.CSharpFile.AfterBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var ctor = @class.Constructors.First();
+                ctor.AddParameter(GetUnitOfWork(), "unitOfWork", p =>
+                {
+                    p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
+                });
+
+                foreach (var method in @class.Methods)
+                {
+                    if (method.TryGetMetadata<OperationModel>("model", out var operation) &&
+                        operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
+                    {
+                        method.Statements.FirstOrDefault(x => x.ToString().Contains("await "))?
+                            .Indent()
+                            .InsertAbove($@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
+            {{")
+                            .InsertBelow($@"await _unitOfWork.SaveChangesAsync(cancellationToken);
+                transaction.Complete();
+            }}", s => s.Indent());
+                    }
+                }
+            });
         }
 
         public override int Priority => 100;

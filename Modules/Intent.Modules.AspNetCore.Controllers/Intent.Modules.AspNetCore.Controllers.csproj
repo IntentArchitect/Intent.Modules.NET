@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageVersion>3.3.13</PackageVersion>
+    <PackageVersion>4.0.0-pre.0</PackageVersion>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -12,10 +12,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Templates\Controller\ControllerTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ControllerTemplate.cs</LastGenOutput>
-    </None>
+    <Compile Remove="Templates\Controller\ControllerTemplate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Templates\Controller\ControllerTemplate.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Templates\ApiControllerBase\ApiControllerBaseTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApiControllerBaseTemplate.cs</LastGenOutput>
@@ -27,11 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\Controller\ControllerTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ControllerTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\JsonResponse\JsonResponseTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -40,8 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.22-pre.0" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.9" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.5" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
@@ -49,7 +47,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.2" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
   </ItemGroup>
 
   <ItemGroup>

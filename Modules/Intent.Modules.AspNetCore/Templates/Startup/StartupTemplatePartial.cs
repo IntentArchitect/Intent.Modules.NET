@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -16,8 +17,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.AspNetCore.Templates.Startup
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class StartupTemplate : CSharpTemplateBase<object, StartupDecorator>
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    public partial class StartupTemplate : CSharpTemplateBase<object, StartupDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Startup";
 
@@ -31,7 +32,53 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(Handle);
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(Handle);
             ExecutionContext.EventDispatcher.Subscribe<ApplicationBuilderRegistrationRequest>(Handle);
+
+            CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("Microsoft.AspNetCore.Builder")
+                .AddUsing("Microsoft.AspNetCore.Hosting")
+                .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Logging")
+                .AddUsing("Microsoft.Extensions.Options")
+                .AfterBuild(file =>
+                {
+                    file.AddClass("Startup", @class =>
+                    {
+                        @class.AddAttribute("[IntentManaged(Mode.Merge)]");
+                        @class.AddConstructor(ctor =>
+                        {
+                            ctor.AddParameter("IConfiguration", "configuration",
+                                param => param.IntroduceProperty(prop => { prop.ReadOnly(); }));
+                        });
+                        @class.AddMethod("void", "ConfigureServices", method =>
+                        {
+                            method.AddParameter("IServiceCollection", "services");
+
+                            method.AddStatements(GetServiceConfigurations("            "));
+                            method.AddStatements(GetContainerRegistrations());
+                        });
+                        @class.AddMethod("void", "Configure", method =>
+                        {
+                            method.WithComments("// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.");
+
+                            method.AddParameter("IApplicationBuilder", "app");
+                            method.AddParameter("IWebHostEnvironment", "env");
+
+                            method.AddStatement(@"if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }");
+                            method.AddStatements(GetApplicationConfigurations(), s => s.FirstOrDefault()?.SeparatedFromPrevious());
+                        });
+                    });
+                }, int.MinValue); // always run first
+
         }
+        public CSharpFile CSharpFile { get; }
 
         private void Handle(ContainerRegistrationRequest request)
         {
@@ -52,7 +99,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         /// It's a bit of a smell that a "Get" adds dependencies, but we can't process AddUsings in
         /// the Handle methods as not events might have been published yet.
         /// </remarks>
-        private string GetServiceConfigurations(string baseIndent)
+        private IEnumerable<string> GetServiceConfigurations(string baseIndent)
         {
             var serviceConfigElements = new List<(string Code, int Priority)>();
 
@@ -81,7 +128,10 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                 serviceConfigElements.Add((GetServiceConfigurationExtensionMethodStatement(request), request.Priority));
             }
 
-            return GetCodeInNeatLines(serviceConfigElements, baseIndent);
+            return serviceConfigElements
+                .Where(x => !string.IsNullOrWhiteSpace(x.Code))
+                .OrderBy(x => x.Priority)
+                .Select(x => x.Code.Trim());
         }
 
         public bool IsNetCore2App()
@@ -121,27 +171,16 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
             return $"services.{request.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
 
-        private string GetApplicationConfigurations(string baseIndent)
+        private IEnumerable<CSharpStatement> GetApplicationConfigurations()
         {
-            var appConfigElements = new List<(string Code, int Priority)>();
-            if (IsNetCore2App())
-            {
-                appConfigElements.Add(("app.UseHttpsRedirection();", -30));
-            }
-            else
-            {
-                appConfigElements.Add(("app.UseHttpsRedirection();", -30));
-                appConfigElements.Add(("app.UseRouting();", -20));
-                appConfigElements.Add(("app.UseAuthorization();", -5));
-            }
+            var appConfigElements = new List<(CSharpStatement Code, int Priority)>();
+            appConfigElements.Add(("app.UseHttpsRedirection();", -30));
+            appConfigElements.Add(("app.UseRouting();", -20));
+            appConfigElements.Add(("app.UseAuthorization();", -5));
 
-            appConfigElements.Add(($@"
-app.UseEndpoints(endpoints =>
-{{
-    {GetEndPointMappings()}
-}});", 0));
+            appConfigElements.Add((new EndpointsStatement(GetEndPointMappings()), 0));
 
-            appConfigElements.AddRange(GetDecorators().Select(s => (s.Configuration(), s.Priority)));
+            appConfigElements.AddRange(GetDecorators().Select(s => (new CSharpStatement(s.Configuration()), s.Priority)));
 
             var applicationBuilderRegistrationRequests = _applicationBuilderRegistrationRequests;
 
@@ -163,7 +202,10 @@ app.UseEndpoints(endpoints =>
                 appConfigElements.Add((GetApplicationBuilderExtensionMethodStatement(request), request.Priority));
             }
 
-            return GetCodeInNeatLines(appConfigElements, baseIndent);
+            return appConfigElements
+                .Where(x => !string.IsNullOrWhiteSpace(x.Code.ToString()))
+                .OrderBy(x => x.Priority)
+                .Select(x => x.Code);
         }
 
         private string GetApplicationBuilderExtensionMethodStatement(ApplicationBuilderRegistrationRequest request)
@@ -202,40 +244,43 @@ app.UseEndpoints(endpoints =>
             return $"app.{request.ExtensionMethodName}({GetExtensionMethodParameterList()});";
         }
 
-        private string GetEndPointMappings()
+        private IEnumerable<CSharpStatement> GetEndPointMappings()
         {
             var endpointMappings = new List<(string Code, int Priority)>();
 
             endpointMappings.AddRange(GetDecorators().Select(s => (s.EndPointMappings(), s.Priority)));
 
-            return GetCodeInNeatLines(endpointMappings, "                ");
+            return endpointMappings
+                .Where(x => !string.IsNullOrWhiteSpace(x.Code))
+                .OrderBy(x => x.Priority)
+                .Select(x => new CSharpStatement(x.Code.Trim()));
         }
 
-        private string GetCodeInNeatLines(IEnumerable<(string Code, int Priority)> codeSections, string baseIndent)
-        {
-            var sb = new StringBuilder();
-            PushIndent(baseIndent);
+        //private string GetCodeInNeatLines(IEnumerable<(string Code, int Priority)> codeSections, string baseIndent)
+        //{
+        //    var sb = new StringBuilder();
+        //    PushIndent(baseIndent);
 
-            foreach (var element in codeSections.OrderBy(x => x.Priority))
-            {
-                var codeLines = element.Code
-                    .Trim()
-                    .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var line in codeLines)
-                {
-                    sb.Append(CurrentIndent).AppendLine(line);
-                }
-            }
+        //    foreach (var element in codeSections.OrderBy(x => x.Priority))
+        //    {
+        //        var codeLines = element.Code
+        //            .Trim()
+        //            .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        //        foreach (var line in codeLines)
+        //        {
+        //            sb.Append(CurrentIndent).AppendLine(line);
+        //        }
+        //    }
 
-            PopIndent();
-            return sb.ToString();
-        }
+        //    PopIndent();
+        //    return sb.ToString();
+        //}
 
         /// <remarks>
         /// It's a bit of a smell that a "Get" adds dependencies, but we can't process AddUsings in
         /// the Handle methods as not events might have been published yet.
         /// </remarks>
-        public string GetContainerRegistrations()
+        public IEnumerable<string> GetContainerRegistrations()
         {
             var containerRegistrationRequests = _containerRegistrationRequests
                 .Where(x => !x.IsHandled)
@@ -257,7 +302,7 @@ app.UseEndpoints(endpoints =>
                 }
             }
 
-            return string.Concat(containerRegistrationRequests.Select(DefineServiceRegistration));
+            return containerRegistrationRequests.Select(DefineServiceRegistration);
         }
 
         private string DefineServiceRegistration(ContainerRegistrationRequest x)
@@ -271,13 +316,13 @@ app.UseEndpoints(endpoints =>
             if (x.ConcreteType.StartsWith("typeof("))
             {
                 return x.InterfaceType != null
-                    ? $"{Environment.NewLine}            services.{RegistrationType(x)}({UseTypeOf(x.InterfaceType)}, {UseTypeOf(x.ConcreteType)});"
-                    : $"{Environment.NewLine}            services.{RegistrationType(x)}({UseTypeOf(x.ConcreteType)});";
+                    ? $"services.{RegistrationType(x)}({UseTypeOf(x.InterfaceType)}, {UseTypeOf(x.ConcreteType)});"
+                    : $"services.{RegistrationType(x)}({UseTypeOf(x.ConcreteType)});";
             }
 
             return x.InterfaceType != null
-                ? $"{Environment.NewLine}            services.{RegistrationType(x)}<{UseType(x.InterfaceType)}, {UseType(x.ConcreteType)}>();"
-                : $"{Environment.NewLine}            services.{RegistrationType(x)}<{UseType(x.ConcreteType)}>();";
+                ? $"services.{RegistrationType(x)}<{UseType(x.InterfaceType)}, {UseType(x.ConcreteType)}>();"
+                : $"services.{RegistrationType(x)}<{UseType(x.ConcreteType)}>();";
         }
 
         private static string RegistrationType(ContainerRegistrationRequest registration)
@@ -296,6 +341,41 @@ app.UseEndpoints(endpoints =>
             return new CSharpFileConfig(
                 className: "Startup",
                 @namespace: $"{OutputTarget.GetNamespace()}");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
+
+    }
+
+    public class EndpointsStatement : CSharpStatement, IHasCSharpStatements
+    {
+        public EndpointsStatement() : base(null)
+        {
+        }
+
+        public EndpointsStatement(IEnumerable<CSharpStatement> configStatements) : this()
+        {
+            Statements = configStatements.ToList();
+        }
+
+        public IList<CSharpStatement> Statements { get; }
+
+        public override string GetText(string indentation)
+        {
+            return $@"{indentation}app.UseEndpoints(endpoints =>
+{indentation}{{
+{string.Join($@"
+", Statements.Select(x => x.GetText($"{indentation}    ")))}
+{indentation}}});";
+        }
+
+        public void AddEndpointConfiguration(CSharpStatement statement)
+        {
+            Statements.Add(statement);
         }
     }
 }

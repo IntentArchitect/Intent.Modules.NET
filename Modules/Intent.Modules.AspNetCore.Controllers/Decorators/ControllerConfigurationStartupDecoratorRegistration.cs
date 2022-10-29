@@ -9,14 +9,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Controllers.Decorators
 {
-    [Description(DefaultControllerServicesStartupDecorator.DecoratorId)]
-    public class DefaultControllerServicesStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
+    [Description(ControllerConfigurationStartupDecorator.DecoratorId)]
+    public class ControllerConfigurationStartupDecoratorRegistration : DecoratorRegistration<StartupTemplate, StartupDecorator>
     {
         public override StartupDecorator CreateDecoratorInstance(StartupTemplate template, IApplication application)
         {
-            return new DefaultControllerServicesStartupDecorator(template, application);
+            return new ControllerConfigurationStartupDecorator(template, application);
         }
 
-        public override string DecoratorId => DefaultControllerServicesStartupDecorator.DecoratorId;
+        public override string DecoratorId => ControllerConfigurationStartupDecorator.DecoratorId;
     }
 }

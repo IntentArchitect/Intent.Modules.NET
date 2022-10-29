@@ -54,20 +54,20 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.Decorators
                 @class.AddMethod("Task", "DispatchEvents", method =>
                 {
                     method.Private().Async()
-                        .AddStatements($@"
-while (true)
-{{
-    var domainEventEntity = ChangeTracker
-        .Entries<{template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()
-        .Select(x => x.Entity.DomainEvents)
-        .SelectMany(x => x)
-        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
+                        .AddStatement($@"
+                while (true)
+                {{
+                    var domainEventEntity = ChangeTracker
+                        .Entries<{template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()
+                        .Select(x => x.Entity.DomainEvents)
+                        .SelectMany(x => x)
+                        .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
-    if (domainEventEntity == null) break;
+                    if (domainEventEntity == null) break;
 
-    domainEventEntity.IsPublished = true;
-    await _domainEventService.Publish(domainEventEntity);
-}}");
+                    domainEventEntity.IsPublished = true;
+                    await _domainEventService.Publish(domainEventEntity);
+                }}");
                 });
             });
         }

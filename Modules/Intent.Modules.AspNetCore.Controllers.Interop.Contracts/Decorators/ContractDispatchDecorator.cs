@@ -32,67 +32,52 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
             _template = template;
             _application = application;
             _template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-        }
-
-        public override string EnterClass()
-        {
-            return $@"
-        private readonly {_template.GetTypeName(ServiceContractTemplate.TemplateId, _template.Model)} _appService;";
-        }
-
-        public override IEnumerable<string> ConstructorParameters()
-        {
-            return new[] { $"{_template.GetTypeName(ServiceContractTemplate.TemplateId, _template.Model)} appService" };
-        }
-
-        public override string ConstructorImplementation()
-        {
-            return $@"
-            _appService = appService ?? throw new ArgumentNullException(nameof(appService));";
-        }
-
-        public override string EnterOperationBody(OperationModel operationModel)
-        {
-            if (operationModel.ReturnType != null)
+            _template.CSharpFile.OnBuild(file =>
             {
-                return $@"
-            var result = default({_template.GetTypeName(operationModel)});";
-            }
+                var @class = file.Classes.First();
+                var ctor = @class.Constructors.First();
+                ctor.AddParameter(_template.GetTypeName(ServiceContractTemplate.TemplateId, _template.Model), "appService", p =>
+                {
+                    p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
+                });
 
-            return null;
+                foreach (var method in @class.Methods)
+                {
+                    if (method.TryGetMetadata<OperationModel>("model", out var operationModel) && operationModel.HasHttpSettings())
+                    {
+                        if (operationModel.ReturnType != null)
+                        {
+                            method.AddStatement($"var result = default({_template.GetTypeName(operationModel)});");
+                            method.AddStatement($@"result = await _appService.{operationModel.Name.ToPascalCase()}({_template.GetArguments(operationModel.Parameters)});");
+                        }
+                        else
+                        {
+                            method.AddStatement($@"await _appService.{operationModel.Name.ToPascalCase()}({_template.GetArguments(operationModel.Parameters)});");
+                        }
+                        method.AddStatement(GetReturnStatement(operationModel));
+                    }
+                }
+            });
         }
-
-        public override string MidOperationBody(OperationModel operationModel)
-        {
-            if (operationModel.ReturnType != null)
-            {
-                return $@"
-            result = await _appService.{operationModel.Name.ToPascalCase()}({_template.GetArguments(operationModel.Parameters)});
-";
-            }
-
-            return $@"
-            await _appService.{operationModel.Name.ToPascalCase()}({_template.GetArguments(operationModel.Parameters)});";
-        }
-
-        public override string ExitOperationBody(OperationModel operationModel)
+        
+        public string GetReturnStatement(OperationModel operationModel)
         {
             switch (_template.GetHttpVerb(operationModel))
             {
-                case ControllerTemplate.HttpVerb.GET:
+                case ControllerTemplate.HttpVerb.Get:
                     return operationModel.ReturnType == null
                         ? $@"return NoContent();"
                         : $@"return Ok({GetResultExpression(operationModel)});";
-                case ControllerTemplate.HttpVerb.POST:
+                case ControllerTemplate.HttpVerb.Post:
                     return operationModel.ReturnType == null
                         ? $@"return Created(string.Empty, null);"
                         : $@"return Created(string.Empty, {GetResultExpression(operationModel)});";
-                case ControllerTemplate.HttpVerb.PUT:
-                case ControllerTemplate.HttpVerb.PATCH:
+                case ControllerTemplate.HttpVerb.Put:
+                case ControllerTemplate.HttpVerb.Patch:
                     return operationModel.ReturnType == null
                         ? $@"return NoContent();"
                         : $@"return Ok({GetResultExpression(operationModel)});";
-                case ControllerTemplate.HttpVerb.DELETE:
+                case ControllerTemplate.HttpVerb.Delete:
                     return operationModel.ReturnType == null
                         ? $@"return Ok();"
                         : $@"return Ok({GetResultExpression(operationModel)});";
