@@ -57,6 +57,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name}", @interface =>
                 {
+                    @interface.AddMetadata("model", Model);
                     if (Model.ParentClass != null)
                     {
                         @interface.ExtendsInterface(this.GetDomainEntityInterfaceName(Model.ParentClass));

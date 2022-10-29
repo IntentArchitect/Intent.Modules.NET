@@ -10,6 +10,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.SqlServer.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
@@ -245,12 +246,36 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                 {
                     rootEntity = rootEntity.ParentClass;
                 }
-                _template.EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
 
+                if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, rootEntity.InternalElement, out var template))
+                {
+                    template.CSharpFile.AfterBuild(file =>
+                    {
+                        var @class = file.Classes.First();
+                        @class.InsertProperty(0, GetDefaultSurrogateKeyType(), "Id", property =>
+                        {
+                            @class.AddMetadata("primary-keys", new[] { property });
+                        });
+                    }, int.MinValue);
+                }
+
+                //_template.EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
+                
                 return $@"builder.HasKey(x => x.Id);";
             }
             else
             {
+                if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model, out var template))
+                {
+                    template.CSharpFile.AfterBuild(file =>
+                    {
+                        var @class = file.Classes.First();
+                        @class.AddMetadata("primary-keys", @class.GetAllProperties()
+                            .Where(x => x.TryGetMetadata<AttributeModel>("model", out var attribute) && attribute.HasPrimaryKey())
+                            .ToArray());
+                    }, int.MinValue);
+                }
+
                 var keys = model.GetExplicitPrimaryKey().Count() == 1
                     ? "x." + model.GetExplicitPrimaryKey().Single().Name.ToPascalCase()
                     : $"new {{ {string.Join(", ", model.GetExplicitPrimaryKey().Select(x => "x." + x.Name.ToPascalCase()))} }}";

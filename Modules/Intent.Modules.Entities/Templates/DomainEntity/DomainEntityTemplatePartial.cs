@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEntityState;
@@ -34,10 +35,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
         {
             if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
             {
-                FulfillsRole("Domain.Entity");
+                FulfillsRole(TemplateFulfillingRoles.Domain.Entity.Primary);
                 if (!ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
                 {
-                    FulfillsRole("Domain.Entity.Interface");
+                    FulfillsRole(TemplateFulfillingRoles.Domain.Entity.Interface);
                 }
             }
 

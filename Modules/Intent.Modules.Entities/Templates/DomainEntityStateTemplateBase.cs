@@ -35,7 +35,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
     {
         foreach (var attribute in Model.Attributes)
         {
-            AddProperty(@class, attribute.Name, attribute.TypeReference);
+            AddProperty(@class, attribute.Name, attribute.TypeReference, attribute);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters() &&
@@ -47,7 +47,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
         foreach (var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable))
         {
-            AddProperty(@class, associationEnd.Name, associationEnd);
+            AddProperty(@class, associationEnd.Name, associationEnd, associationEnd);
 
             if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
                 !GetTypeName(associationEnd).Equals(InterfaceTemplate.GetTypeName(associationEnd)))
@@ -57,12 +57,12 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         }
     }
 
-    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference)
+    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model)
     {
         @class.AddProperty(GetTypeName(typeReference), propertyName.ToPascalCase(), property =>
         {
-            property.AddMetadata("model", typeReference);
-            if (typeReference.Element.IsClassModel()) // not the most robust.
+            property.AddMetadata("model", model);
+            if (typeReference.Element.IsClassModel()) // not the most robust. Needed for lazy loading proxies (so should move to EF).
             {
                 property.Virtual();
             }

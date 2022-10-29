@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.21-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.22-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.6" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
@@ -35,6 +35,10 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 
   <ItemGroup>

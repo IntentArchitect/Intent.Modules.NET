@@ -24,7 +24,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EntityFrameworkCoreRepositoryDecorator(DbContextTemplate template, IApplication application)
         {
             _template = template;
@@ -35,6 +35,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators
                 file.Classes.First().ImplementsInterface(_template.GetUnitOfWorkInterfaceName());
             });
 
+            // GCB - this should surely not be here?
             _template.ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(_template)
                 .ForInterface(_template.GetTemplate<IClassProvider>(UnitOfWorkInterfaceTemplate.TemplateId))

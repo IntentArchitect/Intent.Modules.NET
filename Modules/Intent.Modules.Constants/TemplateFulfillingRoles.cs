@@ -7,7 +7,7 @@
             public const string UnitOfWork = "Domain.UnitOfWork";
             public static class Entity
             {
-                public const string Primary = "Domain.Entity.Primary";
+                public const string Primary = "Domain.Entity";
                 public const string Interface = "Domain.Entity.Interface";
                 public const string State = "Domain.Entity.State";
             }

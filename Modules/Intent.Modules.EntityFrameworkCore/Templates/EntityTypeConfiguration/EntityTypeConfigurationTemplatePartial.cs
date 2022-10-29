@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Intent.Modules.Constants;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Templates;
 
@@ -295,7 +296,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         public void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params RequiredColumn[] columns)
         {
-            if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
+            if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, entityModel.Id, out var template))
             {
                 template.CSharpFile.AfterBuild(file =>
                 {
@@ -328,7 +329,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             }
                         }
                     }
-                });
+                }, int.MinValue);
             }
         }
 

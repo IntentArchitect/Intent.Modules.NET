@@ -5,6 +5,7 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
@@ -24,7 +25,7 @@ using Intent.Templates;
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class RepositoryTemplate : CSharpTemplateBase<ClassModel>
+    partial class RepositoryTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.Repository";
 
@@ -32,7 +33,61 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         public RepositoryTemplate(IOutputTarget outputTarget, ClassModel model)
             : base(TemplateId, outputTarget, model)
         {
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("Microsoft.EntityFrameworkCore")
+                .AddClass($"{Model.Name}Repository", @class =>
+                {
+                    @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
+                    @class.WithBaseType($"RepositoryBase<{EntityInterfaceName}, {EntityName}, {DbContextName}>");
+                    @class.ImplementsInterface(RepositoryContractName);
+                    @class.AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter(DbContextName, "dbContext")
+                            .CallsBase(b => b.AddArgument("dbContext"));
+                        if (!string.IsNullOrWhiteSpace(ConstructorImplementation()))
+                        {
+                            ctor.AddStatement(ConstructorImplementation());
+                        }
+                    });
+
+                    if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, Model, out var entityTemplate))
+                    {
+                        entityTemplate.CSharpFile.AfterBuild(file =>
+                        {
+                            var entityClass = file.Classes.First();
+                            if (entityClass.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
+                                && pks.Length == 1)
+                            {
+                                @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>", "FindByIdAsync", method =>
+                                {
+                                    var pk = pks.First();
+                                    method.Async();
+                                    method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
+                                    method.AddParameter("CancellationToken", "cancellationToken",
+                                        param => param.WithDefaultValue("default"));
+                                    method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken);");
+                                });
+                                @class.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
+                                {
+                                    var pk = pks.First();
+                                    method.Async();
+                                    method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
+                                    method.AddParameter("CancellationToken", "cancellationToken",
+                                        param => param.WithDefaultValue("default"));
+                                    method.AddStatement($"return await FindAllAsync(x => {pk.Name.ToCamelCase().Pluralize()}.Contains(x.{pk.Name}), cancellationToken);");
+                                });
+                            }
+                        }, 4000);
+                    }
+                });
         }
+
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
@@ -41,6 +96,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 className: $"{Model.Name}Repository",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
 
         public string EntityName => GetTypeName("Domain.Entity", Model);
@@ -88,5 +149,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             return !(ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() &&
                    Model.IsAbstract && OutputTarget.GetProject().TargetDotNetFrameworks.First().Major <= 6);
         }
+
     }
 }
