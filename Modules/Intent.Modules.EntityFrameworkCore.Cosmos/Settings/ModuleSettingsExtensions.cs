@@ -1,5 +1,6 @@
 using System;
 using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

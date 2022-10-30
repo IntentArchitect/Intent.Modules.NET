@@ -53,10 +53,10 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                                 statements.AddRange(GetTableMapping(model.AsClassModel()));
                             }
 
-                            if (model.AsClassModel().ParentClass == null)
-                            {
-                                statements.Add(GetKeyMapping(model.AsClassModel()));
-                            }
+                            //if (model.AsClassModel().ParentClass == null)
+                            //{
+                            //    statements.Add(GetKeyMapping(model.AsClassModel()));
+                            //}
 
                             method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder.WithOwner"), -1) + 1, statements, s =>
                             {
@@ -187,7 +187,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
             {
                 rootEntity = rootEntity.ParentClass;
             }
-            _template.EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
+            _template.EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id"));
 
             if (model.ChildClasses.Any())
             {

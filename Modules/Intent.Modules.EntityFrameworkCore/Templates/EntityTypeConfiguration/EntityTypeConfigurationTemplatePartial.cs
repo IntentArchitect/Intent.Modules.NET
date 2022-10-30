@@ -23,16 +23,6 @@ using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 {
-    public class EntityTypeConfigurationCreatedEvent
-    {
-        public EntityTypeConfigurationCreatedEvent(EntityTypeConfigurationTemplate template)
-        {
-            Template = template;
-        }
-
-        public EntityTypeConfigurationTemplate Template { get; set; }
-    }
-
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {
@@ -47,6 +37,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
             AddTypeSource("Domain.Entity");
             AddTypeSource("Domain.ValueObject");
+
+            Strategy = new RdbmsEntityTypeConfiguration(this);
+            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
+            {
+                Strategy = new CosmosEntityTypeConfiguration(this);
+            }
 
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddUsing("Microsoft.EntityFrameworkCore")
@@ -93,14 +89,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                         }
                                     }
                                     method.Statements.SeparateAll();
-                                }); 
+                                });
                             }
 
                             method.Statements.SeparateAll();
                         });
                 });
         }
+
         public CSharpFile CSharpFile { get; }
+        public IEntityTypeConfigurationStrategy Strategy { get; set; }
 
         public override void BeforeTemplateExecution()
         {
@@ -121,57 +119,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             return CSharpFile.ToString();
         }
-
-        //private IEnumerable<string> GetTableMapping(ClassModel model)
-        //{
-        //    if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
-        //    {
-        //        // Is there an easier way to get this?
-        //        var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
-        //        var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
-
-        //        var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
-        //            ? OutputTarget.ApplicationName()
-        //            : cosmosSettings.ContainerName();
-
-        //        yield return $@"builder.ToContainer(""{containerName}"");";
-
-        //        var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
-        //        if (string.IsNullOrEmpty(partitionKey))
-        //        {
-        //            partitionKey = "PartitionKey";
-        //        }
-
-        //        if (GetAttributes(Model.InternalElement).Any(p =>
-        //                p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
-        //        {
-        //            yield return $@"builder.HasPartitionKey(x => x.{partitionKey});";
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (model.HasTable())
-        //        {
-        //            yield return
-        //                $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
-        //        }
-
-        //        if ((model.ParentClass != null || model.ChildClasses.Any()) &&
-        //            !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
-        //        {
-        //            yield return
-        //                $@"builder.ToTable(""{model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
-        //        }
-        //    }
-
-        //    if (model.ParentClass != null &&
-        //        ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH())
-        //    {
-        //        yield return $@"builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();";
-        //    }
-        //    yield return string.Empty;
-        //}
-
 
         private bool RequiresConfiguration(AttributeModel attribute)
         {
@@ -286,7 +233,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     }
                     break;
                 case RelationshipType.ManyToMany:
-                    EnsureColumnsOnEntity(associationEnd.Element, new RequiredColumn(_entityTemplate.GetTypeName(associationEnd.OtherEnd()), associationEnd.OtherEnd().Name.ToPascalCase(), IsPrivate: true));
+                    EnsureColumnsOnEntity(associationEnd.Element, new RequiredColumn(_entityTemplate.GetTypeName(associationEnd.OtherEnd()), associationEnd.OtherEnd().Name.ToPascalCase(),
+                        property =>
+                        {
+                            property.Protected().Virtual();
+                        }));
                     break;
                 default:
                     throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
@@ -307,25 +258,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         {
                             var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
 
-                            if (column.Order.HasValue)
+                            if (associationProperty != null)
                             {
-                                associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
-                            else if (associationProperty != null)
-                            {
-                                associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
+                                associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, column.ConfigureProperty);
                             }
                             else
                             {
-                                associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
-                            }
-
-                            void ConfigureProperty(CSharpProperty property)
-                            {
-                                if (column.IsPrivate)
-                                {
-                                    property.Private();
-                                }
+                                associatedClass.AddProperty(template.UseType(column.Type), column.Name, column.ConfigureProperty);
                             }
                         }
                     }
@@ -333,30 +272,27 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private IEnumerable<EFCoreConfigStatementBase> GetTypeConfiguration(IElement targetType, CSharpClass @class)
+        private IEnumerable<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
         {
-            var statements = new List<EFCoreConfigStatementBase>();
+            var statements = new List<CSharpStatement>();
 
-            statements.AddRange(GetAttributes(targetType).Where(RequiresConfiguration).Select(x => GetAttributeMapping(x, @class)));
+            if (targetType.IsClassModel())
+                statements.Add(Strategy.GetKeyMapping(targetType.AsClassModel()));
 
-            statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(x => GetAssociationMapping(x, @class)));
+            statements.AddRange(GetAttributes(targetType)
+                .Where(RequiresConfiguration)
+                .Select(x => GetAttributeMapping(x, @class)));
+
+            statements.AddRange(GetAssociations(targetType)
+                .Where(RequiresConfiguration)
+                .Select(x => GetAssociationMapping(x, @class)));
 
             return statements.ToList();
         }
 
-        private bool IsValueObject(ICanBeReferencedType type)
-        {
-            return TryGetTypeName("Domain.ValueObject", type.Id, out var typename);
-        }
-
         private bool IsOwned(ICanBeReferencedType type)
         {
-            if (type.IsClassModel())
-            {
-                return !type.AsClassModel().IsAggregateRoot();
-            }
-
-            return IsValueObject(type);
+            return type.IsOwned(ExecutionContext);
         }
 
         private IEnumerable<AttributeModel> GetAttributes(IElement model)
@@ -395,7 +331,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return associations;
         }
 
-        public record RequiredColumn(string Type, string Name, int? Order = null, bool IsPrivate = false);
+        public record RequiredColumn(string Type, string Name, Action<CSharpProperty> ConfigureProperty = null);
     }
 
     public abstract class EFCoreConfigStatementBase : CSharpStatement

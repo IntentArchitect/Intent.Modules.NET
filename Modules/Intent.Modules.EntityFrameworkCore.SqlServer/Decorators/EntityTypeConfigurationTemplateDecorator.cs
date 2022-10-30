@@ -51,7 +51,7 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                             method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder.WithOwner"), -1) + 1,
                                 GetTableMapping(model.AsClassModel()).Concat(new CSharpStatement[]
                                 {
-                                    GetKeyMapping(model.AsClassModel()),
+                                    //GetKeyMapping(model.AsClassModel()),
                                     GetCheckConstraints(model.AsClassModel())
                                 }.Where(x => !string.IsNullOrWhiteSpace(x.Text))).ToArray(), s =>
                                 {
@@ -252,15 +252,13 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                     template.CSharpFile.AfterBuild(file =>
                     {
                         var @class = file.Classes.First();
-                        @class.InsertProperty(0, GetDefaultSurrogateKeyType(), "Id", property =>
+                        @class.InsertProperty(0, template.UseType(GetDefaultSurrogateKeyType()), "Id", property =>
                         {
                             @class.AddMetadata("primary-keys", new[] { property });
                         });
                     }, int.MinValue);
                 }
 
-                //_template.EnsureColumnsOnEntity(rootEntity.InternalElement, new EntityTypeConfigurationTemplate.RequiredColumn(Type: this.GetDefaultSurrogateKeyType(), Name: "Id", Order: 0));
-                
                 return $@"builder.HasKey(x => x.Id);";
             }
             else
@@ -398,45 +396,7 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                     Name: $"{(!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable ? associationEnd.OtherEnd().Name.ToPascalCase() : string.Empty)}Id") };
             }
         }
-        //private void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EntityTypeConfigurationTemplate.RequiredColumn[] columns)
-        //{
-        //    if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", entityModel.Id, out var template))
-        //    {
-        //        template.CSharpFile.OnBuild(file =>
-        //        {
-        //            var associatedClass = file.Classes.First();
-        //            foreach (var column in columns)
-        //            {
-        //                if (!associatedClass.GetAllProperties().Any(x => x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
-        //                {
-        //                    var associationProperty = associatedClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
-
-        //                    if (column.Order.HasValue)
-        //                    {
-        //                        associatedClass.InsertProperty(column.Order.Value, template.UseType(column.Type), column.Name, ConfigureProperty);
-        //                    }
-        //                    else if (associationProperty != null)
-        //                    {
-        //                        associatedClass.InsertProperty(associatedClass.Properties.IndexOf(associationProperty), template.UseType(column.Type), column.Name, ConfigureProperty);
-        //                    }
-        //                    else
-        //                    {
-        //                        associatedClass.AddProperty(template.UseType(column.Type), column.Name, ConfigureProperty);
-        //                    }
-
-        //                    void ConfigureProperty(CSharpProperty property)
-        //                    {
-        //                        if (column.IsPrivate)
-        //                        {
-        //                            property.Private();
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        });
-        //    }
-        //}
-
+        
         public string GetDefaultSurrogateKeyType()
         {
             return GetDefaultSurrogateKeyType(_template.ExecutionContext);

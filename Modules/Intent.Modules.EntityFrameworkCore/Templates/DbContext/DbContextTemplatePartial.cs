@@ -79,7 +79,7 @@ modelBuilder.Entity<Car>().HasData(
                 _entityTypeConfigurations.Add(typeConfiguration);
                 var @class = CSharpFile.Classes.First();
             
-                @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityName(typeConfiguration.Template.Model).ToPluralName());
+                @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityName(typeConfiguration.Template.Model).Pluralize());
                 
                 @class.Methods.Single(x => x.Name.Equals("OnModelCreating"))
                     .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}());");
