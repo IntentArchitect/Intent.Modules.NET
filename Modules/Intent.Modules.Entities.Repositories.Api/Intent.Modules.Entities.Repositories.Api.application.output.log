@@ -42,22 +42,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#0adbd5e8-63ad-4b34-b8cf-9b3febeedd99</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityRepositoryInterface/EntityRepositoryInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#0adbd5e8-63ad-4b34-b8cf-9b3febeedd99</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityRepositoryInterface/EntityRepositoryInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1c7c3a21-fac6-41e0-877d-d8750e229825</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0adbd5e8-63ad-4b34-b8cf-9b3febeedd99</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EntityRepositoryInterface/EntityRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>

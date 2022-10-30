@@ -25,7 +25,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
             set => L_SelfReferenceMultiplesDst = value.Cast<L_SelfReferenceMultiple>().ToList();
         }
 
-        private ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesSrc { get; set; }
+        protected virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesSrc { get; set; }
 
 
     }

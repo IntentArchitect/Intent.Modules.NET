@@ -798,7 +798,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Associations/L_SelfReferenceMultipleState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/L_SelfReferenceMultipleState.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
