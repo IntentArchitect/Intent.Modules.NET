@@ -14,7 +14,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.Metadata.RDBMS.Api.Indexes;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Templates;
 
@@ -58,8 +60,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         {
                             method.AddMetadata("model", Model.InternalElement);
                             method.AddParameter($"EntityTypeBuilder<{GetTypeName(_entityTemplate)}>", "builder");
+                            method.AddStatements(Strategy.GetTableMapping(Model));
                             method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
-
+                            method.AddStatements(GetCheckConstraints(Model));
+                            method.AddStatements(GetIndexes(Model));
                             if (_entityTemplate is ICSharpFileBuilderTemplate builderTemplate)
                             {
                                 // GCB - this approach (using the properties) is potentially worth exploring as it decouples the EF Core from the Domain designer
@@ -134,12 +138,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private EFCoreConfigStatementBase GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
         {
-            EFCoreFieldConfigStatement result = null;
-
             if (!IsOwned(attribute.TypeReference.Element))
             {
-                return new EFCoreFieldConfigStatement($"builder.Property(x => x.{attribute.Name.ToPascalCase()})", attribute)
-                    .AddStatements(GetAttributeMappingStatements(attribute));
+                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
             }
 
             @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
@@ -152,29 +153,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (attribute.TypeReference.IsCollection)
             {
-                return new EFCoreFieldConfigStatement($"builder.OwnsMany(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})", attribute);
+                return EfCoreFieldConfigStatement.CreateOwnsMany(attribute);
             }
             else
             {
-                var field = new EFCoreFieldConfigStatement($"builder.OwnsOne(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})", attribute);
-                if (!attribute.TypeReference.IsNullable)
-                {
-                    field.AddStatement($".Navigation(x => x.{attribute.Name.ToPascalCase()}).IsRequired()");
-                }
-
-                return field;
+                return EfCoreFieldConfigStatement.CreateOwnsOne(attribute);
             }
-        }
-
-        private List<CSharpStatement> GetAttributeMappingStatements(AttributeModel attribute)
-        {
-            var statements = new List<CSharpStatement>();
-            if (!attribute.Type.IsNullable)
-            {
-                statements.Add(".IsRequired()");
-            }
-
-            return statements;
         }
 
         private EFCoreConfigStatementBase GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
@@ -182,8 +166,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
                 && associationEnd.Name.Equals(associationEnd.Element.Name))
             {
-                Logging.Log.Warning(
-                    $"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
+                Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
             }
 
             switch (associationEnd.Association.GetRelationshipType())
@@ -191,58 +174,247 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 case RelationshipType.OneToOne:
                     if (IsOwned(associationEnd.Element))
                     {
+                        var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd);
                         @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                         {
                             var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                             method.AddMetadata("model", (IElement)associationEnd.Element);
                             method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
+                            method.AddStatement(field.CreateWithOwner().WithForeignKey());
                             method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
                         });
 
-                        var field = new EFCoreFieldConfigStatement($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})", associationEnd);
-                        if (!associationEnd.TypeReference.IsNullable)
-                        {
-                            field.AddStatement($".Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
-                        }
 
                         return field;
                     }
 
-                    break;
+                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
+                        .WithForeignKey();
                 case RelationshipType.ManyToOne:
-                    break;
+                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
+                        .WithForeignKey();
                 case RelationshipType.OneToMany:
                     {
                         if (IsOwned(associationEnd.Element))
                         {
+                            var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
                             @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
                             {
                                 var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                                 method.AddMetadata("model", (IElement)associationEnd.Element);
                                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                                method.AddStatement(new EFCoreAssociationConfigStatement(associationEnd.OtherEnd()));
+                                method.AddStatement(field.CreateWithOwner().WithForeignKey());
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                                 method.Statements.SeparateAll();
                             });
-                            var field = new EFCoreFieldConfigStatement($"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})", associationEnd);
 
                             return field;
                         }
                     }
-                    break;
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd)
+                        .WithForeignKey();
                 case RelationshipType.ManyToMany:
                     EnsureColumnsOnEntity(associationEnd.Element, new RequiredColumn(_entityTemplate.GetTypeName(associationEnd.OtherEnd()), associationEnd.OtherEnd().Name.ToPascalCase(),
                         property =>
                         {
                             property.Protected().Virtual();
                         }));
-                    break;
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd);
                 default:
                     throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
             }
-            return new EFCoreAssociationConfigStatement(associationEnd);
+        }
+
+        private IEnumerable<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
+        {
+            var statements = new List<CSharpStatement>();
+
+            if (targetType.IsClassModel())
+                statements.Add(GetKeyMapping(targetType.AsClassModel()));
+
+            statements.AddRange(GetAttributes(targetType)
+                .Where(RequiresConfiguration)
+                .Select(x => GetAttributeMapping(x, @class)));
+
+            statements.AddRange(GetAssociations(targetType)
+                .Where(RequiresConfiguration)
+                .Select(x => GetAssociationMapping(x, @class)));
+
+            return statements.Where(x => x != null).ToList();
+        }
+
+        private IEnumerable<CSharpStatement> GetTableMapping(ClassModel model)
+        {
+            if (model.HasTable())
+            {
+                yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+            }
+            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH() && model.ParentClass != null)
+            {
+                yield return $@"builder.HasBaseType<{GetTypeName("Domain.Entity", model.ParentClass)}>();";
+            }
+            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPT())
+            {
+                yield return $@"builder.ToTable(""{model.Name}"");";
+            }
+            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() && !model.IsAbstract)
+            {
+                yield return $@"builder.ToTable(""{model.Name}"");";
+            }
+        }
+
+        private IEnumerable<string> GetCheckConstraints(ClassModel model)
+        {
+            var checkConstraints = model.GetCheckConstraints();
+            foreach (var checkConstraint in checkConstraints)
+            {
+                yield return @$"builder.HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"");";
+            }
+        }
+
+        private CSharpStatement[] GetIndexes(ClassModel model)
+        {
+            var indexes = model.GetIndexes();
+            if (indexes.Count == 0)
+            {
+                return Array.Empty<CSharpStatement>();
+            }
+
+            var statements = new List<string>();
+
+            foreach (var index in indexes)
+            {
+                var indexFields = index.KeyColumns.Length == 1
+                    ? GetIndexColumnPropertyName(index.KeyColumns.Single(), "x.")
+                    : $"new {{ {string.Join(", ", index.KeyColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }}";
+
+                var sb = new StringBuilder($@"builder.HasIndex(x => {indexFields})");
+
+                if (index.IncludedColumns.Length > 0)
+                {
+                    sb.Append($@"
+                .IncludeProperties(x => new {{ {string.Join(", ", index.IncludedColumns.Select(x => GetIndexColumnPropertyName(x, "x.")))} }})");
+                }
+
+                switch (index.FilterOption)
+                {
+                    case FilterOption.Default:
+                        break;
+                    case FilterOption.None:
+                        sb.Append(@"
+                .HasFilter(null)");
+                        break;
+                    case FilterOption.Custom:
+                        sb.Append(@$"
+                .HasFilter(\""{index.Filter}"")");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+                if (index.IsUnique)
+                {
+                    sb.Append(@"
+                .IsUnique()");
+                }
+
+                if (!index.UseDefaultName)
+                {
+                    sb.Append(@$"
+                .HasDatabaseName(""{index.Name}"")");
+                }
+
+                sb.Append(";");
+
+                statements.Add(sb.ToString());
+            }
+
+            return statements.Select(x => new CSharpStatement(x)).ToArray();
+        }
+
+        private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
+        {
+            return column.SourceType.IsAssociationEndModel()
+                ? $"{prefix}{column.Name.ToPascalCase()}Id"
+                : $"{prefix}{column.Name.ToPascalCase()}";
+        }
+
+        public CSharpStatement GetKeyMapping(ClassModel model)
+        {
+            if (model.ParentClass != null && (!model.ParentClass.IsAbstract ||
+                                              !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()))
+            {
+                return null;
+            }
+
+            if (!model.GetExplicitPrimaryKey().Any())
+            {
+                var rootEntity = model;
+                while (rootEntity.ParentClass != null)
+                {
+                    rootEntity = rootEntity.ParentClass;
+                }
+
+                if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, rootEntity.InternalElement, out var template))
+                {
+                    template.CSharpFile.AfterBuild(file =>
+                    {
+                        var @class = file.Classes.First();
+                        @class.InsertProperty(0, template.UseType(GetDefaultSurrogateKeyType()), "Id", property =>
+                        {
+                            @class.AddMetadata("primary-keys", new[] { property });
+                        });
+                    }, int.MinValue);
+                }
+
+                return GetKeyMappingStatement("Id");
+            }
+            else
+            {
+                if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, model, out var template))
+                {
+                    template.CSharpFile.AfterBuild(file =>
+                    {
+                        var @class = file.Classes.First();
+                        @class.AddMetadata("primary-keys", @class.GetAllProperties()
+                            .Where(x => x.TryGetMetadata<AttributeModel>("model", out var attribute) && attribute.HasPrimaryKey())
+                            .ToArray());
+                    }, int.MinValue);
+                }
+
+                return GetKeyMappingStatement(model.GetExplicitPrimaryKey().Select(x => x.Name.ToPascalCase()).ToArray());
+            }
+        }
+
+        protected CSharpStatement GetKeyMappingStatement(params string[] keyColumns)
+        {
+            var keys = keyColumns.Count() == 1
+                ? "x." + keyColumns[0]
+                : $"new {{ {string.Join(", ", keyColumns.Select(key => $"x.{key}"))} }}";
+
+            return $@"builder.HasKey(x => {keys});";
+        }
+
+        protected string GetDefaultSurrogateKeyType()
+        {
+            return GetDefaultSurrogateKeyType(ExecutionContext);
+        }
+
+        protected static string GetDefaultSurrogateKeyType(ISoftwareFactoryExecutionContext executionContext)
+        {
+            var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
+            switch (settingType)
+            {
+                case "guid":
+                    return "System.Guid";
+                case "int":
+                    return "int";
+                case "long":
+                    return "long";
+                default:
+                    return settingType;
+            }
         }
 
         public void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params RequiredColumn[] columns)
@@ -270,24 +442,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     }
                 }, int.MinValue);
             }
-        }
-
-        private IEnumerable<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
-        {
-            var statements = new List<CSharpStatement>();
-
-            if (targetType.IsClassModel())
-                statements.Add(Strategy.GetKeyMapping(targetType.AsClassModel()));
-
-            statements.AddRange(GetAttributes(targetType)
-                .Where(RequiresConfiguration)
-                .Select(x => GetAttributeMapping(x, @class)));
-
-            statements.AddRange(GetAssociations(targetType)
-                .Where(RequiresConfiguration)
-                .Select(x => GetAssociationMapping(x, @class)));
-
-            return statements.ToList();
         }
 
         private bool IsOwned(ICanBeReferencedType type)
@@ -338,134 +492,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     {
         protected EFCoreConfigStatementBase() : base(null)
         {
-        }
-    }
-
-    public class EFCoreAssociationConfigStatement : EFCoreConfigStatementBase
-    {
-        private readonly AssociationEndModel _associationEnd;
-        public IList<CSharpStatement> RelationshipStatements { get; } = new List<CSharpStatement>();
-        public IList<CSharpStatement> AdditionalStatements { get; } = new List<CSharpStatement>();
-        public EFCoreAssociationConfigStatement(AssociationEndModel associationEnd)
-        {
-            _associationEnd = associationEnd;
-
-            if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
-                && associationEnd.Name.Equals(associationEnd.Element.Name))
-            {
-                Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
-            }
-
-            if (associationEnd.IsSourceEnd() && !associationEnd.IsNullable && !associationEnd.IsCollection)
-            {
-                AddMetadata("model", associationEnd.OtherEnd());
-                RelationshipStatements.Add(@$"builder.WithOwner({(associationEnd.IsNavigable ? $"x => x.{associationEnd.Name.ToPascalCase()}" : "")})");
-                return;
-            }
-
-            AddMetadata("model", associationEnd);
-            switch (associationEnd.Association.GetRelationshipType())
-            {
-                case RelationshipType.OneToOne:
-                    RelationshipStatements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                    RelationshipStatements.Add($".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
-
-                    if (!associationEnd.OtherEnd().IsNullable)
-                    {
-                        AdditionalStatements.Add($".IsRequired()");
-                        AdditionalStatements.Add($".OnDelete(DeleteBehavior.Cascade)");
-                    }
-                    else
-                    {
-                        AdditionalStatements.Add($".OnDelete(DeleteBehavior.Restrict)");
-                    }
-
-                    break;
-                case RelationshipType.ManyToOne:
-                    {
-                        RelationshipStatements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
-                        RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
-                        AdditionalStatements.Add($".OnDelete(DeleteBehavior.Restrict)");
-                        break;
-                    }
-                case RelationshipType.OneToMany:
-                    {
-                        RelationshipStatements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                        RelationshipStatements.Add($".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
-                        if (!associationEnd.OtherEnd().IsNullable)
-                        {
-                            AdditionalStatements.Add($"    .IsRequired()");
-                            AdditionalStatements.Add($"    .OnDelete(DeleteBehavior.Cascade)");
-                        }
-                    }
-                    break;
-                case RelationshipType.ManyToMany:
-
-                    RelationshipStatements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
-                    RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
-                    RelationshipStatements.Add($".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
-
-                    break;
-                default:
-                    throw new Exception($"Relationship type for association [{associationEnd.OtherEnd().Element.Name}.{associationEnd.Name}] could not be determined.");
-            }
-        }
-
-        public EFCoreAssociationConfigStatement AddStatement(CSharpStatement statement)
-        {
-            AdditionalStatements.Add(statement);
-            return this;
-        }
-
-        public EFCoreAssociationConfigStatement AddStatements(IEnumerable<CSharpStatement> statements)
-        {
-            foreach (var statement in statements)
-            {
-                AdditionalStatements.Add(statement);
-            }
-            return this;
-        }
-
-        public EFCoreAssociationConfigStatement AddForeignKey(params string[] columns)
-        {
-            string genericType = null;
-            if (_associationEnd.IsTargetEnd() &&
-                _associationEnd.Association.GetRelationshipType() == RelationshipType.OneToOne)
-            {
-                if (_associationEnd.IsNullable)
-                {
-                    if (_associationEnd.OtherEnd().IsNullable)
-                    {
-                        genericType = _associationEnd.OtherEnd().Class.Name;
-                    }
-                    else
-                    {
-                        genericType = _associationEnd.Class.Name;
-                    }
-                }
-                else
-                {
-                    genericType = _associationEnd.OtherEnd().Class.Name;
-                }
-            }
-
-            if (columns?.Length == 1)
-            {
-                RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => x.{columns.Single()})");
-                return this;
-            }
-
-            RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => new {{ {string.Join(", ", columns.Select(x => "x." + x))}}})");
-            return this;
-        }
-
-        public override string GetText(string indentation)
-        {
-            var x = $@"{indentation}{string.Join(@$"
-{indentation}    ", RelationshipStatements.Select(x => x.GetText(string.Empty)))}{(AdditionalStatements.Any() ? $@"
-{indentation}    {string.Join(@$"
-{indentation}    ", AdditionalStatements.Select(x => x.GetText(string.Empty)))}" : string.Empty)};";
-            return x;
         }
     }
 }

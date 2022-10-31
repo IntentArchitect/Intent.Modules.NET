@@ -27,7 +27,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.HasOne(x => x.DerivedClassForConcrete)
                 .WithMany()
-                .HasForeignKey(x => new { x.PartitionKey, x.DerivedClassForConcreteId })
+                .HasForeignKey(x => x.DerivedClassForConcreteId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

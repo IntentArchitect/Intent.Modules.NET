@@ -1,0 +1,201 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Intent.Metadata.RDBMS.Api;
+using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.Templates;
+using Intent.Utils;
+
+namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
+
+public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
+{
+    private readonly AssociationEndModel _associationEnd;
+    protected IList<CSharpStatement> RelationshipStatements { get; } = new List<CSharpStatement>();
+    protected IList<CSharpStatement> AdditionalStatements { get; } = new List<CSharpStatement>();
+    public static EfCoreAssociationConfigStatement CreateOwnsOne(AssociationEndModel associationEnd)
+    {
+        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        statement.RelationshipStatements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
+        if (!associationEnd.TypeReference.IsNullable)
+        {
+            statement.AdditionalStatements.Add($".Navigation(x => x.{associationEnd.Name.ToPascalCase()}).IsRequired()");
+        }
+
+        return statement;
+    }
+
+    public EfCoreAssociationConfigStatement CreateWithOwner()
+    {
+        var statement = new EfCoreAssociationConfigStatement(_associationEnd);
+        statement.RelationshipStatements.Add(@$"builder.WithOwner({(_associationEnd.OtherEnd().IsNavigable ? $"x => x.{_associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
+        return statement;
+    }
+
+    public static EfCoreAssociationConfigStatement CreateOwnsMany(AssociationEndModel associationEnd)
+    {
+        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        statement.RelationshipStatements.Add($"builder.OwnsMany(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})");
+        return statement;
+    }
+
+    public static EfCoreAssociationConfigStatement CreateHasOne(AssociationEndModel associationEnd)
+    {
+        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        statement.RelationshipStatements.Add($"builder.HasOne(x => x.{associationEnd.Name.ToPascalCase()})");
+
+        if (associationEnd.OtherEnd().IsCollection)
+        {
+            statement.RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? "x => x." + associationEnd.OtherEnd().Name.ToPascalCase() : "")})");
+            statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Restrict)");
+        }
+        else
+        {
+            statement.RelationshipStatements.Add($".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")})");
+            if (!associationEnd.OtherEnd().IsNullable)
+            {
+                statement.AdditionalStatements.Add($".IsRequired()");
+                statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Cascade)");
+            }
+            else
+            {
+                statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Restrict)");
+            }
+        }
+
+        return statement;
+    }
+
+    public static EfCoreAssociationConfigStatement CreateHasMany(AssociationEndModel associationEnd)
+    {
+        var statement = new EfCoreAssociationConfigStatement(associationEnd);
+        statement.RelationshipStatements.Add($"builder.HasMany(x => x.{associationEnd.Name.ToPascalCase()})");
+        if (associationEnd.OtherEnd().IsCollection)
+        {
+            statement.RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
+            statement.RelationshipStatements.Add($".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
+        }
+        else
+        {
+            statement.RelationshipStatements.Add($".WithOne({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"")})");
+            if (!associationEnd.OtherEnd().IsNullable)
+            {
+                statement.AdditionalStatements.Add($".IsRequired()");
+                statement.AdditionalStatements.Add($".OnDelete(DeleteBehavior.Cascade)");
+            }
+        }
+
+
+        return statement;
+    }
+
+    private EfCoreAssociationConfigStatement(AssociationEndModel associationEnd)
+    {
+        _associationEnd = associationEnd;
+
+        if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
+            && associationEnd.Name.Equals(associationEnd.Element.Name))
+        {
+            Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
+        }
+
+        AddMetadata("model", associationEnd);
+    }
+
+    public EfCoreAssociationConfigStatement WithForeignKey()
+    {
+        switch (_associationEnd.Association.GetRelationshipType())
+        {
+            case RelationshipType.OneToMany:
+                return AddForeignKey(GetForeignColumns(_associationEnd));
+            case RelationshipType.OneToOne:
+                if (_associationEnd.OtherEnd().IsNullable)
+                {
+                    return AddForeignKey(GetForeignColumns(_associationEnd.OtherEnd()));
+                }
+                return AddForeignKey(GetForeignColumns(_associationEnd));
+            case RelationshipType.ManyToOne:
+                return AddForeignKey(GetForeignColumns(_associationEnd.OtherEnd()));
+            case RelationshipType.ManyToMany:
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private string[] GetForeignColumns(AssociationEndModel associationEnd)
+    {
+
+        if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
+        {
+            return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
+                .Select(x => $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}")
+                .ToArray();
+        }
+        else // implicit Id
+        {
+            if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
+            {
+                return new[] { $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id" };
+            }
+            return new[] { "Id" };
+        }
+    }
+
+    public EfCoreAssociationConfigStatement AddStatement(CSharpStatement statement)
+    {
+        AdditionalStatements.Add(statement);
+        return this;
+    }
+
+    public EfCoreAssociationConfigStatement AddStatements(IEnumerable<CSharpStatement> statements)
+    {
+        foreach (var statement in statements)
+        {
+            AdditionalStatements.Add(statement);
+        }
+        return this;
+    }
+
+    public EfCoreAssociationConfigStatement AddForeignKey(params string[] columns)
+    {
+        string genericType = null;
+        if (!RelationshipStatements.First().Text.StartsWith("builder.WithOwner") &&
+            _associationEnd.Association.GetRelationshipType() == RelationshipType.OneToOne)
+        {
+            if (_associationEnd.IsNullable)
+            {
+                if (_associationEnd.OtherEnd().IsNullable)
+                {
+                    genericType = _associationEnd.OtherEnd().Class.Name;
+                }
+                else
+                {
+                    genericType = _associationEnd.Class.Name;
+                }
+            }
+            else
+            {
+                genericType = _associationEnd.OtherEnd().Class.Name;
+            }
+        }
+
+        if (columns?.Length == 1)
+        {
+            RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => x.{columns.Single()})");
+            return this;
+        }
+
+        RelationshipStatements.Add($".HasForeignKey{(genericType != null ? $"<{genericType}>" : string.Empty)}(x => new {{ {string.Join(", ", columns.Select(x => "x." + x))}}})");
+        return this;
+    }
+
+    public override string GetText(string indentation)
+    {
+        var x = $@"{indentation}{string.Join(@$"
+{indentation}    ", RelationshipStatements.Select(x => x.GetText(string.Empty)))}{(AdditionalStatements.Any() ? $@"
+{indentation}    {string.Join(@$"
+{indentation}    ", AdditionalStatements.Select(x => x.GetText(string.Empty)))}" : string.Empty)};";
+        return x;
+    }
+}

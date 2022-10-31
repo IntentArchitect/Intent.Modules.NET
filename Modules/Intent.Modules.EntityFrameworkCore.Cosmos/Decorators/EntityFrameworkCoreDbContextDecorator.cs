@@ -48,17 +48,17 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                         if (model.IsClassModel())
                         {
                             var statements = new List<CSharpStatement>();
-                            if (method.Name.Equals("Configure"))
-                            {
-                                statements.AddRange(GetTableMapping(model.AsClassModel()));
-                            }
+                            //if (method.Name.Equals("Configure"))
+                            //{
+                            //    statements.AddRange(GetTableMapping(model.AsClassModel()));
+                            //}
 
                             //if (model.AsClassModel().ParentClass == null)
                             //{
                             //    statements.Add(GetKeyMapping(model.AsClassModel()));
                             //}
 
-                            method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder.WithOwner"), -1) + 1, statements, s =>
+                            method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder"), -1) + 1, statements, s =>
                             {
                                 foreach (var cSharpStatement in s)
                                 {
@@ -69,7 +69,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                             //method.AddStatements(GetIndexes(model.AsClassModel()));
                         }
                     }
-                    foreach (var statement in method.Statements.OfType<EFCoreFieldConfigStatement>().ToList())
+                    foreach (var statement in method.Statements.OfType<EfCoreFieldConfigStatement>().ToList())
                     {
                         if (statement.TryGetMetadata<AttributeModel>("model", out var attribute))
                         {
@@ -84,7 +84,7 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                         }
                     }
 
-                    foreach (var statement in method.Statements.OfType<EFCoreAssociationConfigStatement>())
+                    foreach (var statement in method.Statements.OfType<EfCoreAssociationConfigStatement>())
                     {
                         if (statement.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
                         {
@@ -148,10 +148,10 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
 
                 yield return $@"builder.ToContainer(""{containerName}"");";
             }
-            else
-            {
-                yield return $"builder.HasBaseType<{_template.GetTypeName(model.ParentClass.InternalElement)}>();";
-            }
+            //else
+            //{
+            //    yield return $"builder.HasBaseType<{_template.GetTypeName(model.ParentClass.InternalElement)}>();";
+            //}
 
             if (GetPartitionKey(model) != null)
             {
@@ -209,9 +209,9 @@ namespace Intent.Modules.EntityFrameworkCore.Cosmos.Decorators
                 GetPartitionKey(associationEnd.Class) != null)
             {
                 return new[] {
-                    new EntityTypeConfigurationTemplate.RequiredColumn(
-                        Type: null,
-                        Name: GetPartitionKey(associationEnd.Class).Name.ToPascalCase()),
+                    //new EntityTypeConfigurationTemplate.RequiredColumn(
+                    //    Type: null,
+                    //    Name: GetPartitionKey(associationEnd.Class).Name.ToPascalCase()),
                     new EntityTypeConfigurationTemplate.RequiredColumn(
                         Type: this.GetDefaultSurrogateKeyType() + (associationEnd.IsNullable ? "?" : ""),
                         Name: $"{(associationEnd.Association.GetRelationshipType() != RelationshipType.OneToOne || associationEnd.IsNullable ? associationEnd.Name.ToPascalCase() : string.Empty)}Id")

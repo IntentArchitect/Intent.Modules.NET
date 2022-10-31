@@ -100,6 +100,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
+      <CorrelationId>Intent.DependencyInjection.EntityFrameworkCore.DbContextConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/DbContextConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3c84f374-e1c0-4a4b-bddf-7e1e321c3d8b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/DerivedClassForAbstractAssociatedConfiguration.cs</ApplicationRelativeFilePath>

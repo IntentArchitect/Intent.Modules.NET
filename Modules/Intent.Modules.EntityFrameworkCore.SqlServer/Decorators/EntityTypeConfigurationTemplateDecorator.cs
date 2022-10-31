@@ -48,22 +48,23 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                     {
                         if (model.IsClassModel())
                         {
-                            method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder.WithOwner"), -1) + 1,
-                                GetTableMapping(model.AsClassModel()).Concat(new CSharpStatement[]
-                                {
-                                    //GetKeyMapping(model.AsClassModel()),
-                                    GetCheckConstraints(model.AsClassModel())
-                                }.Where(x => !string.IsNullOrWhiteSpace(x.Text))).ToArray(), s =>
-                                {
-                                    foreach (var cSharpStatement in s)
-                                    {
-                                        cSharpStatement.SeparatedFromPrevious();
-                                    }
-                                });
-                            method.AddStatements(GetIndexes(model.AsClassModel()));
+                            //method.AddStatements(GetCheckConstraints(model.AsClassModel()));
+                            //method.InsertStatements(method.Statements.FindIndex(x => x.ToString().Trim().StartsWith("builder.WithOwner"), -1) + 1,
+                            //    GetTableMapping(model.AsClassModel()).Concat(new CSharpStatement[]
+                            //    {
+                            //        //GetKeyMapping(model.AsClassModel()),
+                            //        GetCheckConstraints(model.AsClassModel())
+                            //    }.Where(x => !string.IsNullOrWhiteSpace(x.Text))).ToArray(), s =>
+                            //    {
+                            //        foreach (var cSharpStatement in s)
+                            //        {
+                            //            cSharpStatement.SeparatedFromPrevious();
+                            //        }
+                            //    });
+                            //method.AddStatements(GetIndexes(model.AsClassModel()));
                         }
                     }
-                    foreach (var statement in method.Statements.OfType<EFCoreFieldConfigStatement>().ToList())
+                    foreach (var statement in method.Statements.OfType<EfCoreFieldConfigStatement>().ToList())
                     {
                         if (statement.TryGetMetadata<AttributeModel>("model", out var attribute))
                         {
@@ -78,7 +79,7 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
                         }
                     }
 
-                    foreach (var statement in method.Statements.OfType<EFCoreAssociationConfigStatement>())
+                    foreach (var statement in method.Statements.OfType<EfCoreAssociationConfigStatement>())
                     {
                         if (statement.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
                         {
@@ -125,43 +126,32 @@ namespace Intent.Modules.EntityFrameworkCore.SqlServer.Decorators
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassModel model)
         {
-            if (model.HasTable())
-            {
-                yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
-            }
-            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH() && model.ParentClass != null)
-            {
-                yield return $@"builder.HasBaseType<{_template.GetTypeName("Domain.Entity", model.ParentClass)}>();";
-            }
-            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPT())
-            {
-                yield return $@"builder.ToTable(""{model.Name}"");";
-            }
-            else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() && !model.IsAbstract)
-            {
-                yield return $@"builder.ToTable(""{model.Name}"");";
-            }
+            yield break;
+            //if (model.HasTable())
+            //{
+            //    yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
+            //}
+            //else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPH() && model.ParentClass != null)
+            //{
+            //    yield return $@"builder.HasBaseType<{_template.GetTypeName("Domain.Entity", model.ParentClass)}>();";
+            //}
+            //else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPT())
+            //{
+            //    yield return $@"builder.ToTable(""{model.Name}"");";
+            //}
+            //else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() && !model.IsAbstract)
+            //{
+            //    yield return $@"builder.ToTable(""{model.Name}"");";
+            //}
         }
 
-        private string GetCheckConstraints(ClassModel model)
+        private IEnumerable<string> GetCheckConstraints(ClassModel model)
         {
             var checkConstraints = model.GetCheckConstraints();
-            if (checkConstraints.Count == 0)
-            {
-                return string.Empty;
-            }
-
-            var sb = new StringBuilder(@"
-            builder");
-
             foreach (var checkConstraint in checkConstraints)
             {
-                sb.Append(@$"
-                .HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"")");
+                yield return @$"builder.HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"");";
             }
-
-            sb.Append(";");
-            return sb.ToString();
         }
 
         private CSharpStatement[] GetIndexes(ClassModel model)
