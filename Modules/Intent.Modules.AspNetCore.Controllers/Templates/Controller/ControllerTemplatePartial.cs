@@ -168,6 +168,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private string GetOperationAttributes(OperationModel operation)
         {
             var attributes = new List<string>();
+            attributes.AddRange(GetDecorators().SelectMany(x => x.GetOperationAttributes(operation)));
             attributes.Add(GetHttpVerbAndPath(operation));
             if ((!IsControllerSecured() && operation.HasSecured()) ||
                 !string.IsNullOrWhiteSpace(operation.GetSecured()?.Roles()))
