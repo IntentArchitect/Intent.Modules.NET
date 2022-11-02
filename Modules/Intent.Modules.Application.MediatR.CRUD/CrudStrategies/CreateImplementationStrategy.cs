@@ -160,6 +160,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         var association = property.Mapping.Element.AsAssociationTargetEndModel();
                         var attributeClass = association.Class;
                         var attributeName = association.Name.ToPascalCase();
+
+                        if (association.Association.AssociationType == AssociationType.Aggregation)
+                        {
+                            codeLines.Add($@"#warning Aggregation association not supported: {property.Name.ToPascalCase()}");
+                            break;
+                        }
                         
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {
@@ -229,6 +235,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         var association = field.Mapping.Element.AsAssociationTargetEndModel();
                         var attributeClass = association.Class;
                         var attributeName = association.Name.ToPascalCase();
+                        
+                        if (association.Association.AssociationType == AssociationType.Aggregation)
+                        {
+                            codeLines.Add($@"#warning Aggregation association not supported: {field.Name.ToPascalCase()}");
+                            break;
+                        }
                         
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {

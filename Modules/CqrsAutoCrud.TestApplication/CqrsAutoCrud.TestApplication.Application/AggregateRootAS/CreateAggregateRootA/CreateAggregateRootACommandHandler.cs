@@ -74,13 +74,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootAS.CreateAggrega
                                 ACompositeManyId = composites.ACompositeManyId,
                             }).ToList(),
                     }).ToList(),
-                Aggregate = request.Aggregate != null
-                    ? new AggregateSingleAA
-                    {
-                        Id = IdentityGenerator.NewSequentialId(),
-                        AggregationAttr = request.Aggregate.AggregationAttr,
-                    }
-                    : null,
+#warning Aggregation association not supported: Aggregate
             };
 
             _aggregateRootARepository.Add(newAggregateRootA);
