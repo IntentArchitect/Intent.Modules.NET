@@ -12,6 +12,7 @@ using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Metadata.RDBMS.Settings;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -130,6 +131,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private List<string> GetCommandPropertyAssignments(ClassModel domainModel, CommandModel command)
         {
             var codeLines = new List<string>();
+            codeLines.Add($"Id = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
             foreach (var property in command.Properties)
             {
                 if (property.Mapping?.Element == null
@@ -210,7 +212,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                        codeLines.Add($"{attribute.Name.ToPascalCase()} = {accessorName}.{field.Name.ToPascalCase()},");
+                        if (!attribute.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                        {
+                            codeLines.Add($"{attribute.Name.ToPascalCase()} = {accessorName}.{field.Name.ToPascalCase()},");
+                            break;
+                        }
+
+                        if (_template.ExecutionContext.Settings.GetDatabaseSettings().KeyCreationMode().IsExplicit() 
+                            && attribute.Type.Element.Name == "guid")
+                        {
+                            codeLines.Add($"{attribute.Name.ToPascalCase()} = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
+                        }
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
                     {
