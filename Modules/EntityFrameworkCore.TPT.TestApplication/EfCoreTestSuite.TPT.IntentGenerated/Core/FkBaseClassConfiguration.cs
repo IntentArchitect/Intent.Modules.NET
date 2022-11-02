@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<FkBaseClass> builder)
         {
-            builder.ToTable("FkBaseClass");
-
             builder.HasKey(x => new { x.CompositeKeyA, x.CompositeKeyB });
 
             builder.Ignore(e => e.DomainEvents);

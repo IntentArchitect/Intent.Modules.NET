@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_ConcreteA> builder)
         {
-            builder.ToTable("Poly_ConcreteA");
+            builder.ToTable("Poly_ConcreteAs");
 
             builder.Property(x => x.ConcreteField)
                 .IsRequired();

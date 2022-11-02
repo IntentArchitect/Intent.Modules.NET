@@ -15,6 +15,7 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Settings;
+using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -134,11 +135,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
             if (!IsRepoSupported())
             {
                 return $@"
-            // The {Model.Name} type's ORM inheritance strategy is set to Table per Concrete Type (TPC).
-            // Table per Concrete Type is not supported in the current version of Entity Framework Core.
-            // Because of this, Intent.EntityFrameworkCore module is only creating tables for the concrete types in this hierarchy.
-            // A repository on this abstract type is therefore not supported.
-            throw new NotSupportedException($""Cannot create a repository for abstract type {Model.Name}."");";
+            // The {Model.Name} has no EntityFrameworkCore type configuration associated with it.
+            // Add the 'Table' stereotype to this entity in the Domain designer.
+            throw new NotSupportedException($""Cannot create a repository for type {Model.Name}."");";
             }
 
             return string.Empty;
@@ -146,8 +145,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 
         private bool IsRepoSupported()
         {
-            return !(ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() &&
-                   Model.IsAbstract && OutputTarget.GetProject().TargetDotNetFrameworks.First().Major <= 6);
+            return TryGetTemplate<EntityTypeConfigurationTemplate>(EntityTypeConfigurationTemplate.TemplateId, Model.Id, out var _);
         }
 
     }

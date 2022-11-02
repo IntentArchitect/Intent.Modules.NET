@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<AbstractBaseClassAssociated> builder)
         {
-            builder.ToTable("AbstractBaseClassAssociated");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.AssociatedField)

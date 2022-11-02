@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -38,19 +39,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            IEnumerable<ClassModel> models = _metadataManager.Domain(application).GetClassModels()
-                .Where(x => !x.IsOwned(application));
-
-            //if (application.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
-            //{
-            //    models = models.Where(p => p.IsAggregateRoot() || (p.IsAbstract && !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()));
-            //}
-            //else
-            //{
-            //    models = models.Where(p => p.IsAggregateRoot() && (!p.IsAbstract || !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()));
-            //}
-
-            return models.ToArray();
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(x => !x.IsOwned(application) && (
+                    !x.IsAbstract || // is concrete class
+                    x.HasTable() || // has Table stereotype
+                    x.AssociatedFromClasses().Any(x => x.IsNullable || x.IsCollection))) // is referenced by other entities
+                .ToArray();
         }
     }
 
@@ -65,7 +59,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (type.IsClassModel())
             {
-                return !type.AsClassModel().IsAggregateRoot() && !type.HasStereotype("Repository");
+                return !type.AsClassModel().IsAggregateRoot() &&
+                       !type.AsClassModel().HasTable() &&
+                       !type.AsClassModel().AssociatedFromClasses().Any(x => x.IsNullable || x.IsCollection);
             }
 
             return type.IsValueObject(executionContext);

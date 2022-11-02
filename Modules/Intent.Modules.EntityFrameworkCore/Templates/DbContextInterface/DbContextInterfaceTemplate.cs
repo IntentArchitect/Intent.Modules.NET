@@ -68,7 +68,7 @@ foreach (var typeConfiguration in _entityTypeConfigurations)
             this.Write("> ");
             
             #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbContextInterface\DbContextInterfaceTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(typeConfiguration.Template.Model).ToPluralName()));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetEntityName(typeConfiguration.Template.Model).Pluralize()));
             
             #line default
             #line hidden

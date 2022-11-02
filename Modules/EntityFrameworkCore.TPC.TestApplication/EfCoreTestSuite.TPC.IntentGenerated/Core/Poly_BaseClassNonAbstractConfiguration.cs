@@ -14,7 +14,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_BaseClassNonAbstract> builder)
         {
-            builder.ToTable("Poly_BaseClassNonAbstract");
+            builder.ToTable("Poly_BaseClassNonAbstracts");
 
             builder.HasKey(x => x.Id);
 
@@ -38,8 +38,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);
-
-            builder.ToTable("Poly_RootAbstract_Comp");
 
             builder.HasKey(x => x.Id);
 

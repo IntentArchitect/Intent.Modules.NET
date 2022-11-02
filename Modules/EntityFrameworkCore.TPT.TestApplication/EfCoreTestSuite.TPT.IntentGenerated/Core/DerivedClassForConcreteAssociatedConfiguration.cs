@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<DerivedClassForConcreteAssociated> builder)
         {
-            builder.ToTable("DerivedClassForConcreteAssociated");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.AssociatedField)

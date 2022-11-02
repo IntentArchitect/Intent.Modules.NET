@@ -14,6 +14,8 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
     private readonly AssociationEndModel _associationEnd;
     protected IList<CSharpStatement> RelationshipStatements { get; } = new List<CSharpStatement>();
     protected IList<CSharpStatement> AdditionalStatements { get; } = new List<CSharpStatement>();
+    public RequiredEntityProperty[] RequiredProperties = Array.Empty<RequiredEntityProperty>();
+
     public static EfCoreAssociationConfigStatement CreateOwnsOne(AssociationEndModel associationEnd)
     {
         var statement = new EfCoreAssociationConfigStatement(associationEnd);
@@ -78,7 +80,7 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
             statement.RequiredProperties = new[]
             {
                 new RequiredEntityProperty(
-                    Class: associationEnd.Class,
+                    Class: associationEnd.Element,
                     Name: associationEnd.OtherEnd().Name.ToPascalCase(),
                     Type: associationEnd.OtherEnd().Class.InternalElement,
                     IsNullable: false,
@@ -140,8 +142,6 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         }
     }
 
-    public RequiredEntityProperty[] RequiredProperties = Array.Empty<RequiredEntityProperty>();
-
     public EfCoreAssociationConfigStatement AddStatement(CSharpStatement statement)
     {
         AdditionalStatements.Add(statement);
@@ -199,7 +199,7 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         {
             return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
                 .Select(selector: x => new RequiredEntityProperty(
-                    Class: associationEnd.Class,
+                    Class: associationEnd.Element,
                     Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
                     Type: x.Type.Element,
                     IsNullable: associationEnd.IsNullable))
@@ -210,13 +210,13 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
             if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
             {
                 return new[] { new RequiredEntityProperty(
-                    Class: associationEnd.Class,
+                    Class: associationEnd.Element,
                     Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id",
                     Type: null,
                     IsNullable: associationEnd.OtherEnd().IsNullable) };
             }
             return new[] { new RequiredEntityProperty(
-                Class: associationEnd.Class,
+                Class: associationEnd.Element,
                 Name: "Id",
                 Type: null,
                 IsNullable: false) };

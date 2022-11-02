@@ -12,8 +12,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_RootAbstract> builder)
         {
-            builder.ToTable("Poly_RootAbstract");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.AbstractField)
@@ -24,22 +22,13 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
                 .HasForeignKey(x => x.Poly_RootAbstract_AggrId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.OwnsOne(x => x.Poly_RootAbstract_Comp, ConfigurePoly_RootAbstract_Comp);
+            builder.HasOne(x => x.Poly_RootAbstract_Comp)
+                .WithOne()
+                .HasForeignKey<Poly_RootAbstract_Comp>(x => x.Id)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Ignore(e => e.DomainEvents);
-        }
-
-        public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<Poly_RootAbstract, Poly_RootAbstract_Comp> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
-
-            builder.ToTable("Poly_RootAbstract_Comp");
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.CompField)
-                .IsRequired();
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                 if (property.HasValidations() && property.GetValidations().HasCustomValidation())
                 {
                     yield return $@"
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         private bool Validate{property.Name}({GetCommandModel()} command, {GetTypeName(property)} value)
         {{
             throw new NotImplementedException(""Your custom validation rules here..."");

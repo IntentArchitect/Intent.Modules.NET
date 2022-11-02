@@ -30,6 +30,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
         DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
         DbSet<Poly_RootAbstract> Poly_RootAbstracts { get; set; }
         DbSet<Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
+        DbSet<Poly_RootAbstract_Comp> Poly_RootAbstract_Comps { get; set; }
         DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
         DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));

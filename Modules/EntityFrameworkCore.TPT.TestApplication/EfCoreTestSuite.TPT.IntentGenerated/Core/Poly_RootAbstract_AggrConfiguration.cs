@@ -13,8 +13,6 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_RootAbstract_Aggr> builder)
         {
-            builder.ToTable("Poly_RootAbstract_Aggr");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.AggrField)

@@ -14,7 +14,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<DerivedClassForConcrete> builder)
         {
-            builder.ToTable("DerivedClassForConcrete");
+            builder.ToTable("DerivedClassForConcretes");
 
             builder.Property(x => x.DerivedAttribute)
                 .IsRequired()

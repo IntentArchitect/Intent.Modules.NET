@@ -13,8 +13,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_SecondLevel> builder)
         {
-            builder.ToTable("Poly_SecondLevel");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.SecondField)

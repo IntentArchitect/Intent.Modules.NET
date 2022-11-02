@@ -20,7 +20,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
     public partial class DbContextTemplate : CSharpTemplateBase<IList<ClassModel>, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
@@ -78,9 +78,9 @@ modelBuilder.Entity<Car>().HasData(
             {
                 _entityTypeConfigurations.Add(typeConfiguration);
                 var @class = CSharpFile.Classes.First();
-            
+
                 @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityName(typeConfiguration.Template.Model).Pluralize());
-                
+
                 @class.Methods.Single(x => x.Name.Equals("OnModelCreating"))
                     .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}());");
 
@@ -112,6 +112,7 @@ modelBuilder.Entity<Car>().HasData(
                 @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
             return CSharpFile.ToString();
@@ -146,7 +147,7 @@ modelBuilder.Entity<Car>().HasData(
 
         public bool UseLazyLoadingProxies =>
             !bool.TryParse(GetMetadata().CustomMetadata["Use Lazy-Loading Proxies"], out var useLazyLoadingProxies) || useLazyLoadingProxies;
-        
+
         public IEnumerable<string> GetInterfaces()
         {
             try

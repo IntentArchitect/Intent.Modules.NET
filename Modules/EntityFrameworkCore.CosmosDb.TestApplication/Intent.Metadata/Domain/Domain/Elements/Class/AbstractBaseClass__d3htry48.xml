@@ -9,7 +9,17 @@
   <parentFolderId>574c045e-bb9a-444d-9d99-e9493cb483d9</parentFolderId>
   <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
   <packageName>Domain</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dd205b32-b48b-4c77-98f5-faefb2c047ce" name="Table">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="2b3a9df7-65e1-4800-b919-bef1a6b8f5a9" display="Name" isActive="true" />
+        <property name="13e6101f-0e37-4eda-a6ae-ec48cd9f8f4b" display="Schema" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="6f28d6c9-e597-4498-8e5b-cbb6177ab214" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">

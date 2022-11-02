@@ -69,7 +69,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                     @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)")
                         .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)")
-                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)");
+                        .AddAttribute("DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)");
 
                     if (!ExecutionContext.Settings.GetDomainSettings().SeparateStateFromBehaviour())
                     {

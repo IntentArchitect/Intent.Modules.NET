@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
   <version>4.0.0-pre.0</version>
@@ -36,7 +36,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Infrastructure.Data</role>
+      <role>Infrastructure.Data.EntityTypeConfiguration</role>
       <location>Persistence/Configurations</location>
     </template>
   </templates>
@@ -79,16 +79,6 @@
   <moduleSettingsExtensions>
     <groupExtension id="bc792686-00cd-43b2-97bf-d91127604c95" groupId="ac0a788e-d8b3-4eea-b56d-538608f1ded9" externalReference="bc792686-00cd-43b2-97bf-d91127604c95">
       <settings>
-        <setting id="68f03894-248b-4569-bc76-52c67499bf7c" title="Inheritance Strategy" type="select">
-          <isRequired>false</isRequired>
-          <hint>Sets the default inheritance strategy for Entity Framework Core.</hint>
-          <defaultValue>TPH</defaultValue>
-          <options>
-            <option value="TPH" description="Table Per Hierarchy" />
-            <option value="TPT" description="Table Per Type" />
-            <option value="TPC" description="Table Per Concrete Type" />
-          </options>
-        </setting>
         <setting id="00bb780c-57bf-43c1-b952-303f11096be7" title="Database Provider" type="select">
           <isRequired>true</isRequired>
           <hint>Underlying database technology.</hint>

@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_BaseClassNonAbstract> builder)
         {
-            builder.ToTable("Poly_BaseClassNonAbstract");
+            builder.ToTable("Poly_BaseClassNonAbstracts");
 
             builder.Property(x => x.BaseField)
                 .IsRequired();

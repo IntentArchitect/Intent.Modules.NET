@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<ConcreteBaseClass> builder)
         {
-            builder.ToTable("ConcreteBaseClass");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.BaseAttribute)

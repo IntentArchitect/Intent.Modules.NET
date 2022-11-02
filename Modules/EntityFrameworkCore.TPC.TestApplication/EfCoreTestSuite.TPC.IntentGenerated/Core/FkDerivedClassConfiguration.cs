@@ -14,7 +14,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<FkDerivedClass> builder)
         {
-            builder.ToTable("FkDerivedClass");
+            builder.ToTable("FkDerivedClasses");
 
             builder.Property(x => x.DerivedField)
                 .IsRequired();
