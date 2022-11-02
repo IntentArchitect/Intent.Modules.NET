@@ -32,6 +32,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         public virtual IEnumerable<string> ConstructorParameters() => Enumerable.Empty<string>();
 
+        public virtual IEnumerable<string> GetOperationAttributes(OperationModel operationModel) => Enumerable.Empty<string>();
+
         public virtual string EnterOperationBody(OperationModel operationModel) => null;
 
         public virtual string MidOperationBody(OperationModel operationModel) => null;

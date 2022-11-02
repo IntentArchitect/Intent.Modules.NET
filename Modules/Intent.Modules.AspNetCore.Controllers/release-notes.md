@@ -1,3 +1,12 @@
+### Version 3.3.14
+
+- Add `GetOperationAttributes` to `ControllerDecorator`.
+
+### Version 3.3.13
+
+- Add description to module.
+
+
 ### Version 3.3.12
 
 - Update: Updated Intent.Metadata.WebApi that will no longer automatically apply HttpSettings stereotypes but will auto add them using event scripts.
