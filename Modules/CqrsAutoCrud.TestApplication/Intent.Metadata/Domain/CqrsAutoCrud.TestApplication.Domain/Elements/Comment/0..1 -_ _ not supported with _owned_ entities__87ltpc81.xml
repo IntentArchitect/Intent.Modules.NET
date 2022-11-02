@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dbca4d77-42dd-4053-91f5-bd1c81017bb9" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>0..1 -&gt; * not supported with "owned" entities</name>
+  <display>0..1 -&gt; * not supported with "owned" entities</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e729fe49-ffbf-46eb-a131-46e1d6af5855</parentFolderId>
+  <packageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</packageId>
+  <packageName>CqrsAutoCrud.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5b2fd689-a07d-45b8-8cda-967d45858148">
+  <sourceEnd id="a55e4acd-917f-4832-a8f4-d95d58907817" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>A_Composite_Single</name>
+    <display>A_Composite_Single: A_Composite_Single</display>
+    <order>3</order>
+    <typeReference id="083f72ed-ba44-403e-9aa9-48ed14f30753">
+      <typeId>49d07eeb-9d22-4b43-b248-a99fa5a40f9e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="5b2fd689-a07d-45b8-8cda-967d45858148" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Composites</name>
+    <display>Composites: AA1_Composite_Many[*]</display>
+    <order>3</order>
+    <typeReference id="d3b4df4d-0c6f-4fb1-80d6-12444d2b03be">
+      <typeId>456093d9-b9b7-4354-b361-3973c453123f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

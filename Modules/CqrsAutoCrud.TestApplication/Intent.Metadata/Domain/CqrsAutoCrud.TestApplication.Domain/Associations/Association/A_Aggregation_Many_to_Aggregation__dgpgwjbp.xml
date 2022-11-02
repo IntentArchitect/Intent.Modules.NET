@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b7d37cb4-15fa-4daa-a4ea-15bea6e8b142">
+  <sourceEnd id="a40e05b3-7cf1-4a2b-bb56-9033a693f1da" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>A_Aggregation_Many</name>
+    <display>A_Aggregation_Many: A_Aggregation_Many?</display>
+    <order>2</order>
+    <typeReference id="eba7e5e6-d00a-425d-8908-9f2a1cb88c01">
+      <typeId>53fdca32-aedf-4f2a-ad13-bc43ac686f33</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="b7d37cb4-15fa-4daa-a4ea-15bea6e8b142" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Aggregation</name>
+    <display>Aggregation: AA4_Aggregation_Single?</display>
+    <order>5</order>
+    <typeReference id="df53ac87-0855-48ed-9657-2c038f403357">
+      <typeId>36690301-c2e6-4890-875d-ff70a203bcf8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

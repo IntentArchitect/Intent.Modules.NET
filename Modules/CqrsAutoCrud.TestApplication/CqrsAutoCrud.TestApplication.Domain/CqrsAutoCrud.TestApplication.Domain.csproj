@@ -1,0 +1,226 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\A_AggregateRootState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_AggregateRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_Aggregation_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_Aggregation_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_Composite_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\A_Composite_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA1_Aggregation_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA1_Aggregation_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA1_Composite_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA1_Composite_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA2_Aggregation_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA2_Aggregation_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA2_Composite_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA2_Composite_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA3_Aggregation_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA3_Aggregation_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA3_Composite_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA3_Composite_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA4_Aggregation_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA4_Aggregation_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA4_Composite_ManyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AA4_Composite_SingleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_AggregateRoot.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_AggregateRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_Aggregation_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_Aggregation_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_Composite_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IA_Composite_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>A_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA1_Aggregation_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA1_Aggregation_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA1_Composite_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA1_Composite_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA1_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA2_Aggregation_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA2_Aggregation_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA2_Composite_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA2_Composite_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA2_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA3_Aggregation_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA3_Aggregation_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA3_Composite_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA3_Composite_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA3_Composite_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA4_Aggregation_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Aggregation_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA4_Aggregation_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Aggregation_Single.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA4_Composite_Many.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Composite_Many.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAA4_Composite_Single.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AA4_Composite_Single.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="RT.Comb" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>

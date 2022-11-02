@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2c14dbb8-08ca-4dcb-864b-0ad5c8036260">
+  <sourceEnd id="b024e26c-2441-465c-8f5f-59609790fe2b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>A_Aggregation_Single</name>
+    <display>A_Aggregation_Single: A_Aggregation_Single?</display>
+    <order>2</order>
+    <typeReference id="76020660-8300-4564-ae0e-0ac3dae37078">
+      <typeId>41eab1f4-9344-4ec6-8085-9bf5af742caa</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="2c14dbb8-08ca-4dcb-864b-0ad5c8036260" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Aggregation</name>
+    <display>Aggregation: AA3_Aggregation_Single?</display>
+    <order>4</order>
+    <typeReference id="5840b750-093a-4e83-bb6e-8d21c78e8203">
+      <typeId>85498ab3-47cb-4153-a9b9-f05df962c7e1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

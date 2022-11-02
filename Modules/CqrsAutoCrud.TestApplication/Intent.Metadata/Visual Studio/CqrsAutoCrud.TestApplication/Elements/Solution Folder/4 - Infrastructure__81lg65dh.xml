@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e5707f74-47b9-4fba-8fb6-a22457c56fb1" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>de91e2ff-02da-4237-b0a5-35181b035c3b</parentFolderId>
+  <packageId>de91e2ff-02da-4237-b0a5-35181b035c3b</packageId>
+  <packageName>CqrsAutoCrud.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

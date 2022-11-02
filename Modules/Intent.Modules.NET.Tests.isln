@@ -7,7 +7,7 @@
   <iconType>FontAwesome</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AzureFunctions" version="3.3.8" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="3.3.9" />
   <applications>
     <application id="9c8d451f-373a-4c17-b74d-12489ffcd7e3" name="EntityFrameworkCore.TestApplication" relativePath="EntityFrameworkCore.TestApplication/EntityFrameworkCore.TestApplication.application.config" />
     <application id="918c64eb-2d32-404f-adac-97e76c885346" name="EntityFrameworkCore.TPH.TestApplication" relativePath="EntityFrameworkCore.TPH.TestApplication/EntityFrameworkCore.TPH.TestApplication.application.config" />
@@ -19,5 +19,6 @@
     <application id="23854784-a89c-47a8-b308-c2eb02994f51" name="EntityFrameworkCore.CosmosDb.TestApplication" relativePath="EntityFrameworkCore.CosmosDb.TestApplication/EntityFrameworkCore.CosmosDb.TestApplication.application.config" />
     <application id="e0c9ea73-ce4a-47d9-9ee8-cb569c12d804" name="AspNetCore.TestApplication" relativePath="AspNetCore.TestApplication/AspNetCore.TestApplication.application.config" />
     <application id="455378e4-1c28-4110-8380-8f0ecddaf055" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
+    <application id="c667d820-3a43-43f4-9b55-9d34b26be4e9" name="CqrsAutoCrud.TestApplication" relativePath="CqrsAutoCrud.TestApplication/CqrsAutoCrud.TestApplication.application.config" />
   </applications>
 </solution>
