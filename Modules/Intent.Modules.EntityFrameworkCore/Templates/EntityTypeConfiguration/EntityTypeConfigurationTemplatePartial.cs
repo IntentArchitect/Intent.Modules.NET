@@ -61,7 +61,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         {
                             method.AddMetadata("model", Model.InternalElement);
                             method.AddParameter($"EntityTypeBuilder<{GetTypeName(_entityTemplate)}>", "builder");
-                            method.AddStatements(Strategy.GetTableMapping(Model));
+                            if (ForCosmosDb())
+                            {
+                                method.AddStatements(GetCosmosContainerMapping(Model));
+                            }
                             method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
                             method.AddStatements(GetCheckConstraints(Model));
                             method.AddStatements(GetIndexes(Model));
@@ -83,6 +86,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 //    }
                                 //    method.Statements.SeparateAll();
                                 //});
+
                                 builderTemplate.CSharpFile.AfterBuild(file => // Needs to run after other decorators of the entity
                                 {
                                     foreach (var property in file.Classes.First().GetAllProperties())
@@ -100,16 +104,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             method.Statements.SeparateAll();
                         });
 
-                    foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreAssociationConfigStatement>().Where(x => x.RequiredForeignKeys.Any())))
+                    foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreAssociationConfigStatement>().Where(x => x.RequiredProperties.Any())))
                     {
                         EnsureColumnsOnEntity(
-                            statement.RequiredForeignKeys.First().Class.InternalElement,
-                            statement.RequiredForeignKeys);
+                            statement.RequiredProperties.First().Class.InternalElement,
+                            statement.RequiredProperties);
                     }
                 });
         }
 
         public CSharpFile CSharpFile { get; }
+
         public IEntityTypeConfigurationStrategy Strategy { get; set; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -132,94 +137,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             ExecutionContext.EventDispatcher.Publish(new EntityTypeConfigurationCreatedEvent(this));
         }
 
-        private bool RequiresConfiguration(AttributeModel attribute)
+        private bool ForCosmosDb()
         {
-            return attribute.InternalElement.ParentElement.AsClassModel()?.GetExplicitPrimaryKey().All(key => !key.Equals(attribute)) == true &&
-                   !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase);
-        }
-
-        private bool RequiresConfiguration(AssociationEndModel associationEnd)
-        {
-            return associationEnd.IsTargetEnd();
-        }
-
-        private EFCoreConfigStatementBase GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
-        {
-            if (!IsOwned(attribute.TypeReference.Element))
-            {
-                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
-            }
-
-            @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
-            {
-                method.AddMetadata("model", attribute.TypeReference.Element);
-                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>", "builder");
-                method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
-                method.Statements.SeparateAll();
-            });
-
-            return attribute.TypeReference.IsCollection 
-                ? EfCoreFieldConfigStatement.CreateOwnsMany(attribute) 
-                : EfCoreFieldConfigStatement.CreateOwnsOne(attribute);
-        }
-
-        private EFCoreConfigStatementBase GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
-        {
-            if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
-                && associationEnd.Name.Equals(associationEnd.Element.Name))
-            {
-                Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
-            }
-
-            switch (associationEnd.Association.GetRelationshipType())
-            {
-                case RelationshipType.OneToOne:
-                    if (IsOwned(associationEnd.Element))
-                    {
-                        var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd);
-                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
-                        {
-                            var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
-                            method.AddMetadata("model", (IElement)associationEnd.Element);
-                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement(field.CreateWithOwner().WithForeignKey());
-                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
-                            method.Statements.SeparateAll();
-                        });
-
-                        return field;
-                    }
-
-                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
-                        .WithForeignKey();
-                case RelationshipType.ManyToOne:
-                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
-                        .WithForeignKey();
-                case RelationshipType.OneToMany:
-                    {
-                        if (IsOwned(associationEnd.Element))
-                        {
-                            var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
-                            @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
-                            {
-                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
-                                method.AddMetadata("model", (IElement)associationEnd.Element);
-                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                                method.AddStatement(field.CreateWithOwner().WithForeignKey());
-                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
-                                method.Statements.SeparateAll();
-                            });
-
-                            return field;
-                        }
-                    }
-                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd)
-                        .WithForeignKey();
-                case RelationshipType.ManyToMany:
-                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd);
-                default:
-                    throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
-            }
+            return ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos();
         }
 
         private IEnumerable<CSharpStatement> GetTypeConfiguration(IElement targetType, CSharpClass @class)
@@ -228,7 +148,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (targetType.IsClassModel())
             {
-                statements.AddRange(GetTableMapping(targetType.AsClassModel()));
+                if (!ForCosmosDb())
+                {
+                    statements.AddRange(GetTableMapping(targetType.AsClassModel()));
+                }
                 statements.Add(GetKeyMapping(targetType.AsClassModel()));
             }
 
@@ -269,6 +192,147 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
             }
+        }
+
+        private EFCoreConfigStatementBase GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
+        {
+            if (!IsOwned(attribute.TypeReference.Element))
+            {
+                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
+            }
+
+            @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
+            {
+                method.AddMetadata("model", attribute.TypeReference.Element);
+                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>", "builder");
+                method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
+                method.Statements.SeparateAll();
+            });
+
+            return attribute.TypeReference.IsCollection 
+                ? EfCoreFieldConfigStatement.CreateOwnsMany(attribute) 
+                : EfCoreFieldConfigStatement.CreateOwnsOne(attribute);
+        }
+
+        private EFCoreConfigStatementBase GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
+        {
+            if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
+                && associationEnd.Name.Equals(associationEnd.Element.Name))
+            {
+                Logging.Log.Warning($"Self referencing relationship detected using the same name for the Association as the Class: {associationEnd.Class.Name}. This might cause problems.");
+            }
+
+            var explicitForeignKeys = !ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos();
+
+            switch (associationEnd.Association.GetRelationshipType())
+            {
+                case RelationshipType.OneToOne:
+                    if (IsOwned(associationEnd.Element))
+                    {
+                        var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd);
+                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                        {
+                            var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
+                            method.AddMetadata("model", (IElement)associationEnd.Element);
+                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                            method.AddStatement(field.CreateWithOwner().WithForeignKey());
+                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                            method.Statements.SeparateAll();
+                        });
+
+                        return field;
+                    }
+
+                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
+                        .WithForeignKey();
+
+                case RelationshipType.ManyToOne:
+                    return EfCoreAssociationConfigStatement.CreateHasOne(associationEnd)
+                        .WithForeignKey();
+
+                case RelationshipType.OneToMany:
+                    {
+                        if (IsOwned(associationEnd.Element))
+                        {
+                            var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd);
+                            @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                            {
+                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
+                                method.AddMetadata("model", (IElement)associationEnd.Element);
+                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                method.AddStatement(field.CreateWithOwner().WithForeignKey(explicitForeignKeys));
+                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
+                                method.Statements.SeparateAll();
+                            });
+
+                            return field;
+                        }
+                    }
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd)
+                        .WithForeignKey();
+
+                case RelationshipType.ManyToMany:
+                    return EfCoreAssociationConfigStatement.CreateHasMany(associationEnd);
+                default:
+                    throw new Exception($"Relationship type for association [{Model.Name}.{associationEnd.Name}] could not be determined.");
+            }
+        }
+
+        private bool RequiresConfiguration(AttributeModel attribute)
+        {
+            return attribute.InternalElement.ParentElement.AsClassModel()?.GetExplicitPrimaryKey().All(key => !key.Equals(attribute)) == true &&
+                   !attribute.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        private bool RequiresConfiguration(AssociationEndModel associationEnd)
+        {
+            return associationEnd.IsTargetEnd();
+        }
+
+        private IEnumerable<CSharpStatement> GetCosmosContainerMapping(ClassModel model)
+        {
+            // Is there an easier way to get this?
+            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
+            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
+
+            if (model.ParentClass == null)
+            {
+                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
+                    ? ExecutionContext.GetApplicationConfig().Name
+                    : cosmosSettings.ContainerName();
+
+                yield return $@"builder.ToContainer(""{containerName}"");";
+            }
+            else
+            {
+                yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
+            }
+
+            if (GetPartitionKey(model) != null)
+            {
+                yield return $@"builder.HasPartitionKey(x => x.{GetPartitionKey(model).Name.ToPascalCase()});";
+
+                if (model.ParentClass != null)
+                {
+                    yield return $@"builder.Property(x => x.PartitionKey)
+                .IsRequired();";
+                }
+            }
+        }
+
+        private AttributeModel GetPartitionKey(ClassModel model)
+        {
+            // Is there an easier way to get this?
+            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
+            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
+
+            var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
+            if (string.IsNullOrEmpty(partitionKey))
+            {
+                partitionKey = "PartitionKey";
+            }
+
+            return model.GetTypesInHierarchy().SelectMany(x => x.Attributes).SingleOrDefault(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey());
         }
 
         private IEnumerable<string> GetCheckConstraints(ClassModel model)
@@ -424,7 +488,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        public void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params EfCoreAssociationConfigStatement.ForeignKeyColumn[] columns)
+        public void EnsureColumnsOnEntity(ICanBeReferencedType entityModel, params RequiredEntityProperty[] columns)
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, entityModel.Id, out var template))
             {
@@ -493,8 +557,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .ToList());
             return associations;
         }
-
-        public record RequiredColumn(string Type, string Name, Action<CSharpProperty> ConfigureProperty = null);
     }
 
     public abstract class EFCoreConfigStatementBase : CSharpStatement

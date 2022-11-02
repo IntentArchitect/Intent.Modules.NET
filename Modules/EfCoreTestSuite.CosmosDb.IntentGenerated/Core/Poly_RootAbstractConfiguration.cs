@@ -35,7 +35,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<Poly_RootAbstract, Poly_RootAbstract_Comp> builder)
         {
-            builder.WithOwner();
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
 
             builder.HasKey(x => x.Id);
 

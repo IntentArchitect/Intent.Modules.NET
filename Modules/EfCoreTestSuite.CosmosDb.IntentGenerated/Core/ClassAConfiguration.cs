@@ -31,7 +31,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureClassC(OwnedNavigationBuilder<ClassB, ClassC> builder)
         {
-            builder.WithOwner();
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
 
             builder.HasKey(x => x.Id);
 
@@ -41,7 +42,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureClassE(OwnedNavigationBuilder<ClassD, ClassE> builder)
         {
-            builder.WithOwner();
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
 
             builder.HasKey(x => x.Id);
         }

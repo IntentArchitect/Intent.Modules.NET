@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
@@ -76,9 +75,9 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         {
             statement.RelationshipStatements.Add($".WithMany({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : $"\"{associationEnd.OtherEnd().Name.ToPascalCase()}\"")})");
             statement.RelationshipStatements.Add($".UsingEntity(x => x.ToTable(\"{associationEnd.OtherEnd().Class.Name}{associationEnd.Class.Name.ToPluralName()}\"))");
-            statement.RequiredForeignKeys = new[]
+            statement.RequiredProperties = new[]
             {
-                new ForeignKeyColumn(
+                new RequiredEntityProperty(
                     Class: associationEnd.Class,
                     Name: associationEnd.OtherEnd().Name.ToPascalCase(),
                     Type: associationEnd.OtherEnd().Class.InternalElement,
@@ -117,8 +116,12 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         AddMetadata("model", associationEnd);
     }
 
-    public EfCoreAssociationConfigStatement WithForeignKey()
+    public EfCoreAssociationConfigStatement WithForeignKey(bool enabled = true)
     {
+        if (!enabled)
+        {
+            return this;
+        }
         switch (_associationEnd.Association.GetRelationshipType())
         {
             case RelationshipType.OneToMany:
@@ -137,36 +140,7 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         }
     }
 
-    private ForeignKeyColumn[] GetForeignColumns(AssociationEndModel associationEnd)
-    {
-
-        if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
-        {
-            return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
-                .Select(selector: x => new ForeignKeyColumn(
-                    Class: associationEnd.Class,
-                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
-                    Type: x.Type.Element,
-                    IsNullable: associationEnd.IsNullable))
-                .ToArray();
-        }
-        else // implicit Id
-        {
-            if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
-            {
-                return new[] { new ForeignKeyColumn(
-                    Class: associationEnd.Class,
-                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id",
-                    Type: null,
-                    IsNullable: associationEnd.OtherEnd().IsNullable) };
-            }
-            return new[] { new ForeignKeyColumn(
-                Class: associationEnd.Class,
-                Name: "Id",
-                Type: null,
-                IsNullable: false) };
-        }
-    }
+    public RequiredEntityProperty[] RequiredProperties = Array.Empty<RequiredEntityProperty>();
 
     public EfCoreAssociationConfigStatement AddStatement(CSharpStatement statement)
     {
@@ -183,10 +157,9 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         return this;
     }
 
-    public ForeignKeyColumn[] RequiredForeignKeys = Array.Empty<ForeignKeyColumn>();
-    public EfCoreAssociationConfigStatement AddForeignKey(params ForeignKeyColumn[] columns)
+    private EfCoreAssociationConfigStatement AddForeignKey(params RequiredEntityProperty[] columns)
     {
-        RequiredForeignKeys = columns;
+        RequiredProperties = columns;
 
         string genericType = null;
         if (!RelationshipStatements.First().Text.StartsWith("builder.WithOwner") &&
@@ -219,6 +192,37 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         return this;
     }
 
+    private RequiredEntityProperty[] GetForeignColumns(AssociationEndModel associationEnd)
+    {
+
+        if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
+        {
+            return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
+                .Select(selector: x => new RequiredEntityProperty(
+                    Class: associationEnd.Class,
+                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
+                    Type: x.Type.Element,
+                    IsNullable: associationEnd.IsNullable))
+                .ToArray();
+        }
+        else // implicit Id
+        {
+            if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
+            {
+                return new[] { new RequiredEntityProperty(
+                    Class: associationEnd.Class,
+                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}Id",
+                    Type: null,
+                    IsNullable: associationEnd.OtherEnd().IsNullable) };
+            }
+            return new[] { new RequiredEntityProperty(
+                Class: associationEnd.Class,
+                Name: "Id",
+                Type: null,
+                IsNullable: false) };
+        }
+    }
+
     public override string GetText(string indentation)
     {
         var x = $@"{indentation}{string.Join(@$"
@@ -228,5 +232,4 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         return x;
     }
 
-    public record ForeignKeyColumn(ClassModel Class, string Name, ICanBeReferencedType Type, bool IsNullable = false, bool IsCollection = false, Action<CSharpProperty> ConfigureProperty = null);
 }
