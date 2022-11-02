@@ -25,17 +25,8 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure
             });
             services.Configure<DbContextConfiguration>(opt => configuration.GetSection("SqlServer").Bind(opt));
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
-            services.AddTransient<IA_AggregateRootRepository, A_AggregateRootRepository>();
-            services.AddTransient<IA_Aggregation_ManyRepository, A_Aggregation_ManyRepository>();
-            services.AddTransient<IA_Aggregation_SingleRepository, A_Aggregation_SingleRepository>();
-            services.AddTransient<IAA1_Aggregation_ManyRepository, AA1_Aggregation_ManyRepository>();
-            services.AddTransient<IAA1_Aggregation_SingleRepository, AA1_Aggregation_SingleRepository>();
-            services.AddTransient<IAA2_Aggregation_ManyRepository, AA2_Aggregation_ManyRepository>();
-            services.AddTransient<IAA2_Aggregation_SingleRepository, AA2_Aggregation_SingleRepository>();
-            services.AddTransient<IAA3_Aggregation_ManyRepository, AA3_Aggregation_ManyRepository>();
-            services.AddTransient<IAA3_Aggregation_SingleRepository, AA3_Aggregation_SingleRepository>();
-            services.AddTransient<IAA4_Aggregation_ManyRepository, AA4_Aggregation_ManyRepository>();
-            services.AddTransient<IAA4_Aggregation_SingleRepository, AA4_Aggregation_SingleRepository>();
+            services.AddTransient<IAggregateRootARepository, AggregateRootARepository>();
+            services.AddTransient<IAggregateSingleAARepository, AggregateSingleAARepository>();
             return services;
         }
     }

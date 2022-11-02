@@ -43,6 +43,11 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Repositories
             return await QueryInternal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
+        public virtual async Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
         public virtual async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             return await QueryInternal(x => true).ToListAsync<TDomain>(cancellationToken);
@@ -65,7 +70,8 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Repositories
             return await PagedList<TDomain>.CreateAsync(
                 query,
                 pageNo,
-                pageSize);
+                pageSize,
+                cancellationToken);
         }
 
         public virtual async Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default)

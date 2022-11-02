@@ -7,7 +7,7 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
 {
     public class DbContextConfiguration
     {
-        public string DefaultSchemaName { get; set; }
+        public string? DefaultSchemaName { get; set; }
         public bool? EnsureDbCreated { get; set; }
     }
 }

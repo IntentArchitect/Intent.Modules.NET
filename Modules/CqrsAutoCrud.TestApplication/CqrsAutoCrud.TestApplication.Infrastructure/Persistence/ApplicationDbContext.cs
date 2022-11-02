@@ -29,17 +29,8 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
             _dbContextConfig = dbContextConfig;
         }
 
-        public DbSet<A_AggregateRoot> A_AggregateRoots { get; set; }
-        public DbSet<A_Aggregation_Many> A_Aggregation_Manies { get; set; }
-        public DbSet<A_Aggregation_Single> A_Aggregation_Singles { get; set; }
-        public DbSet<AA1_Aggregation_Many> AA1_Aggregation_Manies { get; set; }
-        public DbSet<AA1_Aggregation_Single> AA1_Aggregation_Singles { get; set; }
-        public DbSet<AA2_Aggregation_Many> AA2_Aggregation_Manies { get; set; }
-        public DbSet<AA2_Aggregation_Single> AA2_Aggregation_Singles { get; set; }
-        public DbSet<AA3_Aggregation_Many> AA3_Aggregation_Manies { get; set; }
-        public DbSet<AA3_Aggregation_Single> AA3_Aggregation_Singles { get; set; }
-        public DbSet<AA4_Aggregation_Many> AA4_Aggregation_Manies { get; set; }
-        public DbSet<AA4_Aggregation_Single> AA4_Aggregation_Singles { get; set; }
+        public DbSet<AggregateRootA> AggregateRootAs { get; set; }
+        public DbSet<AggregateSingleAA> AggregateSingleAAs { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -55,17 +46,8 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new A_AggregateRootConfiguration());
-            modelBuilder.ApplyConfiguration(new A_Aggregation_ManyConfiguration());
-            modelBuilder.ApplyConfiguration(new A_Aggregation_SingleConfiguration());
-            modelBuilder.ApplyConfiguration(new AA1_Aggregation_ManyConfiguration());
-            modelBuilder.ApplyConfiguration(new AA1_Aggregation_SingleConfiguration());
-            modelBuilder.ApplyConfiguration(new AA2_Aggregation_ManyConfiguration());
-            modelBuilder.ApplyConfiguration(new AA2_Aggregation_SingleConfiguration());
-            modelBuilder.ApplyConfiguration(new AA3_Aggregation_ManyConfiguration());
-            modelBuilder.ApplyConfiguration(new AA3_Aggregation_SingleConfiguration());
-            modelBuilder.ApplyConfiguration(new AA4_Aggregation_ManyConfiguration());
-            modelBuilder.ApplyConfiguration(new AA4_Aggregation_SingleConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateRootAConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateSingleAAConfiguration());
             if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultSchemaName))
             {
                 modelBuilder.HasDefaultSchema(_dbContextConfig.Value?.DefaultSchemaName);
