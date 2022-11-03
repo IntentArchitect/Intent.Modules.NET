@@ -123,14 +123,14 @@ namespace <#= Namespace #>
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
 <#
-            if (HasWrappedReturnType(operation))
+            if (HasWrappedReturnType(operation) && (IsReturnTypePrimitive(operation) || operation.ReturnType.HasStringType()))
             {
 #>
                     var wrappedObj = await JsonSerializer.DeserializeAsync<<#= this.GetJsonResponseName() #><<#= GetTypeName(operation.ReturnType) #>>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
                     return wrappedObj.Value;
 <#   
             }
-            else if (operation.ReturnType.HasStringType() && !operation.ReturnType.IsCollection)
+            else if (!HasWrappedReturnType(operation) && operation.ReturnType.HasStringType() && !operation.ReturnType.IsCollection)
             {
 #>
                     var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);

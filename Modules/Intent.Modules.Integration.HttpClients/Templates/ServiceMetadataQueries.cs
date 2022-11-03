@@ -47,7 +47,7 @@ public static class ServiceMetadataQueries
         var operationRoute = GetRoute(operation) ?? string.Empty;
         operationRoute = operationRoute.Replace("[action]", operation.Name);
 
-        return $"/{serviceRoute.ToLower()}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute.ToLower()}";
+        return $"{serviceRoute.ToLower()}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute.ToLower()}";
     }
 
     public static IReadOnlyCollection<ParameterModel> GetQueryParameters(IntentTemplateBase template, OperationModel operation)
