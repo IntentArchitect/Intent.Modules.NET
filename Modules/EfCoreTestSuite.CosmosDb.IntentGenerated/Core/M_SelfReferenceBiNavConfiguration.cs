@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<M_SelfReferenceBiNav> builder)
         {
-            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+            builder.ToTable("M_SelfReferenceBiNav");
 
             builder.HasKey(x => x.Id);
 

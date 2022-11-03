@@ -19,7 +19,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 
         string PartitionKey { get; set; }
 
-        ICollection<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
+        Poly_BaseClassNonAbstract BaseClassNonAbstracts { get; set; }
 
     }
 }

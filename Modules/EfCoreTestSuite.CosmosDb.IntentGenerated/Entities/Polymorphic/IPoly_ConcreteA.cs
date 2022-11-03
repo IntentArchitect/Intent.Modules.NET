@@ -12,5 +12,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
     {
 
         string ConcreteField { get; set; }
+
+        string PartitionKey { get; set; }
+
     }
 }

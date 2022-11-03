@@ -25,5 +25,17 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
                 _concreteField = value;
             }
         }
+
+        private string _partitionKey;
+
+        public string PartitionKey
+        {
+            get { return _partitionKey; }
+            set
+            {
+                _partitionKey = value;
+            }
+        }
+
     }
 }

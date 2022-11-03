@@ -130,8 +130,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             builder.ToTable(""{model.GetTable()?.Name() ?? model.Name}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema() ?? "dbo"}""" : "")});";
             }
 
-            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos()
-                && !IsOwned(model.InternalElement))
+            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && model.IsAggregateRoot())
             {
                 // Is there an easier way to get this?
                 var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
@@ -150,63 +149,30 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private string GetKeyMapping(ClassModel model)
         {
-            if (model.ParentClass != null
-                && ((!model.ParentClass.IsAbstract && !ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
-                    || !ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()))
+            if (model.ParentClass != null && (!model.ParentClass.IsAbstract || !ExecutionContext.Settings
+                    .GetDatabaseSettings().InheritanceStrategy().IsTPC()))
             {
                 return string.Empty;
             }
 
-            const string newLine = @"
-            ";
-            var keys = new List<string>();
-
             if (!model.GetExplicitPrimaryKey().Any())
             {
-                if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos()
-                    && HasIncomingGeneralization(model)
-                    && model.ParentClass == null)
-                {
-                    keys.Add(GetPartitionKey());
-                }
-
-                keys.Add("Id");
+                return $@"
+                builder.HasKey(x => x.Id);";
+                //    return $@"
+                //builder.HasKey(x => x.Id);
+                //builder.Property(x => x.Id)
+                //       .UsePropertyAccessMode(PropertyAccessMode.Property)
+                //       .ValueGeneratedNever();";
             }
             else
             {
-                keys.AddRange(model.GetExplicitPrimaryKey().Select(s => s.Name));
+                var keys = model.GetExplicitPrimaryKey().Count() == 1
+                    ? "x." + model.GetExplicitPrimaryKey().Single().Name.ToPascalCase()
+                    : $"new {{ {string.Join(", ", model.GetExplicitPrimaryKey().Select(x => "x." + x.Name.ToPascalCase()))} }}";
+                return $@"
+            builder.HasKey(x => {keys});";
             }
-
-            var keyExpression = keys.Count == 1
-                ? $"x.{keys.Single().ToPascalCase()}"
-                : $"new {{ {string.Join(", ", keys.Select(s => "x." + s.ToPascalCase()))} }}";
-
-            return newLine + $@"builder.HasKey(x => {keyExpression});";
-        }
-
-        private bool HasIncomingGeneralization(ClassModel classModel)
-        {
-            return classModel.GeneralizationEnds().Any(x => x.IsSourceEnd());
-        }
-
-        private string GetPartitionKey()
-        {
-            if (!ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
-            {
-                throw new Exception("Attempting to get Partition key when Database provider isn't Cosmos DB");
-            }
-
-            // Is there an easier way to get this?
-            var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
-            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
-
-            var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
-            if (string.IsNullOrEmpty(partitionKey))
-            {
-                partitionKey = "PartitionKey";
-            }
-
-            return partitionKey;
         }
 
         private bool RequiresConfiguration(AttributeModel attribute)
@@ -376,18 +342,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
             {
-                var partitionKey = GetPartitionKey();
+                // Is there an easier way to get this?
+                var domainPackage = new DomainPackageModel(this.Model.InternalElement.Package);
+                var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
 
+                var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
+                if (string.IsNullOrEmpty(partitionKey))
+                {
+                    partitionKey = "PartitionKey";
+                }
                 if (GetAttributes(Model.InternalElement).Any(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey()))
                 {
                     statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
-                }
-                else if (Model.ParentClass != null || Model.IsAbstract)
-                {
-                    statements.Add($@"builder.HasPartitionKey(x => x.{partitionKey});");
-                    statements.Add($@"");
-                    statements.Add($@"builder.Property(x => x.PartitionKey)");
-                    statements.Add($@"    .IsRequired();");
                 }
             }
 
@@ -424,7 +390,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         _ownedTypeConfigMethods.Add(@$"
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetOwnerEntity(associationEnd)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) && !ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         statements.Add($"builder.OwnsOne(x => x.{associationEnd.Name.ToPascalCase()}, Configure{associationEnd.Name.ToPascalCase()})" +
@@ -485,7 +451,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         _ownedTypeConfigMethods.Add(@$"
         public void Configure{associationEnd.Name.ToPascalCase()}(OwnedNavigationBuilder<{GetOwnerEntity(associationEnd)}, {GetTypeName((IElement)associationEnd.Element)}> builder)
         {{
-            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) && !ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
+            builder.WithOwner({(associationEnd.OtherEnd().IsNavigable ? $"x => x.{associationEnd.OtherEnd().Name.ToPascalCase()}" : "")}){(!IsValueObject(associationEnd.Element) ? $".HasForeignKey({GetForeignKeyLambda(associationEnd)})" : "")};{string.Join(@"
             ", GetTypeConfiguration((IElement)associationEnd.Element))}
         }}");
                         return $@"
@@ -566,14 +532,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 statements.Add(GetBeforeAttributeStatements());
             }
-
             statements.AddRange(GetAttributes(targetType).Where(RequiresConfiguration).Select(GetAttributeMapping));
 
             if (targetType.Id.Equals(Model.Id))
             {
                 statements.Add(GetAfterAttributeStatements());
             }
-
             statements.AddRange(GetAssociations(targetType).Where(RequiresConfiguration).Select(GetAssociationMapping));
             if (targetType.IsClassModel())
             {
@@ -688,18 +652,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 : $"{prefix}{column.Name.ToPascalCase()}";
         }
 
-        private string GetForeignKeyLambda(AssociationEndModel associationEnd)
+        private static string GetForeignKeyLambda(AssociationEndModel associationEnd)
         {
             var columns = new List<string>();
-
-            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos()
-                && (associationEnd.OtherEnd().Class.ParentClass != null
-                    || associationEnd.OtherEnd().Class.IsAbstract
-                    || HasIncomingGeneralization(associationEnd.OtherEnd().Class)))
-            {
-                columns.Add(GetPartitionKey());
-            }
-
             if (associationEnd.HasForeignKey() &&
                 !string.IsNullOrWhiteSpace(associationEnd.GetForeignKey().ColumnName()))
             {

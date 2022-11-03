@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations;
-using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic;
 using Intent.RoslynWeaver.Attributes;
@@ -16,20 +16,15 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     public interface IApplicationDbContext
     {
         DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
-        DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
-        DbSet<AbstractBaseClassAssociated> AbstractBaseClassAssociateds { get; set; }
+        DbSet<Associated> Associateds { get; set; }
         DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
+        DbSet<BaseAssociated> BaseAssociateds { get; set; }
         DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         DbSet<ClassA> ClassAs { get; set; }
-        DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
-        DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
-        DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
-        DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
-        DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
-        DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
+        DbSet<Derived> Deriveds { get; set; }
         DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
@@ -40,13 +35,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
-        DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
-        DbSet<Poly_RootAbstract> Poly_RootAbstracts { get; set; }
-        DbSet<Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
         DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
-        DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }
+        DbSet<WeirdClass> WeirdClasses { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

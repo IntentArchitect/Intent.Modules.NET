@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<E_RequiredCompositeNav> builder)
         {
-            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+            builder.ToTable("E_RequiredCompositeNav");
 
             builder.HasKey(x => x.Id);
 
@@ -30,7 +30,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureE_RequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
         {
-            builder.WithOwner(x => x.E_RequiredCompositeNav);
+            builder.WithOwner(x => x.E_RequiredCompositeNav).HasForeignKey(x => x.Id);
+            builder.ToTable("E_RequiredDependent");
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.RequiredDependentAttr)

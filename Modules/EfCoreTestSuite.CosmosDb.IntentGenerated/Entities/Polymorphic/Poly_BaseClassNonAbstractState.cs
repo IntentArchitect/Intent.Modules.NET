@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,10 +8,21 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial class Poly_BaseClassNonAbstract : Poly_RootAbstract, IPoly_BaseClassNonAbstract
+    public partial class Poly_BaseClassNonAbstract : IPoly_BaseClassNonAbstract
     {
         public Poly_BaseClassNonAbstract()
         {
+        }
+
+        private Guid? _id = null;
+
+        /// <summary>
+        /// Get the persistent object's identifier
+        /// </summary>
+        public virtual Guid Id
+        {
+            get { return _id ?? (_id = IdentityGenerator.NewSequentialId()).Value; }
+            set { _id = value; }
         }
 
 
@@ -26,8 +36,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
                 _baseField = value;
             }
         }
-
-
-        public Guid? Poly_SecondLevelId { get; set; }
     }
 }
