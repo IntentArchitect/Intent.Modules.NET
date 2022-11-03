@@ -20,7 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.ServiceImplementations\Intent.Modules.Application.ServiceImplementations.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-    <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
   </ItemGroup>
 
 </Project>

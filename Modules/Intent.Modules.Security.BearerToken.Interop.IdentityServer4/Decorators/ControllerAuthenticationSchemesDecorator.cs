@@ -27,6 +27,8 @@ namespace Intent.Modules.Security.BearerToken.Interop.IdentityServer4.Decorators
         {
             _template = template;
             _application = application;
+            // TODO: GCB - this isn't a great pattern at all for solving this problem. Consider converting to CSharpFile builder paradigm.
+            // TODO: Could probably even get rid of this module completely.
         }
 
         public IEnumerable<string> DeclareUsings()

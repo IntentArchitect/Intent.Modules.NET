@@ -9,7 +9,6 @@ using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Decorat
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
@@ -52,6 +51,8 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
             case "pagenum":
             case "pagenumber":
                 return true;
+            default:
+                break;
         }
 
         return false;
@@ -63,12 +64,14 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
         {
             return false;
         }
-        
+
         switch (param.Name.ToLower())
         {
             case "size":
             case "pagesize":
                 return true;
+            default:
+                break;
         }
 
         return false;

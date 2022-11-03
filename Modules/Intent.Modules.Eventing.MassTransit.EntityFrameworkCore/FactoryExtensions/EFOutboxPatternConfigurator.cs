@@ -7,6 +7,7 @@ using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Eventing.MassTransit.Settings;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;

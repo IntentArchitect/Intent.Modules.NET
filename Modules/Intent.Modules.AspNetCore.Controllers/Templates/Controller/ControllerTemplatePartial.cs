@@ -144,8 +144,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 // We can extend this later (if desired) to have multiple Secure stereotypes create
                 // multiple Authorization Models.
                 var authModel = new AuthorizationModel();
-                GetDecorators().ToList().ForEach(x =>
-                    x.UpdateServiceAuthorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
+                GetDecorators().ToList().ForEach(x => x.UpdateServiceAuthorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
                 attributes.Add(GetAuthorizationAttribute(authModel));
             }
 

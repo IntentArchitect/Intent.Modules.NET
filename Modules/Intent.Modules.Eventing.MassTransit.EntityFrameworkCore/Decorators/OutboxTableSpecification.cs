@@ -6,6 +6,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.Eventing.MassTransit.Settings;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

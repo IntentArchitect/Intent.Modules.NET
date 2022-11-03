@@ -15,11 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.AspNet.Owin\Intent.Modules.AspNet.Owin.csproj" />
-    <ProjectReference Include="..\Intent.Modules.EntityFramework\Intent.Modules.EntityFramework.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Templates\DbMigrationsConfiguration\DbMigrationsConfigurationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbMigrationsConfigurationTemplate.cs</LastGenOutput>

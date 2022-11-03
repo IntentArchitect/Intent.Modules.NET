@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Intent.Modules.AspNet.Owin\Intent.Modules.AspNet.Owin.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 

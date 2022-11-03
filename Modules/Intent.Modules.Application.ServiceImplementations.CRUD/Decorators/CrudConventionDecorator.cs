@@ -7,7 +7,6 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 

@@ -4,7 +4,6 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Decorators;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 
@@ -34,9 +33,7 @@ static class ImplementationStrategyTemplates
 
     public static string GetEntityRepositoryInterfaceName(this CrudConventionDecorator decorator, ClassModel domainModel)
     {
-        var repo = decorator.Template
-            .GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, domainModel,
-                TemplateDiscoveryOptions.DoNotThrow);
+        var repo = decorator.Template.GetTypeName("Repository.Interface.Entity", domainModel, TemplateDiscoveryOptions.DoNotThrow);
         return repo;
     }
     
