@@ -26,17 +26,6 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
             }
         }
 
-        private Guid _aAggregaterootId;
-
-        public Guid AAggregaterootId
-        {
-            get { return _aAggregaterootId; }
-            set
-            {
-                _aAggregaterootId = value;
-            }
-        }
-
         private string _compositeAttr;
 
         public string CompositeAttr
@@ -48,34 +37,17 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
             }
         }
 
-        private CompositeSingleAAA2? _composite;
+        private Guid _aCompositeSingleId;
 
-        public virtual CompositeSingleAAA2? Composite
+        public Guid ACompositeSingleId
         {
-            get
-            {
-                return _composite;
-            }
+            get { return _aCompositeSingleId; }
             set
             {
-                _composite = value;
+                _aCompositeSingleId = value;
             }
         }
 
-        private ICollection<CompositeManyAAA2> _composites;
-
-        public virtual ICollection<CompositeManyAAA2> Composites
-        {
-            get
-            {
-                return _composites ??= new List<CompositeManyAAA2>();
-            }
-            set
-            {
-                _composites = value;
-            }
-        }
-
-        public Guid A_AggregateRootId { get; set; }
+        public Guid A_Composite_SingleId { get; set; }
     }
 }

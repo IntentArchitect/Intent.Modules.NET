@@ -131,7 +131,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private List<string> GetCommandPropertyAssignments(ClassModel domainModel, CommandModel command)
         {
             var codeLines = new List<string>();
-            codeLines.Add($"Id = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
+            if (_template.ExecutionContext.Settings.GetDatabaseSettings().KeyCreationMode().IsExplicit()
+                && command.Properties.Any(p => p.Name.Equals("Id", StringComparison.OrdinalIgnoreCase) && p.TypeReference.Element.Name == "guid"))
+            {
+                codeLines.Add($"Id = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
+            }
+
             foreach (var property in command.Properties)
             {
                 if (property.Mapping?.Element == null

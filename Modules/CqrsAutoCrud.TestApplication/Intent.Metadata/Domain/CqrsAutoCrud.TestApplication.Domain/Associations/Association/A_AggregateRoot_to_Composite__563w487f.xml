@@ -2,7 +2,7 @@
 <association id="a05d344b-02f5-4b58-ab55-c8cbbdb9fcf7">
   <sourceEnd id="c1965e94-bd06-42fe-aebd-8a33e454b21a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>A_AggregateRoot</name>
-    <display>A_AggregateRoot: AggregateRootA</display>
+    <display>A_AggregateRoot: AggregateRoot</display>
     <order>4</order>
     <typeReference id="dfe1aca3-07c0-4a7d-a81a-bfa62480e0ca">
       <typeId>12049f0f-4214-4ca8-8ce9-d7d65eaf1534</typeId>
@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="a05d344b-02f5-4b58-ab55-c8cbbdb9fcf7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Composite</name>
-    <display>Composite: CompositeSingleAA?</display>
+    <display>Composite: CompositeSingleA?</display>
     <order>2</order>
     <typeReference id="3fcf40ff-4b3f-4559-adac-2142968a2c0c">
       <typeId>49d07eeb-9d22-4b43-b248-a99fa5a40f9e</typeId>

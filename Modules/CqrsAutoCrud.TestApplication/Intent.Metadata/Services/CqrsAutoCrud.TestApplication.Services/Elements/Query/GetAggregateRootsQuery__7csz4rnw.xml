@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4d52cb6a-776a-4b68-9607-989a3c85c73f" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAggregateRootsQuery</name>
+  <display>GetAggregateRootsQuery: AggregateRootDTO[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="992dc605-a80b-4853-ac4e-b4ae50a24ebf">
+    <typeId>5e707bb4-be4a-4c21-9f30-f68a55c237b8</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CqrsAutoCrud.TestApplication.Services</typePackageName>
+    <typePackageId>3554520d-6c89-4fd5-88ef-b984565d7741</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>1d6edf12-531a-43ca-b69e-07392f3ada67</parentFolderId>
+  <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
+  <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

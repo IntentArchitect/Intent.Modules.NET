@@ -25,8 +25,9 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure
             });
             services.Configure<DbContextConfiguration>(opt => configuration.GetSection("SqlServer").Bind(opt));
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
-            services.AddTransient<IAggregateRootARepository, AggregateRootARepository>();
-            services.AddTransient<IAggregateSingleAARepository, AggregateSingleAARepository>();
+            services.AddTransient<IAggregateRootRepository, AggregateRootRepository>();
+            services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
+            services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
             return services;
         }
     }

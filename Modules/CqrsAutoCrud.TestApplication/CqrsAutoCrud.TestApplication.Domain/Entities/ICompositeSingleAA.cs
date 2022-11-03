@@ -15,9 +15,5 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
 
         string CompositeAttr { get; set; }
 
-        CompositeSingleAAA1 Composite { get; set; }
-
-        ICollection<CompositeManyAAA1> Composites { get; set; }
-
     }
 }

@@ -13,13 +13,9 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
 
         Guid Id { get; set; }
 
-        Guid AAggregaterootId { get; set; }
-
         string CompositeAttr { get; set; }
 
-        CompositeSingleAAA2 Composite { get; set; }
-
-        ICollection<CompositeManyAAA2> Composites { get; set; }
-        Guid A_AggregateRootId { get; }
+        Guid ACompositeSingleId { get; set; }
+        Guid A_Composite_SingleId { get; }
     }
 }

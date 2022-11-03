@@ -326,6 +326,88 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CompositeSingleAAA2.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\AggregateRootState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AggregateRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\AggregateSingleCState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AggregateSingleC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CompositeManyBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeManyB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CompositeManyBBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeManyBB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CompositeSingleAState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeSingleA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CompositeSingleBBState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeSingleBB.cs</DependentUpon>
+    </Compile>
+    
+    <Compile Update="Entities\IAggregateRoot.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AggregateRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAggregateSingleC.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AggregateSingleC.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICompositeManyB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeManyB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICompositeManyBB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeManyBB.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICompositeSingleA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeSingleA.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICompositeSingleBB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeSingleBB.cs</DependentUpon>
+    </Compile>
+    
+    <Compile Update="Entities\AggregateRootLongState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AggregateRootLong.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CompositeOfAggrLongState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeOfAggrLong.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IAggregateRootLong.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AggregateRootLong.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICompositeOfAggrLong.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CompositeOfAggrLong.cs</DependentUpon>
+    </Compile>
     
     
     

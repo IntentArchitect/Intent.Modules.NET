@@ -2,7 +2,7 @@
 <association id="bc9c30c9-bb31-4c3e-84d4-401723037ecb">
   <sourceEnd id="8564554b-20f2-40ba-8b2b-a15c01460d79" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>A_Composite_Single</name>
-    <display>A_Composite_Single: CompositeSingleAA</display>
+    <display>A_Composite_Single: CompositeSingleA</display>
     <order>2</order>
     <typeReference id="5bf8dd48-f683-4381-91b6-83009246db01">
       <typeId>49d07eeb-9d22-4b43-b248-a99fa5a40f9e</typeId>
@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="bc9c30c9-bb31-4c3e-84d4-401723037ecb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Composite</name>
-    <display>Composite: CompositeSingleAAA1?</display>
+    <display>Composite: CompositeSingleAA?</display>
     <order>2</order>
     <typeReference id="5324667a-e64f-4c60-aceb-d866d2ecf1e4">
       <typeId>10ac2bda-3347-48d4-9760-12c0d14a32f3</typeId>

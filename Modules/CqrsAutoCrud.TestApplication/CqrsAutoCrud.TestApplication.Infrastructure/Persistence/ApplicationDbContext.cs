@@ -29,8 +29,9 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
             _dbContextConfig = dbContextConfig;
         }
 
-        public DbSet<AggregateRootA> AggregateRootAs { get; set; }
-        public DbSet<AggregateSingleAA> AggregateSingleAAs { get; set; }
+        public DbSet<AggregateRoot> AggregateRoots { get; set; }
+        public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
+        public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -46,8 +47,9 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new AggregateRootAConfiguration());
-            modelBuilder.ApplyConfiguration(new AggregateSingleAAConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
+            modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());
             if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultSchemaName))
             {
                 modelBuilder.HasDefaultSchema(_dbContextConfig.Value?.DefaultSchemaName);

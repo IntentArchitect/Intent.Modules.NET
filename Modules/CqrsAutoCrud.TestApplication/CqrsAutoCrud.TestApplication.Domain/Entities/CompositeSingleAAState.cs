@@ -37,34 +37,6 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
             }
         }
 
-        private CompositeSingleAAA1? _composite;
-
-        public virtual CompositeSingleAAA1? Composite
-        {
-            get
-            {
-                return _composite;
-            }
-            set
-            {
-                _composite = value;
-            }
-        }
-
-        private ICollection<CompositeManyAAA1> _composites;
-
-        public virtual ICollection<CompositeManyAAA1> Composites
-        {
-            get
-            {
-                return _composites ??= new List<CompositeManyAAA1>();
-            }
-            set
-            {
-                _composites = value;
-            }
-        }
-
 
     }
 }

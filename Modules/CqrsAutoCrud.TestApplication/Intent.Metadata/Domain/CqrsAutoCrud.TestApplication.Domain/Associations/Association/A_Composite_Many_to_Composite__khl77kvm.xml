@@ -2,7 +2,7 @@
 <association id="554e40fd-01df-41a0-b6fe-3e91a9f29673">
   <sourceEnd id="9d16dbc5-b540-4acf-a439-da14c76a04e6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>A_Composite_Many</name>
-    <display>A_Composite_Many: CompositeManyAA</display>
+    <display>A_Composite_Many: CompositeManyB</display>
     <order>2</order>
     <typeReference id="426ea866-4c05-418c-8c0c-518e56d4c8cf">
       <typeId>44232e14-ce0f-488f-beae-12bd7e7be45d</typeId>
@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="554e40fd-01df-41a0-b6fe-3e91a9f29673" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Composite</name>
-    <display>Composite: CompositeSingleAAA2?</display>
+    <display>Composite: CompositeSingleBB?</display>
     <order>3</order>
     <typeReference id="b25c35ae-6061-49c3-8ead-229f68d3e130">
       <typeId>696c5461-0097-4f69-87f7-27f549f1983b</typeId>
