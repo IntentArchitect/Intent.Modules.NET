@@ -36,18 +36,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            IEnumerable<ClassModel> models = _metadataManager.Domain(application).GetClassModels();
-
-            if (application.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
-            {
-                models = models.Where(p => p.IsAggregateRoot() || (p.IsAbstract && !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()));
-            }
-            else
-            {
-                models = models.Where(p => p.IsAggregateRoot() && (!p.IsAbstract || !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC()));
-            }
-
-            return models.ToArray();
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(x => x.IsAggregateRoot())
+                .Where(x => !x.IsAbstract ||
+                            !application.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC());
         }
     }
 }

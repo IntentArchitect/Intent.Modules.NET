@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<B_OptionalDependent> builder)
         {
-            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+            builder.ToTable("B_OptionalDependent");
 
             builder.HasKey(x => x.Id);
 
