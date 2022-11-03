@@ -63,7 +63,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             
             #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
-    foreach (var operation in Model.MappedService.Operations.Where(ContractMetadataQueries .IsAbleToReference))
+    foreach (var operation in Model.MappedService.Operations.Where(ContractMetadataQueries.IsAbleToReference))
     {
 
             
@@ -283,7 +283,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             
             #line 125 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
-            if (HasWrappedReturnType(operation))
+            if (HasWrappedReturnType(operation) && (IsReturnTypePrimitive(operation) || operation.ReturnType.HasStringType()))
             {
 
             
@@ -308,7 +308,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             #line 131 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
    
             }
-            else if (operation.ReturnType.HasStringType() && !operation.ReturnType.IsCollection)
+            else if (!HasWrappedReturnType(operation) && operation.ReturnType.HasStringType() && !operation.ReturnType.IsCollection)
             {
 
             

@@ -36,7 +36,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
 
         public async Task CreateAsync(InvoiceCreateDTO dto, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice";
+            var relativeUri = $"api/invoice";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -54,7 +54,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<InvoiceDTO> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/{id}";
+            var relativeUri = $"api/invoice/{id}";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -77,7 +77,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<List<InvoiceDTO>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice";
+            var relativeUri = $"api/invoice";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -100,7 +100,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task UpdateAsync(Guid id, InvoiceUpdateDTO dto, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/{id}";
+            var relativeUri = $"api/invoice/{id}";
             var request = new HttpRequestMessage(HttpMethod.Put, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -118,7 +118,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/{id}";
+            var relativeUri = $"api/invoice/{id}";
             var request = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -132,7 +132,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<InvoiceDTO> QueryParamOpAsync(string param1, int param2, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/queryparamop";
+            var relativeUri = $"api/invoice/queryparamop";
 
             var queryParams = new Dictionary<string, string>();
             queryParams.Add("param1", param1);
@@ -161,7 +161,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task HeaderParamOpAsync(string param1, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/headerparamop";
+            var relativeUri = $"api/invoice/headerparamop";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             request.Headers.Add("MY-HEADER", param1);
@@ -177,7 +177,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task FormParamOpAsync(string param1, int param2, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/formparamop";
+            var relativeUri = $"api/invoice/formparamop";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -197,7 +197,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task RouteParamOpAsync(string param1, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/routeparamop/{param1}";
+            var relativeUri = $"api/invoice/routeparamop/{param1}";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -211,7 +211,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task BodyParamOpAsync(InvoiceDTO param1, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/bodyparamop";
+            var relativeUri = $"api/invoice/bodyparamop";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -229,7 +229,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task ThrowsExceptionAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/throwsexception";
+            var relativeUri = $"api/invoice/throwsexception";
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -243,7 +243,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<Guid> GetWrappedPrimitiveGuidAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/getwrappedprimitiveguid";
+            var relativeUri = $"api/invoice/getwrappedprimitiveguid";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -267,7 +267,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<string> GetWrappedPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/getwrappedprimitivestring";
+            var relativeUri = $"api/invoice/getwrappedprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -291,7 +291,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<int> GetWrappedPrimitiveIntAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/getwrappedprimitiveint";
+            var relativeUri = $"api/invoice/getwrappedprimitiveint";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -315,7 +315,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<Guid> GetPrimitiveGuidAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/getprimitiveguid";
+            var relativeUri = $"api/invoice/getprimitiveguid";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -340,7 +340,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<string> GetPrimitiveStringAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/getprimitivestring";
+            var relativeUri = $"api/invoice/getprimitivestring";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -365,7 +365,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<int> GetPrimitiveIntAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/getprimitiveint";
+            var relativeUri = $"api/invoice/getprimitiveint";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -390,7 +390,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
         }
         public async Task<List<string>> GetPrimitiveStringListAsync(CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"/api/invoice/getprimitivestringlist";
+            var relativeUri = $"api/invoice/getprimitivestringlist";
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -408,6 +408,29 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     return await JsonSerializer.DeserializeAsync<List<string>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+        public async Task<InvoiceDTO> GetInvoiceOpWithReturnTypeWrappedAsync(CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/invoice/getinvoiceopwithreturntypewrapped";
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress, request, response, cancellationToken).ConfigureAwait(false);
+                }
+                if (response.StatusCode == HttpStatusCode.NoContent || response.Content.Headers.ContentLength == 0)
+                {
+                    return default;
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return await JsonSerializer.DeserializeAsync<InvoiceDTO>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false);
                 }
             }
         }

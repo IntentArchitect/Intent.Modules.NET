@@ -387,6 +387,27 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified InvoiceDTO.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
+        /// <response code="404">Can't find an InvoiceDTO with the parameters provided.</response>
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(InvoiceDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<InvoiceDTO>> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken)
+        {
+            var result = default(InvoiceDTO);
+
+            result = await _appService.GetInvoiceOpWithReturnTypeWrapped();
+
+            return Ok(result);
+        }
+
 
     }
 }
