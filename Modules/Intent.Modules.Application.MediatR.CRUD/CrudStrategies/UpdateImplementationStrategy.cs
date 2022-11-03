@@ -164,6 +164,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         var attributeClass = association.Class;
                         var attributeName = association.Name.ToPascalCase();
                         
+                        if (association.Association.AssociationType == AssociationType.Aggregation)
+                        {
+                            codeLines.Add($@"#warning Property not a composite association: {property.Name.ToPascalCase()}");
+                            break;
+                        }
+                        
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {
                             codeLines.Add($"existing{domainModel.Name}.{attributeName} = request.{property.Name.ToPascalCase()} != null");
@@ -222,6 +228,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         var association = field.Mapping.Element.AsAssociationTargetEndModel();
                         var attributeClass = association.Class;
                         var attributeName = association.Name.ToPascalCase();
+                        
+                        if (association.Association.AssociationType == AssociationType.Aggregation)
+                        {
+                            codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
+                            break;
+                        }
                         
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {

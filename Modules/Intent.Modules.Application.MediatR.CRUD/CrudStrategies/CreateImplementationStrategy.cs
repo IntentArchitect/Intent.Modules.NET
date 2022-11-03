@@ -163,7 +163,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                         if (association.Association.AssociationType == AssociationType.Aggregation)
                         {
-                            codeLines.Add($@"#warning Aggregation association not supported: {property.Name.ToPascalCase()}");
+                            codeLines.Add($@"#warning Property not a composite association: {property.Name.ToPascalCase()}");
                             break;
                         }
                         
@@ -238,7 +238,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         
                         if (association.Association.AssociationType == AssociationType.Aggregation)
                         {
-                            codeLines.Add($@"#warning Aggregation association not supported: {field.Name.ToPascalCase()}");
+                            codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
                             break;
                         }
                         
