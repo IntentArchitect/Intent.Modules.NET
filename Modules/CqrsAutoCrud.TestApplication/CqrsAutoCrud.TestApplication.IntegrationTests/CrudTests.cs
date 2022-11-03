@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CqrsAutoCrud.TestApplication.Application.AggregateRootLongs;
 using CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggregateRootLong;
+using CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
 using CqrsAutoCrud.TestApplication.Application.AggregateRoots;
 using CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
 using CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregateRoot;
@@ -130,16 +131,32 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
     }
 
     [IgnoreOnCiBuildFact]
-    public async Task Test_CreateCommand_WithLongPk()
+    public async Task Test_CreateAndUpdate_WithLongPk()
     {
-        var command = new CreateAggregateRootLongCommand();
-        command.Attribute = "Long PK Aggr Root " + Guid.NewGuid();
-        command.CompositeOfAggrLong = CompositeOfAggrLongDTO.Create(default, command.Attribute + "_" + Guid.NewGuid());
+        var createCommand = new CreateAggregateRootLongCommand();
+        createCommand.Attribute = "Long PK Aggr Root " + Guid.NewGuid();
+        createCommand.CompositeOfAggrLong = CompositeOfAggrLongDTO.Create(default, createCommand.Attribute + "_" + Guid.NewGuid());
 
-        var handler = new CreateAggregateRootLongCommandHandler(new AggregateRootLongRepository(DbContext));
-        await handler.Handle(command, CancellationToken.None);
+        var createHandler = new CreateAggregateRootLongCommandHandler(new AggregateRootLongRepository(DbContext));
+        var id = await createHandler.Handle(createCommand, CancellationToken.None);
         
-        var actual = await DbContext.AggregateRootLongs.FirstAsync(p => p.Attribute == command.Attribute);
+        Assert.Equal(1, DbContext.AggregateRootLongs.Count());
+        var actual = await DbContext.AggregateRootLongs.FirstAsync(p => p.Id == id);
+        Assert.Equal(createCommand.Attribute, actual.Attribute);
+        Assert.Equal(createCommand.CompositeOfAggrLong.Attribute, actual.CompositeOfAggrLong.Attribute);
+        
+        var updateCommand = new UpdateAggregateRootLongCommand();
+        updateCommand.Id = id;
+        updateCommand.Attribute = createCommand.Attribute + "ZZZ";
+        updateCommand.CompositeOfAggrLong = CompositeOfAggrLongDTO.Create(default, updateCommand.Attribute + "_" + Guid.NewGuid());
+
+        var updateHandler = new UpdateAggregateRootLongCommandHandler(new AggregateRootLongRepository(DbContext));
+        await updateHandler.Handle(updateCommand, CancellationToken.None);
+
+        Assert.Equal(1, DbContext.AggregateRootLongs.Count());
+        actual = await DbContext.AggregateRootLongs.FirstAsync(p => p.Id == id);
         Assert.NotNull(actual);
+        Assert.Equal(updateCommand.Attribute, actual.Attribute);
+        Assert.Equal(updateCommand.CompositeOfAggrLong.Attribute, actual.CompositeOfAggrLong.Attribute);
     }
 }
