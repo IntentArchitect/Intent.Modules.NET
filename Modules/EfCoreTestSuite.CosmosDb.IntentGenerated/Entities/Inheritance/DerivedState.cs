@@ -38,8 +38,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
         }
 
 
-        public Guid AssociatedId
-        { get; set; }
+        public Guid AssociatedId { get; set; }
         private Associated _associated;
 
         public virtual Associated Associated
