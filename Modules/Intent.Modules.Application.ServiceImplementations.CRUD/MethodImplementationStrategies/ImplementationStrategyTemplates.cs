@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -40,7 +41,12 @@ static class ImplementationStrategyTemplates
     public static string GetDtoName(this CrudConventionDecorator decorator, ICanBeReferencedType reference)
     {
         var dto = decorator.FindDTOModel(reference.Id);
-        return decorator.Template.GetTypeName(DtoModelTemplate.TemplateId, dto,
-            TemplateDiscoveryOptions.DoNotThrow);
+        var dtoTemplate = decorator.Template.GetTemplate<IClassProvider>(DtoModelTemplate.TemplateId, dto, TemplateDiscoveryOptions.DoNotThrow);
+        if (dtoTemplate == null)
+        {
+            return null;
+        }
+
+        return dtoTemplate.ClassName;
     }
 }
