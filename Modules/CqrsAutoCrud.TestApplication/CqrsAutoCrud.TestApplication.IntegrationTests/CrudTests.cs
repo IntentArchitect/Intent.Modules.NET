@@ -69,11 +69,9 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
     public async Task Test_UpdateCommand()
     {
         var root = new AggregateRoot();
-        root.Id = IdentityGenerator.NewSequentialId();
         root.AggregateAttr = "Aggregate Root " + Guid.NewGuid();
         root.Composites = new List<CompositeManyB>();
         root.Composite = new CompositeSingleA();
-        root.Composite.Id = IdentityGenerator.NewSequentialId();
         root.Composite.CompositeAttr = root.AggregateAttr + "_" + Guid.NewGuid();
         DbContext.AggregateRoots.Add(root);
         await DbContext.SaveChangesAsync();

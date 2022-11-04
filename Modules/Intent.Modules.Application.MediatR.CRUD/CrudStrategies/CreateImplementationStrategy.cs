@@ -131,11 +131,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private List<string> GetCommandPropertyAssignments(ClassModel domainModel, CommandModel command)
         {
             var codeLines = new List<string>();
-            if (_template.ExecutionContext.Settings.GetDatabaseSettings().KeyCreationMode().IsExplicit()
-                && command.Properties.Any(p => p.Name.Equals("Id", StringComparison.OrdinalIgnoreCase) && p.TypeReference.Element.Name == "guid"))
-            {
-                codeLines.Add($"Id = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
-            }
 
             foreach (var property in command.Properties)
             {
@@ -184,7 +179,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         }
                         else
                         {
-                            codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()}?.Select({property.Name.ToCamelCase()} =>");
+                            codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()}.Select({property.Name.ToCamelCase()} =>");
                             codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
                             codeLines.Add($"    {{");
                             codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel())
@@ -228,12 +223,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             codeLines.Add($"{attribute.Name.ToPascalCase()} = {accessorName}.{field.Name.ToPascalCase()},");
                             break;
                         }
-
-                        if (_template.ExecutionContext.Settings.GetDatabaseSettings().KeyCreationMode().IsExplicit() 
-                            && attribute.Type.Element.Name == "guid")
-                        {
-                            codeLines.Add($"{attribute.Name.ToPascalCase()} = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
-                        }
+                        
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
                     {
@@ -259,7 +249,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         }
                         else
                         {
-                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}?.Select({field.Name.ToCamelCase()} =>");
+                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}.Select({field.Name.ToCamelCase()} =>");
                             codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
                             codeLines.Add($"    {{");
                             codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel())

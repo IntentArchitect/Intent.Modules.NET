@@ -34,41 +34,35 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
                 Composite = request.Composite != null
                     ? new CompositeSingleA
                     {
-                        Id = IdentityGenerator.NewSequentialId(),
                         CompositeAttr = request.Composite.CompositeAttr,
                         Composite = request.Composite.Composite != null
                             ? new CompositeSingleAA
                             {
-                                Id = IdentityGenerator.NewSequentialId(),
                                 CompositeAttr = request.Composite.Composite.CompositeAttr,
                             }
                             : null,
-                        Composites = request.Composite.Composites?.Select(composites =>
+                        Composites = request.Composite.Composites.Select(composites =>
                             new CompositeManyAA
                             {
-                                Id = IdentityGenerator.NewSequentialId(),
                                 CompositeAttr = composites.CompositeAttr,
                                 ACompositeSingleId = composites.ACompositeSingleId,
                             }).ToList(),
                     }
                     : null,
-                Composites = request.Composites?.Select(composites =>
+                Composites = request.Composites.Select(composites =>
                     new CompositeManyB
                     {
-                        Id = IdentityGenerator.NewSequentialId(),
                         CompositeAttr = composites.CompositeAttr,
                         AAggregaterootId = composites.AAggregaterootId,
                         Composite = composites.Composite != null
                             ? new CompositeSingleBB
                             {
-                                Id = IdentityGenerator.NewSequentialId(),
                                 CompositeAttr = composites.Composite.CompositeAttr,
                             }
                             : null,
-                        Composites = composites.Composites?.Select(composites =>
+                        Composites = composites.Composites.Select(composites =>
                             new CompositeManyBB
                             {
-                                Id = IdentityGenerator.NewSequentialId(),
                                 CompositeAttr = composites.CompositeAttr,
                                 ACompositeManyId = composites.ACompositeManyId,
                             }).ToList(),
