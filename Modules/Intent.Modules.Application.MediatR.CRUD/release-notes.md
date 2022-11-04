@@ -2,6 +2,7 @@
 
 - New: Mapping a Command or DTO to an associated Domain Entity will now create the DTO representing the association Entity with all its attributes mapped to DTO fields.
 - New: Auto CRUD code implementation will now support nested composite associations.
+- Fixed: Generating code for CRUD operations sometimes emitted the full namespace of the type being mapped `return account.MapToApplication.Accounts.Accounts.AccountDTO(_mapper);`. This will no longer happen but instead generate `return account.MapToAccountDTO(_mapper);`.
 
 ### Version 3.3.12
 

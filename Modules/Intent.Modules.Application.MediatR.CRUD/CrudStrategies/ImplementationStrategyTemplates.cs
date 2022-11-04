@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.Templates;
@@ -24,6 +25,12 @@ static class ImplementationStrategyTemplates
 
     public static string GetDtoName(this IntentTemplateBase template, DTOModel dtoModel)
     {
-        return template.GetTypeName("Application.Contract.Dto", dtoModel, TemplateDiscoveryOptions.DoNotThrow);
+        var dtoTemplate = template.GetTemplate<IClassProvider>("Application.Contract.Dto", dtoModel, TemplateDiscoveryOptions.DoNotThrow);
+        if (dtoTemplate == null)
+        {
+            return null;
+        }
+        
+        return dtoTemplate.ClassName;
     }
 }
