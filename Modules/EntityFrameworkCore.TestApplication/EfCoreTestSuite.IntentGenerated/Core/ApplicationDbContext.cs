@@ -47,6 +47,17 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
         public DbSet<StereotypeIndex> StereotypeIndices { get; set; }
+<<<<<<< HEAD
+=======
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var result = await base.SaveChangesAsync(cancellationToken);
+
+            return result;
+        }
+>>>>>>> ad0a3bb4 (This was wrongfully updated)
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
