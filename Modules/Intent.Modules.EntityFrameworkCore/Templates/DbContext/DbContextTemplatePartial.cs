@@ -10,8 +10,10 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -72,6 +74,20 @@ modelBuilder.Entity<Car>().HasData(
     new Car() { CarId = 3, Make = ""Labourghini"", Model = ""Countach"" });
 */");
                     });
+
+                    if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
+                    {
+                        @class.AddMethod("Task", "EnsureDbCreatedAsync", method =>
+                        {
+                            method.Async();
+                            method.WithComments(@"
+/// <summary>
+/// Calling EnsureCreatedAsync is necessary to create the required containers and insert the seed data if present in the model. 
+/// However EnsureCreatedAsync should only be called during deployment, not normal operation, as it may cause performance issues.
+/// </summary>");
+                            method.AddStatement("await Database.EnsureCreatedAsync();");
+                        });
+                    }
                 });
 
             ExecutionContext.EventDispatcher.Subscribe<EntityTypeConfigurationCreatedEvent>(typeConfiguration =>

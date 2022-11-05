@@ -16,6 +16,21 @@ namespace Intent.Modules.EntityFrameworkCore
         public static NugetPackageInfo EntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Cosmos", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.InMemory", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreProxies(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Proxies", GetVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo MicrosoftExtensionsConfigurationBinder(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Configuration.Binder", GetMicrosoftExtensionsConfigurationBinderVersion(outputTarget.GetProject()));
+
+        private static string GetMicrosoftExtensionsConfigurationBinderVersion(ICSharpProject project)
+        {
+            if (project.IsNet5App())
+            {
+                return "5.0.0";
+            }
+            if (project.IsNet6App())
+            {
+                return "6.0.0";
+            }
+
+            throw new Exception("Not supported version of .NET Core");
+        }
 
         private static string GetVersion(ICSharpProject project)
         {

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Infrastructure.DependencyInjection</id>
-  <version>3.3.9</version>
+  <version>4.0.0-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Generates Infrastructure-level Service registration configuration</summary>
   <description>Generates Infrastructure-level Service registration configuration</description>
@@ -14,7 +14,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Infrastructure</role>
+      <role>Infrastructure.DependencyInjection</role>
       <location></location>
     </template>
   </templates>

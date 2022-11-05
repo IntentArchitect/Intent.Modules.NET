@@ -16,7 +16,7 @@ using Intent.Templates;
 namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.DependencyInjection
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public class DependencyInjectionTemplate : CSharpTemplateBase<object, DependencyInjectionDecorator>, ICSharpFileBuilderTemplate
+    public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, DependencyInjectionDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Infrastructure.DependencyInjection.DependencyInjection";

@@ -43,8 +43,12 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                     {
                         entityTemplate.CSharpFile.AfterBuild(file =>
                         {
-                            var entityClass = file.Classes.First();
-                            if (entityClass.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
+                            var rootEntity = file.Classes.First();
+                            while (rootEntity.BaseType != null && !rootEntity.HasMetadata("primary-keys"))
+                            {
+                                rootEntity = rootEntity.BaseType;
+                            }
+                            if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
                                 && pks.Length == 1)
                             {
                                 @interface.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>", "FindByIdAsync", method =>
@@ -62,7 +66,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                                 });
                             }
-                        }, 4000);
+                        });
                     }
                 });
         }

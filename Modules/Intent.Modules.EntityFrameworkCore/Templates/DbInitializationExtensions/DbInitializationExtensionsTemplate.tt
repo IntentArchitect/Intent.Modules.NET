@@ -7,9 +7,6 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
-<#@ import namespace="Intent.Modules.EntityFrameworkCore.Templates" #>
-<#@ import namespace="Intent.Modules.EntityFrameworkCore.Templates" #>
-<#@ import namespace="Intent.Modules.EntityFrameworkCore.Templates" #>
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,9 +18,8 @@ namespace <#= Namespace #>
     public static class <#= ClassName #>
     {
         /// <summary>
-        /// If configured to do so, a check is performed to see
-        /// whether the database exist and if not will create it
-        /// based on this container configuration.
+        /// Performs a check to see whether the database exist and if not will create it
+        /// based on the EntityFrameworkCore DbContext configuration.
         /// </summary>
         public static async Task EnsureDbCreationAsync(this IApplicationBuilder builder)
         {

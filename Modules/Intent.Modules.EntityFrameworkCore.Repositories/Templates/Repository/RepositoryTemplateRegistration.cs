@@ -5,6 +5,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Entities.Repositories.Api.Api;
 using Intent.Metadata.Models;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -40,7 +41,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(p => p.HasRepository() || p.IsAggregateRoot())
+                .Where(x => (x.IsAggregateRoot() && (!x.IsAbstract || x.HasTable())) || x.HasRepository())
                 .ToArray();
         }
     }

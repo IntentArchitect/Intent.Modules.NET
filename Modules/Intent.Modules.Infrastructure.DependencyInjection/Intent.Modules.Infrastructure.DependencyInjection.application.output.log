@@ -22,7 +22,7 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Infrastructure.DependencyInjection.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Infrastructure.DependencyInjection.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>17a3cb70-a261-43ea-b2b3-6f106af95a0b</ProjectId>

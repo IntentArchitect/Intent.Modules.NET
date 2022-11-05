@@ -13,12 +13,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDbContextName<T>(this IntentTemplateBase<T> template)
+        public static string GetDbContextName(this IIntentTemplate template)
         {
             return template.GetTypeName(DbContextTemplate.TemplateId);
         }
 
-        public static string GetDbContextInterfaceName<T>(this IntentTemplateBase<T> template)
+        public static string GetDbContextInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(DbContextInterfaceTemplate.TemplateId);
         }
@@ -28,7 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates
             return template.GetTypeName(EntityTypeConfigurationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetEntityTypeConfigurationName(this IntentTemplateBase template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetEntityTypeConfigurationName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
         {
             return template.GetTypeName(EntityTypeConfigurationTemplate.TemplateId, model);
         }

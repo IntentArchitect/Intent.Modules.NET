@@ -13,7 +13,7 @@ using AttributeModelStereotypeExtensions = Intent.Metadata.RDBMS.Api.AttributeMo
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
-public class EfCoreFieldConfigStatement : EFCoreConfigStatementBase
+public class EfCoreFieldConfigStatement : CSharpStatement
 {
     public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();
 
@@ -50,16 +50,14 @@ public class EfCoreFieldConfigStatement : EFCoreConfigStatementBase
         return new EfCoreFieldConfigStatement($"builder.OwnsMany(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})", attribute);
     }
 
-    private EfCoreFieldConfigStatement(string text, AttributeModel model)
+    private EfCoreFieldConfigStatement(string text, AttributeModel model) : base(text)
     {
-        Text = text;
         AddMetadata("model", model);
 
     }
 
-    private EfCoreFieldConfigStatement(string text, AssociationEndModel model)
+    private EfCoreFieldConfigStatement(string text, AssociationEndModel model) : base(text)
     {
-        Text = text;
         AddMetadata("model", model);
     }
 

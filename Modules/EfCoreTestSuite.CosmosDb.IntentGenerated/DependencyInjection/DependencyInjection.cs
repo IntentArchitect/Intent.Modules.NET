@@ -20,7 +20,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.DependencyInjection
                     configuration["Cosmos:AccountKey"],
                     configuration["Cosmos:DatabaseName"]);
             });
-            services.Configure<DbContextConfiguration>(opt => configuration.GetSection("Cosmos").Bind(opt));
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             return services;
         }

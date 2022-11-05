@@ -81,8 +81,7 @@ public class DataContainerFixture : IAsyncLifetime
                 builder.EnableSensitiveDataLogging();
 
                 _dbContext = new ApplicationDbContext(
-                    builder.Options,
-                    new OptionsWrapper<DbContextConfiguration>(new DbContextConfiguration()));
+                    builder.Options);
                 _dbContext.Database.EnsureCreated();
             }
 

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="17a069d6-8dd9-4274-9a04-958f99ec486c" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>DependencyInjection</name>
-  <display>DependencyInjection: Single File</display>
+<class id="b4d54e09-830a-449a-850c-ecac88577f06" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>DbInitializationExtensions</name>
+  <display>DbInitializationExtensions: Single File</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
-  <typeReference id="532a5bc2-2efd-46e2-986c-41a60368ba77">
+  <typeReference id="cecaa93f-fbf3-4a2c-81be-e927c9895094">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -17,10 +16,18 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>652850d7-ae15-457c-9c5d-d36266780022</parentFolderId>
-  <packageId>652850d7-ae15-457c-9c5d-d36266780022</packageId>
-  <packageName>Intent.Infrastructure.DependencyInjection</packageName>
+  <parentFolderId>a9d2a398-04e4-4300-9fbb-768568c65f9e</parentFolderId>
+  <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+  <packageName>Intent.EntityFrameworkCore</packageName>
   <stereotypes>
+    <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="T4 Template" isActive="true" />
+      </properties>
+    </stereotype>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
@@ -30,16 +37,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Infrastructure.DependencyInjection" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" isActive="true" />
-      </properties>
-    </stereotype>
-    <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-      <properties>
-        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="Custom" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Startup.DbInitializationExtensions" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="StartupJobs" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

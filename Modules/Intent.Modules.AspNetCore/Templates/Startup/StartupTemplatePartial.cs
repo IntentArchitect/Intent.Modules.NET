@@ -182,9 +182,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
             appConfigElements.AddRange(GetDecorators().Select(s => (new CSharpStatement(s.Configuration()), s.Priority)));
 
-            var applicationBuilderRegistrationRequests = _applicationBuilderRegistrationRequests;
-
-            foreach (var request in applicationBuilderRegistrationRequests)
+            foreach (var request in _applicationBuilderRegistrationRequests)
             {
                 foreach (var dependency in request.TemplateDependencies)
                 {

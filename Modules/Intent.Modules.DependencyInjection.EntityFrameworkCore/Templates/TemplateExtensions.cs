@@ -11,7 +11,7 @@ namespace Intent.Modules.DependencyInjection.EntityFrameworkCore.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDbContextConfigurationName<T>(this IntentTemplateBase<T> template)
+        public static string GetDbContextConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(DbContextConfigurationTemplate.TemplateId);
         }

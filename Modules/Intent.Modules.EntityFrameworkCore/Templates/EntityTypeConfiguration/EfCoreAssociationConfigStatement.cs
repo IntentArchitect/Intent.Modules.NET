@@ -9,7 +9,7 @@ using Intent.Utils;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
-public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
+public class EfCoreAssociationConfigStatement : CSharpStatement
 {
     private readonly AssociationEndModel _associationEnd;
     protected IList<CSharpStatement> RelationshipStatements { get; } = new List<CSharpStatement>();
@@ -105,7 +105,7 @@ public class EfCoreAssociationConfigStatement : EFCoreConfigStatementBase
         return statement;
     }
 
-    private EfCoreAssociationConfigStatement(AssociationEndModel associationEnd)
+    private EfCoreAssociationConfigStatement(AssociationEndModel associationEnd) : base(null)
     {
         _associationEnd = associationEnd;
 

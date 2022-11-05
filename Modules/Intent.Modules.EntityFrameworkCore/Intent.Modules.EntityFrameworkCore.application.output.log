@@ -41,6 +41,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>af7d992e-5695-4683-8471-e1cf3d6747f3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#9db14b2b-2c1a-4b5b-8cc0-30baea5fe8e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DependencyInjectionExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjectionExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -134,6 +142,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbContextInterface/DbContextInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbContextInterface/DbContextInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#b4d54e09-830a-449a-850c-ecac88577f06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#b4d54e09-830a-449a-850c-ecac88577f06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b4d54e09-830a-449a-850c-ecac88577f06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b4d54e09-830a-449a-850c-ecac88577f06</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

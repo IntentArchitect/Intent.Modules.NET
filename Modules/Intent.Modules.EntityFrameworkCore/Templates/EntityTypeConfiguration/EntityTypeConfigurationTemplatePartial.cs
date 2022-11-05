@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
@@ -178,14 +179,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     yield return $@"builder.HasBaseType<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, model.ParentClass)}>();";
                 }
-                //else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPT())
-                //{
-                //    yield return $@"builder.ToTable(""{model.Name}"");";
-                //}
-                //else if (ExecutionContext.Settings.GetDatabaseSettings().InheritanceStrategy().IsTPC() && !model.IsAbstract)
-                //{
-                //    yield return $@"builder.ToTable(""{model.Name}"");";
-                //}
             }
             else if (model.HasTable() && (model.ParentClass != null || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))
             {
@@ -193,7 +186,39 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private EFCoreConfigStatementBase GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
+        private IEnumerable<CSharpStatement> GetCosmosContainerMapping(ClassModel model)
+        {
+            // Is there an easier way to get this?
+            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
+            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
+
+            if (model.ParentClass == null)
+            {
+                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
+                    ? ExecutionContext.GetApplicationConfig().Name
+                    : cosmosSettings.ContainerName();
+
+                yield return $@"builder.ToContainer(""{containerName}"");";
+            }
+            else if (ParentConfigurationExists(model))
+            {
+                yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
+            }
+
+            if (GetPartitionKey(model) != null)
+            {
+                yield return $@"builder.HasPartitionKey(x => x.{GetPartitionKey(model).Name.ToPascalCase()});";
+
+                // GCB - I'm not sure if this is needed. Remove after testing if no errors found:
+                //if (model.ParentClass != null)
+                //{
+                //    yield return $@"builder.Property(x => x.{GetPartitionKey(model).Name.ToPascalCase()})
+                //.IsRequired();";
+                //}
+            }
+        }
+
+        private CSharpStatement GetAttributeMapping(AttributeModel attribute, CSharpClass @class)
         {
             if (!IsOwned(attribute.TypeReference.Element))
             {
@@ -213,7 +238,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 : EfCoreFieldConfigStatement.CreateOwnsOne(attribute);
         }
 
-        private EFCoreConfigStatementBase GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
+        private CSharpStatement GetAssociationMapping(AssociationEndModel associationEnd, CSharpClass @class)
         {
             if (associationEnd.Element.Id.Equals(associationEnd.OtherEnd().Element.Id)
                 && associationEnd.Name.Equals(associationEnd.Element.Name))
@@ -285,37 +310,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private bool RequiresConfiguration(AssociationEndModel associationEnd)
         {
             return associationEnd.IsTargetEnd();
-        }
-
-        private IEnumerable<CSharpStatement> GetCosmosContainerMapping(ClassModel model)
-        {
-            // Is there an easier way to get this?
-            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
-            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
-
-            if (model.ParentClass == null)
-            {
-                var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
-                    ? ExecutionContext.GetApplicationConfig().Name
-                    : cosmosSettings.ContainerName();
-
-                yield return $@"builder.ToContainer(""{containerName}"");";
-            }
-            else if (ParentConfigurationExists(model))
-            {
-                yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
-            }
-
-            if (GetPartitionKey(model) != null)
-            {
-                yield return $@"builder.HasPartitionKey(x => x.{GetPartitionKey(model).Name.ToPascalCase()});";
-
-                if (model.ParentClass != null)
-                {
-                    yield return $@"builder.Property(x => x.PartitionKey)
-                .IsRequired();";
-                }
-            }
         }
 
         private AttributeModel GetPartitionKey(ClassModel model)
@@ -453,7 +447,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, entityModel.Id, out var template))
             {
-                template.CSharpFile.AfterBuild(file =>
+                template.CSharpFile.OnBuild(file =>
                 {
                     var entityClass = file.Classes.First();
                     var primaryKeyProperties = new List<CSharpProperty>();
@@ -482,7 +476,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         entityClass.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }
-                }, int.MinValue);
+                });
             }
         }
 
@@ -490,7 +484,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, entityModel.Id, out var template))
             {
-                template.CSharpFile.AfterBuild(file =>
+                template.CSharpFile.OnBuild(file =>
                 {
                     var entityClass = file.Classes.First();
                     foreach (var column in columns)
@@ -556,13 +550,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .Select(x => x.AsAssociationEndModel())
                 .ToList());
             return associations;
-        }
-    }
-
-    public abstract class EFCoreConfigStatementBase : CSharpStatement
-    {
-        protected EFCoreConfigStatementBase() : base(null)
-        {
         }
     }
 }

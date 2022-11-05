@@ -1,27 +1,28 @@
 using System.Linq;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
-public class EfCoreKeyMappingStatement : EFCoreConfigStatementBase
+public class EfCoreKeyMappingStatement : CSharpStatement
 {
     public RequiredEntityProperty[] KeyColumns { get; set; }
 
-    public EfCoreKeyMappingStatement(ClassModel model)
+    public EfCoreKeyMappingStatement(ClassModel model) : base(null)
     {
         if (!model.GetExplicitPrimaryKey().Any())
         {
-            var rootEntity = model;
-            while (rootEntity.ParentClass != null)
-            {
-                rootEntity = rootEntity.ParentClass;
-            }
+            //var rootEntity = model;
+            //while (rootEntity.ParentClass != null)
+            //{
+            //    rootEntity = rootEntity.ParentClass;
+            //}
 
-            KeyColumns = new[] { new RequiredEntityProperty(rootEntity.InternalElement, "Id", null) };
+            KeyColumns = new[] { new RequiredEntityProperty(model.InternalElement, "Id", null) };
         }
         else
         {

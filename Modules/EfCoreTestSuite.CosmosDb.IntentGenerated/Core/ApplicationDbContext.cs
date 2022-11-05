@@ -18,12 +18,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        private readonly IOptions<DbContextConfiguration> _dbContextConfig;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IOptions<DbContextConfiguration> dbContextConfig) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            _dbContextConfig = dbContextConfig;
         }
 
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
@@ -59,20 +56,11 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
         public DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new AbstractBaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new AbstractBaseClassAssociatedConfiguration());
@@ -105,10 +93,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new Poly_RootAbstract_AggrConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_SecondLevelConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_TopLevelConfiguration());
-            if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultContainerName))
-            {
-                modelBuilder.HasDefaultContainer(_dbContextConfig.Value?.DefaultContainerName);
-            }
         }
 
         [IntentManaged(Mode.Ignore)]
@@ -125,18 +109,13 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             */
         }
 
-
         /// <summary>
-        /// If configured to do so, a check is performed to see
-        /// whether the database exist and if not will create it
-        /// based on this container configuration.
+        /// Calling EnsureCreatedAsync is necessary to create the required containers and insert the seed data if present in the model. 
+        /// However EnsureCreatedAsync should only be called during deployment, not normal operation, as it may cause performance issues.
         /// </summary>
-        public void EnsureDbCreated()
+        public async Task EnsureDbCreatedAsync()
         {
-            if (_dbContextConfig.Value.EnsureDbCreated == true)
-            {
-                Database.EnsureCreated();
-            }
+            await Database.EnsureCreatedAsync();
         }
     }
 }

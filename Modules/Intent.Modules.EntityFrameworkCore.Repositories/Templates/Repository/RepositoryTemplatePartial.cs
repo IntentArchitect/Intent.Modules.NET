@@ -60,8 +60,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                     {
                         entityTemplate.CSharpFile.AfterBuild(file =>
                         {
-                            var entityClass = file.Classes.First();
-                            if (entityClass.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
+                            var rootEntity = file.Classes.First();
+                            while (rootEntity.BaseType != null && !rootEntity.HasMetadata("primary-keys"))
+                            {
+                                rootEntity = rootEntity.BaseType;
+                            }
+                            if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
                                 && pks.Length == 1)
                             {
                                 @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>", "FindByIdAsync", method =>
@@ -83,7 +87,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                                     method.AddStatement($"return await FindAllAsync(x => {pk.Name.ToCamelCase().Pluralize()}.Contains(x.{pk.Name}), cancellationToken);");
                                 });
                             }
-                        }, 4000);
+                        });
                     }
                 });
         }
@@ -111,7 +115,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 
         public string RepositoryContractName => TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, Model) ?? $"I{ClassName}";
 
-        public string DbContextName => TryGetTypeName("Infrastructure.Data.DbContext") ?? $"{Model.Application.Name}DbContext";
+        public string DbContextName => TryGetTypeName("Infrastructure.Data.DbContext", out var dbContextName) ? dbContextName : $"{Model.Application.Name}DbContext";
 
         public string PrimaryKeyType => GetTemplate<ITemplate>("Domain.Entity", Model).GetMetadata().CustomMetadata.TryGetValue("Surrogate Key Type", out var type) ? UseType(type) : UseType("System.Guid");
 

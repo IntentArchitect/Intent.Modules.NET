@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -15,15 +15,26 @@
   <ItemGroup>
     <Compile Remove="Templates\DbContext\DbContextTemplate.cs" />
     <Compile Remove="Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.cs" />
+    <Compile Update="Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DbInitializationExtensionsTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Templates\DbContext\DbContextTemplate.tt" />
     <None Remove="Templates\EntityTypeConfiguration\EntityTypeConfigurationTemplate.tt" />
+    <None Update="Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DbInitializationExtensionsTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.14-pre.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.22-pre.0" />
+    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.9" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.9-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
@@ -31,7 +42,6 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
-    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.9" />
   </ItemGroup>
 
   <ItemGroup>
