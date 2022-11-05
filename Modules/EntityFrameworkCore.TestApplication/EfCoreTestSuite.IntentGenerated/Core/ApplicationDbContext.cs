@@ -23,11 +23,11 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
-        public DbSet<ComplexDefaultIndex> ComplexDefaultIndexes { get; set; }
-        public DbSet<CustomIndex> CustomIndexes { get; set; }
+        public DbSet<ComplexDefaultIndex> ComplexDefaultIndices { get; set; }
+        public DbSet<CustomIndex> CustomIndices { get; set; }
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
-        public DbSet<DefaultIndex> DefaultIndexes { get; set; }
+        public DbSet<DefaultIndex> DefaultIndices { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         public DbSet<E2_RequiredCompositeNav> E2_RequiredCompositeNavs { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
@@ -46,7 +46,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
         public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
-        public DbSet<StereotypeIndex> StereotypeIndexes { get; set; }
+        public DbSet<StereotypeIndex> StereotypeIndices { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
