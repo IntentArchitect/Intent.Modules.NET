@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using EfCoreTestSuite.TPC.IntentGenerated.DomainEvents;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations;
 using EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic;
@@ -15,18 +14,9 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        private readonly IDomainEventService _domainEventService;
 
-        [IntentManaged(Mode.Ignore)]
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            _domainEventService = new DomainEventService();
-        }
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IDomainEventService domainEventService) : base(options)
-        {
-            _domainEventService = domainEventService;
         }
 
         public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
@@ -48,7 +38,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            await DispatchEvents();
+
             var result = await base.SaveChangesAsync(cancellationToken);
 
             return result;
@@ -94,24 +84,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
                 new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
                 new Car() { CarId = 3, Make = "Labourghini", Model = "Countach" });
             */
-        }
-
-
-        private async Task DispatchEvents()
-        {
-            while (true)
-            {
-                var domainEventEntity = ChangeTracker
-                    .Entries<IHasDomainEvent>()
-                    .Select(x => x.Entity.DomainEvents)
-                    .SelectMany(x => x)
-                    .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
-
-                if (domainEventEntity == null) break;
-
-                domainEventEntity.IsPublished = true;
-                await _domainEventService.Publish(domainEventEntity);
-            }
         }
     }
 }

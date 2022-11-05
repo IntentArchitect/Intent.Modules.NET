@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using EfCoreTestSuite.TPC.IntentGenerated.DomainEvents;
+
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
 {
 
-    public partial class Poly_ConcreteB : Poly_BaseClassNonAbstract, IPoly_ConcreteB, IHasDomainEvent
+    public partial class Poly_ConcreteB : Poly_BaseClassNonAbstract, IPoly_ConcreteB
     {
         public Poly_ConcreteB()
         {

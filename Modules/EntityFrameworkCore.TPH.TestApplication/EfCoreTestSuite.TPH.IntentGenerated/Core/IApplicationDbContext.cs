@@ -13,6 +13,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
 {
     public interface IApplicationDbContext
     {
+        DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
         DbSet<AbstractBaseClassAssociated> AbstractBaseClassAssociateds { get; set; }
         DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
         DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
@@ -27,6 +28,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Core
         DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
+        DbSet<Poly_RootAbstract> Poly_RootAbstracts { get; set; }
         DbSet<Poly_RootAbstract_Aggr> Poly_RootAbstract_Aggrs { get; set; }
         DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
         DbSet<Poly_TopLevel> Poly_TopLevels { get; set; }

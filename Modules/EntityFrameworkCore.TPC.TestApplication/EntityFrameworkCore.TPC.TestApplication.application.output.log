@@ -169,30 +169,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventBase</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/DomainEvents/DomainEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</ProjectId>
-      <CorrelationId>Intent.DomainEvents.DomainEventServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/DomainEvents/IDomainEventService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IDomainEventService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d8bab62f-1f19-4849-994b-e76b7aeddfc4</ProjectId>
-      <CorrelationId>Intent.DomainEvents.HasDomainEventInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPC.IntentGenerated/DomainEvents/IHasDomainEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IHasDomainEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>a3505075-b92b-4be8-bfe1-6908206cc14a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a3505075-b92b-4be8-bfe1-6908206cc14a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

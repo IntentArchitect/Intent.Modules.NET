@@ -26,9 +26,5 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
                 _derivedAttribute = value;
             }
         }
-
-
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

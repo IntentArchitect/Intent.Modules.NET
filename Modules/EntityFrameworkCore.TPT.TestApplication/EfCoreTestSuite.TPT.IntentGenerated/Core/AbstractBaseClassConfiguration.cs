@@ -1,5 +1,4 @@
 using System;
-using EfCoreTestSuite.TPT.IntentGenerated.Entities;
 using EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -10,15 +9,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.TPT.IntentGenerated.Core
 {
-    public class DerivedClassForAbstractConfiguration : IEntityTypeConfiguration<DerivedClassForAbstract>
+    public class AbstractBaseClassConfiguration : IEntityTypeConfiguration<AbstractBaseClass>
     {
-        public void Configure(EntityTypeBuilder<DerivedClassForAbstract> builder)
+        public void Configure(EntityTypeBuilder<AbstractBaseClass> builder)
         {
-            builder.ToTable("DerivedClassForAbstract");
+            builder.ToTable("AbstractBaseClass");
 
-            builder.Property(x => x.DerivedAttribute)
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.BaseAttribute)
                 .IsRequired()
                 .HasMaxLength(250);
+
+            builder.Ignore(e => e.DomainEvents);
+
         }
     }
 }

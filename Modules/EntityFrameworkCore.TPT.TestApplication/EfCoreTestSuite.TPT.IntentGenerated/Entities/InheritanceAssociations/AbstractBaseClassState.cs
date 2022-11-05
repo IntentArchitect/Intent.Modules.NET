@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using EfCoreTestSuite.TPT.IntentGenerated.Core;
+using EfCoreTestSuite.TPT.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public abstract partial class AbstractBaseClass : IAbstractBaseClass
+    public abstract partial class AbstractBaseClass : IAbstractBaseClass, IHasDomainEvent
     {
         public AbstractBaseClass()
         {
@@ -36,6 +37,10 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
                 _baseAttribute = value;
             }
         }
+
+
+
+        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
 
     }

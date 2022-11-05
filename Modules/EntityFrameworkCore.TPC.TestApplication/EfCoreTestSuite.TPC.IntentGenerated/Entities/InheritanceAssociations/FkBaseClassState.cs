@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using EfCoreTestSuite.TPC.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public partial class FkBaseClass : IFkBaseClass, IHasDomainEvent
+    public partial class FkBaseClass : IFkBaseClass
     {
         public FkBaseClass()
         {
@@ -37,9 +36,5 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
                 _compositeKeyB = value;
             }
         }
-
-
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

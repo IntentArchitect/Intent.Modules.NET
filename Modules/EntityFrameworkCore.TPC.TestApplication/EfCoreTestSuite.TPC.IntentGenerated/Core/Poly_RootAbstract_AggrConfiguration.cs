@@ -20,9 +20,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core
 
             builder.Property(x => x.AggrField)
                 .IsRequired();
-
-            builder.Ignore(e => e.DomainEvents);
-
         }
     }
 }

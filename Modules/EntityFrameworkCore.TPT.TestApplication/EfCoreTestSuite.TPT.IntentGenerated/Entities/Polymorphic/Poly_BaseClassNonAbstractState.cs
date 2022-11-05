@@ -29,7 +29,5 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
 
 
         public Guid? SecondLevelId { get; set; }
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }
