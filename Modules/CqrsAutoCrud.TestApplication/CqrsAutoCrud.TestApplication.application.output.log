@@ -4,7 +4,7 @@
   <FileLogs>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#63b309fc-6cbb-41f9-bd14-f41741a17097</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#aae70030-f05c-42a1-b26a-822a9dcc55c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/AggregateRootLongDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/AggregateRootLongDTO.cs</ProjectRelativeFilePath>
@@ -12,7 +12,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#63b309fc-6cbb-41f9-bd14-f41741a17097</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#aae70030-f05c-42a1-b26a-822a9dcc55c7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/AggregateRootLongDTOMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/AggregateRootLongDTOMappingExtensions.cs</ProjectRelativeFilePath>
@@ -20,7 +20,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#4a2cb000-dde6-4146-b19b-6ff7a5009b49</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6cc180ce-f88c-43e2-ace9-25c79be33341</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/CompositeOfAggrLongDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/CompositeOfAggrLongDTO.cs</ProjectRelativeFilePath>
@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#4a2cb000-dde6-4146-b19b-6ff7a5009b49</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#6cc180ce-f88c-43e2-ace9-25c79be33341</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/CompositeOfAggrLongDTOMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/CompositeOfAggrLongDTOMappingExtensions.cs</ProjectRelativeFilePath>
@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#447b41b6-69b5-434d-a405-38931c12fab3</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#170a3f92-501b-4d71-803b-776f2de6b909</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommand.cs</ProjectRelativeFilePath>
@@ -44,7 +44,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#447b41b6-69b5-434d-a405-38931c12fab3</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#170a3f92-501b-4d71-803b-776f2de6b909</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandHandler.cs</ProjectRelativeFilePath>
@@ -52,7 +52,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#447b41b6-69b5-434d-a405-38931c12fab3</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#170a3f92-501b-4d71-803b-776f2de6b909</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/CreateAggregateRootLong/CreateAggregateRootLongCommandValidator.cs</ProjectRelativeFilePath>
@@ -60,7 +60,23 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#d05b0ae7-0561-4ff0-9336-780105f6adee</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#7f060a85-6743-4751-bba1-ea8334439873</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/CreateCompositeOfAggrLongDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/CreateCompositeOfAggrLongDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#7f060a85-6743-4751-bba1-ea8334439873</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/CreateCompositeOfAggrLongDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/CreateCompositeOfAggrLongDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e39db97b-5392-4b68-a1f9-703fc362a4ad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommand.cs</ProjectRelativeFilePath>
@@ -68,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#d05b0ae7-0561-4ff0-9336-780105f6adee</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e39db97b-5392-4b68-a1f9-703fc362a4ad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandHandler.cs</ProjectRelativeFilePath>
@@ -76,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d05b0ae7-0561-4ff0-9336-780105f6adee</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e39db97b-5392-4b68-a1f9-703fc362a4ad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/DeleteAggregateRootLong/DeleteAggregateRootLongCommandValidator.cs</ProjectRelativeFilePath>
@@ -84,7 +100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#b1674e64-1f8d-4d62-bc74-0cf7f9edae45</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#6aef2009-e6bf-410c-8caa-74c08dcb655f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQuery.cs</ProjectRelativeFilePath>
@@ -92,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#b1674e64-1f8d-4d62-bc74-0cf7f9edae45</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#6aef2009-e6bf-410c-8caa-74c08dcb655f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryHandler.cs</ProjectRelativeFilePath>
@@ -100,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b1674e64-1f8d-4d62-bc74-0cf7f9edae45</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#6aef2009-e6bf-410c-8caa-74c08dcb655f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongById/GetAggregateRootLongByIdQueryValidator.cs</ProjectRelativeFilePath>
@@ -108,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#ced525be-8a51-43c9-8a4b-beb1511381b7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a8948ce7-ea95-48f7-9d1e-2b57eda83a5e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQuery.cs</ProjectRelativeFilePath>
@@ -116,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#ced525be-8a51-43c9-8a4b-beb1511381b7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a8948ce7-ea95-48f7-9d1e-2b57eda83a5e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryHandler.cs</ProjectRelativeFilePath>
@@ -124,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ced525be-8a51-43c9-8a4b-beb1511381b7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a8948ce7-ea95-48f7-9d1e-2b57eda83a5e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongs/GetAggregateRootLongsQueryValidator.cs</ProjectRelativeFilePath>
@@ -132,7 +148,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#be489edc-dfdd-47cd-a723-6d3a2a227838</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#dc186000-3718-4d71-9525-fb16ea6b3d98</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommand.cs</ProjectRelativeFilePath>
@@ -140,7 +156,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#be489edc-dfdd-47cd-a723-6d3a2a227838</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#dc186000-3718-4d71-9525-fb16ea6b3d98</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandHandler.cs</ProjectRelativeFilePath>
@@ -148,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#be489edc-dfdd-47cd-a723-6d3a2a227838</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#dc186000-3718-4d71-9525-fb16ea6b3d98</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootLongs/UpdateAggregateRootLong/UpdateAggregateRootLongCommandValidator.cs</ProjectRelativeFilePath>
@@ -156,7 +172,23 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#5e707bb4-be4a-4c21-9f30-f68a55c237b8</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e7ad2242-4742-4408-b68a-72efe3abf77e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/UpdateCompositeOfAggrLongDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/UpdateCompositeOfAggrLongDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e7ad2242-4742-4408-b68a-72efe3abf77e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootLongs/UpdateCompositeOfAggrLongDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/UpdateCompositeOfAggrLongDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#dbd83e13-43cb-4b81-9c55-56200caf05ed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/AggregateRootDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateRootDTO.cs</ProjectRelativeFilePath>
@@ -164,7 +196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#5e707bb4-be4a-4c21-9f30-f68a55c237b8</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#dbd83e13-43cb-4b81-9c55-56200caf05ed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/AggregateRootDTOMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateRootDTOMappingExtensions.cs</ProjectRelativeFilePath>
@@ -172,7 +204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#04dc60c3-2858-49b7-b7ca-9a51fd3bf731</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a4a2dd9a-41fb-40d5-98e4-dcc6c509b9e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/AggregateSingleCDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateSingleCDTO.cs</ProjectRelativeFilePath>
@@ -180,7 +212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#04dc60c3-2858-49b7-b7ca-9a51fd3bf731</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#a4a2dd9a-41fb-40d5-98e4-dcc6c509b9e8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/AggregateSingleCDTOMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/AggregateSingleCDTOMappingExtensions.cs</ProjectRelativeFilePath>
@@ -188,39 +220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#c009ba4c-34a9-47af-8c20-25988834131e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyAADTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeManyAADTO.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#c009ba4c-34a9-47af-8c20-25988834131e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeManyAADTOMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#0943b8e9-21be-44e3-a0a7-48d4532bf51f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyBBDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeManyBBDTO.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#0943b8e9-21be-44e3-a0a7-48d4532bf51f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyBBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeManyBBDTOMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#ce922e4b-8d89-4ace-83ae-eebac42fc3d8</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#dc8bb48b-43b7-4354-99eb-cdf88091e7ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyBDTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CompositeManyBDTO.cs</ProjectRelativeFilePath>
@@ -228,7 +228,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#ce922e4b-8d89-4ace-83ae-eebac42fc3d8</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#dc8bb48b-43b7-4354-99eb-cdf88091e7ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CompositeManyBDTOMappingExtensions.cs</ProjectRelativeFilePath>
@@ -236,23 +236,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#fb47f707-c8fc-40cb-bd43-9ff351fe927a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleAADTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeSingleAADTO.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#fb47f707-c8fc-40cb-bd43-9ff351fe927a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeSingleAADTOMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#6e15c6a0-6041-42fa-930a-9eb2fa632ec0</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#402b9ef7-f8df-4dd6-aa07-a028bebec4bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleADTO.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CompositeSingleADTO.cs</ProjectRelativeFilePath>
@@ -260,7 +244,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#6e15c6a0-6041-42fa-930a-9eb2fa632ec0</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#402b9ef7-f8df-4dd6-aa07-a028bebec4bc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleADTOMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CompositeSingleADTOMappingExtensions.cs</ProjectRelativeFilePath>
@@ -268,23 +252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#ff258545-ba7f-4e63-9c91-2289452c9542</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleBBDTO.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeSingleBBDTO.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#ff258545-ba7f-4e63-9c91-2289452c9542</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleBBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AggregateRoots/CompositeSingleBBDTOMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#a35441ca-2015-4d00-b33d-c5dc0dec03c7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1b638441-f49c-46e1-a4f4-5a4e7beb4260</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommand.cs</ProjectRelativeFilePath>
@@ -292,7 +260,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#a35441ca-2015-4d00-b33d-c5dc0dec03c7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1b638441-f49c-46e1-a4f4-5a4e7beb4260</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandHandler.cs</ProjectRelativeFilePath>
@@ -300,7 +268,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#a35441ca-2015-4d00-b33d-c5dc0dec03c7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1b638441-f49c-46e1-a4f4-5a4e7beb4260</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRoot/CreateAggregateRootCommandValidator.cs</ProjectRelativeFilePath>
@@ -308,7 +276,119 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#7e023ef7-adf6-4587-8504-ff7990cd0ad7</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ad9da6a1-cdc7-4761-9f0f-ee7715ad21f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateAggregateSingleCDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateSingleCDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#ad9da6a1-cdc7-4761-9f0f-ee7715ad21f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateAggregateSingleCDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateSingleCDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#baa832e0-2d58-4a9e-831c-cfcd11f4f065</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeManyAADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeManyAADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#baa832e0-2d58-4a9e-831c-cfcd11f4f065</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeManyAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeManyAADTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#be19cce8-cc32-4c45-bbea-e153e7c47a0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeManyBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeManyBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#be19cce8-cc32-4c45-bbea-e153e7c47a0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeManyBBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeManyBBDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ec5be6d1-1bbb-4e58-9987-ea0861f39f4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeManyBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeManyBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#ec5be6d1-1bbb-4e58-9987-ea0861f39f4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeManyBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeManyBDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#c1bfb28b-eabf-407a-bb45-63a6ba6ae2cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeSingleAADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeSingleAADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#c1bfb28b-eabf-407a-bb45-63a6ba6ae2cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeSingleAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeSingleAADTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#39ddbeca-4c43-409f-ac25-f9320234f562</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeSingleADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeSingleADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#39ddbeca-4c43-409f-ac25-f9320234f562</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeSingleADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeSingleADTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#eba3824e-1741-4389-ac8d-be8ff4d54935</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeSingleBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeSingleBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#eba3824e-1741-4389-ac8d-be8ff4d54935</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CreateCompositeSingleBBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateCompositeSingleBBDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b5d64090-43f7-4640-a2b5-1f149c64dde5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommand.cs</ProjectRelativeFilePath>
@@ -316,7 +396,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#7e023ef7-adf6-4587-8504-ff7990cd0ad7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b5d64090-43f7-4640-a2b5-1f149c64dde5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandHandler.cs</ProjectRelativeFilePath>
@@ -324,7 +404,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#7e023ef7-adf6-4587-8504-ff7990cd0ad7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b5d64090-43f7-4640-a2b5-1f149c64dde5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/DeleteAggregateRoot/DeleteAggregateRootCommandValidator.cs</ProjectRelativeFilePath>
@@ -332,7 +412,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#ea60fd9e-bc2e-4599-8d7a-23d77f3f058c</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#54fb9b36-0cd2-4c31-9a38-44ed47d4c0d3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQuery.cs</ProjectRelativeFilePath>
@@ -340,7 +420,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#ea60fd9e-bc2e-4599-8d7a-23d77f3f058c</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#54fb9b36-0cd2-4c31-9a38-44ed47d4c0d3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryHandler.cs</ProjectRelativeFilePath>
@@ -348,7 +428,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ea60fd9e-bc2e-4599-8d7a-23d77f3f058c</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#54fb9b36-0cd2-4c31-9a38-44ed47d4c0d3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/GetAggregateRootById/GetAggregateRootByIdQueryValidator.cs</ProjectRelativeFilePath>
@@ -356,7 +436,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#4d52cb6a-776a-4b68-9607-989a3c85c73f</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7d496daa-4a8f-4400-a59d-163bf6e31fba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/GetAggregateRoots/GetAggregateRootsQuery.cs</ProjectRelativeFilePath>
@@ -364,7 +444,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#4d52cb6a-776a-4b68-9607-989a3c85c73f</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7d496daa-4a8f-4400-a59d-163bf6e31fba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryHandler.cs</ProjectRelativeFilePath>
@@ -372,7 +452,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#4d52cb6a-776a-4b68-9607-989a3c85c73f</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7d496daa-4a8f-4400-a59d-163bf6e31fba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/GetAggregateRoots/GetAggregateRootsQueryValidator.cs</ProjectRelativeFilePath>
@@ -380,7 +460,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#ca0b0d72-b077-41aa-a0ff-d296781df3a6</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9ea12d67-db35-4d8c-b5e0-64c6505b14c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommand.cs</ProjectRelativeFilePath>
@@ -388,7 +468,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#ca0b0d72-b077-41aa-a0ff-d296781df3a6</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9ea12d67-db35-4d8c-b5e0-64c6505b14c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandHandler.cs</ProjectRelativeFilePath>
@@ -396,10 +476,122 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ca0b0d72-b077-41aa-a0ff-d296781df3a6</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9ea12d67-db35-4d8c-b5e0-64c6505b14c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRoot/UpdateAggregateRootCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#43fd0ee2-23a4-4c51-888e-586915a03142</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateAggregateSingleCDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateSingleCDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#43fd0ee2-23a4-4c51-888e-586915a03142</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateAggregateSingleCDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateSingleCDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e997032e-69b3-485b-a0f7-dd560555f233</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeManyAADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeManyAADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e997032e-69b3-485b-a0f7-dd560555f233</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeManyAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeManyAADTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#7c377be7-5844-4211-879a-c351b361c38f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeManyBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeManyBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#7c377be7-5844-4211-879a-c351b361c38f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeManyBBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeManyBBDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6a6441af-0091-4a75-a3ad-ecfcd47b12d5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeManyBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeManyBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#6a6441af-0091-4a75-a3ad-ecfcd47b12d5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeManyBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeManyBDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a0028521-e7c3-4e62-b8c1-5c69e36ef62e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeSingleAADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeSingleAADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#a0028521-e7c3-4e62-b8c1-5c69e36ef62e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeSingleAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeSingleAADTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f0f950c3-324c-4119-b251-020bd5c6947c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeSingleADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeSingleADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#f0f950c3-324c-4119-b251-020bd5c6947c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeSingleADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeSingleADTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6fd0c801-b2a1-4563-8603-5b91a96a3d4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeSingleBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeSingleBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#6fd0c801-b2a1-4563-8603-5b91a96a3d4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/UpdateCompositeSingleBBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateCompositeSingleBBDTOMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

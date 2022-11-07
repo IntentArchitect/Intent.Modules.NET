@@ -19,14 +19,14 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs
 
         public static AggregateRootLongDTO Create(
             long id,
-            CompositeOfAggrLongDTO? compositeOfAggrLong,
-            string attribute)
+            string attribute,
+            CompositeOfAggrLongDTO? compositeOfAggrLong)
         {
             return new AggregateRootLongDTO
             {
                 Id = id,
-                CompositeOfAggrLong = compositeOfAggrLong,
                 Attribute = attribute,
+                CompositeOfAggrLong = compositeOfAggrLong,
             };
         }
 

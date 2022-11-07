@@ -19,16 +19,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public static CompositeSingleADTO Create(
             Guid id,
-            string compositeAttr,
-            CompositeSingleAADTO? composite,
-            List<CompositeManyAADTO> composites)
+            string compositeAttr)
         {
             return new CompositeSingleADTO
             {
                 Id = id,
                 CompositeAttr = compositeAttr,
-                Composite = composite,
-                Composites = composites,
             };
         }
 
@@ -36,14 +32,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public string CompositeAttr { get; set; }
 
-        public CompositeSingleAADTO? Composite { get; set; }
-
-        public List<CompositeManyAADTO> Composites { get; set; }
-
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CompositeSingleA, CompositeSingleADTO>()
-                .ForMember(d => d.Composites, opt => opt.MapFrom(src => src.Composites));
+            profile.CreateMap<CompositeSingleA, CompositeSingleADTO>();
         }
     }
 }

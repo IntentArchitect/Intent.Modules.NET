@@ -20,17 +20,13 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
         public static CompositeManyBDTO Create(
             Guid id,
             string compositeAttr,
-            Guid aAggregaterootId,
-            CompositeSingleBBDTO? composite,
-            List<CompositeManyBBDTO> composites)
+            Guid aAggregaterootId)
         {
             return new CompositeManyBDTO
             {
                 Id = id,
                 CompositeAttr = compositeAttr,
                 AAggregaterootId = aAggregaterootId,
-                Composite = composite,
-                Composites = composites,
             };
         }
 
@@ -40,14 +36,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public Guid AAggregaterootId { get; set; }
 
-        public CompositeSingleBBDTO? Composite { get; set; }
-
-        public List<CompositeManyBBDTO> Composites { get; set; }
-
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CompositeManyB, CompositeManyBDTO>()
-                .ForMember(d => d.Composites, opt => opt.MapFrom(src => src.Composites));
+            profile.CreateMap<CompositeManyB, CompositeManyBDTO>();
         }
     }
 }

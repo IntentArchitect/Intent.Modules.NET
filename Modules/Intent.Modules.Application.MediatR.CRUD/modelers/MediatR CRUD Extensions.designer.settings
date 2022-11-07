@@ -353,7 +353,11 @@ let fields = element.getChildren("DTO-Field")
 fields.forEach(f =&gt; {
     let mappedElement = f.getMapping().getElement();
 
-    let dto = getOrCreateDTO(mappedElement.typeReference.getType().getName(), element.getParent());
+    let commandVerb = (element.getName().split(/(?=[A-Z])/))[0];
+
+    let dtoName =  `${commandVerb}${mappedElement.typeReference.getType().getName()}`;
+    let dto = getOrCreateDTO(dtoName, element.getParent());
+    dto.setMetadata("commandVerb", commandVerb);
     dto.setMapping(mappedElement.typeReference.getTypeId());
 
     ensureDtoFields(mappedElement, dto);
@@ -406,9 +410,17 @@ let fields = element.getChildren("DTO-Field")
 fields.forEach(f =&gt; {
     let mappedElement = f.getMapping().getElement();
 
-    let dto = getOrCreateDTO(mappedElement.typeReference.getType().getName(), element.getParent());
-    dto.setMapping(mappedElement.typeReference.getTypeId());
+    let commandVerb = "";
+    if (element.hasMetadata("commandVerb")) {
+        commandVerb = element.getMetadata("commandVerb");
+    }
 
+    let dtoName =  `${commandVerb}${mappedElement.typeReference.getType().getName()}`;
+    let dto = getOrCreateDTO(dtoName, element.getParent());
+    dto.setMapping(mappedElement.typeReference.getTypeId());
+    if (element.hasMetadata("commandVerb")) {
+        dto.setMetadata("commandVerb", commandVerb);
+    }
     ensureDtoFields(mappedElement, dto);
     
     f.typeReference.setType(dto.id);

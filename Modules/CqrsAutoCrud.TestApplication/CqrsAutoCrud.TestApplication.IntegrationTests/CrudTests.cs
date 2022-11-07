@@ -32,28 +32,28 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
     public async Task Test_CreateCommand()
     {
         var command = new CreateAggregateRootCommand();
-        command.AggregateAttr = "Aggregate Root";
-        command.Composite = CompositeSingleADTO.Create(
+        command.AggregateAttr = "Create Aggregate Root";
+        command.Composite = CreateCompositeSingleADTO.Create(
             Guid.Empty,
             command.AggregateAttr + "_1",
-            CompositeSingleAADTO.Create(default, command.AggregateAttr + "_2"),
-            new List<CompositeManyAADTO>
+            CreateCompositeSingleAADTO.Create(default, command.AggregateAttr + "_2"),
+            new List<CreateCompositeManyAADTO>
             {
-                CompositeManyAADTO.Create(default, command.AggregateAttr + "_3", default)
+                CreateCompositeManyAADTO.Create(default, command.AggregateAttr + "_3", default)
             });
-        command.Composites = new List<CompositeManyBDTO>
+        command.Composites = new List<CreateCompositeManyBDTO>
         {
-            CompositeManyBDTO.Create(
+            CreateCompositeManyBDTO.Create(
                 Guid.Empty,
                 command.AggregateAttr + "_4",
                 Guid.Empty, 
-                CompositeSingleBBDTO.Create(default, command.AggregateAttr + "_5"),
-                new List<CompositeManyBBDTO>
+                CreateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_5"),
+                new List<CreateCompositeManyBBDTO>
                 {
-                    CompositeManyBBDTO.Create(default, command.AggregateAttr + "_6", default)
+                    CreateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_6", default)
                 })
         };
-        command.Aggregate = AggregateSingleCDTO.Create(default, command.AggregateAttr + "_7");
+        command.Aggregate = CreateAggregateSingleCDTO.Create(default, command.AggregateAttr + "_7");
 
         var handler = new CreateAggregateRootCommandHandler(new AggregateRootRepository(DbContext));
         await handler.Handle(command, CancellationToken.None);
@@ -68,7 +68,7 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
     public async Task Test_UpdateCommand()
     {
         var root = new AggregateRoot();
-        root.AggregateAttr = "Aggregate Root";
+        root.AggregateAttr = "Update Aggregate Root";
         root.Composites = new List<CompositeManyB>
         {
             new CompositeManyB
@@ -90,40 +90,40 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
         var command = new UpdateAggregateRootCommand();
         command.Id = root.Id;
         command.AggregateAttr = root.AggregateAttr;
-        command.Composite = CompositeSingleADTO.Create(default, command.AggregateAttr + "_3",
-            CompositeSingleAADTO.Create(default, command.AggregateAttr + "_4"), 
-            new List<CompositeManyAADTO>
+        command.Composite = UpdateCompositeSingleADTO.Create(default, command.AggregateAttr + "_3",
+            UpdateCompositeSingleAADTO.Create(default, command.AggregateAttr + "_4"), 
+            new List<UpdateCompositeManyAADTO>
             {
-                CompositeManyAADTO.Create(default, command.AggregateAttr + "_5", default)
+                UpdateCompositeManyAADTO.Create(default, command.AggregateAttr + "_5", default)
             });
-        command.Composites = new List<CompositeManyBDTO>
+        command.Composites = new List<UpdateCompositeManyBDTO>
         {
-            CompositeManyBDTO.Create(
+            UpdateCompositeManyBDTO.Create(
                 new Guid("0483ae48-4606-45ec-8ca4-66355aa5bbbf"),
                 command.AggregateAttr + "_6",
                 default,
-                CompositeSingleBBDTO.Create(default, command.AggregateAttr + "_7"),
-                new List<CompositeManyBBDTO>
+                UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_7"),
+                new List<UpdateCompositeManyBBDTO>
                 {
-                    CompositeManyBBDTO.Create(default, command.AggregateAttr + "_8", default)
+                    UpdateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_8", default)
                 }),
-            CompositeManyBDTO.Create(
+            UpdateCompositeManyBDTO.Create(
                 new Guid("d34db3c5-2db3-47e3-aa7c-1fb8b7cb52df"),
                 command.AggregateAttr + "_8",
                 default,
-                CompositeSingleBBDTO.Create(default, command.AggregateAttr + "_9"),
-                new List<CompositeManyBBDTO>
+                UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_9"),
+                new List<UpdateCompositeManyBBDTO>
                 {
-                    CompositeManyBBDTO.Create(default, command.AggregateAttr + "_10", default)
+                    UpdateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_10", default)
                 }),
-            CompositeManyBDTO.Create(
+            UpdateCompositeManyBDTO.Create(
                 default,
                 command.AggregateAttr + "_11",
                 default,
-                CompositeSingleBBDTO.Create(default, command.AggregateAttr + "_12"),
-                new List<CompositeManyBBDTO>
+                UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_12"),
+                new List<UpdateCompositeManyBBDTO>
                 {
-                    CompositeManyBBDTO.Create(default, command.AggregateAttr + "_13", default)
+                    UpdateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_13", default)
                 })
         };
         
@@ -149,7 +149,7 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
     {
         var createCommand = new CreateAggregateRootLongCommand();
         createCommand.Attribute = "Long PK Aggr Root";
-        createCommand.CompositeOfAggrLong = CompositeOfAggrLongDTO.Create(default, createCommand.Attribute + "_1");
+        createCommand.CompositeOfAggrLong = CreateCompositeOfAggrLongDTO.Create(default, createCommand.Attribute + "_1");
 
         var createHandler = new CreateAggregateRootLongCommandHandler(new AggregateRootLongRepository(DbContext));
         var id = await createHandler.Handle(createCommand, CancellationToken.None);
@@ -163,7 +163,7 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
         var updateCommand = new UpdateAggregateRootLongCommand();
         updateCommand.Id = id;
         updateCommand.Attribute = createCommand.Attribute + "ZZZ";
-        updateCommand.CompositeOfAggrLong = CompositeOfAggrLongDTO.Create(default, updateCommand.Attribute + "_2");
+        updateCommand.CompositeOfAggrLong = UpdateCompositeOfAggrLongDTO.Create(default, updateCommand.Attribute + "_2");
 
         var updateHandler = new UpdateAggregateRootLongCommandHandler(new AggregateRootLongRepository(DbContext));
         await updateHandler.Handle(updateCommand, CancellationToken.None);

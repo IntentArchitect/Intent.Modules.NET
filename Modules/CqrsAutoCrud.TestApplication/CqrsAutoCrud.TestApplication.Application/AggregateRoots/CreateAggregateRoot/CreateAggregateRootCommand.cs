@@ -13,11 +13,11 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
     {
         public string AggregateAttr { get; set; }
 
-        public CompositeSingleADTO? Composite { get; set; }
+        public CreateCompositeSingleADTO? Composite { get; set; }
 
-        public List<CompositeManyBDTO> Composites { get; set; }
+        public List<CreateCompositeManyBDTO> Composites { get; set; }
 
-        public AggregateSingleCDTO? Aggregate { get; set; }
+        public CreateAggregateSingleCDTO? Aggregate { get; set; }
 
     }
 }
