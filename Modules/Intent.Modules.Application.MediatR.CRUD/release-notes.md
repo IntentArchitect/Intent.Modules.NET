@@ -1,3 +1,8 @@
+### Version 3.3.14
+
+- New: Mapping a Command or DTO to an associated Domain Entity will now create the DTO representing the association Entity with all its attributes mapped to DTO fields.
+- New: Auto CRUD code implementation will now support nested composite associations.
+
 ### Version 3.3.12
 
 - Update: Refactored the CRUD script so that it is easier to read and to follow.

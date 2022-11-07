@@ -11,5 +11,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
     public interface IPoly_ConcreteA : IPoly_BaseClassNonAbstract
     {
         string ConcreteField { get; set; }
+
+        string PartitionKey { get; set; }
+
     }
 }

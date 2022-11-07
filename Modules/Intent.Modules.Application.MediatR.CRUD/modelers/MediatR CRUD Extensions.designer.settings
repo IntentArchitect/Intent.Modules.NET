@@ -341,6 +341,112 @@ function createCqrsDeleteOperation(entity, entityFolder) {
   </packageExtensions>
   <elementSettings />
   <elementExtensions>
+    <elementExtension type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-mapped">
+          <script>//let element = lookup("29a81107-c71c-45b4-ba7b-982be63277a1")
+
+let fields = element.getChildren("DTO-Field")
+    .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+
+fields.forEach(f =&gt; {
+    let mappedElement = f.getMapping().getElement();
+
+    let dto = getOrCreateDTO(mappedElement.typeReference.getType().getName(), element.getParent());
+    dto.setMapping(mappedElement.typeReference.getTypeId());
+
+    ensureDtoFields(mappedElement, dto);
+    
+    f.typeReference.setType(dto.id);
+});
+
+function getOrCreateDTO(elementName, parentElement) {
+    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === `${elementName}DTO`)[0];
+    if (existingDto) {
+        return existingDto;
+    }
+
+    let dto = createElement("DTO", `${elementName}DTO`, parentElement.id);
+    return dto;
+}
+
+function ensureDtoFields(mappedElement, dto) {
+    let dtoUpdated = false;
+    let mappedElementAttributes = mappedElement
+        .typeReference
+        .getType()
+        .getChildren("Attribute");
+    let dtoFields = dto.getChildren("DTO-Field");
+    for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
+        let field = createElement("DTO-Field", attribute.name, dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+        dtoUpdated = true;
+    }
+
+    if (dtoUpdated) {
+        dto.collapse();
+    }
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+    <elementExtension type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-mapped">
+          <script>//let element = lookup("29a81107-c71c-45b4-ba7b-982be63277a1")
+
+let fields = element.getChildren("DTO-Field")
+    .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
+
+fields.forEach(f =&gt; {
+    let mappedElement = f.getMapping().getElement();
+
+    let dto = getOrCreateDTO(mappedElement.typeReference.getType().getName(), element.getParent());
+    dto.setMapping(mappedElement.typeReference.getTypeId());
+
+    ensureDtoFields(mappedElement, dto);
+    
+    f.typeReference.setType(dto.id);
+});
+
+function getOrCreateDTO(elementName, parentElement) {
+    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === `${elementName}DTO`)[0];
+    if (existingDto) {
+        return existingDto;
+    }
+
+    let dto = createElement("DTO", `${elementName}DTO`, parentElement.id);
+    return dto;
+}
+
+function ensureDtoFields(mappedElement, dto) {
+    let dtoUpdated = false;
+    let mappedElementAttributes = mappedElement
+        .typeReference
+        .getType()
+        .getChildren("Attribute");
+    let dtoFields = dto.getChildren("DTO-Field");
+    for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
+        let field = createElement("DTO-Field", attribute.name, dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+        dtoUpdated = true;
+    }
+
+    if (dtoUpdated) {
+        dto.collapse();
+    }
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
     <elementExtension type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
       <creationOptions />
       <scriptOptions>

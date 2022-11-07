@@ -232,6 +232,21 @@ public class IntegrationHttpClientTests
         var result = await invoiceService.GetPrimitiveStringListAsync();
         Assert.Equal(new List<string> { MockInvoiceService.DefaultString }, result);
     }
+    
+    [Fact]
+    public async Task TestGetInvoiceOpWithReturnTypeWrapped()
+    {
+        var serviceMock = new MockInvoiceService();
+
+        using var identityServer = await TestIdentityHost.SetupIdentityServer(OutputHelper);
+        using var backendServer = await TestAspNetCoreHost.SetupApiServer(OutputHelper, x => x.AddTransient<Backend.IInvoiceService>(_ => serviceMock));
+        var sp = TestIntegrationHttpClient.SetupServiceProvider();
+
+        var invoiceService = sp.GetService<Client.InvoiceProxy.IInvoiceProxyClient>()!;
+        var result = await invoiceService.GetInvoiceOpWithReturnTypeWrappedAsync();
+        Assert.Equal(MockInvoiceService.DefaultId, result.Id);
+        Assert.Equal(MockInvoiceService.ReferenceNumber, result.Reference);
+    }
 
     public class MockInvoiceService : Backend.IInvoiceService
     {
@@ -348,6 +363,11 @@ public class IntegrationHttpClientTests
         public Task NonHttpSettingsOperation()
         {
             return Task.CompletedTask;
+        }
+
+        public Task<BackendDto.InvoiceDTO> GetInvoiceOpWithReturnTypeWrapped()
+        {
+            return Task.FromResult(BackendDto.InvoiceDTO.Create(DefaultId, ReferenceNumber));
         }
     }
 }

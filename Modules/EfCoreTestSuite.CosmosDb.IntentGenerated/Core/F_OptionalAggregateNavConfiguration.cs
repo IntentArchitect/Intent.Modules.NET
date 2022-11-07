@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<F_OptionalAggregateNav> builder)
         {
-            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+            builder.ToTable("F_OptionalAggregateNav");
 
             builder.HasPartitionKey(x => x.PartitionKey);
 

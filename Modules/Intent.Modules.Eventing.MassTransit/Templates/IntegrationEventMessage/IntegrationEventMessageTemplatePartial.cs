@@ -21,6 +21,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage
         public IntegrationEventMessageTemplate(IOutputTarget outputTarget, MessageModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(TemplateId);
+            AddTypeSource("Domain.Enum");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

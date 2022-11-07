@@ -51,5 +51,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.ServiceContracts
 
         Task NonHttpSettingsOperation();
 
+        Task<InvoiceDTO> GetInvoiceOpWithReturnTypeWrapped();
+
     }
 }
