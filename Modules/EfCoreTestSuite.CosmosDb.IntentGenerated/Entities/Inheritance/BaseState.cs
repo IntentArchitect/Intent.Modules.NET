@@ -1,22 +1,23 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.DomainEntityState", Version = "1.0")]
 
-namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
+namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
-
-    public partial class Poly_RootAbstract_Aggr : IPoly_RootAbstract_Aggr
+    public partial class Base : IBase
     {
+        public Guid BaseAssociatedId { get; set; }
 
-        public Guid Id { get; set; }
+        public string BaseField1 { get; set; }
 
-        public string AggrField { get; set; }
+        public virtual BaseAssociated BaseAssociated { get; set; }
 
-        public string PartitionKey { get; set; }
-
-
+        IBaseAssociated IBase.BaseAssociated
+        {
+            get => BaseAssociated;
+            set => BaseAssociated = (BaseAssociated)value;
+        }
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,14 +6,10 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
-
     public partial class ClassC : IClassC
     {
-
         public Guid Id { get; set; }
 
         public string ClassCAttr { get; set; }
-
-
     }
 }

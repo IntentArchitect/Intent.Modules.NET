@@ -8,10 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
-
     public partial class ClassB : IClassB
     {
-
         public Guid Id { get; set; }
 
         public string ClassBAttr { get; set; }

@@ -1,20 +1,14 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Entities.DomainEntityInterface", Version = "1.0")]
 
-namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations
+namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
-
-    public interface IAbstractBaseClassAssociated
+    public interface IBase
     {
-        string AssociatedField { get; set; }
+        string BaseField1 { get; set; }
 
-        string PartitionKey { get; set; }
-
-        IAbstractBaseClass AbstractBaseClass { get; set; }
-
+        IBaseAssociated BaseAssociated { get; set; }
     }
 }

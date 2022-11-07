@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,66 +8,30 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
-
     public partial class Derived : Base, IDerived
     {
-        public Derived()
-        {
-        }
-
-
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private string _derivedField1;
-
-        public string DerivedField1
-        {
-            get { return _derivedField1; }
-            set
-            {
-                _derivedField1 = value;
-            }
-        }
-
+        public Guid Id { get; set; }
 
         public Guid AssociatedId { get; set; }
-        private Associated _associated;
 
-        public virtual Associated Associated
+        public string PartitionKey { get; set; }
+
+        public string DerivedField1 { get; set; }
+
+        public virtual Associated Associated { get; set; }
+
+        IAssociated IDerived.Associated
         {
-            get
-            {
-                return _associated;
-            }
-            set
-            {
-                _associated = value;
-            }
+            get => Associated;
+            set => Associated = (Associated)value;
         }
 
-        private ICollection<Composite> _composites;
+        public virtual ICollection<Composite> Composites { get; set; } = new List<Composite>();
 
-        public virtual ICollection<Composite> Composites
+        ICollection<IComposite> IDerived.Composites
         {
-            get
-            {
-                return _composites ??= new List<Composite>();
-            }
-            set
-            {
-                _composites = value;
-            }
+            get => Composites.CreateWrapper<IComposite, Composite>();
+            set => Composites = value.Cast<Composite>().ToList();
         }
-
-
     }
 }

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,10 +5,10 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
-    [IntentManaged(Mode.Merge)]
-    [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
-    public partial class Poly_BaseClassNonAbstract : Poly_RootAbstract, IPoly_BaseClassNonAbstract
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]
+    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
+    public partial class Poly_BaseClassNonAbstract : IPoly_BaseClassNonAbstract
     {
-
     }
 }

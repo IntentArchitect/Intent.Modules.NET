@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
@@ -7,7 +6,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public interface ID_OptionalAggregate
     {
         string PartitionKey { get; set; }
@@ -15,6 +13,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
         string OptionalAggregateAttr { get; set; }
 
         ICollection<ID_MultipleDependent> D_MultipleDependents { get; set; }
-
     }
 }

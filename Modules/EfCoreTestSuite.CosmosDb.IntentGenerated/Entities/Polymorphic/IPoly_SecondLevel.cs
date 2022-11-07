@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,14 +5,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
-
     public interface IPoly_SecondLevel
     {
         string SecondField { get; set; }
 
         string PartitionKey { get; set; }
 
-        ICollection<IPoly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
-
+        IPoly_BaseClassNonAbstract BaseClassNonAbstracts { get; set; }
     }
 }

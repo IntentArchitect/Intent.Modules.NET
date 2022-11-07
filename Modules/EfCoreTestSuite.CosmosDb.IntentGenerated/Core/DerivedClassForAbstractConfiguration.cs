@@ -1,5 +1,4 @@
-using System;
-using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,18 +8,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 {
-    public class Poly_BaseClassNonAbstractConfiguration : IEntityTypeConfiguration<Poly_BaseClassNonAbstract>
+    public class DerivedClassForAbstractConfiguration : IEntityTypeConfiguration<DerivedClassForAbstract>
     {
-        public void Configure(EntityTypeBuilder<Poly_BaseClassNonAbstract> builder)
+        public void Configure(EntityTypeBuilder<DerivedClassForAbstract> builder)
         {
-            builder.HasBaseType<Poly_RootAbstract>();
+            builder.HasBaseType<AbstractBaseClass>();
 
             builder.HasPartitionKey(x => x.PartitionKey);
 
-            builder.Property(x => x.PartitionKey)
+            builder.Property(x => x.DerivedAttribute)
                 .IsRequired();
 
-            builder.Property(x => x.BaseField)
+            builder.Property(x => x.PartitionKey)
                 .IsRequired();
         }
     }

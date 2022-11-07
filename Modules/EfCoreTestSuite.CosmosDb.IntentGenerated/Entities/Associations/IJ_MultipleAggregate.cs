@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public interface IJ_MultipleAggregate
     {
         string PartitionKey { get; set; }
@@ -15,6 +12,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
         string MultipleAggrAttr { get; set; }
 
         IJ_RequiredDependent J_RequiredDependent { get; set; }
-
     }
 }

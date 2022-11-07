@@ -19,10 +19,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.AssociatedField)
+            builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.Property(x => x.PartitionKey)
+            builder.Property(x => x.AssociatedField)
                 .IsRequired();
 
             builder.HasOne(x => x.AbstractBaseClass)

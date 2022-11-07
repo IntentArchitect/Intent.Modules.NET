@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,13 +6,10 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
-
-    public partial class Poly_BaseClassNonAbstract : Poly_RootAbstract, IPoly_BaseClassNonAbstract
+    public partial class Poly_BaseClassNonAbstract : IPoly_BaseClassNonAbstract
     {
+        public Guid Id { get; set; }
 
         public string BaseField { get; set; }
-
-
-        public Guid? Poly_SecondLevelId { get; set; }
     }
 }

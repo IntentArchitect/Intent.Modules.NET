@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,18 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations
 {
-
     public partial class DerivedClassForConcreteAssociated : IDerivedClassForConcreteAssociated
     {
-
         public Guid Id { get; set; }
 
-        public string AssociatedField { get; set; }
+        public Guid DerivedClassForConcreteId { get; set; }
 
         public string PartitionKey { get; set; }
 
-
-        public Guid DerivedClassForConcreteId { get; set; }
+        public string Associatedfield { get; set; }
 
         public virtual DerivedClassForConcrete DerivedClassForConcrete { get; set; }
 
@@ -27,7 +23,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
             get => DerivedClassForConcrete;
             set => DerivedClassForConcrete = (DerivedClassForConcrete)value;
         }
-
-
     }
 }

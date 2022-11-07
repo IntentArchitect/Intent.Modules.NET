@@ -19,6 +19,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.DependencyInjection
                     configuration["Cosmos:AccountEndpoint"],
                     configuration["Cosmos:AccountKey"],
                     configuration["Cosmos:DatabaseName"]);
+                options.UseLazyLoadingProxies();
             });
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             return services;

@@ -1,4 +1,5 @@
 using System;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -9,18 +10,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 {
-    public class DerivedClassForConcreteConfiguration : IEntityTypeConfiguration<DerivedClassForConcrete>
+    public class BaseAssociatedConfiguration : IEntityTypeConfiguration<BaseAssociated>
     {
-        public void Configure(EntityTypeBuilder<DerivedClassForConcrete> builder)
+        public void Configure(EntityTypeBuilder<BaseAssociated> builder)
         {
-            builder.HasBaseType<ConcreteBaseClass>();
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
             builder.HasPartitionKey(x => x.PartitionKey);
+
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.Property(x => x.DerivedAttribute)
+            builder.Property(x => x.BaseAssociatedField1)
                 .IsRequired();
         }
     }

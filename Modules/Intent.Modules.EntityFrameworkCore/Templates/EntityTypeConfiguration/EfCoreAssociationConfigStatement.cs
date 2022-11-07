@@ -162,7 +162,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         RequiredProperties = columns;
 
         string genericType = null;
-        if (!RelationshipStatements.First().Text.StartsWith("builder.WithOwner") &&
+        if (!RelationshipStatements.First().GetText(string.Empty).StartsWith("builder.WithOwner") &&
             _associationEnd.Association.GetRelationshipType() == RelationshipType.OneToOne)
         {
             if (_associationEnd.IsNullable)

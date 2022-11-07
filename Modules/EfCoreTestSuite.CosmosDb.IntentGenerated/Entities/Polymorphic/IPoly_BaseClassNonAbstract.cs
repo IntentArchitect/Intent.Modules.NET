@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,8 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
-
-    public interface IPoly_BaseClassNonAbstract : IPoly_RootAbstract
+    public interface IPoly_BaseClassNonAbstract
     {
         string BaseField { get; set; }
     }

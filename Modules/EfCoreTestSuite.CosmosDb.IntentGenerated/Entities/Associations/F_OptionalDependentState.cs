@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,10 +6,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class F_OptionalDependent : IF_OptionalDependent
     {
-
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }
@@ -24,7 +21,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
             get => F_OptionalAggregateNav;
             set => F_OptionalAggregateNav = (F_OptionalAggregateNav)value;
         }
-
-
     }
 }

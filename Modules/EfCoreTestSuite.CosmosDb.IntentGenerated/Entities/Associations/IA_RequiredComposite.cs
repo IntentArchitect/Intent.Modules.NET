@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public interface IA_RequiredComposite
     {
         string RequiredCompositeAttr { get; set; }
@@ -15,6 +12,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
         string PartitionKey { get; set; }
 
         IA_OptionalDependent A_OptionalDependent { get; set; }
-
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -9,18 +10,21 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 {
-    public class DerivedClassForAbstractConfiguration : IEntityTypeConfiguration<DerivedClassForAbstract>
+    public class WeirdClassConfiguration : IEntityTypeConfiguration<WeirdClass>
     {
-        public void Configure(EntityTypeBuilder<DerivedClassForAbstract> builder)
+        public void Configure(EntityTypeBuilder<WeirdClass> builder)
         {
-            builder.HasBaseType<AbstractBaseClass>();
-
             builder.HasPartitionKey(x => x.PartitionKey);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.CompositeField1)
+                .IsRequired();
 
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.Property(x => x.DerivedAttribute)
+            builder.Property(x => x.WeirdField)
                 .IsRequired();
         }
     }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,17 +6,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class D_MultipleDependent : ID_MultipleDependent
     {
-
         public Guid Id { get; set; }
+
+        public Guid? D_OptionalAggregateId { get; set; }
 
         public string MultipleDependentAttr { get; set; }
 
         public string PartitionKey { get; set; }
-
-
-        public Guid? D_OptionalAggregateId { get; set; }
     }
 }

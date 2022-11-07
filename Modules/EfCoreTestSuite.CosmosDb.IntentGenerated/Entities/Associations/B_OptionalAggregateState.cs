@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,11 +6,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class B_OptionalAggregate : IB_OptionalAggregate
     {
-
         public Guid Id { get; set; }
+
+        public Guid? B_OptionalDependentId { get; set; }
 
         public string OptionalAggregateAttr { get; set; }
 
@@ -24,7 +23,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
             get => B_OptionalDependent;
             set => B_OptionalDependent = (B_OptionalDependent)value;
         }
-        public Guid? B_OptionalDependentId { get; set; }
-
     }
 }

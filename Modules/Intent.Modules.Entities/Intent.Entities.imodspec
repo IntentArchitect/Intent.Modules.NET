@@ -50,8 +50,8 @@
   </templates>
   <decorators></decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.12-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.19-pre.3" />
+    <dependency id="Intent.Common" version="3.3.14-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.23-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.Modelers.Domain" version="3.3.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />

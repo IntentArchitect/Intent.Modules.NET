@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,14 +5,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations
 {
-
     public interface IDerivedClassForConcreteAssociated
     {
-        string AssociatedField { get; set; }
-
         string PartitionKey { get; set; }
 
-        IDerivedClassForConcrete DerivedClassForConcrete { get; set; }
+        string Associatedfield { get; set; }
 
+        IDerivedClassForConcrete DerivedClassForConcrete { get; set; }
     }
 }

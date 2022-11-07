@@ -15,14 +15,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         {
             builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
-            builder.HasPartitionKey(x => x.PartitionKey);
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.BaseAttribute)
-                .IsRequired();
-
-            builder.Property(x => x.PartitionKey)
                 .IsRequired();
         }
     }

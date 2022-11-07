@@ -8,10 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class D_OptionalAggregate : ID_OptionalAggregate
     {
-
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }
@@ -25,7 +23,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
             get => D_MultipleDependents.CreateWrapper<ID_MultipleDependent, D_MultipleDependent>();
             set => D_MultipleDependents = value.Cast<D_MultipleDependent>().ToList();
         }
-
-
     }
 }

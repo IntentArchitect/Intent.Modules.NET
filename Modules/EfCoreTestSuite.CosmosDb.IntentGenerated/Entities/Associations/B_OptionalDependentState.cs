@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,16 +6,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class B_OptionalDependent : IB_OptionalDependent
     {
-
         public Guid Id { get; set; }
 
         public string OptionalDependentAttr { get; set; }
 
         public string PartitionKey { get; set; }
-
-
     }
 }

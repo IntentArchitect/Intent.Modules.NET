@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
@@ -7,7 +6,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
-
     public interface IClassA
     {
         string PartitionKey { get; set; }
@@ -15,6 +13,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
         string ClassAAttr { get; set; }
 
         ICollection<IClassB> ClassBS { get; set; }
-
     }
 }

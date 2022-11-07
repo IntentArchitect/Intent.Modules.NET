@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic;
 using Intent.RoslynWeaver.Attributes;
@@ -16,15 +17,23 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     public interface IApplicationDbContext
     {
         DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
+        DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
+        DbSet<AbstractBaseClassAssociated> AbstractBaseClassAssociateds { get; set; }
         DbSet<Associated> Associateds { get; set; }
         DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
         DbSet<BaseAssociated> BaseAssociateds { get; set; }
         DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         DbSet<ClassA> ClassAs { get; set; }
+        DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
+        DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
         DbSet<Derived> Deriveds { get; set; }
+        DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
+        DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
+        DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
         DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
         DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }

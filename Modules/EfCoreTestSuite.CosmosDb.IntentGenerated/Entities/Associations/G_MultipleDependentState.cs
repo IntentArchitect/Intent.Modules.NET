@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,10 +6,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class G_MultipleDependent : IG_MultipleDependent
     {
-
         public Guid Id { get; set; }
 
         public string MultipleDepAttr { get; set; }
@@ -22,7 +19,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
             get => G_RequiredCompositeNav;
             set => G_RequiredCompositeNav = (G_RequiredCompositeNav)value;
         }
-
-
     }
 }

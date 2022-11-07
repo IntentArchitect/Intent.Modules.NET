@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,18 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociations
 {
-
     public partial class AbstractBaseClassAssociated : IAbstractBaseClassAssociated
     {
-
         public Guid Id { get; set; }
 
-        public string AssociatedField { get; set; }
+        public Guid AbstractBaseClassId { get; set; }
 
         public string PartitionKey { get; set; }
 
-
-        public Guid AbstractBaseClassId { get; set; }
+        public string AssociatedField { get; set; }
 
         public virtual AbstractBaseClass AbstractBaseClass { get; set; }
 
@@ -27,7 +23,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
             get => AbstractBaseClass;
             set => AbstractBaseClass = (AbstractBaseClass)value;
         }
-
-
     }
 }

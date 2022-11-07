@@ -8,18 +8,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class M_SelfReferenceBiNav : IM_SelfReferenceBiNav
     {
-
         public Guid Id { get; set; }
+
+        public Guid? M_SelfReferenceBiNavAssocationId { get; set; }
 
         public string PartitionKey { get; set; }
 
         public string SelfRefBiNavAttr { get; set; }
-
-
-        public Guid? M_SelfReferenceBiNavAssocationId { get; set; }
 
         public virtual M_SelfReferenceBiNav M_SelfReferenceBiNavAssocation { get; set; }
 
@@ -36,7 +33,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
             get => M_SelfReferenceBiNavs.CreateWrapper<IM_SelfReferenceBiNav, M_SelfReferenceBiNav>();
             set => M_SelfReferenceBiNavs = value.Cast<M_SelfReferenceBiNav>().ToList();
         }
-
-
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,18 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class K_SelfReference : IK_SelfReference
     {
-
         public Guid Id { get; set; }
+
+        public Guid? K_SelfReferenceAssociationId { get; set; }
 
         public string PartitionKey { get; set; }
 
         public string SelfRefAttr { get; set; }
-
-
-        public Guid? K_SelfReferenceAssociationId { get; set; }
 
         public virtual K_SelfReference K_SelfReferenceAssociation { get; set; }
 
@@ -27,7 +23,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
             get => K_SelfReferenceAssociation;
             set => K_SelfReferenceAssociation = (K_SelfReference)value;
         }
-
-
     }
 }

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,35 +5,10 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
-
     public partial class WeirdClass : Composite, IWeirdClass
     {
-        public WeirdClass()
-        {
-        }
+        public string PartitionKey { get; set; }
 
-
-        private string _partitionKey;
-
-        public string PartitionKey
-        {
-            get { return _partitionKey; }
-            set
-            {
-                _partitionKey = value;
-            }
-        }
-
-        private string _weirdField;
-
-        public string WeirdField
-        {
-            get { return _weirdField; }
-            set
-            {
-                _weirdField = value;
-            }
-        }
-
+        public string WeirdField { get; set; }
     }
 }

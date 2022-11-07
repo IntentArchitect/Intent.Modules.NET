@@ -58,6 +58,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
                 .AddInterface($"I{Model.Name}", @interface =>
                 {
                     @interface.AddMetadata("model", Model);
+                    @interface.WithMembersSeparated();
+
                     if (Model.ParentClass != null)
                     {
                         @interface.ExtendsInterface(this.GetDomainEntityInterfaceName(Model.ParentClass));

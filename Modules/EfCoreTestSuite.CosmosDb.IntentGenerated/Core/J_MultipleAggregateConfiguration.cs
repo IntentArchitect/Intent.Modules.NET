@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<J_MultipleAggregate> builder)
         {
-            builder.ToTable("J_MultipleAggregate");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
             builder.HasPartitionKey(x => x.PartitionKey);
 

@@ -13,14 +13,17 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_ConcreteA> builder)
         {
-            builder.HasBaseType<Poly_BaseClassNonAbstract>();
-
             builder.HasPartitionKey(x => x.PartitionKey);
 
-            builder.Property(x => x.PartitionKey)
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.BaseField)
                 .IsRequired();
 
             builder.Property(x => x.ConcreteField)
+                .IsRequired();
+
+            builder.Property(x => x.PartitionKey)
                 .IsRequired();
         }
     }

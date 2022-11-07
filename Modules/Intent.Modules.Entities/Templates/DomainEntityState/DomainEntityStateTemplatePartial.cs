@@ -45,6 +45,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityState
                 {
                     @class.AddMetadata("model", Model);
                     @class.Partial();
+                    @class.WithPropertiesSeparated();
 
                     if (Model.ParentClass != null)
                     {

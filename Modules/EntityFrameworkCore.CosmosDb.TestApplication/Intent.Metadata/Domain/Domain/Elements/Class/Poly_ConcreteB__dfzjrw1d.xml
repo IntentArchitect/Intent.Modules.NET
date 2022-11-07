@@ -47,12 +47,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="1605acc1-ab3e-4984-8f5c-d3a0af2ae224" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="a489802a-20c9-481d-9f89-f990ec2c31fb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>PartitionKey</name>
       <display>PartitionKey: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="7b348b30-fe0a-4c6e-924a-60c61b5d06e2">
+      <typeReference id="def0883d-3150-4c3c-a43c-09e10b6c3157">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

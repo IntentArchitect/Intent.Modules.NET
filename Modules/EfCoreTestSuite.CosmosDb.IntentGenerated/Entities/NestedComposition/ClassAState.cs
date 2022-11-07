@@ -8,10 +8,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
-
     public partial class ClassA : IClassA
     {
-
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }
@@ -25,7 +23,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
             get => ClassBS.CreateWrapper<IClassB, ClassB>();
             set => ClassBS = value.Cast<ClassB>().ToList();
         }
-
-
     }
 }

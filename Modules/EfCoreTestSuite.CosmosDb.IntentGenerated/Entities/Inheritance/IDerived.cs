@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
@@ -7,18 +6,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
-
-    public partial interface IDerived : IBase
+    public interface IDerived : IBase
     {
-
         string PartitionKey { get; set; }
 
         string DerivedField1 { get; set; }
 
-        Guid AssociatedId { get; }
-        Associated Associated { get; set; }
+        IAssociated Associated { get; set; }
 
-        ICollection<Composite> Composites { get; set; }
-
+        ICollection<IComposite> Composites { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Poly_SecondLevel> builder)
         {
-            builder.ToTable("Poly_SecondLevel");
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
             builder.HasPartitionKey(x => x.PartitionKey);
 
@@ -31,8 +31,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 
         public void ConfigureBaseClassNonAbstracts(OwnedNavigationBuilder<Poly_SecondLevel, Poly_BaseClassNonAbstract> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
-            builder.ToTable("Poly_BaseClassNonAbstract");
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
 
             builder.HasKey(x => x.Id);
 

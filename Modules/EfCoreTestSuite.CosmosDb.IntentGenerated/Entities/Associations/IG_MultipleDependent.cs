@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,12 +5,10 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public interface IG_MultipleDependent
     {
         string MultipleDepAttr { get; set; }
 
         IG_RequiredCompositeNav G_RequiredCompositeNav { get; set; }
-
     }
 }

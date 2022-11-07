@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,18 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
-
     public partial class H_MultipleDependent : IH_MultipleDependent
     {
-
         public Guid Id { get; set; }
+
+        public Guid? H_OptionalAggregateNavId { get; set; }
 
         public string PartitionKey { get; set; }
 
         public string MultipleDepAttr { get; set; }
-
-
-        public Guid? H_OptionalAggregateNavId { get; set; }
 
         public virtual H_OptionalAggregateNav H_OptionalAggregateNav { get; set; }
 
@@ -27,7 +23,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
             get => H_OptionalAggregateNav;
             set => H_OptionalAggregateNav = (H_OptionalAggregateNav)value;
         }
-
-
     }
 }
