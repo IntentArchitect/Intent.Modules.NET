@@ -1,0 +1,53 @@
+﻿{
+  Id: Guid_1,
+  AggregateAttr: Aggregate Root,
+  Composite: {
+    Id: Guid_1,
+    CompositeAttr: Aggregate Root_3,
+    Composite: {
+      Id: Guid_1,
+      CompositeAttr: Aggregate Root_4
+    },
+    Composites: [
+      {
+        Id: Guid_2,
+        CompositeAttr: Aggregate Root_5,
+        A_Composite_SingleId: Guid_1
+      }
+    ]
+  },
+  Composites: [
+    {
+      Id: Guid_3,
+      CompositeAttr: Aggregate Root_8,
+      Composite: {
+        Id: Guid_3,
+        CompositeAttr: Aggregate Root_9
+      },
+      Composites: [
+        {
+          Id: Guid_4,
+          CompositeAttr: Aggregate Root_10,
+          A_Composite_ManyId: Guid_3
+        }
+      ],
+      A_AggregateRootId: Guid_1
+    },
+    {
+      Id: Guid_5,
+      CompositeAttr: Aggregate Root_11,
+      Composite: {
+        Id: Guid_5,
+        CompositeAttr: Aggregate Root_12
+      },
+      Composites: [
+        {
+          Id: Guid_6,
+          CompositeAttr: Aggregate Root_13,
+          A_Composite_ManyId: Guid_5
+        }
+      ],
+      A_AggregateRootId: Guid_1
+    }
+  ]
+}
