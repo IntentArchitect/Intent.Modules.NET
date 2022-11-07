@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0bb39066-0c07-47f0-805e-a01a548c91fa" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>DerivedClassForAbstract</name>
+  <display>DerivedClassForAbstract</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8c7aa727-1beb-4b31-9346-55524350824f</parentFolderId>
+  <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
+  <packageName>Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8da4a440-0189-489b-a75d-a2742f329813" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>derivedAttribute</name>
+      <display>derivedAttribute: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fc5d7a0d-fbe1-4196-8eb6-4ea8723d73f4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0bb39066-0c07-47f0-805e-a01a548c91fa</parentFolderId>
+      <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e423fcfc-ece2-4786-9a78-b7cdc999f47a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PartitionKey</name>
+      <display>PartitionKey: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ccf61568-6a0d-4080-80cc-ca16eaf0a024">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0bb39066-0c07-47f0-805e-a01a548c91fa</parentFolderId>
+      <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="3a203a3e-116e-4a7c-b375-e690570efc3f" name="Partition Key">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore</definitionPackageName>
+          <definitionPackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</definitionPackageId>
+          <properties />
+        </stereotype>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
