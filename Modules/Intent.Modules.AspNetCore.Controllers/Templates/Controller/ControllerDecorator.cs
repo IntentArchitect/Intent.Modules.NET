@@ -20,11 +20,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         public virtual IEnumerable<string> GetControllerAttributes() => Enumerable.Empty<string>();
 
-        public virtual string BaseClass() => null;
+        //public virtual string BaseClass() => null;
 
-        public virtual string EnterClass() => null;
+        //public virtual string EnterClass() => null;
 
-        public virtual string ExitClass() => null;
+        //public virtual string ExitClass() => null;
 
         public virtual string ConstructorImplementation() => null;
 
@@ -34,11 +34,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         public virtual IEnumerable<string> GetOperationAttributes(OperationModel operationModel) => Enumerable.Empty<string>();
 
-        public virtual string EnterOperationBody(OperationModel operationModel) => null;
+        //public virtual string EnterOperationBody(OperationModel operationModel) => null;
 
-        public virtual string MidOperationBody(OperationModel operationModel) => null;
+        //public virtual string MidOperationBody(OperationModel operationModel) => null;
 
-        public virtual string ExitOperationBody(OperationModel operationModel) => null;
+        //public virtual string ExitOperationBody(OperationModel operationModel) => null;
 
         public virtual void UpdateServiceAuthorization(AuthorizationModel authorizationModel, ServiceSecureModel secureModel)
         {

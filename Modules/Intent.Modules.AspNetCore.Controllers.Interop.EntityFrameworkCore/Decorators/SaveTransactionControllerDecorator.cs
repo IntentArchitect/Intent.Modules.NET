@@ -31,7 +31,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
         {
             _template = template;
             _application = application;
-            _template.CSharpFile.AfterBuild(file =>
+            _template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
@@ -46,57 +46,57 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
                         operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
                     {
                         method.Statements.FirstOrDefault(x => x.ToString().Contains("await "))?
-                            .Indent()
                             .InsertAbove($@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
             {{")
-                            .InsertBelow($@"await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
-            }}", s => s.Indent());
+                            .Indent()
+                            .InsertBelow("await _unitOfWork.SaveChangesAsync(cancellationToken);", s => s
+                            .InsertBelow("transaction.Complete();", s => s
+                            .InsertBelow("}", s => s.Outdent())));
                     }
                 }
-            });
+            }, order: 1);
         }
 
-        public override int Priority => 100;
+        //public override int Priority => 100;
 
-        public override string EnterClass()
-        {
-            return $@"
-        private readonly {GetUnitOfWork()} _unitOfWork;";
-        }
+        //public override string EnterClass()
+        //{
+        //    return $@"
+        //private readonly {GetUnitOfWork()} _unitOfWork;";
+        //}
 
-        public override IEnumerable<string> ConstructorParameters()
-        {
-            return new[] { $"{GetUnitOfWork()} unitOfWork" };
-        }
+        //public override IEnumerable<string> ConstructorParameters()
+        //{
+        //    return new[] { $"{GetUnitOfWork()} unitOfWork" };
+        //}
 
-        public override string ConstructorImplementation()
-        {
-            return $@"
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));";
-        }
+        //public override string ConstructorImplementation()
+        //{
+        //    return $@"
+        //    _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));";
+        //}
 
-        public override string EnterOperationBody(OperationModel operationModel)
-        {
-            _template.AddUsing("System.Transactions");
+        //public override string EnterOperationBody(OperationModel operationModel)
+        //{
+        //    _template.AddUsing("System.Transactions");
 
-            return $@"
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
-            {{";
-        }
+        //    return $@"
+        //    using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+        //        new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
+        //    {{";
+        //}
 
-        public override string MidOperationBody(OperationModel operationModel)
-        {
-            if (operationModel.GetHttpSettings().Verb().IsGET())
-            {
-                return string.Empty;
-            }
-            return $@"
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
-            transaction.Complete();";
-        }
+        //public override string MidOperationBody(OperationModel operationModel)
+        //{
+        //    if (operationModel.GetHttpSettings().Verb().IsGET())
+        //    {
+        //        return string.Empty;
+        //    }
+        //    return $@"
+        //    await _unitOfWork.SaveChangesAsync(cancellationToken);
+        //    transaction.Complete();";
+        //}
 
         private string GetUnitOfWork()
         {

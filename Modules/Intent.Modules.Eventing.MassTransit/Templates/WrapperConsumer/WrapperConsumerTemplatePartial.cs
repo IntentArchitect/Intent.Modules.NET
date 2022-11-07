@@ -136,7 +136,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
                 .Select(s => new { s.Priority, ExitCode = s.GetConsumeExitCode() })
                 .Concat(new[] { new
                 {
-                    Priority = _flushAllPriority, 
+                    Priority = _flushAllPriority,
                     ExitCode = new[] { "await eventBus.FlushAllAsync(context.CancellationToken);" } as IEnumerable<string>
                 } })
                 .OrderBy(o => o.Priority)

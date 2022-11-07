@@ -22,12 +22,12 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
             return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
         }
 
-        public static string GetIntegrationEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageHandlerModel
+        public static string GetIntegrationEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, template.Model);
         }
 
-        public static string GetIntegrationEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageHandlerModel model)
+        public static string GetIntegrationEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
         }

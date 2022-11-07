@@ -79,7 +79,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return new CSharpFileConfig(
                 className: $"{Model.Name.RemoveSuffix("Controller", "Service")}Controller",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: this.GetFolderPath());
+                relativeLocation: this.GetFolderPath())
+            {
+                AutoFormat = false
+            };
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -88,30 +91,30 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return CSharpFile.ToString();
         }
 
-        public string GetEnterClass()
-        {
-            return GetDecorators().Aggregate(x => x.EnterClass());
-        }
+        //public string GetEnterClass()
+        //{
+        //    return GetDecorators().Aggregate(x => x.EnterClass());
+        //}
 
-        public string GetExitClass()
-        {
-            return GetDecorators().Aggregate(x => x.ExitClass());
-        }
+        //public string GetExitClass()
+        //{
+        //    return GetDecorators().Aggregate(x => x.ExitClass());
+        //}
 
-        public string GetEnterOperationBody(OperationModel o)
-        {
-            return GetDecorators().Aggregate(x => x.EnterOperationBody(o));
-        }
+        //public string GetEnterOperationBody(OperationModel o)
+        //{
+        //    return GetDecorators().Aggregate(x => x.EnterOperationBody(o));
+        //}
 
-        public string GetMidOperationBody(OperationModel o)
-        {
-            return GetDecorators().Aggregate(x => x.MidOperationBody(o));
-        }
+        //public string GetMidOperationBody(OperationModel o)
+        //{
+        //    return GetDecorators().Aggregate(x => x.MidOperationBody(o));
+        //}
 
-        public string GetExitOperationBody(OperationModel o)
-        {
-            return GetDecorators().Aggregate(x => x.ExitOperationBody(o));
-        }
+        //public string GetExitOperationBody(OperationModel o)
+        //{
+        //    return GetDecorators().Aggregate(x => x.ExitOperationBody(o));
+        //}
 
         public HttpVerb GetHttpVerb(OperationModel operation)
         {
@@ -120,21 +123,20 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return Enum.TryParse(verb.Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
         }
 
+        //private string GetControllerBase()
+        //{
+        //    return GetDecorators().Select(x => x.BaseClass()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x)) ??
+        //           "ControllerBase";
+        //}
 
-        private string GetControllerBase()
-        {
-            return GetDecorators().Select(x => x.BaseClass()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x)) ??
-                   "ControllerBase";
-        }
+        //private string ConstructorBaseCall()
+        //{
+        //    var baseCallParameters = GetDecorators().Select(x => x.ConstructorBaseCall()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x));
 
-        private string ConstructorBaseCall()
-        {
-            var baseCallParameters = GetDecorators().Select(x => x.ConstructorBaseCall()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x));
-
-            return baseCallParameters != null
-                ? $" : base({baseCallParameters})"
-                : string.Empty;
-        }
+        //    return baseCallParameters != null
+        //        ? $" : base({baseCallParameters})"
+        //        : string.Empty;
+        //}
 
         private IEnumerable<string> GetControllerAttributes()
         {

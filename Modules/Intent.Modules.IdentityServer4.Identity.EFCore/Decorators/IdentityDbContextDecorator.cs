@@ -6,11 +6,11 @@ using Intent.Engine;
 using Intent.IdentityServer4.Identity.EFCore.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.EntityFrameworkCore.Events;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,44 +20,58 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class IdentityDbContextDecorator : DecoratorBase
+    public class IdentityDbContextDecorator :
+        DbContextDecoratorBase, IDecoratorExecutionHooks, IHasNugetDependencies
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.Identity.EFCore.IdentityDbContextDecorator";
 
 
         [IntentManaged(Mode.Fully)]
-        private readonly ICSharpFileBuilderTemplate _template;
+        private readonly DbContextTemplate _template;
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge)]
-        public IdentityDbContextDecorator(ICSharpFileBuilderTemplate template, IApplication application)
+        public IdentityDbContextDecorator(DbContextTemplate template, Engine.IApplication application)
         {
             _template = template;
             _application = application;
             _template.FulfillsRole("Infrastructure.Data.IdentityDbContext");
-            _template.AddNugetDependency(NugetPackages.IdentityServer4EntityFramework);
-            _template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(_template.OutputTarget.GetProject()));
+        }
 
-            _template.CSharpFile.OnBuild(file =>
+        public void BeforeTemplateExecution()
+        {
+            _application.EventDispatcher.Publish(new OverrideDbContextOptionsEvent
             {
-                var @class = file.Classes.First();
-                _template.AddUsing("Microsoft.AspNetCore.Identity.EntityFrameworkCore");
-                @class.WithBaseType($"IdentityDbContext<{_template.GetIdentityUserClass()}>");
+                UseDbContextAsOptionsParameter = true
             });
+        }
+
+        public IEnumerable<INugetPackageInfo> GetNugetDependencies()
+        {
+            return new INugetPackageInfo[]
+            {
+                NugetPackages.IdentityServer4EntityFramework,
+                NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(_template.OutputTarget.GetProject())
+            };
+        }
+
+        public override string GetBaseClass()
+        {
+            return $"{_template.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{_template.GetIdentityUserClass()}>";
         }
     }
 
     public static class IdentityHelperExtensions
     {
-        public static string GetIdentityUserClass(this ICSharpTemplate template)
+        public static string GetIdentityUserClass<T>(this CSharpTemplateBase<T> template)
         {
             var identityModel = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels()
                 .SingleOrDefault(x => x.HasIdentityUser());
             var identityUserClass = identityModel != null
                 ? template.GetTypeName("Domain.Entity", identityModel)
-                : template.GetTypeName("Domain.IdentityUser", TemplateDiscoveryOptions.DoNotThrow);
+                : template.TryGetTypeName("Domain.IdentityUser");
 
             return identityUserClass ?? template.UseType("Microsoft.AspNetCore.Identity.IdentityUser");
         }

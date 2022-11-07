@@ -89,7 +89,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration
         {
             var consumers = new List<string>();
             foreach (var messageHandlerModel in ExecutionContext.MetadataManager
-                         .Eventing(ExecutionContext.GetApplicationConfig().Id).GetConsumerModels().SelectMany(x => x.MessageConsumers))
+                         .Eventing(ExecutionContext.GetApplicationConfig().Id).GetApplicationModels().SelectMany(x => x.SubscribedMessages()))
             {
                 var messageName = this.GetIntegrationEventMessageName(messageHandlerModel.TypeReference.Element.AsMessageModel());
                 var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace("_", "-").Replace(" ", "-").Replace(".", "-");

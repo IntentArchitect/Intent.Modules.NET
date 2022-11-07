@@ -16,12 +16,12 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class IntegrationEventHandlerImplementationTemplate : CSharpTemplateBase<MessageHandlerModel>
+    partial class IntegrationEventHandlerImplementationTemplate : CSharpTemplateBase<MessageSubscribeAssocationTargetEndModel>
     {
         public const string TemplateId = "Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public IntegrationEventHandlerImplementationTemplate(IOutputTarget outputTarget, MessageHandlerModel model) : base(TemplateId, outputTarget, model)
+        public IntegrationEventHandlerImplementationTemplate(IOutputTarget outputTarget, MessageSubscribeAssocationTargetEndModel model) : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
         }

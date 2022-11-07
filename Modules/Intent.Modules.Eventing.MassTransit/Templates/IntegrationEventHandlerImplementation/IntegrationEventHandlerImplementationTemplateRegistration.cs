@@ -15,7 +15,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class IntegrationEventHandlerImplementationTemplateRegistration : FilePerModelTemplateRegistration<MessageHandlerModel>
+    public class IntegrationEventHandlerImplementationTemplateRegistration : FilePerModelTemplateRegistration<MessageSubscribeAssocationTargetEndModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -26,15 +26,15 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerI
 
         public override string TemplateId => IntegrationEventHandlerImplementationTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, MessageHandlerModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, MessageSubscribeAssocationTargetEndModel model)
         {
             return new IntegrationEventHandlerImplementationTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<MessageHandlerModel> GetModels(IApplication application)
+        public override IEnumerable<MessageSubscribeAssocationTargetEndModel> GetModels(IApplication application)
         {
-            return _metadataManager.Eventing(application).GetConsumerModels().SelectMany(s => s.MessageConsumers);
+            return _metadataManager.Eventing(application).GetApplicationModels().SelectMany(s => s.SubscribedMessages());
         }
     }
 }
