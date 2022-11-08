@@ -15,6 +15,8 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
 
         Guid AAggregaterootId { get; set; }
 
+        DateTime? SomeDate { get; set; }
+
         string CompositeAttr { get; set; }
 
         CompositeSingleBB Composite { get; set; }

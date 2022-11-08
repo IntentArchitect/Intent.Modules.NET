@@ -37,6 +37,17 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
             }
         }
 
+        private DateTime? _someDate;
+
+        public DateTime? SomeDate
+        {
+            get { return _someDate; }
+            set
+            {
+                _someDate = value;
+            }
+        }
+
         private string _compositeAttr;
 
         public string CompositeAttr

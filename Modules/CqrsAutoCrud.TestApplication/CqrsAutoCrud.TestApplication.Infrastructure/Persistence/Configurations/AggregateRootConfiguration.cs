@@ -100,6 +100,8 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence.Configurations
             builder.Property(x => x.AAggregaterootId)
                 .IsRequired();
 
+            builder.Property(x => x.SomeDate);
+
             builder.OwnsOne(x => x.Composite, ConfigureComposite);
 
             builder.OwnsMany(x => x.Composites, ConfigureComposites);

@@ -3,7 +3,7 @@
   <sourceEnd id="115992e2-19e7-426b-aaad-765594defa6f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>A_AggregateRoot</name>
     <display>A_AggregateRoot: AggregateRoot</display>
-    <order>5</order>
+    <order>6</order>
     <typeReference id="a24435c1-da14-4e02-bfde-5c278b7389c7">
       <typeId>12049f0f-4214-4ca8-8ce9-d7d65eaf1534</typeId>
       <isNavigable>false</isNavigable>

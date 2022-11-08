@@ -74,12 +74,14 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
             new CompositeManyB
             {
                 Id = new Guid("0483ae48-4606-45ec-8ca4-66355aa5bbbf"),
-                CompositeAttr = root.AggregateAttr + "_1"
+                CompositeAttr = root.AggregateAttr + "_1",
+                SomeDate = DateTime.Parse("2022/11/08 12:00:00")
             },
             new CompositeManyB
             {
                 Id = new Guid("d34db3c5-2db3-47e3-aa7c-1fb8b7cb52df"),
-                CompositeAttr = root.AggregateAttr + "_2"
+                CompositeAttr = root.AggregateAttr + "_2",
+                SomeDate = DateTime.Parse("2022/11/08 12:10:00")
             }
         };
         root.Composite = new CompositeSingleA();
