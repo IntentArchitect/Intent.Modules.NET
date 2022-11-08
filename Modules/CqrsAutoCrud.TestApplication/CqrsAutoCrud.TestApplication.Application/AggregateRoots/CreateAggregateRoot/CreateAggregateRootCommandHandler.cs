@@ -32,41 +32,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             {
                 AggregateAttr = request.AggregateAttr,
                 Composite = request.Composite != null
-                    ? new CompositeSingleA
-                    {
-                        CompositeAttr = request.Composite.CompositeAttr,
-                        Composite = request.Composite.Composite != null
-                            ? new CompositeSingleAA
-                            {
-                                CompositeAttr = request.Composite.Composite.CompositeAttr,
-                            }
-                            : null,
-                        Composites = request.Composite.Composites.Select(composites =>
-                            new CompositeManyAA
-                            {
-                                CompositeAttr = composites.CompositeAttr,
-                                ACompositeSingleId = composites.ACompositeSingleId,
-                            }).ToList(),
-                    }
+                    ? CreateCompositeSingleA(request.Composite)
                     : null,
-                Composites = request.Composites.Select(composites =>
-                    new CompositeManyB
-                    {
-                        CompositeAttr = composites.CompositeAttr,
-                        AAggregaterootId = composites.AAggregaterootId,
-                        Composite = composites.Composite != null
-                            ? new CompositeSingleBB
-                            {
-                                CompositeAttr = composites.Composite.CompositeAttr,
-                            }
-                            : null,
-                        Composites = composites.Composites.Select(composites =>
-                            new CompositeManyBB
-                            {
-                                CompositeAttr = composites.CompositeAttr,
-                                ACompositeManyId = composites.ACompositeManyId,
-                            }).ToList(),
-                    }).ToList(),
+                Composites = request.Composites.Select(CreateCompositeManyB).ToList(),
 #warning Property not a composite association: Aggregate
             };
 
@@ -74,6 +42,65 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
 
             await _aggregateRootRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newAggregateRoot.Id;
+        }
+
+        private static CompositeManyB CreateCompositeManyB(CreateCompositeManyBDTO dto)
+        {
+            return new CompositeManyB
+            {
+                CompositeAttr = dto.CompositeAttr,
+                AAggregaterootId = dto.AAggregaterootId,
+                Composite = dto.Composite != null
+                    ? CreateCompositeSingleBB(dto)
+                    : null,
+                Composites = dto.Composites.Select(CreateCompositeManyBB).ToList(),
+            };
+        }
+
+        private static CompositeManyBB CreateCompositeManyBB(CreateCompositeManyBBDTO dto)
+        {
+            return new CompositeManyBB
+            {
+                CompositeAttr = dto.CompositeAttr,
+                ACompositeManyId = dto.ACompositeManyId,
+            };
+        }
+
+        private static CompositeSingleBB CreateCompositeSingleBB(CreateCompositeManyBDTO dto)
+        {
+            return new CompositeSingleBB
+            {
+                CompositeAttr = dto.Composite.CompositeAttr,
+            };
+        }
+
+        private static CompositeSingleA CreateCompositeSingleA(CreateCompositeSingleADTO dto)
+        {
+            return new CompositeSingleA
+            {
+                CompositeAttr = dto.CompositeAttr,
+                Composite = dto.Composite != null
+                    ? CreateCompositeSingleAA(dto.Composite)
+                    : null,
+                Composites = dto.Composites.Select(CreateCompositeManyAA).ToList(),
+            };
+        }
+
+        private static CompositeSingleAA CreateCompositeSingleAA(CreateCompositeSingleAADTO dto)
+        {
+            return new CompositeSingleAA
+            {
+                CompositeAttr = dto.CompositeAttr,
+            };
+        }
+
+        private static CompositeManyAA CreateCompositeManyAA(CreateCompositeManyAADTO dto)
+        {
+            return new CompositeManyAA
+            {
+                CompositeAttr = dto.CompositeAttr,
+                ACompositeSingleId = dto.ACompositeSingleId,
+            };
         }
     }
 }
