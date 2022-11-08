@@ -21,7 +21,8 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Core
 
         public void ConfigureAggregateRoot5EntityWithRepo(OwnedNavigationBuilder<AggregateRoot5, AggregateRoot5EntityWithRepo> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
 
             builder.HasKey(x => x.Id);
         }

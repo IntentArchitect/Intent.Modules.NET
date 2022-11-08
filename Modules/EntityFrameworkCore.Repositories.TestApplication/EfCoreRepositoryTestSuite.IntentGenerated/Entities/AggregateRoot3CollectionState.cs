@@ -13,7 +13,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
         public Guid Id { get; set; }
 
-        private ICollection<AggregateRoot3AggCollection> AggregateRoot3AggCollections { get; set; }
+        protected virtual ICollection<AggregateRoot3AggCollection> AggregateRoot3AggCollections { get; set; }
 
     }
 }
