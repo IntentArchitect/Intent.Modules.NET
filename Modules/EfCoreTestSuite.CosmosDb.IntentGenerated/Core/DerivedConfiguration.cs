@@ -37,17 +37,11 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
                 .HasForeignKey(x => x.AssociatedId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.OwnsMany(x => x.Composites, ConfigureComposites);
-        }
-
-        public void ConfigureComposites(OwnedNavigationBuilder<Derived, Composite> builder)
-        {
-            builder.WithOwner();
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.CompositeField1)
-                .IsRequired();
+            builder.HasMany(x => x.Composites)
+                .WithOne()
+                .HasForeignKey(x => x.DerivedId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

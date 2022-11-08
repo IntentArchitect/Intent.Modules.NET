@@ -10,6 +10,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
     {
         public Guid Id { get; set; }
 
+        public Guid DerivedId { get; set; }
+
         public string CompositeField1 { get; set; }
+
+        public string PartitionKey { get; set; }
     }
 }

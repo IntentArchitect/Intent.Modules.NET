@@ -97,7 +97,7 @@ if (! element.hasStereotype("Cosmos DB Container Settings")) {
 const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element.getParent()) || isSuperClass(element.getParent())) { 
+if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || isSuperClass(element.getParent())) { 
     return; 
 }
 
@@ -149,7 +149,7 @@ const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isSuperClass(element)) { 
+if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || isSuperClass(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
@@ -209,7 +209,7 @@ const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isSuperClass(element)) { 
+if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || isSuperClass(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {
@@ -267,7 +267,7 @@ const dbSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
 const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 
-if (!isCosmosDbProvider() || !isAggregateRoot(element) || isSuperClass(element)) { 
+if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || isSuperClass(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
         .forEach(x =&gt; {

@@ -25,19 +25,11 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.OwnsOne(x => x.BaseClassNonAbstracts, ConfigureBaseClassNonAbstracts)
-                .Navigation(x => x.BaseClassNonAbstracts).IsRequired();
-        }
-
-        public void ConfigureBaseClassNonAbstracts(OwnedNavigationBuilder<Poly_SecondLevel, Poly_BaseClassNonAbstract> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.Id);
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.BaseField)
-                .IsRequired();
+            builder.HasOne(x => x.BaseClassNonAbstracts)
+                .WithOne()
+                .HasForeignKey<Poly_SecondLevel>(x => x.Id)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

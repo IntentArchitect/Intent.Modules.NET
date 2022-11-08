@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#aed0834e-a288-4014-988a-825b8ff62487</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/CompositeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompositeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7ba55e43-5a53-444f-a6d5-95ff1ad2443f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/ConcreteBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
@@ -248,6 +256,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>37916cea-3632-4b01-a96c-eba08f664511</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ad2a940d-37b1-42ac-aa59-51484cfc1ca5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../EfCoreTestSuite.CosmosDb.IntentGenerated/Core/Poly_BaseClassNonAbstractConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Poly_BaseClassNonAbstractConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

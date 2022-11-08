@@ -7,8 +7,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
     public interface IWeirdClass : IComposite
     {
-        string PartitionKey { get; set; }
-
         string WeirdField { get; set; }
     }
 }

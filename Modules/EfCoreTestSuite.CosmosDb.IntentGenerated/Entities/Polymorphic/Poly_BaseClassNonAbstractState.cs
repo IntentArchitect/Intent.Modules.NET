@@ -11,5 +11,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
         public Guid Id { get; set; }
 
         public string BaseField { get; set; }
+
+        public string PartitionKey { get; set; }
     }
 }

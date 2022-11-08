@@ -8,5 +8,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
     public interface IPoly_BaseClassNonAbstract
     {
         string BaseField { get; set; }
+
+        string PartitionKey { get; set; }
     }
 }

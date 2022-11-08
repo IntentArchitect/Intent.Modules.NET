@@ -3,7 +3,7 @@
   <sourceEnd id="da3e01d3-9146-4552-b63f-43337e6bc19d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>Derived</name>
     <display>Derived: Derived</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="bee834f4-c345-486c-a0f7-44f48b89d85f">
       <typeId>0d22d5dd-b9fd-472d-a906-aefd1cf6c374</typeId>
       <isNavigable>false</isNavigable>

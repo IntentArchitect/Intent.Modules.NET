@@ -9,6 +9,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
     {
         string BaseField1 { get; set; }
 
+        string PartitionKey { get; set; }
+
         IBaseAssociated BaseAssociated { get; set; }
     }
 }

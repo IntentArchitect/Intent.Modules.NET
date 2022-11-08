@@ -12,6 +12,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 
         public string BaseField1 { get; set; }
 
+        public string PartitionKey { get; set; }
+
         public virtual BaseAssociated BaseAssociated { get; set; }
 
         IBaseAssociated IBase.BaseAssociated

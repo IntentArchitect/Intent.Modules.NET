@@ -8,7 +8,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
     public partial class Poly_ConcreteB : Poly_BaseClassNonAbstract, IPoly_ConcreteB
     {
         public string ConcreteField { get; set; }
-
-        public string PartitionKey { get; set; }
     }
 }

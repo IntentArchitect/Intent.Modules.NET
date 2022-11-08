@@ -87,7 +87,7 @@ public class InheritanceTPHTests
         var derivedAssociated = new DerivedClassForConcreteAssociated
         {
             PartitionKey = "ABC",
-            Associatedfield = "Associated Value",
+            AssociatedField = "Associated Value",
             DerivedClassForConcrete = derived
         };
         DbContext.DerivedClassForConcreteAssociateds.Add(derivedAssociated);

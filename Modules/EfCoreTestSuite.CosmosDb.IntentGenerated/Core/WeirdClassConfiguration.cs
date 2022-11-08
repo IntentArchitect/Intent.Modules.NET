@@ -14,15 +14,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<WeirdClass> builder)
         {
+            builder.HasBaseType<Composite>();
+
             builder.HasPartitionKey(x => x.PartitionKey);
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.CompositeField1)
-                .IsRequired();
-
-            builder.Property(x => x.PartitionKey)
-                .IsRequired();
 
             builder.Property(x => x.WeirdField)
                 .IsRequired();

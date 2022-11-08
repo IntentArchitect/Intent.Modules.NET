@@ -14,8 +14,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 
         public Guid AssociatedId { get; set; }
 
-        public string PartitionKey { get; set; }
-
         public string DerivedField1 { get; set; }
 
         public virtual Associated Associated { get; set; }

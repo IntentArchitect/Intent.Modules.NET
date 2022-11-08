@@ -3,7 +3,7 @@
   <sourceEnd id="968f0e89-adad-4e52-bff7-8daa40759bf6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>SecondLevel</name>
     <display>SecondLevel: Poly_SecondLevel</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="ee0d4d1e-e074-45ae-8887-2755da13ec20">
       <typeId>ccd7e035-cb2e-4dac-9e67-f84831167e49</typeId>
       <isNavigable>false</isNavigable>

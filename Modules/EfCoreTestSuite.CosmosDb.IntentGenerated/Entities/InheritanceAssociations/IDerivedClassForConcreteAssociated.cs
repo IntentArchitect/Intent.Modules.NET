@@ -9,7 +9,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
     {
         string PartitionKey { get; set; }
 
-        string Associatedfield { get; set; }
+        string AssociatedField { get; set; }
 
         IDerivedClassForConcrete DerivedClassForConcrete { get; set; }
     }

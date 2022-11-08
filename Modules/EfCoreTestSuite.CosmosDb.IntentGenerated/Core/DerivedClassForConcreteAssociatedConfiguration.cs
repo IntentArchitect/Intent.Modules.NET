@@ -22,7 +22,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.Property(x => x.Associatedfield)
+            builder.Property(x => x.AssociatedField)
                 .IsRequired();
 
             builder.HasOne(x => x.DerivedClassForConcrete)

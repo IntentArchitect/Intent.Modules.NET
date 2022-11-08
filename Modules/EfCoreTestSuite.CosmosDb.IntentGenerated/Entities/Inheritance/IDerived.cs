@@ -8,8 +8,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
     public interface IDerived : IBase
     {
-        string PartitionKey { get; set; }
-
         string DerivedField1 { get; set; }
 
         IAssociated Associated { get; set; }

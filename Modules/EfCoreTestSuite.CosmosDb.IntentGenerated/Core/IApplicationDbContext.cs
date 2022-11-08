@@ -25,6 +25,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<BaseAssociated> BaseAssociateds { get; set; }
         DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         DbSet<ClassA> ClassAs { get; set; }
+        DbSet<Composite> Composites { get; set; }
         DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
         DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
@@ -44,6 +45,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
+        DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
         DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }

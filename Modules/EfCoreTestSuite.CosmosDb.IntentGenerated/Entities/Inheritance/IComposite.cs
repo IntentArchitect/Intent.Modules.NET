@@ -8,5 +8,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
     public interface IComposite
     {
         string CompositeField1 { get; set; }
+
+        string PartitionKey { get; set; }
     }
 }
