@@ -2,57 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CqrsAutoCrud.TestApplication.Application;
+namespace CqrsAutoCrud.TestApplication.Domain.Common;
 
-public static class CrudHelper
-{ 
-    public static TOriginal UpdateObject<TChanged, TOriginal>(
-        this TOriginal baseElement,
-        TChanged changedElement,
-        Action<TOriginal, TChanged> assignmentAction)
-    {
-        if (baseElement == null)
-        {
-            return baseElement;
-        }
-
-        assignmentAction(baseElement, changedElement);
-        return baseElement;
-    }
-    
-    public static void UpdateCollection<TChanged, TOriginal>(
-        this ICollection<TOriginal> baseCollection, 
-        ICollection<TChanged> changedCollection,
-        Func<TOriginal, TChanged, bool> equalityCheck,
-        Action<TOriginal, TChanged> assignmentAction)
-            where TOriginal: class, new()
-    {
-        if (changedCollection == null)
-        {
-            baseCollection.Clear();
-            return;
-        }
-        
-        var result = CrudHelper.CompareCollections(baseCollection, changedCollection, equalityCheck);
-        foreach (var elementToAdd in result.ToAdd)
-        {
-            var newEntity = new TOriginal();
-            assignmentAction(newEntity, elementToAdd);
-            
-            baseCollection.Add(newEntity);
-        }
-        
-        foreach (var elementToRemove in result.ToRemove)
-        {
-            baseCollection.Remove(elementToRemove);
-        }
-        
-        foreach (var elementToEdit in result.PossibleEdits)
-        {
-            assignmentAction(elementToEdit.Original, elementToEdit.Changed);
-        }
-    }
-
+public static class CollectionExtensions
+{
     public static ComparisonResult<TChanged, TOriginal> CompareCollections<TChanged, TOriginal>(
         this ICollection<TOriginal> baseCollection,
         ICollection<TChanged> changedCollection, 
