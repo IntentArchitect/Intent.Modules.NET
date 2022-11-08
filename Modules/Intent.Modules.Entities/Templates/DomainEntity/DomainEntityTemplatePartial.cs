@@ -47,6 +47,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 {
                     @class.AddMetadata("model", Model);
                     @class.AddMetadata(IsMerged, true);
+                    @class.WithPropertiesSeparated();
 
                     if (Model.IsAbstract)
                     {
