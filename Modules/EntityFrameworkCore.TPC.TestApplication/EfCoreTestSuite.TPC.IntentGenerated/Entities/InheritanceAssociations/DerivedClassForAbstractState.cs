@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public partial class DerivedClassForAbstract : AbstractBaseClass, IDerivedClassForAbstract
     {
+        public Guid Id { get; set; }
 
         public string DerivedAttribute { get; set; }
     }

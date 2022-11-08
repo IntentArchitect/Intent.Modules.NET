@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.TPH.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations
 {
 
-    public interface IFkBaseClassAssociated
+    public interface IFkBaseClassAssociated : IHasDomainEvent
     {
         string AssociatedField { get; set; }
 

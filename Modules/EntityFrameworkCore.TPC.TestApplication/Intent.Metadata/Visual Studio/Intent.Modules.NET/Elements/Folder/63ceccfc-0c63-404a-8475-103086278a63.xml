@@ -53,6 +53,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="ef061e8e-b03f-45bf-83e4-c15167475e14" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbInitializationExtensions</name>
+      <display>Intent.EntityFrameworkCore.DbInitializationExtensions</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>63ceccfc-0c63-404a-8475-103086278a63</parentFolderId>
+      <packageId>40b6b89e-ffa0-4da7-aaf4-b5056504c8b3</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="52704b90-46fa-4e1a-827d-63613caaf7f0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.DbMigrationsReadMe</name>
       <display>Intent.EntityFrameworkCore.DbMigrationsReadMe</display>

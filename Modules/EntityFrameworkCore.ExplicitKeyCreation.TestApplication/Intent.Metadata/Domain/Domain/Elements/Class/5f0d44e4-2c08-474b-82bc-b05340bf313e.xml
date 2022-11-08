@@ -3,7 +3,7 @@
   <name>ExplicitKeysCompositeKey</name>
   <display>ExplicitKeysCompositeKey</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>eadbf8ac-0762-4824-b829-696f9dda0053</parentFolderId>
@@ -16,7 +16,6 @@
       <name>compositeKeyA</name>
       <display>compositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="c1a99a5e-e003-481d-a5ef-bcba01de8975">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -50,7 +49,6 @@
       <name>compositeKeyB</name>
       <display>compositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <typeReference id="34988dc5-ae17-4fe3-988d-ae936ee3829f">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>

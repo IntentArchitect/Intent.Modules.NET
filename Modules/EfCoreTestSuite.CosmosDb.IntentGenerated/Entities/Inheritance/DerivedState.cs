@@ -10,7 +10,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
     public partial class Derived : Base, IDerived
     {
-        public Guid Id { get; set; }
 
         public Guid AssociatedId { get; set; }
 

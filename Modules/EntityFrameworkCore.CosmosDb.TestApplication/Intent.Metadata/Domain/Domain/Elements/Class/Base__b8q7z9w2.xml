@@ -2,7 +2,7 @@
 <class id="82b2c294-9b83-4dd6-8719-f4039dc40a27" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>Base</name>
   <display>Base</display>
-  <isAbstract>true</isAbstract>
+  <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>

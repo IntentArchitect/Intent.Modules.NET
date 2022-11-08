@@ -3,7 +3,7 @@
   <name>ExplicitKeysCompositeForeignKey</name>
   <display>ExplicitKeysCompositeForeignKey</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>eadbf8ac-0762-4824-b829-696f9dda0053</parentFolderId>
@@ -16,7 +16,6 @@
       <name>Id</name>
       <display>Id: guid</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <typeReference id="fcd45f9e-934a-4fc9-9aec-9b006cb7731a">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -52,7 +51,6 @@
       <name>ExplicitKeysCompositeKeyCompositeKeyA</name>
       <display>ExplicitKeysCompositeKeyCompositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <typeReference id="5e414c4a-c9cc-42c3-8630-f236f1db419d">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -87,7 +85,6 @@
       <name>ExplicitKeysCompositeKeyCompositeKeyB</name>
       <display>ExplicitKeysCompositeKeyCompositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <typeReference id="ab0d6149-3791-43ea-9303-9351e594b1bc">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>

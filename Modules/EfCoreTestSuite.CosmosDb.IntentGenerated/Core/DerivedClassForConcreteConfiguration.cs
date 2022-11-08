@@ -12,7 +12,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<DerivedClassForConcrete> builder)
         {
-            builder.ToTable("DerivedClassForConcretes");
+            builder.HasBaseType<ConcreteBaseClass>();
 
             builder.HasPartitionKey(x => x.PartitionKey);
 

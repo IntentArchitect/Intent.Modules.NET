@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
 
     public partial class Poly_BaseClassNonAbstract : Poly_RootAbstract, IPoly_BaseClassNonAbstract
     {
+        public Guid Id { get; set; }
 
         public string BaseField { get; set; }
 

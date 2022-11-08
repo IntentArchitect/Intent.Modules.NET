@@ -13,8 +13,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
     public partial class AbstractBaseClass : IAbstractBaseClass, IHasDomainEvent
     {
 
-        public Guid Id { get; set; }
-
         public string BaseAttribute { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

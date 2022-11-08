@@ -202,14 +202,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
             else if (ParentConfigurationExists(model))
             {
-                if (model.HasTable())
-                {
-                    yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name.Pluralize()}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema()}""" : "")});";
-                }
-                else
-                {
-                    yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
-                }
+                yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
             }
 
             if (GetPartitionKey(model) != null)
@@ -513,7 +506,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             }
                         }
                     }
-                }, int.MinValue);
+                });
             }
         }
 

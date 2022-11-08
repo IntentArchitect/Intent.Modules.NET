@@ -28,8 +28,6 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.WithOwner(x => x.E2_RequiredCompositeNav)
                 .HasForeignKey(x => x.Id);
 
-            builder.ToTable("E2_RequiredDependent");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.ReqDepAttr)

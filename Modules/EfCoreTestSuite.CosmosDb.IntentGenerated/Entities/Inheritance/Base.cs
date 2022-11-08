@@ -8,7 +8,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Properties)]
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
-    public abstract partial class Base : IBase
+    public partial class Base : IBase
     {
     }
 }

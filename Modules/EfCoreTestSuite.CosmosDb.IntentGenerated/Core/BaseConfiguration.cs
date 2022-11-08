@@ -1,5 +1,3 @@
-using System;
-using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -10,27 +8,26 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
 {
-    public class DerivedConfiguration : IEntityTypeConfiguration<Derived>
+    public class BaseConfiguration : IEntityTypeConfiguration<Base>
     {
-        public void Configure(EntityTypeBuilder<Derived> builder)
+        public void Configure(EntityTypeBuilder<Base> builder)
         {
-            builder.HasBaseType<Base>();
+            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
 
             builder.HasPartitionKey(x => x.PartitionKey);
 
-            builder.Property(x => x.DerivedField1)
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.BaseField1)
                 .IsRequired();
 
-            builder.HasOne(x => x.Associated)
-                .WithMany()
-                .HasForeignKey(x => x.AssociatedId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.Property(x => x.PartitionKey)
+                .IsRequired();
 
-            builder.HasMany(x => x.Composites)
-                .WithOne()
-                .HasForeignKey(x => x.DerivedId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(x => x.BaseAssociated)
+                .WithMany()
+                .HasForeignKey(x => x.BaseAssociatedId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

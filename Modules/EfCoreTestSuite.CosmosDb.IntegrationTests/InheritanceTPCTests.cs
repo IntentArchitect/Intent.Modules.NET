@@ -50,9 +50,11 @@ public class InheritanceTPCTests
     [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_InheritFromOwnedClass()
     {
-        var composite = new Composite
+        var composite = new WeirdClass()
         {
-            CompositeField1 = "Composite Value"
+            PartitionKey = "ABC",
+            CompositeField1 = "Composite Value",
+            WeirdField = "Weird"
         };
 
         var derived = new Derived

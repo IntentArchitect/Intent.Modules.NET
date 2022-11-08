@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.TPH.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 {
 
-    public interface IPoly_RootAbstract_Aggr
+    public interface IPoly_RootAbstract_Aggr : IHasDomainEvent
     {
         string AggrField { get; set; }
 

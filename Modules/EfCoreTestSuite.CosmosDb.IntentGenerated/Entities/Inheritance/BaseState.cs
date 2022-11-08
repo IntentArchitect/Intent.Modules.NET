@@ -8,7 +8,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
     public partial class Base : IBase
     {
-        public Guid BaseAssociatedId { get; set; }
+        public Guid Id { get; set; }
+        public Guid? BaseAssociatedId { get; set; }
 
         public string BaseField1 { get; set; }
 

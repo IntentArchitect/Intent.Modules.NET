@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EfCoreTestSuite.TPC.IntentGenerated.DomainEvents;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -8,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
 {
 
-    public interface IPoly_TopLevel
+    public interface IPoly_TopLevel : IHasDomainEvent
     {
         string TopField { get; set; }
 

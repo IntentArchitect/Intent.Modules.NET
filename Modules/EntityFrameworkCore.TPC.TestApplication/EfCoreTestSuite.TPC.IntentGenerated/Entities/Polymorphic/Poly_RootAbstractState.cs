@@ -13,8 +13,6 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
     public partial class Poly_RootAbstract : IPoly_RootAbstract, IHasDomainEvent
     {
 
-        public Guid Id { get; set; }
-
         public string AbstractField { get; set; }
 
         public Guid? Poly_RootAbstract_AggrId { get; set; }

@@ -12,7 +12,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<DerivedClassForAbstract> builder)
         {
-            builder.ToTable("DerivedClassForAbstracts");
+            builder.HasBaseType<AbstractBaseClass>();
 
             builder.HasPartitionKey(x => x.PartitionKey);
 

@@ -22,6 +22,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<Associated> Associateds { get; set; }
         DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
+        DbSet<Base> Bases { get; set; }
         DbSet<BaseAssociated> BaseAssociateds { get; set; }
         DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         DbSet<ClassA> ClassAs { get; set; }
