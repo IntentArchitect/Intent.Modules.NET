@@ -197,12 +197,23 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
 
         if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
         {
+            if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
+            {
+                return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
+                    .Select(selector: x => new RequiredEntityProperty(
+                        Class: associationEnd.Element,
+                        Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
+                        Type: x.Type.Element,
+                        IsNullable: associationEnd.IsNullable))
+                    .ToArray();
+            }
+            // compositional one-to-ones:
             return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
                 .Select(selector: x => new RequiredEntityProperty(
                     Class: associationEnd.Element,
-                    Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
+                    Name: $"{x.Name.ToPascalCase()}",
                     Type: x.Type.Element,
-                    IsNullable: associationEnd.IsNullable))
+                    IsNullable: associationEnd.OtherEnd().IsNullable))
                 .ToArray();
         }
         else // implicit Id
@@ -215,6 +226,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
                     Type: null,
                     IsNullable: associationEnd.OtherEnd().IsNullable) };
             }
+            // compositional one-to-ones:
             return new[] { new RequiredEntityProperty(
                 Class: associationEnd.Element,
                 Name: "Id",

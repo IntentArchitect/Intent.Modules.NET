@@ -28,7 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbInitializationExtension
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() && 
+            if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() &&
                 TryGetTemplate("App.Startup", out _startupTemplate))
             {
                 _startupTemplate.CSharpFile.AfterBuild(file =>

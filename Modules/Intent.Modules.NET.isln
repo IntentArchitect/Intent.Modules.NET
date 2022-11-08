@@ -83,7 +83,6 @@
     <application id="e3d5f673-e092-4556-bd5f-6a67ecc23233" name="Intent.Modules.Application.Contracts.Clients" relativePath="Intent.Modules.Application.Contracts.Clients/Intent.Modules.Application.Contracts.Clients.application.config" />
     <application id="33b7e4f8-9dd8-4db5-8a97-d9bb549f9ecc" name="Intent.Modules.Integration.HttpClients" relativePath="Intent.Modules.Integration.HttpClients/Intent.Modules.Integration.HttpClients.application.config" />
     <application id="e355e09c-5557-4432-91cd-97ad8c7d773e" name="Intent.Modules.EntityFrameworkCore.SqlServer" relativePath="Intent.Modules.EntityFrameworkCore.SqlServer/Intent.Modules.EntityFrameworkCore.SqlServer.application.config" />
-    <application id="a00b9aa1-ee14-44d0-a92a-17d58a03fad6" name="EntityFrameworkCore.Cosmos" relativePath="EntityFrameworkCore.Cosmos/EntityFrameworkCore.Cosmos.application.config" />
     <application id="84a6ab17-88dd-407b-9c9b-a45464b66a12" name="Security.MSAL" relativePath="Intent.Modules.Security.MSAL/Security.MSAL.application.config" />
   </applications>
 </solution>
