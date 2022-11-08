@@ -8,7 +8,5 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
     public partial class DerivedClassForAbstract : AbstractBaseClass, IDerivedClassForAbstract
     {
         public string DerivedAttribute { get; set; }
-
-        public string PartitionKey { get; set; }
     }
 }

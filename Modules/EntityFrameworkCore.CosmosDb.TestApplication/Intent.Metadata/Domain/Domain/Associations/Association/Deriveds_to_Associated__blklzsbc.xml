@@ -21,7 +21,7 @@
   <targetEnd id="84aa5b99-4a0b-4da0-9487-ac34109b5545" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Associated</name>
     <display>Associated: Associated</display>
-    <order>2</order>
+    <order>1</order>
     <typeReference id="709b135d-bcca-47c9-bdde-31524fbe0b61">
       <typeId>a0c675c6-e1ae-4a62-a8e3-d6ce771a8e1e</typeId>
       <isNavigable>true</isNavigable>

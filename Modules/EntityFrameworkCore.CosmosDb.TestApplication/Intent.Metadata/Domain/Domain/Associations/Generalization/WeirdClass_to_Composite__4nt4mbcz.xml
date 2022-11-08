@@ -21,7 +21,7 @@
   <targetEnd id="1f159743-e5d1-48ed-89a3-e13a2e34149f" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>Composite</name>
     <display>Composite: Composite</display>
-    <order>2</order>
+    <order>1</order>
     <typeReference id="b062b35f-1ff8-4fef-bcaa-05909a734eff">
       <typeId>aed0834e-a288-4014-988a-825b8ff62487</typeId>
       <isNavigable>true</isNavigable>

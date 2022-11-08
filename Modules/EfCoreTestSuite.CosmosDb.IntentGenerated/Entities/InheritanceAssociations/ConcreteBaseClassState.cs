@@ -11,5 +11,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }
+
+        public string PartitionKey { get; set; }
     }
 }

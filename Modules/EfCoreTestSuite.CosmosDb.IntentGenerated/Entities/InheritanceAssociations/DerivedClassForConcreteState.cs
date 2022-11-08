@@ -7,8 +7,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
 {
     public partial class DerivedClassForConcrete : ConcreteBaseClass, IDerivedClassForConcrete
     {
-        public string PartitionKey { get; set; }
-
         public string DerivedAttribute { get; set; }
     }
 }

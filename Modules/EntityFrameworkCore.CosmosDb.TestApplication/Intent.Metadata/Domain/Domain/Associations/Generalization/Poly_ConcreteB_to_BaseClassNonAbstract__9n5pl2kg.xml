@@ -21,7 +21,7 @@
   <targetEnd id="b49ba48b-107e-458b-86bc-cd6e6525d0ef" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>BaseClassNonAbstract</name>
     <display>BaseClassNonAbstract: Poly_BaseClassNonAbstract</display>
-    <order>2</order>
+    <order>1</order>
     <typeReference id="2092cfa2-e95c-40e5-a14f-88df1283f75c">
       <typeId>ad2a940d-37b1-42ac-aa59-51484cfc1ca5</typeId>
       <isNavigable>true</isNavigable>

@@ -47,46 +47,5 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="4f2a64ea-4297-46ab-9b75-b113473dd358" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>PartitionKey</name>
-      <display>PartitionKey: string</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="3a727180-136b-44af-a2f1-b9e328dd73ec">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>e28d6ae3-2678-417d-9439-61af20565720</parentFolderId>
-      <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
-      <packageName>Domain</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="3a203a3e-116e-4a7c-b375-e690570efc3f" name="Partition Key">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.EntityFrameworkCore</definitionPackageName>
-          <definitionPackageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</definitionPackageId>
-          <properties />
-        </stereotype>
-        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
-          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
-          <properties>
-            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
-            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
-            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
   </childElements>
 </class>

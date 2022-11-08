@@ -54,8 +54,8 @@
       <childElements />
     </childElement>
     <childElement id="0cc40bae-1281-4ec6-a5c4-e7d6dfa7e238" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>associatedfield</name>
-      <display>associatedfield: string</display>
+      <name>associatedField</name>
+      <display>associatedField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="a0c5f3d6-dab2-40a8-b361-5b25b4debfa6">

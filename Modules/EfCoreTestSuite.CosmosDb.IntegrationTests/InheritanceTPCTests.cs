@@ -24,16 +24,20 @@ public class InheritanceTPCTests
     [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_DerivedAssociated()
     {
-        var associated = new Associated();
-        associated.PartitionKey = "ABC";
-        associated.AssociatedField1 = "Associated Value";
+        var associated = new Associated
+        {
+            PartitionKey = "ABC",
+            AssociatedField1 = "Associated Value"
+        };
         _fixture.DbContext.Associateds.Add(associated);
         
-        var derived = new Derived();
-        derived.DerivedField1 = "Derived Value";
-        derived.BaseField1 = "Derived Value";
-        derived.PartitionKey = "ABC";
-        derived.Associated = associated;
+        var derived = new Derived
+        {
+            DerivedField1 = "Derived Value",
+            BaseField1 = "Derived Value",
+            PartitionKey = "ABC",
+            Associated = associated
+        };
         _fixture.DbContext.Deriveds.Add(derived);
 
         _fixture.DbContext.SaveChanges();
@@ -46,13 +50,17 @@ public class InheritanceTPCTests
     [IgnoreOnCiBuildFact]
     public void Test_Inheritance_TPC_InheritFromOwnedClass()
     {
-        var composite = new Composite();
-        composite.CompositeField1 = "Composite Value";
+        var composite = new Composite
+        {
+            CompositeField1 = "Composite Value"
+        };
 
-        var derived = new Derived();
-        derived.DerivedField1 = "Derived Value";
-        derived.BaseField1 = "Derived Value";
-        derived.PartitionKey = "ABC";
+        var derived = new Derived
+        {
+            DerivedField1 = "Derived Value",
+            BaseField1 = "Derived Value",
+            PartitionKey = "ABC"
+        };
         derived.Composites.Add(composite);
         _fixture.DbContext.Deriveds.Add(derived);
         

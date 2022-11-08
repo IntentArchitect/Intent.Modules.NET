@@ -3,7 +3,7 @@
   <sourceEnd id="181efe73-5f9c-491d-8f26-c798ff5874d4" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>DerivedClassForAbstractAssociateds</name>
     <display>DerivedClassForAbstractAssociateds: DerivedClassForAbstractAssociated[*]</display>
-    <order>3</order>
+    <order>2</order>
     <typeReference id="87f5d5bf-4754-47ec-838a-6f9030ddaa8a">
       <typeId>f894e952-81d7-4c91-86a3-810f07e80fce</typeId>
       <isNavigable>false</isNavigable>
