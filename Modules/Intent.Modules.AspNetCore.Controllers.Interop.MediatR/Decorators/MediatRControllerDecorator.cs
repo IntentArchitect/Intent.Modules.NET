@@ -19,7 +19,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class MediatRControllerDecorator : ControllerDecorator, IDeclareUsings
+    public class MediatRControllerDecorator : ControllerDecorator
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.MediatR.MediatRControllerDecorator";
@@ -38,6 +38,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             _template.AddTypeSource("Application.Contract.Dto", "List<{0}>");
             _template.CSharpFile.OnBuild(file =>
             {
+                file.AddUsing("MediatR");
+                file.AddUsing("Microsoft.AspNetCore.Mvc");
+                file.AddUsing("Microsoft.Extensions.DependencyInjection");
+
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
                 ctor.AddParameter(_template.UseType("MediatR.ISender"), "mediator", p =>
@@ -47,7 +51,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
 
                 foreach (var method in @class.Methods)
                 {
-                    if (method.TryGetMetadata<OperationModel>("model", out var model) && 
+                    if (method.TryGetMetadata<OperationModel>("model", out var model) &&
                         model.HasMapToCommandMapping() || model.HasMapToQueryMapping())
                     {
                         method.AddStatements(GetValidations(model));
@@ -58,24 +62,24 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             });
         }
 
-        public override string EnterClass()
-        {
-            return $@"
-        private readonly ISender _mediator;";
-        }
+        //public override string EnterClass()
+        //{
+        //    return $@"
+        //private readonly ISender _mediator;";
+        //}
 
-        public override IEnumerable<string> ConstructorParameters()
-        {
-            return new[] { $"ISender mediator" };
-        }
+        //public override IEnumerable<string> ConstructorParameters()
+        //{
+        //    return new[] { $"ISender mediator" };
+        //}
 
-        public override string ConstructorImplementation()
-        {
-            return $@"
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));";
-        }
+        //public override string ConstructorImplementation()
+        //{
+        //    return $@"
+        //    _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));";
+        //}
 
-        public IEnumerable<string> GetValidations(OperationModel operationModel)
+        private IEnumerable<string> GetValidations(OperationModel operationModel)
         {
             var validations = new List<string>();
             var payloadParameter = GetPayloadParameter(operationModel);
@@ -95,7 +99,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             return validations;
         }
 
-        public CSharpStatement GetDispatchViaMediatorStatement(OperationModel operationModel)
+        private CSharpStatement GetDispatchViaMediatorStatement(OperationModel operationModel)
         {
             var payload = GetPayloadParameter(operationModel)?.Name
                 ?? (operationModel.InternalElement.IsMapped ? GetMappedPayload(operationModel) : "UNKNOWN");
@@ -105,7 +109,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 : $@"await _mediator.Send({payload}, cancellationToken);";
         }
 
-        public CSharpStatement GetReturnStatement(OperationModel operationModel)
+        private CSharpStatement GetReturnStatement(OperationModel operationModel)
         {
             switch (_template.GetHttpVerb(operationModel))
             {
@@ -148,16 +152,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
         public IList<ParameterModel> GetMappedParameters(OperationModel operationModel)
         {
             return operationModel.Parameters.Where(x => x.InternalElement.IsMapped).ToList();
-        }
-
-        public IEnumerable<string> DeclareUsings()
-        {
-            return new[]
-            {
-                "MediatR",
-                "Microsoft.AspNetCore.Mvc",
-                "Microsoft.Extensions.DependencyInjection"
-            };
         }
     }
 }
