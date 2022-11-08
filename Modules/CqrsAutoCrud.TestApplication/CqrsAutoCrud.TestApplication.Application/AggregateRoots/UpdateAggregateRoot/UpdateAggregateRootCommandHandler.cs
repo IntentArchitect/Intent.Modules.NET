@@ -41,7 +41,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
                             CompositeAttr = request.Composite.Composite.CompositeAttr,
                         }
                         : null,
-                    Composites = request.Composite.Composites?.Select(composites =>
+                    Composites = request.Composite.Composites.Select(composites =>
                         new CompositeManyAA
                         {
                             Id = composites.Id,
@@ -50,7 +50,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
                         }).ToList(),
                 }
                 : null;
-            existingAggregateRoot.Composites = request.Composites?.Select(composites =>
+            existingAggregateRoot.Composites = request.Composites.Select(composites =>
                 new CompositeManyB
                 {
                     Id = composites.Id,
@@ -63,7 +63,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
                             CompositeAttr = composites.Composite.CompositeAttr,
                         }
                         : null,
-                    Composites = composites.Composites?.Select(composites =>
+                    Composites = composites.Composites.Select(composites =>
                         new CompositeManyBB
                         {
                             Id = composites.Id,

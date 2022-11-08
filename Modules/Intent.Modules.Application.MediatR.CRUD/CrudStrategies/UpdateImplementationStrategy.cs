@@ -172,17 +172,28 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {
-                            codeLines.Add($"existing{domainModel.Name}.{attributeName} = request.{property.Name.ToPascalCase()} != null");
-                            codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments($"request.{property.Name.ToPascalCase()}", attributeClass, property.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}");
-                            codeLines.Add($"    : null;");
+                            if (association.IsNullable)
+                            {
+                                codeLines.Add($"existing{domainModel.Name}.{attributeName} = request.{property.Name.ToPascalCase()} != null");
+                                codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
+                                codeLines.Add($"    {{");
+                                codeLines.AddRange(GetDTOPropertyAssignments($"request.{property.Name.ToPascalCase()}", attributeClass, property.TypeReference.Element.AsDTOModel())
+                                    .Select(s => $"        {s}"));
+                                codeLines.Add($"    }}");
+                                codeLines.Add($"    : null;");
+                            }
+                            else
+                            {
+                                codeLines.Add($"existing{domainModel.Name}.{attributeName} = new {attributeClass.Name.ToPascalCase()}");
+                                codeLines.Add($"    {{");
+                                codeLines.AddRange(GetDTOPropertyAssignments($"request.{property.Name.ToPascalCase()}", attributeClass, property.TypeReference.Element.AsDTOModel())
+                                    .Select(s => $"        {s}"));
+                                codeLines.Add($"    }};");
+                            }
                         }
                         else
                         {
-                            codeLines.Add($"existing{domainModel.Name}.{attributeName} = request.{property.Name.ToPascalCase()}?.Select({property.Name.ToCamelCase()} =>");
+                            codeLines.Add($"existing{domainModel.Name}.{attributeName} = request.{property.Name.ToPascalCase()}{(association.IsNullable?"?":"")}.Select({property.Name.ToCamelCase()} =>");
                             codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
                             codeLines.Add($"    {{");
                             codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel())
@@ -237,17 +248,29 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {
-                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()} != null");
-                            codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments($"{accessorName}.{field.Name.ToPascalCase()}", attributeClass, field.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}");
-                            codeLines.Add($"    : null,");
+                            if (association.IsNullable)
+                            {
+                                codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()} != null");
+                                codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
+                                codeLines.Add($"    {{");
+                                codeLines.AddRange(GetDTOPropertyAssignments($"{accessorName}.{field.Name.ToPascalCase()}", attributeClass,
+                                        field.TypeReference.Element.AsDTOModel())
+                                    .Select(s => $"        {s}"));
+                                codeLines.Add($"    }}");
+                                codeLines.Add($"    : null,");
+                            }
+                            else
+                            {
+                                codeLines.Add($"{attributeName} = new {attributeClass.Name.ToPascalCase()}");
+                                codeLines.Add($"    {{");
+                                codeLines.AddRange(GetDTOPropertyAssignments($"{accessorName}.{field.Name.ToPascalCase()}", attributeClass, field.TypeReference.Element.AsDTOModel())
+                                    .Select(s => $"        {s}"));
+                                codeLines.Add($"    }},");
+                            }
                         }
                         else
                         {
-                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}?.Select({field.Name.ToCamelCase()} =>");
+                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}{(association.IsNullable?"?":"")}.Select({field.Name.ToCamelCase()} =>");
                             codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
                             codeLines.Add($"    {{");
                             codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel())
