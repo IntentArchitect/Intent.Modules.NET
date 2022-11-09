@@ -128,7 +128,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return NoMatch;
         }
 
-        public void OnStrategySelection()
+        public void OnStrategySelected()
         {
             var stack = new Stack<DTOModel>();
             var elementsFound = new List<(DTOModel Dto, string fieldName, ClassModel Domain)>();
@@ -169,8 +169,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             $"return new {match.Domain.Name.ToPascalCase()}",
                             "{",
                         })
-                        .AddStatements(GetDTOPropertyAssignments("", "dto", match.Domain, match.Dto.Fields))
-                        .AddStatement("}"));
+                        .AddStatements(GetDTOPropertyAssignments("", $"dto", match.Domain, match.Dto.Fields))
+                        .AddStatement("};"));
             }
         }
         

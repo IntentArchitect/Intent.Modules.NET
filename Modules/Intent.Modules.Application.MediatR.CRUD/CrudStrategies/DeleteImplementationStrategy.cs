@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return Unit.Value;";
         }
 
-        public void OnStrategySelection()
+        public void OnStrategySelected()
         {
             
         }

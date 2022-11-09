@@ -6,6 +6,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -44,8 +45,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
                 new UpdateImplementationStrategy(_template, _application, _application.MetadataManager),
                 new DeleteImplementationStrategy(_template, _application, _application.MetadataManager),
             }.SingleOrDefault(x => x.IsMatch());
-
-            _implementationStrategy?.OnStrategySelection();
         }
 
         public override IEnumerable<RequiredService> GetRequiredServices()
@@ -56,6 +55,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         public override string GetImplementation()
         {
             return _implementationStrategy?.GetImplementation() ?? base.GetImplementation();
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            _implementationStrategy?.OnStrategySelected();
         }
     }
 }

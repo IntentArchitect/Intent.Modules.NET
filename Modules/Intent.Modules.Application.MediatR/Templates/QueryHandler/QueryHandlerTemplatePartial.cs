@@ -39,12 +39,9 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                     @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
                     {
                         method.Async();
-                        method.AddAttribute($"IntentManaged(Mode.Fully, Body = Mode.{(HasImplementation() ? "Fully" : "Ignore")})");
                         method.AddParameter(GetQueryModelName(), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
-                        method.AddStatements(GetImplementation());
                     });
-                    AddRequiredServices(@class);
                 });
         }
 
@@ -63,6 +60,16 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            var @class = CSharpFile.Classes.First();
+            @class.FindMethod("Handle")
+                .AddStatements(GetImplementation())
+                .AddAttribute($"IntentManaged(Mode.Fully, Body = Mode.{(HasImplementation() ? "Fully" : "Ignore")})");
+            AddRequiredServices(@class);
+            GetDecorators().ToList().ForEach(x => x.BeforeTemplateExecution());
         }
 
         private void AddRequiredServices(CSharpClass @class)

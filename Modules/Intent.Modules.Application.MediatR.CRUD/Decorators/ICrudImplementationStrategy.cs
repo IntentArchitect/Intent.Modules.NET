@@ -9,6 +9,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         bool IsMatch();
         IEnumerable<RequiredService> GetRequiredServices();
         string GetImplementation();
-        void OnStrategySelection();
+        void OnStrategySelected();
     }
 }
