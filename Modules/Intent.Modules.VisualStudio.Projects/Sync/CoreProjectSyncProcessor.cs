@@ -46,7 +46,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             _template.OutputTarget.SyncProjectReferences(xml.Document);
             _template.OutputTarget.SyncFrameworkReferences(xml.Document);
 
-            ProcessEvents(xml,events);
+            ProcessEvents(xml, events);
 
             var updatedContent = xml.Document.ToString();
             if (XmlHelper.IsSemanticallyTheSame(content, updatedContent))
@@ -122,9 +122,13 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         private static XElement GetOrCreateItemGroupFor(
             ProjectFileXml xml,
-            string type)
+            string type,
+            string action)
         {
-            var itemGroupElement = xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup[ns:{type}]", xml.Namespaces);
+            var expression = action is "Include"
+                ? "/ns:Project/ns:ItemGroup[*[@Include]]"
+                : $"/ns:Project/ns:ItemGroup[ns:{type}[@{action}]]";
+            var itemGroupElement = xml.Document.XPathSelectElement(expression, xml.Namespaces);
             if (itemGroupElement != null)
             {
                 return itemGroupElement;
@@ -132,14 +136,17 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
             xml.Document.Root!.Add(
                 "  ",
-                itemGroupElement = new XElement(XName.Get("ItemGroup", xml.Namespace.NamespaceName)),
+                itemGroupElement = new XElement(
+                    XName.Get("ItemGroup", xml.Namespace.NamespaceName),
+                    Environment.NewLine,
+                    "  "),
                 Environment.NewLine,
                 Environment.NewLine);
 
             return itemGroupElement;
         }
 
-        private void ProcessCompileDependsOn(
+        private static void ProcessCompileDependsOn(
             ProjectFileXml xml,
             string targetName)
         {
@@ -174,14 +181,46 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             return projectItem;
         }
 
+        private static XElement GetRemoveItem(
+            ProjectFileXml xml,
+            string fileName)
+        {
+            var projectItem = xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup/*[@Remove='{fileName}']", xml.Namespaces);
+
+            return projectItem;
+        }
+
         private void ProcessRemoveProjectItem(
             ProjectFileXml xml,
             string path)
         {
             var relativeFileName = NormalizePath(Path.GetRelativePath(Path.GetDirectoryName(ProjectPath)!, path));
 
-            var projectItem = GetFileItem(xml, relativeFileName);
-            projectItem?.Remove();
+            NeatlyRemove(GetFileItem(xml, relativeFileName));
+            NeatlyRemove(GetRemoveItem(xml, relativeFileName));
+
+            static void NeatlyRemove(XNode node)
+            {
+                if (node == null)
+                {
+                    return;
+                }
+
+                // If the parent node only contains this node, remove the parent node
+                if (node.Parent?.Elements().Count() == 1)
+                {
+                    node = node.Parent;
+                }
+
+                // Also delete leading whitespace:
+                var nodeBefore = node.NodesBeforeSelf().LastOrDefault();
+                if (nodeBefore != null && string.IsNullOrWhiteSpace(nodeBefore.ToString()))
+                {
+                    nodeBefore.Remove();
+                }
+
+                node.Remove();
+            }
         }
 
         private void ProcessAddProjectItem(
@@ -211,32 +250,38 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 return;
             }
 
-            if (itemElement == null)
+            var removeItemElement = GetRemoveItem(xml, relativeFileName);
+            if (data.RemoveItemType != null)
             {
-                var targetElement = GetOrCreateItemGroupFor(xml, data.ItemType);
-                var content = new object[]
+                if (removeItemElement == null)
                 {
-                    $"{Environment.NewLine}    ",
-                    itemElement = new XElement(XName.Get(data.ItemType, xml.Namespace.NamespaceName))
-                };
+                    removeItemElement = CreateItemElement(xml, data.RemoveItemType, "Remove");
+                    removeItemElement.SetAttributeValue(XName.Get("Remove", xml.Namespace.NamespaceName), relativeFileName);
 
-                var lastElement = targetElement.Elements().LastOrDefault();
-                if (lastElement != null)
-                {
-                    lastElement.AddAfterSelf(content);
-                }
-                else
-                {
-                    targetElement.AddFirst(content);
                 }
             }
+            else if (removeItemElement != null &&
+                     removeItemElement.DescendantNodesAndSelf().Any(ProjectSyncProcessorBase.IsIgnored))
+            {
+                removeItemElement.Remove();
+            }
+
+            var action = data.RemoveItemType != null
+                ? "Include"
+                : "Update";
+            itemElement ??= CreateItemElement(xml, data.ItemType, action);
 
             if (itemElement.Name.LocalName != data.ItemType)
             {
                 itemElement.Name = XName.Get(data.ItemType, itemElement.Name.NamespaceName);
             }
 
-            itemElement.SetAttributeValue(XName.Get("Update", xml.Namespace.NamespaceName), relativeFileName);
+            var attribute = itemElement.Attributes().FirstOrDefault(x => x.Name.LocalName is "Include" or "Update" or "Link");
+            if (attribute != null && attribute.Name.LocalName != action)
+            {
+                attribute.Remove();
+            }
+            itemElement.SetAttributeValue(XName.Get(action, xml.Namespace.NamespaceName), relativeFileName);
 
             foreach (var (name, value) in data.Attributes)
             {
@@ -276,6 +321,33 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 {
                     element.Remove();
                 }
+            }
+
+            static XElement CreateItemElement(
+                ProjectFileXml xml,
+                string itemType,
+                string action)
+            {
+                var itemElement = new XElement(XName.Get(itemType, xml.Namespace.NamespaceName));
+
+                var targetElement = GetOrCreateItemGroupFor(xml, itemType, action);
+                var content = new object[]
+                {
+                    $"{Environment.NewLine}    ",
+                    itemElement
+                };
+
+                var lastElement = targetElement.Elements().LastOrDefault();
+                if (lastElement != null)
+                {
+                    lastElement.AddAfterSelf(content);
+                }
+                else
+                {
+                    targetElement.AddFirst(content);
+                }
+
+                return itemElement;
             }
         }
 
