@@ -30,7 +30,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Sync
             {
                 new(SoftwareFactoryEvents.FileAddedEvent, new Dictionary<string, string>
                 {
-                    ["Path"] = @"C:\Folder\File.cs",
+                    ["Path"] = "/Folder/File.cs",
                     [CustomMetadataKeys.ItemType] = "EmbeddedResource",
                     [CustomMetadataKeys.RemoveItemType] = "Compile",
                     [CustomMetadataKeys.MsBuildFileItemGenerationBehaviour] = "Always"
@@ -77,7 +77,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Sync
             });
 
             var template = Substitute.For<IVisualStudioProjectTemplate>();
-            template.FilePath.Returns(@"C:\Folder\Project.csproj");
+            template.FilePath.Returns(@"/Folder/Project.csproj");
             template.OutputTarget.Returns(outputTarget);
 
             var sfEventDispatcher = Substitute.For<ISoftwareFactoryEventDispatcher>();
