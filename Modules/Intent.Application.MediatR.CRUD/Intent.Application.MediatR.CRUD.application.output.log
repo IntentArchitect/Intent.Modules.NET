@@ -99,46 +99,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>88042d88-d4a3-48e8-b82a-6a25d51038b1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#01882c13-9439-4e79-a897-ae8daa00bcd3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Templates/CrudHelper/CrudHelperTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CrudHelper/CrudHelperTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>88042d88-d4a3-48e8-b82a-6a25d51038b1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#01882c13-9439-4e79-a897-ae8daa00bcd3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Templates/CrudHelper/CrudHelperTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CrudHelper/CrudHelperTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>88042d88-d4a3-48e8-b82a-6a25d51038b1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#01882c13-9439-4e79-a897-ae8daa00bcd3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Templates/CrudHelper/CrudHelperTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CrudHelper/CrudHelperTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>88042d88-d4a3-48e8-b82a-6a25d51038b1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#01882c13-9439-4e79-a897-ae8daa00bcd3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Templates/CrudHelper/CrudHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CrudHelper/CrudHelperTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>88042d88-d4a3-48e8-b82a-6a25d51038b1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c7d63772-5802-40a6-bc1b-cae31b8faec2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>

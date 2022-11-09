@@ -15,7 +15,7 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
 
         string AggregateAttr { get; set; }
 
-        CompositeSingleA? Composite { get; set; }
+        CompositeSingleA Composite { get; set; }
 
         ICollection<CompositeManyB> Composites { get; set; }
 

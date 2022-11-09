@@ -122,6 +122,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="9662852e-8ea8-4f44-ba1d-e228dce64288" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.CrudHelper</name>
+      <display>Intent.Application.MediatR.CRUD.CrudHelper</display>
+      <externalReference>Intent.Application.MediatR.CRUD</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</parentFolderId>
+      <packageId>de91e2ff-02da-4237-b0a5-35181b035c3b</packageId>
+      <packageName>CqrsAutoCrud.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="a50e6aeb-7434-40d2-b5ed-07484b48c0fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.FluentValidation.CommandValidator</name>
       <display>Intent.Application.MediatR.FluentValidation.CommandValidator</display>
@@ -198,20 +214,6 @@
       <packageName>CqrsAutoCrud.TestApplication</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="9662852e-8ea8-4f44-ba1d-e228dce64288" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.CrudHelper</name>
-      <display>Intent.Application.MediatR.CRUD.CrudHelper</display>
-      <externalReference>Intent.Application.MediatR.CRUD</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>
