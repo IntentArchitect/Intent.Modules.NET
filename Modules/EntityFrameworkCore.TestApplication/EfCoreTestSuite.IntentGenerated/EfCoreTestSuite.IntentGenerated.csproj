@@ -726,6 +726,66 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>E2_RequiredDependent.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\NestedAssociations\BranchState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Branch.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\InhabitantState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Inhabitant.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\InternodeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Internode.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\LeafState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Leaf.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\TextureState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Texture.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\TreeState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Tree.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\IBranch.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Branch.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\IInhabitant.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Inhabitant.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\IInternode.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Internode.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\ILeaf.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Leaf.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\ITexture.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Texture.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\NestedAssociations\ITree.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Tree.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

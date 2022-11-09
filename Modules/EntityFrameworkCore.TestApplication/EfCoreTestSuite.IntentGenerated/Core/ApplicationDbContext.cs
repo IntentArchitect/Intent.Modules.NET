@@ -5,6 +5,7 @@ using EfCoreTestSuite.IntentGenerated.Entities;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
 using EfCoreTestSuite.IntentGenerated.Entities.Indexes;
+using EfCoreTestSuite.IntentGenerated.Entities.NestedAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +38,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
+        public DbSet<Inhabitant> Inhabitants { get; set; }
+        public DbSet<Internode> Internodes { get; set; }
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
@@ -47,6 +50,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
         public DbSet<StereotypeIndex> StereotypeIndices { get; set; }
+        public DbSet<Texture> Textures { get; set; }
+        public DbSet<Tree> Trees { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -70,6 +75,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new G_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new H_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new H_OptionalAggregateNavConfiguration());
+            modelBuilder.ApplyConfiguration(new InhabitantConfiguration());
+            modelBuilder.ApplyConfiguration(new InternodeConfiguration());
             modelBuilder.ApplyConfiguration(new J_MultipleAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
@@ -80,6 +87,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
             modelBuilder.ApplyConfiguration(new StereotypeIndexConfiguration());
+            modelBuilder.ApplyConfiguration(new TextureConfiguration());
+            modelBuilder.ApplyConfiguration(new TreeConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

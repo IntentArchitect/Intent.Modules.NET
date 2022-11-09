@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.12" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.14-pre.0" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.0.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>

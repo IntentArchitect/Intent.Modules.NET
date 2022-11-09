@@ -4,6 +4,7 @@ using EfCoreTestSuite.IntentGenerated.Entities;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
 using EfCoreTestSuite.IntentGenerated.Entities.Indexes;
+using EfCoreTestSuite.IntentGenerated.Entities.NestedAssociations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,6 +33,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
+        DbSet<Inhabitant> Inhabitants { get; set; }
+        DbSet<Internode> Internodes { get; set; }
         DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
@@ -42,6 +45,8 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
         DbSet<StereotypeIndex> StereotypeIndices { get; set; }
+        DbSet<Texture> Textures { get; set; }
+        DbSet<Tree> Trees { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

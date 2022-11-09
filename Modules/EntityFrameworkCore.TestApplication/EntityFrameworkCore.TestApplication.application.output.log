@@ -170,6 +170,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c1cb27e5-2d3b-402d-8ad0-bfa2c5b522f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/InhabitantConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InhabitantConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#87a92503-0472-478e-b6fc-9341fc99d009</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/InternodeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InternodeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6d0beed8-d7eb-41f7-8103-79900de9376d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/J_MultipleAggregateConfiguration.cs</ApplicationRelativeFilePath>
@@ -254,6 +270,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/StereotypeIndexConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StereotypeIndexConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/TextureConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TextureConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c9e9e39c-be7a-45a0-a094-3d9258eafbc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/TreeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TreeConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1062,6 +1094,150 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/Indexes/StereotypeIndexState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Indexes/StereotypeIndexState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/Branch.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Branch.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/BranchState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/BranchState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/IBranch.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/IBranch.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#c1cb27e5-2d3b-402d-8ad0-bfa2c5b522f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/IInhabitant.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/IInhabitant.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#87a92503-0472-478e-b6fc-9341fc99d009</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/IInternode.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/IInternode.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#0b3016ef-51e4-4770-b39e-93213b4d55b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/ILeaf.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/ILeaf.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c1cb27e5-2d3b-402d-8ad0-bfa2c5b522f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/Inhabitant.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Inhabitant.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#c1cb27e5-2d3b-402d-8ad0-bfa2c5b522f6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/InhabitantState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/InhabitantState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#87a92503-0472-478e-b6fc-9341fc99d009</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/Internode.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Internode.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#87a92503-0472-478e-b6fc-9341fc99d009</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/InternodeState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/InternodeState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/ITexture.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/ITexture.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityInterface#c9e9e39c-be7a-45a0-a094-3d9258eafbc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/ITree.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/ITree.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0b3016ef-51e4-4770-b39e-93213b4d55b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/Leaf.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Leaf.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#0b3016ef-51e4-4770-b39e-93213b4d55b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/LeafState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/LeafState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/Texture.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Texture.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/TextureState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/TextureState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#c9e9e39c-be7a-45a0-a094-3d9258eafbc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/Tree.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/Tree.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05cf8abb-9b87-4879-9e2a-3ee9fc4a0036</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#c9e9e39c-be7a-45a0-a094-3d9258eafbc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Entities/NestedAssociations/TreeState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/TreeState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
