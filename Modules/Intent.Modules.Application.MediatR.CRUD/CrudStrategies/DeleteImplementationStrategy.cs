@@ -54,6 +54,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return Unit.Value;";
         }
 
+        public void OnStrategySelection()
+        {
+            
+        }
+
         private StrategyData GetMatchingElementDetails()
         {
             if (_template.Model.Properties.Count() != 1)

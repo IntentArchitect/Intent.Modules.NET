@@ -44,6 +44,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatements(GetImplementation());
                     });
+                    AddRequiredServices(@class);
                 });
         }
 
@@ -54,11 +55,6 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                 className: $"{Model.Name}Handler",
                 @namespace: $"{this.GetNamespace(additionalFolders: Model.GetConceptName())}",
                 relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
-        }
-
-        public override void BeforeTemplateExecution()
-        {
-            AddRequiredServices(CSharpFile.Classes.First());
         }
 
         public CSharpFile CSharpFile { get; }

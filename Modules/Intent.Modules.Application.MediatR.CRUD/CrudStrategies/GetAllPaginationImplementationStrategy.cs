@@ -57,6 +57,11 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
             return results.MapToPagedResult(x => x.MapTo{_template.GetDtoName(_matchingElementDetails.Value.DtoModel)}(_mapper));";
     }
 
+    public void OnStrategySelection()
+    {
+        
+    }
+
     private StrategyData GetMatchingElementDetails()
     {
         if (_template.Model.TypeReference.Element.Name != "PagedResult")

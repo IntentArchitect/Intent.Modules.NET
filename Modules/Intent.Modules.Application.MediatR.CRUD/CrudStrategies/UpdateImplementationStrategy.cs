@@ -127,6 +127,52 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return NoMatch;
         }
 
+        public void OnStrategySelection()
+        {
+            var stack = new Stack<DTOModel>();
+            var elementsFound = new List<(DTOModel Dto, string fieldName, ClassModel Domain)>();
+            foreach (var commandProperty in _template.Model.Properties
+                         .Where(p => p.Mapping?.Element?.SpecializationTypeId == AssociationTargetEndModel.SpecializationTypeId))
+            {
+                var association = commandProperty.Mapping.Element.AsAssociationTargetEndModel();
+                var attributeClass = association.Class;
+                var dto = commandProperty.TypeReference.Element.AsDTOModel();
+                elementsFound.Add((dto, commandProperty.Name, attributeClass));
+                stack.Push(dto);
+            }
+
+            while (stack.Any())
+            {
+                var dto = stack.Pop();
+                foreach (var dtoField in dto.Fields
+                             .Where(p => p.Mapping?.Element?.SpecializationTypeId == AssociationTargetEndModel.SpecializationTypeId))
+                {
+                    var association = dtoField.Mapping.Element.AsAssociationTargetEndModel();
+                    var attributeClass = association.Class;
+                    var nestedDto = dtoField.TypeReference.Element.AsDTOModel();
+                    elementsFound.Add((nestedDto, dtoField.Name, attributeClass));
+                    stack.Push(nestedDto);
+                }
+            }
+
+            var @class = _template.CSharpFile.Classes.First();
+            foreach (var match in elementsFound)
+            {
+                @class.AddMethod("void",
+                    GetUpdateMethodName(match.Domain),
+                    method => method.Private()
+                        .Static()
+                        .AddParameter(_template.GetTypeName(match.Domain.InternalElement), "entity")
+                        .AddParameter(_template.GetTypeName(match.Dto.InternalElement), "dto")
+                        .AddStatements(GetDTOPropertyAssignments($"dto", match.Domain, match.Dto)));
+            }
+        }
+        
+        private string GetUpdateMethodName(ClassModel classModel)
+        {
+            return $"Update{classModel.Name.ToPascalCase()}";
+        }
+        
         private List<string> GetCommandPropertyAssignments(ClassModel domainModel, CommandModel command)
         {
             var codeLines = new List<string>();
@@ -153,6 +199,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         var mappedPropertyName = property.Mapping?.Element?.Name ?? "<null>";
                         codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {property.Name}");
                         break;
+                    case null:
                     case AttributeModel.SpecializationTypeId:
                         var attribute = property.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == property.Name);
@@ -175,30 +222,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             if (association.IsNullable)
                             {
                                 codeLines.Add($"existing{domainModel.Name}.{attributeName} = request.{property.Name.ToPascalCase()} != null");
-                                codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
-                                codeLines.Add($"    {{");
-                                codeLines.AddRange(GetDTOPropertyAssignments($"request.{property.Name.ToPascalCase()}", attributeClass, property.TypeReference.Element.AsDTOModel())
-                                    .Select(s => $"        {s}"));
-                                codeLines.Add($"    }}");
+                                codeLines.Add($"    ? (existing{domainModel.Name}.{attributeName} ?? new {attributeClass.Name.ToPascalCase()}()).UpdateObject(request.{property.Name.ToPascalCase()}, {GetUpdateMethodName(attributeClass)})");
                                 codeLines.Add($"    : null;");
                             }
                             else
                             {
-                                codeLines.Add($"existing{domainModel.Name}.{attributeName} = new {attributeClass.Name.ToPascalCase()}");
-                                codeLines.Add($"    {{");
-                                codeLines.AddRange(GetDTOPropertyAssignments($"request.{property.Name.ToPascalCase()}", attributeClass, property.TypeReference.Element.AsDTOModel())
-                                    .Select(s => $"        {s}"));
-                                codeLines.Add($"    }};");
+                                codeLines.Add($"existing{domainModel.Name}.{attributeName}.UpdateObject(request.{property.Name.ToPascalCase()}, {GetUpdateMethodName(attributeClass)});");
                             }
                         }
                         else
                         {
-                            codeLines.Add($"existing{domainModel.Name}.{attributeName} = request.{property.Name.ToPascalCase()}{(association.IsNullable?"?":"")}.Select({property.Name.ToCamelCase()} =>");
-                            codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}).ToList();");
+                            codeLines.Add($"existing{domainModel.Name}.{attributeName}{(association.IsNullable ? "?" : "")}.UpdateCollection(request.{property.Name.ToPascalCase()}, (x, y) => x.Id == y.Id, {GetUpdateMethodName(attributeClass)});");
                         }
                     }
                         break;
@@ -229,6 +263,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         var mappedPropertyName = field.Mapping?.Element?.Name ?? "<null>";
                         codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {field.Name}");
                         break;
+                    case null:
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == field.Name);
@@ -251,31 +286,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             if (association.IsNullable)
                             {
                                 codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()} != null");
-                                codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
-                                codeLines.Add($"    {{");
-                                codeLines.AddRange(GetDTOPropertyAssignments($"{accessorName}.{field.Name.ToPascalCase()}", attributeClass,
-                                        field.TypeReference.Element.AsDTOModel())
-                                    .Select(s => $"        {s}"));
-                                codeLines.Add($"    }}");
+                                codeLines.Add($"    ? ({attributeName}.{attributeName} ?? new {attributeClass.Name.ToPascalCase()}()).UpdateObject({accessorName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(attributeClass)})");
                                 codeLines.Add($"    : null,");
                             }
                             else
                             {
-                                codeLines.Add($"{attributeName} = new {attributeClass.Name.ToPascalCase()}");
-                                codeLines.Add($"    {{");
-                                codeLines.AddRange(GetDTOPropertyAssignments($"{accessorName}.{field.Name.ToPascalCase()}", attributeClass, field.TypeReference.Element.AsDTOModel())
-                                    .Select(s => $"        {s}"));
-                                codeLines.Add($"    }},");
+                                codeLines.Add($"{attributeName}.UpdateObject({accessorName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(attributeClass)}),");
                             }
                         }
                         else
                         {
-                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}{(association.IsNullable?"?":"")}.Select({field.Name.ToCamelCase()} =>");
-                            codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}).ToList(),");
+                            codeLines.Add($"{attributeName}{(association.IsNullable ? "?" : "")}.UpdateCollection({accessorName}.{field.Name.ToPascalCase()}, (x, y) => x.Id == y.Id, {GetUpdateMethodName(attributeClass)}),");
                         }
                     }
                         break;
