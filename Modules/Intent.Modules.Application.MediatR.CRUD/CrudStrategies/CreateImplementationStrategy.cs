@@ -163,6 +163,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     GetCreateMethodName(match.Domain),
                     method => method.Private()
                         .Static()
+                        .AddAttribute("IntentManaged(Mode.Fully)")
                         .AddParameter(_template.GetTypeName(match.Dto.InternalElement), "dto")
                         .AddStatements(new[]
                         {

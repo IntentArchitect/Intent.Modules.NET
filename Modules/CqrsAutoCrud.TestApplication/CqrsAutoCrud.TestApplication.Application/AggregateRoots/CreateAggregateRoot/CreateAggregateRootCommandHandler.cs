@@ -43,6 +43,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             return newAggregateRoot.Id;
         }
 
+        [IntentManaged(Mode.Fully)]
         private static CompositeSingleA CreateCompositeSingleA(CreateCompositeSingleADTO dto)
         {
             return new CompositeSingleA
@@ -55,6 +56,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             };
         }
 
+        [IntentManaged(Mode.Fully)]
         private static CompositeManyB CreateCompositeManyB(CreateCompositeManyBDTO dto)
         {
             return new CompositeManyB
@@ -68,6 +70,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             };
         }
 
+        [IntentManaged(Mode.Fully)]
         private static AggregateSingleC CreateAggregateSingleC(CreateAggregateSingleCDTO dto)
         {
             return new AggregateSingleC
@@ -76,6 +79,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             };
         }
 
+        [IntentManaged(Mode.Fully)]
         private static CompositeSingleBB CreateCompositeSingleBB(CreateCompositeSingleBBDTO dto)
         {
             return new CompositeSingleBB
@@ -84,6 +88,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             };
         }
 
+        [IntentManaged(Mode.Fully)]
         private static CompositeManyBB CreateCompositeManyBB(CreateCompositeManyBBDTO dto)
         {
             return new CompositeManyBB
@@ -93,6 +98,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             };
         }
 
+        [IntentManaged(Mode.Fully)]
         private static CompositeSingleAA CreateCompositeSingleAA(CreateCompositeSingleAADTO dto)
         {
             return new CompositeSingleAA
@@ -101,6 +107,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             };
         }
 
+        [IntentManaged(Mode.Fully)]
         private static CompositeManyAA CreateCompositeManyAA(CreateCompositeManyAADTO dto)
         {
             return new CompositeManyAA

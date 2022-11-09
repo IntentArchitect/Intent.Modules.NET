@@ -162,6 +162,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     GetUpdateMethodName(match.Domain),
                     method => method.Private()
                         .Static()
+                        .AddAttribute("IntentManaged(Mode.Fully)")
                         .AddParameter(_template.GetTypeName(match.Domain.InternalElement), "entity")
                         .AddParameter(_template.GetTypeName(match.Dto.InternalElement), "dto")
                         .AddStatements(GetDTOPropertyAssignments("entity", "dto", match.Domain, match.Dto.Fields, false)));

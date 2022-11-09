@@ -36,6 +36,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
             return Unit.Value;
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeSingleA(CompositeSingleA entity, UpdateCompositeSingleADTO dto)
         {
             entity.Id = dto.Id;
@@ -46,6 +47,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
             entity.Composites.UpdateCollection(dto.Composites, (x, y) => x.Id == y.Id, UpdateCompositeManyAA);
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeManyB(CompositeManyB entity, UpdateCompositeManyBDTO dto)
         {
             entity.Id = dto.Id;
@@ -57,18 +59,21 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
             entity.Composites.UpdateCollection(dto.Composites, (x, y) => x.Id == y.Id, UpdateCompositeManyBB);
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateAggregateSingleC(AggregateSingleC entity, UpdateAggregateSingleCDTO dto)
         {
             entity.Id = dto.Id;
             entity.AggregationAttr = dto.AggregationAttr;
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeSingleBB(CompositeSingleBB entity, UpdateCompositeSingleBBDTO dto)
         {
             entity.Id = dto.Id;
             entity.CompositeAttr = dto.CompositeAttr;
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeManyBB(CompositeManyBB entity, UpdateCompositeManyBBDTO dto)
         {
             entity.Id = dto.Id;
@@ -76,12 +81,14 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
             entity.ACompositeManyId = dto.ACompositeManyId;
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeSingleAA(CompositeSingleAA entity, UpdateCompositeSingleAADTO dto)
         {
             entity.Id = dto.Id;
             entity.CompositeAttr = dto.CompositeAttr;
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeManyAA(CompositeManyAA entity, UpdateCompositeManyAADTO dto)
         {
             entity.Id = dto.Id;

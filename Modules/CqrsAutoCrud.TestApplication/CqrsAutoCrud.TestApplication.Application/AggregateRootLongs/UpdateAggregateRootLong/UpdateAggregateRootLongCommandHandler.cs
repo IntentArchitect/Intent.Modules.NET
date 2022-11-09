@@ -37,6 +37,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggr
             return Unit.Value;
         }
 
+        [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateCompositeOfAggrLongDTO dto)
         {
             entity.Id = dto.Id;
