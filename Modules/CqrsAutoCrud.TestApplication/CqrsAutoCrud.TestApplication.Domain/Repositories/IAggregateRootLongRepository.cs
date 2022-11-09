@@ -12,11 +12,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace CqrsAutoCrud.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IAggregateRootLongRepository : IRepository<IAggregateRootLong, AggregateRootLong>
+    public interface IAggregateRootLongRepository : IRepository<AggregateRootLong, AggregateRootLong>
     {
         [IntentManaged(Mode.Fully)]
-        Task<IAggregateRootLong> FindByIdAsync(long id, CancellationToken cancellationToken = default);
+        Task<AggregateRootLong> FindByIdAsync(long id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
-        Task<List<IAggregateRootLong>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default);
+        Task<List<AggregateRootLong>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default);
     }
 }

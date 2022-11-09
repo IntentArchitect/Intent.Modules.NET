@@ -12,12 +12,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs
 {
     public static class CompositeOfAggrLongDTOMappingExtensions
     {
-        public static CompositeOfAggrLongDTO MapToCompositeOfAggrLongDTO(this ICompositeOfAggrLong projectFrom, IMapper mapper)
+        public static CompositeOfAggrLongDTO MapToCompositeOfAggrLongDTO(this CompositeOfAggrLong projectFrom, IMapper mapper)
         {
             return mapper.Map<CompositeOfAggrLongDTO>(projectFrom);
         }
 
-        public static List<CompositeOfAggrLongDTO> MapToCompositeOfAggrLongDTOList(this IEnumerable<ICompositeOfAggrLong> projectFrom, IMapper mapper)
+        public static List<CompositeOfAggrLongDTO> MapToCompositeOfAggrLongDTOList(this IEnumerable<CompositeOfAggrLong> projectFrom, IMapper mapper)
         {
             return projectFrom.Select(x => x.MapToCompositeOfAggrLongDTO(mapper)).ToList();
         }

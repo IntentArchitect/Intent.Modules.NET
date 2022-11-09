@@ -10,7 +10,6 @@ using CqrsAutoCrud.TestApplication.Application.AggregateRoots;
 using CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
 using CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregateRoot;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
-using CqrsAutoCrud.TestApplication.Domain.Entities.Common;
 using CqrsAutoCrud.TestApplication.Infrastructure.Persistence;
 using CqrsAutoCrud.TestApplication.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;

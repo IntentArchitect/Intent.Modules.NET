@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
-using CqrsAutoCrud.TestApplication.Domain.Entities.Common;
 using CqrsAutoCrud.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;

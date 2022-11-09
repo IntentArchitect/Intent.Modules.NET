@@ -15,45 +15,27 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
-        private readonly IOptions<DbContextConfiguration> _dbContextConfig;
-
-        [IntentManaged(Mode.Ignore)]
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            _dbContextConfig = new OptionsWrapper<DbContextConfiguration>(new DbContextConfiguration());
         }
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-            IOptions<DbContextConfiguration> dbContextConfig) : base(options)
-        {
-            _dbContextConfig = dbContextConfig;
-        }
-
         public DbSet<AggregateRoot> AggregateRoots { get; set; }
         public DbSet<AggregateRootLong> AggregateRootLongs { get; set; }
         public DbSet<AggregateSingleC> AggregateSingleCs { get; set; }
-
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
-        }
+        public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
+        public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
+        public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
             modelBuilder.ApplyConfiguration(new AggregateRootConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRootLongConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateSingleCConfiguration());
-            if (!string.IsNullOrWhiteSpace(_dbContextConfig.Value?.DefaultSchemaName))
-            {
-                modelBuilder.HasDefaultSchema(_dbContextConfig.Value?.DefaultSchemaName);
-            }
+            modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
+            modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
+            modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]
@@ -68,20 +50,6 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
                 new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
                 new Car() { CarId = 3, Make = "Labourghini", Model = "Countach" });
             */
-        }
-
-
-        /// <summary>
-        /// If configured to do so, a check is performed to see
-        /// whether the database exist and if not will create it
-        /// based on this container configuration.
-        /// </summary>
-        public void EnsureDbCreated()
-        {
-            if (_dbContextConfig.Value.EnsureDbCreated == true)
-            {
-                Database.EnsureCreated();
-            }
         }
     }
 }

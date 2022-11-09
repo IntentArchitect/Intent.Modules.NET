@@ -12,12 +12,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 {
     public static class CreateAggregateSingleCDTOMappingExtensions
     {
-        public static CreateAggregateSingleCDTO MapToCreateAggregateSingleCDTO(this IAggregateSingleC projectFrom, IMapper mapper)
+        public static CreateAggregateSingleCDTO MapToCreateAggregateSingleCDTO(this AggregateSingleC projectFrom, IMapper mapper)
         {
             return mapper.Map<CreateAggregateSingleCDTO>(projectFrom);
         }
 
-        public static List<CreateAggregateSingleCDTO> MapToCreateAggregateSingleCDTOList(this IEnumerable<IAggregateSingleC> projectFrom, IMapper mapper)
+        public static List<CreateAggregateSingleCDTO> MapToCreateAggregateSingleCDTOList(this IEnumerable<AggregateSingleC> projectFrom, IMapper mapper)
         {
             return projectFrom.Select(x => x.MapToCreateAggregateSingleCDTO(mapper)).ToList();
         }

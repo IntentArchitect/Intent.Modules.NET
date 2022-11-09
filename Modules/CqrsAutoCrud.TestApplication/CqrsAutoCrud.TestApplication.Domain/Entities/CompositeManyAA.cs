@@ -11,6 +11,13 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
     public partial class CompositeManyAA
     {
+        public Guid Id { get; set; }
+
+        public string CompositeAttr { get; set; }
+
+        public Guid ACompositeSingleId { get; set; }
+
+        public Guid A_Composite_SingleId { get; set; }
 
     }
 }

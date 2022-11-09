@@ -12,12 +12,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 {
     public static class UpdateCompositeManyBBDTOMappingExtensions
     {
-        public static UpdateCompositeManyBBDTO MapToUpdateCompositeManyBBDTO(this ICompositeManyBB projectFrom, IMapper mapper)
+        public static UpdateCompositeManyBBDTO MapToUpdateCompositeManyBBDTO(this CompositeManyBB projectFrom, IMapper mapper)
         {
             return mapper.Map<UpdateCompositeManyBBDTO>(projectFrom);
         }
 
-        public static List<UpdateCompositeManyBBDTO> MapToUpdateCompositeManyBBDTOList(this IEnumerable<ICompositeManyBB> projectFrom, IMapper mapper)
+        public static List<UpdateCompositeManyBBDTO> MapToUpdateCompositeManyBBDTOList(this IEnumerable<CompositeManyBB> projectFrom, IMapper mapper)
         {
             return projectFrom.Select(x => x.MapToUpdateCompositeManyBBDTO(mapper)).ToList();
         }

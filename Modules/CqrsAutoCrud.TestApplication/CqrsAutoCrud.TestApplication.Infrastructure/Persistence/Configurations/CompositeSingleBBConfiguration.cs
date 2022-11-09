@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence.Configurations
 {
-    public class AggregateSingleCConfiguration : IEntityTypeConfiguration<AggregateSingleC>
+    public class CompositeSingleBBConfiguration : IEntityTypeConfiguration<CompositeSingleBB>
     {
-        public void Configure(EntityTypeBuilder<AggregateSingleC> builder)
+        public void Configure(EntityTypeBuilder<CompositeSingleBB> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.AggregationAttr)
+            builder.Property(x => x.CompositeAttr)
                 .IsRequired();
         }
     }
