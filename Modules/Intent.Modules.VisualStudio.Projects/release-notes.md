@@ -1,4 +1,13 @@
-﻿### Version 3.3.16
+﻿### Version 3.3.18
+
+- Added .NET 7.0 version option.
+
+### Version 3.3.17
+
+Updated description of module.
+
+### Version 3.3.16
+
  - Fixed: Nullable types not being indicated when `Nullable` is set to `enable`.
 
 ### Version 3.3.15
