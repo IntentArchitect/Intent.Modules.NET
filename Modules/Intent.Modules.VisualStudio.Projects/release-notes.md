@@ -1,6 +1,7 @@
 ﻿### Version 3.3.18
 
 - Added .NET 7.0 version option.
+- Added support for generating `Remove` element types for file items in .NET `.csproj` files.
 
 ### Version 3.3.17
 
