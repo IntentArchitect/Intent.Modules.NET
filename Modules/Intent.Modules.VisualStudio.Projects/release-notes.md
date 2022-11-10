@@ -2,6 +2,7 @@
 
 - Added .NET 7.0 version option.
 - Added support for generating `Remove` element types for file items in .NET `.csproj` files.
+- The `Root Namespace` value of a project in the Visual Studio designer is now made available on `IOutputTarget.Metadata` under the `Root Namespace` key.
 
 ### Version 3.3.17
 

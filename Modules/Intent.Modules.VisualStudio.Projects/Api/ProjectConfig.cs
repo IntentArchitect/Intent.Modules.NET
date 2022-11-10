@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
-using Intent.Modules.Common;
 
 namespace Intent.Modules.VisualStudio.Projects.Api
 {
@@ -25,6 +23,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 ["Language Version"] = _project.LanguageVersion,
                 ["Nullable Enabled"] = _project.NullableEnabled,
                 ["Target Frameworks"] = _project.TargetFrameworkVersion(),
+                ["Root Namespace"] = _project.GetNETCoreSettings()?.RootNamespace(),
                 [MetadataKey.IsMatch] = true
             };
         }
@@ -63,7 +62,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public string RelativeLocation => _model.Name;
         public string ParentId => _model.InternalElement.ParentId;
 
-        public IEnumerable<string> SupportedFrameworks => new string[0];
+        public IEnumerable<string> SupportedFrameworks => Array.Empty<string>();
         public IEnumerable<IOutputTargetRole> Roles => _model.Roles;
         public IEnumerable<IOutputTargetTemplate> Templates => _model.TemplateOutputs;
         public IDictionary<string, object> Metadata { get; }
