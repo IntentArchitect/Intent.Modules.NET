@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="16d99e3e-7b91-42f8-ae3b-2686edde94b7" type=".NET Core Version" typeId="65fb2757-ce97-41a8-9c53-b03d53c2c03f">
   <name>.NET 6.0</name>
-  <display>.NET 6.0 = net6.0</display>
+  <display>.NET 6.0</display>
   <isAbstract>false</isAbstract>
   <value>net6.0</value>
   <genericTypes />

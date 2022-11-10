@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="9880b776-9b13-4ff6-87b3-2219cfa66652" type=".NET Core Version" typeId="65fb2757-ce97-41a8-9c53-b03d53c2c03f">
   <name>.NET 5.0</name>
-  <display>.NET 5.0 = net5.0</display>
+  <display>.NET 5.0</display>
   <isAbstract>false</isAbstract>
   <value>net5.0</value>
   <genericTypes />

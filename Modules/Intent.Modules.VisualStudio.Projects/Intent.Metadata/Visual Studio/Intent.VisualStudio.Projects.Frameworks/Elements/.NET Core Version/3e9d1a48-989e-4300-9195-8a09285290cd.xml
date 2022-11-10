@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="3e9d1a48-989e-4300-9195-8a09285290cd" type=".NET Core Version" typeId="65fb2757-ce97-41a8-9c53-b03d53c2c03f">
   <name>.NET Standard 2.1</name>
-  <display>.NET Standard 2.1 = netstandard2.1</display>
+  <display>.NET Standard 2.1</display>
   <isAbstract>false</isAbstract>
   <value>netstandard2.1</value>
   <genericTypes />

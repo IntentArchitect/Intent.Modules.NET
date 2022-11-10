@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="0cd4e056-3bc1-4f8c-9cba-7d362d42c33c" type=".NET Core Version" typeId="65fb2757-ce97-41a8-9c53-b03d53c2c03f">
   <name>.NET 7.0</name>
-  <display>.NET 7.0 = net7.0</display>
+  <display>.NET 7.0</display>
   <isAbstract>false</isAbstract>
   <value>net7.0</value>
   <genericTypes />
