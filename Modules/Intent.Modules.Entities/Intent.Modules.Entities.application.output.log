@@ -19,7 +19,7 @@
     <FileLog>
       <ProjectId>27fb946f-391f-4a8a-acc8-2746cbc04889</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#27fb946f-391f-4a8a-acc8-2746cbc04889</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Entities.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Entities.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +38,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#49871fba-2c9a-4e92-b322-9da36cdb6cce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionExtensions/CollectionExtensionsTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions/CollectionExtensionsTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#49871fba-2c9a-4e92-b322-9da36cdb6cce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionExtensions/CollectionExtensionsTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions/CollectionExtensionsTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#49871fba-2c9a-4e92-b322-9da36cdb6cce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionExtensions/CollectionExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions/CollectionExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#49871fba-2c9a-4e92-b322-9da36cdb6cce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CollectionExtensions/CollectionExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions/CollectionExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -158,6 +190,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#707c1468-6dcd-4a09-809c-c607a4636ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UpdateHelper/UpdateHelperTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper/UpdateHelperTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#707c1468-6dcd-4a09-809c-c607a4636ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UpdateHelper/UpdateHelperTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper/UpdateHelperTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#707c1468-6dcd-4a09-809c-c607a4636ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UpdateHelper/UpdateHelperTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper/UpdateHelperTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#707c1468-6dcd-4a09-809c-c607a4636ebc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UpdateHelper/UpdateHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper/UpdateHelperTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

@@ -739,11 +739,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5aaafd05-dbe4-4528-a91b-a7b2587c5b9d</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8dc846fc-96a0-4166-8f38-901575a31be2</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5aaafd05-dbe4-4528-a91b-a7b2587c5b9d</ProjectId>
+      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

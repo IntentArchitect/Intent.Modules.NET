@@ -1,15 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.Entities.CollectionExtensions", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace CqrsAutoCrud.TestApplication.Domain.Common;
 
 public static class CollectionExtensions
 {
     public static ComparisonResult<TChanged, TOriginal> CompareCollections<TChanged, TOriginal>(
-        this ICollection<TOriginal> baseCollection,
-        ICollection<TChanged> changedCollection, 
-        Func<TOriginal, TChanged, bool> equalityCheck)
+            this ICollection<TOriginal> baseCollection,
+            ICollection<TChanged> changedCollection,
+            Func<TOriginal, TChanged, bool> equalityCheck)
     {
         if (changedCollection == null)
         {
@@ -31,7 +35,7 @@ public static class CollectionExtensions
 
         return new ComparisonResult<TChanged, TOriginal>(toAdd, toRemove, possibleEdits);
     }
-    
+
     public class ComparisonResult<TChanged, TOriginal>
     {
         public ComparisonResult(ICollection<TChanged> toAdd, ICollection<TOriginal> toRemove, ICollection<Match<TChanged, TOriginal>> possibleEdits)

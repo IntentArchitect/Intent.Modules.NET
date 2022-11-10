@@ -9,6 +9,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
@@ -167,6 +168,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         .AddParameter(_template.GetTypeName(match.Dto.InternalElement), "dto")
                         .AddStatements(GetDTOPropertyAssignments("entity", "dto", match.Domain, match.Dto.Fields, false)));
             }
+
+            var updateHelperTemplate = _template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper");
+            _template.CSharpFile.Usings.Add(new CSharpUsing(updateHelperTemplate.Namespace));
         }
         
         private string GetUpdateMethodName(ClassModel classModel)

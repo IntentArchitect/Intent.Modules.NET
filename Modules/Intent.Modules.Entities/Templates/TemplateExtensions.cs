@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Templates.CollectionExtensions;
 using Intent.Modules.Entities.Templates.CollectionWrapper;
 using Intent.Modules.Entities.Templates.DomainEntity;
 using Intent.Modules.Entities.Templates.DomainEntityInterface;
 using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.Modules.Entities.Templates.DomainEnum;
+using Intent.Modules.Entities.Templates.UpdateHelper;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,6 +16,10 @@ namespace Intent.Modules.Entities.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetCollectionExtensionsName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(CollectionExtensionsTemplate.TemplateId);
+        }
         public static string GetCollectionWrapperName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(CollectionWrapperTemplate.TemplateId);
@@ -56,6 +62,11 @@ namespace Intent.Modules.Entities.Templates
         public static string GetDomainEnumName(this IntentTemplateBase template, Intent.Modules.Common.Types.Api.EnumModel model)
         {
             return template.GetTypeName(DomainEnumTemplate.TemplateId, model);
+        }
+
+        public static string GetUpdateHelperName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(UpdateHelperTemplate.TemplateId);
         }
 
     }
