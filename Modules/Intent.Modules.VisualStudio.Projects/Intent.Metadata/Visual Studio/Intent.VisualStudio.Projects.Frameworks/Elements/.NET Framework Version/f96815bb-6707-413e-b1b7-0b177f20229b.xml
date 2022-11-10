@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="f96815bb-6707-413e-b1b7-0b177f20229b" type=".NET Framework Version" typeId="6453c4bd-78b8-4589-a223-9f57a348a1a1">
   <name>.NET Framework 4.7.1</name>
-  <display>.NET Framework 4.7.1</display>
+  <display>.NET Framework 4.7.1 = net471</display>
   <isAbstract>false</isAbstract>
   <value>net471</value>
-  <order>17</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4aab5ac2-71c3-4d2b-a616-0ad39a8193ba</parentFolderId>

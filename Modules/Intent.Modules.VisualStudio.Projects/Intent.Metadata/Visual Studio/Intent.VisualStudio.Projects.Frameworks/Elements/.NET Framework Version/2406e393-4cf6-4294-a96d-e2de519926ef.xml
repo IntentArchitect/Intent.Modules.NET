@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="2406e393-4cf6-4294-a96d-e2de519926ef" type=".NET Framework Version" typeId="6453c4bd-78b8-4589-a223-9f57a348a1a1">
   <name>.NET Framework 4.5</name>
-  <display>.NET Framework 4.5</display>
+  <display>.NET Framework 4.5 = net45</display>
   <isAbstract>false</isAbstract>
   <value>net45</value>
-  <order>10</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4aab5ac2-71c3-4d2b-a616-0ad39a8193ba</parentFolderId>

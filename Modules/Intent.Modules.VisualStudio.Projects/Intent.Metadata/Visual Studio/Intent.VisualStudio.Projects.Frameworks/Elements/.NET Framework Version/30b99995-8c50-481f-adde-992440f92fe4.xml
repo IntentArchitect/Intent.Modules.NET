@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="30b99995-8c50-481f-adde-992440f92fe4" type=".NET Framework Version" typeId="6453c4bd-78b8-4589-a223-9f57a348a1a1">
   <name>.NET Framework 4.6</name>
-  <display>.NET Framework 4.6</display>
+  <display>.NET Framework 4.6 = net46</display>
   <isAbstract>false</isAbstract>
   <value>net46</value>
-  <order>13</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4aab5ac2-71c3-4d2b-a616-0ad39a8193ba</parentFolderId>

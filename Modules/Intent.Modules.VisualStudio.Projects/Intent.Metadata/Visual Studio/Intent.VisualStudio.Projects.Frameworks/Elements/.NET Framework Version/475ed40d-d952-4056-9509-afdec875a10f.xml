@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="475ed40d-d952-4056-9509-afdec875a10f" type=".NET Framework Version" typeId="6453c4bd-78b8-4589-a223-9f57a348a1a1">
   <name>.NET Framework 4.8</name>
-  <display>.NET Framework 4.8</display>
+  <display>.NET Framework 4.8 = net48</display>
   <isAbstract>false</isAbstract>
   <value>net48</value>
-  <order>19</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4aab5ac2-71c3-4d2b-a616-0ad39a8193ba</parentFolderId>

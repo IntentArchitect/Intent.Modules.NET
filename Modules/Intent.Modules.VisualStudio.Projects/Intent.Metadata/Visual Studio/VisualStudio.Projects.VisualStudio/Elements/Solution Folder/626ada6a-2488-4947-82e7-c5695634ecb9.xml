@@ -3,7 +3,7 @@
   <name>Common</name>
   <display>Common</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8d6f4aac-236d-4bc7-83f6-f9ce6a516654</parentFolderId>
