@@ -8,6 +8,8 @@ using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 
@@ -35,30 +37,30 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return _matchingElementDetails.Value.IsMatch;
         }
 
-        public IEnumerable<RequiredService> GetRequiredServices()
+        public void ApplyStrategy()
         {
-            return new[]
-            {
-                _matchingElementDetails.Value.Repository,
-                new RequiredService(_template.UseType("AutoMapper.IMapper"), "mapper"),
-            };
+            var @class = _template.CSharpFile.Classes.First();
+            var ctor = @class.Constructors.First();
+            var repository = _matchingElementDetails.Value.Repository;
+            ctor.AddParameter(repository.Type, repository.Name.ToParameterName(), param => param.IntroduceReadonlyField())
+                .AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
+
+            var handleMethod = @class.FindMethod("Handle");
+            handleMethod.Statements.Clear();
+            handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+            handleMethod.AddStatements(GetImplementation());
         }
 
-        public string GetImplementation()
+        public IEnumerable<CSharpStatement> GetImplementation()
         {
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
             var idField = _matchingElementDetails.Value.IdField;
             var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
 
-            return
+            yield return
                 $@"var {foundEntity.Name.ToCamelCase()} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);
             return {foundEntity.Name.ToCamelCase()}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);";
-        }
-
-        public void OnStrategySelected()
-        {
-            
         }
 
         private StrategyData GetMatchingElementDetails()

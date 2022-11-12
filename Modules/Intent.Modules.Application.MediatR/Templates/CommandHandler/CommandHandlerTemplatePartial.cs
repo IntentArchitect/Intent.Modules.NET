@@ -6,6 +6,7 @@ using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -28,6 +29,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
 
             CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
+                .AddUsing("System")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("MediatR")
                 .AddClass($"{Model.Name}Handler", @class =>
                 {
                     @class.WithBaseType(GetRequestHandlerInterface());
@@ -39,8 +44,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                     @class.AddMethod($"Task<{GetReturnType()}>", "Handle", method =>
                     {
                         method.Async();
+                        method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                         method.AddParameter(GetCommandModelName(), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
+                        method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                     });
                 });
         }
@@ -63,45 +70,42 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             return CSharpFile.ToString();
         }
         
-        public override void BeforeTemplateExecution()
-        {
-            var @class = CSharpFile.Classes.First();
-            @class.FindMethod("Handle")
-                .AddStatements(GetImplementation())
-                .AddAttribute($"IntentManaged(Mode.Fully, Body = Mode.{(HasImplementation() ? "Fully" : "Ignore")})");
-            AddRequiredServices(@class);
-            GetDecorators().ToList().ForEach(x => x.BeforeTemplateExecution());
-        }
+        //public override void BeforeTemplateExecution()
+        //{
+        //    var @class = CSharpFile.Classes.First();
+        //    @class.FindMethod("Handle")
+        //        ;
+        //    AddRequiredServices(@class);
+        //}
 
-        private void AddRequiredServices(CSharpClass @class)
-        {
-            var ctor = @class.Constructors.First();
-            foreach (var requiredService in GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct())
-            {
-                @class.AddField(requiredService.Type, requiredService.FieldName, x => x.Private());
-                ctor.AddParameter(requiredService.Type, requiredService.Name.ToParameterName())
-                    .AddStatement($@"{requiredService.FieldName} = {requiredService.Name.ToParameterName()};");
-            }
-        }
+        //private void AddRequiredServices(CSharpClass @class)
+        //{
+        //    var ctor = @class.Constructors.First();
+        //    foreach (var requiredService in GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct())
+        //    {
+        //        ctor.AddParameter(requiredService.Type, requiredService.Name.ToParameterName(),
+        //            param => param.IntroduceReadonlyField());
+        //    }
+        //}
 
-        private IEnumerable<string> GetImplementation()
-        {
-            var decoratorStatements = GetDecorators()
-                .Select(s => s.GetImplementation())
-                .Where(p => !string.IsNullOrWhiteSpace(p))
-                .ToList();
-            if (!decoratorStatements.Any())
-            {
-                return new[] { $@"throw new NotImplementedException(""Your implementation here..."");" };
-            }
+        //private IEnumerable<string> GetImplementation()
+        //{
+        //    var decoratorStatements = GetDecorators()
+        //        .Select(s => s.GetImplementation())
+        //        .Where(p => !string.IsNullOrWhiteSpace(p))
+        //        .ToList();
+        //    if (!decoratorStatements.Any())
+        //    {
+        //        return new[] {  };
+        //    }
 
-            return decoratorStatements;
-        }
+        //    return decoratorStatements;
+        //}
 
-        private bool HasImplementation()
-        {
-            return GetDecorators().Any(p => !string.IsNullOrWhiteSpace(p.GetImplementation()));
-        }
+        //private bool HasImplementation()
+        //{
+        //    return GetDecorators().Any(p => !string.IsNullOrWhiteSpace(p.GetImplementation()));
+        //}
 
         private string GetRequestHandlerInterface()
         {

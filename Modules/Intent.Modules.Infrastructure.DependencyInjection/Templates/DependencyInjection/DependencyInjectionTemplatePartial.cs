@@ -119,8 +119,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         {
             return new CSharpFileConfig(
                 className: $"DependencyInjection",
-                @namespace: $"{OutputTarget.GetNamespace()}")
-                .WithAutoFormatting(false);
+                @namespace: $"{OutputTarget.GetNamespace()}");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

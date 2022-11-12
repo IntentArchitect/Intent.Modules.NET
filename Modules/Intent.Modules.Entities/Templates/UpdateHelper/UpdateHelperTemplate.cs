@@ -32,16 +32,17 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing System.Collections.Generic;\r\n\r\n[assembly: DefaultIntentManag" +
+                    "ed(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\UpdateHelper\UpdateHelperTemplate.tt"
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\UpdateHelper\UpdateHelperTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\UpdateHelper\UpdateHelperTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities\Templates\UpdateHelper\UpdateHelperTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

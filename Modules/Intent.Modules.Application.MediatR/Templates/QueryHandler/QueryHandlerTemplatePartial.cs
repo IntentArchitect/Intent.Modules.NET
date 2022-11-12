@@ -4,8 +4,10 @@ using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -25,9 +27,13 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
-            AddTypeSource("Application.Contract.Dto", "List<{0}>");
+            AddTypeSource("Application.Contract.Dto", "System.Collections.Generic.List<{0}>");
 
             CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
+                .AddUsing("System")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("MediatR")
                 .AddClass($"{Model.Name}Handler", @class =>
                 {
                     @class.WithBaseType(GetRequestHandlerInterface());
@@ -39,8 +45,10 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                     @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
                     {
                         method.Async();
+                        method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                         method.AddParameter(GetQueryModelName(), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
+                        method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                     });
                 });
         }
@@ -62,56 +70,57 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
             return CSharpFile.ToString();
         }
 
-        public override void BeforeTemplateExecution()
-        {
-            var @class = CSharpFile.Classes.First();
-            @class.FindMethod("Handle")
-                .AddStatements(GetImplementation())
-                .AddAttribute($"IntentManaged(Mode.Fully, Body = Mode.{(HasImplementation() ? "Fully" : "Ignore")})");
-            AddRequiredServices(@class);
-            GetDecorators().ToList().ForEach(x => x.BeforeTemplateExecution());
-        }
+        //public override void BeforeTemplateExecution()
+        //{
+        //    var @class = CSharpFile.Classes.First();
+        //    @class.FindMethod("Handle")
+        //        .AddStatements(GetImplementation())
+        //        .AddAttribute($"IntentManaged(Mode.Fully, Body = Mode.Ignore)");
+        //    AddRequiredServices(@class);
+        //    GetDecorators().ToList().ForEach(x => x.BeforeTemplateExecution());
+        //}
 
-        private void AddRequiredServices(CSharpClass @class)
-        {
-            var ctor = @class.Constructors.First();
-            foreach (var requiredService in GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct())
-            {
-                @class.AddField(requiredService.Type, requiredService.FieldName, x => x.Private());
-                ctor.AddParameter(requiredService.Type, requiredService.Name.ToParameterName())
-                    .AddStatement($@"{requiredService.FieldName} = {requiredService.Name.ToParameterName()};");
-            }
-        }
+        //private void AddRequiredServices(CSharpClass @class)
+        //{
+        //    var ctor = @class.Constructors.First();
+        //    foreach (var requiredService in GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct())
+        //    {
+        //        @class.AddField(requiredService.Type, requiredService.FieldName, x => x.Private());
+        //        ctor.AddParameter(requiredService.Type, requiredService.Name.ToParameterName())
+        //            .AddStatement($@"{requiredService.FieldName} = {requiredService.Name.ToParameterName()};");
+        //    }
+        //}
+        
 
-        private string GetQueryModelName()
-        {
-            return GetTypeName(QueryModelsTemplate.TemplateId, Model);
-        }
+        //private IEnumerable<string> GetImplementation()
+        //{
+        //    var decoratorStatements = GetDecorators()
+        //        .Select(s => s.GetImplementation())
+        //        .Where(p => !string.IsNullOrWhiteSpace(p))
+        //        .ToList();
+        //    if (!decoratorStatements.Any())
+        //    {
+        //        return new[] { $@"throw new NotImplementedException(""Your implementation here..."");" };
+        //    }
 
-        private IEnumerable<string> GetImplementation()
-        {
-            var decoratorStatements = GetDecorators()
-                .Select(s => s.GetImplementation())
-                .Where(p => !string.IsNullOrWhiteSpace(p))
-                .ToList();
-            if (!decoratorStatements.Any())
-            {
-                return new[] { $@"throw new NotImplementedException(""Your implementation here..."");" };
-            }
+        //    return decoratorStatements;
+        //}
 
-            return decoratorStatements;
-        }
-
-        private bool HasImplementation()
-        {
-            return GetDecorators().Any(p => !string.IsNullOrWhiteSpace(p.GetImplementation()));
-        }
+        //private bool HasImplementation()
+        //{
+        //    return GetDecorators().Any(p => !string.IsNullOrWhiteSpace(p.GetImplementation()));
+        //}
 
         private string GetRequestHandlerInterface()
         {
             return Model.TypeReference.Element != null
                 ? $"IRequestHandler<{GetQueryModelName()}, {GetTypeName(Model.TypeReference)}>"
                 : $"IRequestHandler<{GetQueryModelName()}>";
+        }
+        
+        private string GetQueryModelName()
+        {
+            return GetTypeName(QueryModelsTemplate.TemplateId, Model);
         }
     }
 }

@@ -79,10 +79,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return new CSharpFileConfig(
                 className: $"{Model.Name.RemoveSuffix("Controller", "Service")}Controller",
                 @namespace: $"{this.GetNamespace()}",
-                relativeLocation: this.GetFolderPath())
-            {
-                AutoFormat = false
-            };
+                relativeLocation: this.GetFolderPath());
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

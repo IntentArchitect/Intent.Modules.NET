@@ -6,7 +6,7 @@ using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterfa
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
-static class ImplementationStrategyTemplates
+static class ImplementationStrategyTemplatesExtensions
 {
     public static string GetDomainEntityName(this IntentTemplateBase template, ClassModel domainModel)
     {

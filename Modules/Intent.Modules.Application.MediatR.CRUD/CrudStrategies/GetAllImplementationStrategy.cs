@@ -8,6 +8,8 @@ using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 
@@ -39,26 +41,26 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return _matchingElementDetails.Value.IsMatch;
         }
 
-        public IEnumerable<RequiredService> GetRequiredServices()
+        public void ApplyStrategy()
         {
-            return new[]
-            {
-                _matchingElementDetails.Value.Repository,
-                new RequiredService(_template.UseType("AutoMapper.IMapper"), "mapper"),
-            };
+            var @class = _template.CSharpFile.Classes.First();
+            var ctor = @class.Constructors.First();
+            var repository = _matchingElementDetails.Value.Repository;
+            ctor.AddParameter(repository.Type, repository.Name.ToParameterName(), param => param.IntroduceReadonlyField())
+                .AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
+
+            var handleMethod = @class.FindMethod("Handle");
+            handleMethod.Statements.Clear();
+            handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+            handleMethod.AddStatements(GetImplementation());
         }
 
-        public string GetImplementation()
+        public IEnumerable<CSharpStatement> GetImplementation()
         {
             var result = _matchingElementDetails.Value;
-            return
-                $@"var {result.FoundEntity.Name.ToCamelCase().ToPluralName()} = await {result.Repository.FieldName}.FindAllAsync(cancellationToken);
-            return {result.FoundEntity.Name.ToCamelCase().ToPluralName()}.MapTo{_template.GetDtoName(result.DtoToReturn)}List(_mapper);";
-        }
-
-        public void OnStrategySelected()
-        {
-            
+            yield return
+                $@"var {result.FoundEntity.Name.ToCamelCase().Pluralize()} = await {result.Repository.FieldName}.FindAllAsync(cancellationToken);
+            return {result.FoundEntity.Name.ToCamelCase().Pluralize()}.MapTo{_template.GetDtoName(result.DtoToReturn)}List(_mapper);";
         }
 
         private StrategyData GetMatchingElementDetails()
@@ -66,12 +68,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var matchingEntities = _metadataManager.Domain(_application)
                 .GetClassModels().Where(x => new[]
                 {
-                    $"get{x.Name.ToPluralName().ToLower()}",
-                    $"getall{x.Name.ToPluralName().ToLower()}",
-                    $"find{x.Name.ToPluralName().ToLower()}",
-                    $"findall{x.Name.ToPluralName().ToLower()}",
-                    $"lookup{x.Name.ToPluralName().ToLower()}",
-                    $"lookupall{x.Name.ToPluralName().ToLower()}",
+                    $"get{x.Name.Pluralize().ToLower()}",
+                    $"getall{x.Name.Pluralize().ToLower()}",
+                    $"find{x.Name.Pluralize().ToLower()}",
+                    $"findall{x.Name.Pluralize().ToLower()}",
+                    $"lookup{x.Name.Pluralize().ToLower()}",
+                    $"lookupall{x.Name.Pluralize().ToLower()}",
                 }.Contains(_template.Model.Name.ToLower().RemoveSuffix("query")))
                 .ToList();
 

@@ -11,13 +11,5 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
     public abstract class QueryHandlerDecorator : ITemplateDecorator
     {
         public int Priority { get; protected set; } = 0;
-
-        public virtual IEnumerable<RequiredService> GetRequiredServices() => new List<RequiredService>();
-
-        public virtual string GetImplementation() => null;
-        
-        public virtual void BeforeTemplateExecution()
-        {
-        }
     }
 }

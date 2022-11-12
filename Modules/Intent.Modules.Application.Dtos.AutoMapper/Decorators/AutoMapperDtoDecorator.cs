@@ -37,7 +37,11 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
         private ICSharpFileBuilderTemplate _entityTemplate;
 
         public ICSharpFileBuilderTemplate EntityTemplate => _entityTemplate ??=
-            _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Domain.Entity.Primary, _template.Model.Mapping.ElementId);
+            _template.TryGetTemplate(TemplateFulfillingRoles.Domain.Entity.Primary, _template.Model.Mapping.ElementId, out _entityTemplate) 
+                ? _entityTemplate 
+                : _template.TryGetTemplate(TemplateFulfillingRoles.Domain.ValueObject, _template.Model.Mapping.ElementId, out _entityTemplate) 
+                    ? _entityTemplate 
+                    : null;
 
         public IEnumerable<string> DeclareUsings()
         {

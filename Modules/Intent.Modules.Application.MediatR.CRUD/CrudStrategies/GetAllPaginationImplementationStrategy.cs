@@ -8,6 +8,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 
@@ -36,30 +38,30 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
                && _matchingElementDetails.Value.IsMatch;
     }
 
-    public IEnumerable<RequiredService> GetRequiredServices()
+    public void ApplyStrategy()
     {
-        return new[]
-        {
-            _matchingElementDetails.Value.Repository,
-            new RequiredService(_template.UseType("AutoMapper.IMapper"), "mapper"),
-        };
+        var @class = _template.CSharpFile.Classes.First();
+        var ctor = @class.Constructors.First();
+        var repository = _matchingElementDetails.Value.Repository;
+        ctor.AddParameter(repository.Type, repository.Name.ToParameterName(), param => param.IntroduceReadonlyField())
+            .AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
+
+        var handleMethod = @class.FindMethod("Handle");
+        handleMethod.Statements.Clear();
+        handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+        handleMethod.AddStatements(GetImplementation());
     }
 
-    public string GetImplementation()
+    public IEnumerable<CSharpStatement> GetImplementation()
     {
         var pageNumberVar = _template.Model.Properties.Single(IsPageNumberParam);
         var pageSizeVar = _template.Model.Properties.Single(IsPageSizeParam);
-        return
+        yield return
             $@"var results = await {_matchingElementDetails.Value.Repository.FieldName}.FindAllAsync(
                 pageNo: request.{pageNumberVar.Name.ToPascalCase()},
                 pageSize: request.{pageSizeVar.Name.ToPascalCase()},
                 cancellationToken: cancellationToken);
             return results.MapToPagedResult(x => x.MapTo{_template.GetDtoName(_matchingElementDetails.Value.DtoModel)}(_mapper));";
-    }
-
-    public void OnStrategySelected()
-    {
-        
     }
 
     private StrategyData GetMatchingElementDetails()

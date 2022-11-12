@@ -7,6 +7,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
@@ -34,30 +36,32 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return _matchingElementDetails.Value.IsMatch;
         }
 
-        public IEnumerable<RequiredService> GetRequiredServices()
+        public void ApplyStrategy()
         {
-            return new[]
-            {
-                _matchingElementDetails.Value.Repository
-            };
+            var @class = _template.CSharpFile.Classes.First();
+            var ctor = @class.Constructors.First();
+            var repository = _matchingElementDetails.Value.Repository;
+            ctor.AddParameter(repository.Type, repository.Name.ToParameterName(),
+                param => param.IntroduceReadonlyField());
+
+            var handleMethod = @class.FindMethod("Handle");
+            handleMethod.Statements.Clear();
+            handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+            handleMethod.AddStatements(GetImplementation());
         }
 
-        public string GetImplementation()
+        public IEnumerable<CSharpStatement> GetImplementation()
         {
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var idField = _matchingElementDetails.Value.IdField;
             var repository = _matchingElementDetails.Value.Repository;
 
-            return
+            yield return
                 $@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);
                 {repository.FieldName}.Remove(existing{foundEntity.Name});
                 return Unit.Value;";
         }
 
-        public void OnStrategySelected()
-        {
-            
-        }
 
         private StrategyData GetMatchingElementDetails()
         {
