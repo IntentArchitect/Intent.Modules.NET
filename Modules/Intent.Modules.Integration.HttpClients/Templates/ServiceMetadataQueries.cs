@@ -44,10 +44,22 @@ public static class ServiceMetadataQueries
             serviceRoute = $"api{(!string.IsNullOrWhiteSpace(serviceName) ? "/" : string.Empty)}{serviceName}";
         }
 
-        var operationRoute = GetRoute(operation) ?? string.Empty;
-        operationRoute = operationRoute.Replace("[action]", operation.Name);
+        serviceRoute = serviceRoute.ToLower();
 
-        return $"{serviceRoute.ToLower()}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute.ToLower()}";
+        var operationRoute = GetRoute(operation) ?? string.Empty;
+        operationRoute = operationRoute.Replace("[action]", operation.Name).ToLower();
+        if (!string.IsNullOrWhiteSpace(operationRoute))
+        {
+            foreach (var parameter in operation.Parameters)
+            {
+                if (operationRoute.Contains($"{{{parameter.Name}}}", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    operationRoute = operationRoute.Replace($"{{{parameter.Name}}}", $"{{{parameter.Name.ToCamelCase()}}}", StringComparison.InvariantCultureIgnoreCase);
+                }
+            }
+        }
+
+        return $"{serviceRoute}{(!string.IsNullOrWhiteSpace(operationRoute) ? "/" : string.Empty)}{operationRoute}";
     }
 
     public static IReadOnlyCollection<ParameterModel> GetQueryParameters(IntentTemplateBase template, OperationModel operation)

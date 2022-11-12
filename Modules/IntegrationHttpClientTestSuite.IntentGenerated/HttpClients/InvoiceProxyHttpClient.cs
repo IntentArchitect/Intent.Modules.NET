@@ -333,7 +333,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
-                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); }
                     return Guid.Parse(str);
                 }
             }
@@ -358,7 +358,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
-                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); }
                     return str;
                 }
             }
@@ -383,7 +383,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
-                    if (str.StartsWith(@"""") || str.StartsWith("'")) { str = str.Substring(1, str.Length - 2); }
+                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); }
                     return int.Parse(str);
                 }
             }
