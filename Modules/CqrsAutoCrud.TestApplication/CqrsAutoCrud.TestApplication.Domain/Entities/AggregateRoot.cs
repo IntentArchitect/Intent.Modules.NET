@@ -11,6 +11,17 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
     public partial class AggregateRoot
     {
+        public Guid Id { get; set; }
+
+        public string AggregateAttr { get; set; }
+
+        public virtual CompositeSingleA? Composite { get; set; }
+
+        public virtual ICollection<CompositeManyB> Composites { get; set; } = new List<CompositeManyB>();
+
+        public Guid? AggregateId { get; set; }
+
+        public virtual AggregateSingleC? Aggregate { get; set; }
 
     }
 }

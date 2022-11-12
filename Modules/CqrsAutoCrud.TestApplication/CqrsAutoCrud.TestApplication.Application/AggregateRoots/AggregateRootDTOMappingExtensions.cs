@@ -12,12 +12,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 {
     public static class AggregateRootDTOMappingExtensions
     {
-        public static AggregateRootDTO MapToAggregateRootDTO(this IAggregateRoot projectFrom, IMapper mapper)
+        public static AggregateRootDTO MapToAggregateRootDTO(this AggregateRoot projectFrom, IMapper mapper)
         {
             return mapper.Map<AggregateRootDTO>(projectFrom);
         }
 
-        public static List<AggregateRootDTO> MapToAggregateRootDTOList(this IEnumerable<IAggregateRoot> projectFrom, IMapper mapper)
+        public static List<AggregateRootDTO> MapToAggregateRootDTOList(this IEnumerable<AggregateRoot> projectFrom, IMapper mapper)
         {
             return projectFrom.Select(x => x.MapToAggregateRootDTO(mapper)).ToList();
         }

@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             codeLines.Add(string.Empty);
             codeLines.Add($"var new{foundEntity.Name} = new {entityName ?? foundEntity.Name}");
             codeLines.Add($"{{");
-            codeLines.AddRange(GetCommandPropertyAssignments(foundEntity, _template.Model).Select(s => $@"    {s}"));
+            codeLines.AddRange(GetDTOPropertyAssignments("", "request", foundEntity, _template.Model.Properties).Select(s => $@"    {s}"));
             codeLines.Add($"}};");
             codeLines.Add(string.Empty);
             codeLines.Add($"{repository.FieldName}.Add(new{foundEntity.Name});");
@@ -128,81 +128,62 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return NoMatch;
         }
 
-        private List<string> GetCommandPropertyAssignments(ClassModel domainModel, CommandModel command)
+        public void OnStrategySelected()
         {
-            var codeLines = new List<string>();
-            if (_template.ExecutionContext.Settings.GetDatabaseSettings().KeyCreationMode().IsExplicit()
-                && command.Properties.Any(p => p.Name.Equals("Id", StringComparison.OrdinalIgnoreCase) && p.TypeReference.Element.Name == "guid"))
+            var stack = new Stack<DTOModel>();
+            var elementsFound = new List<(DTOModel Dto, string fieldName, ClassModel Domain)>();
+            foreach (var commandProperty in _template.Model.Properties
+                         .Where(p => p.Mapping?.Element?.SpecializationTypeId == AssociationTargetEndModel.SpecializationTypeId))
             {
-                codeLines.Add($"Id = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
+                var association = commandProperty.Mapping.Element.AsAssociationTargetEndModel();
+                var attributeClass = association.Class;
+                var dto = commandProperty.TypeReference.Element.AsDTOModel();
+                elementsFound.Add((dto, commandProperty.Name, attributeClass));
+                stack.Push(dto);
             }
 
-            foreach (var property in command.Properties)
+            while (stack.Any())
             {
-                if (property.Mapping?.Element == null
-                    && domainModel.Attributes.All(p => p.Name != property.Name))
+                var dto = stack.Pop();
+                foreach (var dtoField in dto.Fields
+                             .Where(p => p.Mapping?.Element?.SpecializationTypeId == AssociationTargetEndModel.SpecializationTypeId))
                 {
-                    codeLines.Add($"#warning No matching field found for {property.Name}");
-                    continue;
-                }
-
-                const string newLine = @"
-    ";
-
-                switch (property.Mapping?.Element?.SpecializationTypeId)
-                {
-                    default:
-                        var mappedPropertyName = property.Mapping?.Element?.Name ?? "<null>";
-                        codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {property.Name}");
-                        break;
-                    case AttributeModel.SpecializationTypeId:
-                        var attribute = property.Mapping?.Element?.AsAttributeModel()
-                                        ?? domainModel.Attributes.First(p => p.Name == property.Name);
-                        codeLines.Add($"{attribute.Name.ToPascalCase()} = request.{property.Name.ToPascalCase()},");
-                        break;
-                    case AssociationTargetEndModel.SpecializationTypeId:
-                    {
-                        var association = property.Mapping.Element.AsAssociationTargetEndModel();
-                        var attributeClass = association.Class;
-                        var attributeName = association.Name.ToPascalCase();
-
-                        if (association.Association.AssociationType == AssociationType.Aggregation)
-                        {
-                            codeLines.Add($@"#warning Property not a composite association: {property.Name.ToPascalCase()}");
-                            break;
-                        }
-                        
-                        if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
-                        {
-                            codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()} != null");
-                            codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments($"request.{property.Name.ToPascalCase()}", attributeClass, property.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}");
-                            codeLines.Add($"    : null,");
-                        }
-                        else
-                        {
-                            codeLines.Add($"{attributeName} = request.{property.Name.ToPascalCase()}?.Select({property.Name.ToCamelCase()} =>");
-                            codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments(property.Name.ToCamelCase(), attributeClass, property.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}).ToList(),");
-                        }
-                    }
-                        break;
+                    var association = dtoField.Mapping.Element.AsAssociationTargetEndModel();
+                    var attributeClass = association.Class;
+                    var nestedDto = dtoField.TypeReference.Element.AsDTOModel();
+                    elementsFound.Add((nestedDto, dtoField.Name, attributeClass));
+                    stack.Push(nestedDto);
                 }
             }
 
-            return codeLines;
+            var @class = _template.CSharpFile.Classes.First();
+            foreach (var match in elementsFound)
+            {
+                @class.AddMethod(_template.GetTypeName(match.Domain.InternalElement),
+                    GetCreateMethodName(match.Domain),
+                    method => method.Private()
+                        .Static()
+                        .AddAttribute("IntentManaged(Mode.Fully)")
+                        .AddParameter(_template.GetTypeName(match.Dto.InternalElement), "dto")
+                        .AddStatements(new[]
+                        {
+                            $"return new {match.Domain.Name.ToPascalCase()}",
+                            "{",
+                        })
+                        .AddStatements(GetDTOPropertyAssignments("", $"dto", match.Domain, match.Dto.Fields))
+                        .AddStatement("};"));
+            }
+        }
+        
+        private string GetCreateMethodName(ClassModel classModel)
+        {
+            return $"Create{classModel.Name.ToPascalCase()}";
         }
 
-        private List<string> GetDTOPropertyAssignments(string accessorName, ClassModel domainModel, DTOModel dto)
+        private List<string> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields)
         {
             var codeLines = new List<string>();
-            foreach (var field in dto.Fields)
+            foreach (var field in dtoFields)
             {
                 if (field.Mapping?.Element == null
                     && domainModel.Attributes.All(p => p.Name != field.Name))
@@ -214,26 +195,23 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 const string newLine = @"
     ";
 
+                var entityVarExpr = !string.IsNullOrWhiteSpace(entityVarName) ? $"{entityVarName}." : string.Empty;
                 switch (field.Mapping?.Element?.SpecializationTypeId)
                 {
                     default:
                         var mappedPropertyName = field.Mapping?.Element?.Name ?? "<null>";
                         codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {field.Name}");
                         break;
+                    case null:
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == field.Name);
                         if (!attribute.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
                         {
-                            codeLines.Add($"{attribute.Name.ToPascalCase()} = {accessorName}.{field.Name.ToPascalCase()},");
+                            codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()},");
                             break;
                         }
-
-                        if (_template.ExecutionContext.Settings.GetDatabaseSettings().KeyCreationMode().IsExplicit() 
-                            && attribute.Type.Element.Name == "guid")
-                        {
-                            codeLines.Add($"{attribute.Name.ToPascalCase()} = {_template.GetTypeName("Intent.Entities.Keys.IdentityGenerator")}.NewSequentialId(),");
-                        }
+                        
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
                     {
@@ -249,22 +227,20 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {
-                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()} != null");
-                            codeLines.Add($"    ? new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments($"{accessorName}.{field.Name.ToPascalCase()}", attributeClass, field.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}");
-                            codeLines.Add($"    : null,");
+                            if (association.IsNullable)
+                            {
+                                codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
+                                codeLines.Add($"    ? {GetCreateMethodName(attributeClass)}({dtoVarName}.{field.Name.ToPascalCase()})");
+                                codeLines.Add($"    : null,");
+                            }
+                            else
+                            {
+                                codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(attributeClass)}({dtoVarName}.{field.Name.ToPascalCase()}),");
+                            }
                         }
                         else
                         {
-                            codeLines.Add($"{attributeName} = {accessorName}.{field.Name.ToPascalCase()}?.Select({field.Name.ToCamelCase()} =>");
-                            codeLines.Add($"    new {attributeClass.Name.ToPascalCase()}");
-                            codeLines.Add($"    {{");
-                            codeLines.AddRange(GetDTOPropertyAssignments(field.Name.ToCamelCase(), attributeClass, field.TypeReference.Element.AsDTOModel())
-                                .Select(s => $"        {s}"));
-                            codeLines.Add($"    }}).ToList(),");
+                            codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(association.IsNullable?"?":"")}.Select({GetCreateMethodName(attributeClass)}).ToList(),");
                         }
                     }
                         break;

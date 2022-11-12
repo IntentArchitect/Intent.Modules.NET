@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CqrsAutoCrud.TestApplication.Infrastructure.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class AggregateSingleCRepository : RepositoryBase<IAggregateSingleC, AggregateSingleC, ApplicationDbContext>, IAggregateSingleCRepository
+    public class AggregateSingleCRepository : RepositoryBase<AggregateSingleC, AggregateSingleC, ApplicationDbContext>, IAggregateSingleCRepository
     {
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public AggregateSingleCRepository(ApplicationDbContext dbContext) : base(dbContext)
@@ -24,14 +24,14 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Repositories
 
 
         [IntentManaged(Mode.Fully)]
-        public async Task<IAggregateSingleC> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<AggregateSingleC> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
 
         [IntentManaged(Mode.Fully)]
-        public async Task<List<IAggregateSingleC>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<AggregateSingleC>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

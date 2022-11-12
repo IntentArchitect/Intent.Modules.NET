@@ -23,7 +23,6 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
-            services.Configure<DbContextConfiguration>(opt => configuration.GetSection("SqlServer").Bind(opt));
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
             services.AddTransient<IAggregateRootRepository, AggregateRootRepository>();
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();

@@ -31,10 +31,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggr
             {
                 Attribute = request.Attribute,
                 CompositeOfAggrLong = request.CompositeOfAggrLong != null
-                    ? new CompositeOfAggrLong
-                    {
-                        Attribute = request.CompositeOfAggrLong.Attribute,
-                    }
+                    ? CreateCompositeOfAggrLong(request.CompositeOfAggrLong)
                     : null,
             };
 
@@ -42,6 +39,15 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggr
 
             await _aggregateRootLongRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newAggregateRootLong.Id;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeOfAggrLong CreateCompositeOfAggrLong(CreateCompositeOfAggrLongDTO dto)
+        {
+            return new CompositeOfAggrLong
+            {
+                Attribute = dto.Attribute,
+            };
         }
     }
 }

@@ -10,15 +10,17 @@ using CqrsAutoCrud.TestApplication.Application.AggregateRoots;
 using CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
 using CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregateRoot;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
-using CqrsAutoCrud.TestApplication.Domain.Entities.Common;
 using CqrsAutoCrud.TestApplication.Infrastructure.Persistence;
 using CqrsAutoCrud.TestApplication.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using VerifyTests;
+using VerifyXunit;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace CqrsAutoCrud.TestApplication.IntegrationTests;
 
+[UsesVerify]
 public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
 {
     public CrudTests(ITestOutputHelper outputHelper) : base(outputHelper)
@@ -29,116 +31,130 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
     public async Task Test_CreateCommand()
     {
         var command = new CreateAggregateRootCommand();
-        command.AggregateAttr = "Aggregate Root " + Guid.NewGuid();
-        command.Composite = CompositeSingleADTO.Create(
+        command.AggregateAttr = "Create Aggregate Root";
+        command.Composite = CreateCompositeSingleADTO.Create(
             Guid.Empty,
-            command.AggregateAttr + "_" + Guid.NewGuid(),
-            CompositeSingleAADTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid()),
-            new List<CompositeManyAADTO>
+            command.AggregateAttr + "_1",
+            CreateCompositeSingleAADTO.Create(default, command.AggregateAttr + "_2"),
+            new List<CreateCompositeManyAADTO>
             {
-                CompositeManyAADTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid(), default)
+                CreateCompositeManyAADTO.Create(default, command.AggregateAttr + "_3", default)
             });
-        command.Composites = new List<CompositeManyBDTO>
+        command.Composites = new List<CreateCompositeManyBDTO>
         {
-            CompositeManyBDTO.Create(
+            CreateCompositeManyBDTO.Create(
                 Guid.Empty,
-                command.AggregateAttr + "_" + Guid.NewGuid(),
+                command.AggregateAttr + "_4",
                 Guid.Empty, 
-                CompositeSingleBBDTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid()),
-                new List<CompositeManyBBDTO>
+                CreateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_5"),
+                new List<CreateCompositeManyBBDTO>
                 {
-                    CompositeManyBBDTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid(), default)
+                    CreateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_6", default)
                 })
         };
-        command.Aggregate = AggregateSingleCDTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid());
+        command.Aggregate = CreateAggregateSingleCDTO.Create(default, command.AggregateAttr + "_7");
 
         var handler = new CreateAggregateRootCommandHandler(new AggregateRootRepository(DbContext));
         await handler.Handle(command, CancellationToken.None);
+        await DbContext.SaveChangesAsync();
 
         var actual = await DbContext.AggregateRoots.FirstAsync(p => p.AggregateAttr == command.AggregateAttr);
         Assert.NotNull(actual);
-        Assert.Equal(command.Composite.CompositeAttr, actual.Composite.CompositeAttr);
-        Assert.Equal(command.Composite.Composite.CompositeAttr, actual.Composite.Composite.CompositeAttr);
-        Assert.Equal(command.Composite.Composites.First().CompositeAttr, actual.Composite.Composites.First().CompositeAttr);
-        Assert.Equal(command.Composites.First().Composite.CompositeAttr, actual.Composites.First().Composite.CompositeAttr);
-        Assert.Equal(command.Composites.First().Composites.First().CompositeAttr, actual.Composites.First().Composites.First().CompositeAttr);
-        Assert.Null(actual.Aggregate);
+        await Verifier.Verify(actual);
     }
 
     [IgnoreOnCiBuildFact]
     public async Task Test_UpdateCommand()
     {
         var root = new AggregateRoot();
-        root.Id = IdentityGenerator.NewSequentialId();
-        root.AggregateAttr = "Aggregate Root " + Guid.NewGuid();
-        root.Composites = new List<CompositeManyB>();
+        root.AggregateAttr = "Update Aggregate Root";
+        root.Composites = new List<CompositeManyB>
+        {
+            new CompositeManyB
+            {
+                Id = new Guid("0483ae48-4606-45ec-8ca4-66355aa5bbbf"),
+                CompositeAttr = root.AggregateAttr + "_1",
+                SomeDate = DateTime.Parse("2022/11/08 12:00:00")
+            },
+            new CompositeManyB
+            {
+                Id = new Guid("d34db3c5-2db3-47e3-aa7c-1fb8b7cb52df"),
+                CompositeAttr = root.AggregateAttr + "_2",
+                SomeDate = DateTime.Parse("2022/11/08 12:10:00")
+            }
+        };
         root.Composite = new CompositeSingleA();
-        root.Composite.Id = IdentityGenerator.NewSequentialId();
-        root.Composite.CompositeAttr = root.AggregateAttr + "_" + Guid.NewGuid();
+        root.Composite.CompositeAttr = root.AggregateAttr + "_2";
         DbContext.AggregateRoots.Add(root);
         await DbContext.SaveChangesAsync();
         
         var command = new UpdateAggregateRootCommand();
         command.Id = root.Id;
         command.AggregateAttr = root.AggregateAttr;
-        command.Composite = CompositeSingleADTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid(),
-            CompositeSingleAADTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid()), 
-            new List<CompositeManyAADTO>
+        command.Composite = UpdateCompositeSingleADTO.Create(default, command.AggregateAttr + "_3",
+            UpdateCompositeSingleAADTO.Create(default, command.AggregateAttr + "_4"), 
+            new List<UpdateCompositeManyAADTO>
             {
-                CompositeManyAADTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid(), default)
+                UpdateCompositeManyAADTO.Create(default, command.AggregateAttr + "_5", default)
             });
-        command.Composites = new List<CompositeManyBDTO>
+        command.Composites = new List<UpdateCompositeManyBDTO>
         {
-            CompositeManyBDTO.Create(
+            UpdateCompositeManyBDTO.Create(
+                new Guid("0483ae48-4606-45ec-8ca4-66355aa5bbbf"),
+                command.AggregateAttr + "_6",
                 default,
-                command.AggregateAttr + "_" + Guid.NewGuid(),
-                default,
-                CompositeSingleBBDTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid()),
-                new List<CompositeManyBBDTO>
+                UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_7"),
+                new List<UpdateCompositeManyBBDTO>
                 {
-                    CompositeManyBBDTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid(), default)
+                    UpdateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_8", default)
                 }),
-            CompositeManyBDTO.Create(
+            UpdateCompositeManyBDTO.Create(
+                new Guid("d34db3c5-2db3-47e3-aa7c-1fb8b7cb52df"),
+                command.AggregateAttr + "_8",
                 default,
-                command.AggregateAttr + "_" + Guid.NewGuid(),
-                default,
-                CompositeSingleBBDTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid()),
-                new List<CompositeManyBBDTO>
+                UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_9"),
+                new List<UpdateCompositeManyBBDTO>
                 {
-                    CompositeManyBBDTO.Create(default, command.AggregateAttr + "_" + Guid.NewGuid(), default)
+                    UpdateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_10", default)
+                }),
+            UpdateCompositeManyBDTO.Create(
+                default,
+                command.AggregateAttr + "_11",
+                default,
+                UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_12"),
+                new List<UpdateCompositeManyBBDTO>
+                {
+                    UpdateCompositeManyBBDTO.Create(default, command.AggregateAttr + "_13", default)
                 })
         };
         
         var handler = new UpdateAggregateRootCommandHandler(new AggregateRootRepository(DbContext));
         await handler.Handle(command, CancellationToken.None);
+        await DbContext.SaveChangesAsync();
         
         var actual = await DbContext.AggregateRoots.FirstAsync(p => p.AggregateAttr == command.AggregateAttr);
         Assert.NotNull(actual);
-        Assert.Equal(command.Composite.CompositeAttr, actual.Composite.CompositeAttr);
-        Assert.Equal(command.Composite.Composite.CompositeAttr, actual.Composite.Composite.CompositeAttr);
-        Assert.Equal(command.Composite.Composites.First().CompositeAttr, actual.Composite.Composites.First().CompositeAttr);
-        Assert.Equal(command.Composites.Count, actual.Composites.Count);
-        Assert.Equal(command.Composites.First().Composite.CompositeAttr, actual.Composites.First().Composite.CompositeAttr);
-        Assert.Equal(command.Composites.First().Composites.First().CompositeAttr, actual.Composites.First().Composites.First().CompositeAttr);
-        Assert.Null(actual.Aggregate);
+        await Verifier.Verify(actual).UseTextForParameters("Before");
         
         command.Composites.RemoveAt(0);
         handler = new UpdateAggregateRootCommandHandler(new AggregateRootRepository(DbContext));
         await handler.Handle(command, CancellationToken.None);
+        await DbContext.SaveChangesAsync();
         
         actual = await DbContext.AggregateRoots.FirstAsync(p => p.AggregateAttr == command.AggregateAttr);
-        Assert.Equal(command.Composites.Count, actual.Composites.Count);
+        await Verifier.Verify(actual).UseTextForParameters("After");
     }
 
     [IgnoreOnCiBuildFact]
     public async Task Test_CreateAndUpdate_WithLongPk()
     {
         var createCommand = new CreateAggregateRootLongCommand();
-        createCommand.Attribute = "Long PK Aggr Root " + Guid.NewGuid();
-        createCommand.CompositeOfAggrLong = CompositeOfAggrLongDTO.Create(default, createCommand.Attribute + "_" + Guid.NewGuid());
+        createCommand.Attribute = "Long PK Aggr Root";
+        createCommand.CompositeOfAggrLong = CreateCompositeOfAggrLongDTO.Create(default, createCommand.Attribute + "_1");
 
         var createHandler = new CreateAggregateRootLongCommandHandler(new AggregateRootLongRepository(DbContext));
         var id = await createHandler.Handle(createCommand, CancellationToken.None);
+        await DbContext.SaveChangesAsync();
         
         Assert.Equal(1, DbContext.AggregateRootLongs.Count());
         var actual = await DbContext.AggregateRootLongs.FirstAsync(p => p.Id == id);
@@ -148,10 +164,11 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
         var updateCommand = new UpdateAggregateRootLongCommand();
         updateCommand.Id = id;
         updateCommand.Attribute = createCommand.Attribute + "ZZZ";
-        updateCommand.CompositeOfAggrLong = CompositeOfAggrLongDTO.Create(default, updateCommand.Attribute + "_" + Guid.NewGuid());
+        updateCommand.CompositeOfAggrLong = UpdateCompositeOfAggrLongDTO.Create(default, updateCommand.Attribute + "_2");
 
         var updateHandler = new UpdateAggregateRootLongCommandHandler(new AggregateRootLongRepository(DbContext));
         await updateHandler.Handle(updateCommand, CancellationToken.None);
+        await DbContext.SaveChangesAsync();
 
         Assert.Equal(1, DbContext.AggregateRootLongs.Count());
         actual = await DbContext.AggregateRootLongs.FirstAsync(p => p.Id == id);

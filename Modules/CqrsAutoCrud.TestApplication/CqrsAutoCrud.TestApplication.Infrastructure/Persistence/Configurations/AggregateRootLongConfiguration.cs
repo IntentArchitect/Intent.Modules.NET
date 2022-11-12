@@ -23,7 +23,9 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence.Configurations
 
         public void ConfigureCompositeOfAggrLong(OwnedNavigationBuilder<AggregateRootLong, CompositeOfAggrLong> builder)
         {
-            builder.WithOwner().HasForeignKey(x => x.Id);
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Attribute)

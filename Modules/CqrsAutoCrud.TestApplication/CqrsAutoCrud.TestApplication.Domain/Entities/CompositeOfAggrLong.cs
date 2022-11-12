@@ -11,6 +11,9 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
     public partial class CompositeOfAggrLong
     {
+        public long Id { get; set; }
+
+        public string Attribute { get; set; }
 
     }
 }

@@ -15,11 +15,11 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
 
         public string AggregateAttr { get; set; }
 
-        public CompositeSingleADTO? Composite { get; set; }
+        public UpdateCompositeSingleADTO? Composite { get; set; }
 
-        public List<CompositeManyBDTO> Composites { get; set; }
+        public List<UpdateCompositeManyBDTO> Composites { get; set; }
 
-        public AggregateSingleCDTO? Aggregate { get; set; }
+        public UpdateAggregateSingleCDTO? Aggregate { get; set; }
 
     }
 }

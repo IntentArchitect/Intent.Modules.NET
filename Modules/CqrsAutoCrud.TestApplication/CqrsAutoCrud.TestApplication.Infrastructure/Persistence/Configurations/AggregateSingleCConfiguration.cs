@@ -1,4 +1,3 @@
-using System;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;

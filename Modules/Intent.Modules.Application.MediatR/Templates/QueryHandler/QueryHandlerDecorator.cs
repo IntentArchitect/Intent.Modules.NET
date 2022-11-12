@@ -15,5 +15,9 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         public virtual IEnumerable<RequiredService> GetRequiredServices() => new List<RequiredService>();
 
         public virtual string GetImplementation() => null;
+        
+        public virtual void BeforeTemplateExecution()
+        {
+        }
     }
 }

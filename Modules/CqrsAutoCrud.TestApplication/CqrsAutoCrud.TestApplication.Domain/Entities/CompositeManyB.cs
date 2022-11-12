@@ -11,6 +11,19 @@ namespace CqrsAutoCrud.TestApplication.Domain.Entities
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
     public partial class CompositeManyB
     {
+        public Guid Id { get; set; }
+
+        public string CompositeAttr { get; set; }
+
+        public Guid AAggregaterootId { get; set; }
+
+        public DateTime? SomeDate { get; set; }
+
+        public virtual CompositeSingleBB? Composite { get; set; }
+
+        public virtual ICollection<CompositeManyBB> Composites { get; set; } = new List<CompositeManyBB>();
+
+        public Guid A_AggregateRootId { get; set; }
 
     }
 }

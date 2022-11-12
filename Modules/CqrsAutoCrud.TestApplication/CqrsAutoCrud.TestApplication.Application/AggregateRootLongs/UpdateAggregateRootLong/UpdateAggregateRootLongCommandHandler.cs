@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CqrsAutoCrud.TestApplication.Domain.Common;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
 using CqrsAutoCrud.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -30,14 +31,17 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggr
             var existingAggregateRootLong = await _aggregateRootLongRepository.FindByIdAsync(request.Id, cancellationToken);
             existingAggregateRootLong.Attribute = request.Attribute;
             existingAggregateRootLong.CompositeOfAggrLong = request.CompositeOfAggrLong != null
-                ? new CompositeOfAggrLong
-                {
-                    Id = request.CompositeOfAggrLong.Id,
-                    Attribute = request.CompositeOfAggrLong.Attribute,
-                }
+                ? (existingAggregateRootLong.CompositeOfAggrLong ?? new CompositeOfAggrLong()).UpdateObject(request.CompositeOfAggrLong, UpdateCompositeOfAggrLong)
                 : null;
 
             return Unit.Value;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static void UpdateCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateCompositeOfAggrLongDTO dto)
+        {
+            entity.Id = dto.Id;
+            entity.Attribute = dto.Attribute;
         }
     }
 }

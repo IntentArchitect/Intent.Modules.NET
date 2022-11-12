@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
-using CqrsAutoCrud.TestApplication.Domain.Entities.Common;
 using CqrsAutoCrud.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -32,48 +31,10 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             {
                 AggregateAttr = request.AggregateAttr,
                 Composite = request.Composite != null
-                    ? new CompositeSingleA
-                    {
-                        Id = IdentityGenerator.NewSequentialId(),
-                        CompositeAttr = request.Composite.CompositeAttr,
-                        Composite = request.Composite.Composite != null
-                            ? new CompositeSingleAA
-                            {
-                                Id = IdentityGenerator.NewSequentialId(),
-                                CompositeAttr = request.Composite.Composite.CompositeAttr,
-                            }
-                            : null,
-                        Composites = request.Composite.Composites?.Select(composites =>
-                            new CompositeManyAA
-                            {
-                                Id = IdentityGenerator.NewSequentialId(),
-                                CompositeAttr = composites.CompositeAttr,
-                                ACompositeSingleId = composites.ACompositeSingleId,
-                            }).ToList(),
-                    }
+                    ? CreateCompositeSingleA(request.Composite)
                     : null,
-                Composites = request.Composites?.Select(composites =>
-                    new CompositeManyB
-                    {
-                        Id = IdentityGenerator.NewSequentialId(),
-                        CompositeAttr = composites.CompositeAttr,
-                        AAggregaterootId = composites.AAggregaterootId,
-                        Composite = composites.Composite != null
-                            ? new CompositeSingleBB
-                            {
-                                Id = IdentityGenerator.NewSequentialId(),
-                                CompositeAttr = composites.Composite.CompositeAttr,
-                            }
-                            : null,
-                        Composites = composites.Composites?.Select(composites =>
-                            new CompositeManyBB
-                            {
-                                Id = IdentityGenerator.NewSequentialId(),
-                                CompositeAttr = composites.CompositeAttr,
-                                ACompositeManyId = composites.ACompositeManyId,
-                            }).ToList(),
-                    }).ToList(),
-#warning Property not a composite association: Aggregate
+                Composites = request.Composites.Select(CreateCompositeManyB).ToList(),
+#warning Field not a composite association: Aggregate
             };
 
             _aggregateRootRepository.Add(newAggregateRoot);
@@ -81,5 +42,80 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             await _aggregateRootRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newAggregateRoot.Id;
         }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeSingleA CreateCompositeSingleA(CreateCompositeSingleADTO dto)
+        {
+            return new CompositeSingleA
+            {
+                CompositeAttr = dto.CompositeAttr,
+                Composite = dto.Composite != null
+            ? CreateCompositeSingleAA(dto.Composite)
+            : null,
+                Composites = dto.Composites.Select(CreateCompositeManyAA).ToList(),
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeManyB CreateCompositeManyB(CreateCompositeManyBDTO dto)
+        {
+            return new CompositeManyB
+            {
+                CompositeAttr = dto.CompositeAttr,
+                AAggregaterootId = dto.AAggregaterootId,
+                Composite = dto.Composite != null
+            ? CreateCompositeSingleBB(dto.Composite)
+            : null,
+                Composites = dto.Composites.Select(CreateCompositeManyBB).ToList(),
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static AggregateSingleC CreateAggregateSingleC(CreateAggregateSingleCDTO dto)
+        {
+            return new AggregateSingleC
+            {
+                AggregationAttr = dto.AggregationAttr,
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeSingleBB CreateCompositeSingleBB(CreateCompositeSingleBBDTO dto)
+        {
+            return new CompositeSingleBB
+            {
+                CompositeAttr = dto.CompositeAttr,
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeManyBB CreateCompositeManyBB(CreateCompositeManyBBDTO dto)
+        {
+            return new CompositeManyBB
+            {
+                CompositeAttr = dto.CompositeAttr,
+                ACompositeManyId = dto.ACompositeManyId,
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeSingleAA CreateCompositeSingleAA(CreateCompositeSingleAADTO dto)
+        {
+            return new CompositeSingleAA
+            {
+                CompositeAttr = dto.CompositeAttr,
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeManyAA CreateCompositeManyAA(CreateCompositeManyAADTO dto)
+        {
+            return new CompositeManyAA
+            {
+                CompositeAttr = dto.CompositeAttr,
+                ACompositeSingleId = dto.ACompositeSingleId,
+            };
+        }
     }
+
 }

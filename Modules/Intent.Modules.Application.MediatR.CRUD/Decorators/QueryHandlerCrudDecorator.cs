@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -36,6 +37,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             //    return;
             //}
 
+            // DJVV: Maybe we should just get rid of the decorator and use a factory extension
             _implementationStrategy = new ICrudImplementationStrategy[]
             {
                 new GetAllImplementationStrategy(_template, _application, _application.MetadataManager),
@@ -52,6 +54,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         public override string GetImplementation()
         {
             return _implementationStrategy?.GetImplementation() ?? base.GetImplementation();
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            _implementationStrategy?.OnStrategySelected();
         }
     }
 }

@@ -15,6 +15,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CollectionWrapperTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\CollectionExtensions\CollectionExtensionsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CollectionExtensionsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\UpdateHelper\UpdateHelperTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UpdateHelperTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +34,20 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CollectionWrapperTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\CollectionExtensions\CollectionExtensionsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CollectionExtensionsTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\UpdateHelper\UpdateHelperTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UpdateHelperTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.14-pre.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23-pre.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.9" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

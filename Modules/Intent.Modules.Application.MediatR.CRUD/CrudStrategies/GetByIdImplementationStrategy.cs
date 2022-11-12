@@ -56,6 +56,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return {foundEntity.Name.ToCamelCase()}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);";
         }
 
+        public void OnStrategySelected()
+        {
+            
+        }
+
         private StrategyData GetMatchingElementDetails()
         {
             if (_template.Model.TypeReference.Element == null)

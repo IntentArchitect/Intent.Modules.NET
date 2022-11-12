@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -14,8 +15,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class QueryHandlerTemplate : CSharpTemplateBase<QueryModel, QueryHandlerDecorator>
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    public partial class QueryHandlerTemplate : CSharpTemplateBase<QueryModel, QueryHandlerDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.QueryHandler";
@@ -25,6 +26,23 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         {
             AddNugetDependency(NuGetPackages.MediatR);
             AddTypeSource("Application.Contract.Dto", "List<{0}>");
+
+            CSharpFile = new CSharpFile(this.GetNamespace(additionalFolders: Model.GetConceptName()), "")
+                .AddClass($"{Model.Name}Handler", @class =>
+                {
+                    @class.WithBaseType(GetRequestHandlerInterface());
+                    @class.AddAttribute("IntentManaged(Mode.Merge, Signature = Mode.Fully)");
+                    @class.AddConstructor(ctor =>
+                    {
+                        ctor.AddAttribute("IntentManaged(Mode.Ignore)");
+                    });
+                    @class.AddMethod($"Task<{GetTypeName(Model.TypeReference)}>", "Handle", method =>
+                    {
+                        method.Async();
+                        method.AddParameter(GetQueryModelName(), "request");
+                        method.AddParameter("CancellationToken", "cancellationToken");
+                    });
+                });
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -36,41 +54,64 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                 relativeLocation: $"{this.GetFolderPath(additionalFolders: Model.GetConceptName())}");
         }
 
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            var @class = CSharpFile.Classes.First();
+            @class.FindMethod("Handle")
+                .AddStatements(GetImplementation())
+                .AddAttribute($"IntentManaged(Mode.Fully, Body = Mode.{(HasImplementation() ? "Fully" : "Ignore")})");
+            AddRequiredServices(@class);
+            GetDecorators().ToList().ForEach(x => x.BeforeTemplateExecution());
+        }
+
+        private void AddRequiredServices(CSharpClass @class)
+        {
+            var ctor = @class.Constructors.First();
+            foreach (var requiredService in GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct())
+            {
+                @class.AddField(requiredService.Type, requiredService.FieldName, x => x.Private());
+                ctor.AddParameter(requiredService.Type, requiredService.Name.ToParameterName())
+                    .AddStatement($@"{requiredService.FieldName} = {requiredService.Name.ToParameterName()};");
+            }
+        }
+
         private string GetQueryModelName()
         {
             return GetTypeName(QueryModelsTemplate.TemplateId, Model);
         }
 
-        private string GetFields()
+        private IEnumerable<string> GetImplementation()
         {
-            return $@"
-        {string.Join(@"
-        ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"private {x.Type} _{x.Name.ToCamelCase()};"))}";
-        }
+            var decoratorStatements = GetDecorators()
+                .Select(s => s.GetImplementation())
+                .Where(p => !string.IsNullOrWhiteSpace(p))
+                .ToList();
+            if (!decoratorStatements.Any())
+            {
+                return new[] { $@"throw new NotImplementedException(""Your implementation here..."");" };
+            }
 
-        private string GetCtorParams()
-        {
-            return string.Join(@", ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"{x.Type} {x.Name.ToCamelCase()}"));
-        }
-
-        private string GetCtorInitializations()
-        {
-            return $@"
-            {string.Join(@"
-            ", GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct().Select(x => $"_{x.Name.ToCamelCase()} = {x.Name.ToCamelCase()};"))}";
+            return decoratorStatements;
         }
 
         private bool HasImplementation()
         {
-            var impl = GetDecoratorsOutput(x => x.GetImplementation());
-            return !string.IsNullOrWhiteSpace(impl);
+            return GetDecorators().Any(p => !string.IsNullOrWhiteSpace(p.GetImplementation()));
         }
 
-        private string GetImplementation()
+        private string GetRequestHandlerInterface()
         {
-            var impl = GetDecoratorsOutput(x => x.GetImplementation());
-            return !string.IsNullOrWhiteSpace(impl) ? impl : @"
-            throw new NotImplementedException(""Your implementation here..."");";
+            return Model.TypeReference.Element != null
+                ? $"IRequestHandler<{GetQueryModelName()}, {GetTypeName(Model.TypeReference)}>"
+                : $"IRequestHandler<{GetQueryModelName()}>";
         }
     }
 }
