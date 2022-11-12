@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -118,7 +119,8 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
         {
             return new CSharpFileConfig(
                 className: $"DependencyInjection",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+                @namespace: $"{OutputTarget.GetNamespace()}")
+                .WithAutoFormatting(false);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

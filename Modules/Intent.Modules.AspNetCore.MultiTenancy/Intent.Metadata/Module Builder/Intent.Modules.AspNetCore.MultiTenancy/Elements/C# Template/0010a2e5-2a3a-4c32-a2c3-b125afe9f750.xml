@@ -3,7 +3,6 @@
   <name>MultiTenantStoreDbContext</name>
   <display>MultiTenantStoreDbContext: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="b4e8e3a8-5c3d-4f60-af08-a9968f21ce98">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

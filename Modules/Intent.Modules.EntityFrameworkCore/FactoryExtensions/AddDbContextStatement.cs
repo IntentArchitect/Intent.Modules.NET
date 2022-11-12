@@ -15,6 +15,7 @@ public class AddDbContextStatement : CSharpStatement, IHasCSharpStatements
     public AddDbContextStatement AddConfigOptionStatement(CSharpStatement statement)
     {
         Statements.Add(statement);
+        statement.Parent = this;
         return this;
     }
 
@@ -25,6 +26,15 @@ public class AddDbContextStatement : CSharpStatement, IHasCSharpStatements
             AddConfigOptionStatement(statement);
         }
         return this;
+    }
+
+    public override CSharpStatement FindAndReplace(string find, string replaceWith)
+    {
+        foreach (var statement in Statements)
+        {
+            statement.FindAndReplace(find, replaceWith);
+        }
+        return base.FindAndReplace(find, replaceWith);
     }
 
     public override string GetText(string indentation)

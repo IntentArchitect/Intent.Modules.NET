@@ -3,7 +3,7 @@
   <name>Multitenancy Settings</name>
   <display>Multitenancy Settings</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</parentFolderId>
@@ -16,7 +16,7 @@
       <name>Strategy</name>
       <display>Strategy</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</parentFolderId>
@@ -39,10 +39,9 @@
       <childElements>
         <childElement id="7b1cd76c-3922-418a-810f-2cfad870ac7a" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Header Strategy</name>
-          <display>Header Strategy</display>
+          <display>Header Strategy = header</display>
           <isAbstract>false</isAbstract>
           <value>header</value>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e15fe0fb-be28-4cc5-8b85-37a07b7ca160</parentFolderId>
@@ -54,10 +53,9 @@
         </childElement>
         <childElement id="b2a6a3f1-0c4e-4ea7-8088-b4999c98d9f8" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Claim Strategy</name>
-          <display>Claim Strategy</display>
+          <display>Claim Strategy = claim</display>
           <isAbstract>false</isAbstract>
           <value>claim</value>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e15fe0fb-be28-4cc5-8b85-37a07b7ca160</parentFolderId>
@@ -69,10 +67,9 @@
         </childElement>
         <childElement id="06aa040a-ac95-46ab-966f-dd4015abfa9c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Host Strategy</name>
-          <display>Host Strategy</display>
+          <display>Host Strategy = host</display>
           <isAbstract>false</isAbstract>
           <value>host</value>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e15fe0fb-be28-4cc5-8b85-37a07b7ca160</parentFolderId>
@@ -88,7 +85,7 @@
       <name>Store</name>
       <display>Store</display>
       <isAbstract>false</isAbstract>
-      <order>1</order>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</parentFolderId>
@@ -111,10 +108,9 @@
       <childElements>
         <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In-Memory</name>
-          <display>In-Memory</display>
+          <display>In-Memory = in-memory</display>
           <isAbstract>false</isAbstract>
           <value>in-memory</value>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e430d7bc-fac3-4528-93e8-e3f38bc0b925</parentFolderId>
@@ -126,10 +122,9 @@
         </childElement>
         <childElement id="95b1c642-b8f4-47f1-8a83-69653c335fb5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Entity Framework Core</name>
-          <display>Entity Framework Core</display>
+          <display>Entity Framework Core = efcore</display>
           <isAbstract>false</isAbstract>
           <value>efcore</value>
-          <order>1</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e430d7bc-fac3-4528-93e8-e3f38bc0b925</parentFolderId>
@@ -141,10 +136,9 @@
         </childElement>
         <childElement id="bb464b86-aaa7-471f-a048-ec33966ce7b2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Configuration</name>
-          <display>Configuration</display>
+          <display>Configuration = configuration</display>
           <isAbstract>false</isAbstract>
           <value>configuration</value>
-          <order>2</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e430d7bc-fac3-4528-93e8-e3f38bc0b925</parentFolderId>
@@ -161,7 +155,7 @@
       <name>Data Isolation</name>
       <display>Data Isolation</display>
       <isAbstract>false</isAbstract>
-      <order>2</order>
+      <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</parentFolderId>
@@ -184,10 +178,9 @@
       <childElements>
         <childElement id="f92037d9-3aea-4f9c-afca-848b0c71c4f5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Separate Databases</name>
-          <display>Separate Databases</display>
+          <display>Separate Databases = separate-database</display>
           <isAbstract>false</isAbstract>
           <value>separate-database</value>
-          <order>0</order>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>be7c671e-bbef-4d75-b42d-a6547de3ae82</parentFolderId>

@@ -3,7 +3,6 @@
   <name>MultiTenancyConfiguration</name>
   <display>MultiTenancyConfiguration: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="7f2e63d4-1912-42d8-905e-aa887cd91a35">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
