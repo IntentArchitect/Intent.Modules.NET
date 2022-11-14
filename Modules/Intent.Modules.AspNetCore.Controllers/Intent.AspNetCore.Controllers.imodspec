@@ -34,7 +34,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="3.3.10" />
     <dependency id="Intent.Common" version="3.3.11" />
-    <dependency id="Intent.Common.CSharp" version="3.3.22-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.22-pre.3" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.Metadata.WebApi" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.3.5" />

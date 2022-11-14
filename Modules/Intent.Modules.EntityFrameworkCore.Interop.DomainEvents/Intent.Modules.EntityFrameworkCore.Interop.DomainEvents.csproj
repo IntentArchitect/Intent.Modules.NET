@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23-pre.2" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23-pre.3" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.0.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
