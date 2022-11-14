@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Inheritance
 {
     public interface IBaseAssociated
     {
+
         string PartitionKey { get; set; }
 
         string BaseAssociatedField1 { get; set; }

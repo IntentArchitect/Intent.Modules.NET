@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface IK_SelfReference
     {
+
         string PartitionKey { get; set; }
 
         string SelfRefAttr { get; set; }

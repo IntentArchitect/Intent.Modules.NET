@@ -12,12 +12,12 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
 {
     public static class SampleDomainDTOMappingExtensions
     {
-        public static SampleDomainDTO MapToSampleDomainDTO(this ISampleDomain projectFrom, IMapper mapper)
+        public static SampleDomainDTO MapToSampleDomainDTO(this SampleDomain projectFrom, IMapper mapper)
         {
             return mapper.Map<SampleDomainDTO>(projectFrom);
         }
 
-        public static List<SampleDomainDTO> MapToSampleDomainDTOList(this IEnumerable<ISampleDomain> projectFrom, IMapper mapper)
+        public static List<SampleDomainDTO> MapToSampleDomainDTOList(this IEnumerable<SampleDomain> projectFrom, IMapper mapper)
         {
             return projectFrom.Select(x => x.MapToSampleDomainDTO(mapper)).ToList();
         }

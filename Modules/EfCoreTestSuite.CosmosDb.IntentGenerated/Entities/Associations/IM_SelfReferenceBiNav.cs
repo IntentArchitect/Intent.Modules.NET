@@ -8,6 +8,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface IM_SelfReferenceBiNav
     {
+
         string PartitionKey { get; set; }
 
         string SelfRefBiNavAttr { get; set; }

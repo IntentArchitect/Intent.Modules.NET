@@ -362,6 +362,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/CollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
       <CorrelationId>Intent.Entities.CollectionWrapper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/CollectionWrapper.cs</ApplicationRelativeFilePath>
@@ -486,6 +494,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/IAggregateRoot5EntityWithRepo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAggregateRoot5EntityWithRepo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>225a9b41-7440-44ad-b37c-1319ec7ed062</ProjectId>
+      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Entities/UpdateHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

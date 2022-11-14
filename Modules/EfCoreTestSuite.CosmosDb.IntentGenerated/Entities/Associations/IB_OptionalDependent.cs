@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface IB_OptionalDependent
     {
+
         string OptionalDependentAttr { get; set; }
 
         string PartitionKey { get; set; }

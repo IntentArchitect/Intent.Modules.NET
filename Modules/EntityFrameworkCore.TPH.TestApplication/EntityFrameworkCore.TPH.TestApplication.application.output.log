@@ -218,6 +218,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/CollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
       <CorrelationId>Intent.Entities.CollectionWrapper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/CollectionWrapper.cs</ApplicationRelativeFilePath>
@@ -702,6 +710,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/Polymorphic/Poly_TopLevelState.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Polymorphic/Poly_TopLevelState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fd354e4-e029-44c3-bd25-2a7b7157b396</ProjectId>
+      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Entities/UpdateHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

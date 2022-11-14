@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface IA_OptionalDependent
     {
+
         string OptionalDependentAttr { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface IJ_MultipleAggregate
     {
+
         string PartitionKey { get; set; }
 
         string MultipleAggrAttr { get; set; }

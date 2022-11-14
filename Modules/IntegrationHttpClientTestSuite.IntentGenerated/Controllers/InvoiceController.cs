@@ -41,7 +41,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Create([FromBody] InvoiceCreateDTO dto, CancellationToken cancellationToken)
         {
-
             await _appService.Create(dto);
             return Created(string.Empty, null);
         }
@@ -63,9 +62,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<InvoiceDTO>> FindById([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = default(InvoiceDTO);
-
             result = await _appService.FindById(id);
-
             return Ok(result);
         }
 
@@ -82,9 +79,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<List<InvoiceDTO>>> FindAll(CancellationToken cancellationToken)
         {
             var result = default(List<InvoiceDTO>);
-
             result = await _appService.FindAll();
-
             return Ok(result);
         }
 
@@ -102,7 +97,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Update([FromRoute] Guid id, [FromBody] InvoiceUpdateDTO dto, CancellationToken cancellationToken)
         {
-
             await _appService.Update(id, dto);
             return NoContent();
         }
@@ -121,7 +115,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
         {
-
             await _appService.Delete(id);
             return Ok();
         }
@@ -143,9 +136,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<InvoiceDTO>> QueryParamOp([FromQuery] string param1, [FromQuery] int param2, CancellationToken cancellationToken)
         {
             var result = default(InvoiceDTO);
-
             result = await _appService.QueryParamOp(param1, param2);
-
             return Ok(result);
         }
 
@@ -163,7 +154,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> HeaderParamOp([FromHeader(Name = "MY-HEADER")] string param1, CancellationToken cancellationToken)
         {
-
             await _appService.HeaderParamOp(param1);
             return Created(string.Empty, null);
         }
@@ -182,7 +172,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> FormParamOp([FromForm] string param1, [FromForm] int param2, CancellationToken cancellationToken)
         {
-
             await _appService.FormParamOp(param1, param2);
             return Created(string.Empty, null);
         }
@@ -201,7 +190,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> RouteParamOp([FromRoute] string param1, CancellationToken cancellationToken)
         {
-
             await _appService.RouteParamOp(param1);
             return Created(string.Empty, null);
         }
@@ -220,7 +208,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> BodyParamOp([FromBody] InvoiceDTO param1, CancellationToken cancellationToken)
         {
-
             await _appService.BodyParamOp(param1);
             return Created(string.Empty, null);
         }
@@ -237,7 +224,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> ThrowsException(CancellationToken cancellationToken)
         {
-
             await _appService.ThrowsException();
             return Created(string.Empty, null);
         }
@@ -257,9 +243,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<Guid>> GetWrappedPrimitiveGuid(CancellationToken cancellationToken)
         {
             var result = default(Guid);
-
             result = await _appService.GetWrappedPrimitiveGuid();
-
             return Ok(new JsonResponse<Guid>(result));
         }
 
@@ -278,9 +262,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<string>> GetWrappedPrimitiveString(CancellationToken cancellationToken)
         {
             var result = default(string);
-
             result = await _appService.GetWrappedPrimitiveString();
-
             return Ok(new JsonResponse<string>(result));
         }
 
@@ -299,9 +281,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<int>> GetWrappedPrimitiveInt(CancellationToken cancellationToken)
         {
             var result = default(int);
-
             result = await _appService.GetWrappedPrimitiveInt();
-
             return Ok(new JsonResponse<int>(result));
         }
 
@@ -320,9 +300,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<Guid>> GetPrimitiveGuid(CancellationToken cancellationToken)
         {
             var result = default(Guid);
-
             result = await _appService.GetPrimitiveGuid();
-
             return Ok(result);
         }
 
@@ -341,9 +319,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<string>> GetPrimitiveString(CancellationToken cancellationToken)
         {
             var result = default(string);
-
             result = await _appService.GetPrimitiveString();
-
             return Ok(result);
         }
 
@@ -362,9 +338,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<int>> GetPrimitiveInt(CancellationToken cancellationToken)
         {
             var result = default(int);
-
             result = await _appService.GetPrimitiveInt();
-
             return Ok(result);
         }
 
@@ -381,9 +355,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<List<string>>> GetPrimitiveStringList(CancellationToken cancellationToken)
         {
             var result = default(List<string>);
-
             result = await _appService.GetPrimitiveStringList();
-
             return Ok(result);
         }
 
@@ -402,9 +374,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<InvoiceDTO>> GetInvoiceOpWithReturnTypeWrapped(CancellationToken cancellationToken)
         {
             var result = default(InvoiceDTO);
-
             result = await _appService.GetInvoiceOpWithReturnTypeWrapped();
-
             return Ok(result);
         }
 

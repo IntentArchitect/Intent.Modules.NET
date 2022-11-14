@@ -14,6 +14,9 @@ namespace AzureFunctions.TestApplication.Application.Validators.SampleDomains
         [IntentManaged(Mode.Fully)]
         public SampleDomainDTOValidator()
         {
+            RuleFor(v => v.Attribute)
+                .NotNull();
+
         }
     }
 }

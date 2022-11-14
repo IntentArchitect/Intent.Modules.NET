@@ -21,6 +21,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="9afb36ee-c6fa-44d2-a261-b6454778664d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.CollectionExtensions</name>
+      <display>Intent.Entities.CollectionExtensions</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>65b9bb63-2303-46c4-982a-b49d8825e7d0</parentFolderId>
+      <packageId>5c1e6211-f55a-4d5a-868e-9b96c8ca6282</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="967fe247-7df7-403e-8fa7-fb51a6b67a36" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.CollectionWrapper</name>
       <display>Intent.Entities.CollectionWrapper</display>
@@ -88,6 +104,22 @@
     <childElement id="b0769c07-ab73-4645-ac0f-5f1cae644b0d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.DomainEnum</name>
       <display>Intent.Entities.DomainEnum</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>65b9bb63-2303-46c4-982a-b49d8825e7d0</parentFolderId>
+      <packageId>5c1e6211-f55a-4d5a-868e-9b96c8ca6282</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e82be940-7364-44f7-800f-655574233bcf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.UpdateHelper</name>
+      <display>Intent.Entities.UpdateHelper</display>
       <externalReference>Intent.Entities</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

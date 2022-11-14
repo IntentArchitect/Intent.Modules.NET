@@ -11,11 +11,11 @@ using Intent.RoslynWeaver.Attributes;
 namespace AzureFunctions.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ISampleDomainRepository : IRepository<ISampleDomain, SampleDomain>
+    public interface ISampleDomainRepository : IRepository<SampleDomain, SampleDomain>
     {
         [IntentManaged(Mode.Fully)]
-        Task<ISampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<SampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
-        Task<List<ISampleDomain>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
+        Task<List<SampleDomain>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

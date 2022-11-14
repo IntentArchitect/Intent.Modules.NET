@@ -58,6 +58,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/CollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
       <CorrelationId>Intent.Entities.CollectionWrapper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/CollectionWrapper.cs</ApplicationRelativeFilePath>
@@ -110,6 +118,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/IExplicitKeysCompositeKey.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IExplicitKeysCompositeKey.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e36f8a41-a050-400e-a90d-4dba163fd4f6</ProjectId>
+      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Entities/UpdateHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

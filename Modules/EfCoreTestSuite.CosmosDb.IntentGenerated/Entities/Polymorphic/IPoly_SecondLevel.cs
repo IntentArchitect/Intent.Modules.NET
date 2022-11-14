@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Polymorphic
 {
     public interface IPoly_SecondLevel
     {
+
         string SecondField { get; set; }
 
         string PartitionKey { get; set; }

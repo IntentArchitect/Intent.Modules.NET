@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface IF_OptionalAggregateNav
     {
+
         string PartitionKey { get; set; }
 
         string OptionalAggrNavAttr { get; set; }

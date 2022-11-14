@@ -21,22 +21,12 @@ namespace AzureFunctions.TestApplication.Infrastructure.Persistence
 
         public DbSet<SampleDomain> SampleDomains { get; set; }
 
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-
-            var result = await base.SaveChangesAsync(cancellationToken);
-
-            return result;
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-
             modelBuilder.ApplyConfiguration(new SampleDomainConfiguration());
-
         }
 
         [IntentManaged(Mode.Ignore)]

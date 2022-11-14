@@ -34,7 +34,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.NotNeeded
         {
             services.AddControllers();
             services.AddHttpClients(Configuration);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +51,6 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.NotNeeded
             {
                 endpoints.MapControllers();
             });
-
         }
     }
 }

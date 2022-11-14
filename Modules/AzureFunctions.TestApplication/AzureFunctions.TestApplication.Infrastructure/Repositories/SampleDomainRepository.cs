@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 namespace AzureFunctions.TestApplication.Infrastructure.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class SampleDomainRepository : RepositoryBase<ISampleDomain, SampleDomain, ApplicationDbContext>, ISampleDomainRepository
+    public class SampleDomainRepository : RepositoryBase<SampleDomain, SampleDomain, ApplicationDbContext>, ISampleDomainRepository
     {
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public SampleDomainRepository(ApplicationDbContext dbContext) : base(dbContext)
@@ -24,14 +24,14 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
 
 
         [IntentManaged(Mode.Fully)]
-        public async Task<ISampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<SampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
 
         [IntentManaged(Mode.Fully)]
-        public async Task<List<ISampleDomain>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        public async Task<List<SampleDomain>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }

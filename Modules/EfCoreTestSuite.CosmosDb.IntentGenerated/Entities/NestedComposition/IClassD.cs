@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
     public interface IClassD
     {
+
         IClassE ClassE { get; set; }
     }
 }

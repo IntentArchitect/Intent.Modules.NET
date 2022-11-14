@@ -14,6 +14,9 @@ namespace AzureFunctions.TestApplication.Infrastructure.Persistence.Configuratio
         public void Configure(EntityTypeBuilder<SampleDomain> builder)
         {
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Attribute)
+                .IsRequired();
         }
     }
 }

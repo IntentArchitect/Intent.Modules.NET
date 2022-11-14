@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.InheritanceAssociati
 {
     public interface IDerivedClassForConcrete : IConcreteBaseClass
     {
+
         string DerivedAttribute { get; set; }
     }
 }

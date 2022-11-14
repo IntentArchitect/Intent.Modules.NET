@@ -8,6 +8,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface IG_RequiredCompositeNav
     {
+
         string PartitionKey { get; set; }
 
         string RequiredCompNavAttr { get; set; }

@@ -32,7 +32,7 @@ namespace AzureFunctions.TestApplication.Application.Implementation
         {
             var newSampleDomain = new SampleDomain
             {
-
+                Attribute = dto.Attribute,
             };
 
             _sampleDomainRepository.Add(newSampleDomain);
@@ -58,7 +58,7 @@ namespace AzureFunctions.TestApplication.Application.Implementation
         public async Task Update(Guid id, SampleDomainUpdateDTO dto)
         {
             var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id);
-
+            existingSampleDomain.Attribute = dto.Attribute;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -67,6 +67,8 @@ namespace AzureFunctions.TestApplication.Application.Implementation
             var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id);
             _sampleDomainRepository.Remove(existingSampleDomain);
         }
+
+
 
         public void Dispose()
         {

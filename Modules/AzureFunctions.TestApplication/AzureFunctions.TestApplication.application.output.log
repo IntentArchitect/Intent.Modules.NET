@@ -259,6 +259,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>29de86fb-3152-4b1c-ac8a-b845d4e3796e</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9eb44fb6-b11a-40b5-a32c-88e53ecf32c4</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -267,19 +275,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>55021454-4780-476f-92f4-a458ee82cd15</ProjectId>
-      <CorrelationId>Intent.Entities.Keys.IdentityGenerator</CorrelationId>
+      <ProjectId>29de86fb-3152-4b1c-ac8a-b845d4e3796e</ProjectId>
+      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/Entities/Common/IdentityGenerator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IdentityGenerator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6360f23c-e281-4bad-a172-11a501720feb</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityInterface#88205bbc-0e84-4485-97d0-fb014b7e5885</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/ISampleDomain.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ISampleDomain.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -312,14 +312,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/SampleDomain.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomain.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6360f23c-e281-4bad-a172-11a501720feb</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntityState#88205bbc-0e84-4485-97d0-fb014b7e5885</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Domain/SampleDomainState.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SampleDomainState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

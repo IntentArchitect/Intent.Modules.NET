@@ -18,15 +18,19 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
         }
 
         public static SampleDomainDTO Create(
-            Guid id)
+            Guid id,
+            string attribute)
         {
             return new SampleDomainDTO
             {
                 Id = id,
+                Attribute = attribute,
             };
         }
 
         public Guid Id { get; set; }
+
+        public string Attribute { get; set; }
 
         public void Mapping(Profile profile)
         {

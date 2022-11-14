@@ -15,12 +15,15 @@ namespace AzureFunctions.TestApplication.Application.SampleDomains
         }
 
         public static SampleDomainUpdateDTO Create(
-            )
+            string attribute)
         {
             return new SampleDomainUpdateDTO
             {
+                Attribute = attribute,
             };
         }
+
+        public string Attribute { get; set; }
 
     }
 }

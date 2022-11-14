@@ -8,6 +8,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.NestedComposition
 {
     public interface IClassA
     {
+
         string PartitionKey { get; set; }
 
         string ClassAAttr { get; set; }

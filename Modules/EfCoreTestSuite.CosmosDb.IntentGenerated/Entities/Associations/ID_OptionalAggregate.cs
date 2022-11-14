@@ -8,6 +8,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 {
     public interface ID_OptionalAggregate
     {
+
         string PartitionKey { get; set; }
 
         string OptionalAggregateAttr { get; set; }

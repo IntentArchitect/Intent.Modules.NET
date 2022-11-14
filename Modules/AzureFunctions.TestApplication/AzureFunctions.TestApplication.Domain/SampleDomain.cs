@@ -11,6 +11,9 @@ namespace AzureFunctions.TestApplication.Domain
     [DefaultIntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore, Targets = Targets.Methods, AccessModifiers = AccessModifiers.Public)]
     public partial class SampleDomain
     {
+        public Guid Id { get; set; }
+
+        public string Attribute { get; set; }
 
     }
 }
