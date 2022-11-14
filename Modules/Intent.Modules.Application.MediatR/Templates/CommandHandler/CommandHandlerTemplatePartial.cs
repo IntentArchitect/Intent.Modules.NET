@@ -70,43 +70,6 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
             return CSharpFile.ToString();
         }
         
-        //public override void BeforeTemplateExecution()
-        //{
-        //    var @class = CSharpFile.Classes.First();
-        //    @class.FindMethod("Handle")
-        //        ;
-        //    AddRequiredServices(@class);
-        //}
-
-        //private void AddRequiredServices(CSharpClass @class)
-        //{
-        //    var ctor = @class.Constructors.First();
-        //    foreach (var requiredService in GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct())
-        //    {
-        //        ctor.AddParameter(requiredService.Type, requiredService.Name.ToParameterName(),
-        //            param => param.IntroduceReadonlyField());
-        //    }
-        //}
-
-        //private IEnumerable<string> GetImplementation()
-        //{
-        //    var decoratorStatements = GetDecorators()
-        //        .Select(s => s.GetImplementation())
-        //        .Where(p => !string.IsNullOrWhiteSpace(p))
-        //        .ToList();
-        //    if (!decoratorStatements.Any())
-        //    {
-        //        return new[] {  };
-        //    }
-
-        //    return decoratorStatements;
-        //}
-
-        //private bool HasImplementation()
-        //{
-        //    return GetDecorators().Any(p => !string.IsNullOrWhiteSpace(p.GetImplementation()));
-        //}
-
         private string GetRequestHandlerInterface()
         {
             return Model.TypeReference.Element != null

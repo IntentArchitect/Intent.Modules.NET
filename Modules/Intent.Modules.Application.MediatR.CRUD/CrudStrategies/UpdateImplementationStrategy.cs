@@ -166,7 +166,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AssociationTargetEndModel.SpecializationTypeId:
                         {
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                            var targetEntity = association.Element as IElement;
+                            var targetEntity = (IElement)association.Element;
                             var attributeName = association.Name.ToPascalCase();
 
                             if (association.Association.AssociationType == AssociationType.Aggregation)

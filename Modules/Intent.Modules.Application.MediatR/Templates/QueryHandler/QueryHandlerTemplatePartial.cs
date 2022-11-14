@@ -69,48 +69,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         {
             return CSharpFile.ToString();
         }
-
-        //public override void BeforeTemplateExecution()
-        //{
-        //    var @class = CSharpFile.Classes.First();
-        //    @class.FindMethod("Handle")
-        //        .AddStatements(GetImplementation())
-        //        .AddAttribute($"IntentManaged(Mode.Fully, Body = Mode.Ignore)");
-        //    AddRequiredServices(@class);
-        //    GetDecorators().ToList().ForEach(x => x.BeforeTemplateExecution());
-        //}
-
-        //private void AddRequiredServices(CSharpClass @class)
-        //{
-        //    var ctor = @class.Constructors.First();
-        //    foreach (var requiredService in GetDecorators().SelectMany(x => x.GetRequiredServices()).Distinct())
-        //    {
-        //        @class.AddField(requiredService.Type, requiredService.FieldName, x => x.Private());
-        //        ctor.AddParameter(requiredService.Type, requiredService.Name.ToParameterName())
-        //            .AddStatement($@"{requiredService.FieldName} = {requiredService.Name.ToParameterName()};");
-        //    }
-        //}
         
-
-        //private IEnumerable<string> GetImplementation()
-        //{
-        //    var decoratorStatements = GetDecorators()
-        //        .Select(s => s.GetImplementation())
-        //        .Where(p => !string.IsNullOrWhiteSpace(p))
-        //        .ToList();
-        //    if (!decoratorStatements.Any())
-        //    {
-        //        return new[] { $@"throw new NotImplementedException(""Your implementation here..."");" };
-        //    }
-
-        //    return decoratorStatements;
-        //}
-
-        //private bool HasImplementation()
-        //{
-        //    return GetDecorators().Any(p => !string.IsNullOrWhiteSpace(p.GetImplementation()));
-        //}
-
         private string GetRequestHandlerInterface()
         {
             return Model.TypeReference.Element != null
