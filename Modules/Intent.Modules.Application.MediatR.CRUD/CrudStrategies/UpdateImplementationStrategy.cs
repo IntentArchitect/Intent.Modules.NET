@@ -203,7 +203,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                     .AddAttribute("IntentManaged(Mode.Fully)")
                                     .AddParameter(_template.GetTypeName(targetEntity), "entity")
                                     .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                    .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntity, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), false)));
+                                    .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntity, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), true)));
                         }
                         break;
                 }
