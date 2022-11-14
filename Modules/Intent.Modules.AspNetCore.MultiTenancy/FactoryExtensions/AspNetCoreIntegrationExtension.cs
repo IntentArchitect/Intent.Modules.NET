@@ -40,7 +40,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
                         ?.AddStatement("services.ConfigureMultiTenancy(Configuration);");
 
                     file.Classes.First().FindMethod("Configure")
-                        ?.AddStatement("app.UseMultiTenancy();");
+                        .FindStatement(s => s.GetText(string.Empty).Contains("app.UseRouting()"))
+                        .InsertBelow("app.UseMultiTenancy();");
                 });
 
             var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");

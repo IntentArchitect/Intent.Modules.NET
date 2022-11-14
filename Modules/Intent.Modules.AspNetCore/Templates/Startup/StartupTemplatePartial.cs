@@ -42,6 +42,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                 .AddUsing("Microsoft.AspNetCore.Hosting")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("Microsoft.Extensions.Logging")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AfterBuild(file =>
