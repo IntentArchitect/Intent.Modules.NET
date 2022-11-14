@@ -16,8 +16,8 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.GetAggrega
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetAggregateRootLongByIdQueryHandler : IRequestHandler<GetAggregateRootLongByIdQuery, AggregateRootLongDTO>
     {
-        private IAggregateRootLongRepository _aggregateRootLongRepository;
-        private IMapper _mapper;
+        private readonly IAggregateRootLongRepository _aggregateRootLongRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
         public GetAggregateRootLongByIdQueryHandler(IAggregateRootLongRepository aggregateRootLongRepository, IMapper mapper)

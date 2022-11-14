@@ -16,7 +16,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateAggregateRootCommandHandler : IRequestHandler<CreateAggregateRootCommand, Guid>
     {
-        private IAggregateRootRepository _aggregateRootRepository;
+        private readonly IAggregateRootRepository _aggregateRootRepository;
 
         [IntentManaged(Mode.Ignore)]
         public CreateAggregateRootCommandHandler(IAggregateRootRepository aggregateRootRepository)
@@ -30,57 +30,41 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             var newAggregateRoot = new AggregateRoot
             {
                 AggregateAttr = request.AggregateAttr,
-                Composite = request.Composite != null
-                    ? CreateCompositeSingleA(request.Composite)
-                    : null,
+                Composite = request.Composite != null ? CreateCompositeSingleA(request.Composite) : null,
                 Composites = request.Composites.Select(CreateCompositeManyB).ToList(),
 #warning Field not a composite association: Aggregate
             };
 
             _aggregateRootRepository.Add(newAggregateRoot);
-
             await _aggregateRootRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newAggregateRoot.Id;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleA CreateCompositeSingleA(CreateCompositeSingleADTO dto)
+        private CompositeSingleA CreateCompositeSingleA(CreateCompositeSingleADTO dto)
         {
             return new CompositeSingleA
             {
                 CompositeAttr = dto.CompositeAttr,
-                Composite = dto.Composite != null
-            ? CreateCompositeSingleAA(dto.Composite)
-            : null,
+                Composite = dto.Composite != null ? CreateCompositeSingleAA(dto.Composite) : null,
                 Composites = dto.Composites.Select(CreateCompositeManyAA).ToList(),
             };
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeManyB CreateCompositeManyB(CreateCompositeManyBDTO dto)
+        private CompositeManyB CreateCompositeManyB(CreateCompositeManyBDTO dto)
         {
             return new CompositeManyB
             {
                 CompositeAttr = dto.CompositeAttr,
                 AAggregaterootId = dto.AAggregaterootId,
-                Composite = dto.Composite != null
-            ? CreateCompositeSingleBB(dto.Composite)
-            : null,
+                Composite = dto.Composite != null ? CreateCompositeSingleBB(dto.Composite) : null,
                 Composites = dto.Composites.Select(CreateCompositeManyBB).ToList(),
             };
         }
 
         [IntentManaged(Mode.Fully)]
-        private static AggregateSingleC CreateAggregateSingleC(CreateAggregateSingleCDTO dto)
-        {
-            return new AggregateSingleC
-            {
-                AggregationAttr = dto.AggregationAttr,
-            };
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private static CompositeSingleBB CreateCompositeSingleBB(CreateCompositeSingleBBDTO dto)
+        private CompositeSingleBB CreateCompositeSingleBB(CreateCompositeSingleBBDTO dto)
         {
             return new CompositeSingleBB
             {
@@ -89,7 +73,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeManyBB CreateCompositeManyBB(CreateCompositeManyBBDTO dto)
+        private CompositeManyBB CreateCompositeManyBB(CreateCompositeManyBBDTO dto)
         {
             return new CompositeManyBB
             {
@@ -99,7 +83,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeSingleAA CreateCompositeSingleAA(CreateCompositeSingleAADTO dto)
+        private CompositeSingleAA CreateCompositeSingleAA(CreateCompositeSingleAADTO dto)
         {
             return new CompositeSingleAA
             {
@@ -108,7 +92,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeManyAA CreateCompositeManyAA(CreateCompositeManyAADTO dto)
+        private CompositeManyAA CreateCompositeManyAA(CreateCompositeManyAADTO dto)
         {
             return new CompositeManyAA
             {

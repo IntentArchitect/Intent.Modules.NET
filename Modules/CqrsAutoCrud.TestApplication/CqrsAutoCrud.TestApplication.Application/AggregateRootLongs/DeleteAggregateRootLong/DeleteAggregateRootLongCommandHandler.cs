@@ -15,7 +15,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.DeleteAggr
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DeleteAggregateRootLongCommandHandler : IRequestHandler<DeleteAggregateRootLongCommand>
     {
-        private IAggregateRootLongRepository _aggregateRootLongRepository;
+        private readonly IAggregateRootLongRepository _aggregateRootLongRepository;
 
         [IntentManaged(Mode.Ignore)]
         public DeleteAggregateRootLongCommandHandler(IAggregateRootLongRepository aggregateRootLongRepository)

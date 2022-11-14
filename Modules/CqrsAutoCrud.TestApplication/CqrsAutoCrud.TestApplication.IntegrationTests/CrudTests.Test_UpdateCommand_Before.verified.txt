@@ -19,8 +19,8 @@
   Composites: [
     {
       Id: Guid_3,
-      SomeDate: DateTime_1,
       CompositeAttr: Update Aggregate Root_6,
+      SomeDate: DateTime_1,
       Composite: {
         Id: Guid_3,
         CompositeAttr: Update Aggregate Root_7
@@ -36,8 +36,8 @@
     },
     {
       Id: Guid_5,
-      SomeDate: DateTime_2,
       CompositeAttr: Update Aggregate Root_8,
+      SomeDate: DateTime_2,
       Composite: {
         Id: Guid_5,
         CompositeAttr: Update Aggregate Root_9

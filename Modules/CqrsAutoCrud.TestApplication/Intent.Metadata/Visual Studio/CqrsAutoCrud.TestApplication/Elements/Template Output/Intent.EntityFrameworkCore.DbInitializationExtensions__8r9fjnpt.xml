@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c762a17e-3e36-4aad-8848-54c9cd0d22da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.EntityFrameworkCore.DbInitializationExtensions</name>
+  <display>Intent.EntityFrameworkCore.DbInitializationExtensions</display>
+  <externalReference>Intent.EntityFrameworkCore</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>de91e2ff-02da-4237-b0a5-35181b035c3b</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

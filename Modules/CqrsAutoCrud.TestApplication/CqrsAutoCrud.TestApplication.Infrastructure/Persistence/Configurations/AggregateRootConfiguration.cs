@@ -24,50 +24,16 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence.Configurations
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.OwnsMany(x => x.Composites, ConfigureComposites);
+            builder.HasMany(x => x.Composites)
+                .WithOne()
+                .HasForeignKey(x => x.A_AggregateRootId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(x => x.Aggregate)
                 .WithOne()
                 .HasForeignKey<AggregateRoot>(x => x.AggregateId)
                 .OnDelete(DeleteBehavior.Restrict);
-        }
-
-        public void ConfigureComposites(OwnedNavigationBuilder<CompositeManyB, CompositeManyBB> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.A_Composite_ManyId);
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.CompositeAttr)
-                .IsRequired();
-
-            builder.Property(x => x.ACompositeManyId)
-                .IsRequired();
-        }
-
-        public void ConfigureComposites(OwnedNavigationBuilder<AggregateRoot, CompositeManyB> builder)
-        {
-            builder.WithOwner()
-                .HasForeignKey(x => x.A_AggregateRootId);
-
-            builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.CompositeAttr)
-                .IsRequired();
-
-            builder.Property(x => x.AAggregaterootId)
-                .IsRequired();
-
-            builder.Property(x => x.SomeDate);
-
-            builder.HasOne(x => x.Composite)
-                .WithOne()
-                .HasForeignKey<CompositeSingleBB>(x => x.Id)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.OwnsMany(x => x.Composites, ConfigureComposites);
         }
     }
 }

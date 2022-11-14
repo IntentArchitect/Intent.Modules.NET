@@ -17,7 +17,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggr
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class UpdateAggregateRootLongCommandHandler : IRequestHandler<UpdateAggregateRootLongCommand>
     {
-        private IAggregateRootLongRepository _aggregateRootLongRepository;
+        private readonly IAggregateRootLongRepository _aggregateRootLongRepository;
 
         [IntentManaged(Mode.Ignore)]
         public UpdateAggregateRootLongCommandHandler(IAggregateRootLongRepository aggregateRootLongRepository)
@@ -33,14 +33,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggr
             existingAggregateRootLong.CompositeOfAggrLong = request.CompositeOfAggrLong != null
                 ? (existingAggregateRootLong.CompositeOfAggrLong ?? new CompositeOfAggrLong()).UpdateObject(request.CompositeOfAggrLong, UpdateCompositeOfAggrLong)
                 : null;
-
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateCompositeOfAggrLongDTO dto)
         {
-            entity.Id = dto.Id;
             entity.Attribute = dto.Attribute;
         }
     }

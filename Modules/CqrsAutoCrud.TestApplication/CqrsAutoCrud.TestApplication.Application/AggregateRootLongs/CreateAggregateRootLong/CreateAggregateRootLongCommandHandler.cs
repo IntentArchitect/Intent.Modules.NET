@@ -16,7 +16,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggr
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateAggregateRootLongCommandHandler : IRequestHandler<CreateAggregateRootLongCommand, long>
     {
-        private IAggregateRootLongRepository _aggregateRootLongRepository;
+        private readonly IAggregateRootLongRepository _aggregateRootLongRepository;
 
         [IntentManaged(Mode.Ignore)]
         public CreateAggregateRootLongCommandHandler(IAggregateRootLongRepository aggregateRootLongRepository)
@@ -30,19 +30,16 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggr
             var newAggregateRootLong = new AggregateRootLong
             {
                 Attribute = request.Attribute,
-                CompositeOfAggrLong = request.CompositeOfAggrLong != null
-                    ? CreateCompositeOfAggrLong(request.CompositeOfAggrLong)
-                    : null,
+                CompositeOfAggrLong = request.CompositeOfAggrLong != null ? CreateCompositeOfAggrLong(request.CompositeOfAggrLong) : null,
             };
 
             _aggregateRootLongRepository.Add(newAggregateRootLong);
-
             await _aggregateRootLongRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newAggregateRootLong.Id;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static CompositeOfAggrLong CreateCompositeOfAggrLong(CreateCompositeOfAggrLongDTO dto)
+        private CompositeOfAggrLong CreateCompositeOfAggrLong(CreateCompositeOfAggrLongDTO dto)
         {
             return new CompositeOfAggrLong
             {

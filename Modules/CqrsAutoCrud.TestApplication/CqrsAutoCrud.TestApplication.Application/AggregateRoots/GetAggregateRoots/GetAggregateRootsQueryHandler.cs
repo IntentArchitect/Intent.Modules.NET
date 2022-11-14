@@ -16,8 +16,8 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.GetAggregateRo
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetAggregateRootsQueryHandler : IRequestHandler<GetAggregateRootsQuery, List<AggregateRootDTO>>
     {
-        private IAggregateRootRepository _aggregateRootRepository;
-        private IMapper _mapper;
+        private readonly IAggregateRootRepository _aggregateRootRepository;
+        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Ignore)]
         public GetAggregateRootsQueryHandler(IAggregateRootRepository aggregateRootRepository, IMapper mapper)

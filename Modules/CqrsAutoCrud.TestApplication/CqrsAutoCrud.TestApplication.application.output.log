@@ -940,6 +940,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0efa8e3-7f1e-418a-9d3e-3ad76b01a8c2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#44232e14-ce0f-488f-beae-12bd7e7be45d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Infrastructure/Persistence/Configurations/CompositeManyBConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompositeManyBConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0efa8e3-7f1e-418a-9d3e-3ad76b01a8c2</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#10ac2bda-3347-48d4-9760-12c0d14a32f3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Infrastructure/Persistence/Configurations/CompositeSingleAAConfiguration.cs</ApplicationRelativeFilePath>

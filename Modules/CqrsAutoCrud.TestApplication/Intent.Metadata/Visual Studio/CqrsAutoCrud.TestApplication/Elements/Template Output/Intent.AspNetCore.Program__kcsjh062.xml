@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="01a27afb-2cb6-42ca-9c8b-c5bba67621c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.AspNetCore.Program</name>
+  <display>Intent.AspNetCore.Program</display>
+  <externalReference>Intent.AspNetCore</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>de91e2ff-02da-4237-b0a5-35181b035c3b</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>
