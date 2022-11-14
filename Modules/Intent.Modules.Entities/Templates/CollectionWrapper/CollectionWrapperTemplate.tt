@@ -63,7 +63,7 @@ namespace <#= Namespace #>
         public bool IsReadOnly => _wrappedCollection.IsReadOnly;
     }
 
-    public static class CollectionExtensions
+    public static class <#= ClassName #>Extensions
     {
         public static ICollection<TInterface> CreateWrapper<TInterface, TImplementation>(this ICollection<TImplementation> collection) 
             where TImplementation : TInterface
