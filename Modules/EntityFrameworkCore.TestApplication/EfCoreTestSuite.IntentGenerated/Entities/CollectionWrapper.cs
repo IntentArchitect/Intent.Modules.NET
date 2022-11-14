@@ -56,7 +56,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities
         public bool IsReadOnly => _wrappedCollection.IsReadOnly;
     }
 
-    public static class CollectionExtensions
+    public static class CollectionWrapperExtensions
     {
         public static ICollection<TInterface> CreateWrapper<TInterface, TImplementation>(this ICollection<TImplementation> collection)
             where TImplementation : TInterface
