@@ -15,8 +15,9 @@ namespace CqrsAutoCrud.TestApplication.IntegrationTests;
 // https://stackoverflow.com/q/65360948/802755
 
 [Collection("NoParallelDb")]
-public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
+public abstract class SharedDatabaseFixture<TDbContext, TTestClass> : IDisposable
     where TDbContext : DbContext
+    where TTestClass : SharedDatabaseFixture<TDbContext, TTestClass> // Make sure that test classes get their fresh schema
 {
     private static readonly object Lock = new object();
     private static bool _databaseInitialized;
@@ -126,11 +127,11 @@ public abstract class SharedDatabaseFixture<TDbContext> : IDisposable
     };
 
     private static string Filename =>
-        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture<TDbContext>).GetTypeInfo().Assembly.Location)!,
+        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture<TDbContext, TTestClass>).GetTypeInfo().Assembly.Location)!,
             $"{_DatabaseName}.mdf");
 
     private static string LogFilename =>
-        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture<TDbContext>).GetTypeInfo().Assembly.Location)!,
+        Path.Combine(Path.GetDirectoryName(typeof(SharedDatabaseFixture<TDbContext, TTestClass>).GetTypeInfo().Assembly.Location)!,
             $"{_DatabaseName}_log.ldf");
 
     private static void CreateDatabaseRawSql()

@@ -42,6 +42,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/BranchConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BranchConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d79a991a-b905-431e-81b4-f8de802cfd1e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/C_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
@@ -214,6 +222,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/L_SelfReferenceMultipleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>L_SelfReferenceMultipleConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0b3016ef-51e4-4770-b39e-93213b4d55b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/LeafConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>LeafConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

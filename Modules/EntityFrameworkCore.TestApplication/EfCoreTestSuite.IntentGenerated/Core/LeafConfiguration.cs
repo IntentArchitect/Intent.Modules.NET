@@ -8,20 +8,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfCoreTestSuite.IntentGenerated.Core
 {
-    public class TreeConfiguration : IEntityTypeConfiguration<Tree>
+    public class LeafConfiguration : IEntityTypeConfiguration<Leaf>
     {
-        public void Configure(EntityTypeBuilder<Tree> builder)
+        public void Configure(EntityTypeBuilder<Leaf> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.TreeAttribute)
+            builder.Property(x => x.LeafAttribute)
                 .IsRequired();
-
-            builder.HasMany(x => x.Branches)
-                .WithOne(x => x.Tree)
-                .HasForeignKey(x => x.TreeId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

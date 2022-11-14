@@ -21,7 +21,7 @@ using Xunit.Abstractions;
 namespace CqrsAutoCrud.TestApplication.IntegrationTests;
 
 [UsesVerify]
-public class CrudTests : SharedDatabaseFixture<ApplicationDbContext>
+public class CrudTests : SharedDatabaseFixture<ApplicationDbContext, CrudTests>
 {
     public CrudTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {

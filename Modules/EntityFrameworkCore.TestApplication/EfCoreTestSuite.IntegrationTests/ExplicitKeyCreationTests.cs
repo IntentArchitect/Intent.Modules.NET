@@ -6,7 +6,7 @@ using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class ExplicitKeyCreationTests : SharedDatabaseFixture<ApplicationDbContext>
+public class ExplicitKeyCreationTests : SharedDatabaseFixture<ApplicationDbContext, ExplicitKeyCreationTests>
 {
     public ExplicitKeyCreationTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {

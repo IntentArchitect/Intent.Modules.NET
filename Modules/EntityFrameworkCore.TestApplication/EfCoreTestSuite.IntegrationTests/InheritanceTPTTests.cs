@@ -8,7 +8,7 @@ using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class InheritanceTPTTests : SharedDatabaseFixture<ApplicationDbContext>
+public class InheritanceTPTTests : SharedDatabaseFixture<ApplicationDbContext, InheritanceTPTTests>
 {
     public InheritanceTPTTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {

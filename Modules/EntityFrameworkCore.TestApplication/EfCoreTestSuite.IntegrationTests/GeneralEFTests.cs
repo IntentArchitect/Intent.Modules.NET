@@ -11,7 +11,7 @@ using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext>
+public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext, GeneralEFTests>
 {
     public GeneralEFTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {

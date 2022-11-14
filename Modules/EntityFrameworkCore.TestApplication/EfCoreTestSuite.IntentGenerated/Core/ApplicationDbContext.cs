@@ -23,6 +23,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
         public DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
+        public DbSet<Branch> Branches { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         public DbSet<ComplexDefaultIndex> ComplexDefaultIndices { get; set; }
         public DbSet<CustomIndex> CustomIndices { get; set; }
@@ -44,6 +45,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
+        public DbSet<Leaf> Leaves { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
         public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
@@ -60,6 +62,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new A_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new B_OptionalDependentConfiguration());
+            modelBuilder.ApplyConfiguration(new BranchConfiguration());
             modelBuilder.ApplyConfiguration(new C_RequiredCompositeConfiguration());
             modelBuilder.ApplyConfiguration(new ComplexDefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new CustomIndexConfiguration());
@@ -81,6 +84,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
+            modelBuilder.ApplyConfiguration(new LeafConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());

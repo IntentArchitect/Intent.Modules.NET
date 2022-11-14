@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class NestedAssociationTests : SharedDatabaseFixture<ApplicationDbContext>
+public class NestedAssociationTests : SharedDatabaseFixture<ApplicationDbContext, NestedAssociationTests>
 {
     public NestedAssociationTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {

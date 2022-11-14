@@ -8,7 +8,7 @@ using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class RepositoryTests:SharedDatabaseFixture<ApplicationDbContext>
+public class RepositoryTests : SharedDatabaseFixture<ApplicationDbContext, RepositoryTests>
 {
     public RepositoryTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {

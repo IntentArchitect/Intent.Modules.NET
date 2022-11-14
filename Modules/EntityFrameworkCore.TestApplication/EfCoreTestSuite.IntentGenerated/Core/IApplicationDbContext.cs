@@ -18,6 +18,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
         DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
+        DbSet<Branch> Branches { get; set; }
         DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
         DbSet<ComplexDefaultIndex> ComplexDefaultIndices { get; set; }
         DbSet<CustomIndex> CustomIndices { get; set; }
@@ -39,6 +40,7 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
         DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
+        DbSet<Leaf> Leaves { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
         DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }

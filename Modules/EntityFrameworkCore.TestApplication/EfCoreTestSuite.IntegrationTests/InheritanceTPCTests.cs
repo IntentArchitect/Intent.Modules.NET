@@ -9,7 +9,7 @@ using Xunit.Abstractions;
 
 namespace EfCoreTestSuite.IntegrationTests;
 
-public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext>
+public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext, InheritanceTPCTests>
 {
     public InheritanceTPCTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {
