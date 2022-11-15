@@ -10,9 +10,11 @@ using Intent.Templates;
 
 namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
 {
+    [IntentManaged(Mode.Fully, Signature = Mode.Merge)]
     [Description(OutboxTableSpecification.DecoratorId)]
     public class OutboxTableSpecificationRegistration : DecoratorRegistration<DbContextTemplate, ITemplateDecorator>
     {
+        [IntentManaged(Mode.Fully, Signature = Mode.Ignore)]
         public override ITemplateDecorator CreateDecoratorInstance(DbContextTemplate template, IApplication application)
         {
             return new OutboxTableSpecification(template, application);

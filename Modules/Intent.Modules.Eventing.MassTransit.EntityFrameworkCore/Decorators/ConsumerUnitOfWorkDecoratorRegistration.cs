@@ -9,14 +9,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
 {
-    [Description(ConsumerTransactionDecorator.DecoratorId)]
-    public class ConsumerTransactionDecoratorRegistration : DecoratorRegistration<WrapperConsumerTemplate, ConsumerDecorator>
+    [Description(ConsumerUnitOfWorkDecorator.DecoratorId)]
+    public class ConsumerUnitOfWorkDecoratorRegistration : DecoratorRegistration<WrapperConsumerTemplate, ConsumerDecorator>
     {
         public override ConsumerDecorator CreateDecoratorInstance(WrapperConsumerTemplate template, IApplication application)
         {
-            return new ConsumerTransactionDecorator(template, application);
+            return new ConsumerUnitOfWorkDecorator(template, application);
         }
 
-        public override string DecoratorId => ConsumerTransactionDecorator.DecoratorId;
+        public override string DecoratorId => ConsumerUnitOfWorkDecorator.DecoratorId;
     }
 }

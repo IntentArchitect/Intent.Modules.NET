@@ -125,7 +125,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
 
             const string newLine = @"
         ";
-            return newLine + string.Join(newLine, lines);
+            return string.Join(newLine, lines);
         }
 
         private string GetConsumeExitCode()
@@ -145,6 +145,25 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
             const string newLine = @"
         ";
             return newLine + string.Join(newLine, lines);
+        }
+
+        private List<string> _consumerConfigurationStatements = new List<string>();
+        
+        private string GetConsumerConfiguration()
+        {
+            if (!_consumerConfigurationStatements.Any())
+            {
+                return @"endpointConfigurator.UseTransaction();";
+            }
+            
+            const string newLine = @"
+            ";
+            return newLine + string.Join(newLine, _consumerConfigurationStatements);
+        }
+
+        public void AddConsumerConfiguration(string statement)
+        {
+            _consumerConfigurationStatements.Add(statement);
         }
     }
 }

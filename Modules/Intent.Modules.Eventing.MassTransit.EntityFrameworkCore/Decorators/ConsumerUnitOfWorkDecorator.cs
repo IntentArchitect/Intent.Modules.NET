@@ -12,15 +12,15 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class ConsumerTransactionDecorator : ConsumerDecorator
+    public class ConsumerUnitOfWorkDecorator : ConsumerDecorator
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.Eventing.MassTransit.EntityFrameworkCore.ConsumerTransactionDecorator";
+        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.Eventing.MassTransit.EntityFrameworkCore.ConsumerUnitOfWorkDecorator";
 
         [IntentManaged(Mode.Fully)] private readonly WrapperConsumerTemplate _template;
         [IntentManaged(Mode.Fully)] private readonly IApplication _application;
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public ConsumerTransactionDecorator(WrapperConsumerTemplate template, IApplication application)
+        public ConsumerUnitOfWorkDecorator(WrapperConsumerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
@@ -33,8 +33,11 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
                 case EventingSettings.OutboxPatternOptionsEnum.None:
                     _template.RepositionFlushAllStatement(this, WrapperConsumerTemplate.RepositionDirection.AfterThisDecorator);
                     break;
-                case EventingSettings.OutboxPatternOptionsEnum.InMemory:
                 case EventingSettings.OutboxPatternOptionsEnum.EntityFramework:
+                    _template.RepositionFlushAllStatement(this, WrapperConsumerTemplate.RepositionDirection.BeforeThisDecorator);
+                    _template.AddConsumerConfiguration($"endpointConfigurator.UseEntityFrameworkOutbox<{_template.GetTypeName("Infrastructure.Data.DbContext")}>(_serviceProvider);");
+                    break;
+                case EventingSettings.OutboxPatternOptionsEnum.InMemory:
                     _template.RepositionFlushAllStatement(this, WrapperConsumerTemplate.RepositionDirection.BeforeThisDecorator);
                     break;
                 default:
@@ -60,12 +63,6 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
             {
                 yield break;
             }
-
-            _template.AddUsing("System.Transactions");
-
-            yield return $@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,";
-            yield return $@"    new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))";
-            yield return $@"{{";
         }
 
         public override IEnumerable<string> GetConsumeExitCode()
@@ -77,9 +74,6 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
             }
 
             yield return $@"    await _unitOfWork.SaveChangesAsync(context.CancellationToken);";
-            yield return $@"    ";
-            yield return $@"    transaction.Complete();";
-            yield return $@"}}";
         }
 
         private string GetUnitOfWorkName()

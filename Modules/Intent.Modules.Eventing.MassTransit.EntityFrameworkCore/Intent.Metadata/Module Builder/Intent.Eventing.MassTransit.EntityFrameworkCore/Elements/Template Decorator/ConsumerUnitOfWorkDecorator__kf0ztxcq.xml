@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="a9e20efc-d775-407b-9350-df18e22a5311" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>ConsumerTransactionDecorator</name>
-  <display>ConsumerTransactionDecorator: ConsumerDecorator</display>
+  <name>ConsumerUnitOfWorkDecorator</name>
+  <display>ConsumerUnitOfWorkDecorator: ConsumerDecorator</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="254ad51e-e70e-4f2b-bba6-d9d17559752a">

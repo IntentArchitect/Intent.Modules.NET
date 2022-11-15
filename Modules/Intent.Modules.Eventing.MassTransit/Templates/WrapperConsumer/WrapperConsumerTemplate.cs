@@ -111,6 +111,41 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
             
             #line default
             #line hidden
+            this.Write("\r\n        }\r\n    }\r\n\r\n    public class ");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("Definition<THandler, TMessage> : ConsumerDefinition<");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("<THandler, TMessage>>\r\n        where TMessage : class\r\n        where THandler : IIntegrationEventHandler<TMessage>\r\n    {\r\n        private readonly IServiceProvider _serviceProvider;\r\n\r\n        public ");
+            
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("Definition(IServiceProvider serviceProvider)\r\n        {\r\n            _serviceProvider = serviceProvider;\r\n        }\r\n\r\n        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<");
+            
+            #line 43 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("<THandler, TMessage>> consumerConfigurator)\r\n        {");
+            
+            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\WrapperConsumer\WrapperConsumerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetConsumerConfiguration()));
+            
+            #line default
+            #line hidden
             this.Write("\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }

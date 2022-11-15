@@ -28,4 +28,20 @@ namespace <#= Namespace #>
             await handler.HandleAsync(context.Message, context.CancellationToken);<#= GetConsumeExitCode() #>
         }
     }
+
+    public class <#= ClassName #>Definition<THandler, TMessage> : ConsumerDefinition<<#= ClassName #><THandler, TMessage>>
+        where TMessage : class
+        where THandler : IIntegrationEventHandler<TMessage>
+    {
+        private readonly IServiceProvider _serviceProvider;
+
+        public <#= ClassName #>Definition(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
+        protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<<#= ClassName #><THandler, TMessage>> consumerConfigurator)
+        {<#= GetConsumerConfiguration() #>
+        }
+    }
 }

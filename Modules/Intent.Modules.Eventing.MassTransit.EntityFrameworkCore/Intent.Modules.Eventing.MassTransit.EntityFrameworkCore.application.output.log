@@ -12,16 +12,16 @@
       <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#a9e20efc-d775-407b-9350-df18e22a5311</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConsumerTransactionDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConsumerTransactionDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/ConsumerUnitOfWorkDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConsumerUnitOfWorkDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>295cd78a-013c-4b62-8f82-f5b1d43dc777</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#a9e20efc-d775-407b-9350-df18e22a5311</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConsumerTransactionDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConsumerTransactionDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/ConsumerUnitOfWorkDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConsumerUnitOfWorkDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
