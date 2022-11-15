@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -39,9 +40,14 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
                     file.Classes.First().FindMethod("ConfigureServices")
                         ?.AddStatement("services.ConfigureMultiTenancy(Configuration);");
 
-                    file.Classes.First().FindMethod("Configure")
+                    var statement = file.Classes.First().FindMethod("Configure")
                         .FindStatement(s => s.GetText(string.Empty).Contains("app.UseRouting()"))
-                        .InsertBelow("app.UseMultiTenancy();");
+                        ?.InsertBelow("app.UseMultiTenancy();");
+
+                    if (statement == null)
+                    {
+                        throw new Exception("app.UseRouting() was not configured");
+                    }
                 });
 
             var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");
