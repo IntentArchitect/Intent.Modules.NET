@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="cba1bc41-536f-4dd0-85fe-85b11d46ad80" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-  <name>Intent.AspNetCore.Controllers.Controller</name>
-  <display>Intent.AspNetCore.Controllers.Controller</display>
-  <externalReference>Intent.AspNetCore.Controllers</externalReference>
+<class id="0cb295ad-4ef9-4764-b7dd-9d8bf01fe200" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.AspNetCore.Startup</name>
+  <display>Intent.AspNetCore.Startup</display>
+  <externalReference>Intent.AspNetCore</externalReference>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

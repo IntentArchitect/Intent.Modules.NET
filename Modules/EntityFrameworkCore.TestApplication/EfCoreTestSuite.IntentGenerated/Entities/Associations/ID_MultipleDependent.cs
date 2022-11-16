@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface ID_MultipleDependent
     {
+
         string MultipleDepAttr { get; set; }
     }
 }

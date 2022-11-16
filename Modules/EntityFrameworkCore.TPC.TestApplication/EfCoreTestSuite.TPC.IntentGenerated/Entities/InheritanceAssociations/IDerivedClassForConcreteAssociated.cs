@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IDerivedClassForConcreteAssociated : IHasDomainEvent
     {
+
         string AssociatedField { get; set; }
 
         IDerivedClassForConcrete DerivedClassForConcrete { get; set; }

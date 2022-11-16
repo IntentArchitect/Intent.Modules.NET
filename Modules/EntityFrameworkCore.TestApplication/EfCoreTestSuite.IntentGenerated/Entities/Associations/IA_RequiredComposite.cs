@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IA_RequiredComposite
     {
+
         string RequiredCompAttr { get; set; }
 
         IA_OptionalDependent A_OptionalDependent { get; set; }

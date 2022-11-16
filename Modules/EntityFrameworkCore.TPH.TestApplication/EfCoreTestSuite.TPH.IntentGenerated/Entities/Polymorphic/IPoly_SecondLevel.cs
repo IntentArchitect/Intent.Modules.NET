@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 
     public interface IPoly_SecondLevel : IHasDomainEvent
     {
+
         string SecondField { get; set; }
 
         ICollection<IPoly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; }

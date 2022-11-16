@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IH_OptionalAggregateNav
     {
+
         string OptionalAggrNavAttr { get; set; }
 
         ICollection<IH_MultipleDependent> H_MultipleDependents { get; set; }

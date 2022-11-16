@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 
     public interface IPK_PrimaryKeyLong
     {
+
         long PrimaryKeyLong { get; set; }
 
     }

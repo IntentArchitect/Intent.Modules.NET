@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IFkBaseClassAssociated : IHasDomainEvent
     {
+
         string AssociatedField { get; set; }
 
         IFkBaseClass FkBaseClass { get; set; }

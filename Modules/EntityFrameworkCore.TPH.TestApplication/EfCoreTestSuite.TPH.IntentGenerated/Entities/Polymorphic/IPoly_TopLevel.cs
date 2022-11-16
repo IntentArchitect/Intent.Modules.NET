@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 
     public interface IPoly_TopLevel : IHasDomainEvent
     {
+
         string TopField { get; set; }
 
         ICollection<IPoly_RootAbstract> RootAbstracts { get; set; }

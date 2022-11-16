@@ -10,6 +10,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public interface IAggregateRoot5
     {
+
         IAggregateRoot5EntityWithRepo AggregateRoot5EntityWithRepo { get; set; }
 
     }

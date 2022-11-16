@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
 
     public interface IPoly_BaseClassNonAbstract : IPoly_RootAbstract
     {
+
         string BaseField { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.NestedAssociations
 {
     public interface ITree
     {
+
         string TreeAttribute { get; set; }
 
         ICollection<IBranch> Branches { get; set; }

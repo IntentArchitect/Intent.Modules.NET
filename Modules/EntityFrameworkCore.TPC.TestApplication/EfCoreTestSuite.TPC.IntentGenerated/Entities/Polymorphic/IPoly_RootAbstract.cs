@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.Polymorphic
 
     public interface IPoly_RootAbstract : IHasDomainEvent
     {
+
         string AbstractField { get; set; }
 
         IPoly_RootAbstract_Aggr Poly_RootAbstract_Aggr { get; set; }

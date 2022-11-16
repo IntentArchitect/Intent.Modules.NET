@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IF_OptionalDependent
     {
+
         string OptionalDepAttr { get; set; }
 
         IF_OptionalAggregateNav F_OptionalAggregateNav { get; set; }

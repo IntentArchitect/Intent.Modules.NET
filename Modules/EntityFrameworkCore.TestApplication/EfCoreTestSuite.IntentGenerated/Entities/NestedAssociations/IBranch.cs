@@ -8,6 +8,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.NestedAssociations
 {
     public interface IBranch
     {
+
         string BranchAttribute { get; set; }
 
         ITexture Texture { get; set; }

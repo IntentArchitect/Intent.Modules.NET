@@ -36,9 +36,7 @@ namespace AspNetCore.TestSuite.IntentGenerated.Controllers
         public async Task<ActionResult<string>> GetValue(CancellationToken cancellationToken)
         {
             var result = default(string);
-
             result = await _appService.GetValue();
-
             return Ok(result);
         }
 
@@ -50,9 +48,8 @@ namespace AspNetCore.TestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PostValue(string value, CancellationToken cancellationToken)
+        public async Task<ActionResult> PostValue([] string value, CancellationToken cancellationToken)
         {
-
             await _appService.PostValue(value);
             return Created(string.Empty, null);
         }

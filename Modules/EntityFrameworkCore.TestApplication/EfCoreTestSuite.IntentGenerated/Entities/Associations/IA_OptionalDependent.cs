@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IA_OptionalDependent
     {
+
         string OptionalDepAttr { get; set; }
     }
 }

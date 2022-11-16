@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 
     public interface IStereotypeIndex
     {
+
         Guid DefaultIndexField { get; set; }
 
         Guid CustomIndexField { get; set; }

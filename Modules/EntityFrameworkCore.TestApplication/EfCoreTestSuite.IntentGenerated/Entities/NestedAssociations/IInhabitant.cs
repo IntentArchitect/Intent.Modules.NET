@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.NestedAssociations
 {
     public interface IInhabitant
     {
+
         string InhabitantAttribute { get; set; }
     }
 }

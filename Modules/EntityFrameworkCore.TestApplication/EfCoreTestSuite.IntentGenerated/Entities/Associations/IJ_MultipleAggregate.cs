@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IJ_MultipleAggregate
     {
+
         string MultipleAggrAttr { get; set; }
 
         IJ_RequiredDependent J_RequiredDependent { get; set; }

@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IJ_RequiredDependent
     {
+
         string ReqDepAttr { get; set; }
     }
 }

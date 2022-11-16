@@ -7,6 +7,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.NestedAssociations
 {
     public interface ILeaf
     {
+
         string LeafAttribute { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IG_RequiredCompositeNav
     {
+
         string ReqCompNavAttr { get; set; }
 
         ICollection<IG_MultipleDependent> G_MultipleDependents { get; set; }

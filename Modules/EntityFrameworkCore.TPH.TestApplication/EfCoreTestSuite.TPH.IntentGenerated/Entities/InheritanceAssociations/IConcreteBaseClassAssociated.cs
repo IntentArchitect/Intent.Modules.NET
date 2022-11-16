@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IConcreteBaseClassAssociated : IHasDomainEvent
     {
+
         string AssociatedField { get; set; }
 
         IConcreteBaseClass ConcreteBaseClass { get; set; }

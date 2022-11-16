@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface ID_OptionalAggregate
     {
+
         string OptionalAggrAttr { get; set; }
 
         ICollection<ID_MultipleDependent> D_MultipleDependents { get; set; }

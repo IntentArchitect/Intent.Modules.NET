@@ -10,6 +10,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public interface IAggregateRoot3AggCollection
     {
+
         IAggregateRoot3Single AggregateRoot3Single { get; set; }
 
         IAggregateRoot3Nullable AggregateRoot3Nullable { get; set; }

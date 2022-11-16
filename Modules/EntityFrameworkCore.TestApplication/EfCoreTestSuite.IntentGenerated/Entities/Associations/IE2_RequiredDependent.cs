@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IE2_RequiredDependent
     {
+
         string ReqDepAttr { get; set; }
 
         IE2_RequiredCompositeNav E2_RequiredCompositeNav { get; set; }

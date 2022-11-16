@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IFkBaseClass : IHasDomainEvent
     {
+
         Guid CompositeKeyA { get; set; }
 
         Guid CompositeKeyB { get; set; }

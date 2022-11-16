@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IC_RequiredComposite
     {
+
         string RequiredCompAttr { get; set; }
 
         ICollection<IC_MultipleDependent> C_MultipleDependents { get; set; }

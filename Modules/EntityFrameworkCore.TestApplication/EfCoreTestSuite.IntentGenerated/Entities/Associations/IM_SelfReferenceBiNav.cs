@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IM_SelfReferenceBiNav
     {
+
         string SelfRefBiNavAttr { get; set; }
 
         IM_SelfReferenceBiNav M_SelfReferenceBiNavDst { get; set; }

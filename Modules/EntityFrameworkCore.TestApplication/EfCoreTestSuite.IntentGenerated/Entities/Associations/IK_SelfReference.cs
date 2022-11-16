@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IK_SelfReference
     {
+
         string SelfRefAttr { get; set; }
 
         IK_SelfReference K_SelfReferenceAssociation { get; set; }

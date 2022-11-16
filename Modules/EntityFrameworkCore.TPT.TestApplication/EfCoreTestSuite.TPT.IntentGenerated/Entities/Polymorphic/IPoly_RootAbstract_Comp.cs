@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
 
     public interface IPoly_RootAbstract_Comp
     {
+
         string CompField { get; set; }
 
     }

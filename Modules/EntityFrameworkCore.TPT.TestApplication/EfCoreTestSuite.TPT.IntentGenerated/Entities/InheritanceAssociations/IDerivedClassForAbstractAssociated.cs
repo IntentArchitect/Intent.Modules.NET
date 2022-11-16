@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IDerivedClassForAbstractAssociated : IHasDomainEvent
     {
+
         string AssociatedField { get; set; }
 
         IDerivedClassForAbstract DerivedClassForAbstract { get; set; }

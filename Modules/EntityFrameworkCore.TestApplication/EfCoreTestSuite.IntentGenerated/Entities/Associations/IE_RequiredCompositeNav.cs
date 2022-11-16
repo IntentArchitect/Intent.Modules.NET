@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IE_RequiredCompositeNav
     {
+
         string RequiredCompNavAttr { get; set; }
 
         IE_RequiredDependent E_RequiredDependent { get; set; }

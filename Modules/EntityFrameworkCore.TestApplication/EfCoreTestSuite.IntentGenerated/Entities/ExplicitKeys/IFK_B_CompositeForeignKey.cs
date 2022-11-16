@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 
     public interface IFK_B_CompositeForeignKey
     {
+
         Guid PK_CompositeKeyCompositeKeyA { get; set; }
 
         Guid PK_CompositeKeyCompositeKeyB { get; set; }

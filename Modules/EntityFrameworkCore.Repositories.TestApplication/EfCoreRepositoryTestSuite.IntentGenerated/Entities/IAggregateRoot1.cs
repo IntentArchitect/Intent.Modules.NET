@@ -10,6 +10,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
 
     public interface IAggregateRoot1
     {
+
         string Tag { get; set; }
     }
 }

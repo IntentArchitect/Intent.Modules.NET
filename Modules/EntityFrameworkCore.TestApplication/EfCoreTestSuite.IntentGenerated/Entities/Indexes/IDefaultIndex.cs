@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 
     public interface IDefaultIndex
     {
+
         string IndexField { get; set; }
 
     }

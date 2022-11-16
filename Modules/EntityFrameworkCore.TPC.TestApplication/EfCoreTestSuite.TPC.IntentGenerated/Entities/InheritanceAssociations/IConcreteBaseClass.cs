@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IConcreteBaseClass : IHasDomainEvent
     {
+
         string BaseAttribute { get; set; }
 
     }

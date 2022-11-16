@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 
     public interface IPK_PrimaryKeyInt
     {
+
         int PrimaryKeyId { get; set; }
 
     }

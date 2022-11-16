@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IFkDerivedClass : IFkBaseClass
     {
+
         string DerivedField { get; set; }
 
     }

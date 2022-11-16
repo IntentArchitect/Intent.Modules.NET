@@ -11,6 +11,7 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 
     public interface IPoly_RootAbstract_Aggr : IHasDomainEvent
     {
+
         string AggrField { get; set; }
 
     }

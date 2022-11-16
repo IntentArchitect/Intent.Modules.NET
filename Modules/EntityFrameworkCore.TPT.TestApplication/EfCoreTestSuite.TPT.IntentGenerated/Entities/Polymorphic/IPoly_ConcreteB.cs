@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Entities.Polymorphic
 
     public interface IPoly_ConcreteB : IPoly_BaseClassNonAbstract
     {
+
         string ConcreteField { get; set; }
 
     }

@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IDerivedClassForConcrete : IConcreteBaseClass
     {
+
         string DerivedAttribute { get; set; }
 
     }

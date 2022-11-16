@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
     public interface IL_SelfReferenceMultiple
     {
+
         string SelfRefMultipleAttr { get; set; }
 
         ICollection<IL_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; }

@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Entities.InheritanceAssociations
 
     public interface IDerivedClassForAbstract : IAbstractBaseClass
     {
+
         string DerivedAttribute { get; set; }
 
     }

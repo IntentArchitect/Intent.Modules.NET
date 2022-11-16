@@ -10,6 +10,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Indexes
 
     public interface IComplexDefaultIndex
     {
+
         Guid FieldA { get; set; }
 
         Guid FieldB { get; set; }
