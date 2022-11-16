@@ -38,7 +38,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/OutboxTableSpecificationRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OutboxTableSpecificationRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bb6301fb-7541-46b2-854d-8f95bea37d24</ProjectId>
