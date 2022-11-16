@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>3.3.11</Version>
+    <Version>4.0.0-pre.0</Version>
     <Authors>Intent Architect</Authors>
     <Description>Base classes and helpers for building modules that output C# files for Intent Architect.</Description>
     <Copyright>Copyright 2020</Copyright>
@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23-pre.3" />
-    <PackageReference Include="Intent.Packager" Version="3.3.0">
+    <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

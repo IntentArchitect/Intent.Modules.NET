@@ -3,7 +3,6 @@
   <name>PrepopulatedUsersConfigurationDecorator</name>
   <display>PrepopulatedUsersConfigurationDecorator: StartupDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>4</order>
   <genericTypes />
   <typeReference id="68061848-85fd-42af-a387-cfdd57625d01">
     <typeId>58920714-64fa-4c4c-890f-00ae8bc33a0c</typeId>

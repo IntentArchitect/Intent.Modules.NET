@@ -3,7 +3,6 @@
   <name>IdentityDbContextDecorator</name>
   <display>IdentityDbContextDecorator: DbContextDecoratorBase</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
   <genericTypes />
   <typeReference id="0d353b63-9905-4716-8c7f-56f98e568154">
     <typeId>c35164c7-3797-476e-89ba-c98b96de3176</typeId>

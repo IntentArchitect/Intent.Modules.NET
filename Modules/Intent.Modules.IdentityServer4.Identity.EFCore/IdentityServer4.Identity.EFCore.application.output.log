@@ -46,7 +46,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/IdentityDbContextDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityDbContextDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>dca5136f-8295-4d33-a04b-5c4be0f2d68e</ProjectId>

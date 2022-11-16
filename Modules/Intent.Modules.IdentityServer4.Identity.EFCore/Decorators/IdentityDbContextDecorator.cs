@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.IdentityServer4.Identity.EFCore.Api;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.EntityFrameworkCore.Events;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,8 +14,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class IdentityDbContextDecorator :
-        DbContextDecoratorBase, IDecoratorExecutionHooks, IHasNugetDependencies
+    public class IdentityDbContextDecorator : DecoratorBase
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.Identity.EFCore.IdentityDbContextDecorator";
@@ -38,28 +31,15 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
             _template = template;
             _application = application;
             _template.FulfillsRole("Infrastructure.Data.IdentityDbContext");
-        }
 
-        public void BeforeTemplateExecution()
-        {
-            _application.EventDispatcher.Publish(new OverrideDbContextOptionsEvent
+            _template.AddNugetDependency(NugetPackages.IdentityServer4EntityFramework);
+            _template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(_template.OutputTarget.GetProject()));
+
+            _template.CSharpFile.OnBuild(file =>
             {
-                UseDbContextAsOptionsParameter = true
+                var @class = file.Classes.First();
+                @class.WithBaseType($"{_template.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{_template.GetIdentityUserClass()}>");
             });
-        }
-
-        public IEnumerable<INugetPackageInfo> GetNugetDependencies()
-        {
-            return new INugetPackageInfo[]
-            {
-                NugetPackages.IdentityServer4EntityFramework,
-                NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(_template.OutputTarget.GetProject())
-            };
-        }
-
-        public override string GetBaseClass()
-        {
-            return $"{_template.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{_template.GetIdentityUserClass()}>";
         }
     }
 

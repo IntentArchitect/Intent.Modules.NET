@@ -6,6 +6,7 @@ using Intent.Engine;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,9 +14,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
 {
     [Description(IdentityDbContextDecorator.DecoratorId)]
-    public class IdentityDbContextDecoratorRegistration : DecoratorRegistration<DbContextTemplate, DbContextDecoratorBase>
+    public class IdentityDbContextDecoratorRegistration : DecoratorRegistration<DbContextTemplate, ITemplateDecorator>
     {
-        public override DbContextDecoratorBase CreateDecoratorInstance(DbContextTemplate template, IApplication application)
+        public override ITemplateDecorator CreateDecoratorInstance(DbContextTemplate template, IApplication application)
         {
             return new IdentityDbContextDecorator(template, application);
         }

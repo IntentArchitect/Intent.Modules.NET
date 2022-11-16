@@ -77,8 +77,8 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                         });
                     });
                 }, int.MinValue); // always run first
-
         }
+
         public CSharpFile CSharpFile { get; }
 
         private void Handle(ContainerRegistrationRequest request)
@@ -347,7 +347,6 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
         {
             return CSharpFile.ToString();
         }
-
     }
 
     public class EndpointsStatement : CSharpStatement, IHasCSharpStatements

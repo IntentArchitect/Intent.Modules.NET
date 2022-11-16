@@ -3,7 +3,6 @@
   <name>IdentityUserDecorator</name>
   <display>IdentityUserDecorator: IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>3</order>
   <genericTypes />
   <typeReference id="2140b8c4-445d-4bf0-a137-7c66406d2f34">
     <typeId>7ab8228e-f35b-4587-a807-4ce75bf09375</typeId>

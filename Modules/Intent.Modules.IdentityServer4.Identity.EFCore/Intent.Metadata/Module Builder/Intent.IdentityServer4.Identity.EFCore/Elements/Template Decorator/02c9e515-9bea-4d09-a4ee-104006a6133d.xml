@@ -3,7 +3,6 @@
   <name>AspNetIdentityUserDecorator</name>
   <display>AspNetIdentityUserDecorator: IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="253b1fe5-3b2e-4b86-9b0a-f38ae91de0a7">
     <typeId>7ab8228e-f35b-4587-a807-4ce75bf09375</typeId>
