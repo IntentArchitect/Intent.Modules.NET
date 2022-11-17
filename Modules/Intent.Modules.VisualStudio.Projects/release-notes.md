@@ -1,4 +1,15 @@
-﻿### Version 3.3.16
+﻿### Version 3.3.18
+
+- Added .NET 7.0 version option.
+- Added support for generating `Remove` element types for file items in .NET `.csproj` files.
+- The `Root Namespace` value of a project in the Visual Studio designer is now made available on `IOutputTarget.Metadata` under the `Root Namespace` key.
+
+### Version 3.3.17
+
+Updated description of module.
+
+### Version 3.3.16
+
  - Fixed: Nullable types not being indicated when `Nullable` is set to `enable`.
 
 ### Version 3.3.15

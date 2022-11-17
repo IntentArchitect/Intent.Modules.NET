@@ -314,18 +314,18 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             
             #line default
             #line hidden
-            this.Write("                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);\r\n                    if (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")) { str = str.Substring(1, str.Length - 2); }\r\n                    return str;\r\n");
+            this.Write("                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);\r\n                    if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }\r\n                    return str;\r\n");
             
             #line 139 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
 
             }
-            else if (IsReturnTypePrimitive(operation))
+            else if (!HasWrappedReturnType(operation) && IsReturnTypePrimitive(operation))
             {
 
             
             #line default
             #line hidden
-            this.Write("                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);\r\n                    if (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")) { str = str.Substring(1, str.Length - 2); }\r\n                    return ");
+            this.Write("                    var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);\r\n                    if (str != null && (str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\"))) { str = str.Substring(1, str.Length - 2); }\r\n                    return ");
             
             #line 146 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Integration.HttpClients\Templates\HttpClient\HttpClientTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(operation.ReturnType)));

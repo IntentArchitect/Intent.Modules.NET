@@ -4,7 +4,6 @@
   <display>.NET Core 2.1</display>
   <isAbstract>false</isAbstract>
   <value>netcoreapp2.1</value>
-  <order>6</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4aab5ac2-71c3-4d2b-a616-0ad39a8193ba</parentFolderId>

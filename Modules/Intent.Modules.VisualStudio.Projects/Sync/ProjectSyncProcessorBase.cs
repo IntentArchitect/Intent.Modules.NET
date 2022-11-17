@@ -286,9 +286,10 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         /// Ultimately all sync processors should derive from this class, hence putting it here
         /// but as internal static for now. It can later be changed to private.
         /// </remarks>
-        internal static bool IsIgnored(XElement element)
+        internal static bool IsIgnored(XNode node)
         {
-            return string.Equals(element?.Attribute("IntentIgnore")?.Value, true.ToString(), StringComparison.OrdinalIgnoreCase);
+            return node is XElement element &&
+                   string.Equals(element?.Attribute("IntentIgnore")?.Value, true.ToString(), StringComparison.OrdinalIgnoreCase);
         }
 
         /// <remarks>
@@ -314,6 +315,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 if (key == CustomMetadataKeys.ItemType)
                 {
                     data.ItemType = value;
+                }
+
+                if (key == CustomMetadataKeys.RemoveItemType)
+                {
+                    data.RemoveItemType = value;
                 }
 
                 if (key == CustomMetadataKeys.MsBuildFileItemGenerationBehaviour)
