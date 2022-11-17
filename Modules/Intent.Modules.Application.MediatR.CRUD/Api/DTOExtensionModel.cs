@@ -20,4 +20,19 @@ namespace Intent.Application.MediatR.CRUD.Api
         }
 
     }
+
+    [IntentManaged(Mode.Fully)]
+    public static class DTOExtensionModelExtensions
+    {
+
+        public static bool HasProjectToDomainMapping(this DTOModel type)
+        {
+            return type.InternalElement.MappedElement?.MappingSettingsId == "942eae46-49f1-450e-9274-a92d40ac35fa";
+        }
+
+        public static IElementMapping GetProjectToDomainMapping(this DTOModel type)
+        {
+            return type.HasProjectToDomainMapping() ? type.InternalElement.MappedElement : null;
+        }
+    }
 }

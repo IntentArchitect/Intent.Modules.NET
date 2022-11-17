@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 {
 
-    public class CreateAggregateSingleCDTO : IMapFrom<AggregateSingleC>
+    public class CreateAggregateSingleCDTO
     {
         public CreateAggregateSingleCDTO()
         {
@@ -31,10 +31,5 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
         public Guid Id { get; set; }
 
         public string AggregationAttr { get; set; }
-
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<AggregateSingleC, CreateAggregateSingleCDTO>();
-        }
     }
 }

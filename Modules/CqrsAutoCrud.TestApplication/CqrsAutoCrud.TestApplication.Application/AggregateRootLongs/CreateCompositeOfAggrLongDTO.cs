@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs
 {
 
-    public class CreateCompositeOfAggrLongDTO : IMapFrom<CompositeOfAggrLong>
+    public class CreateCompositeOfAggrLongDTO
     {
         public CreateCompositeOfAggrLongDTO()
         {
@@ -31,10 +31,5 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs
         public long Id { get; set; }
 
         public string Attribute { get; set; }
-
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<CompositeOfAggrLong, CreateCompositeOfAggrLongDTO>();
-        }
     }
 }

@@ -347,6 +347,8 @@ function createCqrsDeleteOperation(entity, entityFolder) {
         <macro trigger="on-mapped">
           <script>//let element = lookup("29a81107-c71c-45b4-ba7b-982be63277a1")
 
+const projectMapptingSettingId = "942eae46-49f1-450e-9274-a92d40ac35fa";
+
 let fields = element.getChildren("DTO-Field")
     .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
 
@@ -358,7 +360,7 @@ fields.forEach(f =&gt; {
     let dtoName =  `${originalVerb}${mappedElement.typeReference.getType().getName()}`;
     let dto = getOrCreateDTO(dtoName, element.getParent());
     dto.setMetadata("originalVerb", originalVerb);
-    dto.setMapping(mappedElement.typeReference.getTypeId());
+    dto.setMapping(mappedElement.typeReference.getTypeId(), projectMapptingSettingId);
 
     ensureDtoFields(mappedElement, dto);
     
@@ -399,10 +401,78 @@ function ensureDtoFields(mappedElement, dto) {
       </macros>
     </elementExtension>
     <elementExtension type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
-      <mappingSettings />
+      <mappingSettings>
+        <mappingSetting id="942eae46-49f1-450e-9274-a92d40ac35fa">
+          <name>Project to Domain</name>
+          <shortcut>ctrl + shift + p</shortcut>
+          <defaultModeler>6ab29b31-27af-4f56-a67c-986d82097d63</defaultModeler>
+          <optionsSource>elements-of-type</optionsSource>
+          <autoSyncTypeReferences>true</autoSyncTypeReferences>
+          <symbol>fa-long-arrow-right</symbol>
+          <targetTypeOptions>
+            <option specializationType="04e12b51-ed12-42a3-9667-a6aa81bb6d10" displayText="Class" />
+          </targetTypeOptions>
+          <mapFrom>root</mapFrom>
+          <mappings>
+            <mapping id="64ebfd83-8720-407a-9308-d6a293873861">
+              <criteria specializationType="Class">
+                <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+              </criteria>
+              <mapTo specializationType="DTO" childMappingMode="map-to-child" />
+              <behaviour autoSelectChildren="true" />
+              <childMappings>
+                <mapping id="270e081f-8e9b-46ef-8199-b22860549026">
+                  <criteria specializationType="Attribute">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                    <hasChildren>false</hasChildren>
+                  </criteria>
+                  <mapTo specializationType="DTO-Field" childMappingMode="map-to-child" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+                <mapping id="8841b8bd-7e0f-4903-a3b5-df7447fda037">
+                  <criteria specializationType="Association Target End">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo specializationType="DTO-Field" childMappingMode="map-to-child" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+                <mapping id="90d2281b-0c25-4540-a9f9-3f81ef804f34">
+                  <criteria specializationType="Association Source End">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo specializationType="DTO-Field" childMappingMode="map-to-child" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+                <mapping id="997ed56f-d99d-4c25-8c9e-7cf7f01078f5">
+                  <criteria specializationType="Generalization Target End">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection>false</isCollection>
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo childMappingMode="traverse" useMappingSettings="64ebfd83-8720-407a-9308-d6a293873861" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+              </childMappings>
+            </mapping>
+          </mappings>
+        </mappingSetting>
+      </mappingSettings>
       <macros>
         <macro trigger="on-mapped">
           <script>//let element = lookup("29a81107-c71c-45b4-ba7b-982be63277a1")
+
+const projectMapptingSettingId = "942eae46-49f1-450e-9274-a92d40ac35fa";
 
 let fields = element.getChildren("DTO-Field")
     .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
@@ -423,7 +493,7 @@ fields.forEach(f =&gt; {
 
     let dtoName =  `${originalVerb}${mappedElement.typeReference.getType().getName()}`;
     let dto = getOrCreateDTO(dtoName, element.getParent());
-    dto.setMapping(mappedElement.typeReference.getTypeId());
+    dto.setMapping(mappedElement.typeReference.getTypeId(), projectMapptingSettingId);
     if (originalVerb !== "") {
         dto.setMetadata("originalVerb", originalVerb);
     }

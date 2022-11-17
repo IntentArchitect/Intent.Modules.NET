@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 {
 
-    public class UpdateCompositeManyBBDTO : IMapFrom<CompositeManyBB>
+    public class UpdateCompositeManyBBDTO
     {
         public UpdateCompositeManyBBDTO()
         {
@@ -35,10 +35,5 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
         public string CompositeAttr { get; set; }
 
         public Guid ACompositeManyId { get; set; }
-
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<CompositeManyBB, UpdateCompositeManyBBDTO>();
-        }
     }
 }
