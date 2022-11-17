@@ -47,7 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.14-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.14" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23-pre.3" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.5" />
