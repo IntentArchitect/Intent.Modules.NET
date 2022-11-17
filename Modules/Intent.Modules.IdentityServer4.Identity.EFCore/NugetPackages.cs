@@ -9,6 +9,7 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore
     {
         public static readonly NugetPackageInfo IdentityServer4EntityFramework = new NugetPackageInfo("IdentityServer4.EntityFramework", "4.1.2");
         public static readonly NugetPackageInfo IdentityServer4AspNetIdentity = new NugetPackageInfo("IdentityServer4.AspNetIdentity", "4.1.2");
+        public static readonly NugetPackageInfo Automapper = new NugetPackageInfo("Automapper", "12.0.0");
         public static NugetPackageInfo MicrosoftAspNetCoreIdentityEntityFrameworkCore(ICSharpProject project) => new NugetPackageInfo("Microsoft.AspNetCore.Identity.EntityFrameworkCore", GetVersion(project));
 
         private static string GetVersion(ICSharpProject project)

@@ -36,7 +36,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                 _template.AddUsing(cp.Namespace);
             }
         }
-        
+
         public override string Configuration()
         {
             return "app.UseIdentityServer();";

@@ -44,16 +44,16 @@
       <ProjectId>7b018e4e-0383-44ac-ae09-2f3cc333d369</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#0d7e806a-7048-454f-aba3-33cfff1582c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/PerpopulatedTestUserIdentityConfigurationDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PerpopulatedTestUserIdentityConfigurationDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/PrepopulatedTestUserIdentityConfigurationDecorator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrepopulatedTestUserIdentityConfigurationDecorator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7b018e4e-0383-44ac-ae09-2f3cc333d369</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#0d7e806a-7048-454f-aba3-33cfff1582c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/PerpopulatedTestUserIdentityConfigurationDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PerpopulatedTestUserIdentityConfigurationDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Decorators/PrepopulatedTestUserIdentityConfigurationDecoratorRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PrepopulatedTestUserIdentityConfigurationDecoratorRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

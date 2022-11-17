@@ -13,10 +13,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class PerpopulatedTestUserIdentityConfigurationDecorator : IdentityConfigurationDecorator, IDeclareUsings
+    public class PrepopulatedTestUserIdentityConfigurationDecorator : IdentityConfigurationDecorator, IDeclareUsings
     {
         [IntentManaged(Mode.Fully)]
-        public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.PerpopulatedTestUserIdentityConfigurationDecorator";
+        public const string DecoratorId = "Intent.IdentityServer4.SecureTokenServer.PrepopulatedTestUserIdentityConfigurationDecorator";
 
         [IntentManaged(Mode.Fully)]
         private readonly IdentityServerConfigurationTemplate _template;
@@ -25,7 +25,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
         private bool _prepopulatedUsersSpecified;
 
         [IntentManaged(Mode.Merge)]
-        public PerpopulatedTestUserIdentityConfigurationDecorator(IdentityServerConfigurationTemplate template, IApplication application)
+        public PrepopulatedTestUserIdentityConfigurationDecorator(IdentityServerConfigurationTemplate template, IApplication application)
         {
             _template = template;
             _application = application;

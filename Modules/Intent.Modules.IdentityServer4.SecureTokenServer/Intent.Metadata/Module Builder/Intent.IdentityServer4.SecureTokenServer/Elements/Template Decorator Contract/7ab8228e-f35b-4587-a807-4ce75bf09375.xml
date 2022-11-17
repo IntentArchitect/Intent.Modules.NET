@@ -3,7 +3,6 @@
   <name>IdentityConfigurationDecorator</name>
   <display>IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4cffcf4c-6398-4915-94ed-7f2a449219a7</parentFolderId>

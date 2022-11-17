@@ -13,7 +13,7 @@
   </decorators>
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.3.7" />
+    <dependency id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.3.8" />
     <dependency id="Intent.Common" version="3.3.14-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
   </dependencies>

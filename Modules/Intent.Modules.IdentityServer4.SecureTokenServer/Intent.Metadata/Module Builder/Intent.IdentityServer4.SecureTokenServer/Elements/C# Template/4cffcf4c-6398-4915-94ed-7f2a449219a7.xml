@@ -3,7 +3,7 @@
   <name>IdentityServerConfiguration</name>
   <display>IdentityServerConfiguration: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <typeReference id="4437299d-235b-4f44-8389-6fe20711b9f8">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

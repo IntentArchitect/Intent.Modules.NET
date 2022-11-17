@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="0d7e806a-7048-454f-aba3-33cfff1582c3" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
-  <name>PerpopulatedTestUserIdentityConfigurationDecorator</name>
-  <display>PerpopulatedTestUserIdentityConfigurationDecorator: IdentityConfigurationDecorator</display>
+  <name>PrepopulatedTestUserIdentityConfigurationDecorator</name>
+  <display>PrepopulatedTestUserIdentityConfigurationDecorator: IdentityConfigurationDecorator</display>
   <isAbstract>false</isAbstract>
-  <order>5</order>
   <genericTypes />
   <typeReference id="664ed272-9901-42f6-869f-528ad1d9f4eb">
     <typeId>7ab8228e-f35b-4587-a807-4ce75bf09375</typeId>

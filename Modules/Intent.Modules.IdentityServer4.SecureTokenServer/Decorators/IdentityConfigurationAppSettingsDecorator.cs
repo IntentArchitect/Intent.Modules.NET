@@ -1,3 +1,4 @@
+using System;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.Common.Configuration;
@@ -51,7 +52,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                         RequireClientSecret = false,
                         ClientSecrets = new []{ new { Value = "secret" } },
                         AllowedGrantTypes = new []{ "password" },
-                        AllowedScopes = new []{ "api", "roles", "openid", "profile", "email" }
+                        AllowedScopes = new []{ "api", "openid", "profile", "email" }
                     },
                     new
                     {
@@ -61,7 +62,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                         RequireClientSecret = false,
                         ClientSecrets = new []{ new { Value = "secret" } },
                         AllowedGrantTypes = new []{ "authorization_code" },
-                        AllowedScopes = new []{ "api", "roles", "openid", "profile", "email" },
+                        AllowedScopes = new []{ "api", "openid", "profile", "email" },
                         RequirePkce = true,
                         AllowAccessTokensViaBrowser = true,
                         RedirectUris = new string[]
@@ -74,7 +75,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                             $"https://localhost:{_sslPort}/authentication/logout-callback"
                         },
                         AllowPlainTextPkce = false,
-                        AllowedCorsOrigins = new string [0]
+                        AllowedCorsOrigins = Array.Empty<string>()
                     }
                 },
                 ApiScopes = new[]
@@ -82,12 +83,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                     new
                     {
                         Name = "api",
-                        UserClaims = (string[])null
-                    },
-                    new
-                    {
-                        Name = "roles",
-                        UserClaims = new[]{ "role" }
+                        UserClaims = new[]{ "role", "__tenant__" }
                     }
                 },
                 ApiResources = new[]
@@ -95,7 +91,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                     new
                     {
                         Name ="api",
-                        Scopes = new[]{ "api", "roles" }
+                        Scopes = new[]{ "api" }
                     }
                 },
                 IdentityResources = new[]

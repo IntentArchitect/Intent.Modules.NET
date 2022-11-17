@@ -3,7 +3,7 @@
   <name>Identity Server Settings</name>
   <display>Identity Server Settings</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>dbcde434-4411-479b-8374-34cb11190cf1</parentFolderId>
@@ -16,7 +16,6 @@
       <name>Create Test Users</name>
       <display>Create Test Users</display>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2540e7d3-58b4-4e0d-9187-f614bf834837</parentFolderId>

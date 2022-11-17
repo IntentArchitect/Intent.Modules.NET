@@ -38,7 +38,7 @@ namespace Intent.Modules.IdentityServer4.UI.Interop.Swashbuckle.JWT.Decorators
                 authUrl: $"https://localhost:{SchemeEventConstants.STS_Port_Tag}/connect/authorize",
                 tokenUrl: $"https://localhost:{SchemeEventConstants.STS_Port_Tag}/connect/token",
                 refreshUrl: null,
-                scopes: new Dictionary<string, string> { { "roles", "Roles Scope" }, { "api", "API Scope" } }));
+                scopes: new Dictionary<string, string> { { "api", "API Scope" } }));
         }
 
         public override void UpdateSettings(AppSettingsEditor appSettings)

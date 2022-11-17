@@ -32,6 +32,11 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
             _application = application;
             _template.FulfillsRole("Infrastructure.Data.IdentityDbContext");
 
+            // IdentityServer4.EntityFramework is no longer in production and
+            // has a hard dependency on Automapper 10, only way to resolve compilation
+            // issue with newer Automapper is to actually install it on this project
+            _template.AddNugetDependency(NugetPackages.Automapper);
+            
             _template.AddNugetDependency(NugetPackages.IdentityServer4EntityFramework);
             _template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(_template.OutputTarget.GetProject()));
 

@@ -49,12 +49,12 @@
   <interoperability>
     <detect id="Intent.IdentityServer4.Identity.EFCore">
       <install>
-        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="3.3.8" />
+        <package id="Intent.IdentityServer4.UI.Interop.Identity.EFCore" version="4.0.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
       <install>
-        <package id="Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT" version="3.3.7" />
+        <package id="Intent.IdentityServer4.UI.Interop.Swashbuckle.JWT" version="4.0.0-pre.0" />
       </install>
     </detect>
   </interoperability>

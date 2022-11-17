@@ -15,9 +15,9 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="4.0.0-pre.0" />
     <dependency id="Intent.AspNetCore.Controllers" version="4.0.0-pre.0" />
-    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.Common" version="3.3.14" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Security.JWT" version="3.3.7" />
+    <dependency id="Intent.Security.JWT" version="3.3.8" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

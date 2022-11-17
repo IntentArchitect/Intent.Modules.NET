@@ -9,14 +9,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
 {
-    [Description(PerpopulatedTestUserIdentityConfigurationDecorator.DecoratorId)]
-    public class PerpopulatedTestUserIdentityConfigurationDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
+    [Description(PrepopulatedTestUserIdentityConfigurationDecorator.DecoratorId)]
+    public class PrepopulatedTestUserIdentityConfigurationDecoratorRegistration : DecoratorRegistration<IdentityServerConfigurationTemplate, IdentityConfigurationDecorator>
     {
         public override IdentityConfigurationDecorator CreateDecoratorInstance(IdentityServerConfigurationTemplate template, IApplication application)
         {
-            return new PerpopulatedTestUserIdentityConfigurationDecorator(template, application);
+            return new PrepopulatedTestUserIdentityConfigurationDecorator(template, application);
         }
 
-        public override string DecoratorId => PerpopulatedTestUserIdentityConfigurationDecorator.DecoratorId;
+        public override string DecoratorId => PrepopulatedTestUserIdentityConfigurationDecorator.DecoratorId;
     }
 }
