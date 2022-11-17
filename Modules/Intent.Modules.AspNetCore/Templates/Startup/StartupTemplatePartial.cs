@@ -373,6 +373,12 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
 
         public void AddEndpointConfiguration(CSharpStatement statement)
         {
+            if (statement.Parent != null)
+            {
+                throw new Exception("Cannot accept statement that already has a Parent");
+            }
+            
+            statement.Parent = this;
             Statements.Add(statement);
         }
     }

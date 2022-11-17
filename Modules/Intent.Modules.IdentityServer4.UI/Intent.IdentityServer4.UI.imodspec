@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.UI</id>
-  <version>3.3.8</version>
+  <version>4.0.0-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</summary>
   <description>Using the Quickstart template from IdentityServer4 for hosting the generic looking Identity Server pages</description>
@@ -40,9 +40,9 @@
     <factoryExtension id="Intent.IdentityServer4.UI.IdentityServerQuickstartExtractorFactoryExtension" externalReference="c2836371-2d1f-4565-ae1a-a29c6c999789" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.10" />
-    <dependency id="Intent.Common" version="3.3.11" />
-    <dependency id="Intent.Common.CSharp" version="3.3.18" />
+    <dependency id="Intent.AspNetCore" version="4.0.0-pre.0" />
+    <dependency id="Intent.Common" version="3.3.14-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.23-pre.4" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>

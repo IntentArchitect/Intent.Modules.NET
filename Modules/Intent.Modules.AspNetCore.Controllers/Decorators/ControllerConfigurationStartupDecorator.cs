@@ -2,6 +2,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -29,27 +30,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Decorators
             {
                 var @class = file.Classes.First();
                 @class.Methods.First(x => x.Name == "ConfigureServices")
-                    .InsertStatement(0, "services.AddControllers();");
+                    .InsertStatement(0, "services.AddControllers();", s => s.AddMetadata("configure-services-controllers-generic", true));
                 @class.Methods.First(x => x.Name == "Configure")
                     .Statements.OfType<EndpointsStatement>().First()
-                    .AddEndpointConfiguration("endpoints.MapControllers();");
+                    .AddEndpointConfiguration(new CSharpStatement("endpoints.MapControllers();").AddMetadata("configure-endpoints-controllers-generic", true));
             });
         }
-
-        //public override string ConfigureServices()
-        //{
-
-        //    return "services.AddControllers();";
-        //}
-
-        //public override string Configuration()
-        //{
-        //    return string.Empty;
-        //}
-
-        //public override string EndPointMappings()
-        //{
-        //    return @"endpoints.MapControllers();";
-        //}
     }
 }

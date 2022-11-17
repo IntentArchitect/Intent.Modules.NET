@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.AspNetCore.Templates.Startup;
@@ -10,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.IdentityServer4.UI.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class RazorPageControllerStartupDecorator : StartupDecorator, IDecoratorExecutionHooks
+    public class RazorPageControllerStartupDecorator : StartupDecorator
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.IdentityServer4.UI.RazorPageControllerStartupDecorator";
@@ -26,18 +27,21 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
             _template = template;
             _application = application;
             Priority = -30;
-        }
-
-        public void BeforeTemplateExecution()
-        {
-            _application.EventDispatcher.Publish(new OverrideDefaultControllerEvent());
-        }
-
-        public override string ConfigureServices()
-        {
-            return @"
-services.AddControllersWithViews();
-services.AddRazorPages();";
+            
+            _template.CSharpFile.AfterBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var configServicesStmts = @class.Methods
+                    .First(x => x.Name == "ConfigureServices")
+                    .Statements;
+                
+                configServicesStmts.First().InsertAbove("services.AddControllersWithViews();")
+                    .InsertBelow("services.AddRazorPages();");
+                
+                configServicesStmts
+                    .FirstOrDefault(x => x.HasMetadata("configure-services-controllers-generic"))
+                    ?.Remove();
+            });
         }
     }
 }

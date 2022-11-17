@@ -1,5 +1,7 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Templates.Startup;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -23,31 +25,28 @@ namespace Intent.Modules.IdentityServer4.UI.Decorators
         {
             _template = template;
             _application = application;
-            Priority = 0;
-        }
+            Priority = -30;
 
-        //        public override string Configuration()
-        //        {
-        //            if (_template.IsNetCore2App())
-        //            {
-        //                return "app.UseMvc();";
-        //            }
+            _template.CSharpFile.AfterBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var endpointStmts = @class.Methods
+                    .First(x => x.Name == "Configure")
+                    .Statements
+                    .OfType<EndpointsStatement>()
+                    .ToList();
 
-        //            return @"
-        //app.UseEndpoints(endpoints =>
-        //{
-        //    endpoints.MapControllerRoute(
-        //        name: ""default"",
-        //        pattern: ""{controller}/{action=Index}/{id?}"");
-        //});";
-        //        }
+                endpointStmts.First().AddEndpointConfiguration(
+                    new CSharpInvocationStatement("endpoints.MapControllerRoute")
+                        .AddArgument(@"name: ""default""")
+                        .AddArgument(@"pattern: ""{controller=Home}/{action=Index}/{id?}""")
+                        .WithArgumentsOnNewLines());
 
-        public override string EndPointMappings()
-        {
-            return @"
-    endpoints.MapControllerRoute(
-        name: ""default"",
-        pattern: ""{controller=Home}/{action=Index}/{id?}"");";
+                endpointStmts
+                    .SelectMany(s => s.Statements)
+                    .FirstOrDefault(p => p.HasMetadata("configure-endpoints-controllers-generic"))
+                    ?.Remove();
+            });
         }
     }
 }
