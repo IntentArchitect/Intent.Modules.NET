@@ -48,11 +48,13 @@ namespace AspNetCore.TestSuite.IntentGenerated.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PostValue([] string value, CancellationToken cancellationToken)
+        public async Task<ActionResult> PostValue(string value, CancellationToken cancellationToken)
         {
             await _appService.PostValue(value);
             return Created(string.Empty, null);
         }
+
+
 
 
     }

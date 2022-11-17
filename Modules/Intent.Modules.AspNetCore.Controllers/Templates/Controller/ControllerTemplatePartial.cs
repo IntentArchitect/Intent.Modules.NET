@@ -62,7 +62,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             {
                                 method.AddParameter(GetTypeName(parameter), parameter.Name.ToCamelCase(), param =>
                                 {
-                                    param.AddAttribute(GetParameterBindingAttribute(operation, parameter));
+                                    var attr = GetParameterBindingAttribute(operation, parameter);
+                                    if (!string.IsNullOrWhiteSpace(attr))
+                                    {
+                                        param.AddAttribute(attr);
+                                    }
                                 });
                             }
 
