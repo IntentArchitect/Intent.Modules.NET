@@ -45,6 +45,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.EntityFrameworkCore.Deco
                     if (method.TryGetMetadata<OperationModel>("model", out var operation) &&
                         operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
                     {
+                        _template.AddUsing("System.Transactions");
                         method.Statements.FirstOrDefault(x => x.ToString().Contains("await "))?
                             .InsertAbove($@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
