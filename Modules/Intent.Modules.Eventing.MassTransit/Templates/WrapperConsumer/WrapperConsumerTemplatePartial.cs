@@ -153,7 +153,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
         {
             if (!_consumerConfigurationStatements.Any())
             {
-                return @"endpointConfigurator.UseTransaction();";
+                return string.Empty;
             }
             
             const string newLine = @"

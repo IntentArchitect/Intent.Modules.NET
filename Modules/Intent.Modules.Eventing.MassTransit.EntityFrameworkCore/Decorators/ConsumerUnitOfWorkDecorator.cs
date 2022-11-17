@@ -48,7 +48,7 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
         public override IEnumerable<RequiredService> RequiredServices()
         {
             var unitOfWorkName = GetUnitOfWorkName();
-            if (string.IsNullOrEmpty(unitOfWorkName))
+            if (string.IsNullOrEmpty(unitOfWorkName) || !ShouldUseTransactionScope())
             {
                 yield break;
             }
@@ -59,21 +59,30 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
         public override IEnumerable<string> GetConsumeEnterCode()
         {
             var unitOfWorkName = GetUnitOfWorkName();
-            if (string.IsNullOrEmpty(unitOfWorkName))
+            if (string.IsNullOrEmpty(unitOfWorkName) || !ShouldUseTransactionScope())
             {
                 yield break;
             }
+            
+            _template.AddUsing("System.Transactions");
+
+            yield return $@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,";
+            yield return $@"    new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))";
+            yield return $@"{{";
         }
 
         public override IEnumerable<string> GetConsumeExitCode()
         {
             var unitOfWorkName = GetUnitOfWorkName();
-            if (string.IsNullOrEmpty(unitOfWorkName))
+            if (string.IsNullOrEmpty(unitOfWorkName) || !ShouldUseTransactionScope())
             {
                 yield break;
             }
 
             yield return $@"    await _unitOfWork.SaveChangesAsync(context.CancellationToken);";
+            yield return $@"    ";
+            yield return $@"    transaction.Complete();";
+            yield return $@"}}";
         }
 
         private string GetUnitOfWorkName()
@@ -85,6 +94,11 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
             }
 
             return null;
+        }
+
+        private bool ShouldUseTransactionScope()
+        {
+            return !_template.ExecutionContext.Settings.GetEventingSettings().OutboxPattern().IsEntityFramework();
         }
     }
 }
