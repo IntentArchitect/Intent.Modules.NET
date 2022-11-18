@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,31 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.22-pre.0" />
-    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.0.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Infrastructure.DependencyInjection\Intent.Modules.Infrastructure.DependencyInjection.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Templates\DbContextConfiguration\DbContextConfigurationTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DbContextConfigurationTemplate.cs</LastGenOutput>
-    </None></ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\DbContextConfiguration\DbContextConfigurationTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DbContextConfigurationTemplate.tt</DependentUpon>
-    </Compile></ItemGroup>
+  <ItemGroup></ItemGroup>
 
 </Project>
