@@ -23,7 +23,6 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.14" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23-pre.4" />
-    <PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -33,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
