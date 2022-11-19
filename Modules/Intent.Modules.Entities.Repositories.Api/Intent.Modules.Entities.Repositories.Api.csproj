@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>3.3.8</Version>
+    <Version>4.0.0-pre.1</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23-pre.3" />
-    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.8" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.7" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23" />
+    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.11-pre.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.9" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

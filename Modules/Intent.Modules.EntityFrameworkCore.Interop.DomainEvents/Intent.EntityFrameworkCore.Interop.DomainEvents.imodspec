@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Interop.DomainEvents</id>
-  <version>4.0.0-pre.0</version>
+  <version>4.0.0-pre.1</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Supplies Domain Event publishing capability within Entity Framework Core</summary>
   <description>Supplies Domain Event publishing capability within Entity Framework Core</description>
@@ -18,10 +18,10 @@
     <factoryExtension id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDecoratorExtension" externalReference="bfc65889-d5a2-409c-8aa7-edf702502270" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.Common" version="3.3.15" />
     <dependency id="Intent.Common.CSharp" version="3.3.23" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.EntityFrameworkCore" version="4.0.0-pre.0" />
+    <dependency id="Intent.EntityFrameworkCore" version="4.0.0-pre.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
