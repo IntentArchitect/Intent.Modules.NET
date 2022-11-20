@@ -47,7 +47,7 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
 
         private static string GetEnumLiteral(EnumLiteralModel literal)
         {
-            return $"{literal.Name}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
+            return $"{literal.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper)}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
         }
     }
 }
