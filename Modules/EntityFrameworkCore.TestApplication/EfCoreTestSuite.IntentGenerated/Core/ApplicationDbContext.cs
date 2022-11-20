@@ -40,12 +40,10 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
         public DbSet<Inhabitant> Inhabitants { get; set; }
-        public DbSet<Internode> Internodes { get; set; }
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
         public DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
-        public DbSet<Leaf> Leaves { get; set; }
         public DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         public DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
         public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
@@ -79,12 +77,10 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new H_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new H_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new InhabitantConfiguration());
-            modelBuilder.ApplyConfiguration(new InternodeConfiguration());
             modelBuilder.ApplyConfiguration(new J_MultipleAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
             modelBuilder.ApplyConfiguration(new L_SelfReferenceMultipleConfiguration());
-            modelBuilder.ApplyConfiguration(new LeafConfiguration());
             modelBuilder.ApplyConfiguration(new M_SelfReferenceBiNavConfiguration());
             modelBuilder.ApplyConfiguration(new PK_A_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());

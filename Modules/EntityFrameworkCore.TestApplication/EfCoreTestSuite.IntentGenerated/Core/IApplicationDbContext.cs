@@ -35,12 +35,10 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
         DbSet<Inhabitant> Inhabitants { get; set; }
-        DbSet<Internode> Internodes { get; set; }
         DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         DbSet<K_SelfReference> K_SelfReferences { get; set; }
         DbSet<L_SelfReferenceMultiple> L_SelfReferenceMultiples { get; set; }
-        DbSet<Leaf> Leaves { get; set; }
         DbSet<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
         DbSet<PK_A_CompositeKey> PK_A_CompositeKeys { get; set; }
         DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }

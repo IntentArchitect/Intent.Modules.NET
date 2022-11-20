@@ -61,7 +61,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 return !type.AsClassModel().IsAggregateRoot() &&
                        !type.AsClassModel().HasTable() &&
-                       !type.AsClassModel().AssociatedFromClasses().Any(x => x.IsNullable || x.IsCollection);
+                       !type.AsClassModel().AssociatedFromClasses().Any(x => x.IsNullable || x.IsCollection) && // cannot have aggregations pointing to it
+                       !type.AsClassModel().AssociatedClasses.Any(x => x.IsCollection && x.OtherEnd().IsCollection); // cannot have any many to many associated with it
             }
 
             return type.IsValueObject(executionContext);
