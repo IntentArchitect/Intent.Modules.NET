@@ -1,35 +1,40 @@
 <#@ template  debug="true"  inherits="IntentTemplateBase<object>" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ output extension=".txt" #>
+Read here about Migrations using EF Core: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations
+You can perform these commands in Visual Studio IDE (VS) using the Package Manager Console (View > Other Windows > Package Manager Console)
+or using the dotnet Command Line Interface (CLI) instructions.
+Substitute the {Keywords} below with the appropriate migration name when executing these commands.
+
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Add-Migration -Name {ChangeName} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject#>
+VS:  Add-Migration -Name {ChangeName} -StartupProject "<#= StartupProject #>" -Project "<#= MigrationProject#>"
+CLI: dotnet ef migrations add {ChangeName} --project "<#= MigrationProject#>" --startup-project "<#= StartupProject #>"
 
-
-Overwrite an existing migration:
+Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Add-Migration -Name {ChangeName} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject#>
-
+VS:  Remove-Migration
+CLI: dotnet ef migrations remove
 
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Update-Database -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
-
+VS:  Update-Database -StartupProject "<#= StartupProject #>" -Project "<#= MigrationProject #>"
+CLI: dotnet ef database update --project "<#= MigrationProject #>" --startup-project "<#= StartupProject #>" 
 
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Update-Database -Migration {Target} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
-
+VS:  Update-Database -Migration {Target} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
+CLI: dotnet ef database update {Target} --project "<#= MigrationProject #>" --startup-project "<#= StartupProject #>"
 
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Script-Migration -SourceMigration:$InitialDatabase -Script -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
-
+VS:  Script-Migration -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
+CLI: dotnet ef migrations script --project "<#= MigrationProject #>" --startup-project "<#= StartupProject #>"
 
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Script-Migration -SourceMigration:{Source} -TargetMigration:{Target} -Script -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
-
+VS:  Script-Migration {Source} {Target} -StartupProject "<#= StartupProject #>" -Project <#= MigrationProject #>
+CLI: dotnet ef migrations script {Source} {Target} --project "<#= MigrationProject #>" --startup-project "<#= StartupProject #>"
 
 Drop all tables in schema:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
