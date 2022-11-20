@@ -72,7 +72,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     //application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionPostgreSql}:EnsureDbCreated", false));
                     application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                         name: "DefaultConnection",
-                        connectionString: $"Server=127.0.0.1;Port=5432;Database={dependencyInjection.OutputTarget.ApplicationName()};Integrated Security=true;",
+                        connectionString: $"Host=127.0.0.1;Port=5432;Database={dependencyInjection.OutputTarget.ApplicationName()};Username=postgres;Password=password;",
                         providerName: ""));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
