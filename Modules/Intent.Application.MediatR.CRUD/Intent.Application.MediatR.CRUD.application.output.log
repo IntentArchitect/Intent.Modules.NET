@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#3e83b75d-9dff-4393-85fb-80801d1b6e22</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueryExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#0d6293c6-395b-47f6-99c7-d7111aa66981</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/Api/ServiceExtensionModel.cs</ApplicationRelativeFilePath>
