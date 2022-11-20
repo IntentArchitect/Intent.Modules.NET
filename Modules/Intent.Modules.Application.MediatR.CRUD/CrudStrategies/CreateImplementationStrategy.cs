@@ -17,6 +17,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using JetBrains.Annotations;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -132,21 +133,21 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 if (association.IsNullable)
                                 {
-                                    codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
+                                    codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
                                 }
                                 else
                                 {
-                                    codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetType)}({dtoVarName}.{field.Name.ToPascalCase()}),");
+                                    codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}),");
                                 }
                             }
                             else
                             {
-                                codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(association.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType)}).ToList(),");
+                                codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(association.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType, attributeName)}).ToList(),");
                             }
 
                             var @class = _template.CSharpFile.Classes.First();
                             @class.AddMethod(_template.GetTypeName(targetType),
-                                GetCreateMethodName(targetType),
+                                GetCreateMethodName(targetType, attributeName),
                                 method => method.Private()
                                     .AddAttribute(CSharpIntentManagedAttribute.Fully())
                                     .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
@@ -211,9 +212,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return NoMatch;
         }
 
-        private string GetCreateMethodName(ICanBeReferencedType classModel)
+        private string GetCreateMethodName(ICanBeReferencedType classModel, [CanBeNull] string attributeName)
         {
-            return $"Create{classModel.Name.ToPascalCase()}";
+            return $"Create{(!string.IsNullOrEmpty(attributeName) ? attributeName : string.Empty)}{classModel.Name.ToPascalCase()}";
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null);

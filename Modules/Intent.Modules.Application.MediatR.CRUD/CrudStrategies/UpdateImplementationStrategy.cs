@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using JetBrains.Annotations;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -180,24 +181,24 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 if (association.IsNullable)
                                 {
                                     codeLines.Add($"{entityVarName}.{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
-                                    codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntity.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity)})", s => s.Indent());
+                                    codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntity.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity, attributeName)})", s => s.Indent());
                                     codeLines.Add($": null;", s => s.Indent());
                                 }
                                 else
                                 {
                                     _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarName}.{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity)});");
+                                    codeLines.Add($"{entityVarName}.{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity, attributeName)});");
                                 }
                             }
                             else
                             {
                                 _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                codeLines.Add($"{entityVarName}.{attributeName}{(association.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (x, y) => x.Id == y.Id, {GetUpdateMethodName(targetEntity)});");
+                                codeLines.Add($"{entityVarName}.{attributeName}{(association.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (x, y) => x.Id == y.Id, {GetUpdateMethodName(targetEntity, attributeName)});");
                             }
 
                             var @class = _template.CSharpFile.Classes.First();
                             @class.AddMethod("void",
-                                GetUpdateMethodName(targetEntity),
+                                GetUpdateMethodName(targetEntity, attributeName),
                                 method => method.Private()
                                     .Static()
                                     .AddAttribute("IntentManaged(Mode.Fully)")
@@ -212,9 +213,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return codeLines.ToList();
         }
 
-        private string GetUpdateMethodName(IElement classModel)
+        private string GetUpdateMethodName(IElement classModel, [CanBeNull] string attibuteName)
         {
-            return $"Update{classModel.Name.ToPascalCase()}";
+            return $"Update{(!string.IsNullOrEmpty(attibuteName) ? attibuteName : string.Empty)}{classModel.Name.ToPascalCase()}";
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);
