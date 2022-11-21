@@ -12,10 +12,10 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.2" />
+	<PackageReference Include="Intent.Modules.Application.Contracts" Version="3.3.8" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj" />
     <ProjectReference Include="..\Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj" />
   </ItemGroup>
 
