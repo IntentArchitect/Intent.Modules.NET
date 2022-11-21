@@ -101,5 +101,21 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="d631debb-d522-4aa2-bd6c-07c9ae6813d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Infrastructure.DependencyInjection.DependencyInjection</name>
+      <display>Intent.Infrastructure.DependencyInjection.DependencyInjection</display>
+      <externalReference>Intent.Infrastructure.DependencyInjection</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>43888186-3208-4f58-8358-c03ad06d990f</parentFolderId>
+      <packageId>8500789f-4277-48d8-944f-78e3667ddbb5</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

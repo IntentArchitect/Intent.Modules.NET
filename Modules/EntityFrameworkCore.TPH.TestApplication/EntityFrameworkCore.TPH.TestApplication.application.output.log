@@ -50,6 +50,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DependencyInjection.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f8391723-79aa-4353-b532-0b9411d77f05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassForAbstractAssociatedConfiguration.cs</ApplicationRelativeFilePath>

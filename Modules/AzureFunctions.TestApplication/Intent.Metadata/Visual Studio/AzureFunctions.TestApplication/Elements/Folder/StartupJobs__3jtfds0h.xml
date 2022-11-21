@@ -4,7 +4,7 @@
   <display>StartupJobs</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
+  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>acb70d7b-9233-45a2-b3ac-93debf6b113d</parentFolderId>
@@ -46,6 +46,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>27204233-47a3-4a56-97c5-985833369ad1</parentFolderId>
+      <packageId>e62be142-f704-46c0-b83f-a8c9b795549b</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

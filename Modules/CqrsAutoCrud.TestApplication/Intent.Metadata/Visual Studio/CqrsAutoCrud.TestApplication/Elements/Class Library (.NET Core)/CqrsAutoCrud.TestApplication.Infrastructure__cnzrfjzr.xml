@@ -42,6 +42,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="cb79b61d-4a73-446a-ae8f-d8fca24b8693" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DbInitializationExtensions</name>
+      <display>Intent.EntityFrameworkCore.DbInitializationExtensions</display>
+      <externalReference>Intent.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c866f5a8-1538-4667-9421-f32dc15c3bd5</parentFolderId>
+      <packageId>de91e2ff-02da-4237-b0a5-35181b035c3b</packageId>
+      <packageName>CqrsAutoCrud.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="dfff69e5-4d1f-436d-a577-3a21711aa742" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Infrastructure.DependencyInjection.DependencyInjection</name>
       <display>Intent.Infrastructure.DependencyInjection.DependencyInjection</display>

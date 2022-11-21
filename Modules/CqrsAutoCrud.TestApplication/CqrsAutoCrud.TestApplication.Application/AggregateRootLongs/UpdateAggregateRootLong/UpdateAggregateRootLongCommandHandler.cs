@@ -31,13 +31,13 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggr
             var existingAggregateRootLong = await _aggregateRootLongRepository.FindByIdAsync(request.Id, cancellationToken);
             existingAggregateRootLong.Attribute = request.Attribute;
             existingAggregateRootLong.CompositeOfAggrLong = request.CompositeOfAggrLong != null
-                ? (existingAggregateRootLong.CompositeOfAggrLong ?? new CompositeOfAggrLong()).UpdateObject(request.CompositeOfAggrLong, UpdateCompositeOfAggrLong)
+                ? (existingAggregateRootLong.CompositeOfAggrLong ?? new CompositeOfAggrLong()).UpdateObject(request.CompositeOfAggrLong, UpdateCompositeOfAggrLongCompositeOfAggrLong)
                 : null;
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateCompositeOfAggrLongDTO dto)
+        private static void UpdateCompositeOfAggrLongCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateCompositeOfAggrLongDTO dto)
         {
             entity.Attribute = dto.Attribute;
         }

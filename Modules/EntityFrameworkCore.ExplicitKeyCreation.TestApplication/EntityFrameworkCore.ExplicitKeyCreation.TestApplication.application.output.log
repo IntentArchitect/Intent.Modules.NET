@@ -18,6 +18,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/DependencyInjection.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dfff3565-2d59-46b3-939a-c547263edd4e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1c7ed671-864f-4b70-9fde-d6716b0d8aa5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated/Core/ExplicitKeysCompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>

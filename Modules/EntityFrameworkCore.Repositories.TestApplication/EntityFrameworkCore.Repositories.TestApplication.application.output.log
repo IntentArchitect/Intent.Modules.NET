@@ -106,6 +106,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
+      <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/DependencyInjection.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b60c08de-0a5e-4008-a4e8-7533de4a9354</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreRepositoryTestSuite.IntentGenerated/Core/MIGRATION_README.txt</ApplicationRelativeFilePath>

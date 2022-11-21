@@ -1,32 +1,37 @@
+Read here about Migrations using EF Core: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations
+You can perform these commands in Visual Studio IDE (VS) using the Package Manager Console (View > Other Windows > Package Manager Console)
+or using the dotnet Command Line Interface (CLI) instructions.
+Substitute the {Keywords} below with the appropriate migration name when executing these commands.
+
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Add-Migration -Name {ChangeName} -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
+VS:  Add-Migration -Name {ChangeName} -StartupProject "UNKNOWN" -Project "CqrsAutoCrud.TestApplication.Infrastructure"
+CLI: dotnet ef migrations add {ChangeName} --project "CqrsAutoCrud.TestApplication.Infrastructure" --startup-project "UNKNOWN"
 
-
-Overwrite an existing migration:
+Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Add-Migration -Name {ChangeName} -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
-
+VS:  Remove-Migration
+CLI: dotnet ef migrations remove
 
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Update-Database -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
-
+VS:  Update-Database -StartupProject "UNKNOWN" -Project "CqrsAutoCrud.TestApplication.Infrastructure"
+CLI: dotnet ef database update --project "CqrsAutoCrud.TestApplication.Infrastructure" --startup-project "UNKNOWN" 
 
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
-
+VS:  Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
+CLI: dotnet ef database update {Target} --project "CqrsAutoCrud.TestApplication.Infrastructure" --startup-project "UNKNOWN"
 
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Script-Migration -SourceMigration:$InitialDatabase -Script -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
-
+VS:  Script-Migration -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
+CLI: dotnet ef migrations script --project "CqrsAutoCrud.TestApplication.Infrastructure" --startup-project "UNKNOWN"
 
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-Script-Migration -SourceMigration:{Source} -TargetMigration:{Target} -Script -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
-
+VS:  Script-Migration {Source} {Target} -StartupProject "UNKNOWN" -Project CqrsAutoCrud.TestApplication.Infrastructure
+CLI: dotnet ef migrations script {Source} {Target} --project "CqrsAutoCrud.TestApplication.Infrastructure" --startup-project "UNKNOWN"
 
 Drop all tables in schema:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
