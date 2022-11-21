@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Contracts</id>
-  <version>3.3.8</version>
+  <version>4.0.0-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Generates code for your Application Service that applies the Interface segregation principal</summary>
   <description>Generates code for your Application Service that applies the Interface segregation principal</description>
@@ -16,7 +16,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Interop.Contracts" version="3.3.11" />
+        <package id="Intent.AspNetCore.Controllers.Interop.Contracts" version="4.0.0-pre.1" />
       </install>
     </detect>
   </interoperability>
