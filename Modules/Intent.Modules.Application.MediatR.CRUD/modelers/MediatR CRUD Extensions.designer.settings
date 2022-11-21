@@ -385,6 +385,9 @@ function ensureDtoFields(mappedElement, dto) {
         .getChildren("Attribute");
     let dtoFields = dto.getChildren("DTO-Field");
     for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
+        if (attribute.name?.toLowerCase() === "id" &amp;&amp; dto.getMetadata("originalVerb")?.toLowerCase()?.startsWith("create")) {
+            continue;
+        }
         let field = createElement("DTO-Field", attribute.name, dto.id);
         field.typeReference.setType(attribute.typeReference.typeId);
         field.typeReference.setIsNullable(attribute.typeReference.isNullable);
