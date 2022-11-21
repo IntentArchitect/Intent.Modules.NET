@@ -48,7 +48,11 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.Decorators
         {
             return new[]
             {
-                NugetPackages.IdentityServer4AspNetIdentity
+                NugetPackages.IdentityServer4AspNetIdentity,
+                // IdentityServer4.EntityFramework.Storage is no longer in production and
+                // has a hard dependency on Automapper 10, only way to resolve compilation
+                // issue with newer Automapper is to actually install it on this project
+                NugetPackages.Automapper
             };
         }
     }
