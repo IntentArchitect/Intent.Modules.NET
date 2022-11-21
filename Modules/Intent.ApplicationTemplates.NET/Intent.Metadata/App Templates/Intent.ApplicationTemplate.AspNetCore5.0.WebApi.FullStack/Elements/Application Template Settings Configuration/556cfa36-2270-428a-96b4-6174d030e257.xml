@@ -41,9 +41,9 @@
       <childElements>
         <childElement id="4a882d56-6472-45fa-a976-9927f82f8eb7" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
           <name>.NET 7.0</name>
-          <display>.NET 7.0 = f500cbaf-195e-4cc4-b462-7abba8839491</display>
+          <display>.NET 7.0 = 0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</display>
           <isAbstract>false</isAbstract>
-          <value>f500cbaf-195e-4cc4-b462-7abba8839491</value>
+          <value>0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>42b5c5bd-85e7-4453-be33-589b5d6cc746</parentFolderId>
