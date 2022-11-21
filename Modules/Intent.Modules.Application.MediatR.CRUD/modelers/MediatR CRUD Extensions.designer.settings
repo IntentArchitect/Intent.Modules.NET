@@ -476,6 +476,7 @@ function ensureDtoFields(mappedElement, dto) {
           <script>//let element = lookup("29a81107-c71c-45b4-ba7b-982be63277a1")
 
 const projectMapptingSettingId = "942eae46-49f1-450e-9274-a92d40ac35fa";
+const originalDtoMappingSettingId = "1f747d14-681c-4a20-8c68-34223f41b825";
 
 let fields = element.getChildren("DTO-Field")
     .filter(x =&gt; x.typeReference.getType() == null &amp;&amp; x.getMapping().getElement().specialization === "Association");
@@ -494,9 +495,13 @@ fields.forEach(f =&gt; {
         }
     }
 
+    let targetMappingSettingId = (!originalVerb || originalVerb === "") 
+        ? originalDtoMappingSettingId 
+        : projectMapptingSettingId;
+
     let dtoName =  `${originalVerb}${mappedElement.typeReference.getType().getName()}`;
     let dto = getOrCreateDTO(dtoName, element.getParent());
-    dto.setMapping(mappedElement.typeReference.getTypeId(), projectMapptingSettingId);
+    dto.setMapping(mappedElement.typeReference.getTypeId(), targetMappingSettingId);
     if (originalVerb !== "") {
         dto.setMetadata("originalVerb", originalVerb);
     }
