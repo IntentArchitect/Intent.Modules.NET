@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</id>
   <version>4.0.0-pre.1</version>
-  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Supplies Transactions and Unit of Work pattern to the ASP.NET Core Controllers</summary>
   <description>Supplies Transactions and Unit of Work pattern to the ASP.NET Core Controllers</description>
   <authors>Intent.Modules.Net</authors>

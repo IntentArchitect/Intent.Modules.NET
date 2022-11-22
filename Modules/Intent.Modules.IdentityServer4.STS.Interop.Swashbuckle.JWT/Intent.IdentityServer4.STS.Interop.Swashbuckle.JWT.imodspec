@@ -2,7 +2,7 @@
 <package>
   <id>Intent.IdentityServer4.STS.Interop.Swashbuckle.JWT</id>
   <version>4.0.0-pre.1</version>
-  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Configures Resource Owner OAuth client for Swagger UI Authentication</summary>
   <description>Configures Resource Owner OAuth client for Swagger UI Authentication</description>
   <authors>Intent.Modules.NET</authors>

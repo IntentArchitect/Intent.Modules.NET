@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Entities.Repositories.Api</id>
   <version>4.0.0-pre.1</version>
-  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Generates interface equivalents for Domain Entity Repositories for the Domain</summary>
   <description>Generates interface equivalents for Domain Entity Repositories for the Domain</description>
   <authors>Intent Architect</authors>
