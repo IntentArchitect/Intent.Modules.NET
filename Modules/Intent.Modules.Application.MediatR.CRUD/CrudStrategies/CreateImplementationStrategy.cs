@@ -47,6 +47,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddUsing("System.Linq");
 
             var @class = _template.CSharpFile.Classes.First();
             var ctor = @class.Constructors.First();
