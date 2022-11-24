@@ -65,6 +65,18 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
                 });
             }
 
+            var designTimeDbContextFactoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.DesignTimeDbContextFactory"));
+            foreach (var template in designTimeDbContextFactoryTemplates)
+            {
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("CreateDbContext");
+                    var lastStatement = method.Statements.LastOrDefault(p => p.HasMetadata("return-statement"));
+                    lastStatement?.Replace(lastStatement?.GetText("").Replace(");", ", null);"));
+                });
+            }
+
             //            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");
             //            dbContext?.CSharpFile.OnBuild(file =>
             //            {

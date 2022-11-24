@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.3" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.7" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -83,5 +83,6 @@
     <application id="e3d5f673-e092-4556-bd5f-6a67ecc23233" name="Intent.Modules.Application.Contracts.Clients" relativePath="Intent.Modules.Application.Contracts.Clients/Intent.Modules.Application.Contracts.Clients.application.config" />
     <application id="33b7e4f8-9dd8-4db5-8a97-d9bb549f9ecc" name="Intent.Modules.Integration.HttpClients" relativePath="Intent.Modules.Integration.HttpClients/Intent.Modules.Integration.HttpClients.application.config" />
     <application id="84a6ab17-88dd-407b-9c9b-a45464b66a12" name="Security.MSAL" relativePath="Intent.Modules.Security.MSAL/Security.MSAL.application.config" />
+    <application id="c3880144-3cc1-4e70-8bc2-f48be644b8d9" name="Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory" relativePath="Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory/Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.application.config" />
   </applications>
 </solution>
