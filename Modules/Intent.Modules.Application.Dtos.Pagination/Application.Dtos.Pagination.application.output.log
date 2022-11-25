@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>957843bc-dc22-4ac3-8e82-3b0224ea0a09</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#50814641-2526-49db-8aa8-d032bf4531d8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/PagedResultTypeSourceInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResultTypeSourceInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2f154fbe-bd9a-47d5-b1df-287729fb872b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="50814641-2526-49db-8aa8-d032bf4531d8" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>PagedResultTypeSourceInstaller</name>
+  <display>PagedResultTypeSourceInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9baa3476-269d-4a87-a854-34e150a93bc8</parentFolderId>
+  <packageId>9baa3476-269d-4a87-a854-34e150a93bc8</packageId>
+  <packageName>Intent.Application.Dtos.Pagination</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
