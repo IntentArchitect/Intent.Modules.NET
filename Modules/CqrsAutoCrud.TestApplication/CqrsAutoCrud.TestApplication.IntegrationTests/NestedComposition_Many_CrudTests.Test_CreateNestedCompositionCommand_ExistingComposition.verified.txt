@@ -1,0 +1,38 @@
+﻿{
+  Id: Guid_1,
+  AggregateAttr: Existing Aggregate Root - Create,
+  Composites: [
+    {
+      Id: Guid_2,
+      CompositeAttr: Existing Composite_1 - Create,
+      Composite: {
+        Id: Guid_2,
+        CompositeAttr: Existing Composite_2
+      },
+      Composites: [
+        {
+          Id: Guid_3,
+          CompositeAttr: Existing Composite_3,
+          A_Composite_ManyId: Guid_2
+        }
+      ],
+      A_AggregateRootId: Guid_1
+    },
+    {
+      Id: Guid_4,
+      CompositeAttr: New Nested Composition_4,
+      Composite: {
+        Id: Guid_4,
+        CompositeAttr: New Nested Composition_5
+      },
+      Composites: [
+        {
+          Id: Guid_5,
+          CompositeAttr: New Nested Composition_6,
+          A_Composite_ManyId: Guid_4
+        }
+      ],
+      A_AggregateRootId: Guid_1
+    }
+  ]
+}

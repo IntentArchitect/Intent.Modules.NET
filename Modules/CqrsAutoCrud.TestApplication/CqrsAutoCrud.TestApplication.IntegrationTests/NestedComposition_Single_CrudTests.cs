@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CqrsAutoCrud.TestApplication.Application.AggregateRootComposite;
 using CqrsAutoCrud.TestApplication.Application.AggregateRootComposite.CreateAggregateRootComposite;
+using CqrsAutoCrud.TestApplication.Application.AggregateRootComposite.DeleteAggregateRootComposite;
 using CqrsAutoCrud.TestApplication.Application.AggregateRootComposite.UpdateAggregateRootComposite;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
 using CqrsAutoCrud.TestApplication.Infrastructure.Persistence;
@@ -16,9 +18,9 @@ using Xunit.Abstractions;
 namespace CqrsAutoCrud.TestApplication.IntegrationTests;
 
 [UsesVerify]
-public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbContext, NestedCompositionCrudTests>
+public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<ApplicationDbContext, NestedComposition_Single_CrudTests>
 {
-    public NestedCompositionCrudTests(ITestOutputHelper outputHelper) : base(outputHelper)
+    public NestedComposition_Single_CrudTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {
     }
 
@@ -194,5 +196,41 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
             await handler.Handle(command, CancellationToken.None);
             await DbContext.SaveChangesAsync();    
         });
+    }
+
+    [IgnoreOnCiBuildFact]
+    public async Task Test_DeleteNestedComposititionCommand_ExistingComposition()
+    {
+        var aggregateRoot = new AggregateRoot();
+        aggregateRoot.AggregateAttr = "Existing Aggregate Root - Update";
+        aggregateRoot.Composite = new CompositeSingleA
+        {
+            CompositeAttr = "Existing Nested Composition_1",
+            Composite = new CompositeSingleAA
+            {
+                CompositeAttr = "Existing Nested Composition_2"
+            },
+            Composites = new List<CompositeManyAA>
+            {
+                new()
+                {
+                    CompositeAttr = "Existing Nested Composition_3"
+                }
+            }
+        };
+        DbContext.AggregateRoots.Add(aggregateRoot);
+        await DbContext.SaveChangesAsync();
+        
+        var command = new DeleteAggregateRootCompositeCommand();
+        command.AggregateRootId = aggregateRoot.Id;
+        command.Id = aggregateRoot.Composite.Id;
+        
+        var handler = new DeleteAggregateRootCompositeCommandHandler(new AggregateRootRepository(DbContext));
+        await handler.Handle(command, CancellationToken.None);
+        await DbContext.SaveChangesAsync();
+
+        var retrievedAggrRoot = DbContext.AggregateRoots.FirstOrDefault(p => p.Id == aggregateRoot.Id);
+        Assert.NotNull(retrievedAggrRoot);
+        await Verifier.Verify(retrievedAggrRoot);
     }
 }
