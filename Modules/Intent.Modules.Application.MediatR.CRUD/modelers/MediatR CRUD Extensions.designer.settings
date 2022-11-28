@@ -79,7 +79,7 @@ function isUserMutable(attributeName) {
 }
 
 async function preselectOrPromptEntity(preselectedDomainClassName) {
-    let classes = lookupTypesOf("Class").filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository"));
+    let classes = lookupTypesOf("Class").filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository") || ownerIsAggregateRoot(x));
     if (classes.length == 0) {
         await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package and that at least one class exists in it.");
         return;
@@ -87,7 +87,10 @@ async function preselectOrPromptEntity(preselectedDomainClassName) {
 
     let classId = preselectedDomainClassName != null
         ? classes.find(x =&gt; x.getName() === preselectedDomainClassName)?.id
-        : await dialogService.lookupFromOptions(classes);
+        : await dialogService.lookupFromOptions(classes.map((x)=&gt;({
+            id: x.id, 
+            name: getFriendlyDisplayNameForClassSelection(x)
+            })));
     if (classId == null) {
         await dialogService.error(`No class found with id "${classId}".`);
         return null;
@@ -95,6 +98,19 @@ async function preselectOrPromptEntity(preselectedDomainClassName) {
 
     let foundEntity = lookup(classId);
     return foundEntity;
+}
+
+function getFriendlyDisplayNameForClassSelection(element) {
+    let found = element.getAssociations("Association").filter(x =&gt; x.isSourceEnd() &amp;&amp; 
+            !x.typeReference.isNullable &amp;&amp; 
+            !x.typeReference.isCollection &amp;&amp; 
+            isAggregateRoot(x.typeReference.getType()))[0]?.typeReference?.getType();
+    return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
+}
+
+function ownerIsAggregateRoot(entity) {
+    return entity.getAssociations("Association")
+        .some(x =&gt; isAggregateRoot(x.typeReference.getType()));
 }
 
 function getServiceFromCurrentContext(entity, packageOrServiceElement) {
@@ -675,7 +691,7 @@ function getSurrogateKeyType() {
 
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
 }
 
 function isUserMutable(attributeName) {
@@ -684,7 +700,7 @@ function isUserMutable(attributeName) {
 }
 
 async function preselectOrPromptEntity(preselectedDomainClassName) {
-    let classes = lookupTypesOf("Class").filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository"));
+    let classes = lookupTypesOf("Class").filter(x =&gt; isAggregateRoot(x) || x.hasStereotype("Repository") || ownerIsAggregateRoot(x));
     if (classes.length == 0) {
         await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package and that at least one class exists in it.");
         return;
@@ -692,7 +708,10 @@ async function preselectOrPromptEntity(preselectedDomainClassName) {
 
     let classId = preselectedDomainClassName != null
         ? classes.find(x =&gt; x.getName() === preselectedDomainClassName)?.id
-        : await dialogService.lookupFromOptions(classes);
+        : await dialogService.lookupFromOptions(classes.map((x)=&gt;({
+            id: x.id, 
+            name: getFriendlyDisplayNameForClassSelection(x)
+            })));
     if (classId == null) {
         await dialogService.error(`No class found with id "${classId}".`);
         return null;
@@ -700,6 +719,19 @@ async function preselectOrPromptEntity(preselectedDomainClassName) {
 
     let foundEntity = lookup(classId);
     return foundEntity;
+}
+
+function getFriendlyDisplayNameForClassSelection(element) {
+    let found = element.getAssociations("Association").filter(x =&gt; x.isSourceEnd() &amp;&amp; 
+            !x.typeReference.isNullable &amp;&amp; 
+            !x.typeReference.isCollection &amp;&amp; 
+            isAggregateRoot(x.typeReference.getType()))[0]?.typeReference?.getType();
+    return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
+}
+
+function ownerIsAggregateRoot(entity) {
+    return entity.getAssociations("Association")
+        .some(x =&gt; isAggregateRoot(x.typeReference.getType()));
 }
 
 function getServiceFromCurrentContext(entity, packageOrServiceElement) {
