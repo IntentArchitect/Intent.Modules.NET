@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
+namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeMany
 {
 
     public class CompositeManyBDTO : IMapFrom<CompositeManyB>

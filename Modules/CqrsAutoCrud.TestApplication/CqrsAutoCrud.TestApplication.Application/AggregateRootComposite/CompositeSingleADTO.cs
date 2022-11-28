@@ -8,27 +8,25 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
+namespace CqrsAutoCrud.TestApplication.Application.AggregateRootComposite
 {
 
-    public class CompositeManyBDTO : IMapFrom<CompositeManyB>
+    public class CompositeSingleADTO : IMapFrom<CompositeSingleA>
     {
-        public CompositeManyBDTO()
+        public CompositeSingleADTO()
         {
         }
 
-        public static CompositeManyBDTO Create(
+        public static CompositeSingleADTO Create(
             Guid id,
             string compositeAttr,
-            Guid aAggregaterootId,
-            CompositeSingleBBDTO? composite,
-            List<CompositeManyBBDTO> composites)
+            CompositeSingleAADTO? composite,
+            List<CompositeManyAADTO> composites)
         {
-            return new CompositeManyBDTO
+            return new CompositeSingleADTO
             {
                 Id = id,
                 CompositeAttr = compositeAttr,
-                AAggregaterootId = aAggregaterootId,
                 Composite = composite,
                 Composites = composites,
             };
@@ -38,15 +36,13 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public string CompositeAttr { get; set; }
 
-        public Guid AAggregaterootId { get; set; }
+        public CompositeSingleAADTO? Composite { get; set; }
 
-        public CompositeSingleBBDTO? Composite { get; set; }
-
-        public List<CompositeManyBBDTO> Composites { get; set; }
+        public List<CompositeManyAADTO> Composites { get; set; }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CompositeManyB, CompositeManyBDTO>()
+            profile.CreateMap<CompositeSingleA, CompositeSingleADTO>()
                 .ForMember(d => d.Composites, opt => opt.MapFrom(src => src.Composites));
         }
     }

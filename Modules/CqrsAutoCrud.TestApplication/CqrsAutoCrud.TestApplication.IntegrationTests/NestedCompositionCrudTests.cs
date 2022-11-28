@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeSingleAs;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeSingleAs.CreateAggregateRootCompositeSingleA;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeSingleAs.GetAggregateRootCompositeSingleAById;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeSingleAs.UpdateAggregateRootCompositeSingleA;
+using CqrsAutoCrud.TestApplication.Application.AggregateRootComposite;
+using CqrsAutoCrud.TestApplication.Application.AggregateRootComposite.CreateAggregateRootComposite;
+using CqrsAutoCrud.TestApplication.Application.AggregateRootComposite.UpdateAggregateRootComposite;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
 using CqrsAutoCrud.TestApplication.Infrastructure.Persistence;
 using CqrsAutoCrud.TestApplication.Infrastructure.Repositories;
@@ -31,7 +30,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
         DbContext.AggregateRoots.Add(aggregateRoot);
         await DbContext.SaveChangesAsync();
         
-        var command = new CreateAggregateRootCompositeSingleACommand();
+        var command = new CreateAggregateRootCompositeCommand();
         command.AggregateRootId = aggregateRoot.Id;
         command.CompositeAttr = "New Nested Composition_1";
         command.Composite = CreateCompositeSingleAADTO.Create(default, "New Nested Composition_2");
@@ -40,7 +39,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
             CreateCompositeManyAADTO.Create(default, "New Nested Composition_3", default)
         };
 
-        var handler = new CreateAggregateRootCompositeSingleACommandHandler(new AggregateRootRepository(DbContext));
+        var handler = new CreateAggregateRootCompositeCommandHandler(new AggregateRootRepository(DbContext));
         var id = await handler.Handle(command, CancellationToken.None);
         await DbContext.SaveChangesAsync();
 
@@ -72,7 +71,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
         DbContext.AggregateRoots.Add(aggregateRoot);
         await DbContext.SaveChangesAsync();
         
-        var command = new CreateAggregateRootCompositeSingleACommand();
+        var command = new CreateAggregateRootCompositeCommand();
         command.AggregateRootId = aggregateRoot.Id;
         command.CompositeAttr = "New Nested Composition_4";
         command.Composite = CreateCompositeSingleAADTO.Create(default, "New Nested Composition_5");
@@ -81,7 +80,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
             CreateCompositeManyAADTO.Create(default, "New Nested Composition_6", default)
         };
 
-        var handler = new CreateAggregateRootCompositeSingleACommandHandler(new AggregateRootRepository(DbContext));
+        var handler = new CreateAggregateRootCompositeCommandHandler(new AggregateRootRepository(DbContext));
         var id = await handler.Handle(command, CancellationToken.None);
         await DbContext.SaveChangesAsync();
 
@@ -93,7 +92,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
     [IgnoreOnCiBuildFact]
     public async Task Test_CreateNestedCompositionCommand_AggregateRootNotFound()
     {
-        var command = new CreateAggregateRootCompositeSingleACommand();
+        var command = new CreateAggregateRootCompositeCommand();
         command.AggregateRootId = Guid.NewGuid();
         command.CompositeAttr = "New Nested Composition_4 - Create";
         command.Composite = CreateCompositeSingleAADTO.Create(default, "New Nested Composition_5");
@@ -104,7 +103,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
 
         await Assert.ThrowsAsync<InvalidOperationException>(async () =>
         {
-            var handler = new CreateAggregateRootCompositeSingleACommandHandler(new AggregateRootRepository(DbContext));
+            var handler = new CreateAggregateRootCompositeCommandHandler(new AggregateRootRepository(DbContext));
             var id = await handler.Handle(command, CancellationToken.None);
             await DbContext.SaveChangesAsync();    
         });
@@ -118,7 +117,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
         DbContext.AggregateRoots.Add(aggregateRoot);
         await DbContext.SaveChangesAsync();
         
-        var command = new UpdateAggregateRootCompositeSingleACommand();
+        var command = new UpdateAggregateRootCompositeCommand();
         command.AggregateRootId = aggregateRoot.Id;
         command.CompositeAttr = "New Nested Composition_1";
         command.Composite = UpdateCompositeSingleAADTO.Create(default, "New Nested Composition_2");
@@ -127,7 +126,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
             UpdateCompositeManyAADTO.Create(default, "New Nested Composition_3", default)
         };
 
-        var handler = new UpdateAggregateRootCompositeSingleACommandHandler(new AggregateRootRepository(DbContext));
+        var handler = new UpdateAggregateRootCompositeCommandHandler(new AggregateRootRepository(DbContext));
         await handler.Handle(command, CancellationToken.None);
         await DbContext.SaveChangesAsync();
 
@@ -159,7 +158,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
         DbContext.AggregateRoots.Add(aggregateRoot);
         await DbContext.SaveChangesAsync();
         
-        var command = new UpdateAggregateRootCompositeSingleACommand();
+        var command = new UpdateAggregateRootCompositeCommand();
         command.AggregateRootId = aggregateRoot.Id;
         command.CompositeAttr = "New Nested Composition_1";
         command.Composite = UpdateCompositeSingleAADTO.Create(default, "New Nested Composition_2");
@@ -168,7 +167,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
             UpdateCompositeManyAADTO.Create(default, "New Nested Composition_3", default)
         };
 
-        var handler = new UpdateAggregateRootCompositeSingleACommandHandler(new AggregateRootRepository(DbContext));
+        var handler = new UpdateAggregateRootCompositeCommandHandler(new AggregateRootRepository(DbContext));
         await handler.Handle(command, CancellationToken.None);
         await DbContext.SaveChangesAsync();
 
@@ -180,7 +179,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
     [IgnoreOnCiBuildFact]
     public async Task Test_UpdateNestedCompositionCommand_AggregateRootNotFound()
     {
-        var command = new UpdateAggregateRootCompositeSingleACommand();
+        var command = new UpdateAggregateRootCompositeCommand();
         command.AggregateRootId = Guid.NewGuid();
         command.CompositeAttr = "New Nested Composition_4 - Update";
         command.Composite = UpdateCompositeSingleAADTO.Create(default, "New Nested Composition_5");
@@ -191,7 +190,7 @@ public class NestedCompositionCrudTests : SharedDatabaseFixture<ApplicationDbCon
 
         await Assert.ThrowsAsync<InvalidOperationException>(async () =>
         {
-            var handler = new UpdateAggregateRootCompositeSingleACommandHandler(new AggregateRootRepository(DbContext));
+            var handler = new UpdateAggregateRootCompositeCommandHandler(new AggregateRootRepository(DbContext));
             await handler.Handle(command, CancellationToken.None);
             await DbContext.SaveChangesAsync();    
         });
