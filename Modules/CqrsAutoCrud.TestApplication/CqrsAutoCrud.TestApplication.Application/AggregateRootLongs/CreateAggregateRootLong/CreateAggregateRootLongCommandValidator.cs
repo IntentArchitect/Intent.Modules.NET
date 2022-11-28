@@ -13,6 +13,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggr
         [IntentManaged(Mode.Fully)]
         public CreateAggregateRootLongCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private void ConfigureValidationRules()
+        {
             RuleFor(v => v.Attribute)
                 .NotNull();
 

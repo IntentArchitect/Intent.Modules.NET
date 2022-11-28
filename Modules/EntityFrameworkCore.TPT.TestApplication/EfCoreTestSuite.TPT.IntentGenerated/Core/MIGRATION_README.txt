@@ -6,32 +6,32 @@ Substitute the {Keywords} below with the appropriate migration name when executi
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 VS:  Add-Migration -Name {ChangeName} -StartupProject "UNKNOWN" -Project "EfCoreTestSuite.TPT.IntentGenerated"
-CLI: dotnet ef migrations add {ChangeName} --project "EfCoreTestSuite.TPT.IntentGenerated" --startup-project "UNKNOWN"
+CLI: dotnet ef migrations add {ChangeName} --startup-project "UNKNOWN" --project "EfCoreTestSuite.TPT.IntentGenerated"
 
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Remove-Migration
-CLI: dotnet ef migrations remove
+VS:  Remove-Migration -StartupProject "UNKNOWN" -Project "EfCoreTestSuite.TPT.IntentGenerated"
+CLI: dotnet ef migrations remove --startup-project "UNKNOWN" --project "EfCoreTestSuite.TPT.IntentGenerated"
 
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 VS:  Update-Database -StartupProject "UNKNOWN" -Project "EfCoreTestSuite.TPT.IntentGenerated"
-CLI: dotnet ef database update --project "EfCoreTestSuite.TPT.IntentGenerated" --startup-project "UNKNOWN" 
+CLI: dotnet ef database update --startup-project "UNKNOWN" --project "EfCoreTestSuite.TPT.IntentGenerated" 
 
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project EfCoreTestSuite.TPT.IntentGenerated
-CLI: dotnet ef database update {Target} --project "EfCoreTestSuite.TPT.IntentGenerated" --startup-project "UNKNOWN"
+VS:  Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project "EfCoreTestSuite.TPT.IntentGenerated"
+CLI: dotnet ef database update {Target} --startup-project "UNKNOWN" --project "EfCoreTestSuite.TPT.IntentGenerated"
 
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Script-Migration -StartupProject "UNKNOWN" -Project EfCoreTestSuite.TPT.IntentGenerated
-CLI: dotnet ef migrations script --project "EfCoreTestSuite.TPT.IntentGenerated" --startup-project "UNKNOWN"
+VS:  Script-Migration -StartupProject "UNKNOWN" -Project "EfCoreTestSuite.TPT.IntentGenerated"
+CLI: dotnet ef migrations script --startup-project "UNKNOWN" --project "EfCoreTestSuite.TPT.IntentGenerated"
 
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Script-Migration {Source} {Target} -StartupProject "UNKNOWN" -Project EfCoreTestSuite.TPT.IntentGenerated
-CLI: dotnet ef migrations script {Source} {Target} --project "EfCoreTestSuite.TPT.IntentGenerated" --startup-project "UNKNOWN"
+VS:  Script-Migration {Source} {Target} -StartupProject "UNKNOWN" -Project "EfCoreTestSuite.TPT.IntentGenerated"
+CLI: dotnet ef migrations script {Source} {Target} --startup-project "UNKNOWN" --project "EfCoreTestSuite.TPT.IntentGenerated"
 
 Drop all tables in schema:
 -------------------------------------------------------------------------------------------------------------------------------------------------------

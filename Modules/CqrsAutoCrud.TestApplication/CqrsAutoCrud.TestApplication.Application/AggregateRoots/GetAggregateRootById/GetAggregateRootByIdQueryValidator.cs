@@ -13,6 +13,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.GetAggregateRo
         [IntentManaged(Mode.Fully)]
         public GetAggregateRootByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private void ConfigureValidationRules()
+        {
         }
     }
 }

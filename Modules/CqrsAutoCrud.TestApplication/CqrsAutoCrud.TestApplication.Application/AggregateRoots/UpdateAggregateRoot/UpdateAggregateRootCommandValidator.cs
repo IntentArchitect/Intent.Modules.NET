@@ -13,6 +13,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
         [IntentManaged(Mode.Fully)]
         public UpdateAggregateRootCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private void ConfigureValidationRules()
+        {
             RuleFor(v => v.AggregateAttr)
                 .NotNull();
 

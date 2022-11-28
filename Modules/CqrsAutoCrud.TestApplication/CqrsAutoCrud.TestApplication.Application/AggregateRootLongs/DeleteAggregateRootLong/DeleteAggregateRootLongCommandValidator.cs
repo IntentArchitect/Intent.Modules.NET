@@ -13,6 +13,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.DeleteAggr
         [IntentManaged(Mode.Fully)]
         public DeleteAggregateRootLongCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private void ConfigureValidationRules()
+        {
         }
     }
 }

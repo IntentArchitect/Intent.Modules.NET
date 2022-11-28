@@ -6,32 +6,32 @@ Substitute the {Keywords} below with the appropriate migration name when executi
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 VS:  Add-Migration -Name {ChangeName} -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
-CLI: dotnet ef migrations add {ChangeName} --project "AzureFunctions.TestApplication.Infrastructure" --startup-project "UNKNOWN"
+CLI: dotnet ef migrations add {ChangeName} --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
 
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Remove-Migration
-CLI: dotnet ef migrations remove
+VS:  Remove-Migration -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+CLI: dotnet ef migrations remove --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
 
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 VS:  Update-Database -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
-CLI: dotnet ef database update --project "AzureFunctions.TestApplication.Infrastructure" --startup-project "UNKNOWN" 
+CLI: dotnet ef database update --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure" 
 
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project AzureFunctions.TestApplication.Infrastructure
-CLI: dotnet ef database update {Target} --project "AzureFunctions.TestApplication.Infrastructure" --startup-project "UNKNOWN"
+VS:  Update-Database -Migration {Target} -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+CLI: dotnet ef database update {Target} --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
 
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Script-Migration -StartupProject "UNKNOWN" -Project AzureFunctions.TestApplication.Infrastructure
-CLI: dotnet ef migrations script --project "AzureFunctions.TestApplication.Infrastructure" --startup-project "UNKNOWN"
+VS:  Script-Migration -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+CLI: dotnet ef migrations script --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
 
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-VS:  Script-Migration {Source} {Target} -StartupProject "UNKNOWN" -Project AzureFunctions.TestApplication.Infrastructure
-CLI: dotnet ef migrations script {Source} {Target} --project "AzureFunctions.TestApplication.Infrastructure" --startup-project "UNKNOWN"
+VS:  Script-Migration {Source} {Target} -StartupProject "UNKNOWN" -Project "AzureFunctions.TestApplication.Infrastructure"
+CLI: dotnet ef migrations script {Source} {Target} --startup-project "UNKNOWN" --project "AzureFunctions.TestApplication.Infrastructure"
 
 Drop all tables in schema:
 -------------------------------------------------------------------------------------------------------------------------------------------------------

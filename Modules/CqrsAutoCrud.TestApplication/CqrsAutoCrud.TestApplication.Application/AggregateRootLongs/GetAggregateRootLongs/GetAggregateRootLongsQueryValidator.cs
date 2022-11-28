@@ -13,6 +13,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.GetAggrega
         [IntentManaged(Mode.Fully)]
         public GetAggregateRootLongsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private void ConfigureValidationRules()
+        {
         }
     }
 }
