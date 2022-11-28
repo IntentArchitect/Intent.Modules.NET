@@ -204,6 +204,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#b5701c8f-d761-46a6-b3fb-90f95f8a77e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyAADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CompositeManyAADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#b5701c8f-d761-46a6-b3fb-90f95f8a77e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CompositeManyAADTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#dc8bb48b-43b7-4354-99eb-cdf88091e7ac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyBDTO.cs</ApplicationRelativeFilePath>
@@ -216,6 +232,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeManyBDTOMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CompositeManyBDTOMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d939dd0e-e91d-4516-bf7d-2fad958a984e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleAADTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CompositeSingleAADTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#d939dd0e-e91d-4516-bf7d-2fad958a984e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRoots/CompositeSingleAADTOMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CompositeSingleAADTOMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

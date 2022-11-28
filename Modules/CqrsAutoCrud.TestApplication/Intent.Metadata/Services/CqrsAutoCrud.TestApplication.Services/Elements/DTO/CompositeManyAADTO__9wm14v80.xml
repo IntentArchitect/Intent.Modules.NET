@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="402b9ef7-f8df-4dd6-aa07-a028bebec4bc" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
-  <name>CompositeSingleADTO</name>
-  <display>CompositeSingleADTO</display>
+<class id="b5701c8f-d761-46a6-b3fb-90f95f8a77e6" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CompositeManyAADTO</name>
+  <display>CompositeManyAADTO</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="49d07eeb-9d22-4b43-b248-a99fa5a40f9e" name="CompositeSingleA" type="element" specialization="Class" />
+      <target id="456093d9-b9b7-4354-b361-3973c453123f" name="CompositeManyAA" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>aa34a52e-ca79-4680-baa8-cdaabf9270ef</parentFolderId>
@@ -21,12 +21,12 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="7683d4c4-00d9-4da3-8cd0-56dda2744947" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="fe1615de-c6d6-4022-9ca0-1f1158607159" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
       <display>Id: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="98cd99c5-fbb6-4bd5-9685-a810fc28b54a">
+      <typeReference id="9493b02c-7a22-49a4-98cd-bbadbe464793">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -42,10 +42,10 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="734f73ac-8565-4b75-8fdc-151cbb7faaf2" name="Id" type="element" specialization="Attribute" />
+          <target id="8393bd56-f210-4d3a-a4b5-fb480108691a" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>402b9ef7-f8df-4dd6-aa07-a028bebec4bc</parentFolderId>
+      <parentFolderId>b5701c8f-d761-46a6-b3fb-90f95f8a77e6</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -70,12 +70,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="d8cec5fb-26ad-4597-94c1-25919d389b8d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="39684060-cdc8-4b33-a117-0ae157a9afd1" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>CompositeAttr</name>
       <display>CompositeAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="75951266-940c-4a17-8870-6b8c636fdac6">
+      <typeReference id="b52b9325-64db-4d09-ab8e-f96736d942ab">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -91,10 +91,10 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6657b210-da09-4896-a936-1e93fbc35adc" name="CompositeAttr" type="element" specialization="Attribute" />
+          <target id="3a80aa2e-5ecb-4af5-bfe0-92bfc946a971" name="CompositeAttr" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>402b9ef7-f8df-4dd6-aa07-a028bebec4bc</parentFolderId>
+      <parentFolderId>b5701c8f-d761-46a6-b3fb-90f95f8a77e6</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -119,80 +119,31 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="7bec4959-f1a7-4332-a500-7b08a73376ae" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>Composite</name>
-      <display>Composite: CompositeSingleAADTO?</display>
+    <childElement id="592bb7df-d982-4923-a27d-aa6975a81382" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ACompositeSingleId</name>
+      <display>ACompositeSingleId: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="a7357f9c-8210-426a-a240-d75bc38f8fa2">
-        <typeId>d939dd0e-e91d-4516-bf7d-2fad958a984e</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>true</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>CqrsAutoCrud.TestApplication.Services</typePackageName>
-        <typePackageId>3554520d-6c89-4fd5-88ef-b984565d7741</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
-        <autoSyncTypeReference>false</autoSyncTypeReference>
-        <mappedPath>
-          <target id="bc9c30c9-bb31-4c3e-84d4-401723037ecb" name="Composite" type="association" specialization="Association" />
-        </mappedPath>
-      </mappedClass>
-      <parentFolderId>402b9ef7-f8df-4dd6-aa07-a028bebec4bc</parentFolderId>
-      <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
-      <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="4b54a612-2664-4493-a1f7-dc0623aa03da" name="Validations">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.Application.FluentValidation</definitionPackageName>
-          <definitionPackageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</definitionPackageId>
-          <properties>
-            <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
-            <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
-            <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
-            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
-            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
-            <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
-            <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
-            <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
-            <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
-            <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="9c21c92b-fa92-4a8a-9ba8-5b4ad9cd36b7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>Composites</name>
-      <display>Composites: CompositeManyAADTO[*]</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="9bc55557-fd9f-48c0-9d1e-95b43b92ff75">
-        <typeId>b5701c8f-d761-46a6-b3fb-90f95f8a77e6</typeId>
+      <typeReference id="a4813ede-428b-4979-8d82-e9b79253ef8b">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
-        <isCollection>true</isCollection>
+        <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CqrsAutoCrud.TestApplication.Services</typePackageName>
-        <typePackageId>3554520d-6c89-4fd5-88ef-b984565d7741</typePackageId>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
       <isMapped>true</isMapped>
       <mappedClass>
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
-        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5b2fd689-a07d-45b8-8cda-967d45858148" name="Composites" type="association" specialization="Association" />
+          <target id="1289a5ce-3c9a-4f84-8d43-7b0c5c672152" name="ACompositeSingleId" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>402b9ef7-f8df-4dd6-aa07-a028bebec4bc</parentFolderId>
+      <parentFolderId>b5701c8f-d761-46a6-b3fb-90f95f8a77e6</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>

@@ -11,24 +11,20 @@ using Intent.RoslynWeaver.Attributes;
 namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 {
 
-    public class CompositeSingleADTO : IMapFrom<CompositeSingleA>
+    public class CompositeSingleAADTO : IMapFrom<CompositeSingleAA>
     {
-        public CompositeSingleADTO()
+        public CompositeSingleAADTO()
         {
         }
 
-        public static CompositeSingleADTO Create(
+        public static CompositeSingleAADTO Create(
             Guid id,
-            string compositeAttr,
-            CompositeSingleAADTO? composite,
-            List<CompositeManyAADTO> composites)
+            string compositeAttr)
         {
-            return new CompositeSingleADTO
+            return new CompositeSingleAADTO
             {
                 Id = id,
                 CompositeAttr = compositeAttr,
-                Composite = composite,
-                Composites = composites,
             };
         }
 
@@ -36,14 +32,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public string CompositeAttr { get; set; }
 
-        public CompositeSingleAADTO? Composite { get; set; }
-
-        public List<CompositeManyAADTO> Composites { get; set; }
-
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CompositeSingleA, CompositeSingleADTO>()
-                .ForMember(d => d.Composites, opt => opt.MapFrom(src => src.Composites));
+            profile.CreateMap<CompositeSingleAA, CompositeSingleAADTO>();
         }
     }
 }

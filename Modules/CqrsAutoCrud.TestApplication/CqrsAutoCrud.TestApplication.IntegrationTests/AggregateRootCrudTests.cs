@@ -13,7 +13,6 @@ using CqrsAutoCrud.TestApplication.Domain.Entities;
 using CqrsAutoCrud.TestApplication.Infrastructure.Persistence;
 using CqrsAutoCrud.TestApplication.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
-using VerifyTests;
 using VerifyXunit;
 using Xunit;
 using Xunit.Abstractions;
@@ -21,9 +20,9 @@ using Xunit.Abstractions;
 namespace CqrsAutoCrud.TestApplication.IntegrationTests;
 
 [UsesVerify]
-public class CrudTests : SharedDatabaseFixture<ApplicationDbContext, CrudTests>
+public class AggregateRootCrudTests : SharedDatabaseFixture<ApplicationDbContext, AggregateRootCrudTests>
 {
-    public CrudTests(ITestOutputHelper outputHelper) : base(outputHelper)
+    public AggregateRootCrudTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {
     }
 
@@ -55,10 +54,10 @@ public class CrudTests : SharedDatabaseFixture<ApplicationDbContext, CrudTests>
         command.Aggregate = CreateAggregateSingleCDTO.Create(default, command.AggregateAttr + "_7");
 
         var handler = new CreateAggregateRootCommandHandler(new AggregateRootRepository(DbContext));
-        await handler.Handle(command, CancellationToken.None);
+        var id = await handler.Handle(command, CancellationToken.None);
         await DbContext.SaveChangesAsync();
 
-        var actual = await DbContext.AggregateRoots.FirstAsync(p => p.AggregateAttr == command.AggregateAttr);
+        var actual = await DbContext.AggregateRoots.FindAsync(id);
         Assert.NotNull(actual);
         await Verifier.Verify(actual);
     }
