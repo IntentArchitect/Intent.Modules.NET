@@ -157,7 +157,7 @@ function createCqrsCreateOperation(entityFolder, entity) {
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
 
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -196,7 +196,7 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
             idField.typeReference.setType(getSurrogateKeyType())
         }
 
-        for (let attribute of entity.getChildren("Attribute")) {
+        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, dto.id);
             field.typeReference.setType(attribute.typeReference.typeId);
             field.typeReference.setIsNullable(attribute.typeReference.isNullable);
@@ -221,7 +221,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": "{id}"});
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", query.id);
             idField.typeReference.setType(getSurrogateKeyType())
 
@@ -269,7 +269,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
         operation.setMapping(command.id);
         setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": "{id}"});
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
             idField.typeReference.setType(getSurrogateKeyType())
 
@@ -288,7 +288,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
             }
         }
 
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -311,7 +311,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
         operation.setMapping(command.id);
         setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": "{id}"});
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
             idField.typeReference.setType(getSurrogateKeyType());
 
@@ -386,6 +386,9 @@ function ensureDtoFields(mappedElement, dto) {
     let dtoFields = dto.getChildren("DTO-Field");
     for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
         if (attribute.name?.toLowerCase() === "id" &amp;&amp; dto.getMetadata("originalVerb")?.toLowerCase()?.startsWith("create")) {
+            continue;
+        }
+        if (attribute.hasStereotype("Partition Key")) {
             continue;
         }
         let field = createElement("DTO-Field", attribute.name, dto.id);
@@ -531,6 +534,9 @@ function ensureDtoFields(mappedElement, dto) {
         if (attribute.name?.toLowerCase() === "id" &amp;&amp; dto.getMetadata("originalVerb")?.toLowerCase()?.startsWith("create")) {
             continue;
         }
+        if (attribute.hasStereotype("Partition Key")) {
+            continue;
+        }
         let field = createElement("DTO-Field", attribute.name, dto.id);
         field.typeReference.setType(attribute.typeReference.typeId);
         field.typeReference.setIsNullable(attribute.typeReference.isNullable);
@@ -587,6 +593,9 @@ function ensureDtoFields(mappedElement, dto) {
         .getChildren("Attribute");
     let dtoFields = dto.getChildren("DTO-Field");
     for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
+        if (attribute.hasStereotype("Partition Key")) {
+            continue;
+        }
         let field = createElement("DTO-Field", attribute.name, dto.id);
         field.typeReference.setType(attribute.typeReference.typeId);
         field.typeReference.setIsNullable(attribute.typeReference.isNullable);
@@ -753,7 +762,7 @@ function createCqrsCreateOperation(entityFolder, entity) {
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
 
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -787,12 +796,12 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
         dto = createElement("DTO", `${entity.name}DTO`, entityFolder.id);
         dto.setMapping(entity.id);
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", dto.id);
             idField.typeReference.setType(getSurrogateKeyType())
         }
 
-        for (let attribute of entity.getChildren("Attribute")) {
+        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, dto.id);
             field.typeReference.setType(attribute.typeReference.typeId);
             field.typeReference.setIsNullable(attribute.typeReference.isNullable);
@@ -817,7 +826,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": "{id}"});
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", query.id);
             idField.typeReference.setType(getSurrogateKeyType())
 
@@ -865,7 +874,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
         operation.setMapping(command.id);
         setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": "{id}"});
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
             idField.typeReference.setType(getSurrogateKeyType())
 
@@ -884,7 +893,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
             }
         }
 
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -907,7 +916,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
         operation.setMapping(command.id);
         setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": "{id}"});
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
             idField.typeReference.setType(getSurrogateKeyType());
 
