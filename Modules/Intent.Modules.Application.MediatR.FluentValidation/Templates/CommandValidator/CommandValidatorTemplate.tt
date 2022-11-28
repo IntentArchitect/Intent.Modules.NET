@@ -18,8 +18,14 @@ namespace <#= Namespace #>
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class <#= ClassName #> : AbstractValidator<<#= GetCommandModel() #>>
     {
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
         public <#= ClassName #>()
+        {
+            ConfigureValidationRules();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private void ConfigureValidationRules()
         {
 <#  foreach(var fieldRule in this.GetValidationRules(Model.Properties)) { #>
             <#= fieldRule #>

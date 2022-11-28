@@ -54,51 +54,51 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
             
             #line default
             #line hidden
-            this.Write(">\r\n    {\r\n        [IntentManaged(Mode.Fully)]\r\n        public ");
+            this.Write(">\r\n    {\r\n        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]\r\n        public ");
             
             #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("()\r\n        {\r\n");
+            this.Write("()\r\n        {\r\n            ConfigureValidationRules();\r\n        }\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        private void ConfigureValidationRules()\r\n        {\r\n");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
   foreach(var fieldRule in this.GetValidationRules(Model.Properties)) { 
             
             #line default
             #line hidden
             this.Write("            ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(fieldRule));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
+            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
   } 
             
             #line default
             #line hidden
             this.Write("        }\r\n");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
   foreach(var method in GetCustomValidationMethods()) { 
             
             #line default
             #line hidden
             this.Write("\r\n        ");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(method));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
+            #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.FluentValidation\Templates\QueryValidator\QueryValidatorTemplate.tt"
   } 
             
             #line default
