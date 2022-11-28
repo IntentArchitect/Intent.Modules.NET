@@ -53,9 +53,10 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
             {
                 if (property.HasValidations() && property.GetValidations().HasCustomValidation())
                 {
+                    AddUsing("System.Threading.Tasks");
                     yield return $@"
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private bool Validate{property.Name}({GetCommandModel()} command, {GetTypeName(property)} value)
+        private async Task<bool> Validate{property.Name}Async({GetCommandModel()} command, {GetTypeName(property)} value, CancellationToken cancellationToken)
         {{
             throw new NotImplementedException(""Your custom validation rules here..."");
         }}";

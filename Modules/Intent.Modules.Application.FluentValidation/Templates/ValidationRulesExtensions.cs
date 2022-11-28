@@ -78,7 +78,7 @@ namespace Intent.Modules.Application.FluentValidation.Templates
                     }
                     if (property.GetValidations().HasCustomValidation())
                     {
-                        validations.Add($".Must(Validate{property.Name})");
+                        validations.Add($".MustAsync(Validate{property.Name}Async)");
                     }
                 }
                 if (!validations.Any(x => x.StartsWith(".MaximumLength")) && property.InternalElement.IsMapped)
