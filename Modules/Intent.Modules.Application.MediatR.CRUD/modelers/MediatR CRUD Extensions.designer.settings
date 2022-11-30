@@ -29,6 +29,9 @@ if (element?.id == null) {
     defaultDomainClassName = "NewClass";
 }
 
+const _aggregateRootCache = Object.create(null);
+const _aggregateRootOwnerCache = Object.create(null);
+
 let entity = await preselectOrPromptEntity(defaultDomainClassName);
 if (!entity) { return; }
 let service = getServiceFromCurrentContext(entity, element);
@@ -69,8 +72,13 @@ function getSurrogateKeyType() {
 }
 
 function isAggregateRoot(element) {
-    return !element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+    if (_aggregateRootCache[element.id]) {
+        return _aggregateRootCache[element.id];
+    }
+    let result = !element.getAssociations("Association")
+            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+    _aggregateRootCache[element.id] = result;
+    return result;
 }
 
 function isUserMutable(attributeName) {
@@ -108,9 +116,26 @@ function getFriendlyDisplayNameForClassSelection(element) {
     return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
 }
 
+function getAggregateRootOwner(entity) {
+    if (_aggregateRootOwnerCache[entity.id]) {
+        return _aggregateRootOwnerCache[entity.id];
+    }
+    let result = entity.getAssociations("Association")
+        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()) &amp;&amp; 
+            // Let's only target collections for now as part of the nested compositional crud support
+            // as one-to-one relationships are more expensive to address and possibly not going to
+            // be needed.
+            x.getOtherEnd().typeReference.isCollection) [0];
+    if(result)
+    {
+        _aggregateRootOwnerCache[entity.id] = result.typeReference.getType();
+    }
+    return result;
+}
+
 function ownerIsAggregateRoot(entity) {
-    return entity.getAssociations("Association")
-        .some(x =&gt; isAggregateRoot(x.typeReference.getType()));
+    let result = getAggregateRootOwner(entity);
+    return result ? true : false;
 }
 
 function getServiceFromCurrentContext(entity, packageOrServiceElement) {
@@ -120,7 +145,8 @@ function getServiceFromCurrentContext(entity, packageOrServiceElement) {
     }
 
     // Must be a package. See if we can find an existing service with the name we expect.
-    let expectedServiceName = `${pluralize(toPascalCase(entity.name))}Service`;
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedServiceName = aggrRootOwner ? `${toPascalCase(aggrRootOwner.name)}${pluralize(toPascalCase(entity.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
     let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
     if (services.length &gt; 0) {
         return services[0];
@@ -160,8 +186,10 @@ function getReturnTypeMediatypeProperty(element) {
 }
 
 function getEntityFolder(service, entity) {
-    var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entity.name));
-    var folder = existing || createElement("Folder", pluralize(entity.name), service.getParent().id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedFolderName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
+    var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
+    var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
 }
 
@@ -650,6 +678,9 @@ if (element?.id == null) {
     defaultDomainClassName = "NewClass";
 }
 
+const _aggregateRootCache = Object.create(null);
+const _aggregateRootOwnerCache = Object.create(null);
+
 let entity = await preselectOrPromptEntity(defaultDomainClassName);
 if (!entity) { return; }
 let service = getServiceFromCurrentContext(entity, element);
@@ -690,8 +721,13 @@ function getSurrogateKeyType() {
 }
 
 function isAggregateRoot(element) {
-    return !element.getAssociations("Association")
+    if (_aggregateRootCache[element.id]) {
+        return _aggregateRootCache[element.id];
+    }
+    let result = !element.getAssociations("Association")
             .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+    _aggregateRootCache[element.id] = result;
+    return result;
 }
 
 function isUserMutable(attributeName) {
@@ -722,16 +758,32 @@ async function preselectOrPromptEntity(preselectedDomainClassName) {
 }
 
 function getFriendlyDisplayNameForClassSelection(element) {
-    let found = element.getAssociations("Association").filter(x =&gt; x.isSourceEnd() &amp;&amp; 
-            !x.typeReference.isNullable &amp;&amp; 
-            !x.typeReference.isCollection &amp;&amp; 
-            isAggregateRoot(x.typeReference.getType()))[0]?.typeReference?.getType();
+    let found = element.getAssociations("Association")
+        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()))[0]?.typeReference?.getType();
     return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
 }
 
+
+function getAggregateRootOwner(entity) {
+    if (_aggregateRootOwnerCache[entity.id]) {
+        return _aggregateRootOwnerCache[entity.id];
+    }
+    let result = entity.getAssociations("Association")
+        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()) &amp;&amp; 
+            // Let's only target collections for now as part of the nested compositional crud support
+            // as one-to-one relationships are more expensive to address and possibly not going to
+            // be needed.
+            x.getOtherEnd().typeReference.isCollection) [0];
+    if(result)
+    {
+        _aggregateRootOwnerCache[entity.id] = result.typeReference.getType();
+    }
+    return result;
+}
+
 function ownerIsAggregateRoot(entity) {
-    return entity.getAssociations("Association")
-        .some(x =&gt; isAggregateRoot(x.typeReference.getType()));
+    let result = getAggregateRootOwner(entity);
+    return result ? true : false;
 }
 
 function getServiceFromCurrentContext(entity, packageOrServiceElement) {
@@ -741,7 +793,8 @@ function getServiceFromCurrentContext(entity, packageOrServiceElement) {
     }
 
     // Must be a package. See if we can find an existing service with the name we expect.
-    let expectedServiceName = `${pluralize(toPascalCase(entity.name))}Service`;
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedServiceName = aggrRootOwner ? `${toPascalCase(aggrRootOwner.name)}${pluralize(toPascalCase(entity.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
     let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
     if (services.length &gt; 0) {
         return services[0];
@@ -781,8 +834,10 @@ function getReturnTypeMediatypeProperty(element) {
 }
 
 function getEntityFolder(service, entity) {
-    var existing = service.getParent().getChildren().find(x =&gt; x.name == pluralize(entity.name));
-    var folder = existing || createElement("Folder", pluralize(entity.name), service.getParent().id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedFolderName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
+    var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
+    var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
 }
 
