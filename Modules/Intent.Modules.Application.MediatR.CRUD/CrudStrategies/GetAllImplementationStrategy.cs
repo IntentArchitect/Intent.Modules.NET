@@ -91,16 +91,20 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private StrategyData GetMatchingElementDetails()
         {
-            var matchingEntities = _metadataManager.Domain(_application)
-                    .GetClassModels()
-                    .Where(x =>
-                    {
-                        var queryNameLowercase = x.Name.Pluralize().ToLower();
-                        return queryNameLowercase.Contains("get")
-                            || queryNameLowercase.Contains("find")
-                            || queryNameLowercase.Contains("lookup");
-                    })
-                    .ToList();
+            if (!_template.Model.TypeReference?.IsCollection == true)
+            {
+                return NoMatch;
+            }
+
+            var returnDto = _template.Model.TypeReference?.Element.AsDTOModel();
+
+            if (returnDto?.Mapping == null)
+            {
+                return NoMatch;
+            }
+
+            var foundEntity = returnDto.Mapping.Element.AsClassModel();
+            
             // var matchingEntities = _metadataManager.Domain(_application)
             //     .GetClassModels().Where(x => new[]
             //     {
@@ -113,12 +117,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             //     }.Contains(_template.Model.Name.ToLower().RemoveSuffix("query")))
             //     .ToList();
             
-            if (matchingEntities.Count() != 1)
-            {
-                return NoMatch;
-            }
-            
-            var foundEntity = matchingEntities.Single();
+            // if (matchingEntities.Count() != 1)
+            // {
+            //     return NoMatch;
+            // }
+            //
+            // var foundEntity = matchingEntities.Single();
 
             var dtoToReturn = _metadataManager.Services(_application)
                 .GetDTOModels().SingleOrDefault(x =>
