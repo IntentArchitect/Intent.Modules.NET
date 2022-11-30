@@ -10,6 +10,7 @@ using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -56,34 +57,74 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var idField = _matchingElementDetails.Value.IdField;
             var repository = _matchingElementDetails.Value.Repository;
 
-            yield return
-                $@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);
+            var codeLines = new CSharpStatementAggregator();
+
+            var aggrRootOwner = foundEntity.GetAggregateRootOwner();
+            if (aggrRootOwner != null)
+            {
+                var aggregateRootField = _template.Model.Properties.GetForeignKeyFieldForAggregateRoot(aggrRootOwner);
+                if (aggregateRootField == null)
+                {
+                    throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {aggrRootOwner.Name}.");
+                }
+
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
+                codeLines.Add($"if (aggregateRoot == null)");
+                codeLines.Add(new CSharpStatementBlock()
+                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+
+                codeLines.Add("");
+                codeLines.Add($"var element = existingAggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);");
+                codeLines.Add($@"if (element == null)");
+                codeLines.Add(new CSharpStatementBlock()
+                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.Id}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
+
+                var association = aggrRootOwner.GetNestedCompositeAssociation(foundEntity);
+                codeLines.Add($@"existingAggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(element);");
+                codeLines.Add("return Unit.Value;");
+                
+                return codeLines.ToList();
+            }
+
+            codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);
                 {repository.FieldName}.Remove(existing{foundEntity.Name});
-                return Unit.Value;";
+                return Unit.Value;");
+
+            return codeLines.ToList();
         }
 
 
         private StrategyData GetMatchingElementDetails()
         {
-            if (_template.Model.Properties.Count() != 1)
+            // if (_template.Model.Properties.Count() != 1)
+            // {
+            //     return NoMatch;
+            // }
+            //
+            // var matchingEntities = _metadataManager.Domain(_application)
+            //     .GetClassModels().Where(x => new[]
+            //     {
+            //         $"delete{x.Name.ToLower()}",
+            //         $"remove{x.Name.ToLower()}",
+            //     }.Contains(_template.Model.Name.ToLower().RemoveSuffix("command")))
+            //     .ToList();
+            //
+            // if (matchingEntities.Count() != 1)
+            // {
+            //     return NoMatch;
+            // }
+            //
+            //var foundEntity = matchingEntities.Single();
+
+            var commandNameLowercase = _template.Model.Name.ToLower();
+            if ((!commandNameLowercase.Contains("delete") &&
+                 !commandNameLowercase.Contains("remove"))
+                || _template.Model.Mapping?.Element.IsClassModel() != true)
             {
                 return NoMatch;
             }
-
-            var matchingEntities = _metadataManager.Domain(_application)
-                .GetClassModels().Where(x => new[]
-                {
-                    $"delete{x.Name.ToLower()}",
-                    $"remove{x.Name.ToLower()}",
-                }.Contains(_template.Model.Name.ToLower().RemoveSuffix("command")))
-                .ToList();
-
-            if (matchingEntities.Count() != 1)
-            {
-                return NoMatch;
-            }
-
-            var foundEntity = matchingEntities.Single();
+            
+            var foundEntity = _template.Model.Mapping.Element.AsClassModel();
 
             var idField = _template.Model.Properties.FirstOrDefault(p =>
                 string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
@@ -93,7 +134,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return NoMatch;
             }
 
-            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
+            var aggrRootOwner = foundEntity.GetAggregateRootOwner();
+            var repositoryInterface = _template.GetEntityRepositoryInterfaceName(aggrRootOwner != null ? aggrRootOwner : foundEntity);
             if (repositoryInterface == null)
             {
                 return NoMatch;
