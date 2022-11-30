@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="da0c1cea-6107-407a-a2b5-073a7a73cf10" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAggregateRootCompositeManyBSQuery</name>
+  <display>GetAggregateRootCompositeManyBSQuery: AggregateRootCompositeManyBDTO[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="eb873c0a-fc47-4e28-9d18-a4fce7823ee5">
+    <typeId>d4cdadad-638b-4be6-bc76-a5a52a785e7a</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CqrsAutoCrud.TestApplication.Services</typePackageName>
+    <typePackageId>3554520d-6c89-4fd5-88ef-b984565d7741</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>e528ab8a-60df-4e78-bd0e-a70e4bf79220</parentFolderId>
+  <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
+  <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

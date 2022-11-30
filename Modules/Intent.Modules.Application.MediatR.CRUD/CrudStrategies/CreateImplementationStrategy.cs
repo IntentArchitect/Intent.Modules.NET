@@ -69,11 +69,37 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var entityName = _template.GetDomainEntityName(foundEntity);
 
             var codeLines = new CSharpStatementAggregator();
+
+            var aggrRootOwner = foundEntity.GetAggregateRootOwner();
+            if (aggrRootOwner != null)
+            {
+                var aggregateRootField = _template.Model.Properties.GetForeignKeyFieldForAggregateRoot(aggrRootOwner);
+                if (aggregateRootField == null)
+                {
+                    throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {aggrRootOwner.Name}.");
+                }
+
+                codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
+                codeLines.Add($"if (aggregateRoot == null)");
+                codeLines.Add(new CSharpStatementBlock()
+                    .AddStatement(
+                        $@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+            }
+
             codeLines.Add($"var new{foundEntity.Name} = new {entityName ?? foundEntity.Name}");
             codeLines.Add(new CSharpStatementBlock()
                 .AddStatements(GetDTOPropertyAssignments("", "request", foundEntity.InternalElement, _template.Model.Properties))
                 .WithSemicolon());
-            codeLines.Add($"{repository.FieldName}.Add(new{foundEntity.Name});", x => x.SeparatedFromPrevious());
+
+            if (aggrRootOwner != null)
+            {
+                var association = aggrRootOwner.GetNestedCompositeAssociation(foundEntity);
+                codeLines.Add($"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Add(new{foundEntity.Name});", x => x.SeparatedFromPrevious());
+            }
+            else
+            {
+                codeLines.Add($"{repository.FieldName}.Add(new{foundEntity.Name});", x => x.SeparatedFromPrevious());
+            }
 
             if (_template.Model.TypeReference.Element != null)
             {
@@ -119,44 +145,47 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
+                    {
+                        var association = field.Mapping.Element.AsAssociationTargetEndModel();
+                        var targetType = association.Element as IElement;
+                        var attributeName = association.Name.ToPascalCase();
+
+                        if (association.Association.AssociationType == AssociationType.Aggregation)
                         {
-                            var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                            var targetType = association.Element as IElement;
-                            var attributeName = association.Name.ToPascalCase();
+                            codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
+                            break;
+                        }
 
-                            if (association.Association.AssociationType == AssociationType.Aggregation)
+                        if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                        {
+                            if (association.IsNullable)
                             {
-                                codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
-                                break;
-                            }
-
-                            if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
-                            {
-                                if (association.IsNullable)
-                                {
-                                    codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
-                                }
-                                else
-                                {
-                                    codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}),");
-                                }
+                                codeLines.Add(
+                                    $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
                             }
                             else
                             {
-                                codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(association.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType, attributeName)}).ToList(),");
+                                codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}),");
                             }
-
-                            var @class = _template.CSharpFile.Classes.First();
-                            @class.AddMethod(_template.GetTypeName(targetType),
-                                GetCreateMethodName(targetType, attributeName),
-                                method => method.Private()
-                                    .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                    .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                    .AddStatement($"return new {targetType.Name.ToPascalCase()}")
-                                    .AddStatement(new CSharpStatementBlock()
-                                        .AddStatements(GetDTOPropertyAssignments("", $"dto", targetType, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList()))
-                                        .WithSemicolon()));
                         }
+                        else
+                        {
+                            codeLines.Add(
+                                $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(association.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType, attributeName)}).ToList(),");
+                        }
+
+                        var @class = _template.CSharpFile.Classes.First();
+                        @class.AddMethod(_template.GetTypeName(targetType),
+                            GetCreateMethodName(targetType, attributeName),
+                            method => method.Private()
+                                .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                                .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
+                                .AddStatement($"return new {targetType.Name.ToPascalCase()}")
+                                .AddStatement(new CSharpStatementBlock()
+                                    .AddStatements(GetDTOPropertyAssignments("", $"dto", targetType,
+                                        ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList()))
+                                    .WithSemicolon()));
+                    }
                         break;
                 }
             }
@@ -173,7 +202,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 && _template.Model.Mapping?.Element.IsClassModel() == true)
             {
                 var foundEntity = _template.Model.Mapping.Element.AsClassModel();
-                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
+                var aggrRootOwner = foundEntity.GetAggregateRootOwner();
+                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(aggrRootOwner != null ? aggrRootOwner : foundEntity);
                 if (repositoryInterface == null)
                 {
                     return NoMatch;
@@ -219,6 +249,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null);
+
         private class StrategyData
         {
             public StrategyData(bool isMatch, ClassModel foundEntity, RequiredService repository)

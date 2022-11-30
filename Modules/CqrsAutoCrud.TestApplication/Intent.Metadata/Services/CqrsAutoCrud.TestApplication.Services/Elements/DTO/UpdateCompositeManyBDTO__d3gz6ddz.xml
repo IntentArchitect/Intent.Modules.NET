@@ -142,7 +142,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="747865cc-b481-4398-b830-6865dde5d0d2" name="AAggregaterootId" type="element" specialization="Attribute" />
+          <target id="747865cc-b481-4398-b830-6865dde5d0d2" name="AggregateRootId" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>6a6441af-0091-4a75-a3ad-ecfcd47b12d5</parentFolderId>

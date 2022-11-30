@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e528ab8a-60df-4e78-bd0e-a70e4bf79220" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>AggregateRootCompositeManyBS</name>
+  <display>AggregateRootCompositeManyBS</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3554520d-6c89-4fd5-88ef-b984565d7741</parentFolderId>
+  <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
+  <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
