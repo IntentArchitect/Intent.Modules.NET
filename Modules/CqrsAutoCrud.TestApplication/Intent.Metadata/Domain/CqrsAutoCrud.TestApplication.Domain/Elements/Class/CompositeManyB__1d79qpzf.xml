@@ -93,8 +93,8 @@
       <childElements />
     </childElement>
     <childElement id="747865cc-b481-4398-b830-6865dde5d0d2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>AAggregaterootId</name>
-      <display>AAggregaterootId: guid</display>
+      <name>AggregateRootId</name>
+      <display>AggregateRootId: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="5f7d11bd-d65d-4bb5-9b84-26f47c51bc3b">

@@ -3,7 +3,7 @@
   <sourceEnd id="a55e4acd-917f-4832-a8f4-d95d58907817" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>A_Composite_Single</name>
     <display>A_Composite_Single: CompositeSingleA</display>
-    <order>3</order>
+    <order>0</order>
     <typeReference id="083f72ed-ba44-403e-9aa9-48ed14f30753">
       <typeId>49d07eeb-9d22-4b43-b248-a99fa5a40f9e</typeId>
       <isNavigable>false</isNavigable>

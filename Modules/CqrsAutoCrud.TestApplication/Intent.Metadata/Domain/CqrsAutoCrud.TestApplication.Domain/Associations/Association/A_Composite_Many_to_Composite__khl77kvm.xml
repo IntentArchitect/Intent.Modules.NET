@@ -3,7 +3,7 @@
   <sourceEnd id="9d16dbc5-b540-4acf-a439-da14c76a04e6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>A_Composite_Many</name>
     <display>A_Composite_Many: CompositeManyB</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="426ea866-4c05-418c-8c0c-518e56d4c8cf">
       <typeId>44232e14-ce0f-488f-beae-12bd7e7be45d</typeId>
       <isNavigable>false</isNavigable>

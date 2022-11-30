@@ -194,12 +194,23 @@ function getEntityFolder(service, entity) {
 }
 
 function createCqrsCreateOperation(entityFolder, entity) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Create${entity.name}Command`)) {
-        let command = createElement("Command", `Create${entity.name}Command`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedCommandName = aggrRootOwner ? `Create${aggrRootOwner.name}${entity.name}Command` : `Create${entity.name}Command`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
+        let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
 
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
+
+        if (aggrRootOwner) {
+            let attribute = entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+            if (attribute) {
+                let field = createElement("DTO-Field", attribute.name, command.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+        }
 
         for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
@@ -222,20 +233,23 @@ function createCqrsCreateOperation(entityFolder, entity) {
         }
 
         operation.collapse();
-    } else {
-        let command = entityFolder.getChildren().filter(x =&gt; x.name == `Create${entity.name}Command`)[0];
-        let pkTypeId = getPrimaryKeyTypeId(entity);
-        command.typeReference.setType(pkTypeId);
+        return;
     }
+
+    let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
+    let pkTypeId = getPrimaryKeyTypeId(entity);
+    command.typeReference.setType(pkTypeId);
 }
 
 function createCqrsResultTypeDTO(entity, entityFolder) {
     let dto = null;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `${entity.name}DTO`)) {
-        dto = createElement("DTO", `${entity.name}DTO`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedDtoName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}DTO` : `${entity.name}DTO`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedDtoName)) {
+        dto = createElement("DTO", expectedDtoName, entityFolder.id);
         dto.setMapping(entity.id);
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key"))) {
+        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", dto.id);
             idField.typeReference.setType(getSurrogateKeyType())
         }
@@ -249,14 +263,16 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
         }
         dto.collapse();
     } else {
-        dto = entityFolder.getChildren().filter(x =&gt; x.name == `${entity.name}DTO`)[0];
+        dto = entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
     }
     return dto;
 }
 
 function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Get${entity.name}ByIdQuery`)) {
-        let query = createElement("Query", `Get${entity.name}ByIdQuery`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${entity.name}ByIdQuery` : `Get${entity.name}ByIdQuery`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
+        let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.setMapping(entity.id);
 
@@ -264,6 +280,15 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
         operation.setMapping(query.id);
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": "{id}"});
+
+        if (aggrRootOwner) {
+            let attribute = entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+            if (attribute) {
+                let field = createElement("DTO-Field", attribute.name, query.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+        }
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", query.id);
@@ -290,8 +315,10 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
 }
 
 function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Get${pluralize(entity.name)}Query`)) {
-        let query = createElement("Query", `Get${pluralize(entity.name)}Query`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${pluralize(entity.name)}Query` : `Get${pluralize(entity.name)}Query`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
+        let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.typeReference.setIsCollection(true);
         query.collapse();
@@ -305,8 +332,10 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
 }
 
 function createCqrsUpdateOperation(entity, entityFolder) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Update${entity.name}Command`)) {
-        let command = createElement("Command", `Update${entity.name}Command`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedCommandName = aggrRootOwner ? `Update${aggrRootOwner.name}${entity.name}Command` : `Update${entity.name}Command`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
+        let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
 
         let operation = createElement("Operation", "Put", service.id);
@@ -347,13 +376,24 @@ function createCqrsUpdateOperation(entity, entityFolder) {
 }
 
 function createCqrsDeleteOperation(entity, entityFolder) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Delete${entity.name}Command`)) {
-        let command = createElement("Command", `Delete${entity.name}Command`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedCommandName = aggrRootOwner ? `Delete${aggrRootOwner.name}${entity.name}Command` : `Delete${entity.name}Command`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
+        let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
 
         let operation = createElement("Operation", "Delete", service.id);
         operation.setMapping(command.id);
         setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": "{id}"});
+
+        if (aggrRootOwner) {
+            let attribute = entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+            if (attribute) {
+                let field = createElement("DTO-Field", attribute.name, command.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+        }
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
@@ -842,12 +882,23 @@ function getEntityFolder(service, entity) {
 }
 
 function createCqrsCreateOperation(entityFolder, entity) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Create${entity.name}Command`)) {
-        let command = createElement("Command", `Create${entity.name}Command`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedCommandName = aggrRootOwner ? `Create${aggrRootOwner.name}${entity.name}Command` : `Create${entity.name}Command`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
+        let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
 
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
+
+        if (aggrRootOwner) {
+            let attribute = entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+            if (attribute) {
+                let field = createElement("DTO-Field", attribute.name, command.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+        }
 
         for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
@@ -870,17 +921,20 @@ function createCqrsCreateOperation(entityFolder, entity) {
         }
 
         operation.collapse();
-    } else {
-        let command = entityFolder.getChildren().filter(x =&gt; x.name == `Create${entity.name}Command`)[0];
-        let pkTypeId = getPrimaryKeyTypeId(entity);
-        command.typeReference.setType(pkTypeId);
+        return;
     }
+
+    let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
+    let pkTypeId = getPrimaryKeyTypeId(entity);
+    command.typeReference.setType(pkTypeId);
 }
 
 function createCqrsResultTypeDTO(entity, entityFolder) {
     let dto = null;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `${entity.name}DTO`)) {
-        dto = createElement("DTO", `${entity.name}DTO`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedDtoName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}DTO` : `${entity.name}DTO`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedDtoName)) {
+        dto = createElement("DTO", expectedDtoName, entityFolder.id);
         dto.setMapping(entity.id);
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
@@ -897,14 +951,16 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
         }
         dto.collapse();
     } else {
-        dto = entityFolder.getChildren().filter(x =&gt; x.name == `${entity.name}DTO`)[0];
+        dto = entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
     }
     return dto;
 }
 
 function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Get${entity.name}ByIdQuery`)) {
-        let query = createElement("Query", `Get${entity.name}ByIdQuery`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${entity.name}ByIdQuery` : `Get${entity.name}ByIdQuery`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
+        let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.setMapping(entity.id);
 
@@ -912,6 +968,15 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
         operation.setMapping(query.id);
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": "{id}"});
+
+        if (aggrRootOwner) {
+            let attribute = entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+            if (attribute) {
+                let field = createElement("DTO-Field", attribute.name, query.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+        }
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", query.id);
@@ -938,8 +1003,10 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
 }
 
 function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Get${pluralize(entity.name)}Query`)) {
-        let query = createElement("Query", `Get${pluralize(entity.name)}Query`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${pluralize(entity.name)}Query` : `Get${pluralize(entity.name)}Query`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
+        let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.typeReference.setIsCollection(true);
         query.collapse();
@@ -953,8 +1020,10 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
 }
 
 function createCqrsUpdateOperation(entity, entityFolder) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Update${entity.name}Command`)) {
-        let command = createElement("Command", `Update${entity.name}Command`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedCommandName = aggrRootOwner ? `Update${aggrRootOwner.name}${entity.name}Command` : `Update${entity.name}Command`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
+        let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
 
         let operation = createElement("Operation", "Put", service.id);
@@ -995,13 +1064,24 @@ function createCqrsUpdateOperation(entity, entityFolder) {
 }
 
 function createCqrsDeleteOperation(entity, entityFolder) {
-    if (!entityFolder.getChildren().some(x =&gt; x.name == `Delete${entity.name}Command`)) {
-        let command = createElement("Command", `Delete${entity.name}Command`, entityFolder.id);
+    let aggrRootOwner = getAggregateRootOwner(entity);
+    let expectedCommandName = aggrRootOwner ? `Delete${aggrRootOwner.name}${entity.name}Command` : `Delete${entity.name}Command`;
+    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
+        let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
 
         let operation = createElement("Operation", "Delete", service.id);
         operation.setMapping(command.id);
         setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": "{id}"});
+
+        if (aggrRootOwner) {
+            let attribute = entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+            if (attribute) {
+                let field = createElement("DTO-Field", attribute.name, command.id);
+                field.typeReference.setType(attribute.typeReference.typeId)
+                field.setMapping(attribute.id);
+            }
+        }
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
