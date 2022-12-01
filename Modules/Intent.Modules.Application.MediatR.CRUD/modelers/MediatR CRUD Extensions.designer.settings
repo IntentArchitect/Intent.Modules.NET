@@ -190,10 +190,12 @@ function getAggregateRootId(entity, aggrRootOwner) {
 
 function createCqrsCreateOperation(entityFolder, entity) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedCommandName = aggrRootOwner ? `Create${aggrRootOwner.name}${entity.name}Command` : `Create${entity.name}Command`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Create${baseName}Command`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
         let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
+        command.setMetadata("baseName", baseName);
 
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
@@ -242,10 +244,12 @@ function createCqrsCreateOperation(entityFolder, entity) {
 function createCqrsResultTypeDTO(entity, entityFolder) {
     let dto = null;
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedDtoName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}DTO` : `${entity.name}DTO`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedDtoName = `${baseName}DTO`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedDtoName)) {
         dto = createElement("DTO", expectedDtoName, entityFolder.id);
         dto.setMapping(entity.id);
+        dto.setMetadata("baseName", baseName);
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", dto.id);
@@ -276,11 +280,13 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
 
 function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${entity.name}ByIdQuery` : `Get${entity.name}ByIdQuery`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedQueryName = `Get${baseName}ByIdQuery`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
         let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.setMapping(entity.id);
+        query.setMetadata("baseName", baseName);
 
         let operation = createElement("Operation", "Get", service.id);
         operation.setMapping(query.id);
@@ -325,11 +331,13 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
 
 function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${pluralize(entity.name)}Query` : `Get${pluralize(entity.name)}Query`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
+    let expectedQueryName = `Get${baseName}Query`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
         let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.typeReference.setIsCollection(true);
+        query.setMetadata("baseName", baseName);
 
         if (aggrRootOwner) {
             let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
@@ -348,10 +356,12 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
 
 function createCqrsUpdateOperation(entity, entityFolder) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedCommandName = aggrRootOwner ? `Update${aggrRootOwner.name}${entity.name}Command` : `Update${entity.name}Command`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Update${baseName}Command`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
         let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
+        command.setMetadata("baseName", baseName);
 
         let operation = createElement("Operation", "Put", service.id);
         operation.setMapping(command.id);
@@ -400,10 +410,12 @@ function createCqrsUpdateOperation(entity, entityFolder) {
 
 function createCqrsDeleteOperation(entity, entityFolder) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedCommandName = aggrRootOwner ? `Delete${aggrRootOwner.name}${entity.name}Command` : `Delete${entity.name}Command`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Delete${baseName}Command`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
         let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
+        command.setMetadata("baseName", baseName);
 
         let operation = createElement("Operation", "Delete", service.id);
         operation.setMapping(command.id);
@@ -467,9 +479,14 @@ fields.forEach(f =&gt; {
 
     let originalVerb = (element.getName().split(/(?=[A-Z])/))[0];
 
-    let dtoName =  `${originalVerb}${mappedElement.typeReference.getType().getName()}`;
+    let domainName = mappedElement.typeReference.getType().getName();
+    let baseName = element.getMetadata("baseName") 
+        ? `${element.getMetadata("baseName")}${domainName}`
+        : domainName;
+    let dtoName =  `${originalVerb}${baseName}`;
     let dto = getOrCreateDTO(dtoName, element.getParent());
     dto.setMetadata("originalVerb", originalVerb);
+    dto.setMetadata("baseName", baseName);
     dto.setMapping(mappedElement.typeReference.getTypeId(), projectMapptingSettingId);
 
     ensureDtoFields(mappedElement, dto);
@@ -478,24 +495,31 @@ fields.forEach(f =&gt; {
 });
 
 function getOrCreateDTO(elementName, parentElement) {
-    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === `${elementName}DTO`)[0];
+    const expectedDtoName = `${elementName}DTO`;
+    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === expectedDtoName)[0];
     if (existingDto) {
         return existingDto;
     }
 
-    let dto = createElement("DTO", `${elementName}DTO`, parentElement.id);
+    let dto = createElement("DTO", expectedDtoName, parentElement.id);
     return dto;
 }
 
 function ensureDtoFields(mappedElement, dto) {
     let dtoUpdated = false;
-    let mappedElementAttributes = mappedElement
+    let domainElement = mappedElement
         .typeReference
-        .getType()
+        .getType();
+    let mappedElementAttributes = domainElement
         .getChildren("Attribute");
     let dtoFields = dto.getChildren("DTO-Field");
+    let isCreateMode = dto.getMetadata("originalVerb")?.toLowerCase()?.startsWith("create") == true;
+
     for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
-        if (attribute.name?.toLowerCase() === "id" &amp;&amp; dto.getMetadata("originalVerb")?.toLowerCase()?.startsWith("create")) {
+        if (isCreateMode &amp;&amp; attribute.name?.toLowerCase() === "id") {
+            continue;
+        }
+        if (isCreateMode &amp;&amp; isOwnerForeignKey(attribute, domainElement)) {
             continue;
         }
         if (attribute.hasStereotype("Partition Key")) {
@@ -509,8 +533,8 @@ function ensureDtoFields(mappedElement, dto) {
         dtoUpdated = true;
     }
 
-    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.typeReference?.getType().hasStereotype("Primary Key"))[0];
-    if (!explicitPk) {
+    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key"))[0];
+    if (!isCreateMode &amp;&amp; !explicitPk) {
         let field = createElement("DTO-Field", "id", dto.id);
         field.typeReference.setType(getSurrogateKeyType());
     }
@@ -532,6 +556,15 @@ function getSurrogateKeyType() {
     }
 
     return typeNameToIdMap.get("guid");
+}
+
+function isOwnerForeignKey(attribute, domainElement) {
+    for (let association of domainElement.getAssociations().filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable)) {
+        if (attribute.name.toLowerCase().indexOf(association.name.toLowerCase()) &gt;= 0) {
+            return true;
+        }
+    }
+    return false;
 }</script>
         </macro>
       </macros>
@@ -632,12 +665,17 @@ fields.forEach(f =&gt; {
         ? originalDtoMappingSettingId 
         : projectMapptingSettingId;
 
-    let dtoName =  `${originalVerb}${mappedElement.typeReference.getType().getName()}`;
+    let domainName = mappedElement.typeReference.getType().getName();
+    let baseName = element.getMetadata("baseName") 
+        ? `${element.getMetadata("baseName")}${domainName}`
+        : domainName;
+    let dtoName =  `${originalVerb}${baseName}`;
     let dto = getOrCreateDTO(dtoName, element.getParent());
     dto.setMapping(mappedElement.typeReference.getTypeId(), targetMappingSettingId);
     if (originalVerb !== "") {
         dto.setMetadata("originalVerb", originalVerb);
     }
+    dto.setMetadata("baseName", baseName);
     ensureDtoFields(mappedElement, dto);
     
     f.typeReference.setType(dto.id);
@@ -655,13 +693,18 @@ function getOrCreateDTO(elementName, parentElement) {
 
 function ensureDtoFields(mappedElement, dto) {
     let dtoUpdated = false;
-    let mappedElementAttributes = mappedElement
+    let domainElement = mappedElement
         .typeReference
-        .getType()
+        .getType();
+    let mappedElementAttributes = domainElement
         .getChildren("Attribute");
+    let isCreateMode = dto.getMetadata("originalVerb")?.toLowerCase()?.startsWith("create") == true;
     let dtoFields = dto.getChildren("DTO-Field");
     for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
-        if (attribute.name?.toLowerCase() === "id" &amp;&amp; dto.getMetadata("originalVerb")?.toLowerCase()?.startsWith("create")) {
+        if (isCreateMode &amp;&amp; attribute.name?.toLowerCase() === "id") {
+            continue;
+        }
+        if (isCreateMode &amp;&amp; isOwnerForeignKey(attribute, domainElement)) {
             continue;
         }
         if (attribute.hasStereotype("Partition Key")) {
@@ -675,8 +718,8 @@ function ensureDtoFields(mappedElement, dto) {
         dtoUpdated = true;
     }
 
-    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.typeReference?.getType().hasStereotype("Primary Key"))[0];
-    if (!explicitPk) {
+    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key"))[0];
+    if (!isCreateMode &amp;&amp; !explicitPk) {
         let field = createElement("DTO-Field", "id", dto.id);
         field.typeReference.setType(getSurrogateKeyType());
     }
@@ -698,6 +741,15 @@ function getSurrogateKeyType() {
     }
 
     return typeNameToIdMap.get("guid");
+}
+
+function isOwnerForeignKey(attribute, domainElement) {
+    for (let association of domainElement.getAssociations().filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable)) {
+        if (attribute.name.toLowerCase().indexOf(association.name.toLowerCase()) &gt;= 0) {
+            return true;
+        }
+    }
+    return false;
 }</script>
         </macro>
       </macros>
@@ -716,9 +768,14 @@ let fields = element.getChildren("DTO-Field")
 fields.forEach(f =&gt; {
     let mappedElement = f.getMapping().getElement();
 
-    let dtoName =  `${mappedElement.typeReference.getType().getName()}`;
+    let domainName = mappedElement.typeReference.getType().getName();
+    let baseName = element.getMetadata("baseName") 
+        ? `${element.getMetadata("baseName")}${domainName}`
+        : `${domainName}`;
+    let dtoName =  baseName;
     let dto = getOrCreateDTO(dtoName, element.getParent());
     dto.setMapping(mappedElement.typeReference.getTypeId(), projectMapptingSettingId);
+    dto.setMetadata("baseName", baseName);
 
     ensureDtoFields(mappedElement, dto);
     
@@ -726,12 +783,13 @@ fields.forEach(f =&gt; {
 });
 
 function getOrCreateDTO(elementName, parentElement) {
-    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === `${elementName}DTO`)[0];
+    const expectedQueryName = `${elementName}DTO`;
+    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === expectedQueryName)[0];
     if (existingDto) {
         return existingDto;
     }
 
-    let dto = createElement("DTO", `${elementName}DTO`, parentElement.id);
+    let dto = createElement("DTO", expectedQueryName, parentElement.id);
     return dto;
 }
 
@@ -945,10 +1003,12 @@ function getAggregateRootId(entity, aggrRootOwner) {
 
 function createCqrsCreateOperation(entityFolder, entity) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedCommandName = aggrRootOwner ? `Create${aggrRootOwner.name}${entity.name}Command` : `Create${entity.name}Command`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Create${baseName}Command`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
         let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
+        command.setMetadata("baseName", baseName);
 
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
@@ -997,10 +1057,12 @@ function createCqrsCreateOperation(entityFolder, entity) {
 function createCqrsResultTypeDTO(entity, entityFolder) {
     let dto = null;
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedDtoName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}DTO` : `${entity.name}DTO`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedDtoName = `${baseName}DTO`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedDtoName)) {
         dto = createElement("DTO", expectedDtoName, entityFolder.id);
         dto.setMapping(entity.id);
+        dto.setMetadata("baseName", baseName);
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", dto.id);
@@ -1031,11 +1093,13 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
 
 function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${entity.name}ByIdQuery` : `Get${entity.name}ByIdQuery`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedQueryName = `Get${baseName}ByIdQuery`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
         let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.setMapping(entity.id);
+        query.setMetadata("baseName", baseName);
 
         let operation = createElement("Operation", "Get", service.id);
         operation.setMapping(query.id);
@@ -1080,11 +1144,13 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
 
 function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedQueryName = aggrRootOwner ? `Get${aggrRootOwner.name}${pluralize(entity.name)}Query` : `Get${pluralize(entity.name)}Query`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
+    let expectedQueryName = `Get${baseName}Query`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
         let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.typeReference.setIsCollection(true);
+        query.setMetadata("baseName", baseName);
 
         if (aggrRootOwner) {
             let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
@@ -1103,10 +1169,12 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
 
 function createCqrsUpdateOperation(entity, entityFolder) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedCommandName = aggrRootOwner ? `Update${aggrRootOwner.name}${entity.name}Command` : `Update${entity.name}Command`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Update${baseName}Command`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
         let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
+        command.setMetadata("baseName", baseName);
 
         let operation = createElement("Operation", "Put", service.id);
         operation.setMapping(command.id);
@@ -1155,10 +1223,12 @@ function createCqrsUpdateOperation(entity, entityFolder) {
 
 function createCqrsDeleteOperation(entity, entityFolder) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedCommandName = aggrRootOwner ? `Delete${aggrRootOwner.name}${entity.name}Command` : `Delete${entity.name}Command`;
+    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Delete${baseName}Command`;
     if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
         let command = createElement("Command", expectedCommandName, entityFolder.id);
         command.setMapping(entity.id);
+        command.setMetadata("baseName", baseName);
 
         let operation = createElement("Operation", "Delete", service.id);
         operation.setMapping(command.id);
