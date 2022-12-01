@@ -155,15 +155,6 @@ function getServiceFromCurrentContext(entity, packageOrServiceElement) {
     return createElement("Service", expectedServiceName, packageOrServiceElement.id);
 }
 
-function getDtoFolder(service, entity) {
-    // Get or create folder in which to place DTOs:
-    let folder = service.getParent().getChildren("Folder").find(x =&gt; x.name == pluralize(entity.name));
-    if (folder == null) {
-        folder = createElement("Folder", pluralize(entity.name), service.getParent().id);
-    }
-    return folder;
-}
-
 function getPrimaryKeyTypeId(entity) {
     let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
     let pkTypeId;
@@ -804,11 +795,12 @@ async function preselectOrPromptEntity(preselectedDomainClassName) {
 }
 
 function getFriendlyDisplayNameForClassSelection(element) {
-    let found = element.getAssociations("Association")
-        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()))[0]?.typeReference?.getType();
+    let found = element.getAssociations("Association").filter(x =&gt; x.isSourceEnd() &amp;&amp; 
+            !x.typeReference.isNullable &amp;&amp; 
+            !x.typeReference.isCollection &amp;&amp; 
+            isAggregateRoot(x.typeReference.getType()))[0]?.typeReference?.getType();
     return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
 }
-
 
 function getAggregateRootOwner(entity) {
     if (_aggregateRootOwnerCache[entity.id]) {
@@ -847,15 +839,6 @@ function getServiceFromCurrentContext(entity, packageOrServiceElement) {
     }
 
     return createElement("Service", expectedServiceName, packageOrServiceElement.id);
-}
-
-function getDtoFolder(service, entity) {
-    // Get or create folder in which to place DTOs:
-    let folder = service.getParent().getChildren("Folder").find(x =&gt; x.name == pluralize(entity.name));
-    if (folder == null) {
-        folder = createElement("Folder", pluralize(entity.name), service.getParent().id);
-    }
-    return folder;
 }
 
 function getPrimaryKeyTypeId(entity) {
@@ -1020,7 +1003,7 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
             let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
             idField.typeReference.setType(getSurrogateKeyType());
         }
-
+        
         query.collapse();
 
         let operation = createElement("Operation", "Get", service.id);
