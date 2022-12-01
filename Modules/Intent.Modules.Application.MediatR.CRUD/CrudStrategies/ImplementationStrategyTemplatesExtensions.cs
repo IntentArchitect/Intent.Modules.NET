@@ -50,10 +50,16 @@ static class ImplementationStrategyTemplatesExtensions
 
     public static DTOFieldModel GetForeignKeyFieldForAggregateRoot(this IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
     {
-        var aggregateRootFk = properties
+        var idField = properties
             .FirstOrDefault(p => 
                 p.Mapping?.Element.AsAttributeModel()?.Name.Contains(aggregateRootOwner.Name, StringComparison.OrdinalIgnoreCase) == true);
-        return aggregateRootFk;
+        return idField;
+    }
+
+    public static DTOFieldModel GetImpliedAggregateRootId(this IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
+    {
+        var idField = properties.FirstOrDefault(p => p.Name.Equals($"{aggregateRootOwner.Name}Id", StringComparison.OrdinalIgnoreCase));
+        return idField;
     }
 
     public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel aggregateRootEntity, ClassModel nestedCompositionEntity)

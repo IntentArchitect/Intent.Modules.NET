@@ -321,6 +321,12 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.typeReference.setIsCollection(true);
+
+        if (aggrRootOwner) {
+            let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
+            idField.typeReference.setType(getSurrogateKeyType());
+        }
+        
         query.collapse();
 
         let operation = createElement("Operation", "Get", service.id);
@@ -1009,6 +1015,12 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         let query = createElement("Query", expectedQueryName, entityFolder.id);
         query.typeReference.setType(resultTypeDto.id)
         query.typeReference.setIsCollection(true);
+
+        if (aggrRootOwner) {
+            let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
+            idField.typeReference.setType(getSurrogateKeyType());
+        }
+
         query.collapse();
 
         let operation = createElement("Operation", "Get", service.id);

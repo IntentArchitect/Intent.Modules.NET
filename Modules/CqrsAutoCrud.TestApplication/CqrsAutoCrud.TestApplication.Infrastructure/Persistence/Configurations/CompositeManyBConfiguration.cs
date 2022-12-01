@@ -17,7 +17,7 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence.Configurations
             builder.Property(x => x.CompositeAttr)
                 .IsRequired();
 
-            builder.Property(x => x.AAggregaterootId)
+            builder.Property(x => x.AggregateRootId)
                 .IsRequired();
 
             builder.Property(x => x.SomeDate);

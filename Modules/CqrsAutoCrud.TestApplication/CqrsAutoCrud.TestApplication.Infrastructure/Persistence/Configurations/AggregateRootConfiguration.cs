@@ -26,7 +26,7 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence.Configurations
 
             builder.HasMany(x => x.Composites)
                 .WithOne()
-                .HasForeignKey(x => x.A_AggregateRootId)
+                .HasForeignKey(x => x.AggregateRootId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="1067b849-e527-448c-9600-78d2cd8dbe28" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+<class id="a39e7fa9-ecbb-43a2-91dc-b980cc501f95" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
   <name>AggregateRootCompositeManyBSService</name>
   <display>AggregateRootCompositeManyBSService</display>
   <isAbstract>false</isAbstract>
@@ -21,13 +21,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="86cdc174-75a8-43a7-92b5-89b2271addba" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="a262812f-7ba9-4531-8db3-52335875152d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Post</name>
       <display>Post(command: CreateAggregateRootCompositeManyBCommand): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="58e6de32-829d-4b67-acc1-e76275f2700b">
+      <typeReference id="13897f2e-37ff-44a0-9fea-f720df5eb1c5">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -45,10 +45,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="36760401-d703-46b6-89f9-6805a351ad40" name="CreateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+          <target id="8910179a-76d1-4698-9b84-8e103162fc57" name="CreateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>1067b849-e527-448c-9600-78d2cd8dbe28</parentFolderId>
+      <parentFolderId>a39e7fa9-ecbb-43a2-91dc-b980cc501f95</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -65,13 +65,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="00c69fcb-4aa0-49f8-8162-8607a307a946" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="1328ed2e-b621-462a-a4a1-bde86ac0256b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: CreateAggregateRootCompositeManyBCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="0d865a76-cc07-4483-a33b-39ab0a5313bc">
-            <typeId>36760401-d703-46b6-89f9-6805a351ad40</typeId>
+          <typeReference id="e5e93ca7-fd52-4799-8762-fec98ef06360">
+            <typeId>8910179a-76d1-4698-9b84-8e103162fc57</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -82,7 +82,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>86cdc174-75a8-43a7-92b5-89b2271addba</parentFolderId>
+          <parentFolderId>a262812f-7ba9-4531-8db3-52335875152d</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -101,14 +101,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="ad58c4d5-e319-48fc-adbd-f9732e4f52aa" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="194a5006-b059-410d-b3c9-5abf487496e4" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Get</name>
       <display>Get(id: guid): AggregateRootCompositeManyBDTO</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="224ffcc6-0ec2-42f3-ac55-88b453166bee">
-        <typeId>d4cdadad-638b-4be6-bc76-a5a52a785e7a</typeId>
+      <typeReference id="0c4182fd-af78-4e24-8cb9-eb6c8fbf6798">
+        <typeId>43b57851-b3e4-4b86-a3a6-455e5ef92e47</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -125,10 +125,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b9087c13-1274-4a72-8758-90daa10b1004" name="GetAggregateRootCompositeManyBByIdQuery" type="element" specialization="Query" />
+          <target id="7106845b-8428-4cfb-a851-ad1d553ecf96" name="GetAggregateRootCompositeManyBByIdQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>1067b849-e527-448c-9600-78d2cd8dbe28</parentFolderId>
+      <parentFolderId>a39e7fa9-ecbb-43a2-91dc-b980cc501f95</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -145,12 +145,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="dc899df5-c50d-4ae5-92a9-e7cda82ad9f8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="8ed8aba3-e02c-4c67-8d48-62de2ff12238" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="8ff57612-43b3-4076-94bd-2d2ff8228176">
+          <typeReference id="e1a4a329-d0c6-42a8-a59e-aa83436bb44d">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -166,10 +166,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="15a7b344-40aa-49f6-81dd-124315d63a7f" name="Id" type="element" specialization="DTO-Field" />
+              <target id="5eecc43d-fadf-422b-8f55-ab8ae121d077" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>ad58c4d5-e319-48fc-adbd-f9732e4f52aa</parentFolderId>
+          <parentFolderId>194a5006-b059-410d-b3c9-5abf487496e4</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -188,13 +188,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="a3836824-f105-472e-b917-c7ef18b05bef" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="8c03f035-02c7-457a-b979-509f956d03e1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Get</name>
       <display>Get(): AggregateRootCompositeManyBDTO[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="b812c59b-3e4b-4f12-ad9d-512a769fd893">
-        <typeId>d4cdadad-638b-4be6-bc76-a5a52a785e7a</typeId>
+      <typeReference id="e36ec56f-a6a0-4a7a-a66b-f61534d08586">
+        <typeId>43b57851-b3e4-4b86-a3a6-455e5ef92e47</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -211,10 +211,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="da0c1cea-6107-407a-a2b5-073a7a73cf10" name="GetAggregateRootCompositeManyBSQuery" type="element" specialization="Query" />
+          <target id="30f4c695-91b8-4e4b-937e-3d39d8bf7f02" name="GetAggregateRootCompositeManyBSQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>1067b849-e527-448c-9600-78d2cd8dbe28</parentFolderId>
+      <parentFolderId>a39e7fa9-ecbb-43a2-91dc-b980cc501f95</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -232,13 +232,13 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="6267a2cc-941b-451d-aee5-6daf940c23f6" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="990f7d12-dff8-4c6b-8249-26de2ed7b9f0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Put</name>
       <display>Put(id: guid, command: UpdateAggregateRootCompositeManyBCommand): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="21dbd94d-005b-45c5-a0d7-e7d3dc6d613a">
+      <typeReference id="4f3379ab-7fe0-4d28-8dd2-e4c7974a1a12">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -253,10 +253,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9ede0738-c55b-42da-9a68-bc1804b361cd" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+          <target id="9a009ab2-c86d-4dac-926e-f79068764394" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>1067b849-e527-448c-9600-78d2cd8dbe28</parentFolderId>
+      <parentFolderId>a39e7fa9-ecbb-43a2-91dc-b980cc501f95</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -273,12 +273,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5d0d97a8-6fa6-4d09-929f-b687fb9cbe78" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="18135c23-eb30-4cc7-aefd-11ac598a6628" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="1cf2e390-9d01-4f80-8cf4-d693d6ffc652">
+          <typeReference id="5bca7c74-a668-472c-8510-270d4d5bb706">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -294,10 +294,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="0f2a639a-8deb-4f6f-bccc-2ee5fbae4202" name="Id" type="element" specialization="DTO-Field" />
+              <target id="106d9b36-762f-4463-b86e-11b1ea037467" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>6267a2cc-941b-451d-aee5-6daf940c23f6</parentFolderId>
+          <parentFolderId>990f7d12-dff8-4c6b-8249-26de2ed7b9f0</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -314,13 +314,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="04e8f991-ab29-48f4-b92b-10b84f731160" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="339c31b7-6792-49c3-9012-6d41f0fce3f9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: UpdateAggregateRootCompositeManyBCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="6862e21f-0e47-4c13-9f1a-80dadd3955e3">
-            <typeId>9ede0738-c55b-42da-9a68-bc1804b361cd</typeId>
+          <typeReference id="fec3a8a5-160c-4f5a-87f7-02cea51956aa">
+            <typeId>9a009ab2-c86d-4dac-926e-f79068764394</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -331,7 +331,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>6267a2cc-941b-451d-aee5-6daf940c23f6</parentFolderId>
+          <parentFolderId>990f7d12-dff8-4c6b-8249-26de2ed7b9f0</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -350,13 +350,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="d11226cc-fcff-47fd-863a-af217eb8cdde" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="49c6ac65-c85c-4a52-a6f4-83a6d0de07e7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Delete</name>
       <display>Delete(id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="f969227e-3423-4b91-ba93-921701313187">
+      <typeReference id="0bd71ac0-813d-4bb7-a0e1-bff3db0dda59">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -371,10 +371,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d6edd137-4ecd-4fa9-b76f-b9478a2bbc33" name="DeleteAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+          <target id="803c8fff-a2d9-45ff-86a2-744fa253a2f9" name="DeleteAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>1067b849-e527-448c-9600-78d2cd8dbe28</parentFolderId>
+      <parentFolderId>a39e7fa9-ecbb-43a2-91dc-b980cc501f95</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -391,12 +391,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0830f316-885e-45f6-ad1d-c678172fd058" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="1485e475-0d1a-473c-8659-e20b1a3d2a29" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="bdc23c2f-c4b2-4939-8130-5172f83755e4">
+          <typeReference id="07d67551-77da-418f-81cc-01377908770a">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -412,10 +412,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="657f4b8a-4e2f-455c-a521-93a04e7f84cd" name="Id" type="element" specialization="DTO-Field" />
+              <target id="7afc2cd3-b7ff-479d-932b-ed63c45ff7d4" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>d11226cc-fcff-47fd-863a-af217eb8cdde</parentFolderId>
+          <parentFolderId>49c6ac65-c85c-4a52-a6f4-83a6d0de07e7</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>

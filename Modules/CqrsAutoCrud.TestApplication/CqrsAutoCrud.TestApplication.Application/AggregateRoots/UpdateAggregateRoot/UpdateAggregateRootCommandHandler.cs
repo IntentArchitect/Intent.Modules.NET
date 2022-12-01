@@ -64,7 +64,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
         private static void UpdateCompositesCompositeManyB(CompositeManyB entity, UpdateCompositeManyBDTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
-            entity.AAggregaterootId = dto.AAggregaterootId;
+            entity.AggregateRootId = dto.AAggregaterootId;
             entity.Composite = dto.Composite != null
                 ? (entity.Composite ?? new CompositeSingleBB()).UpdateObject(dto.Composite, UpdateCompositeCompositeSingleBB)
                 : null;

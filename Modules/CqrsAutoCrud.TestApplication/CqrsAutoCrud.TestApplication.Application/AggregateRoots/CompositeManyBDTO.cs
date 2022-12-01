@@ -47,6 +47,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CompositeManyB, CompositeManyBDTO>()
+                .ForMember(d => d.AAggregaterootId, opt => opt.MapFrom(src => src.AggregateRootId))
                 .ForMember(d => d.Composites, opt => opt.MapFrom(src => src.Composites));
         }
     }

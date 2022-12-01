@@ -76,7 +76,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             return new CompositeManyB
             {
                 CompositeAttr = dto.CompositeAttr,
-                AAggregaterootId = dto.AAggregaterootId,
+                AggregateRootId = dto.AAggregaterootId,
                 Composite = dto.Composite != null ? CreateCompositeCompositeSingleBB(dto.Composite) : null,
                 Composites = dto.Composites.Select(CreateCompositesCompositeManyBB).ToList(),
             };
