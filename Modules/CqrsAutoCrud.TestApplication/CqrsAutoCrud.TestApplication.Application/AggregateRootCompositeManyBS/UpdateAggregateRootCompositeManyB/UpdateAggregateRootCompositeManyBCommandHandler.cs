@@ -31,9 +31,14 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
             {
                 throw new InvalidOperationException($"{nameof(AggregateRoot)} of Id '{request.AggregateRootId}' could not be found");
             }
-            existingAggregateRoot.Composites = request.AggregateRootId != null
-            ? (existingAggregateRoot.Composites ?? new CompositeSingleA()).UpdateObject(request, UpdateCompositeCompositeSingleA)
-            : null;
+            var element = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);
+            if (element == null)
+            {
+                throw new InvalidOperationException($"{nameof(CompositeManyB)} of Id '{request.Id}' could not be found associated with {nameof(AggregateRoot)} of Id '{request.AggregateRootId}'");
+            }
+            element.CompositeAttr = request.CompositeAttr;
+            element.AggregateRootId = request.AggregateRootId;
+            element.SomeDate = request.SomeDate;
             return Unit.Value;
         }
     }

@@ -77,10 +77,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
 
                 var association = aggrRootOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
-                
-                codeLines.Add($@"existingAggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)} = request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)} != null");
-                codeLines.Add($@"? (existingAggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)} ?? new CompositeSingleA()).UpdateObject(request, UpdateCompositeCompositeSingleA)");
-                codeLines.Add($@": null;");
+
+                codeLines.Add($@"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.Id == request.Id);");
+                codeLines.Add($"if (element == null)");
+                codeLines.Add(new CSharpStatementBlock()
+                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.Id}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
+                codeLines.AddRange(GetDTOPropertyAssignments("element", "request", foundEntity, _template.Model.Properties, true));
 
                 codeLines.Add("return Unit.Value;");
 

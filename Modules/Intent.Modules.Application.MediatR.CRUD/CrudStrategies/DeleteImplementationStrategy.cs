@@ -67,6 +67,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {aggrRootOwner.Name}.");
                 }
+                
+                _template.AddUsing("System.Linq");
 
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
                 codeLines.Add($"if (aggregateRoot == null)");
@@ -74,13 +76,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
 
                 codeLines.Add("");
-                codeLines.Add($"var element = existingAggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);");
+                codeLines.Add($"var element = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);");
                 codeLines.Add($@"if (element == null)");
                 codeLines.Add(new CSharpStatementBlock()
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.Id}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
 
                 var association = aggrRootOwner.GetNestedCompositeAssociation(foundEntity);
-                codeLines.Add($@"existingAggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(element);");
+                codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(element);");
                 codeLines.Add("return Unit.Value;");
                 
                 return codeLines.ToList();

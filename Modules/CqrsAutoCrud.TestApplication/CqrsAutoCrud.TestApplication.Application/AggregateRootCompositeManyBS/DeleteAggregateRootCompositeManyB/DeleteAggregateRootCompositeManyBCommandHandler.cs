@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
@@ -31,12 +32,12 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
                 throw new InvalidOperationException($"{nameof(AggregateRoot)} of Id '{request.AggregateRootId}' could not be found");
             }
 
-            var element = existingAggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);
+            var element = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);
             if (element == null)
             {
                 throw new InvalidOperationException($"{nameof(CompositeManyB)} of Id '{request.Id}' could not be found associated with {nameof(AggregateRoot)} of Id '{request.AggregateRootId}'");
             }
-            existingAggregateRoot.Composites.Remove(element);
+            aggregateRoot.Composites.Remove(element);
             return Unit.Value;
         }
     }

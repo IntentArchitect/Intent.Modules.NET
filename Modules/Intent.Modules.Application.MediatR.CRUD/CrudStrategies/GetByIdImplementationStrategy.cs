@@ -70,6 +70,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {aggrRootOwner.Name}.");
                 }
                 
+                _template.AddUsing("System.Linq");
+                
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
                 codeLines.Add($"if (aggregateRoot == null)");
                 codeLines.Add(new CSharpStatementBlock()
