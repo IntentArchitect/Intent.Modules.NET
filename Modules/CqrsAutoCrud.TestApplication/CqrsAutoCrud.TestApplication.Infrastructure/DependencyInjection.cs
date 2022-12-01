@@ -27,6 +27,7 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure
             services.AddTransient<IAggregateRootRepository, AggregateRootRepository>();
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
             services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
+            services.AddTransient<IImplicitKeyAggrRootRepository, ImplicitKeyAggrRootRepository>();
             return services;
         }
     }

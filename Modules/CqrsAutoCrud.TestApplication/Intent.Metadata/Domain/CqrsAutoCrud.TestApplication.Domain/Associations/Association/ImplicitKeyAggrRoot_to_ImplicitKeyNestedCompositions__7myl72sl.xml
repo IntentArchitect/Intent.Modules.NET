@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0a02996e-e400-418e-9c78-7abeb3880b54">
+  <sourceEnd id="6d93e1a7-8b85-4f1c-a94f-f7cfedc1e81d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ImplicitKeyAggrRoot</name>
+    <display>ImplicitKeyAggrRoot: ImplicitKeyAggrRoot</display>
+    <order>0</order>
+    <typeReference id="7a861e7b-df5d-4ca2-bd42-fb85173dbf6c">
+      <typeId>25e8c436-a060-4119-9205-e7b4c0be5802</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="0a02996e-e400-418e-9c78-7abeb3880b54" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ImplicitKeyNestedCompositions</name>
+    <display>ImplicitKeyNestedCompositions: ImplicitKeyNestedComposition[*]</display>
+    <order>1</order>
+    <typeReference id="6370dee2-06e6-462d-8614-48f2bc3571ef">
+      <typeId>a58cc23f-3ac4-48b0-bc73-e2effeeb7a92</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CqrsAutoCrud.TestApplication.Domain</typePackageName>
+      <typePackageId>e729fe49-ffbf-46eb-a131-46e1d6af5855</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

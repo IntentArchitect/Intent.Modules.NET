@@ -25,6 +25,7 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
+        public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +39,7 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
+            modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

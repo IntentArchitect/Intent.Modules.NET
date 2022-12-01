@@ -62,7 +62,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var aggrRootOwner = foundEntity.GetAggregateRootOwner();
             if (aggrRootOwner != null)
             {
-                var aggregateRootField = _template.Model.Properties.GetForeignKeyFieldForAggregateRoot(aggrRootOwner);
+                var aggregateRootField = _template.Model.Properties.GetAggregateRootIdField(aggrRootOwner);
                 if (aggregateRootField == null)
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {aggrRootOwner.Name}.");
@@ -75,13 +75,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add(new CSharpStatementBlock()
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
 
+                var association = aggrRootOwner.GetNestedCompositeAssociation(foundEntity);
+                
                 codeLines.Add("");
-                codeLines.Add($"var element = aggregateRoot.Composites.FirstOrDefault(p => p.Id == request.Id);");
+                codeLines.Add($"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.Id == request.Id);");
                 codeLines.Add($@"if (element == null)");
                 codeLines.Add(new CSharpStatementBlock()
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.Id}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
-
-                var association = aggrRootOwner.GetNestedCompositeAssociation(foundEntity);
+                
                 codeLines.Add($@"aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.Remove(element);");
                 codeLines.Add("return Unit.Value;");
                 

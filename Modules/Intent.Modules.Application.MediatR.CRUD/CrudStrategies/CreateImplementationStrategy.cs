@@ -73,7 +73,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var aggrRootOwner = foundEntity.GetAggregateRootOwner();
             if (aggrRootOwner != null)
             {
-                var aggregateRootField = _template.Model.Properties.GetForeignKeyFieldForAggregateRoot(aggrRootOwner);
+                var aggregateRootField = _template.Model.Properties.GetAggregateRootIdField(aggrRootOwner);
                 if (aggregateRootField == null)
                 {
                     throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {aggrRootOwner.Name}.");

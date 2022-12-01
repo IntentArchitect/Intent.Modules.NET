@@ -48,7 +48,15 @@ static class ImplementationStrategyTemplatesExtensions
         return aggregateRootAssociation?.Class;
     }
 
-    public static DTOFieldModel GetForeignKeyFieldForAggregateRoot(this IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
+    public static DTOFieldModel GetAggregateRootIdField(this IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
+    {
+        var explicitKeyField = GetExplicitForeignKeyAggregateRootField(properties, aggregateRootOwner);
+        if (explicitKeyField != null) return explicitKeyField;
+        var implicitKeyField = GetImplicitForeignKeyAggregateRootField(properties, aggregateRootOwner);
+        return implicitKeyField;
+    }
+    
+    private static DTOFieldModel GetExplicitForeignKeyAggregateRootField(IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
     {
         var idField = properties
             .FirstOrDefault(p => 
@@ -56,7 +64,7 @@ static class ImplementationStrategyTemplatesExtensions
         return idField;
     }
 
-    public static DTOFieldModel GetImpliedAggregateRootId(this IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
+    private static DTOFieldModel GetImplicitForeignKeyAggregateRootField(IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
     {
         var idField = properties.FirstOrDefault(p => p.Name.Equals($"{aggregateRootOwner.Name}Id", StringComparison.OrdinalIgnoreCase));
         return idField;
