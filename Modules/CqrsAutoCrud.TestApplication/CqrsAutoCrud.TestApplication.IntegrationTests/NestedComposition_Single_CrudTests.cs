@@ -17,14 +17,17 @@ using Xunit.Abstractions;
 
 namespace CqrsAutoCrud.TestApplication.IntegrationTests;
 
+// This test class was used to explore the scenario for 1->1 associations
+// but since we're not going with this use case we won't be "needing" this anymore.
+// However, I'm keeping this just in case.
 [UsesVerify]
 public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<ApplicationDbContext, NestedComposition_Single_CrudTests>
 {
     public NestedComposition_Single_CrudTests(ITestOutputHelper outputHelper) : base(outputHelper)
     {
     }
-
-    [IgnoreOnCiBuildFact]
+    
+    //[IgnoreOnCiBuildFact]
     public async Task Test_CreateNestedCompositionCommand_NewComposition()
     {
         var aggregateRoot = new AggregateRoot();
@@ -50,7 +53,7 @@ public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<Applicat
         await Verifier.Verify(retrievedAggrRoot);
     }
     
-    [IgnoreOnCiBuildFact]
+    //[IgnoreOnCiBuildFact]
     public async Task Test_CreateNestedCompositionCommand_ExistingComposition()
     {
         var aggregateRoot = new AggregateRoot();
@@ -91,7 +94,7 @@ public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<Applicat
         await Verifier.Verify(retrievedAggrRoot);
     }
 
-    [IgnoreOnCiBuildFact]
+    //[IgnoreOnCiBuildFact]
     public async Task Test_CreateNestedCompositionCommand_AggregateRootNotFound()
     {
         var command = new CreateAggregateRootCompositeCommand();
@@ -111,7 +114,7 @@ public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<Applicat
         });
     }
 
-    [IgnoreOnCiBuildFact]
+    //[IgnoreOnCiBuildFact]
     public async Task Test_UpdateNestedCompositionCommand_NoComposition()
     {
         var aggregateRoot = new AggregateRoot();
@@ -137,7 +140,7 @@ public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<Applicat
         await Verifier.Verify(retrievedAggrRoot);
     }
     
-    [IgnoreOnCiBuildFact]
+    //[IgnoreOnCiBuildFact]
     public async Task Test_UpdateNestedCompositionCommand_ExistingComposition()
     {
         var aggregateRoot = new AggregateRoot();
@@ -178,7 +181,7 @@ public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<Applicat
         await Verifier.Verify(retrievedAggrRoot);
     }
     
-    [IgnoreOnCiBuildFact]
+    //[IgnoreOnCiBuildFact]
     public async Task Test_UpdateNestedCompositionCommand_AggregateRootNotFound()
     {
         var command = new UpdateAggregateRootCompositeCommand();
@@ -198,7 +201,7 @@ public class NestedComposition_Single_CrudTests : SharedDatabaseFixture<Applicat
         });
     }
 
-    [IgnoreOnCiBuildFact]
+    //[IgnoreOnCiBuildFact]
     public async Task Test_DeleteNestedComposititionCommand_ExistingComposition()
     {
         var aggregateRoot = new AggregateRoot();

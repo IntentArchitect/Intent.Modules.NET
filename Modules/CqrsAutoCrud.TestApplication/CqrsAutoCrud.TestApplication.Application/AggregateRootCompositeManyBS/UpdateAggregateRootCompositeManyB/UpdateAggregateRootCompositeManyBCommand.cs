@@ -19,5 +19,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
 
         public DateTime? SomeDate { get; set; }
 
+        public UpdateCompositeSingleBBDTO? Composite { get; set; }
+
+        public List<UpdateCompositeManyBBDTO> Composites { get; set; }
+
     }
 }

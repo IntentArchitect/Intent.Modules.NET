@@ -1,27 +1,25 @@
 using System;
-using AutoMapper;
-using CqrsAutoCrud.TestApplication.Application.Common.Mappings;
-using CqrsAutoCrud.TestApplication.Domain.Entities;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeMany
+namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS
 {
 
-    public class CompositeManyBBDTO : IMapFrom<CompositeManyBB>
+    public class UpdateCompositeManyBBDTO
     {
-        public CompositeManyBBDTO()
+        public UpdateCompositeManyBBDTO()
         {
         }
 
-        public static CompositeManyBBDTO Create(
+        public static UpdateCompositeManyBBDTO Create(
             Guid id,
             string compositeAttr,
             Guid aCompositeManyId)
         {
-            return new CompositeManyBBDTO
+            return new UpdateCompositeManyBBDTO
             {
                 Id = id,
                 CompositeAttr = compositeAttr,
@@ -35,9 +33,5 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeMany
 
         public Guid ACompositeManyId { get; set; }
 
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<CompositeManyBB, CompositeManyBBDTO>();
-        }
     }
 }

@@ -1,23 +1,24 @@
 using System;
+using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeMany
+namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS
 {
 
-    public class CreateCompositeSingleBBDTO
+    public class CompositeSingleBBDTO
     {
-        public CreateCompositeSingleBBDTO()
+        public CompositeSingleBBDTO()
         {
         }
 
-        public static CreateCompositeSingleBBDTO Create(
+        public static CompositeSingleBBDTO Create(
             Guid id,
             string compositeAttr)
         {
-            return new CreateCompositeSingleBBDTO
+            return new CompositeSingleBBDTO
             {
                 Id = id,
                 CompositeAttr = compositeAttr,
@@ -27,5 +28,6 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeMany
         public Guid Id { get; set; }
 
         public string CompositeAttr { get; set; }
+
     }
 }

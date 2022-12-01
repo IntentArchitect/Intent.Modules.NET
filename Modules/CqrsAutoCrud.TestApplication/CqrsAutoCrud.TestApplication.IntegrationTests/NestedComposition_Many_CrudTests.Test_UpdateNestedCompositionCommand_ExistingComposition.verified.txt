@@ -5,7 +5,7 @@
     {
       Id: Guid_2,
       CompositeAttr: New Nested Composition_1,
-      AAggregaterootId: Guid_1,
+      AggregateRootId: Guid_1,
       Composite: {
         Id: Guid_2,
         CompositeAttr: New Nested Composition_2
@@ -16,8 +16,7 @@
           CompositeAttr: New Nested Composition_3,
           A_Composite_ManyId: Guid_2
         }
-      ],
-      A_AggregateRootId: Guid_1
+      ]
     }
   ]
 }

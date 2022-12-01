@@ -22,6 +22,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
             RuleFor(v => v.CompositeAttr)
                 .NotNull();
 
+            RuleFor(v => v.Composites)
+                .NotNull();
+
         }
     }
 }

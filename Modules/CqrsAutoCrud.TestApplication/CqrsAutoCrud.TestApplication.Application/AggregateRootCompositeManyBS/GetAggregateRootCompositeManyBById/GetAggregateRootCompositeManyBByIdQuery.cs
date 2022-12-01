@@ -15,5 +15,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
 
         public Guid Id { get; set; }
 
+        public CompositeSingleBBDTO? Composite { get; set; }
+
+        public List<CompositeManyBBDTO> Composites { get; set; }
+
     }
 }

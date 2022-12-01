@@ -20,6 +20,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d167ac1f-9973-4682-b09a-9b5de39896fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/CompositeManyBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootCompositeManyBS/CompositeManyBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ac69e0ef-2e6e-410c-b3ba-da689167f1a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/CompositeSingleBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootCompositeManyBS/CompositeSingleBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#8910179a-76d1-4698-9b84-8e103162fc57</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommand.cs</ApplicationRelativeFilePath>
@@ -40,6 +56,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootCompositeManyBS/CreateAggregateRootCompositeManyB/CreateAggregateRootCompositeManyBCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#7df1be41-dc19-4e91-8052-0f86641c3ded</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/CreateCompositeManyBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootCompositeManyBS/CreateCompositeManyBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#68075e37-51bf-4de2-b58b-4adecbac5abb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/CreateCompositeSingleBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootCompositeManyBS/CreateCompositeSingleBBDTO.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -136,6 +168,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRootCompositeManyBS/UpdateAggregateRootCompositeManyB/UpdateAggregateRootCompositeManyBCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e7d9b50b-12b3-4c12-908d-77a5a69a4653</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/UpdateCompositeManyBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootCompositeManyBS/UpdateCompositeManyBBDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9f3a608a-6cbc-49d2-8b20-3daee7326a01</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6c4c1bd2-1790-477e-b972-d13c20cd2092</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CqrsAutoCrud.TestApplication.Application/AggregateRootCompositeManyBS/UpdateCompositeSingleBBDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootCompositeManyBS/UpdateCompositeSingleBBDTO.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

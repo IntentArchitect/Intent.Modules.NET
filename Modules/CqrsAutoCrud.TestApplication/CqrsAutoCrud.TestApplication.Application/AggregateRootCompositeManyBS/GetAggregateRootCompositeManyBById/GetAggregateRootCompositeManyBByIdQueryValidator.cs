@@ -19,6 +19,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            RuleFor(v => v.Composites)
+                .NotNull();
+
         }
     }
 }

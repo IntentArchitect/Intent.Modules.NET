@@ -36,11 +36,32 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
                 AggregateRootId = request.AggregateRootId,
                 CompositeAttr = request.CompositeAttr,
                 SomeDate = request.SomeDate,
+                Composite = request.Composite != null ? CreateCompositeCompositeSingleBB(request.Composite) : null,
+                Composites = request.Composites.Select(CreateCompositesCompositeManyBB).ToList(),
             };
 
             aggregateRoot.Composites.Add(newCompositeManyB);
             await _aggregateRootRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newCompositeManyB.Id;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private CompositeSingleBB CreateCompositeCompositeSingleBB(CreateCompositeSingleBBDTO dto)
+        {
+            return new CompositeSingleBB
+            {
+                CompositeAttr = dto.CompositeAttr,
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private CompositeManyBB CreateCompositesCompositeManyBB(CreateCompositeManyBBDTO dto)
+        {
+            return new CompositeManyBB
+            {
+                CompositeAttr = dto.CompositeAttr,
+                ACompositeManyId = dto.ACompositeManyId,
+            };
         }
     }
 }

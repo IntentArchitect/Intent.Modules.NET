@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CqrsAutoCrud.TestApplication.Domain.Common;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
 using CqrsAutoCrud.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -39,7 +40,24 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.
             element.CompositeAttr = request.CompositeAttr;
             element.AggregateRootId = request.AggregateRootId;
             element.SomeDate = request.SomeDate;
+            element.Composite = request.Composite != null
+                ? (element.Composite ?? new CompositeSingleBB()).UpdateObject(request.Composite, UpdateCompositeCompositeSingleBB)
+                : null;
+            element.Composites.UpdateCollection(request.Composites, (x, y) => x.Id == y.Id, UpdateCompositesCompositeManyBB);
             return Unit.Value;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static void UpdateCompositeCompositeSingleBB(CompositeSingleBB entity, UpdateCompositeSingleBBDTO dto)
+        {
+            entity.CompositeAttr = dto.CompositeAttr;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static void UpdateCompositesCompositeManyBB(CompositeManyBB entity, UpdateCompositeManyBBDTO dto)
+        {
+            entity.CompositeAttr = dto.CompositeAttr;
+            entity.ACompositeManyId = dto.ACompositeManyId;
         }
     }
 }
