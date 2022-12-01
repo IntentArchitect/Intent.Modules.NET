@@ -20,6 +20,7 @@
     {
       Id: Guid_3,
       CompositeAttr: Update Aggregate Root_8,
+      AggregateRootId: Guid_1,
       SomeDate: DateTime_1,
       Composite: {
         Id: Guid_3,
@@ -31,12 +32,12 @@
           CompositeAttr: Update Aggregate Root_10,
           A_Composite_ManyId: Guid_3
         }
-      ],
-      A_AggregateRootId: Guid_1
+      ]
     },
     {
       Id: Guid_5,
       CompositeAttr: Update Aggregate Root_11,
+      AggregateRootId: Guid_1,
       Composite: {
         Id: Guid_5,
         CompositeAttr: Update Aggregate Root_12
@@ -47,8 +48,7 @@
           CompositeAttr: Update Aggregate Root_13,
           A_Composite_ManyId: Guid_5
         }
-      ],
-      A_AggregateRootId: Guid_1
+      ]
     }
   ]
 }

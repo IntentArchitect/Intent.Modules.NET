@@ -20,7 +20,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
         public static UpdateCompositeManyBDTO Create(
             Guid id,
             string compositeAttr,
-            Guid aAggregaterootId,
+            Guid aggregateRootId,
             UpdateCompositeSingleBBDTO? composite,
             List<UpdateCompositeManyBBDTO> composites)
         {
@@ -28,7 +28,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
             {
                 Id = id,
                 CompositeAttr = compositeAttr,
-                AAggregaterootId = aAggregaterootId,
+                AggregateRootId = aggregateRootId,
                 Composite = composite,
                 Composites = composites,
             };
@@ -38,10 +38,10 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public string CompositeAttr { get; set; }
 
-        public Guid AAggregaterootId { get; set; }
-
         public UpdateCompositeSingleBBDTO? Composite { get; set; }
 
         public List<UpdateCompositeManyBBDTO> Composites { get; set; }
+
+        public Guid AggregateRootId { get; set; }
     }
 }

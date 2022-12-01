@@ -101,7 +101,7 @@ public class AggregateRootCrudTests : SharedDatabaseFixture<ApplicationDbContext
             UpdateCompositeManyBDTO.Create(
                 new Guid("0483ae48-4606-45ec-8ca4-66355aa5bbbf"),
                 command.AggregateAttr + "_6",
-                default,
+                command.Id,
                 UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_7"),
                 new List<UpdateCompositeManyBBDTO>
                 {
@@ -110,7 +110,7 @@ public class AggregateRootCrudTests : SharedDatabaseFixture<ApplicationDbContext
             UpdateCompositeManyBDTO.Create(
                 new Guid("d34db3c5-2db3-47e3-aa7c-1fb8b7cb52df"),
                 command.AggregateAttr + "_8",
-                default,
+                command.Id,
                 UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_9"),
                 new List<UpdateCompositeManyBBDTO>
                 {
@@ -119,7 +119,7 @@ public class AggregateRootCrudTests : SharedDatabaseFixture<ApplicationDbContext
             UpdateCompositeManyBDTO.Create(
                 default,
                 command.AggregateAttr + "_11",
-                default,
+                command.Id,
                 UpdateCompositeSingleBBDTO.Create(default, command.AggregateAttr + "_12"),
                 new List<UpdateCompositeManyBBDTO>
                 {
