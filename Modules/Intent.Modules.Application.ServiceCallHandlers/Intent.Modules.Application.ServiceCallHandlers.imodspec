@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceCallHandlers</id>
-  <version>3.3.6</version>
+  <version>4.0.0-pre.1</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Application Layer service call pattern that dispatches services calls to individual Service Call Handler classes.</summary>
   <description>Application Layer service call pattern that dispatches services calls to individual Service Call Handler classes.</description>
@@ -19,8 +19,8 @@
   </templates>
   <decorators />
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.11" />
-    <dependency id="Intent.Application.Contracts" version="3.3.8" />
+    <dependency id="Intent.Common" version="3.3.16-pre.0" />
+    <dependency id="Intent.Application.Contracts" version="4.0.0-pre.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>

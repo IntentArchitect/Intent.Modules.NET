@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageVersion>4.0.0-pre.1</PackageVersion>
+    <PackageVersion>4.0.0-pre.2</PackageVersion>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.23" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24-pre.2" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.5" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">

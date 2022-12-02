@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.MSAL</id>
-  <version>4.0.0-pre.0</version>
+  <version>4.0.0-pre.1</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>For generating code to secure your API services using the Microsoft Authentication Library and Azure Active Directory or Azure Active Directory B2C</summary>
   <description>For generating code to secure your API services using the Microsoft Authentication Library and Azure Active Directory or Azure Active Directory B2C</description>
@@ -34,12 +34,12 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.10" />
-    <dependency id="Intent.Common" version="3.3.10" />
-    <dependency id="Intent.Common.CSharp" version="3.3.6" />
-    <dependency id="Intent.Common.Types" version="3.3.1" />
+    <dependency id="Intent.AspNetCore" version="4.0.0-pre.2" />
+    <dependency id="Intent.Common" version="3.3.16-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.24-pre.2" />
+    <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.1" />
-    <dependency id="Intent.Application.Identity" version="3.3.5" />
+    <dependency id="Intent.Application.Identity" version="3.3.6" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
