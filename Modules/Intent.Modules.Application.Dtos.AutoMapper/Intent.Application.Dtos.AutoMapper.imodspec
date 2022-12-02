@@ -19,7 +19,7 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Application.AutoMapper" version="3.3.8-pre.1" />
+    <dependency id="Intent.Application.AutoMapper" version="4.0.0-pre.0" />
     <dependency id="Intent.Application.Dtos" version="3.3.8" />
     <dependency id="Intent.Common" version="3.3.15" />
     <dependency id="Intent.Common.CSharp" version="3.3.23" />

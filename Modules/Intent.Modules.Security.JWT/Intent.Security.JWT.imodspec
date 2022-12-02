@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>3.3.9-pre.0</version>
-  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
+  <version>4.0.0-pre.0</version>
+  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Configures API Service security authorization using JWT bearer tokens</summary>
   <description>Configures API Service security authorization using JWT bearer tokens</description>
   <authors>Intent.Modules.NET</authors>
