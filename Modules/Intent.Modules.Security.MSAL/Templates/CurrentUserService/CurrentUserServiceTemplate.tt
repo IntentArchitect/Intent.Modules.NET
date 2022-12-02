@@ -25,7 +25,7 @@ namespace <#= Namespace #>
 
         public <#= ClassName #>(IHttpContextAccessor httpContextAccessor, IAuthorizationService authorizationService)
         {
-            _claimsPrincipal = httpContextAccessor.HttpContext.User;
+            _claimsPrincipal = httpContextAccessor?.HttpContext?.User;
             _authorizationService = authorizationService;
         }
 
