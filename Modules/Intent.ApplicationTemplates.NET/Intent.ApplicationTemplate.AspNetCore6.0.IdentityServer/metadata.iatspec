@@ -33,6 +33,7 @@
           <modules>
             <module id="Intent.AspNetCore" version="4.0.0-pre.2" />
             <module id="Intent.IdentityServer4.SecureTokenServer" version="4.0.0-pre.2" />
+            <module id="Intent.Infrastructure.DependencyInjection" version="4.0.0-pre.2" />
           </modules>
           <dependencies />
         </component>

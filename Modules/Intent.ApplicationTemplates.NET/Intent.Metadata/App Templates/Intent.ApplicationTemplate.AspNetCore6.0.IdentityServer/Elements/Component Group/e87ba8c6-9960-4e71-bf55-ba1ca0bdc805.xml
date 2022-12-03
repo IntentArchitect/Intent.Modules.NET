@@ -92,6 +92,28 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="d0dab85a-3617-47df-b49d-b64af9b4fec1" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Infrastructure.DependencyInjection</name>
+          <display>Intent.Infrastructure.DependencyInjection</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e8a671f0-cc80-462b-9675-b9efae6d94a8</parentFolderId>
+          <packageId>28e0c27a-8dbb-4a31-9090-7a1ce7f30770</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.IdentityServer</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.0.0-pre.2" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>
