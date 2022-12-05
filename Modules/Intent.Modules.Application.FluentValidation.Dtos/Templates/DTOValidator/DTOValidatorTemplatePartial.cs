@@ -44,9 +44,11 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             {
                 if (property.HasValidations() && property.GetValidations().HasCustomValidation())
                 {
+                    AddUsing("System.Threading");
+                    AddUsing("System.Threading.Tasks");
                     yield return $@"
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        private bool Validate{property.Name.ToPascalCase()}({GetDtoModel()} model, {GetTypeName(property)} value)
+        private async Task<bool> Validate{property.Name.ToPascalCase()}Async({GetDtoModel()} model, {GetTypeName(property)} value, CancellationToken cancellationToken)
         {{
             throw new NotImplementedException(""Your custom validation rules here..."");
         }}";
