@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using AutoMapper;
-using CqrsAutoCrud.TestApplication.Application.Common.Mappings;
-using CqrsAutoCrud.TestApplication.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -38,10 +35,11 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public string CompositeAttr { get; set; }
 
+        public Guid AggregateRootId { get; set; }
+
         public UpdateCompositeSingleBBDTO? Composite { get; set; }
 
         public List<UpdateCompositeManyBBDTO> Composites { get; set; }
 
-        public Guid AggregateRootId { get; set; }
     }
 }

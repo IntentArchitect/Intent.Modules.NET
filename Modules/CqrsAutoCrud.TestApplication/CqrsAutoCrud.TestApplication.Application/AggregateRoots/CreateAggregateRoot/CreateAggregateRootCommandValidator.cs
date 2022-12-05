@@ -10,7 +10,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CreateAggregateRootCommandValidator : AbstractValidator<CreateAggregateRootCommand>
     {
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
         public CreateAggregateRootCommandValidator()
         {
             ConfigureValidationRules();

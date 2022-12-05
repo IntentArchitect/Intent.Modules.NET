@@ -10,7 +10,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.DeleteAggregat
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DeleteAggregateRootCommandValidator : AbstractValidator<DeleteAggregateRootCommand>
     {
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
         public DeleteAggregateRootCommandValidator()
         {
             ConfigureValidationRules();

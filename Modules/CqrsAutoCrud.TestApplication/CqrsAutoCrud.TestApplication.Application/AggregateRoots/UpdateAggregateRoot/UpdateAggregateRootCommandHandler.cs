@@ -8,7 +8,7 @@ using CqrsAutoCrud.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
 
 namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregateRoot
@@ -84,5 +84,4 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
             entity.ACompositeManyId = dto.ACompositeManyId;
         }
     }
-
 }

@@ -10,7 +10,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.GetAggregateRo
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetAggregateRootByIdQueryValidator : AbstractValidator<GetAggregateRootByIdQuery>
     {
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Merge)]
         public GetAggregateRootByIdQueryValidator()
         {
             ConfigureValidationRules();
