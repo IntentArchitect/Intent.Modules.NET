@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.Keys</id>
-  <version>4.0.0-pre.2</version>
-  <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
+  <version>4.0.0</version>
+  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>This module has been deprecated and can be safely removed.</summary>
   <description>This module has been deprecated and can be safely removed.</description>
   <authors>Intent Architect</authors>
@@ -11,7 +11,7 @@
   <templates></templates>
   <decorators></decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.16-pre.0" />
+    <dependency id="Intent.Common" version="3.3.16" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
   </dependencies>
   <files>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.Pagination</id>
-  <version>4.0.0-pre.1</version>
+  <version>4.0.0</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Enable Service Operations to expose a paginated interface for a DTO type</summary>
   <description>Enable Service Operations to expose a paginated interface for a DTO type</description>
@@ -33,8 +33,8 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Dtos" version="3.3.8" />
-    <dependency id="Intent.Common" version="3.3.16-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.24-pre.2" />
+    <dependency id="Intent.Common" version="3.3.16" />
+    <dependency id="Intent.Common.CSharp" version="3.3.24" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.Modelers.Services" version="3.3.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />

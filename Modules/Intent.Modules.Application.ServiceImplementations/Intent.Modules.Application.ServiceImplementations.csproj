@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.16-pre.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24-pre.2" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.16" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.5" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers.Interop.EntityFrameworkCore</id>
-  <version>4.0.0-pre.2</version>
+  <version>4.0.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Supplies Transactions and Unit of Work pattern to the ASP.NET Core Controllers</summary>
   <description>Supplies Transactions and Unit of Work pattern to the ASP.NET Core Controllers</description>
@@ -9,11 +9,11 @@
   <iconUrl>data:image/png;base64,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</iconUrl>
   <templates />
   <dependencies>
-    <dependency id="Intent.AspNetCore.Controllers" version="4.0.0-pre.2" />
-    <dependency id="Intent.Common" version="3.3.16-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.24-pre.2" />
+    <dependency id="Intent.AspNetCore.Controllers" version="4.0.0" />
+    <dependency id="Intent.Common" version="3.3.16" />
+    <dependency id="Intent.Common.CSharp" version="3.3.24" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.EntityFrameworkCore" version="4.0.0-pre.4" />
+    <dependency id="Intent.EntityFrameworkCore" version="4.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>
