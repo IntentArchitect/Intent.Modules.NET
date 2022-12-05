@@ -32,45 +32,5 @@
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
-    <FileLog>
-      <ProjectId>cb5d11be-3d7d-4a44-9bed-de47222bf8f4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#0d9602a9-ccfc-497a-ac9a-97654c1aab83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cb5d11be-3d7d-4a44-9bed-de47222bf8f4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate#0d9602a9-ccfc-497a-ac9a-97654c1aab83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cb5d11be-3d7d-4a44-9bed-de47222bf8f4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0d9602a9-ccfc-497a-ac9a-97654c1aab83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cb5d11be-3d7d-4a44-9bed-de47222bf8f4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#0d9602a9-ccfc-497a-ac9a-97654c1aab83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DbInitializationExtensions/DbInitializationExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbInitializationExtensions/DbInitializationExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cb5d11be-3d7d-4a44-9bed-de47222bf8f4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
   </FileLogs>
 </outputLog>
