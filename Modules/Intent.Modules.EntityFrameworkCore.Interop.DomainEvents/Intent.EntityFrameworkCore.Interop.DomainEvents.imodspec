@@ -22,6 +22,7 @@
     <dependency id="Intent.Common.CSharp" version="3.3.24-pre.2" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.EntityFrameworkCore" version="4.0.0-pre.4" />
+    <dependency id="Intent.DomainEvents" version="4.0.0-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
