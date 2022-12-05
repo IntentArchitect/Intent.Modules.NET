@@ -53,6 +53,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
             {
                 if (property.HasValidations() && property.GetValidations().HasCustomValidation())
                 {
+                    AddUsing("System.Threading");
                     AddUsing("System.Threading.Tasks");
                     yield return $@"
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
