@@ -1,5 +1,6 @@
 using Intent.Engine;
 using Intent.Modules.Application.FluentValidation.Templates.ValidationBehaviour;
+using Intent.Modules.Application.ServiceImplementations.FluentValidation.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.RoslynWeaver.Attributes;
@@ -33,6 +34,9 @@ namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Dec
                 .WithPriority(4)
                 .ForConcern("Application")
                 .HasDependency(_template));
+            _template.ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(_template.GetValidationProviderName())
+                .WithPriority(5)
+                .ForConcern("Application"));
         }
     }
 }

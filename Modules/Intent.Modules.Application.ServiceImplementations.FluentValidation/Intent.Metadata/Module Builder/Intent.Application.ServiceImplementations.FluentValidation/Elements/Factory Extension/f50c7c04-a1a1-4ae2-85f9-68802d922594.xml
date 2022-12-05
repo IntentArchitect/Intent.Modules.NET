@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f50c7c04-a1a1-4ae2-85f9-68802d922594" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>WebApiControllerInstallerFactoryExtension</name>
+  <display>WebApiControllerInstallerFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a65e7165-2ce6-4bc9-8392-18beeea61dec</parentFolderId>
+  <packageId>a65e7165-2ce6-4bc9-8392-18beeea61dec</packageId>
+  <packageName>Intent.Application.ServiceImplementations.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
