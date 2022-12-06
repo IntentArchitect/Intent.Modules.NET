@@ -146,7 +146,7 @@ function getServiceFromCurrentContext(entity, packageOrServiceElement) {
 
     // Must be a package. See if we can find an existing service with the name we expect.
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedServiceName = aggrRootOwner ? `${toPascalCase(aggrRootOwner.name)}${pluralize(toPascalCase(entity.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
+    let expectedServiceName = aggrRootOwner ? `${pluralize(toPascalCase(aggrRootOwner.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
     let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
     if (services.length &gt; 0) {
         return services[0];
@@ -178,7 +178,7 @@ function getReturnTypeMediatypeProperty(element) {
 
 function getEntityFolder(service, entity) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedFolderName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
+    let expectedFolderName = aggrRootOwner ? `${pluralize(aggrRootOwner.name)}` : pluralize(entity.name);
     var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
     var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
@@ -219,10 +219,10 @@ function createCqrsCreateOperation(entityFolder, entity) {
         }
         command.collapse();
 
-        let operation = createElement("Operation", "Post", service.id);
+        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": ""});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": (aggrRootOwner ? "[action]" : "")});
 
         let param = createElement("Parameter", "command", operation.id);
         param.typeReference.setType(command.id);
@@ -288,7 +288,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
         query.setMapping(entity.id);
         query.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", "Get", service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
         let aggrRootOwnerParamName = null;
@@ -309,7 +309,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
             }
         }
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/` : "")}{id}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}/` : "")}{id}`});
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
@@ -359,10 +359,10 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         
         query.collapse();
 
-        let operation = createElement("Operation", "Get", service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}` : "")}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}` : "")}`});
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
@@ -381,7 +381,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", "Put", service.id);
+        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
@@ -417,7 +417,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
             param.setMapping(aggrRootOwnerIdFieldId);
         }
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/` : "")}{id}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}/` : "")}{id}`});
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
@@ -455,7 +455,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", "Delete", service.id);
+        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
@@ -476,7 +476,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
             }
         }
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/` : "")}{id}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}/` : "")}{id}`});
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
@@ -1009,7 +1009,7 @@ function getServiceFromCurrentContext(entity, packageOrServiceElement) {
 
     // Must be a package. See if we can find an existing service with the name we expect.
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedServiceName = aggrRootOwner ? `${toPascalCase(aggrRootOwner.name)}${pluralize(toPascalCase(entity.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
+    let expectedServiceName = aggrRootOwner ? `${pluralize(toPascalCase(aggrRootOwner.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
     let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
     if (services.length &gt; 0) {
         return services[0];
@@ -1041,7 +1041,7 @@ function getReturnTypeMediatypeProperty(element) {
 
 function getEntityFolder(service, entity) {
     let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedFolderName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
+    let expectedFolderName = aggrRootOwner ? `${pluralize(aggrRootOwner.name)}` : pluralize(entity.name);
     var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
     var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
@@ -1082,10 +1082,10 @@ function createCqrsCreateOperation(entityFolder, entity) {
         }
         command.collapse();
 
-        let operation = createElement("Operation", "Post", service.id);
+        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": ""});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": (aggrRootOwner ? "[action]" : "")});
 
         let param = createElement("Parameter", "command", operation.id);
         param.typeReference.setType(command.id);
@@ -1151,7 +1151,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
         query.setMapping(entity.id);
         query.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", "Get", service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
         let aggrRootOwnerParamName = null;
@@ -1172,7 +1172,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
             }
         }
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/` : "")}{id}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}/` : "")}{id}`});
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
@@ -1222,10 +1222,10 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         
         query.collapse();
 
-        let operation = createElement("Operation", "Get", service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}` : "")}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}` : "")}`});
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
@@ -1244,7 +1244,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", "Put", service.id);
+        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
@@ -1280,7 +1280,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
             param.setMapping(aggrRootOwnerIdFieldId);
         }
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/` : "")}{id}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}/` : "")}{id}`});
 
         if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
             let idField = createElement("DTO-Field", "id", command.id);
@@ -1318,7 +1318,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", "Delete", service.id);
+        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
@@ -1339,7 +1339,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
             }
         }
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/` : "")}{id}`});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${(aggrRootOwnerParamName ? `[action]/{${aggrRootOwnerParamName}}/` : "")}{id}`});
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
