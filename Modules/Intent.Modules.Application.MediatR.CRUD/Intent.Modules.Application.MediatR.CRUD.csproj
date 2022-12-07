@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -22,5 +22,18 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
     <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\NewCSharp\NewCSharpTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NewCSharpTemplate.tt</DependentUpon>
+    </Compile></ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\NewCSharp\NewCSharpTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NewCSharpTemplate.cs</LastGenOutput>
+    </None></ItemGroup>
 
 </Project>
