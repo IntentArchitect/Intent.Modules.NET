@@ -208,7 +208,7 @@ function createCqrsCreateOperation(entityFolder, entity) {
                 field.setMapping(attribute.id);
             } else {
                 let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType())
+                field.typeReference.setType(getSurrogateKeyType());
             }
         }
 
@@ -219,7 +219,7 @@ function createCqrsCreateOperation(entityFolder, entity) {
         }
         command.collapse();
 
-        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": (aggrRootOwner ? pluralize(entity.name) : "")});
@@ -288,7 +288,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
         query.setMapping(entity.id);
         query.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
         let aggrRootOwnerParamName = null;
@@ -359,7 +359,7 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         
         query.collapse();
 
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
@@ -381,7 +381,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
@@ -455,7 +455,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
@@ -1071,7 +1071,7 @@ function createCqrsCreateOperation(entityFolder, entity) {
                 field.setMapping(attribute.id);
             } else {
                 let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType())
+                field.typeReference.setType(getSurrogateKeyType());
             }
         }
 
@@ -1082,7 +1082,7 @@ function createCqrsCreateOperation(entityFolder, entity) {
         }
         command.collapse();
 
-        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": (aggrRootOwner ? pluralize(entity.name) : "")});
@@ -1151,7 +1151,7 @@ function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
         query.setMapping(entity.id);
         query.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
         let aggrRootOwnerParamName = null;
@@ -1222,7 +1222,7 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         
         query.collapse();
 
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(query.id);
 
         setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
@@ -1244,7 +1244,7 @@ function createCqrsUpdateOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
@@ -1318,7 +1318,7 @@ function createCqrsDeleteOperation(entity, entityFolder) {
         command.setMapping(entity.id);
         command.setMetadata("baseName", baseName);
 
-        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(aggrRootOwner.name) : ""}`, service.id);
+        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
         let aggrRootOwnerParamName = null;
