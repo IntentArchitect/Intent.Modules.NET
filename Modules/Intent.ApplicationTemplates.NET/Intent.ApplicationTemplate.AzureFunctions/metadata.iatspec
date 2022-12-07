@@ -53,7 +53,6 @@
             <module id="Intent.AzureFunctions.FluentValidation" version="3.3.9" />
             <module id="Intent.Application.DependencyInjection.FluentValidation" version="3.3.8" />
             <module id="Intent.Application.FluentValidation.Dtos" version="3.3.6" />
-            <module id="Intent.Application.ServiceImplementations.FluentValidation" version="3.3.6" />
           </modules>
           <dependencies>
             <dependency id="3f5cd2b4-8b33-4bfa-af2c-7edc1b56ea70" name="Basic Service Implementation" />
