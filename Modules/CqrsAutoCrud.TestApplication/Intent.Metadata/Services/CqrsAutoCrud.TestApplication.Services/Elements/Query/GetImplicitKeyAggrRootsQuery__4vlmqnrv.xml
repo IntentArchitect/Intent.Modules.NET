@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1be74a46-148d-4484-a0ac-9e97f9601b35" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetImplicitKeyAggrRootsQuery</name>
+  <display>GetImplicitKeyAggrRootsQuery: ImplicitKeyAggrRootDTO[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="61822d9b-901c-4360-bf6c-f46b816ffab6">
+    <typeId>da0bcde7-67c7-42f3-bdb7-7ac5bd910ba6</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CqrsAutoCrud.TestApplication.Services</typePackageName>
+    <typePackageId>3554520d-6c89-4fd5-88ef-b984565d7741</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ec445a30-305d-4835-913e-0413cc026aa5</parentFolderId>
+  <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
+  <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="ImplicitKeyAggrRoots" />
+  </metadata>
+  <childElements />
+</class>

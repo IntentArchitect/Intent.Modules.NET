@@ -37,7 +37,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggr
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeOfAggrLongCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateCompositeOfAggrLongDTO dto)
+        private static void UpdateCompositeOfAggrLongCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateAggregateRootLongCompositeOfAggrLongDTO dto)
         {
             entity.Attribute = dto.Attribute;
         }

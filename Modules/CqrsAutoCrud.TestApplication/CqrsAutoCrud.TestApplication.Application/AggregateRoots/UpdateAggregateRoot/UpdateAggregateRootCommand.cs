@@ -13,13 +13,11 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
     {
         public Guid Id { get; set; }
 
+        public UpdateAggregateRootCompositeSingleADTO? Composite { get; set; }
+
+        public List<UpdateAggregateRootCompositeManyBDTO> Composites { get; set; }
+
         public string AggregateAttr { get; set; }
-
-        public UpdateCompositeSingleADTO? Composite { get; set; }
-
-        public List<UpdateCompositeManyBDTO> Composites { get; set; }
-
-        public UpdateAggregateSingleCDTO? Aggregate { get; set; }
 
     }
 }

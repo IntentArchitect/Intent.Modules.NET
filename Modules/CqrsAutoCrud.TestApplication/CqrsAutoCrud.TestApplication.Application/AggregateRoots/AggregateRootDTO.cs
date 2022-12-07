@@ -20,9 +20,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
         public static AggregateRootDTO Create(
             Guid id,
             string aggregateAttr,
-            CompositeSingleADTO? composite,
-            List<CompositeManyBDTO> composites,
-            AggregateSingleCDTO? aggregate)
+            AggregateRootCompositeSingleADTO? composite,
+            List<AggregateRootCompositeManyBDTO> composites,
+            AggregateRootAggregateSingleCDTO? aggregate)
         {
             return new AggregateRootDTO
             {
@@ -38,11 +38,11 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots
 
         public string AggregateAttr { get; set; }
 
-        public CompositeSingleADTO? Composite { get; set; }
+        public AggregateRootCompositeSingleADTO? Composite { get; set; }
 
-        public List<CompositeManyBDTO> Composites { get; set; }
+        public List<AggregateRootCompositeManyBDTO> Composites { get; set; }
 
-        public AggregateSingleCDTO? Aggregate { get; set; }
+        public AggregateRootAggregateSingleCDTO? Aggregate { get; set; }
 
         public void Mapping(Profile profile)
         {

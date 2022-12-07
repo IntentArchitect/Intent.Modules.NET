@@ -21,6 +21,7 @@
       Id: Guid_3,
       CompositeAttr: Create Aggregate Root_4,
       AggregateRootId: Guid_1,
+      SomeDate: DateTime_1,
       Composite: {
         Id: Guid_3,
         CompositeAttr: Create Aggregate Root_5

@@ -39,7 +39,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggr
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeOfAggrLong CreateCompositeOfAggrLongCompositeOfAggrLong(CreateCompositeOfAggrLongDTO dto)
+        private CompositeOfAggrLong CreateCompositeOfAggrLongCompositeOfAggrLong(CreateAggregateRootLongCompositeOfAggrLongDTO dto)
         {
             return new CompositeOfAggrLong
             {

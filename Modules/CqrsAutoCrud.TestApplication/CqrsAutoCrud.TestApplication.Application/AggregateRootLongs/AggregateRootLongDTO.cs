@@ -20,7 +20,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs
         public static AggregateRootLongDTO Create(
             long id,
             string attribute,
-            CompositeOfAggrLongDTO? compositeOfAggrLong)
+            AggregateRootLongCompositeOfAggrLongDTO? compositeOfAggrLong)
         {
             return new AggregateRootLongDTO
             {
@@ -32,9 +32,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs
 
         public long Id { get; set; }
 
-        public CompositeOfAggrLongDTO? CompositeOfAggrLong { get; set; }
-
         public string Attribute { get; set; }
+
+        public AggregateRootLongCompositeOfAggrLongDTO? CompositeOfAggrLong { get; set; }
 
         public void Mapping(Profile profile)
         {

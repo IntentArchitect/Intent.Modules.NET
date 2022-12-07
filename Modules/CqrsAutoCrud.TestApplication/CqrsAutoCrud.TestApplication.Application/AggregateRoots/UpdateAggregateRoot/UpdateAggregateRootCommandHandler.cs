@@ -33,12 +33,11 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
                 ? (existingAggregateRoot.Composite ?? new CompositeSingleA()).UpdateObject(request.Composite, UpdateCompositeCompositeSingleA)
                 : null;
             existingAggregateRoot.Composites.UpdateCollection(request.Composites, (x, y) => x.Id == y.Id, UpdateCompositesCompositeManyB);
-#warning Field not a composite association: Aggregate
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeCompositeSingleA(CompositeSingleA entity, UpdateCompositeSingleADTO dto)
+        private static void UpdateCompositeCompositeSingleA(CompositeSingleA entity, UpdateAggregateRootCompositeSingleADTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
             entity.Composite = dto.Composite != null
@@ -48,23 +47,24 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeCompositeSingleAA(CompositeSingleAA entity, UpdateCompositeSingleAADTO dto)
+        private static void UpdateCompositeCompositeSingleAA(CompositeSingleAA entity, UpdateAggregateRootCompositeSingleACompositeSingleAADTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositesCompositeManyAA(CompositeManyAA entity, UpdateCompositeManyAADTO dto)
+        private static void UpdateCompositesCompositeManyAA(CompositeManyAA entity, UpdateAggregateRootCompositeSingleACompositeManyAADTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
             entity.ACompositeSingleId = dto.ACompositeSingleId;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositesCompositeManyB(CompositeManyB entity, UpdateCompositeManyBDTO dto)
+        private static void UpdateCompositesCompositeManyB(CompositeManyB entity, UpdateAggregateRootCompositeManyBDTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
             entity.AggregateRootId = dto.AggregateRootId;
+            entity.SomeDate = dto.SomeDate;
             entity.Composite = dto.Composite != null
                 ? (entity.Composite ?? new CompositeSingleBB()).UpdateObject(dto.Composite, UpdateCompositeCompositeSingleBB)
                 : null;
@@ -72,13 +72,13 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeCompositeSingleBB(CompositeSingleBB entity, UpdateCompositeSingleBBDTO dto)
+        private static void UpdateCompositeCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositesCompositeManyBB(CompositeManyBB entity, UpdateCompositeManyBBDTO dto)
+        private static void UpdateCompositesCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
             entity.ACompositeManyId = dto.ACompositeManyId;

@@ -13,6 +13,6 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.CreateAggr
     {
         public string Attribute { get; set; }
 
-        public CreateCompositeOfAggrLongDTO? CompositeOfAggrLong { get; set; }
+        public CreateAggregateRootLongCompositeOfAggrLongDTO? CompositeOfAggrLong { get; set; }
     }
 }

@@ -38,6 +38,7 @@
       Id: Guid_5,
       CompositeAttr: Update Aggregate Root_11,
       AggregateRootId: Guid_1,
+      SomeDate: DateTime_2,
       Composite: {
         Id: Guid_5,
         CompositeAttr: Update Aggregate Root_12

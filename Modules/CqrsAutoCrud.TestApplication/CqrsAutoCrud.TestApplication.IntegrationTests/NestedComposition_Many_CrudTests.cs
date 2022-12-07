@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.CreateAggregateRootCompositeManyB;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.DeleteAggregateRootCompositeManyB;
-using CqrsAutoCrud.TestApplication.Application.AggregateRootCompositeManyBS.UpdateAggregateRootCompositeManyB;
+using CqrsAutoCrud.TestApplication.Application.AggregateRoots;
+using CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregateRootCompositeManyB;
+using CqrsAutoCrud.TestApplication.Application.AggregateRoots.DeleteAggregateRootCompositeManyB;
+using CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregateRootCompositeManyB;
 using CqrsAutoCrud.TestApplication.Domain.Entities;
 using CqrsAutoCrud.TestApplication.Infrastructure.Persistence;
 using CqrsAutoCrud.TestApplication.Infrastructure.Repositories;
@@ -35,10 +35,10 @@ public class NestedComposition_Many_CrudTests : SharedDatabaseFixture<Applicatio
         var command = new CreateAggregateRootCompositeManyBCommand();
         command.AggregateRootId = aggregateRoot.Id;
         command.CompositeAttr = "New Nested Composition_1";
-        command.Composite = CreateCompositeSingleBBDTO.Create("New Nested Composition_2");
-        command.Composites = new List<CreateCompositeManyBBDTO>
+        command.Composite = CreateAggregateRootCompositeManyBCompositeSingleBBDTO.Create("New Nested Composition_2");
+        command.Composites = new List<CreateAggregateRootCompositeManyBCompositeManyBBDTO>
         {
-            CreateCompositeManyBBDTO.Create("New Nested Composition_3", default)
+            CreateAggregateRootCompositeManyBCompositeManyBBDTO.Create("New Nested Composition_3", default)
         };
 
         var handler = new CreateAggregateRootCompositeManyBCommandHandler(new AggregateRootRepository(DbContext));
@@ -76,10 +76,10 @@ public class NestedComposition_Many_CrudTests : SharedDatabaseFixture<Applicatio
         var command = new CreateAggregateRootCompositeManyBCommand();
         command.AggregateRootId = aggregateRoot.Id;
         command.CompositeAttr = "New Nested Composition_4";
-        command.Composite = CreateCompositeSingleBBDTO.Create("New Nested Composition_5");
-        command.Composites = new List<CreateCompositeManyBBDTO>
+        command.Composite = CreateAggregateRootCompositeManyBCompositeSingleBBDTO.Create("New Nested Composition_5");
+        command.Composites = new List<CreateAggregateRootCompositeManyBCompositeManyBBDTO>
         {
-            CreateCompositeManyBBDTO.Create("New Nested Composition_6", default)
+            CreateAggregateRootCompositeManyBCompositeManyBBDTO.Create("New Nested Composition_6", default)
         };
 
         var handler = new CreateAggregateRootCompositeManyBCommandHandler(new AggregateRootRepository(DbContext));
@@ -97,10 +97,10 @@ public class NestedComposition_Many_CrudTests : SharedDatabaseFixture<Applicatio
         var command = new CreateAggregateRootCompositeManyBCommand();
         command.AggregateRootId = Guid.NewGuid();
         command.CompositeAttr = "New Nested Composition_4 - Create";
-        command.Composite = CreateCompositeSingleBBDTO.Create("New Nested Composition_5");
-        command.Composites = new List<CreateCompositeManyBBDTO>
+        command.Composite = CreateAggregateRootCompositeManyBCompositeSingleBBDTO.Create("New Nested Composition_5");
+        command.Composites = new List<CreateAggregateRootCompositeManyBCompositeManyBBDTO>
         {
-            CreateCompositeManyBBDTO.Create("New Nested Composition_6", default)
+            CreateAggregateRootCompositeManyBCompositeManyBBDTO.Create("New Nested Composition_6", default)
         };
 
         await Assert.ThrowsAsync<InvalidOperationException>(async () =>
@@ -123,10 +123,10 @@ public class NestedComposition_Many_CrudTests : SharedDatabaseFixture<Applicatio
         command.AggregateRootId = aggregateRoot.Id;
         command.Id = default;
         command.CompositeAttr = "New Nested Composition_1";
-        command.Composite = UpdateCompositeSingleBBDTO.Create(default, "New Nested Composition_2");
-        command.Composites = new List<UpdateCompositeManyBBDTO>
+        command.Composite = UpdateAggregateRootCompositeManyBCompositeSingleBBDTO.Create(default, "New Nested Composition_2");
+        command.Composites = new List<UpdateAggregateRootCompositeManyBCompositeManyBBDTO>
         {
-            UpdateCompositeManyBBDTO.Create(default, "New Nested Composition_3", default)
+            UpdateAggregateRootCompositeManyBCompositeManyBBDTO.Create(default, "New Nested Composition_3", default)
         };
 
         await Assert.ThrowsAsync<InvalidOperationException>(async () =>
@@ -164,10 +164,10 @@ public class NestedComposition_Many_CrudTests : SharedDatabaseFixture<Applicatio
         command.AggregateRootId = aggregateRoot.Id;
         command.Id = aggregateRoot.Composites.First().Id;
         command.CompositeAttr = "New Nested Composition_1";
-        command.Composite = UpdateCompositeSingleBBDTO.Create(default, "New Nested Composition_2");
-        command.Composites = new List<UpdateCompositeManyBBDTO>
+        command.Composite = UpdateAggregateRootCompositeManyBCompositeSingleBBDTO.Create(default, "New Nested Composition_2");
+        command.Composites = new List<UpdateAggregateRootCompositeManyBCompositeManyBBDTO>
         {
-            UpdateCompositeManyBBDTO.Create(default, "New Nested Composition_3", default)
+            UpdateAggregateRootCompositeManyBCompositeManyBBDTO.Create(default, "New Nested Composition_3", default)
         };
 
         var handler = new UpdateAggregateRootCompositeManyBCommandHandler(new AggregateRootRepository(DbContext));
@@ -185,10 +185,10 @@ public class NestedComposition_Many_CrudTests : SharedDatabaseFixture<Applicatio
         var command = new UpdateAggregateRootCompositeManyBCommand();
         command.AggregateRootId = Guid.NewGuid();
         command.CompositeAttr = "New Nested Composition_4 - Update";
-        command.Composite = UpdateCompositeSingleBBDTO.Create(default, "New Nested Composition_5");
-        command.Composites = new List<UpdateCompositeManyBBDTO>
+        command.Composite = UpdateAggregateRootCompositeManyBCompositeSingleBBDTO.Create(default, "New Nested Composition_5");
+        command.Composites = new List<UpdateAggregateRootCompositeManyBCompositeManyBBDTO>
         {
-            UpdateCompositeManyBBDTO.Create(default, "New Nested Composition_6", default)
+            UpdateAggregateRootCompositeManyBCompositeManyBBDTO.Create(default, "New Nested Composition_6", default)
         };
 
         await Assert.ThrowsAsync<InvalidOperationException>(async () =>

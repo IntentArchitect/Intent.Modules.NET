@@ -13,9 +13,9 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRootLongs.UpdateAggr
     {
         public long Id { get; set; }
 
-        public string Attribute { get; set; }
+        public UpdateAggregateRootLongCompositeOfAggrLongDTO? CompositeOfAggrLong { get; set; }
 
-        public UpdateCompositeOfAggrLongDTO? CompositeOfAggrLong { get; set; }
+        public string Attribute { get; set; }
 
     }
 }
