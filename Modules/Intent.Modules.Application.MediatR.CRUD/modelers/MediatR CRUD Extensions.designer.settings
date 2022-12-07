@@ -200,15 +200,21 @@ function createCqrsCreateOperation(entityFolder, entity) {
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
 
+        let aggrRootOwnerParamName = null;
+        let aggrRootOwnerIdFieldId = null;
         if (aggrRootOwner) {
             let attribute = getAggregateRootId(entity, aggrRootOwner);
             if (attribute) {
                 let field = createElement("DTO-Field", attribute.name, command.id);
                 field.typeReference.setType(attribute.typeReference.typeId)
                 field.setMapping(attribute.id);
+                aggrRootOwnerParamName = toCamelCase(attribute.name);
+                aggrRootOwnerIdFieldId = field.id;
             } else {
                 let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
                 field.typeReference.setType(getSurrogateKeyType());
+                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
+                aggrRootOwnerIdFieldId = field.id;
             }
         }
 
@@ -222,7 +228,13 @@ function createCqrsCreateOperation(entityFolder, entity) {
         let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": (aggrRootOwner ? pluralize(entity.name) : "")});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
+
+        if (aggrRootOwnerParamName) {
+            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
+            param.typeReference.setType(getSurrogateKeyType());
+            param.setMapping(aggrRootOwnerIdFieldId);
+        }
 
         let param = createElement("Parameter", "command", operation.id);
         param.typeReference.setType(command.id);
@@ -1063,15 +1075,21 @@ function createCqrsCreateOperation(entityFolder, entity) {
         let pkTypeId = getPrimaryKeyTypeId(entity);
         command.typeReference.setType(pkTypeId);
 
+        let aggrRootOwnerParamName = null;
+        let aggrRootOwnerIdFieldId = null;
         if (aggrRootOwner) {
             let attribute = getAggregateRootId(entity, aggrRootOwner);
             if (attribute) {
                 let field = createElement("DTO-Field", attribute.name, command.id);
                 field.typeReference.setType(attribute.typeReference.typeId)
                 field.setMapping(attribute.id);
+                aggrRootOwnerParamName = toCamelCase(attribute.name);
+                aggrRootOwnerIdFieldId = field.id;
             } else {
                 let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
                 field.typeReference.setType(getSurrogateKeyType());
+                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
+                aggrRootOwnerIdFieldId = field.id;
             }
         }
 
@@ -1085,7 +1103,13 @@ function createCqrsCreateOperation(entityFolder, entity) {
         let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
         operation.setMapping(command.id);
 
-        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": (aggrRootOwner ? pluralize(entity.name) : "")});
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
+
+        if (aggrRootOwnerParamName) {
+            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
+            param.typeReference.setType(getSurrogateKeyType());
+            param.setMapping(aggrRootOwnerIdFieldId);
+        }
 
         let param = createElement("Parameter", "command", operation.id);
         param.typeReference.setType(command.id);
