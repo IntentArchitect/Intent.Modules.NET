@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="311751db-14ae-473e-b9ce-38a650699f12" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="358433a1-c7d5-4de6-9f7e-62996afd4f99" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>ValidationService</name>
   <display>ValidationService: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="e84d6820-5a26-4445-8e10-3ac4069b37d6">
+  <typeReference id="b5181d9a-8826-4ffa-9035-ec761d2663f3">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>a65e7165-2ce6-4bc9-8392-18beeea61dec</parentFolderId>
-  <packageId>a65e7165-2ce6-4bc9-8392-18beeea61dec</packageId>
-  <packageName>Intent.Application.ServiceImplementations.FluentValidation</packageName>
+  <parentFolderId>f11bcf8c-0844-4ba4-bdae-79934c94a588</parentFolderId>
+  <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+  <packageName>Intent.AzureFunctions.FluentValidation</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

@@ -11,7 +11,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.FluentValidation.Templates.ValidationBehaviour
+namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.ValidationBehaviour
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class ValidationBehaviourTemplateRegistration : SingleFileTemplateRegistration

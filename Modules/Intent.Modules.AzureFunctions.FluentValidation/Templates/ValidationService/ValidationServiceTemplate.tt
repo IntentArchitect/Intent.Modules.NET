@@ -7,7 +7,6 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
-<#@ import namespace="Intent.Modules.Application.FluentValidation.Templates" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #>
+    public class <#= ClassName #> : <#= this.GetValidationServiceInterfaceName() #>
     {
         private readonly IServiceProvider _serviceProvider;
 
@@ -31,8 +30,17 @@ namespace <#= Namespace #>
 
         public async Task Handle<TRequest>(TRequest request, CancellationToken cancellationToken = default)
         {
-            var validationBehaviour = _serviceProvider.GetService<<#= this.GetValidationBehaviourName() #><TRequest>>();
-            await validationBehaviour.Handle(request, cancellationToken);
+            var validators = _serviceProvider.GetService<IEnumerable<IValidator<TRequest>>>();
+            if (validators.Any())
+            {
+                var context = new ValidationContext<TRequest>(request);
+
+                var validationResults = await Task.WhenAll(validators.Select(v => v.ValidateAsync(context, cancellationToken)));
+                var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
+
+                if (failures.Count != 0)
+                    throw new ValidationException(failures);
+            }
         }
     }
 }

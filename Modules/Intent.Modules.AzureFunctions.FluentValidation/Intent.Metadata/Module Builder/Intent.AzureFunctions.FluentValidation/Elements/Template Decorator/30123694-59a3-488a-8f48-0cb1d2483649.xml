@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="49f71a7c-e4f1-4ed4-936e-8c6b445bee05" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
+<class id="30123694-59a3-488a-8f48-0cb1d2483649" type="Template Decorator" typeId="f0f46278-29ea-42bd-9206-0e7034f623bc">
   <name>AzureFunctionFluentValidationDecorator</name>
   <display>AzureFunctionFluentValidationDecorator: AzureFunctionClassDecorator</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="d18ca6f7-5342-440d-a711-5ce7029d0d52">
+  <typeReference id="93e74c02-a943-48cf-9c9e-6dfaee18f83a">
     <typeId>0a702535-5bc6-45fb-8f1a-07aebd4c8426</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

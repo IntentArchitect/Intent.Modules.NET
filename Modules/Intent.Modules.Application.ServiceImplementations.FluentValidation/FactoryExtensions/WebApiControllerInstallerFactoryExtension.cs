@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.ServiceImplementations.FluentValidation.Templates.ValidationServiceInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
@@ -34,23 +35,23 @@ namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Fac
         {
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(
                 TemplateDependency.OnTemplate(Roles.Distribution.WebApi)).ToList();
-            
+
             foreach (var template in templates)
             {
-                var validationProviderName = template.GetTypeName("Application.Common.ValidatonProvider");
+                var validationProviderName = template.GetTypeName(ValidationServiceInterfaceTemplate.TemplateId);
                 var @class = template.CSharpFile.Classes.First();
-                @class.AddField(validationProviderName, "_validationProvider", x => x.PrivateReadOnly());
-                
+                @class.AddField(validationProviderName, "_validationService", x => x.PrivateReadOnly());
+
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(validationProviderName, "validationProvider");
-                ctor.AddStatement($"_validationProvider = validationProvider;");
+                ctor.AddParameter(validationProviderName, "validationService");
+                ctor.AddStatement($"_validationService = validationService;");
 
                 foreach (var method in @class.Methods)
                 {
                     var fromBodyParam = method.Parameters.FirstOrDefault(p => p.Attributes.Any(p => p.GetText("")?.Contains("FromBody") == true));
                     if (fromBodyParam != null)
                     {
-                        method.InsertStatement(0, $"await _validationProvider.Handle({fromBodyParam.Name}, cancellationToken);");
+                        method.InsertStatement(0, $"await _validationService.Handle({fromBodyParam.Name}, cancellationToken);");
                     }
                 }
             }

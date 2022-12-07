@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandValidator;
 using Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryValidator;
+using Intent.Modules.Application.MediatR.FluentValidation.Templates.ValidationBehaviour;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -29,6 +30,11 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates
         public static string GetQueryValidatorName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.QueryModel model)
         {
             return template.GetTypeName(QueryValidatorTemplate.TemplateId, model);
+        }
+
+        public static string GetValidationBehaviourName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(ValidationBehaviourTemplate.TemplateId);
         }
 
     }

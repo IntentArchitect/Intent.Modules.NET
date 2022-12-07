@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="0ab50f57-1452-4c8e-8f87-1a8621639fcc" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="fe0ca012-306a-407d-9622-4ccbdca8706d" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>ValidationBehaviour</name>
   <display>ValidationBehaviour: Single File</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
-  <typeReference id="24fe7f2b-d995-4356-9784-a3874d56739d">
+  <typeReference id="68c3346d-57a6-4342-96ec-9b4318dafb67">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -17,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>55856e5d-8217-4c17-8fbb-082ac75baaf5</parentFolderId>
-  <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
-  <packageName>Intent.Application.FluentValidation</packageName>
+  <parentFolderId>19ac3196-c353-44e0-ba44-2e1930175b1f</parentFolderId>
+  <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
+  <packageName>Intent.Application.MediatR.FluentValidation</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

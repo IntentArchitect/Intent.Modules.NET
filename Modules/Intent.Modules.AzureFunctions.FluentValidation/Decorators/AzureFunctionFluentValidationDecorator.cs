@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
-using Intent.Modules.Application.FluentValidation.Templates.ValidationBehaviour;
+using Intent.Modules.AzureFunctions.FluentValidation.Templates;
+using Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationServiceInterface;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
@@ -18,24 +19,26 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
     [IntentManaged(Mode.Merge)]
     public class AzureFunctionFluentValidationDecorator : AzureFunctionClassDecorator, IDecoratorExecutionHooks
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.AzureFunctions.FluentValidation.AzureFunctionFluentValidationDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.AzureFunctions.FluentValidation.AzureFunctionFluentValidationDecorator";
 
-        [IntentManaged(Mode.Fully)] private readonly AzureFunctionClassTemplate _template;
-        [IntentManaged(Mode.Fully)] private readonly IApplication _application;
+        [IntentManaged(Mode.Fully)]
+        private readonly AzureFunctionClassTemplate _template;
+        [IntentManaged(Mode.Fully)]
+        private readonly IApplication _application;
 
         private readonly string _requestDtoTypeName;
-
+        
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionFluentValidationDecorator(AzureFunctionClassTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-            
             _requestDtoTypeName = _template.Model.GetRequestDtoParameter() != null
                 ? _template.GetTypeName(_template.Model.GetRequestDtoParameter().TypeReference)
                 : null;
         }
-
+        
         public void BeforeTemplateExecution()
         {
             if (_requestDtoTypeName == null)
@@ -48,7 +51,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 return;
             }
 
-            var templateDependency = TemplateDependency.OnTemplate(ValidationBehaviourTemplate.TemplateId);
+            var templateDependency = TemplateDependency.OnTemplate(ValidationServiceInterfaceTemplate.TemplateId);
             var template = _template.GetTemplate<IClassProvider>(templateDependency);
             if (template != null)
             {
@@ -70,7 +73,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 yield break;
             }
 
-            yield return $"private readonly ValidationBehaviour<{_requestDtoTypeName}> _validation;";
+            yield return $"private readonly {_template.GetValidationServiceInterfaceName()} _validation;";
         }
 
         public override IEnumerable<string> GetConstructorParameterDefinitionList()
@@ -85,7 +88,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 yield break;
             }
 
-            yield return $"ValidationBehaviour<{_requestDtoTypeName}> validation";
+            yield return $"{_template.GetValidationServiceInterfaceName()} validation";
         }
 
         public override IEnumerable<string> GetConstructorBodyStatementList()

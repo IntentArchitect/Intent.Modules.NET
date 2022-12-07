@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Templates.ValidationProvider
+namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationServiceInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ValidationProviderTemplateRegistration : SingleFileTemplateRegistration
+    public class ValidationServiceInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => ValidationProviderTemplate.TemplateId;
+        public override string TemplateId => ValidationServiceInterfaceTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new ValidationProviderTemplate(outputTarget);
+            return new ValidationServiceInterfaceTemplate(outputTarget);
         }
     }
 }

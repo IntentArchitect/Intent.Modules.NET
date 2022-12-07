@@ -1,4 +1,4 @@
-<#@ template language="C#" inherits="CSharpTemplateBase<object, Intent.Modules.Application.FluentValidation.Templates.ValidationBehaviour.ValidationBehaviourContract>" #>
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -12,12 +12,14 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace <#= Namespace #>
 {
-    public class <#= ClassName #><#= GetGenericTypeParameters() #><#= GetInheritanceDeclarations() #><#= GetGenericTypeConstraints() #>
+    public class <#= ClassName #><TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> 
+        where TRequest : IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -26,7 +28,7 @@ namespace <#= Namespace #>
             _validators = validators;
         }
 
-        public async <#= GetHandleReturnType() #> Handle(<#= GetHandleParameterList() #>)
+        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             if (_validators.Any())
             {
@@ -36,9 +38,9 @@ namespace <#= Namespace #>
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
                 if (failures.Count != 0)
-                    throw new <#= GetValidationException() #>(failures);
+                    throw new ValidationException(failures);
             }
-            <#= GetHandleExitStatementList() #>
+            return await next();
         }
     }
 }

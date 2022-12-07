@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.FluentValidation</id>
-  <version>4.0.0</version>
+  <version>4.0.1-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Commands and Queries</summary>
   <description>Provides support for specifying fluent validation on Commands and Queries</description>
@@ -24,13 +24,19 @@
       <role>Application.Validation</role>
       <location></location>
     </template>
+    <template id="Intent.Application.MediatR.FluentValidation.ValidationBehaviour" externalReference="fe0ca012-306a-407d-9622-4ccbdca8706d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common.ValidationBehaviour</role>
+      <location>Common/Behaviours</location>
+    </template>
   </templates>
-  <decorators>
-    <decorator id="Intent.Application.MediatR.FluentValidation.ValidatorBehaviourDecorator" externalReference="8d535240-4446-407c-8103-4b9bc782c778" />
-  </decorators>
+  <decorators />
   <factoryExtensions></factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation" version="3.3.6" />
+    <dependency id="Intent.Application.FluentValidation" version="3.4.0-pre.0" />
     <dependency id="Intent.Application.MediatR" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.16" />
     <dependency id="Intent.Common.CSharp" version="3.3.24" />

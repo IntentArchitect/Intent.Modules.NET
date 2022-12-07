@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,6 +18,30 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.FluentValidation\Intent.Modules.Application.FluentValidation.csproj" />
     <ProjectReference Include="..\Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\ValidationService\ValidationServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ValidationServiceInterface\ValidationServiceInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationServiceInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\ValidationService\ValidationServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ValidationServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ValidationServiceInterface\ValidationServiceInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ValidationServiceInterfaceTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

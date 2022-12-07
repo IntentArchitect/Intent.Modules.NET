@@ -9,15 +9,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Templates.ValidationProvider
+namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationServiceInterface
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class ValidationProviderTemplate : CSharpTemplateBase<object>
+    partial class ValidationServiceInterfaceTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Application.ServiceImplementations.FluentValidation.ValidationProvider";
+        public const string TemplateId = "Intent.AzureFunctions.FluentValidation.ValidationServiceInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public ValidationProviderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public ValidationServiceInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
@@ -25,7 +25,7 @@ namespace Intent.Modules.Application.ServiceImplementations.FluentValidation.Tem
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"ValidationProvider",
+                className: $"IValidationService",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

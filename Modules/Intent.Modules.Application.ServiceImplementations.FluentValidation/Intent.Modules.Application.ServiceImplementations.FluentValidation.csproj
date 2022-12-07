@@ -26,12 +26,30 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ValidationProviderTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\ValidationService\ValidationServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ValidationServiceInterface\ValidationServiceInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationServiceInterfaceTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Templates\ValidationProvider\ValidationProviderTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationProviderTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ValidationService\ValidationServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ValidationServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ValidationServiceInterface\ValidationServiceInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ValidationServiceInterfaceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
