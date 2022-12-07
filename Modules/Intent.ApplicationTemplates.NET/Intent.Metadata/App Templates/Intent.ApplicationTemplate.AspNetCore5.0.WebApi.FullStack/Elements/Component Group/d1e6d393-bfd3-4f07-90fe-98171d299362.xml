@@ -214,28 +214,6 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="645139ff-997d-4a61-bdaf-272126704db7" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Application.FluentValidation</name>
-          <display>Intent.Application.FluentValidation</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>da60d1e0-e82b-40ca-861a-7b9774d585d3</parentFolderId>
-          <packageId>ae95e070-1305-4206-a8ea-e607ffe5f301</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.6" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="b5fc13d9-8b30-4462-b29d-3bdea9025e3d" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.FluentValidation.Dtos</name>
           <display>Intent.Application.FluentValidation.Dtos</display>
@@ -273,7 +251,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.6" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.0.0-pre.0" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
