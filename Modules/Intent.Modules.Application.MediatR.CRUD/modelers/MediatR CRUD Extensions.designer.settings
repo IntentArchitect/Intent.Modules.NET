@@ -595,7 +595,7 @@ function ensureDtoFields(mappedElement, dto) {
         dtoUpdated = true;
     }
 
-    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key"))[0];
+    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key") || x.getName().toLowerCase() === "id")[0];
     if (!isCreateMode &amp;&amp; !explicitPk) {
         let field = createElement("DTO-Field", "id", dto.id);
         field.typeReference.setType(getSurrogateKeyType());
@@ -780,7 +780,7 @@ function ensureDtoFields(mappedElement, dto) {
         dtoUpdated = true;
     }
 
-    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key"))[0];
+    let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key") || x.getName().toLowerCase() === "id")[0];
     if (!isCreateMode &amp;&amp; !explicitPk) {
         let field = createElement("DTO-Field", "id", dto.id);
         field.typeReference.setType(getSurrogateKeyType());

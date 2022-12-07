@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="817f2044-f05f-4ce9-9a7f-272e9bf8f5f7" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
-  <name>DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand</name>
-  <display>DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand: void</display>
+<class id="e2dc4969-c26c-469d-9b5e-62729f9759c9" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreateImplicitKeyAggrRootCommand</name>
+  <display>CreateImplicitKeyAggrRootCommand: guid</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="855b6b52-b956-4029-a532-71d0b0a910bc">
+  <typeReference id="e16031d7-85ce-4ac6-9464-6cb4d91c3347">
+    <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
@@ -20,24 +23,24 @@
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="a58cc23f-3ac4-48b0-bc73-e2effeeb7a92" name="ImplicitKeyNestedComposition" type="element" specialization="Class" />
+      <target id="25e8c436-a060-4119-9205-e7b4c0be5802" name="ImplicitKeyAggrRoot" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
-  <parentFolderId>ec445a30-305d-4835-913e-0413cc026aa5</parentFolderId>
+  <parentFolderId>40793ff7-76c5-4d22-aada-8a904e9516ca</parentFolderId>
   <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
   <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
   <stereotypes />
   <metadata>
-    <entry key="baseName" value="ImplicitKeyAggrRootImplicitKeyNestedComposition" />
+    <entry key="baseName" value="ImplicitKeyAggrRoot" />
   </metadata>
   <childElements>
-    <childElement id="9d54f12e-5833-4989-8c06-c7f526828ed0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>ImplicitKeyAggrRootId</name>
-      <display>ImplicitKeyAggrRootId: guid</display>
+    <childElement id="e819a0ca-31e9-4831-8657-bc67d91b9f12" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>Attribute</name>
+      <display>Attribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="3bdac44a-cd21-4ab3-8652-00505dbb9b69">
-        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+      <typeReference id="d5229dee-1ded-42e3-ba9f-d060182b767c">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -47,8 +50,15 @@
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>817f2044-f05f-4ce9-9a7f-272e9bf8f5f7</parentFolderId>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="10e474d3-039c-4e8e-8816-7eca845e79b4" name="Attribute" type="element" specialization="Attribute" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>e2dc4969-c26c-469d-9b5e-62729f9759c9</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -60,8 +70,8 @@
             <property name="d144e1aa-b506-407a-b60b-716ce38b70bb" display="Not Empty" value="false" isActive="true" />
             <property name="8d844d65-bf88-4023-85e1-4d3d7f8784cd" display="Equal" isActive="true" />
             <property name="490e08cd-5fb4-4bfd-80cf-fda3b88f745e" display="Not Equal" isActive="true" />
-            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="false" />
-            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
+            <property name="c94dc001-4ec7-42a0-a1e0-5b75502e7bec" display="Min Length" isActive="true" />
+            <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
@@ -73,24 +83,31 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="a034be67-362c-4af0-897c-2403d707e989" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>id</name>
-      <display>id: guid</display>
+    <childElement id="0539e7db-09a1-4cea-881e-4bde1f4e6e34" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>ImplicitKeyNestedCompositions</name>
+      <display>ImplicitKeyNestedCompositions: CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDTO[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="8e8f12e1-2e60-471b-bb49-644b39da8304">
-        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+      <typeReference id="5a64699b-f1b5-4cbc-93af-a28872e1fa65">
+        <typeId>483c3310-39e6-4fc6-98ca-1ff15cd05533</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
+        <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <typePackageName>CqrsAutoCrud.TestApplication.Services</typePackageName>
+        <typePackageId>3554520d-6c89-4fd5-88ef-b984565d7741</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>817f2044-f05f-4ce9-9a7f-272e9bf8f5f7</parentFolderId>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="0a02996e-e400-418e-9c78-7abeb3880b54" name="ImplicitKeyNestedCompositions" type="association" specialization="Association" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>e2dc4969-c26c-469d-9b5e-62729f9759c9</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="78ab8ead-031d-43b8-8e5c-828e667bfdb3" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+<class id="c59fdf34-9325-4dcd-84f4-995e80c0c42c" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
   <name>ImplicitKeyAggrRootsService</name>
   <display>ImplicitKeyAggrRootsService</display>
   <isAbstract>false</isAbstract>
@@ -21,13 +21,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="681a2432-9986-4fea-bf28-ede1ceb84038" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="c3ad971b-3e14-4adc-8c58-6be642073705" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Post</name>
       <display>Post(command: CreateImplicitKeyAggrRootCommand): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="39ba7671-061f-40bc-b123-6a4525c9ee93">
+      <typeReference id="573f0119-c396-4437-9da8-215f2c5873e8">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -45,10 +45,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5b455592-e241-4261-a034-0146c0165c4f" name="CreateImplicitKeyAggrRootCommand" type="element" specialization="Command" />
+          <target id="e2dc4969-c26c-469d-9b5e-62729f9759c9" name="CreateImplicitKeyAggrRootCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -65,13 +65,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d2b36c17-63b8-4f1d-a710-78bcc9b7a263" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="de35c8a7-6a9f-4384-b03e-03f84ab35b49" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: CreateImplicitKeyAggrRootCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="9cfb4a31-a547-4c59-ada4-a5596992d5e7">
-            <typeId>5b455592-e241-4261-a034-0146c0165c4f</typeId>
+          <typeReference id="a3fc43e3-fa23-401d-a8df-0bef99cf3163">
+            <typeId>e2dc4969-c26c-469d-9b5e-62729f9759c9</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -82,7 +82,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>681a2432-9986-4fea-bf28-ede1ceb84038</parentFolderId>
+          <parentFolderId>c3ad971b-3e14-4adc-8c58-6be642073705</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -101,14 +101,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="11970049-0b94-4ff6-8558-ca3dc6ba2cba" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="bb91f6ca-0652-423a-8705-0f4d08ef1e1b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Get</name>
       <display>Get(id: guid): ImplicitKeyAggrRootDTO</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="3ea49ef8-3b40-4a9e-8a43-d77b5a89e107">
-        <typeId>da0bcde7-67c7-42f3-bdb7-7ac5bd910ba6</typeId>
+      <typeReference id="a3349c2b-9c5d-41c3-8fcf-9193c2253f6a">
+        <typeId>780bab74-2273-4bc8-b5d1-ff48213af582</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -125,10 +125,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b239e280-69b2-451e-81eb-cf6255de6005" name="GetImplicitKeyAggrRootByIdQuery" type="element" specialization="Query" />
+          <target id="814df678-f6c6-4abf-87ab-89060e853016" name="GetImplicitKeyAggrRootByIdQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -145,12 +145,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="99925133-1fde-4006-9a8b-db4ea721a3f0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="998c54f6-3f5c-4319-a250-277432d5fb10" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="3d59dfaa-c7be-45da-894e-5580de7ae557">
+          <typeReference id="ccd2dd36-a771-4fa3-8e02-5aed7ea23f35">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -166,10 +166,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="29b481bc-998c-4240-adc3-1193cbbc5fe6" name="id" type="element" specialization="DTO-Field" />
+              <target id="b2d6d373-2ad2-4935-90e2-70dd10886d45" name="id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>11970049-0b94-4ff6-8558-ca3dc6ba2cba</parentFolderId>
+          <parentFolderId>bb91f6ca-0652-423a-8705-0f4d08ef1e1b</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -188,13 +188,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="4d87a0fc-99ef-4346-b0f4-77174775c00f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="d498a052-eab2-4082-ab22-9c4492c1ab48" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Get</name>
       <display>Get(): ImplicitKeyAggrRootDTO[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="6a3dad15-24ab-4c8e-ab14-349812b30815">
-        <typeId>da0bcde7-67c7-42f3-bdb7-7ac5bd910ba6</typeId>
+      <typeReference id="5663fef4-3a63-42a6-9af0-9deebe67ac9e">
+        <typeId>780bab74-2273-4bc8-b5d1-ff48213af582</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -211,10 +211,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1be74a46-148d-4484-a0ac-9e97f9601b35" name="GetImplicitKeyAggrRootsQuery" type="element" specialization="Query" />
+          <target id="c0e346f5-d19b-4668-a3af-295a2646e0df" name="GetImplicitKeyAggrRootsQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -232,13 +232,13 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="9ef79e9a-5221-4fbd-9888-6d4d876db2b0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="6068a2d8-7eb4-460e-8c61-23a931ad129b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Put</name>
       <display>Put(id: guid, command: UpdateImplicitKeyAggrRootCommand): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="0c946c5d-02ec-4445-bb42-bc63f8407b3a">
+      <typeReference id="9df40d82-c321-4696-a085-606669326f89">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -253,10 +253,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7dab5d78-74b9-40bd-9e6c-2398ed1b7520" name="UpdateImplicitKeyAggrRootCommand" type="element" specialization="Command" />
+          <target id="201145bd-d26c-4b8e-9a68-2e40756d99a5" name="UpdateImplicitKeyAggrRootCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -273,12 +273,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="31a45c29-5be1-435a-9913-b43503add565" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="16e21e4e-f3e1-490b-94e3-0416391bb67b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="0777fea0-a434-4e67-8994-77bab6119a87">
+          <typeReference id="1cde1443-cd89-4cd9-a935-7d0f3e70071e">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -294,10 +294,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="d017f61a-df4f-45d0-b361-b106a2411793" name="id" type="element" specialization="DTO-Field" />
+              <target id="b2a1151a-3b8a-44bf-bb8a-78e2ae2cd45e" name="id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>9ef79e9a-5221-4fbd-9888-6d4d876db2b0</parentFolderId>
+          <parentFolderId>6068a2d8-7eb4-460e-8c61-23a931ad129b</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -314,13 +314,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="330bbb19-1e18-448c-bea2-304dea7fb2a0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="2aabd66c-70a3-4033-81cf-1da2cfd85149" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: UpdateImplicitKeyAggrRootCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="12de5430-3c4f-49f9-877e-3f576e7a510c">
-            <typeId>7dab5d78-74b9-40bd-9e6c-2398ed1b7520</typeId>
+          <typeReference id="5f6471d0-b62e-4281-bbcd-7bdf1590edaf">
+            <typeId>201145bd-d26c-4b8e-9a68-2e40756d99a5</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -331,7 +331,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>9ef79e9a-5221-4fbd-9888-6d4d876db2b0</parentFolderId>
+          <parentFolderId>6068a2d8-7eb4-460e-8c61-23a931ad129b</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -350,13 +350,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="0976d688-ebee-4204-bd96-7bc4b8c3f1e7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="1ed0e7d1-d1dd-4c05-a684-657eb7bd3abf" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Delete</name>
       <display>Delete(id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="174e6ba9-5ad3-45b1-8f35-c2375e1d0682">
+      <typeReference id="6add13eb-1589-4d9a-9aea-526f805f3bf9">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -371,10 +371,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f3a14985-07dc-4a21-a817-011dda194bba" name="DeleteImplicitKeyAggrRootCommand" type="element" specialization="Command" />
+          <target id="34003df2-ada1-48dc-957d-1f4f6e3edced" name="DeleteImplicitKeyAggrRootCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -391,12 +391,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="08238a73-b227-4127-b8a1-9eef4edd5d53" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="5d80b8b7-d1c5-4ee4-b57a-ff3f5d80e2c3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="5775b6be-2b4b-4918-9702-41df6a370ea6">
+          <typeReference id="e9d315ff-aa8a-409b-961a-5d8a80f5f9ed">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -412,10 +412,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="d8e6a294-ea6e-49ed-a6b3-7d9b9f9c625f" name="id" type="element" specialization="DTO-Field" />
+              <target id="1fa587af-819b-4aca-961e-a8a7e9f9e831" name="id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>0976d688-ebee-4204-bd96-7bc4b8c3f1e7</parentFolderId>
+          <parentFolderId>1ed0e7d1-d1dd-4c05-a684-657eb7bd3abf</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -434,13 +434,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="5f5f1d60-1b1f-4f14-ac52-d8606d7e8ced" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="04306d66-4a2e-4ccf-9220-c64dbfad9b40" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>PostImplicitKeyNestedCompositions</name>
       <display>PostImplicitKeyNestedCompositions(implicitKeyAggrRootId: guid, command: CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="c3bf3e6a-d463-45a1-b301-bf392af7363a">
+      <typeReference id="264f8093-8cc8-4d46-a812-f0118539b2c2">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -458,10 +458,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b6191ef3-826a-45c5-86c5-5dc5b58abd03" name="CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
+          <target id="d62f8331-4a85-4f64-bdc8-57a661f2f91e" name="CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -478,12 +478,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f03ac77d-4ae0-4dce-a51b-66278ef0ff5d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="84571e38-8f00-4b67-8b28-04bd33ab42d6" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>implicitKeyAggrRootId</name>
           <display>in : implicitKeyAggrRootId: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="17a42494-4640-4acd-aeda-d655b01a5f32">
+          <typeReference id="ca33e13c-e675-473f-a524-a5e996a2b2c4">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -499,10 +499,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="b35b5a61-5b2c-4564-ad06-6ccb68fae697" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+              <target id="ece2b86e-b278-402e-9d26-47da900295bf" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>5f5f1d60-1b1f-4f14-ac52-d8606d7e8ced</parentFolderId>
+          <parentFolderId>04306d66-4a2e-4ccf-9220-c64dbfad9b40</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -519,13 +519,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="05122596-1ba8-42ab-b5c5-948dca139d46" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="6205f316-172f-4ca4-ae0f-b39a825b0057" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="cb3d503a-24e7-413f-bc6f-9fb0c526584a">
-            <typeId>b6191ef3-826a-45c5-86c5-5dc5b58abd03</typeId>
+          <typeReference id="600c94ed-4459-4ad1-b3ca-beeb6effe4e8">
+            <typeId>d62f8331-4a85-4f64-bdc8-57a661f2f91e</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -536,7 +536,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>5f5f1d60-1b1f-4f14-ac52-d8606d7e8ced</parentFolderId>
+          <parentFolderId>04306d66-4a2e-4ccf-9220-c64dbfad9b40</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -555,14 +555,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="7506433e-e7dd-4685-adf5-1d88392b766b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="6155717b-a6bb-4559-a037-70ba3493cf0f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>GetImplicitKeyNestedCompositions</name>
       <display>GetImplicitKeyNestedCompositions(implicitKeyAggrRootId: guid, id: guid): ImplicitKeyAggrRootImplicitKeyNestedCompositionDTO</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="ae90e919-3347-4b1d-9a2a-acef22129709">
-        <typeId>5c2e2ba0-f98c-45f8-b6c0-bd4cb5be909e</typeId>
+      <typeReference id="685184da-2e3f-4211-9386-f06269fb27b9">
+        <typeId>22e996f8-16bd-422b-9bd3-acd1e497f920</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -579,10 +579,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b9f22883-7a3b-4384-8bc8-1830ebd2f5e7" name="GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery" type="element" specialization="Query" />
+          <target id="01420d8b-f08c-4aa8-83bc-8f023eb9ae1b" name="GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -599,12 +599,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="aee8d332-c785-45e8-96b7-9e33dd5f4366" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="bc07f478-fe30-4e09-a0cf-d00e4d935abe" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>implicitKeyAggrRootId</name>
           <display>in : implicitKeyAggrRootId: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="afa8763d-4854-4e45-83f6-95f5d903b9d2">
+          <typeReference id="5c38bb24-b434-4a9c-8223-03be3e12627b">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -620,10 +620,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="502abfee-4808-4089-b36b-ab04c17b0f77" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+              <target id="72ae8137-a47f-489e-8beb-90300b56ce63" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>7506433e-e7dd-4685-adf5-1d88392b766b</parentFolderId>
+          <parentFolderId>6155717b-a6bb-4559-a037-70ba3493cf0f</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -640,12 +640,12 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="473fc537-55cd-45f8-9d85-d08a3106793f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="9493462c-f28d-458a-9a1a-53449f33802e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="f94328af-c56b-4af6-abc3-d7282f7adac8">
+          <typeReference id="144d44e8-d9ce-4612-9444-90ce0672b7e8">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -661,10 +661,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="75df126e-2e37-4f5c-8093-0a45f8c15eb4" name="id" type="element" specialization="DTO-Field" />
+              <target id="49691265-175b-4bfb-92b0-4bb679b08f61" name="id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>7506433e-e7dd-4685-adf5-1d88392b766b</parentFolderId>
+          <parentFolderId>6155717b-a6bb-4559-a037-70ba3493cf0f</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -683,14 +683,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="875eef7f-fdd4-4d0c-8ac2-c173c165f0e0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="da0c2be7-b396-4935-a43c-afa86fa8a9bd" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>GetImplicitKeyNestedCompositions</name>
       <display>GetImplicitKeyNestedCompositions(implicitKeyAggrRootId: guid): ImplicitKeyAggrRootImplicitKeyNestedCompositionDTO[*]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="74b2d806-f1a4-446c-9f41-15199a6316b7">
-        <typeId>5c2e2ba0-f98c-45f8-b6c0-bd4cb5be909e</typeId>
+      <typeReference id="d1387bb7-e59e-4e7c-8e58-d478ca65e60f">
+        <typeId>22e996f8-16bd-422b-9bd3-acd1e497f920</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -707,10 +707,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="421b9c96-92f2-48bb-9fa3-8ee89dedbc6c" name="GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery" type="element" specialization="Query" />
+          <target id="2a3d4f4c-44f5-4714-b981-f8845746069e" name="GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -727,12 +727,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7432a4d9-e22f-4160-9bb1-4af796fefd2a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="34f4982a-7ae5-4838-a9f5-32aa87080c88" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>implicitKeyAggrRootId</name>
           <display>in : implicitKeyAggrRootId: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="2d54db4d-1ce2-4c9d-be28-c5390043b2a6">
+          <typeReference id="a925742e-bbc4-4968-a71b-eb9b1138bfb3">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -744,7 +744,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>875eef7f-fdd4-4d0c-8ac2-c173c165f0e0</parentFolderId>
+          <parentFolderId>da0c2be7-b396-4935-a43c-afa86fa8a9bd</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -763,13 +763,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="87864877-ff55-4471-8e28-ff4e45ea7537" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="47cee2a3-9c3d-42d0-9cd4-d0d83a9ff5c5" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>PutImplicitKeyNestedCompositions</name>
       <display>PutImplicitKeyNestedCompositions(implicitKeyAggrRootId: guid, id: guid, command: UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="d3804b84-0cac-4ae6-9935-4af720cfb3ab">
+      <typeReference id="5ce923d3-06b6-49fa-9570-6c53db9614bb">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -784,10 +784,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ab12578f-8c73-4abd-92e8-00709f1d4e0b" name="UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
+          <target id="4211a517-8d65-4378-900f-2fdd57bca4fc" name="UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -804,12 +804,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2295644c-7510-48a2-8ae1-29fbda2a700f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="4f3bc99a-53b6-43e6-89fd-92075ab99b21" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>implicitKeyAggrRootId</name>
           <display>in : implicitKeyAggrRootId: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="4c2491af-2d89-40b2-9944-66f0b0f2318b">
+          <typeReference id="bea89f61-8c79-4e6b-8376-e0e14c16355a">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -825,10 +825,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="3e9c8c89-63ab-4081-9e62-ffab41ee5453" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+              <target id="6ebdefc6-62fa-49a2-b929-3a4a3de517bc" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>87864877-ff55-4471-8e28-ff4e45ea7537</parentFolderId>
+          <parentFolderId>47cee2a3-9c3d-42d0-9cd4-d0d83a9ff5c5</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -845,12 +845,12 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b257b09e-607d-48b8-98d9-07357e648564" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="042b51dc-0509-48f7-adb6-5e07baba212f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="2eb0498b-9972-467b-80d7-4a23cf65a7c2">
+          <typeReference id="f0b60894-3bff-4dff-a434-a22a95afad75">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -866,10 +866,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="ab517bcd-f5c5-4431-bd92-52156c3ebf30" name="id" type="element" specialization="DTO-Field" />
+              <target id="542f610a-0bf9-466c-b5b4-d7600805095c" name="id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>87864877-ff55-4471-8e28-ff4e45ea7537</parentFolderId>
+          <parentFolderId>47cee2a3-9c3d-42d0-9cd4-d0d83a9ff5c5</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -886,13 +886,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cadb66e9-f68a-4ee4-b726-bbaf55ea530b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="6b8838c8-ddfe-43d7-ab08-79e1a4c30cb9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="e2df2917-0c82-4593-b391-fc5309570577">
-            <typeId>ab12578f-8c73-4abd-92e8-00709f1d4e0b</typeId>
+          <typeReference id="376f86bf-c9e1-4663-ace9-888f438083f6">
+            <typeId>4211a517-8d65-4378-900f-2fdd57bca4fc</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -903,7 +903,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>87864877-ff55-4471-8e28-ff4e45ea7537</parentFolderId>
+          <parentFolderId>47cee2a3-9c3d-42d0-9cd4-d0d83a9ff5c5</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -922,13 +922,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="73f98415-9f5b-431f-86a6-d83a7ff95103" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="afac2bb8-a77e-43e6-8519-f437212273f8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>DeleteImplicitKeyNestedCompositions</name>
       <display>DeleteImplicitKeyNestedCompositions(implicitKeyAggrRootId: guid, id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="26677bb7-d8ff-41f9-af35-5ac67be7573a">
+      <typeReference id="e9d6ab87-9634-41a5-ac6d-4d25c3f1af2f">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -943,10 +943,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="817f2044-f05f-4ce9-9a7f-272e9bf8f5f7" name="DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
+          <target id="72cd2551-e101-49d5-b3d5-a9d5d58c792f" name="DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>78ab8ead-031d-43b8-8e5c-828e667bfdb3</parentFolderId>
+      <parentFolderId>c59fdf34-9325-4dcd-84f4-995e80c0c42c</parentFolderId>
       <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
       <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
       <stereotypes>
@@ -963,12 +963,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="69574ff9-4c31-4a49-b673-8f7d061d35f8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="d04f91b5-9b96-40a6-bd8c-0acf7c45d5bf" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>implicitKeyAggrRootId</name>
           <display>in : implicitKeyAggrRootId: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="8033a6c0-c6a3-498f-8e3e-1550d8bc0fd3">
+          <typeReference id="a26a5fc4-0764-4a47-99f4-8b7723204c22">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -984,10 +984,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="9d54f12e-5833-4989-8c06-c7f526828ed0" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+              <target id="a4dfa19e-d19a-45a4-8f2e-af7be54825f3" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>73f98415-9f5b-431f-86a6-d83a7ff95103</parentFolderId>
+          <parentFolderId>afac2bb8-a77e-43e6-8519-f437212273f8</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
@@ -1004,12 +1004,12 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="900ae941-95a1-4452-a361-a42df3b2552e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="ec4d4e38-e3ce-4796-944d-465cdadb33a6" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="876a7984-34c9-45cb-9058-77afd904a97c">
+          <typeReference id="ece1b957-5d4f-4a24-9339-9cf9ed0ef7f0">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -1025,10 +1025,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="a034be67-362c-4af0-897c-2403d707e989" name="id" type="element" specialization="DTO-Field" />
+              <target id="2a9cf026-464a-4c7b-8692-5ff4f2c556c2" name="id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>73f98415-9f5b-431f-86a6-d83a7ff95103</parentFolderId>
+          <parentFolderId>afac2bb8-a77e-43e6-8519-f437212273f8</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>
           <stereotypes>
