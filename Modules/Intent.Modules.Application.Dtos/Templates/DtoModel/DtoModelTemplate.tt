@@ -28,21 +28,23 @@ namespace <#= Namespace #>
     }
 #>
     <#= ClassAttributes()#>
-    public class <#=ClassName#><#= GenericTypes #><#= GetBaseTypes() #>
+    public<#= AbstractDefinition #> class <#=ClassName#><#= GenericTypes #><#= GetBaseTypes() #>
     {<#= EnterClass() #>
         public <#=ClassName#>()
         {
         }
+<# if (!Model.IsAbstract) { #>
 
-        public static <#=ClassName#><#= GenericTypes #> Create(<#= ConstructorParameters() #>) 
+        public static <#=ClassName#><#= GenericTypes #> Create(<#= ConstructorParameters() #>)
         {
             return new <#=ClassName#><#= GenericTypes #>
             {
-<# foreach (var field in Model.Fields) {#>
+<#    foreach (var field in Model.Fields) {#>
                 <#= field.Name.ToPascalCase() #> = <#= field.Name.ToCamelCase(reservedWordEscape: true) #>,
-<#}#>
+<#    } #>
             };
         }
+<# } #>
 <#  foreach (var field in Model.Fields)
     {#>
 <#

@@ -62,7 +62,12 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         public string GetBaseTypes()
         {
             var baseTypes = new List<string>();
-            if (GetDecorators().Any(x => !string.IsNullOrWhiteSpace(x.BaseClass())))
+
+            if (Model.ParentDtoTypeReference != null)
+            {
+                baseTypes.Add(GetTypeName(Model.ParentDtoTypeReference));
+            }
+            else if (GetDecorators().Any(x => !string.IsNullOrWhiteSpace(x.BaseClass())))
             {
                 baseTypes.Add(GetDecorators().FirstOrDefault(x => !string.IsNullOrWhiteSpace(x.BaseClass()))?.BaseClass());
             }
@@ -90,7 +95,12 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             ", parameters)}";
         }
 
-        public string GenericTypes => Model.GenericTypes.Any() ? $"<{string.Join(", ", Model.GenericTypes)}>" : "";
+        public string GenericTypes => Model.GenericTypes.Any()
+            ? $"<{string.Join(", ", Model.GenericTypes)}>"
+            : string.Empty;
 
+        private string AbstractDefinition => Model.IsAbstract
+            ? " abstract"
+            : string.Empty;
     }
 }
