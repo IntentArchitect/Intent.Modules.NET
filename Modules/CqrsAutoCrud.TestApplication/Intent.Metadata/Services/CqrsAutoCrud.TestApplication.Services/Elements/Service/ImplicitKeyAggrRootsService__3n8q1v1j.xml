@@ -704,7 +704,7 @@
       <mappedClass>
         <applicationId>c667d820-3a43-43f4-9b55-9d34b26be4e9</applicationId>
         <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
-        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <mappingSettingsId>f15fa935-434e-4983-b283-25cde2cb440e</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
           <target id="2a3d4f4c-44f5-4714-b981-f8845746069e" name="GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery" type="element" specialization="Query" />
@@ -727,12 +727,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="34f4982a-7ae5-4838-a9f5-32aa87080c88" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="e45a9331-9e57-4a3c-9d2d-57c53a967897" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>implicitKeyAggrRootId</name>
           <display>in : implicitKeyAggrRootId: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="a925742e-bbc4-4968-a71b-eb9b1138bfb3">
+          <typeReference id="3991d334-b815-4041-ba04-0b3373d5613e">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -743,7 +743,14 @@
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
-          <isMapped>false</isMapped>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>f15fa935-434e-4983-b283-25cde2cb440e</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="871094b3-15d1-4151-9cee-faca1feb3b9c" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
           <parentFolderId>da0c2be7-b396-4935-a43c-afa86fa8a9bd</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>

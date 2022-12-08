@@ -148,29 +148,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
                 return $"new {_template.GetTypeName(mappedElement)} {{ {string.Join(", ", GetMappedParameters(operationModel).Select(x => x.InternalElement.MappedElement.Element.Name.ToPascalCase() + " = " + x.Name))} }}";
             }
 
-            // In our one use case we don't have a mapping from a query to a domain entity
-            // that returns a collection yet we need to propagate a query parameter to the
-            // underlying service that matches by name.
-            if (mappedElement?.Element?.IsQueryModel() == true &&
-                operationModel.ReturnType?.IsCollection == true)
-            {
-                var queryModel = mappedElement.Element.AsQueryModel();
-                var matchedProperties = new List<(string QueryPropName, string OperationPropName)>();
-                foreach (var queryProp in queryModel.Properties)
-                {
-                    var operationProp = operationModel.Parameters.FirstOrDefault(p => p.Name.Equals(queryProp.Name, StringComparison.OrdinalIgnoreCase));
-                    if (operationProp != null)
-                    {
-                        matchedProperties.Add((queryProp.Name, operationProp.Name));
-                    }
-                }
-
-                if (matchedProperties.Any())
-                {
-                    return $"new {_template.GetTypeName(mappedElement)}(){{ {string.Join(", ", matchedProperties.Select(x => $"{x.QueryPropName} = {x.OperationPropName}"))} }}";
-                }
-            }
-
             return $"new {_template.GetTypeName(mappedElement)}()";
         }
 

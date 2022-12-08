@@ -704,7 +704,7 @@
       <mappedClass>
         <applicationId>c667d820-3a43-43f4-9b55-9d34b26be4e9</applicationId>
         <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
-        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <mappingSettingsId>f15fa935-434e-4983-b283-25cde2cb440e</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
           <target id="d673dab7-a841-4060-8a95-47ba8b942139" name="GetAggregateRootCompositeManyBSQuery" type="element" specialization="Query" />
@@ -727,12 +727,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1eb97532-1cf0-4a54-9eb5-7469bc07a3d0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="5d16295c-ab39-49a4-acb7-0251b40ae93d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>aggregateRootId</name>
           <display>in : aggregateRootId: guid</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="963721c0-fe6b-4830-b3d5-59cc0c0b3186">
+          <typeReference id="6573250d-25f2-4812-b922-b4db495fcbac">
             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -743,7 +743,14 @@
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
-          <isMapped>false</isMapped>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>f15fa935-434e-4983-b283-25cde2cb440e</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="8d7dff86-6821-4f0b-923f-5fdc2556d90e" name="AggregateRootId" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
           <parentFolderId>5027cc52-0862-4e82-a387-45a9b39863ef</parentFolderId>
           <packageId>3554520d-6c89-4fd5-88ef-b984565d7741</packageId>
           <packageName>CqrsAutoCrud.TestApplication.Services</packageName>

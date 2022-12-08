@@ -363,10 +363,12 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         query.setMetadata("baseName", baseName);
 
         let aggrRootOwnerParamName = null;
+        let aggrRootOwnerParamId = null;
         if (aggrRootOwner) {
             let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
             idField.typeReference.setType(getSurrogateKeyType());
             aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
+            aggrRootOwnerParamId = idField.id;
         }
         
         query.collapse();
@@ -378,6 +380,7 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
+            param.setMapping(aggrRootOwnerParamId);
         }
 
         operation.collapse();
@@ -1238,10 +1241,12 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         query.setMetadata("baseName", baseName);
 
         let aggrRootOwnerParamName = null;
+        let aggrRootOwnerParamId = null;
         if (aggrRootOwner) {
             let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
             idField.typeReference.setType(getSurrogateKeyType());
             aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
+            aggrRootOwnerParamId = idField.id;
         }
         
         query.collapse();
@@ -1253,6 +1258,7 @@ function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
         if (aggrRootOwnerParamName) {
             let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
             param.typeReference.setType(getSurrogateKeyType());
+            param.setMapping(aggrRootOwnerParamId);
         }
 
         operation.collapse();
