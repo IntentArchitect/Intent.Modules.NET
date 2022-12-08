@@ -3,7 +3,7 @@
   <name>NET Standard</name>
   <display>NET Standard</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c7d63772-5802-40a6-bc1b-cae31b8faec2</parentFolderId>
