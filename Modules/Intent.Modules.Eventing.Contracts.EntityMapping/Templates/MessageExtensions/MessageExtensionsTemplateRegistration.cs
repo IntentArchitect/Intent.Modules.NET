@@ -40,20 +40,20 @@ namespace Intent.Modules.Eventing.Contracts.EntityMapping.Templates.MessageExten
                 .GetMessageModels()
                 .Where(model => HasMappedDomainEntityPresent(app, model, application));
         }
-        
+
         private bool HasMappedDomainEntityPresent(ApplicationModel applicationModel, MessageModel messageModel, IApplication application)
         {
             if (applicationModel.PublishedMessages().All(p => p.Element.AsMessageModel().Id != messageModel.Id))
             {
                 return false;
             }
-            
+
             var domainMapping = messageModel.GetMapFromDomainMapping();
             if (domainMapping == null)
             {
                 return false;
             }
-            
+
             var domainClasses = _metadataManager.Domain(application).GetClassModels();
             return domainClasses.Any(p => p.Id == domainMapping.ElementId);
         }

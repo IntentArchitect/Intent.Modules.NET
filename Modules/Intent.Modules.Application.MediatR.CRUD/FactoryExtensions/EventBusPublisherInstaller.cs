@@ -34,7 +34,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            if (application.InstalledModules.FirstOrDefault(p => p.ModuleId == "Intent.Eventing.Contracts.EntityMapping") == null)
+            if (!application.InstalledModules.Any(p => p.ModuleId == "Intent.Eventing.Contracts.EntityMapping"))
             {
                 return;
             }
@@ -87,7 +87,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                 }
             }
         }
-        
+
         private string GetConventionName(string name)
         {
             return name.ToLower() switch
@@ -98,20 +98,20 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                 _ => null
             };
         }
-        
+
         private bool HasMappedDomainEntityPresent(ApplicationModel applicationModel, MessageModel messageModel, IApplication application)
         {
             if (applicationModel.PublishedMessages().All(p => p.Element.AsMessageModel().Id != messageModel.Id))
             {
                 return false;
             }
-            
+
             var domainMapping = messageModel.GetMapFromDomainMapping();
             if (domainMapping == null)
             {
                 return false;
             }
-            
+
             var domainClasses = application.MetadataManager.Domain(application).GetClassModels();
             return domainClasses.Any(p => p.Id == domainMapping.ElementId);
         }

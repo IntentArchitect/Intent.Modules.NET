@@ -28,26 +28,23 @@ namespace Intent.Modules.Eventing.Contracts.EntityMapping.Templates.MessageExten
             AddTypeSource("Domain.Enum");
 
             CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
-                .OnBuild(file =>
+                .AddClass($"{Model.Name.RemoveSuffix("Event")}EventExtensions", @class =>
                 {
-                    file.AddClass($"{Model.Name.RemoveSuffix("Event")}EventExtensions", @class =>
+                    @class.Static();
+                    var messageTemplate = GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, model);
+                    @class.AddMethod(GetTypeName(model.InternalElement), $"MapTo{messageTemplate.ClassName}", method =>
                     {
-                        @class.Static();
-                        var messageTemplate = GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, model);
-                        @class.AddMethod(GetTypeName(model.InternalElement), $"MapTo{messageTemplate.ClassName}", method =>
-                        {
-                            method.Static();
-                            method.AddParameter(GetTypeName(model.GetMapFromDomainMapping()), "projectFrom", param => param.WithThisModifier());
+                        method.Static();
+                        method.AddParameter(GetTypeName(model.GetMapFromDomainMapping()), "projectFrom", param => param.WithThisModifier());
 
-                            var codeLines = new CSharpStatementAggregator();
-                            codeLines.Add($"return new {GetTypeName(model.InternalElement)}");
-                            codeLines.Add(new CSharpStatementBlock()
-                                .AddStatements(model.Properties.Select(x => $"{x.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)} = projectFrom.{string.Join(".", x.InternalElement.MappedElement.Path.Select(y => y.Name))},"))
-                                .WithSemicolon());
-                            method.AddStatements(codeLines.ToList());
-                        });
+                        var codeLines = new CSharpStatementAggregator();
+                        codeLines.Add($"return new {GetTypeName(model.InternalElement)}");
+                        codeLines.Add(new CSharpStatementBlock()
+                            .AddStatements(model.Properties.Select(x => $"{x.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)} = projectFrom.{string.Join(".", x.InternalElement.MappedElement.Path.Select(y => y.Name))},"))
+                            .WithSemicolon());
+                        method.AddStatements(codeLines.ToList());
                     });
-                });
+                });;
         }
 
         [IntentManaged(Mode.Fully)]
