@@ -22,7 +22,7 @@ namespace Intent.Modules.Eventing.MassTransit.AspNetCore.Decorators
         [IntentManaged(Mode.Fully)] private readonly ControllerTemplate _template;
         [IntentManaged(Mode.Fully)] private readonly IApplication _application;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PublisherDecorator(ControllerTemplate template, IApplication application)
         {
             _template = template;
