@@ -84,5 +84,6 @@
     <application id="33b7e4f8-9dd8-4db5-8a97-d9bb549f9ecc" name="Intent.Modules.Integration.HttpClients" relativePath="Intent.Modules.Integration.HttpClients/Intent.Modules.Integration.HttpClients.application.config" />
     <application id="84a6ab17-88dd-407b-9c9b-a45464b66a12" name="Security.MSAL" relativePath="Intent.Modules.Security.MSAL/Security.MSAL.application.config" />
     <application id="c3880144-3cc1-4e70-8bc2-f48be644b8d9" name="Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory" relativePath="Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory/Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.application.config" />
+    <application id="03b2303d-ef8d-48ac-9e03-77937fa45534" name="Intent.Modules.Eventing.MassTransit.CRUD" relativePath="Intent.Modules.Eventing.MassTransit.CRUD/Intent.Modules.Eventing.MassTransit.CRUD.application.config" />
   </applications>
 </solution>

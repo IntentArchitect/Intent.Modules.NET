@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="87d6e98e-4a38-4f48-bbc5-50966bcfb329" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EventBusPublisherInstaller</name>
+  <display>EventBusPublisherInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b18006d4-c80f-432d-a016-459cd03d0dfb</parentFolderId>
+  <packageId>b18006d4-c80f-432d-a016-459cd03d0dfb</packageId>
+  <packageName>Intent.Modules.Eventing.MassTransit.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
