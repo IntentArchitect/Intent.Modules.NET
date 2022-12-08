@@ -27,35 +27,13 @@ namespace Intent.Modules.Eventing.MassTransit.AspNetCore.Decorators
         {
             _template = template;
             _application = application;
-            _template.CSharpFile.AfterBuild(file =>
-            {
-                var @class = file.Classes.First();
-                var ctor = @class.Constructors.First();
-                ctor.AddParameter(_template.GetEventBusInterfaceName(), "eventBus", p =>
-                {
-                    p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                });
-
-                foreach (var method in @class.Methods)
-                {
-                    if (method.TryGetMetadata<OperationModel>("model", out var operation) && 
-                        operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
-                    {
-                        if (IsTransactionalOutboxPatternSelected())
-                        {
-                            method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("await "))?
-                                .InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
-                        }
-                        else
-                        {
-                            method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("return "))?
-                                .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
-                        }
-                    }
-                }
-            }, order: -100);
-
         }
+
+
+
+
+
+
 
         //public override int Priority => IsTransactionalOutboxPatternSelected() ? 90 : -15;
 

@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.MassTransit.Templates.EventBusInterface;
 using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerImplementation;
-using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerInterface;
-using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitConfiguration;
 using Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus;
 using Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer;
@@ -17,10 +14,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetEventBusInterfaceName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
-        }
 
         public static string GetIntegrationEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
         {
@@ -30,21 +23,6 @@ namespace Intent.Modules.Eventing.MassTransit.Templates
         public static string GetIntegrationEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
-        }
-
-        public static string GetIntegrationEventHandlerInterfaceName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(IntegrationEventHandlerInterfaceTemplate.TemplateId);
-        }
-
-        public static string GetIntegrationEventMessageName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageModel
-        {
-            return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetIntegrationEventMessageName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageModel model)
-        {
-            return template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, model);
         }
 
         public static string GetMassTransitConfigurationName<T>(this IntentTemplateBase<T> template)

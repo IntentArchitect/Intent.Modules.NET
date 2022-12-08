@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit.MediatR</id>
-  <version>4.0.0</version>
+  <version>4.0.1-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Integrates MassTransit with MediatR to introduce the EventBus Publisher.</summary>
   <description>Integrates MassTransit with MediatR to introduce the EventBus Publisher.</description>
@@ -24,9 +24,9 @@
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.24" />
+    <dependency id="Intent.Common.CSharp" version="3.3.25-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Eventing.MassTransit" version="4.0.0" />
+    <dependency id="Intent.Eventing.MassTransit" version="4.0.1-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>

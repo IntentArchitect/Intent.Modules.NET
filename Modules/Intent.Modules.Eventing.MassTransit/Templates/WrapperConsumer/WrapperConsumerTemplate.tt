@@ -2,6 +2,7 @@
 <#@ output extension=".cs" #>
 <#@ import namespace="Intent.Modelers.Eventing.Api" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Modules.Eventing.Contracts.Templates" #>
 using System;
 using System.Threading.Tasks;
 using MassTransit;

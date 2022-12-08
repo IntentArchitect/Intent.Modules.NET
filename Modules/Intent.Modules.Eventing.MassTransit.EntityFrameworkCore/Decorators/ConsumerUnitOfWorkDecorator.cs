@@ -63,7 +63,7 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.Decorators
             {
                 yield break;
             }
-            
+
             _template.AddUsing("System.Transactions");
 
             yield return $@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,";

@@ -7,7 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventMessage;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -148,14 +148,14 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.WrapperConsumer
         }
 
         private List<string> _consumerConfigurationStatements = new List<string>();
-        
+
         private string GetConsumerConfiguration()
         {
             if (!_consumerConfigurationStatements.Any())
             {
                 return string.Empty;
             }
-            
+
             const string newLine = @"
             ";
             return newLine + string.Join(newLine, _consumerConfigurationStatements);

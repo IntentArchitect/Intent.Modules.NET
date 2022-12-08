@@ -4,7 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.MassTransit.Templates.EventBusInterface;
+using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

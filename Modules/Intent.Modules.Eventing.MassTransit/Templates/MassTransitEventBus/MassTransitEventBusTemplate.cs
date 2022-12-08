@@ -16,6 +16,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
     using Intent.Modules.Common.CSharp.Templates;
     using Intent.Templates;
     using Intent.Metadata.Models;
+    using Intent.Modules.Eventing.Contracts.Templates;
     using System;
     
     /// <summary>
@@ -34,28 +35,28 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
         {
             this.Write("using System.Collections.Generic;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\nusing MassTransit;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        private readonly List<object> _messagesToPublish = new List<object>();\r\n\r\n        public ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
+            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit\Templates\MassTransitEventBus\MassTransitEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

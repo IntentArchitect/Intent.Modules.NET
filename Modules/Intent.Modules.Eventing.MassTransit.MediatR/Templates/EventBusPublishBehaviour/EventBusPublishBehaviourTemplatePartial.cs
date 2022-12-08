@@ -19,8 +19,7 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
         public const string TemplateId = "Intent.Eventing.MassTransit.MediatR.EventBusPublishBehaviour";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EventBusPublishBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-            outputTarget, model)
+        public EventBusPublishBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 

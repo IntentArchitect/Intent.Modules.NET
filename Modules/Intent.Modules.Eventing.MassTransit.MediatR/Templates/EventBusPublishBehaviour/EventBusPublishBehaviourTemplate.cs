@@ -17,6 +17,7 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
     using Intent.Templates;
     using Intent.Metadata.Models;
     using Intent.Modules.Eventing.MassTransit.Templates;
+    using Intent.Modules.Eventing.Contracts.Templates;
     using System;
     
     /// <summary>
@@ -35,35 +36,35 @@ namespace Intent.Modules.Eventing.MassTransit.MediatR.Templates.EventBusPublishB
         {
             this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\nusing MediatR;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n    where TRequest : IRequest<TResponse>\r\n    {\r\n        private readonly ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
             #line hidden
             this.Write(" _eventBus;\r\n\r\n        public ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.MassTransit.MediatR\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
