@@ -18,7 +18,7 @@
     <dependency id="Intent.Common.CSharp" version="3.3.24" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.0" />
-    <dependency id="Intent.Modelers.Services" version="3.3.5" />
+    <dependency id="Intent.Modelers.Services" version="3.3.6-pre.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
