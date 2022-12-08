@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>3f86c2b0-ef44-47b6-9e82-a6fc6453d5c9</id>
+  <name>Eventing Designer Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+      <mappingSettings>
+        <mappingSetting id="7398ed9d-d524-41a8-9831-9dc50dc810f5">
+          <name>Map from Domain</name>
+          <defaultModeler>6ab29b31-27af-4f56-a67c-986d82097d63</defaultModeler>
+          <optionsSource>elements-of-type</optionsSource>
+          <autoSyncTypeReferences>true</autoSyncTypeReferences>
+          <targetTypeOptions>
+            <option specializationType="04e12b51-ed12-42a3-9667-a6aa81bb6d10" displayText="Class" />
+          </targetTypeOptions>
+          <mapFrom>root</mapFrom>
+          <mappings>
+            <mapping id="6cfa6203-c77c-4db5-90a1-4d0c57585ddf">
+              <criteria specializationType="Class">
+                <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+              </criteria>
+              <mapTo specializationType="Message" childMappingMode="map-to-child" />
+              <behaviour autoSelectChildren="true" />
+              <childMappings>
+                <mapping id="4620e37c-7e5e-4298-8aad-7a8d787a711b">
+                  <criteria specializationType="Attribute">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                    <hasChildren>false</hasChildren>
+                  </criteria>
+                  <mapTo specializationType="Property" childMappingMode="map-to-child" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+              </childMappings>
+            </mapping>
+          </mappings>
+        </mappingSetting>
+      </mappingSettings>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+</settings>

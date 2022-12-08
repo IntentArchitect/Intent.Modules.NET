@@ -1,3 +1,8 @@
+### Version 4.0.1
+
+- Update: Updates due to underlying code changes.
+- Update: Updated Module version of .NET to 6.
+
 ### Version 4.0.0
 
 - New: Upgraded Templates to use new Builder Pattern paradigm.

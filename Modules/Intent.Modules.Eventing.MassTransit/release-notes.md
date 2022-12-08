@@ -1,3 +1,8 @@
+### Version 4.0.1
+
+- Update: Extracted Interfaces into separate Contracts module.
+- Update: Updated Module version of .NET to 6.
+
 ### Version 3.3.3
 
 - Fixed: EventBus didn't clear the messages buffer after being flushed.
