@@ -13,10 +13,7 @@
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
     <PackageReference Include="Intent.Modules.Eventing.MassTransit" Version="4.0.1-pre.0"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj" />
+    <PackageReference Include="Intent.Modules.AspNetCore.Controllers" Version="4.0.0"/>
   </ItemGroup>
 
 </Project>
