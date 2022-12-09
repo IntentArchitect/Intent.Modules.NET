@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- New: Upgraded Templates to use new Builder Pattern paradigm.
+
 ### Version 3.3.3
 
 - Fixed: Publishing from Consumer when Outbox pattern is None will no longer execute within the same transaction as the DB.

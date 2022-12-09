@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- New: Upgraded Templates to use new Builder Pattern paradigm.
+
 ### Version 3.3.14
 
 - Add `GetOperationAttributes` to `ControllerDecorator`.

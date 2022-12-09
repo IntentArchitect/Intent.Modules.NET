@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- New: Upgraded Templates to use new Builder Pattern paradigm.
+
 ### Version 3.3.12
 
 - Update: Refactored the CRUD script so that it is easier to read and to follow.
