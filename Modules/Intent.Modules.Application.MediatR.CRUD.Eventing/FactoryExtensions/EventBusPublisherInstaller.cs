@@ -14,12 +14,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
+namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class EventBusPublisherInstaller : FactoryExtensionBase
     {
-        public override string Id => "Intent.Application.MediatR.CRUD.EventBusPublisherInstaller";
+        public override string Id => "Intent.Application.MediatR.CRUD.Eventing.EventBusPublisherInstaller";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -34,11 +34,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            if (!application.InstalledModules.Any(p => p.ModuleId == "Intent.Eventing.Contracts.EntityMapping"))
-            {
-                return;
-            }
-
             var app = application.MetadataManager.Eventing(application).GetApplicationModels().SingleOrDefault();
             var messageLookup = application.MetadataManager.Eventing(application).GetMessageModels()
                 .Where(model => HasMappedDomainEntityPresent(app, model, application))

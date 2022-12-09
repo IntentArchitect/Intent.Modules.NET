@@ -75,14 +75,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>22c128eb-bd36-42ea-ac33-d0de655e876b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#84ad58b1-383b-4a01-a90e-2d971ca7f0b7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Application.MediatR.CRUD/FactoryExtensions/EventBusPublisherInstaller.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublisherInstaller.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
