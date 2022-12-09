@@ -10,7 +10,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>93a4330a-fa8b-473e-afe3-20aaf097bd3e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#36d9d72b-2096-46d0-88b9-674861cee2c4</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#770bf03a-7f65-4f6b-a55c-abbae71c6bbc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EventBusPublisherInstaller.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusPublisherInstaller.cs</ProjectRelativeFilePath>

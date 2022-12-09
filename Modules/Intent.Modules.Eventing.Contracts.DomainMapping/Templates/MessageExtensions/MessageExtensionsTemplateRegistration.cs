@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Eventing.Contracts.DomainMapping.Api;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
@@ -34,7 +36,28 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<MessageModel> GetModels(IApplication application)
         {
-            return _metadataManager.Eventing(application).GetMessageModels();
+            var app = _metadataManager.Eventing(application).GetApplicationModels().SingleOrDefault();
+            return _metadataManager.Eventing(application)
+                .GetMessageModels()
+                .Where(model => HasMappedDomainEntityPresent(app, model, application))
+                .ToList();
+        }
+        
+        private bool HasMappedDomainEntityPresent(ApplicationModel applicationModel, MessageModel messageModel, IApplication application)
+        {
+            if (applicationModel.PublishedMessages().All(p => p.Element.AsMessageModel().Id != messageModel.Id))
+            {
+                return false;
+            }
+
+            var domainMapping = messageModel.GetMapFromDomainMapping();
+            if (domainMapping == null)
+            {
+                return false;
+            }
+
+            var domainClasses = _metadataManager.Domain(application).GetClassModels();
+            return domainClasses.Any(p => p.Id == domainMapping.ElementId);
         }
     }
 }

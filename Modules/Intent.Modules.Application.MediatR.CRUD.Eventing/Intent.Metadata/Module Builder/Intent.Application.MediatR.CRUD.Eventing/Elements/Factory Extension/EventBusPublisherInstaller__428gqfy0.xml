@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="770bf03a-7f65-4f6b-a55c-abbae71c6bbc" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EventBusPublisherInstaller</name>
+  <display>EventBusPublisherInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a3e514c5-640b-4bbb-9f3b-c947bb1baa4c</parentFolderId>
+  <packageId>a3e514c5-640b-4bbb-9f3b-c947bb1baa4c</packageId>
+  <packageName>Intent.Application.MediatR.CRUD.Eventing</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
