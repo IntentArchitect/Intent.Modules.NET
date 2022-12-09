@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.FluentValidation.ValidationBehaviour", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.ValidationBehaviour", Version = "1.0")]
 
 namespace CqrsAutoCrud.TestApplication.Application.Common.Behaviours
 {

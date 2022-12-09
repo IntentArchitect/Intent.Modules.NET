@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Api.ResponseTypes;
-using AzureFunctions.TestApplication.Application.Common.Behaviours;
+using AzureFunctions.TestApplication.Application.Common.Validation;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
@@ -23,11 +23,11 @@ namespace AzureFunctions.TestApplication.Api.SampleDomainsService
 {
     public class Create
     {
-        private readonly ValidationBehaviour<SampleDomainCreateDTO> _validation;
+        private readonly IValidationService _validation;
         private readonly ISampleDomainsService _appService;
         private readonly IUnitOfWork _unitOfWork;
         public Create(
-            ValidationBehaviour<SampleDomainCreateDTO> validation,
+            IValidationService validation,
             ISampleDomainsService appService,
             IUnitOfWork unitOfWork)
         {

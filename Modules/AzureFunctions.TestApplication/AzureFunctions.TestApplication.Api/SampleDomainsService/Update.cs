@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using AzureFunctions.TestApplication.Application.Common.Behaviours;
+using AzureFunctions.TestApplication.Application.Common.Validation;
 using AzureFunctions.TestApplication.Application.Interfaces;
 using AzureFunctions.TestApplication.Application.SampleDomains;
 using AzureFunctions.TestApplication.Domain.Common.Interfaces;
@@ -22,11 +22,11 @@ namespace AzureFunctions.TestApplication.Api.SampleDomainsService
 {
     public class Update
     {
-        private readonly ValidationBehaviour<SampleDomainUpdateDTO> _validation;
+        private readonly IValidationService _validation;
         private readonly ISampleDomainsService _appService;
         private readonly IUnitOfWork _unitOfWork;
         public Update(
-            ValidationBehaviour<SampleDomainUpdateDTO> validation,
+            IValidationService validation,
             ISampleDomainsService appService,
             IUnitOfWork unitOfWork)
         {
