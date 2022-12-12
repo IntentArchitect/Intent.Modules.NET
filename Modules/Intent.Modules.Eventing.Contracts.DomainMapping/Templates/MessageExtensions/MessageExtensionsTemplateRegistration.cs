@@ -42,7 +42,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
                 .Where(model => HasMappedDomainEntityPresent(app, model, application))
                 .ToList();
         }
-        
+
         private bool HasMappedDomainEntityPresent(ApplicationModel applicationModel, MessageModel messageModel, IApplication application)
         {
             if (applicationModel.PublishedMessages().All(p => p.Element.AsMessageModel().Id != messageModel.Id))

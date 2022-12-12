@@ -38,6 +38,26 @@
                   <behaviour autoSelectChildren="false" />
                   <childMappings />
                 </mapping>
+                <mapping id="b9d72eb7-cef8-4e7a-a00d-717ca1f8df5d">
+                  <criteria specializationType="Association Target End">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection>true</isCollection>
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo specializationType="Property" childMappingMode="map-to-child" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+                <mapping id="0264887f-e94e-4864-8c2b-a6a0d8029e15">
+                  <criteria specializationType="Association Target End">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection>false</isCollection>
+                    <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                  </criteria>
+                  <mapTo specializationType="Property" childMappingMode="traverse" useMappingSettings="3db5fa5a-6534-4a11-8d8f-56f26790a0be" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
               </childMappings>
             </mapping>
           </mappings>
