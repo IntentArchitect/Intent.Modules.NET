@@ -21,7 +21,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
 
             return allPackages
                 .GroupBy(x => x.Key, x => x.Value)
-                .ToDictionary(x => x.Key, x => x.OrderByDescending(y => y.Version.MinVersion).First());
+                .ToDictionary(x => x.Key, x => x.OrderByDescending(y => y.Version?.MinVersion).First());
         }
     }
 }

@@ -1,4 +1,10 @@
-﻿### Version 3.3.18
+﻿### Version 3.3.19
+
+- Fixed: Exceptions would get thrown when certain aspects of a `.csproj` file were declared in or used properties defined in a `Directory.Build.props` file:
+    - When `<TargetFramework(s) />` is not defined in the `.csproj` file, a warning will now occur with advice to use the `(unspecified)` option in the Visual Studio designer.
+    - When a `<PackageReference />`'s `Version` is unparseable as a semantic version (for example due to being an MSBuild variable), it is now ignored.
+
+### Version 3.3.18
 
 - Added .NET 7.0 version option.
 - Added support for generating `Remove` element types for file items in .NET `.csproj` files.

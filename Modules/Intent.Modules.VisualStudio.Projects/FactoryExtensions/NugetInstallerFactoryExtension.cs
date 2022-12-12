@@ -193,7 +193,8 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                 foreach (var nuGetVersion in projectNugetInfo.HighestVersions)
                 {
                     if (!highestVersions.TryGetValue(nuGetVersion.Key, out var highestVersion) ||
-                        highestVersion.MinVersion < nuGetVersion.Value.MinVersion)
+                        (highestVersion != null &&
+                         highestVersion.MinVersion < nuGetVersion.Value.MinVersion))
                     {
                         highestVersions[nuGetVersion.Key] = nuGetVersion.Value;
                     }
@@ -244,7 +245,8 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                 }
 
                 if (!highestVersionsInProject.TryGetValue(package.Name, out var highestVersion) ||
-                    highestVersion.MinVersion < semanticVersion.MinVersion)
+                    (highestVersion != null &&
+                     highestVersion.MinVersion < semanticVersion.MinVersion))
                 {
                     highestVersionsInProject[package.Name] = highestVersion = semanticVersion;
                 }

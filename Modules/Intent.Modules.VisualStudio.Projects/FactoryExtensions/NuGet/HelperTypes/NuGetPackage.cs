@@ -36,7 +36,9 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
             
             return new NuGetPackage
             {
-                Version = VersionRange.Parse(version),
+                Version = VersionRange.TryParse(version, out var parsed)
+                    ? parsed
+                    : null,
                 IncludeAssets = new List<string>(includeAssets ?? Array.Empty<string>()),
                 PrivateAssets = new List<string>(privateAssets ?? Array.Empty<string>())
             };

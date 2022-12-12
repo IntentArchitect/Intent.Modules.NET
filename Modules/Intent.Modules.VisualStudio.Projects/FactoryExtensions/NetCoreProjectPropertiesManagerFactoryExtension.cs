@@ -11,6 +11,7 @@ using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
+using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 {
@@ -179,24 +180,36 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         /// <returns>True if there was a change.</returns>
         private static bool SyncFrameworks(XDocument doc, IVisualStudioProjectTemplate template)
         {
+            var targetFrameworks = template.GetTargetFrameworks().ToArray();
+            if (targetFrameworks.Length == 1 && targetFrameworks[0] == "unspecified")
+            {
+                // User has chosen "(unspecified)" in the Visual Studio designer, useful for
+                // scenarios like when a "Directory.Build.props" is being used to set the
+                // value.
+                return false;
+            }
+
             var element = GetPropertyGroupElement(doc, "TargetFramework") ??
                           GetPropertyGroupElement(doc, "TargetFrameworks");
             if (element == null)
             {
-                throw new Exception("Could not determine framework element for project: " + template.FilePath);
+                Logging.Log.Warning($"Could not determine framework element for project \"{template.FilePath}\". " +
+                                    "If you're using a \"Directory.Build.props\" file, change the project's Target " +
+                                    "Framework to \"(unspecified)\".");
+                return false;
             }
 
-            var targetFrameworks = string.Join(";", template.GetTargetFrameworks().OrderBy(x => x));
-            if (element.Value == targetFrameworks)
+            var elementValue = string.Join(";", targetFrameworks.OrderBy(x => x));
+            if (element.Value == elementValue)
             {
                 return false;
             }
 
-            var elementName = template.GetTargetFrameworks().Count() == 1
+            var elementName = targetFrameworks.Count() == 1
                 ? "TargetFramework"
                 : "TargetFrameworks";
 
-            element.ReplaceWith(XElement.Parse($"<{elementName}>{targetFrameworks}</{elementName}>"));
+            element.ReplaceWith(XElement.Parse($"<{elementName}>{elementValue}</{elementName}>"));
 
             return true;
         }

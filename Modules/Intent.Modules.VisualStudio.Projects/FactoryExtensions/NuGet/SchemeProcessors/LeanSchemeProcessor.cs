@@ -113,7 +113,8 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                     throw new Exception("Missing version attribute from PackageReference element.");
                 }
 
-                if (VersionRange.Parse(packageVersion).MinVersion >= package.Version.MinVersion)
+                if (!VersionRange.TryParse(packageVersion, out var parsed) ||
+                    parsed.MinVersion >= package.Version.MinVersion)
                 {
                     continue;
                 }
