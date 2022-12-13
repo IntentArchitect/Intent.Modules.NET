@@ -89,9 +89,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 return codeLines.ToList();
             }
 
-            codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);
-                {repository.FieldName}.Remove(existing{foundEntity.Name});
-                return Unit.Value;");
+            codeLines.Add($@"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
+            codeLines.Add($"{repository.FieldName}.Remove(existing{foundEntity.Name});");
+            codeLines.Add($"return Unit.Value;");
 
             return codeLines.ToList();
         }
