@@ -30,6 +30,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
         {
             AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
             AddTypeSource("Domain.Enum");
+            AddTypeSource("Domain.Entity");
 
             CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
                 .AddClass($"{Model.Name.RemoveSuffix("Event")}EventExtensions", @class =>

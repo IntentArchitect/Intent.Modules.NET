@@ -4,9 +4,12 @@ using Intent.Eventing.Contracts.DomainMapping.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -73,8 +76,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
             {
                 var messageTemplate = commandHandler.Template.GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, commandHandler.Message);
                 var @class = commandHandler.Template.CSharpFile.Classes.First();
+
                 if (commandHandler.Convention == "create")
                 {
+                    InjectEventBusCode(@class, commandHandler.Template);
+                    AddMessageExtensionsUsings(application, commandHandler.Template.CSharpFile, commandHandler.Message);
                     @class.FindMethod("Handle")
                         .Statements
                         .FirstOrDefault(p => p.GetText("").Contains("return"))
@@ -82,6 +88,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                 } 
                 else if (commandHandler.Convention == "update")
                 {
+                    InjectEventBusCode(@class, commandHandler.Template);
+                    AddMessageExtensionsUsings(application, commandHandler.Template.CSharpFile, commandHandler.Message);
                     @class.FindMethod("Handle")
                         .Statements
                         .FirstOrDefault(p => p.GetText("").Contains("return"))
@@ -89,13 +97,28 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                 }
                 else if (commandHandler.Convention == "delete")
                 {
+                    InjectEventBusCode(@class, commandHandler.Template);
+                    AddMessageExtensionsUsings(application, commandHandler.Template.CSharpFile, commandHandler.Message);
                     @class.FindMethod("Handle")
                         .Statements
                         .FirstOrDefault(p => p.GetText("").Contains("return"))
                         ?.InsertAbove($"_eventBus.Publish(existing{commandHandler.Entity.Name}.MapTo{messageTemplate.ClassName}());");
                 }
-                
             }
+        }
+
+        private static void AddMessageExtensionsUsings(IApplication application, CSharpFile cSharpFile, MessageModel message)
+        {
+            var mapToMethodTemplate = application.FindTemplateInstance<IClassProvider>("Application.Eventing.MessageExtensions", message);
+            cSharpFile.AddUsing(mapToMethodTemplate.Namespace);
+        }
+
+        private void InjectEventBusCode(CSharpClass @class, ICSharpFileBuilderTemplate template)
+        {
+            @class.AddField(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "_eventBus", field => field.PrivateReadOnly());
+            var constructor = @class.Constructors.First();
+            constructor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus");
+            constructor.AddStatement($"_eventBus = eventBus;");
         }
 
         private string GetConventionName(string name)
