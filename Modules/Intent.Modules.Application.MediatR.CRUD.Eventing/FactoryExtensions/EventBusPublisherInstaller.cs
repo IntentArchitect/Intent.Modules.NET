@@ -79,7 +79,22 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                         .Statements
                         .FirstOrDefault(p => p.GetText("").Contains("return"))
                         ?.InsertAbove($"_eventBus.Publish(new{commandHandler.Entity.Name}.MapTo{messageTemplate.ClassName}());");
+                } 
+                else if (commandHandler.Convention == "update")
+                {
+                    @class.FindMethod("Handle")
+                        .Statements
+                        .FirstOrDefault(p => p.GetText("").Contains("return"))
+                        ?.InsertAbove($"_eventBus.Publish(existing{commandHandler.Entity.Name}.MapTo{messageTemplate.ClassName}());");
                 }
+                else if (commandHandler.Convention == "delete")
+                {
+                    @class.FindMethod("Handle")
+                        .Statements
+                        .FirstOrDefault(p => p.GetText("").Contains("return"))
+                        ?.InsertAbove($"_eventBus.Publish(existing{commandHandler.Entity.Name}.MapTo{messageTemplate.ClassName}());");
+                }
+                
             }
         }
 
