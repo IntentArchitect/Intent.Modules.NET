@@ -153,7 +153,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 {
                     statements.AddRange(GetTableMapping(targetType.AsClassModel()));
                 }
-                statements.Add(GetKeyMapping(targetType.AsClassModel()));
+                statements.AddRange(GetKeyMappings(targetType.AsClassModel()));
             }
 
             statements.AddRange(GetAttributes(targetType)
@@ -403,14 +403,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 : $"{prefix}{column.Name.ToPascalCase()}";
         }
 
-        public CSharpStatement GetKeyMapping(ClassModel model)
+        public IEnumerable<CSharpStatement> GetKeyMappings(ClassModel model)
         {
             if (model.ParentClass != null && ParentConfigurationExists(model))
             {
-                return null;
+                yield break;
             }
 
-            return new EfCoreKeyMappingStatement(model);
+            yield return new EfCoreKeyMappingStatement(model);
+
+            foreach (var attributeModel in model.GetExplicitPrimaryKey().Where(x =>
+                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Name()) ||
+                         !string.IsNullOrWhiteSpace(x.GetColumn()?.Type())))
+            {
+                yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
+            }
         }
 
         protected CSharpStatement GetKeyMappingStatement(params string[] keyColumns)

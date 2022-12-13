@@ -1,4 +1,8 @@
-﻿### Version 3.3.16
+﻿### Version 4.0.1
+
+- Fixed: `Column` stereotype values were being ignored for `Primary Key` attributes.
+
+### Version 3.3.16
 
 * Fixed: Primary key issues in deep compositional trees.
 * Fixed: DbSet names sometimes reflected the namespace of the Entity it was referring to. Its now normalized to only take the Entity name.
