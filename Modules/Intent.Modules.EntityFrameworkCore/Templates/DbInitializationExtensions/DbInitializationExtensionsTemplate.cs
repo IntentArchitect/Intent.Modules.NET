@@ -32,23 +32,23 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbInitializationExtension
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing Microsoft.AspNetCore.Builder;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing System.Threading.Tasks;\r\nusing Microsoft.AspNetCore.Builder;\r\nusing Microsoft.Extensions.DependencyInjection;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        /// <summary>\r\n        /// Performs a check to see whether the database exist and if not will create it\r\n        /// based on the EntityFrameworkCore DbContext configuration.\r\n        /// </summary>\r\n        public static async Task EnsureDbCreationAsync(this IApplicationBuilder builder)\r\n        {\r\n            using var scope = builder.ApplicationServices.CreateScope();\r\n            var dbContext = scope.ServiceProvider.GetService<");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbInitializationExtensions\DbInitializationExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetDbContextName()));
             
             #line default

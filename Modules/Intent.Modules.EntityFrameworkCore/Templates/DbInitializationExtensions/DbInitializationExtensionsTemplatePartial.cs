@@ -31,6 +31,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbInitializationExtension
             if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos() &&
                 TryGetTemplate("App.Startup", out _startupTemplate))
             {
+                _startupTemplate.CSharpFile.AddUsing(Namespace);
                 _startupTemplate.CSharpFile.AfterBuild(file =>
                 {
                     var method = file.Classes.First().FindMethod("Configure");
