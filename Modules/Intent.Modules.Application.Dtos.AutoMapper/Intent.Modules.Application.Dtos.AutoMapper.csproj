@@ -20,7 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.AutoMapper\Intent.Modules.Application.AutoMapper.csproj" />
     <ProjectReference Include="..\Intent.Modules.Application.Dtos\Intent.Modules.Application.Dtos.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

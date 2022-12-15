@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
   </ItemGroup>
 
