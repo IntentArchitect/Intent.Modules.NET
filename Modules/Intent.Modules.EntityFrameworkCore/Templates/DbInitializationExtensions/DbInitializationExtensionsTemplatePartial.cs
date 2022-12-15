@@ -38,7 +38,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbInitializationExtension
                     method.AddStatement(@"
             if (Configuration.GetValue<bool>(""Cosmos:EnsureDbCreated""))
             {
-                app.EnsureDbCreationAsync();
+                app.EnsureDbCreationAsync().GetAwaiter().GetResult();
             }", s => s.SeparatedFromPrevious());
                 });
             }

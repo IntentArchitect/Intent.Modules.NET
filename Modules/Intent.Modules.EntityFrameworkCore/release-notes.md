@@ -2,6 +2,11 @@
 
 - Fixed: `Column` stereotype values were being ignored for `Primary Key` attributes.
 
+### Version 4.0.0
+
+- New: Upgraded Templates to use new Builder Pattern paradigm.
+- Update: DbMigrationsReadMe content updated to match EF Core commands in Visual Studio and CLI.
+
 ### Version 3.3.16
 
 * Fixed: Primary key issues in deep compositional trees.
