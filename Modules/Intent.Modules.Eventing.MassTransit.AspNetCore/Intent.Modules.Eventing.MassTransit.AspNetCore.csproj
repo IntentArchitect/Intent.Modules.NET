@@ -12,8 +12,8 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0-pre.0" />
-    <PackageReference Include="Intent.Modules.Eventing.MassTransit" Version="4.0.1-pre.0"/>
-    <PackageReference Include="Intent.Modules.AspNetCore.Controllers" Version="4.0.0"/>
+    <PackageReference Include="Intent.Modules.Eventing.MassTransit" Version="4.0.1" />
+    <PackageReference Include="Intent.Modules.AspNetCore.Controllers" Version="4.0.0" />
   </ItemGroup>
 
 </Project>

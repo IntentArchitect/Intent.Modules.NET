@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions.FluentValidation</id>
-  <version>3.3.10-pre.0</version>
+  <version>3.3.10</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Integrates Fluent Validation for the Azure Functions platform</summary>
   <description>Integrates Fluent Validation for the Azure Functions platform</description>
@@ -32,7 +32,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation" version="3.4.0-pre.0" />
+    <dependency id="Intent.Application.FluentValidation" version="3.4.0" />
     <dependency id="Intent.AzureFunctions" version="3.3.9" />
     <dependency id="Intent.Common" version="3.3.11" />
     <dependency id="Intent.Common.CSharp" version="3.3.18" />
