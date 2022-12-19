@@ -77,7 +77,7 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <metadata>
-    <install target="Domain" src="metadata/Intent.Entities" />
+    <install target="Domain" src="Metadata/Intent.Entities" />
   </metadata>
   <moduleSettings />
   <moduleSettingsExtensions>
