@@ -20,37 +20,26 @@ namespace Intent.Modules.EntityFrameworkCore
 
         private static string GetMicrosoftExtensionsConfigurationBinderVersion(ICSharpProject project)
         {
-            if (project.IsNet5App())
+            return project switch
             {
-                return "5.0.0";
-            }
-            if (project.IsNet6App())
-            {
-                return "6.0.0";
-            }
-
-            throw new Exception("Not supported version of .NET Core");
+                _ when project.IsNetApp(5) => "5.0.0",
+                _ when project.IsNetApp(6) => "6.0.0",
+                _ when project.IsNetApp(7) => "7.0.0",
+                _ => throw new Exception("Not supported version of .NET Core") 
+            };
         }
 
         private static string GetVersion(ICSharpProject project)
         {
-            if (project.IsNetCore2App())
+            return project switch
             {
-                throw new Exception(".NET Core 2.x is no longer supported.");
-            }
-            if (project.IsNetCore3App())
-            {
-                return "3.1.24";
-            }
-            if (project.IsNet5App())
-            {
-                return "5.0.16";
-            }
-            if (project.IsNet6App())
-            {
-                return "6.0.4";
-            }
-            return "6.0.4";
+                _ when project.IsNetCore2App() => throw new Exception(".NET Core 2.x is no longer supported."),
+                _ when project.IsNetCore3App() => "3.1.24",
+                _ when project.IsNetApp(5) => "5.0.16",
+                _ when project.IsNetApp(6) => "6.0.4",
+                _ when project.IsNetApp(7) => "7.0.1",
+                _ => "6.0.4"
+            };
         }
     }
 }

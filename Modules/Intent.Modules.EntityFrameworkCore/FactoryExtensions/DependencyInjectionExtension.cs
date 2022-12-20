@@ -47,7 +47,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             {
                 return;
             }
-            if (dependencyInjection.OutputTarget.GetProject().IsNet5App() || dependencyInjection.OutputTarget.GetProject().IsNet6App())
+            if (dependencyInjection.OutputTarget.GetProject().IsNetApp(5) || 
+                dependencyInjection.OutputTarget.GetProject().IsNetApp(6) ||
+                dependencyInjection.OutputTarget.GetProject().IsNetApp(7))
             {
                 dependencyInjection.AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(dependencyInjection.OutputTarget.GetProject()));
             }
@@ -59,17 +61,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
-                    //application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionSqlServer}:DefaultSchemaName", ""));
-                    //application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionSqlServer}:EnsureDbCreated", false));
                     application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                         name: "DefaultConnection",
-                        connectionString: $"Server=.;Initial Catalog={dependencyInjection.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True",
+                        connectionString: $"Server=.;Initial Catalog={dependencyInjection.OutputTarget.ApplicationName()};Integrated Security=true;MultipleActiveResultSets=True{GetSqlServerExtendedConnectionString(dependencyInjection.OutputTarget.GetProject())}",
                         providerName: "System.Data.SqlClient"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     dependencyInjection.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjection.OutputTarget.GetProject()));
-                    //application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionPostgreSql}:DefaultSchemaName", ""));
-                    //application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionPostgreSql}:EnsureDbCreated", false));
                     application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                         name: "DefaultConnection",
                         connectionString: $"Host=127.0.0.1;Port=5432;Database={dependencyInjection.OutputTarget.ApplicationName()};Username=postgres;Password=password;",
@@ -80,7 +78,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountEndpoint", "https://localhost:8081"));
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountKey", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DatabaseName", $"{dependencyInjection.OutputTarget.GetProject().ApplicationName()}DB"));
-                    //application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:DefaultContainerName", $"{template.OutputTarget.GetProject().ApplicationName()}"));
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:EnsureDbCreated", true));
                     break;
                 default:
@@ -93,13 +90,15 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 file.Classes.First().FindMethod("AddInfrastructure")
                     .AddStatement(CreateAddDbContextStatement(dependencyInjection));
             });
+        }
 
-
-            //if (_template.ExecutionContext.Settings.GetMultitenancySettings()?.DataIsolation().IsSeparateDatabases() == true)
-            //{
-            //    _template.AddNugetDependency("Finbuckle.MultiTenant", "6.5.1");
-            //    _template.AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
-            //}
+        private string GetSqlServerExtendedConnectionString(ICSharpProject project)
+        {
+            if (project.IsNetApp(7))
+            {
+                return ";Encrypt=False";
+            }
+            return string.Empty;
         }
 
         private AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection)
