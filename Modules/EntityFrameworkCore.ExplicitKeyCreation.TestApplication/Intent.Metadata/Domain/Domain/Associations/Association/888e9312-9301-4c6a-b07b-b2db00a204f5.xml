@@ -3,7 +3,7 @@
   <sourceEnd id="2132c35e-a390-4ac8-b06b-038e2479f1c1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>ExplicitKeysCompositeForeignKeys</name>
     <display>ExplicitKeysCompositeForeignKeys: ExplicitKeysCompositeForeignKey[*]</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="b23b73e4-d63e-434d-aa14-2e78b0c00e05">
       <typeId>1c7ed671-864f-4b70-9fde-d6716b0d8aa5</typeId>
       <isNavigable>false</isNavigable>

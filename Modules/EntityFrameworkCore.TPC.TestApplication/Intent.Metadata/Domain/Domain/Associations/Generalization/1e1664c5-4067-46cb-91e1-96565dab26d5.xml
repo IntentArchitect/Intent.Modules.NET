@@ -3,7 +3,7 @@
   <sourceEnd id="22d3d57c-4326-4fd4-b473-95bccde9e761" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>BaseClassNonAbstract</name>
     <display>BaseClassNonAbstract: Poly_BaseClassNonAbstract</display>
-    <order>4</order>
+    <order>0</order>
     <typeReference id="be5aa1bc-f64b-48e1-897b-1dc555751921">
       <typeId>6e952030-872c-4ad3-846c-9f859eac0d86</typeId>
       <isNavigable>false</isNavigable>

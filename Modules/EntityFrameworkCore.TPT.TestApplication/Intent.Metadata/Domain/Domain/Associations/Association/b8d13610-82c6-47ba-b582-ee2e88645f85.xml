@@ -3,7 +3,7 @@
   <sourceEnd id="f94f276f-ef32-4400-bd8d-cce8b67351a7" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>Poly_RootAbstract</name>
     <display>Poly_RootAbstract: Poly_RootAbstract</display>
-    <order>1</order>
+    <order>0</order>
     <typeReference id="ad8b3595-4be8-4e59-b028-7967a3435b8e">
       <typeId>93d20c65-ce52-46fc-bf4a-fec967bb9f14</typeId>
       <isNavigable>false</isNavigable>

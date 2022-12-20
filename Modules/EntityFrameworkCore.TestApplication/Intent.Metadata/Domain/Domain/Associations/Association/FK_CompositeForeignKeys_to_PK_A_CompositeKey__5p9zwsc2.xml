@@ -3,7 +3,7 @@
   <sourceEnd id="35d28720-358c-4c0f-b83e-dd27e1b49a2d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>FK_CompositeForeignKeys</name>
     <display>FK_CompositeForeignKeys: FK_A_CompositeForeignKey[*]</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="2f567e7a-f666-4c78-ac6a-4d59302147d7">
       <typeId>54c8aea3-533c-44da-9772-94237f7514ae</typeId>
       <isNavigable>false</isNavigable>

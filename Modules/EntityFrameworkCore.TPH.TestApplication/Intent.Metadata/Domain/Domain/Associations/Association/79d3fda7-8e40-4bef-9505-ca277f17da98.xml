@@ -3,7 +3,7 @@
   <sourceEnd id="f5317012-2f80-45c1-8d96-9215345a4199" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>ConcreteBaseClassAssociateds</name>
     <display>ConcreteBaseClassAssociateds: ConcreteBaseClassAssociated[*]</display>
-    <order>1</order>
+    <order>0</order>
     <typeReference id="3109b88e-0523-4d36-8170-78dd986c587f">
       <typeId>8f81247b-89a3-465b-b28f-658f30cb40c8</typeId>
       <isNavigable>false</isNavigable>

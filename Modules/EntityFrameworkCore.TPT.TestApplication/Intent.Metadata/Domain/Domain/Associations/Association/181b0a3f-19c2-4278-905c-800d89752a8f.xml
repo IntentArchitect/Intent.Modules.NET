@@ -3,7 +3,7 @@
   <sourceEnd id="da47996c-9c44-4e88-aa50-079bfe980ad9" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>AbstractBaseClassAssociateds</name>
     <display>AbstractBaseClassAssociateds: AbstractBaseClassAssociated[*]</display>
-    <order>1</order>
+    <order>0</order>
     <typeReference id="da8332a4-622f-4318-afc3-5e2277c493f6">
       <typeId>c620fccb-b4f8-4360-92af-bacb6e7f08b6</typeId>
       <isNavigable>false</isNavigable>

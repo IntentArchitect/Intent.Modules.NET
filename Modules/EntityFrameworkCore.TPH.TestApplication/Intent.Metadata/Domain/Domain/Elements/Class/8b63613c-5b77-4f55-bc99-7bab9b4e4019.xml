@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="8b63613c-5b77-4f55-bc99-7bab9b4e4019" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>Poly_ConcreteA</name>
-  <display>Poly_ConcreteA</display>
+  <display>Poly_ConcreteA : Poly_BaseClassNonAbstract</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

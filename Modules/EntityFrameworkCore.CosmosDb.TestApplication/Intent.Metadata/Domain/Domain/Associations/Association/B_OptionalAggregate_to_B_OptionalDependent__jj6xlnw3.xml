@@ -3,7 +3,7 @@
   <sourceEnd id="8a1c1288-a99b-4616-97da-f64cedbb3e70" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>B_OptionalAggregate</name>
     <display>B_OptionalAggregate: B_OptionalAggregate?</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="00ac9b33-7474-422f-8224-17dd3e31d4a8">
       <typeId>a8992b53-e4c2-4681-8e0a-7ed268c1d539</typeId>
       <isNavigable>false</isNavigable>

@@ -3,7 +3,7 @@
   <sourceEnd id="d6d0745a-3a36-4c99-8fa4-ceeae04834ad" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>ClassA</name>
     <display>ClassA: ClassA</display>
-    <order>3</order>
+    <order>0</order>
     <typeReference id="bda746ef-ba77-4886-9d51-3dbbb5668268">
       <typeId>ac315ad3-af1a-4809-98e2-97bd54f7593f</typeId>
       <isNavigable>false</isNavigable>

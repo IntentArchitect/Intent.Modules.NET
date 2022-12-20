@@ -3,7 +3,7 @@
   <sourceEnd id="701c0c1c-bc77-46b3-bebb-5afe13e757a0" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>Poly_ConcreteB</name>
     <display>Poly_ConcreteB: Poly_ConcreteB</display>
-    <order>4</order>
+    <order>0</order>
     <typeReference id="de09e7f3-740a-4dbf-a83c-3e47d0d4e02f">
       <typeId>834328b4-0325-4c35-8043-a25fb9a7825a</typeId>
       <isNavigable>false</isNavigable>

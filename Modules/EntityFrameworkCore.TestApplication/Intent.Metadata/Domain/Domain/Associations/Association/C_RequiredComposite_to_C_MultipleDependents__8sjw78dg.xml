@@ -3,7 +3,7 @@
   <sourceEnd id="b50c955a-3778-40b2-b133-0ad426980c5a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>C_RequiredComposite</name>
     <display>C_RequiredComposite: C_RequiredComposite</display>
-    <order>1</order>
+    <order>0</order>
     <typeReference id="e25854ec-f38d-4c7c-9ccd-1733da77d1b8">
       <typeId>d79a991a-b905-431e-81b4-f8de802cfd1e</typeId>
       <isNavigable>false</isNavigable>

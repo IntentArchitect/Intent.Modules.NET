@@ -3,7 +3,7 @@
   <sourceEnd id="acb81fca-e927-4933-bb61-f7c6afb89733" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
     <name>FkDerivedClass</name>
     <display>FkDerivedClass: FkDerivedClass</display>
-    <order>3</order>
+    <order>0</order>
     <typeReference id="2c15a7f7-f651-43d2-9cb2-359b0e16459c">
       <typeId>475c74a6-a62a-49c6-8184-a1a70e5e7b18</typeId>
       <isNavigable>false</isNavigable>

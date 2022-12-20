@@ -3,7 +3,7 @@
   <sourceEnd id="ea1ab02e-08c0-43ae-b90b-59058413c815" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>DerivedClassForConcreteAssociateds</name>
     <display>DerivedClassForConcreteAssociateds: DerivedClassForConcreteAssociated[*]</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="cb378403-cfa2-40b3-9d6e-ee467abc4c2c">
       <typeId>04e067b7-bd76-499e-bf39-8a23927359bd</typeId>
       <isNavigable>false</isNavigable>

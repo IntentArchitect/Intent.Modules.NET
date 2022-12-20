@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="4ac4980a-ce7d-4871-a7a3-9f6bb874ad0b" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>FkDerivedClass</name>
-  <display>FkDerivedClass</display>
+  <display>FkDerivedClass : FkBaseClass</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

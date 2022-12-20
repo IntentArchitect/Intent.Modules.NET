@@ -3,7 +3,7 @@
   <sourceEnd id="28eb0e68-807f-448a-9d17-203b262711b0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>FkAssociatedClasses</name>
     <display>FkAssociatedClasses: FkAssociatedClass[*]</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="8e11ef76-a121-4346-bd09-60f441bcac42">
       <typeId>eba63aa0-fc1c-43c2-8dd6-6acd365e8f09</typeId>
       <isNavigable>false</isNavigable>

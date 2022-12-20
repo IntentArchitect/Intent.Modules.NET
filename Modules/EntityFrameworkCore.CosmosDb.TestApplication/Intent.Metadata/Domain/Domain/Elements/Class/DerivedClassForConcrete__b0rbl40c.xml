@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="92fa0a91-5805-49b8-8c45-a8199294b877" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>DerivedClassForConcrete</name>
-  <display>DerivedClassForConcrete</display>
+  <display>DerivedClassForConcrete : ConcreteBaseClass</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

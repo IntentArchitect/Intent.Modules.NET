@@ -3,7 +3,7 @@
   <sourceEnd id="0b32d0ce-13cd-4685-812b-880407a3cb3d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>L_SelfReferenceMultiplesSrc</name>
     <display>L_SelfReferenceMultiplesSrc: L_SelfReferenceMultiple[*]</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="8d191308-f51b-43cf-a104-809598d5af27">
       <typeId>26935a83-9c1a-422a-a353-94be5e0bca00</typeId>
       <isNavigable>false</isNavigable>

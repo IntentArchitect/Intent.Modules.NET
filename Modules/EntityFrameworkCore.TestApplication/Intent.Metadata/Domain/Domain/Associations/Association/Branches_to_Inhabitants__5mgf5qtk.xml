@@ -3,7 +3,7 @@
   <sourceEnd id="96163e6f-f9cb-4ec9-92e1-d674cc266c6e" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>Branches</name>
     <display>Branches: Branch[*]</display>
-    <order>1</order>
+    <order>0</order>
     <typeReference id="f92784bb-d235-4476-b90e-808aa16ca7ad">
       <typeId>c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</typeId>
       <isNavigable>false</isNavigable>

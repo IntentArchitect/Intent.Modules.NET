@@ -3,7 +3,7 @@
   <sourceEnd id="3c4fb60d-9667-450c-b01e-9f6de8fbe46b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
     <name>J_MultipleAggregates</name>
     <display>J_MultipleAggregates: J_MultipleAggregate[*]</display>
-    <order>2</order>
+    <order>0</order>
     <typeReference id="851ec09d-e82b-4844-aa4d-1e47185848f0">
       <typeId>62c1d293-ce8c-4833-bcb8-2a3bcc4da6f3</typeId>
       <isNavigable>false</isNavigable>
