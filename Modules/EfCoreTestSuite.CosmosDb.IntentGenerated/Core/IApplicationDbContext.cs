@@ -37,11 +37,13 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
         DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
         DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
+        DbSet<ExplicitKeyClass> ExplicitKeyClasses { get; set; }
         DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
+        DbSet<ImplicitKeyClass> ImplicitKeyClasses { get; set; }
         DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         DbSet<K_SelfReference> K_SelfReferences { get; set; }

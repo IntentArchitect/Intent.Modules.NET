@@ -446,6 +446,26 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>WeirdClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ExplicitKeyClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExplicitKeyClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ImplicitKeyClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ImplicitKeyClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IExplicitKeyClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExplicitKeyClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IImplicitKeyClass.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ImplicitKeyClass.cs</DependentUpon>
     </Compile></ItemGroup>
 
 </Project>

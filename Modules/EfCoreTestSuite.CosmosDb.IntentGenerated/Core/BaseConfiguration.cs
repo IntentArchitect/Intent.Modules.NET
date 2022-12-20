@@ -12,7 +12,7 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
     {
         public void Configure(EntityTypeBuilder<Base> builder)
         {
-            builder.ToContainer("EntityFrameworkCore.CosmosDb.TestApplication");
+            builder.ToContainer("PartitionKeyNamed");
 
             builder.HasPartitionKey(x => x.PartitionKey);
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f6cfbb0c-08c4-4b57-bff0-e57125782700" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>ClassD</name>
+  <display>ClassD</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5d218f71-8ff0-4c89-9e7d-18cad6a9d3ab</parentFolderId>
+  <packageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</packageId>
+  <packageName>Domain.PartitionKey.Named</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

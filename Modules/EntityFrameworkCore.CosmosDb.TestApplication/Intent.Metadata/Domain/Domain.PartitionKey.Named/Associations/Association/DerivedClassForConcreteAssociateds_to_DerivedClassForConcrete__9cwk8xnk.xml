@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="be7cc587-5e27-4c84-a293-2b6e1bb16589">
+  <sourceEnd id="c6361789-aadf-4a17-b6a1-e027436abba1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DerivedClassForConcreteAssociateds</name>
+    <display>DerivedClassForConcreteAssociateds: DerivedClassForConcreteAssociated[*]</display>
+    <order>0</order>
+    <typeReference id="0817009d-cd89-4061-9acf-d0ec17c977e0">
+      <typeId>3ca0fafb-1391-45a8-8464-bdb7da8a9cf7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="be7cc587-5e27-4c84-a293-2b6e1bb16589" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DerivedClassForConcrete</name>
+    <display>DerivedClassForConcrete: DerivedClassForConcrete</display>
+    <order>2</order>
+    <typeReference id="be63dae7-4ec1-4da5-856f-b6168dc0d3bb">
+      <typeId>92fa0a91-5805-49b8-8c45-a8199294b877</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

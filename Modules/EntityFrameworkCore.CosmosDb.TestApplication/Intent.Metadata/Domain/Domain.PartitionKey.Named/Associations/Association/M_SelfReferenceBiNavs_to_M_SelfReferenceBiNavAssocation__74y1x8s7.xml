@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="19ac9667-37d4-44e2-9a77-da3a75fbc536">
+  <sourceEnd id="acf9790b-6419-405a-80d1-932e4f36a439" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>M_SelfReferenceBiNavs</name>
+    <display>M_SelfReferenceBiNavs: M_SelfReferenceBiNav[*]</display>
+    <order>3</order>
+    <typeReference id="96cc3ed0-f0e0-4bd1-8ac1-18e616ff0478">
+      <typeId>f737d9c0-ba76-4389-b74a-847489b5be2f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </sourceEnd>
+  <targetEnd id="19ac9667-37d4-44e2-9a77-da3a75fbc536" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>M_SelfReferenceBiNavAssocation</name>
+    <display>M_SelfReferenceBiNavAssocation: M_SelfReferenceBiNav?</display>
+    <order>2</order>
+    <typeReference id="239a47f5-9a80-4c35-809d-81a81f69ed90">
+      <typeId>f737d9c0-ba76-4389-b74a-847489b5be2f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -45,11 +45,13 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
         public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
         public DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
+        public DbSet<ExplicitKeyClass> ExplicitKeyClasses { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
+        public DbSet<ImplicitKeyClass> ImplicitKeyClasses { get; set; }
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
@@ -86,11 +88,13 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteConfiguration());
             modelBuilder.ApplyConfiguration(new DerivedClassForConcreteAssociatedConfiguration());
             modelBuilder.ApplyConfiguration(new E_RequiredCompositeNavConfiguration());
+            modelBuilder.ApplyConfiguration(new ExplicitKeyClassConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalAggregateNavConfiguration());
             modelBuilder.ApplyConfiguration(new F_OptionalDependentConfiguration());
             modelBuilder.ApplyConfiguration(new G_RequiredCompositeNavConfiguration());
             modelBuilder.ApplyConfiguration(new H_MultipleDependentConfiguration());
             modelBuilder.ApplyConfiguration(new H_OptionalAggregateNavConfiguration());
+            modelBuilder.ApplyConfiguration(new ImplicitKeyClassConfiguration());
             modelBuilder.ApplyConfiguration(new J_MultipleAggregateConfiguration());
             modelBuilder.ApplyConfiguration(new J_RequiredDependentConfiguration());
             modelBuilder.ApplyConfiguration(new K_SelfReferenceConfiguration());
