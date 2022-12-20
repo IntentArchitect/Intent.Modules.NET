@@ -60,6 +60,39 @@
       <stereotypes />
       <metadata />
       <childElements>
+        <childElement id="6ec0e561-eaab-4e96-821a-a5f8150be969" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f4b808fb-e09b-4466-a57d-3d770dcefac3">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6495764b-3768-4b46-ba70-a8ef5bea0efa</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const dbSettingsId = &quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;;&#xD;&#xA;const partitionKeyStereotypeId = &quot;3a203a3e-116e-4a7c-b375-e690570efc3f&quot;;&#xD;&#xA;&#xD;&#xA;// console.log(`Attribute (${element.getName()}) :: On Changed&#xD;&#xA;//     isCosmosDbProvider() = ${isCosmosDbProvider()}&#xD;&#xA;//     isAggregateRoot(element.getParent()) = ${isAggregateRoot(element.getParent())}&#xD;&#xA;//     hasSuperClass(element.getParent()) = ${hasSuperClass(element.getParent())}`);&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider() || (!isAggregateRoot(element.getParent()) &amp;&amp; !element.getParent().hasStereotype(&quot;Table&quot;)) || hasSuperClass(element.getParent())) { &#xD;&#xA;    return; &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.hasStereotype(partitionKeyStereotypeId) &amp;&amp; &#xD;&#xA;    element.getParent().getChildren(&quot;Attribute&quot;).some(x =&gt; x.id != element.id &amp;&amp; x.hasStereotype(partitionKeyStereotypeId))) {&#xD;&#xA;        &#xD;&#xA;    element.removeStereotype(partitionKeyStereotypeId);&#xD;&#xA;    await dialogService.error(`The Partition Key should not be managed manually. Click on the ${element.getPackage().getName()} package to change the Partition Key name.`);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// === FUNCTIONS ===&#xD;&#xA;&#xD;&#xA;function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return ! element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function hasSuperClass(element) {&#xD;&#xA;    return element.getAssociations(&quot;Generalization&quot;)&#xD;&#xA;        .some(x =&gt; x.isTargetEnd());&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getNamingConvention() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        .getField(&quot;Key Naming Convention&quot;)?.value ?? &quot;pascal-case&quot;;&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="902ff494-5eaa-4f3a-b2c3-469f043917c7" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Created</name>
           <display>On Created: Script</display>
@@ -86,7 +119,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="// If Explicit key creation is set and partition key name is blank.&#xD;&#xA;&#xD;&#xA;const dbSettingsId = &quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;;&#xD;&#xA;const partitionKeyStereotypeId = &quot;3a203a3e-116e-4a7c-b375-e690570efc3f&quot;;&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype(&quot;Table&quot;)) || isSuperClass(element.getParent())) { &#xD;&#xA;    return; &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (! (element.getPackage()?.getStereotype(&quot;Cosmos DB Container Settings&quot;)?.getProperty(&quot;Partition Key&quot;))) { return; }&#xD;&#xA;&#xD;&#xA;let partitionKey = element.getPackage().getStereotype(&quot;Cosmos DB Container Settings&quot;).getProperty(&quot;Partition Key&quot;).value;&#xD;&#xA;if (!partitionKey) { &#xD;&#xA;    let namingConvetion = getNamingConvention();&#xD;&#xA;    let defaultPkName = namingConvetion == &quot;pascal-case&quot; ? &quot;PartitionKey&quot; : &quot;partitionKey&quot;;&#xD;&#xA;    partitionKey = defaultPkName;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitionKeyStereotypeId)) {&#xD;&#xA;    element.addStereotype(partitionKeyStereotypeId);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// === FUNCTIONS ===&#xD;&#xA;&#xD;&#xA;function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return ! element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isSuperClass(element) {&#xD;&#xA;    return element.getAssociations(&quot;Generalization&quot;)&#xD;&#xA;        .some(x =&gt; x.isTargetEnd());&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getNamingConvention() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        .getField(&quot;Key Naming Convention&quot;)?.value ?? &quot;pascal-case&quot;;&#xD;&#xA;}" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const dbSettingsId = &quot;ac0a788e-d8b3-4eea-b56d-538608f1ded9&quot;;&#xD;&#xA;const partitionKeyStereotypeId = &quot;3a203a3e-116e-4a7c-b375-e690570efc3f&quot;;&#xD;&#xA;&#xD;&#xA;// console.log(`Attribute (${element.getName()}) :: On Created&#xD;&#xA;//     isCosmosDbProvider() = ${isCosmosDbProvider()}&#xD;&#xA;//     isAggregateRoot(element.getParent()) = ${isAggregateRoot(element.getParent())}&#xD;&#xA;//     hasSuperClass(element.getParent()) = ${hasSuperClass(element.getParent())}`);&#xD;&#xA;&#xD;&#xA;if (!isCosmosDbProvider() || (!isAggregateRoot(element.getParent()) &amp;&amp; !element.getParent().hasStereotype(&quot;Table&quot;)) || hasSuperClass(element.getParent())) { &#xD;&#xA;    return; &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let partitionKey = element.getPackage().getStereotype(&quot;Cosmos DB Container Settings&quot;).getProperty(&quot;Partition Key&quot;).value?.trim();&#xD;&#xA;if (partitionKey == &quot;&quot;) { partitionKey = null; }&#xD;&#xA;&#xD;&#xA;if (!partitionKey &amp;&amp; element.hasStereotype(&quot;Primary Key&quot;)) { &#xD;&#xA;    element.addStereotype(partitionKeyStereotypeId);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (!partitionKey) { return; }&#xD;&#xA;&#xD;&#xA;if (element.getName() == partitionKey &amp;&amp; !element.hasStereotype(partitionKeyStereotypeId)) {&#xD;&#xA;    element.addStereotype(partitionKeyStereotypeId);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// === FUNCTIONS ===&#xD;&#xA;&#xD;&#xA;function isCosmosDbProvider() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        ?.getField(&quot;Database Provider&quot;)&#xD;&#xA;        ?.value == &quot;cosmos&quot;;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return ! element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function hasSuperClass(element) {&#xD;&#xA;    return element.getAssociations(&quot;Generalization&quot;)&#xD;&#xA;        .some(x =&gt; x.isTargetEnd());&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function getNamingConvention() {&#xD;&#xA;    return application.getSettings(dbSettingsId)&#xD;&#xA;        .getField(&quot;Key Naming Convention&quot;)?.value ?? &quot;pascal-case&quot;;&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

@@ -1,4 +1,9 @@
-﻿### Version 4.0.1
+﻿### Version 4.0.2
+
+- Update: Pattern for Partition Key now defaults to Primary Key by default.
+- Fixed: Partition Key management on Domain Designer bugs.
+
+### Version 4.0.1
 
 - Fixed: `Column` stereotype values were being ignored for `Primary Key` attributes.
 

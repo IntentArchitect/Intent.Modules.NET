@@ -119,7 +119,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
-                    
+
                     statements.Add(new CSharpInvocationStatement($@"options.UseSqlServer")
                         .WithArgumentsOnNewLines()
                         .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
@@ -128,7 +128,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                     dependencyInjection.AddNugetDependency(NugetPackages.NpgsqlEntityFrameworkCorePostgreSQL(dependencyInjection.OutputTarget.GetProject()));
-                    
+
                     statements.Add(new CSharpInvocationStatement($@"options.UseNpgsql")
                         .WithArgumentsOnNewLines()
                         .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))

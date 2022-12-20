@@ -208,13 +208,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             if (GetPartitionKey(model) != null)
             {
                 yield return $@"builder.HasPartitionKey(x => x.{GetPartitionKey(model).Name.ToPascalCase()});";
-
-                // GCB - I'm not sure if this is needed. Remove after testing if no errors found:
-                //if (model.ParentClass != null)
-                //{
-                //    yield return $@"builder.Property(x => x.{GetPartitionKey(model).Name.ToPascalCase()})
-                //.IsRequired();";
-                //}
+            }
+            else
+            {
+                yield return $@"builder.HasPartitionKey(x => x.Id);";
             }
         }
 
@@ -314,17 +311,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private AttributeModel GetPartitionKey(ClassModel model)
         {
-            // Is there an easier way to get this?
-            var domainPackage = new DomainPackageModel(model.InternalElement.Package);
-            var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
-
-            var partitionKey = cosmosSettings?.PartitionKey()?.ToPascalCase();
-            if (string.IsNullOrEmpty(partitionKey))
-            {
-                partitionKey = "PartitionKey";
-            }
-
-            return model.GetTypesInHierarchy().SelectMany(x => x.Attributes).SingleOrDefault(p => p.Name.ToPascalCase().Equals(partitionKey) && p.HasPartitionKey());
+            return model.GetTypesInHierarchy().SelectMany(x => x.Attributes).SingleOrDefault(p => p.HasPartitionKey());
         }
 
         private IEnumerable<string> GetCheckConstraints(ClassModel model)
@@ -418,15 +405,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             {
                 yield return new EfCoreKeyColumnPropertyStatement(attributeModel);
             }
-        }
-
-        protected CSharpStatement GetKeyMappingStatement(params string[] keyColumns)
-        {
-            var keys = keyColumns.Count() == 1
-                ? "x." + keyColumns[0]
-                : $"new {{ {string.Join(", ", keyColumns.Select(key => $"x.{key}"))} }}";
-
-            return $@"builder.HasKey(x => {keys});";
         }
 
         protected string GetDefaultSurrogateKeyType()
