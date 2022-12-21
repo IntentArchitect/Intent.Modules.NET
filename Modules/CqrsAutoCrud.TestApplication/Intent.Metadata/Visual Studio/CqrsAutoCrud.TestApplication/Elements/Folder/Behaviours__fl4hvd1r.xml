@@ -109,6 +109,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a17891c4-3dec-4a53-8fa8-48b42a0b2236</parentFolderId>
+      <packageId>de91e2ff-02da-4237-b0a5-35181b035c3b</packageId>
+      <packageName>CqrsAutoCrud.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

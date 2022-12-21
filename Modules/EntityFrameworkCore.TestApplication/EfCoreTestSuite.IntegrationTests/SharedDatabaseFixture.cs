@@ -41,6 +41,7 @@ public abstract class SharedDatabaseFixture<TDbContext, TTestClass> : IDisposabl
             DataSource = _config.GetValue<string>("DataSource"),
             InitialCatalog = _DatabaseName,
             IntegratedSecurity = true,
+            Encrypt = false
         };
 
         var connectionString = connectionStringBuilder.ToString();
@@ -123,7 +124,8 @@ public abstract class SharedDatabaseFixture<TDbContext, TTestClass> : IDisposabl
     {
         DataSource = _config.GetValue<string>("DataSource"),
         InitialCatalog = "master",
-        IntegratedSecurity = true
+        IntegratedSecurity = true,
+        Encrypt = false
     };
 
     private static string Filename =>
