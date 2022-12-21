@@ -44,7 +44,7 @@ static class ImplementationStrategyTemplatesExtensions
     {
         var aggregateRootAssociation = model.AssociatedClasses
             .SingleOrDefault(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
-                                  !p.IsCollection && !p.IsNullable);
+                                  p.IsSourceEnd() && !p.IsCollection && !p.IsNullable);
         return aggregateRootAssociation?.Class;
     }
 
