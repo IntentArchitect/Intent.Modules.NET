@@ -120,8 +120,10 @@ function getAggregateRootOwner(entity) {
     if (_aggregateRootOwnerCache[entity.id]) {
         return _aggregateRootOwnerCache[entity.id];
     }
+
     let result = entity.getAssociations("Association")
-        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()) &amp;&amp; 
+        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()) &amp;&amp;
+            isOwnedBy(x) &amp;&amp;
             // Let's only target collections for now as part of the nested compositional crud support
             // as one-to-one relationships are more expensive to address and possibly not going to
             // be needed.
@@ -131,6 +133,10 @@ function getAggregateRootOwner(entity) {
         _aggregateRootOwnerCache[entity.id] = result.typeReference.getType();
     }
     return result;
+
+    function isOwnedBy(association) {
+        return association.isSourceEnd() &amp;&amp; !association.typeReference.isNullable &amp;&amp; !association.typeReference.isCollection;
+    }
 }
 
 function ownerIsAggregateRoot(entity) {
@@ -998,8 +1004,10 @@ function getAggregateRootOwner(entity) {
     if (_aggregateRootOwnerCache[entity.id]) {
         return _aggregateRootOwnerCache[entity.id];
     }
+
     let result = entity.getAssociations("Association")
-        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()) &amp;&amp; 
+        .filter(x =&gt; isAggregateRoot(x.typeReference.getType()) &amp;&amp;
+            isOwnedBy(x) &amp;&amp;
             // Let's only target collections for now as part of the nested compositional crud support
             // as one-to-one relationships are more expensive to address and possibly not going to
             // be needed.
@@ -1009,6 +1017,10 @@ function getAggregateRootOwner(entity) {
         _aggregateRootOwnerCache[entity.id] = result.typeReference.getType();
     }
     return result;
+
+    function isOwnedBy(association) {
+        return association.isSourceEnd() &amp;&amp; !association.typeReference.isNullable &amp;&amp; !association.typeReference.isCollection;
+    }
 }
 
 function ownerIsAggregateRoot(entity) {

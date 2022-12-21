@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Fixed: Create CRUD Service for nested compositional entities will only pick compositional relationships.
+
 ### Version 4.0.1
 
 - New: Adds CRUD capabilities to Eventing modules.
