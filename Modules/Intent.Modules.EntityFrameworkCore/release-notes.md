@@ -1,11 +1,8 @@
-﻿### Version 4.0.3
-
-- Update: Added support for .NET 7 and EF 7.
-
-### Version 4.0.2
+﻿### Version 4.0.2
 
 - Update: Pattern for Partition Key now defaults to Primary Key by default.
 - Fixed: Partition Key management on Domain Designer bugs.
+- New: Added support for .NET 7 and EF 7.
 
 ### Version 4.0.1
 
