@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 namespace <#= Namespace #>
 {
-    public enum <#= ClassName #>
+    <#= GetEnumAttributes() #>public enum <#= ClassName #>
     {
         <#= GetEnumLiterals(Model.Literals) #>
     }

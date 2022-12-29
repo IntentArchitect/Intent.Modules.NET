@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="3988663b-69c9-4ab1-b471-ecd3bc01dec6" version="3.1.0">
+  <name>Flags</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="85fba0e9-9161-4c85-a603-a229ef312beb">Enum</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="flag" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction>return `[Flags]`;</displayFunction>
+  <displayAsAnnotation>true</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>dcc00891-d339-4864-a22c-24b3ae9fbc67</parentFolderId>
+  <order>0</order>
+  <packageId>dcc00891-d339-4864-a22c-24b3ae9fbc67</packageId>
+  <packageName>Intent.Entities</packageName>
+  <properties />
+</stereotypeDefinition>

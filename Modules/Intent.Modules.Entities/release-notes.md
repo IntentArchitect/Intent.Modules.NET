@@ -1,4 +1,12 @@
-﻿### Version 4.0.0
+﻿### Version 4.0.2
+
+* Support for `[Flags]` attribute on enums. To add this attribute, apply the `Flags` stereotype to the enum.
+
+### Version 4.0.1
+
+* Fixed: `Intent.Modules.Entities` nuget package has incorrect dependency on `Intent.Modules.Constants`.
+
+### Version 4.0.0
 
 This version allows users to select their preferences for the Entities pattern from the Domain Settings (see Application Settings). 
 These include the following options:
@@ -10,4 +18,4 @@ These include the following options:
 > This verion is implemented using the `CSharpFile` builder pattern for the various templates.
 ### Version 3.3.13
 
-- Fixed: Entity Interface template now generates the `?` symbol when a nullable Enum is specified on the operation.
+* Fixed: Entity Interface template now generates the `?` symbol when a nullable Enum is specified on the operation.

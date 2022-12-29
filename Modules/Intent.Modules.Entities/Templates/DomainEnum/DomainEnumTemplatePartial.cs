@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Entities.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -37,6 +38,12 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
                 className: $"{Model.Name.ToPascalCase()}",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        private string GetEnumAttributes()
+        {
+            return Model.HasFlags() ? $@"[{UseType("System.Flags")}]
+        " : string.Empty;
         }
 
         private static string GetEnumLiterals(IEnumerable<EnumLiteralModel> literals)
