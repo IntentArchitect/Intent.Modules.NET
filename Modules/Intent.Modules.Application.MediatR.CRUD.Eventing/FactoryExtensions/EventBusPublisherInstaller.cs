@@ -43,18 +43,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
                 .ToLookup(k => k.GetMapFromDomainMapping().ElementId);
             var commands = application.FindTemplateInstances("Application.Command.Handler", p => p is ICSharpFileBuilderTemplate)
                 .Cast<ICSharpFileBuilderTemplate>()
-                .Select(x =>
+                .Select(template =>
                 {
-                    var @class = x.CSharpFile.Classes.First();
-                    if (!@class.TryGetMetadata("model", out var model))
+                    if (template == null)
+                    {
+                        return null;
+                    }
+                    
+                    var @class = template.CSharpFile.Classes.First();
+                    if (!@class.TryGetMetadata("model", out var model) || model == null)
                     {
                         return null;
                     }
 
                     var command = (CommandModel)model;
+                    if (command.Mapping?.Element == null)
+                    {
+                        return null;
+                    }
                     return new
                     {
-                        Template = x,
+                        Template = template,
                         Command = command,
                         Entity = command.Mapping.Element.AsClassModel()
                     };
