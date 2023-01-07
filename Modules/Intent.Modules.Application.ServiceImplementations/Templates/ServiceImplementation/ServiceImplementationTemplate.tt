@@ -1,7 +1,6 @@
 <#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.ServiceModel, Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation.ServiceImplementationDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
-<#@ Assembly Name="System.Windows.Forms" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Modules.Application.Contracts" #> 

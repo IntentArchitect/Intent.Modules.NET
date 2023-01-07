@@ -36,14 +36,14 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterfac
         {
             this.Write("using System.Collections.Generic;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    /// <summary>\r\n    /// Instead of retrieving the entire collection of elements from\r\n    /// a persistence store, a single <see cref=\"IPagedResult{T}\"/> is returned\r\n    /// representing a single \"page\" of elements. Supplying a different <b>PageNo</b>\r\n    /// will return a different \"page\" of elements. \r\n    /// </summary>\r\n    /// <typeparam name=\"T\">Type of elements</typeparam>\r\n    public interface ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedResultInterface\PagedResultInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

@@ -1,7 +1,6 @@
 <#@ template  debug="true"  inherits="CSharpTemplateBase<object>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
-<#@ Assembly Name="System.Windows.Forms" #>
 <#@ import namespace="Intent.Modelers.Domain.Api" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>

@@ -1,7 +1,6 @@
 <#@ template  debug="true"  inherits="CSharpTemplateBase<Intent.Modelers.Services.Api.DTOModel, Intent.Modules.Application.Dtos.Templates.DtoModel.DtoModelDecorator>" #>
 <#@ output extension=".cs" #>
 <#@ Assembly Name="System.Core" #>
-<#@ Assembly Name="System.Windows.Forms" #>
 <#@ import namespace="Intent.Modelers.Services.Api" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
