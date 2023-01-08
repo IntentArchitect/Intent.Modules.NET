@@ -58,6 +58,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfigurati
                                     .AddStatement($@"options.OperationFilter<{GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId)}>();")
                                 )
                                 .WithArgumentsOnNewLines()
+                                .AddMetadata("AddSwaggerGen", true)
                             );
                             method.AddStatement($@"return services;");
                         });
