@@ -3,7 +3,6 @@
   <name>AuthorizeCheckOperationFilter</name>
   <display>AuthorizeCheckOperationFilter: Single File</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <typeReference id="8017c125-a0da-4496-9c3d-fb70dfcc7212">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>

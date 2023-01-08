@@ -10,22 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#bc6e3b78-630d-4804-9475-23f606694704</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/SwashbuckleAppSettingsDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleAppSettingsDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#bc6e3b78-630d-4804-9475-23f606694704</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/SwashbuckleAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>101ffa98-09e4-456e-bbe3-8aa2a34123df</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#ff189556-1a54-46dc-9cfb-e86ba6f4e67b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/SwashbuckleCoreWebStartupDecorator.cs</ApplicationRelativeFilePath>

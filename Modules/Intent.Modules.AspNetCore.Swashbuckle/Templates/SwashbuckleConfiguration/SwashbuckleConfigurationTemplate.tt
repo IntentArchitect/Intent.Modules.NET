@@ -8,10 +8,10 @@
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
 <#@ import namespace="Intent.Modules.AspNetCore.Swashbuckle.Templates.AuthorizeCheckOperationFilter" #>
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -22,11 +22,44 @@ namespace <#= Namespace #>
     {
         public static IServiceCollection ConfigureSwagger(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSwaggerGen(c => c.OperationFilter<<#= GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId) #>>());
-            services.Configure<SwaggerGenOptions>(configuration.GetSection("Swashbuckle:SwaggerGen"));
-            services.Configure<SwaggerOptions>(configuration.GetSection("Swashbuckle:Swagger"));
-            services.Configure<SwaggerUIOptions>(configuration.GetSection("Swashbuckle:SwaggerUI"));
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "<#= OutputTarget.ApplicationName() #> API"
+                });
+                options.OperationFilter<<#= GetTypeName(AuthorizeCheckOperationFilterTemplate.TemplateId) #>>();
+            });
+
             return services;
+        }
+
+        public static void UseSwashbuckle(this IApplicationBuilder app)
+        {
+            app.UseSwagger(options =>
+            {
+                options.RouteTemplate = "swagger/{documentName}/swagger.json";
+            });
+            app.UseSwaggerUI(options =>
+            {
+                options.RoutePrefix = "swagger";
+                options.ConfigObject = new ConfigObject()
+                {
+                    Urls = new[]
+                    {
+                        new UrlDescriptor() { Url = "/swagger/v1/swagger.json", Name = "<#= OutputTarget.ApplicationName() #> API V1" }
+                    }
+                };
+                options.EnableDeepLinking();
+                options.DisplayOperationId();
+                options.DefaultModelsExpandDepth(-1);
+                options.DefaultModelsExpandDepth(2);
+                options.DefaultModelRendering(ModelRendering.Model);
+                options.DocExpansion(DocExpansion.List);
+                options.ShowExtensions();
+                options.EnableFilter("");
+            });
         }
     }
 }

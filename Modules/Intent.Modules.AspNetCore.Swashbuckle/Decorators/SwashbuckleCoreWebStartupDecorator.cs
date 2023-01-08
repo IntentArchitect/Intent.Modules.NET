@@ -45,8 +45,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Decorators
         public override string Configuration()
         {
             return @"
-            app.UseSwagger();
-            app.UseSwaggerUI();";
+            app.UseSwashbuckle();";
         }
     }
 }
