@@ -32,12 +32,12 @@
     <decorator id="Intent.AspNetCore.Swashbuckle.SwashbuckleCoreWebStartupDecorator" externalReference="ff189556-1a54-46dc-9cfb-e86ba6f4e67b" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.10" />
-    <dependency id="Intent.Common" version="3.3.11" />
-    <dependency id="Intent.Common.CSharp" version="3.3.18" />
+    <dependency id="Intent.AspNetCore" version="4.0.0" />
+    <dependency id="Intent.Common" version="3.3.16" />
+    <dependency id="Intent.Common.CSharp" version="3.3.26-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.3.13" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.3.18" />
   </dependencies>
   <interoperability>
     <detect id="Intent.Security.JWT">

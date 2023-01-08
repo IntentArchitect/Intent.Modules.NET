@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle.Interop.JWT</id>
-  <version>3.3.8</version>
+  <version>4.0.0-pre.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Supports JWT Authentication for the Swagger UI</summary>
   <description>Supports JWT Authentication for the Swagger UI</description>
@@ -11,14 +11,16 @@
   <decorators>
     <decorator id="Intent.AspNetCore.Swashbuckle.Interop.JWT.InteropAppSettingsDecorator" externalReference="7bde70a3-f321-4505-abbd-bd62b83bc5fa" />
   </decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.AspNetCore.Swashbuckle.Interop.JWT.SecurityConfigurationFactoryExtension" externalReference="483d489e-571e-49ca-b172-cc56a7558dc8" />
+  </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="3.3.10" />
-    <dependency id="Intent.AspNetCore.Swashbuckle" version="3.3.10" />
-    <dependency id="Intent.Common" version="3.3.11" />
+    <dependency id="Intent.AspNetCore" version="4.0.0" />
+    <dependency id="Intent.AspNetCore.Swashbuckle" version="4.0.0-pre.0" />
+    <dependency id="Intent.Common" version="3.3.16" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.Security.JWT" version="3.3.7" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.3.13" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.3.18" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

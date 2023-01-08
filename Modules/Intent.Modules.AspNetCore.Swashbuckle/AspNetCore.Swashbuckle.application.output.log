@@ -35,7 +35,7 @@
     <FileLog>
       <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#30433701-b132-47a8-831d-7093a7d2a79b</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -78,22 +78,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AuthorizeCheckOperationFilter/AuthorizeCheckOperationFilterTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#f9817e5f-293b-47bb-895e-22d387b7c6f0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b906209-bc9c-45c7-a9ee-6625c789b789</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#f9817e5f-293b-47bb-895e-22d387b7c6f0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SwashbuckleConfiguration/SwashbuckleConfigurationTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
