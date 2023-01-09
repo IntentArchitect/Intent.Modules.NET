@@ -23,12 +23,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.FactoryExtensions
     {
         public override string Id => "Intent.AspNetCore.Swashbuckle.Interop.JWT.SecurityConfigurationFactoryExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
-        private readonly List<SwaggerOAuth2SchemeEvent> _swaggerSchemes;
+        private readonly List<SwaggerOAuth2SchemeEvent> _swaggerSchemes = new();
         private string _stsPort = SchemeEventConstants.STS_Port_Tag;
-        
+
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             application.EventDispatcher.Subscribe<SwaggerOAuth2SchemeEvent>(Handle);
@@ -45,6 +44,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
+            if (!_swaggerSchemes.Any())
+            {
+                return;
+            }
+
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(SwashbuckleConfigurationTemplate.TemplateId));
             if (template != null)
             {
@@ -53,36 +57,29 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Interop.JWT.FactoryExtensions
                 var addSwaggerGen = method
                     ?.FindStatement(p => p.HasMetadata("AddSwaggerGen")) as CSharpInvocationStatement;
                 var optionsArg = addSwaggerGen?.Statements.First() as CSharpLambdaBlock;
-                
-                optionsArg?.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
-                    .AddArgument(@"""oauth2""")
+
+                if (optionsArg == null)
+                {
+                    return;
+                }
+
+                var flowsBlock = new CSharpClassInitStatementBlock("new OpenApiOAuthFlows()");
+                optionsArg.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
+                    .AddArgument($@"""Bearer""")
                     .AddArgument(new CSharpClassInitStatementBlock("new OpenApiSecurityScheme()")
                         .AddInitAssignment("Type", "SecuritySchemeType.OAuth2")
-                        .AddInitAssignment("Flows", new CSharpClassInitStatementBlock("new OpenApiOAuthFlows()")
-                            .AddInitAssignment("AuthorizationCode", new CSharpClassInitStatementBlock("new OpenApiOAuthFlow()")
-                                .AddInitAssignment("AuthorizationUrl", @"configuration.GetValue<Uri>(""Swashbuckle:Schemes:OAuth2:AuthorizationCode:AuthorizationUrl"")")
-                                .AddInitAssignment("TokenUrl", @"configuration.GetValue<Uri>(""Swashbuckle:Schemes:OAuth2:AuthorizationCode:TokenUrl"")")
-                                .AddInitAssignment("Scopes", @"configuration.GetSection(""Swashbuckle:Schemes:OAuth2:AuthorizationCode:Scope"").Get<Dictionary<string, string>>()!.ToDictionary(x => x.Value, x=> x.Key)"))))
+                        .AddInitAssignment("Flows", flowsBlock))
                     .WithArgumentsOnNewLines());
-                
-                optionsArg?.AddStatement(new CSharpInvocationStatement("options.AddSecurityRequirement")
-                    .AddArgument(new CSharpClassInitStatementBlock("new OpenApiSecurityRequirement()")
-                        .AddStatement(new CSharpStatementBlock()
-                            .AddStatement(new CSharpClassInitStatementBlock("new OpenApiSecurityScheme()")
-                                .AddInitAssignment("In", "ParameterLocation.Header")
-                                .AddInitAssignment("Name", @"""oauth2""")
-                                .AddInitAssignment("Scheme", @"""oauth2""")
-                                .AddInitAssignment("Reference", new CSharpClassInitStatementBlock("new OpenApiReference()")
-                                    .AddInitAssignment("Id", @"""oauth2""")
-                                    .AddInitAssignment("Type", @"ReferenceType.SecurityScheme"))
-                            )
-                            .AddStatement(",")
-                            .AddStatement("new List<string>()")
-                        ))
-                    .WithArgumentsOnNewLines());
+                foreach (var scheme in _swaggerSchemes)
+                {
+                    flowsBlock.AddInitAssignment(scheme.SchemeName, new CSharpClassInitStatementBlock("new OpenApiOAuthFlow()")
+                        .AddInitAssignment("AuthorizationUrl", $@"configuration.GetValue<Uri>(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:AuthorizationUrl"")")
+                        .AddInitAssignment("TokenUrl", $@"configuration.GetValue<Uri>(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:TokenUrl"")")
+                        .AddInitAssignment("Scopes", $@"configuration.GetSection(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:Scope"").Get<Dictionary<string, string>>()!.ToDictionary(x => x.Value, x=> x.Key)"));
+                }
             }
         }
-        
+
         private void Handle(SwaggerOAuth2SchemeEvent @event)
         {
             _swaggerSchemes.Add(@event);
