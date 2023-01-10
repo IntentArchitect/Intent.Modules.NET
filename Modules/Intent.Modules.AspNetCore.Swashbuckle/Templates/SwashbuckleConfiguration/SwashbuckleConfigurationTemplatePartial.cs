@@ -14,8 +14,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>
+    [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
+    partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration";
