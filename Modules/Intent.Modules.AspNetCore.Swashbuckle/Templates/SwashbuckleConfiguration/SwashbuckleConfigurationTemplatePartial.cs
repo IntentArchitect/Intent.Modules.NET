@@ -15,14 +15,13 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId,
-            outputTarget, model)
+        public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
             AddUsing("Microsoft.AspNetCore.Builder");
@@ -44,13 +43,13 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfigurati
                                 param.WithThisModifier();
                             });
                             method.AddParameter("IConfiguration", "configuration");
-                            
+
                             method.AddStatement(new CSharpInvocationStatement("services.AddSwaggerGen")
                                 .AddArgument(new CSharpLambdaBlock("options")
                                     .AddStatement(new CSharpInvocationStatement("options.SwaggerDoc")
                                         .AddArgument(@"""v1""")
                                         .AddArgument(new CSharpClassInitStatementBlock("new OpenApiInfo")
-                                            .AddInitAssignment("Version",@"""v1""")
+                                            .AddInitAssignment("Version", @"""v1""")
                                             .AddInitAssignment("Title", $@"""{OutputTarget.ApplicationName()} API""")
                                         )
                                         .WithArgumentsOnNewLines()
@@ -62,33 +61,31 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfigurati
                             );
                             method.AddStatement($@"return services;");
                         });
-                    
+
                     @class.AddMethod("void", "UseSwashbuckle", method =>
                     {
+                        method.Static();
+                        method.AddParameter("IApplicationBuilder", "app", conf => conf.WithThisModifier());
                         method.AddStatement(new CSharpInvocationStatement("app.UseSwagger")
-                            .AddArgument(new CSharpLambdaBlock("options")
-                                .AddStatement(@"options.RouteTemplate = ""swagger/{documentName}/swagger.json"";"))
-                            .WithArgumentsOnNewLines());
+                            .AddArgument(new CSharpLambdaBlock("options"))
+                            .WithArgumentsOnNewLines()
+                            .AddMetadata("UseSwagger", true));
 
                         method.AddStatement(new CSharpInvocationStatement("app.UseSwaggerUI")
                             .AddArgument(new CSharpLambdaBlock("options")
-                                .AddStatement(@"options.RoutePrefix = ""swagger"";")
-                                .AddStatement(@"options.ConfigObject = new ConfigObject()")
-                                .AddStatement(new CSharpStatementBlock()
-                                    .AddStatement("Urls = new[]")
-                                    .AddStatement(new CSharpStatementBlock()
-                                        .AddStatement(
-                                            $@"new UrlDescriptor() {{ Url = ""/swagger/v1/swagger.json"", Name = ""{OutputTarget.ApplicationName()} API V1"" }}"))
-                                    .WithSemicolon())
-                                .AddStatement(@"options.EnableDeepLinking();")
-                                .AddStatement(@"options.DisplayOperationId();")
-                                .AddStatement(@"options.DefaultModelsExpandDepth(-1);")
-                                .AddStatement(@"options.DefaultModelsExpandDepth(2);")
-                                .AddStatement(@"options.DefaultModelRendering(ModelRendering.Model);")
-                                .AddStatement(@"options.DocExpansion(DocExpansion.List);")
-                                .AddStatement(@"options.ShowExtensions();")
-                                .AddStatement(@"options.EnableFilter(string.Empty);"))
-                            .WithArgumentsOnNewLines());
+                                .AddStatement($@"options.RoutePrefix = ""swagger"";")
+                                .AddStatement($@"options.SwaggerEndpoint(""/swagger/v1/swagger.json"", ""{OutputTarget.ApplicationName()} API V1"");")
+                                .AddStatement($@"options.OAuthAppName(""{OutputTarget.ApplicationName()} API"");")
+                                .AddStatement($@"options.EnableDeepLinking();")
+                                .AddStatement($@"options.DisplayOperationId();")
+                                .AddStatement($@"options.DefaultModelsExpandDepth(-1);")
+                                .AddStatement($@"options.DefaultModelsExpandDepth(2);")
+                                .AddStatement($@"options.DefaultModelRendering(ModelRendering.Model);")
+                                .AddStatement($@"options.DocExpansion(DocExpansion.List);")
+                                .AddStatement($@"options.ShowExtensions();")
+                                .AddStatement($@"options.EnableFilter(string.Empty);"))
+                            .WithArgumentsOnNewLines()
+                            .AddMetadata("UseSwaggerUI", true));
                     });
                 });
         }

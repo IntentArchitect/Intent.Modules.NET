@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>686b4ffe-4efa-4078-a854-a82578df6d4c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#401d8239-0522-4225-8301-319c81358a4b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/InteropSwashbuckleAppSettingsDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InteropSwashbuckleAppSettingsDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>686b4ffe-4efa-4078-a854-a82578df6d4c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#401d8239-0522-4225-8301-319c81358a4b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/InteropSwashbuckleAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InteropSwashbuckleAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>7cebad54-ba71-407c-b781-6d265dd4ba7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

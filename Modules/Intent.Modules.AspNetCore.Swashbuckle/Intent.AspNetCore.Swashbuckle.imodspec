@@ -24,7 +24,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Distribution</role>
+      <role>Distribution.SwashbuckleConfiguration</role>
       <location>Configuration</location>
     </template>
   </templates>

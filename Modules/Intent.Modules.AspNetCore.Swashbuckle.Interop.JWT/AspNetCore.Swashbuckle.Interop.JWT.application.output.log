@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e7eda44b-a6c9-4614-ad36-e1cc42c07fe4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#7bde70a3-f321-4505-abbd-bd62b83bc5fa</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/InteropAppSettingsDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InteropAppSettingsDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e7eda44b-a6c9-4614-ad36-e1cc42c07fe4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#7bde70a3-f321-4505-abbd-bd62b83bc5fa</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/InteropAppSettingsDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InteropAppSettingsDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>b447c002-87b2-40c7-b2f4-f7a264835063</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#483d489e-571e-49ca-b172-cc56a7558dc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
