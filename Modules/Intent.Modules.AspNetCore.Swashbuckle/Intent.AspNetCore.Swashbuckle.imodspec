@@ -42,7 +42,12 @@
   <interoperability>
     <detect id="Intent.Security.JWT">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Interop.JWT" version="3.3.8" />
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Security.MSAL">
+      <install>
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.0-pre.0" />
       </install>
     </detect>
   </interoperability>

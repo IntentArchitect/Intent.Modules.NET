@@ -57,6 +57,16 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                     new
                     {
                         Enabled = true,
+                        ClientId = $"ClientCredential_Client",
+                        ClientName = $"{_appName} Client-Credential Client",
+                        RequireClientSecret = true,
+                        ClientSecrets = new []{ new { Value = "secret" } },
+                        AllowedGrantTypes = new []{ "client_credentials" },
+                        AllowedScopes = new []{ "api" }
+                    },
+                    new
+                    {
+                        Enabled = true,
                         ClientId = $"Auth_Code_Client",
                         ClientName = $"{_appName} Authorize-Code Client",
                         RequireClientSecret = false,

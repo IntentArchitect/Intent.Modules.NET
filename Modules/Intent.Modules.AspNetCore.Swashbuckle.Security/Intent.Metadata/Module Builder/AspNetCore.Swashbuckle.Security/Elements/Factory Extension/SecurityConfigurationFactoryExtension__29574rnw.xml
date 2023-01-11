@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7abf3721-796c-49ff-97a6-4a08605a1c9a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>SecurityConfigurationFactoryExtension</name>
+  <display>SecurityConfigurationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6fcd0a39-d869-42ad-bb23-ef687f068a58</parentFolderId>
+  <packageId>6fcd0a39-d869-42ad-bb23-ef687f068a58</packageId>
+  <packageName>AspNetCore.Swashbuckle.Security</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
