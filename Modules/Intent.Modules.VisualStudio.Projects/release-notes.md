@@ -1,4 +1,8 @@
-﻿### Version 3.3.19
+﻿### Version 3.3.20
+
+- Fixed: Added SSL URI in `applicationUrl` for `Project` Laumch Profiles.
+
+### Version 3.3.19
 
 - Fixed: Exceptions would get thrown when certain aspects of a `.csproj` file were declared in or used properties defined in a `Directory.Build.props` file:
     - When `<TargetFramework(s) />` is not defined in the `.csproj` file, a warning will now occur with advice to use the `(unspecified)` option in the Visual Studio designer.
