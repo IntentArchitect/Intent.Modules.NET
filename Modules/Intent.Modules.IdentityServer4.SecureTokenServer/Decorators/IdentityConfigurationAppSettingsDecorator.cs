@@ -59,6 +59,7 @@ namespace Intent.Modules.IdentityServer4.SecureTokenServer.Decorators
                         Enabled = true,
                         ClientId = $"ClientCredential_Client",
                         ClientName = $"{_appName} Client-Credential Client",
+                        Description = "See more: https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/. To generate secret: https://www.liavaag.org/English/SHA-Generator/",
                         RequireClientSecret = true,
                         ClientSecrets = new []{ new { Value = "secret" } },
                         AllowedGrantTypes = new []{ "client_credentials" },

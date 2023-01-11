@@ -20,7 +20,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SecurityConfigurationFactoryExtension : FactoryExtensionBase
     {
-        public override string Id => "AspNetCore.Swashbuckle.Security.SecurityConfigurationFactoryExtension";
+        public override string Id => "Intent.AspNetCore.Swashbuckle.Security.SecurityConfigurationFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -59,7 +59,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             }
 
             AddDefaultSecurityScheme(configureSwaggerOptionsBlock);
-            
+
             var swaggerUiOptionsBlock = GetUseSwaggerUiOptionsBlock(@class);
             if (swaggerUiOptionsBlock == null)
             {
@@ -76,7 +76,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             swaggerUiOptionsBlock.AddStatement($@"options.OAuthScopeSeparator("" "");");
 
             DetectKnownSwaggerSchemes(application);
-            
+
             if (_swaggerSchemes.Any())
             {
                 var flowsBlock = new CSharpClassInitStatementBlock("new OpenApiOAuthFlows()");
@@ -89,14 +89,14 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
 
                 template.CSharpFile.AddUsing("System.Linq");
                 var castTemplate = ((IntentTemplateBase)template);
-                
+
                 var scheme = _swaggerSchemes.MaxBy(x => x.Priority);
 
                 if (scheme.SchemeName == "AuthorizationCode")
                 {
                     swaggerUiOptionsBlock.AddStatement($@"options.OAuthUsePkce();");
                 }
-                
+
                 castTemplate.ApplyAppSetting($@"Swashbuckle:Security:Bearer:{scheme.SchemeName}:AuthorizationUrl", scheme.AuthorizationUrl.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort));
                 castTemplate.ApplyAppSetting($@"Swashbuckle:Security:Bearer:{scheme.SchemeName}:TokenUrl", scheme.TokenUrl.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort));
                 castTemplate.ApplyAppSetting($@"Swashbuckle:Security:Bearer:{scheme.SchemeName}:Scope", scheme.Scopes);
@@ -152,12 +152,12 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
         {
             _stsPort = @event.Port;
         }
-        
+
         private void Handle(SwaggerOAuth2SchemeEvent scheme)
         {
             _swaggerSchemes.Add(scheme);
         }
-        
+
         private static CSharpLambdaBlock GetConfigureSwaggerOptionsBlock(CSharpClass @class)
         {
             var configureSwaggerMethod = @class.FindMethod("ConfigureSwagger");
@@ -165,7 +165,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
             var cSharpLambdaBlock = addSwaggerGen?.Statements.First() as CSharpLambdaBlock;
             return cSharpLambdaBlock;
         }
-            
+
         private static CSharpLambdaBlock GetUseSwaggerUiOptionsBlock(CSharpClass @class)
         {
             var useSwashbuckleMethod = @class.FindMethod("UseSwashbuckle");

@@ -9,19 +9,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>09c2dee1-c9c4-4798-bcfd-dcc9836e6823</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.Swashbuckle.Security.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AspNetCore.Swashbuckle.Security.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>dcc90bef-5fd3-44ea-ace9-d506a024d760</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#7abf3721-796c-49ff-97a6-4a08605a1c9a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/SecurityConfigurationFactoryExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SecurityConfigurationFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>09c2dee1-c9c4-4798-bcfd-dcc9836e6823</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.Swashbuckle.Security.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Swashbuckle.Security.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

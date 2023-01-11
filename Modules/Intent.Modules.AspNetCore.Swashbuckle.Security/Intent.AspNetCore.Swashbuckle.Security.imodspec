@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
-  <id>AspNetCore.Swashbuckle.Security</id>
+  <id>Intent.AspNetCore.Swashbuckle.Security</id>
   <version>4.0.0-pre.0</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Supports various Authentications for the Swagger UI</summary>
@@ -11,7 +11,7 @@
   <templates></templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="AspNetCore.Swashbuckle.Security.SecurityConfigurationFactoryExtension" externalReference="7abf3721-796c-49ff-97a6-4a08605a1c9a" />
+    <factoryExtension id="Intent.AspNetCore.Swashbuckle.Security.SecurityConfigurationFactoryExtension" externalReference="7abf3721-796c-49ff-97a6-4a08605a1c9a" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
