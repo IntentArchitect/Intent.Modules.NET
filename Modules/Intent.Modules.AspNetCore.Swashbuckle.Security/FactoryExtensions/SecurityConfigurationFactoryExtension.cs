@@ -79,12 +79,12 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
 
             if (_swaggerSchemes.Any())
             {
-                var flowsBlock = new CSharpClassInitStatementBlock("new OpenApiOAuthFlows()");
+                var flowsBlock = new CSharpObjectInitializerBlock("new OpenApiOAuthFlows()");
                 configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
                     .AddArgument(@"""OAuth2""")
-                    .AddArgument(new CSharpClassInitStatementBlock("new OpenApiSecurityScheme()")
-                        .AddInitAssignment("Type", "SecuritySchemeType.OAuth2")
-                        .AddInitAssignment("Flows", flowsBlock))
+                    .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityScheme()")
+                        .AddInitStatement("Type", "SecuritySchemeType.OAuth2")
+                        .AddInitStatement("Flows", flowsBlock))
                     .WithArgumentsOnNewLines());
 
                 template.CSharpFile.AddUsing("System.Linq");
@@ -101,10 +101,10 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
                 castTemplate.ApplyAppSetting($@"Swashbuckle:Security:Bearer:{scheme.SchemeName}:TokenUrl", scheme.TokenUrl.Replace(SchemeEventConstants.STS_Port_Tag, _stsPort));
                 castTemplate.ApplyAppSetting($@"Swashbuckle:Security:Bearer:{scheme.SchemeName}:Scope", scheme.Scopes);
 
-                flowsBlock.AddInitAssignment(scheme.SchemeName, new CSharpClassInitStatementBlock("new OpenApiOAuthFlow()")
-                    .AddInitAssignment("AuthorizationUrl", $@"configuration.GetValue<Uri>(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:AuthorizationUrl"")")
-                    .AddInitAssignment("TokenUrl", $@"configuration.GetValue<Uri>(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:TokenUrl"")")
-                    .AddInitAssignment("Scopes",
+                flowsBlock.AddInitStatement(scheme.SchemeName, new CSharpObjectInitializerBlock("new OpenApiOAuthFlow()")
+                    .AddInitStatement("AuthorizationUrl", $@"configuration.GetValue<Uri>(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:AuthorizationUrl"")")
+                    .AddInitStatement("TokenUrl", $@"configuration.GetValue<Uri>(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:TokenUrl"")")
+                    .AddInitStatement("Scopes",
                         $@"configuration.GetSection(""Swashbuckle:Security:Bearer:{scheme.SchemeName}:Scope"").Get<Dictionary<string, string>>()!.ToDictionary(x => x.Value, x=> x.Key)"));
             }
         }
@@ -140,12 +140,12 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
         {
             configureSwaggerOptionsBlock.AddStatement(new CSharpInvocationStatement("options.AddSecurityDefinition")
                 .AddArgument(@"""ApiToken""")
-                .AddArgument(new CSharpClassInitStatementBlock("new OpenApiSecurityScheme()")
-                    .AddInitAssignment("Name", @"""Authorization""")
-                    .AddInitAssignment("Description", @"""Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`""")
-                    .AddInitAssignment("In", "ParameterLocation.Header")
-                    .AddInitAssignment("Type", "SecuritySchemeType.ApiKey")
-                    .AddInitAssignment("Scheme", @"""Bearer""")));
+                .AddArgument(new CSharpObjectInitializerBlock("new OpenApiSecurityScheme()")
+                    .AddInitStatement("Name", @"""Authorization""")
+                    .AddInitStatement("Description", @"""Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`""")
+                    .AddInitStatement("In", "ParameterLocation.Header")
+                    .AddInitStatement("Type", "SecuritySchemeType.ApiKey")
+                    .AddInitStatement("Scheme", @"""Bearer""")));
         }
 
         private void Handle(SecureTokenServiceHostedEvent @event)
