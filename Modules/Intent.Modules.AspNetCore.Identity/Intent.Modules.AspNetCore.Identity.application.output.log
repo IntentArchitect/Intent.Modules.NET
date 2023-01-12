@@ -20,8 +20,8 @@
       <ProjectId>c893c058-081d-472b-a42e-69ffe0960830</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#a19eb475-d6da-44e4-b7a2-cdec585ebd98</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/DbContextFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DbContextFactoryExtension.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/IdentityUserFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityUserFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

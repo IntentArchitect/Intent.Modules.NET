@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="a19eb475-d6da-44e4-b7a2-cdec585ebd98" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>DbContextFactoryExtension</name>
-  <display>DbContextFactoryExtension</display>
+  <name>IdentityUserFactoryExtension</name>
+  <display>IdentityUserFactoryExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Plugins.FactoryExtensions;
@@ -17,6 +18,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
 {
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public class IdentityUserFactoryExtension : FactoryExtensionBase
+    {
+        public override string Id => "Intent.AspNetCore.Identity.IdentityUserFactoryExtension";
+
+        [IntentManaged(Mode.Ignore)]
+        public override int Order => 0;
+    }
     [IntentManaged(Mode.Merge)]
     public class DbContextFactoryExtension : FactoryExtensionBase
     {
@@ -36,21 +45,37 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
             var dbContextTemplate = application.FindTemplateInstance<DbContextTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.DbContext"));
-            if (dbContextTemplate == null)
+            if (dbContextTemplate != null)
+            {
+                dbContextTemplate.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(dbContextTemplate.OutputTarget.GetProject()));
+
+                dbContextTemplate.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClass()}>");
+                });
+            }
+
+            var identityModel = application.MetadataManager.Domain(application.GetApplicationConfig().Id).GetClassModels()
+                .SingleOrDefault(x => x.HasIdentityUser());
+            if (identityModel == null)
             {
                 return;
             }
-
-            dbContextTemplate.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(dbContextTemplate.OutputTarget.GetProject()));
-
-            dbContextTemplate.CSharpFile.AfterBuild(file =>
+            var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnModel(TemplateFulfillingRoles.Domain.Entity.Primary, identityModel));
+            if (entityTemplate != null)
             {
-                var @class = file.Classes.First();
-                @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClass()}>");
-            });
+                entityTemplate.AddNugetDependency(NugetPackages.MicrosoftExtensionsIdentityStores(entityTemplate.OutputTarget.GetProject()));
+                entityTemplate.CSharpFile.AfterBuild(file =>
+                {
+                    file.AddUsing("Microsoft.AspNetCore.Identity");
+                    var @class = file.Classes.First();
+                    @class.ExtendsClass(entityTemplate.UseType("Microsoft.AspNetCore.Identity.IdentityUser"));
+                });
+            }
         }
     }
-    
+
     public static class IdentityHelperExtensions
     {
         public static string GetIdentityUserClass<T>(this CSharpTemplateBase<T> template)

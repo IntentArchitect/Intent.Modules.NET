@@ -19,7 +19,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.AspNetCore.Identity.DbContextFactoryExtension" externalReference="a19eb475-d6da-44e4-b7a2-cdec585ebd98" />
+    <factoryExtension id="Intent.AspNetCore.Identity.IdentityUserFactoryExtension" externalReference="a19eb475-d6da-44e4-b7a2-cdec585ebd98" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

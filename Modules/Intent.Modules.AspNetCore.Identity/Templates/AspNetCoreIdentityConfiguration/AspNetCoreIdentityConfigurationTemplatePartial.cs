@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
 
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(outputTarget.GetProject()));
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityUI(outputTarget.GetProject()));
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.AspNetCore.Identity")

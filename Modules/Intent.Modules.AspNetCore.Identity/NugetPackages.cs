@@ -7,7 +7,7 @@ public static class NugetPackages
 {
     public static NugetPackageInfo MicrosoftAspNetCoreIdentityEntityFrameworkCore(ICSharpProject project) => new NugetPackageInfo("Microsoft.AspNetCore.Identity.EntityFrameworkCore", GetVersion(project));
     public static NugetPackageInfo MicrosoftAspNetCoreIdentityUI(ICSharpProject project) => new NugetPackageInfo("Microsoft.AspNetCore.Identity.UI", GetVersion(project));
-    
+    public static NugetPackageInfo MicrosoftExtensionsIdentityStores(ICSharpProject project) => new NugetPackageInfo("Microsoft.Extensions.Identity.Stores", GetVersion(project));
     
     private static string GetVersion(ICSharpProject project)
     {
