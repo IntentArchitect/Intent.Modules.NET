@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.8-pre.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.7" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -87,5 +87,6 @@
     <application id="244e1544-6d4b-490b-afe0-8865bd737121" name="Intent.Modules.Eventing.Contracts" relativePath="Intent.Modules.Eventing.Contracts/Intent.Modules.Eventing.Contracts.application.config" />
     <application id="8d7bcf99-42aa-4707-b333-db52c46b028e" name="Intent.Modules.Application.MediatR.CRUD.Eventing" relativePath="Intent.Modules.Application.MediatR.CRUD.Eventing/Intent.Modules.Application.MediatR.CRUD.Eventing.application.config" />
     <application id="70ce79dc-5921-4872-8959-d1cb6f635a8c" name="Intent.Modules.Eventing.Contracts.DomainMapping" relativePath="Intent.Modules.Eventing.Contracts.DomainMapping/Intent.Modules.Eventing.Contracts.DomainMapping.application.config" />
+    <application id="a3d00c09-e5ff-442c-9378-14b304a2b2c7" name="Intent.Modules.AspNetCore.Identity" relativePath="Intent.Modules.AspNetCore.Identity/Intent.Modules.AspNetCore.Identity.application.config" />
   </applications>
 </solution>

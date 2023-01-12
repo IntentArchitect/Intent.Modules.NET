@@ -14,23 +14,15 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore
 
         private static string GetVersion(ICSharpProject project)
         {
-            if (project.IsNetCore2App())
+            return project switch
             {
-                return "2.1.14";
-            }
-            if (project.IsNetCore3App())
-            {
-                return "3.1.15";
-            }
-            if (project.IsNet5App())
-            {
-                return "5.0.6";
-            }
-            if (project.IsNet6App())
-            {
-                return "6.0.1";
-            }
-            return "5.0.6";
+                _ when project.IsNetCore2App() => "2.1.14",
+                _ when project.IsNetCore3App() => "3.1.15",
+                _ when project.IsNetApp(5) => "5.0.6",
+                _ when project.IsNetApp(6) => "6.0.1",
+                _ when project.IsNetApp(7) => "7.0.2",
+                _ => "5.0.6"
+            };
         }
     }
 } 

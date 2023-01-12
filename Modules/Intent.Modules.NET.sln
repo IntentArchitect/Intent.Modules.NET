@@ -193,6 +193,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Contracts.DomainMapping", "Intent.Modules.Eventing.Contracts.DomainMapping\Intent.Modules.Eventing.Contracts.DomainMapping.csproj", "{749AC6D1-CC82-407C-B973-AE5DE1178FCF}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Identity", "Intent.Modules.AspNetCore.Identity\Intent.Modules.AspNetCore.Identity.csproj", "{09C76035-03BE-4060-BBBC-A5E332F0E3F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -551,6 +553,10 @@ Global
 		{749AC6D1-CC82-407C-B973-AE5DE1178FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{749AC6D1-CC82-407C-B973-AE5DE1178FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{749AC6D1-CC82-407C-B973-AE5DE1178FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09C76035-03BE-4060-BBBC-A5E332F0E3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09C76035-03BE-4060-BBBC-A5E332F0E3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09C76035-03BE-4060-BBBC-A5E332F0E3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09C76035-03BE-4060-BBBC-A5E332F0E3F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -644,6 +650,7 @@ Global
 		{9814251B-AD1B-4598-8ED6-D825633D77D9} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{AF1800F1-2AFC-4804-84D3-E0E8E2BB51D3} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{749AC6D1-CC82-407C-B973-AE5DE1178FCF} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{09C76035-03BE-4060-BBBC-A5E332F0E3F1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a19eb475-d6da-44e4-b7a2-cdec585ebd98" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DbContextFactoryExtension</name>
+  <display>DbContextFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7061eb5a-c934-46e4-8c73-e3df67edf43a</parentFolderId>
+  <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
+  <packageName>Intent.AspNetCore.Identity</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
