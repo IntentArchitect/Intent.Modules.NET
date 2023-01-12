@@ -34,7 +34,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.26-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.26-pre.1" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.18" />
