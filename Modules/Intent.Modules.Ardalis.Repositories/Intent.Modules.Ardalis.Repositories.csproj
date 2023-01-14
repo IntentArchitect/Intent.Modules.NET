@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReadRepositoryInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ReadRepositoryInterfaceTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.17" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.26-pre.3" />
+    <PackageReference Include="Intent.Modules.EntityFrameworkCore.Repositories" Version="4.0.1-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
+    <PackageReference Include="Intent.Packager" Version="3.3.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

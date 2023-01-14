@@ -88,5 +88,7 @@
     <application id="8d7bcf99-42aa-4707-b333-db52c46b028e" name="Intent.Modules.Application.MediatR.CRUD.Eventing" relativePath="Intent.Modules.Application.MediatR.CRUD.Eventing/Intent.Modules.Application.MediatR.CRUD.Eventing.application.config" />
     <application id="70ce79dc-5921-4872-8959-d1cb6f635a8c" name="Intent.Modules.Eventing.Contracts.DomainMapping" relativePath="Intent.Modules.Eventing.Contracts.DomainMapping/Intent.Modules.Eventing.Contracts.DomainMapping.application.config" />
     <application id="a3d00c09-e5ff-442c-9378-14b304a2b2c7" name="Intent.Modules.AspNetCore.Identity" relativePath="Intent.Modules.AspNetCore.Identity/Intent.Modules.AspNetCore.Identity.application.config" />
+    <application id="311ca1c2-2a54-474c-8ba3-ab9b14a180bd" name="Intent.Modules.Ardalis.Repositories" relativePath="Intent.Modules.Ardalis.Repositories/Intent.Modules.Ardalis.Repositories.application.config" />
+    <application id="203823b3-aea0-442c-ae76-cb4f46b5eea7" name="Intent.Modules.Ardalis.GuardClauses" relativePath="Intent.Modules.Ardalis.GuardClauses/Intent.Modules.Ardalis.GuardClauses.application.config" />
   </applications>
 </solution>

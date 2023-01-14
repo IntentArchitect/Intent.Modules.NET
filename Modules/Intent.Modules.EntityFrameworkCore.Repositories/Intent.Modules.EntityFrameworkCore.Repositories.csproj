@@ -1,8 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Version>4.0.1-pre.0</Version>
+    <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.9" />
-    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.0.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.26-pre.3" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
+    <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.0.1-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -56,6 +61,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RepositoryBaseTemplate.tt</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

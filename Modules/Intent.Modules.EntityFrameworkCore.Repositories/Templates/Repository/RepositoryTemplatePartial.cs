@@ -60,17 +60,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                     {
                         entityTemplate.CSharpFile.AfterBuild(file =>
                         {
-                            var rootEntity = file.Classes.First();
-                            while (rootEntity.BaseType != null && !rootEntity.HasMetadata("primary-keys"))
-                            {
-                                rootEntity = rootEntity.BaseType;
-                            }
-                            if (rootEntity.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks)
-                                && pks.Length == 1)
+                            var rootEntity = file.Classes.First().GetRootEntity();
+                            if (rootEntity.HasSinglePrimaryKey())
                             {
                                 @class.AddMethod($"Task<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>", "FindByIdAsync", method =>
                                 {
-                                    var pk = pks.First();
+                                    var pk = rootEntity.GetPropertyWithPrimaryKey();
                                     method.Async();
                                     method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
@@ -79,7 +74,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                                 });
                                 @class.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
                                 {
-                                    var pk = pks.First();
+                                    var pk = rootEntity.GetPropertyWithPrimaryKey();
                                     method.Async();
                                     method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));

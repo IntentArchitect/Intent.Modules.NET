@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>4.0.0</Version>
+    <Version>4.0.1-pre.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.16" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.26-pre.3" />
     <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.11" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.9" />
     <PackageReference Include="Intent.Packager" Version="3.3.2">
@@ -43,7 +44,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RepositoryInterfaceTemplate.cs</LastGenOutput>
     </None>
-
     <None Update="Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnitOfWorkInterfaceTemplate.cs</LastGenOutput>
@@ -65,7 +65,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RepositoryInterfaceTemplate.tt</DependentUpon>
     </Compile>
-
     <Compile Update="Templates\UnitOfWorkInterface\UnitOfWorkInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -195,6 +195,10 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Con
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Identity", "Intent.Modules.AspNetCore.Identity\Intent.Modules.AspNetCore.Identity.csproj", "{09C76035-03BE-4060-BBBC-A5E332F0E3F1}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.Repositories", "Intent.Modules.Ardalis.Repositories\Intent.Modules.Ardalis.Repositories.csproj", "{06EC06D8-3910-40D1-AA25-D2680EE39C4D}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.GuardClauses", "Intent.Modules.Ardalis.GuardClauses\Intent.Modules.Ardalis.GuardClauses.csproj", "{C5472CE5-B273-46D6-8072-34ADFC531CF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -557,6 +561,14 @@ Global
 		{09C76035-03BE-4060-BBBC-A5E332F0E3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09C76035-03BE-4060-BBBC-A5E332F0E3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09C76035-03BE-4060-BBBC-A5E332F0E3F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06EC06D8-3910-40D1-AA25-D2680EE39C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06EC06D8-3910-40D1-AA25-D2680EE39C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06EC06D8-3910-40D1-AA25-D2680EE39C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06EC06D8-3910-40D1-AA25-D2680EE39C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5472CE5-B273-46D6-8072-34ADFC531CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5472CE5-B273-46D6-8072-34ADFC531CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5472CE5-B273-46D6-8072-34ADFC531CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5472CE5-B273-46D6-8072-34ADFC531CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -651,6 +663,8 @@ Global
 		{AF1800F1-2AFC-4804-84D3-E0E8E2BB51D3} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{749AC6D1-CC82-407C-B973-AE5DE1178FCF} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{09C76035-03BE-4060-BBBC-A5E332F0E3F1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{06EC06D8-3910-40D1-AA25-D2680EE39C4D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{C5472CE5-B273-46D6-8072-34ADFC531CF1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

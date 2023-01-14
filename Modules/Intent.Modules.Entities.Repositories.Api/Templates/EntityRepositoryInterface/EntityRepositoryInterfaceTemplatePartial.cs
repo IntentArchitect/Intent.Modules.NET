@@ -34,7 +34,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Collections.Generic")
-                .AddInterface($"I{Model.Name}Repository", @interface =>
+                .AddInterface($"I{Model.Name.ToPascalCase()}Repository", @interface =>
                 {
                     @interface.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
                     @interface.ExtendsInterface($"{RepositoryInterfaceName}<{EntityInterfaceName}, {EntityStateName}>");
