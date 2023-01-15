@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,13 +23,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.1" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\CqrsAutoCrud.TestApplication.Application\CqrsAutoCrud.TestApplication.Application.csproj" />
     <ProjectReference Include="..\CqrsAutoCrud.TestApplication.Domain\CqrsAutoCrud.TestApplication.Domain.csproj" />
     <ProjectReference Include="..\CqrsAutoCrud.TestApplication.Infrastructure\CqrsAutoCrud.TestApplication.Infrastructure.csproj" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
