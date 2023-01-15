@@ -17,6 +17,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </sourceEnd>
   <targetEnd id="0b880742-3f10-48b5-821e-8ef9b67aebb7" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
     <name>Poly_TopLevel</name>
@@ -35,6 +36,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </targetEnd>
   <associationType>Comment Association</associationType>
   <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>

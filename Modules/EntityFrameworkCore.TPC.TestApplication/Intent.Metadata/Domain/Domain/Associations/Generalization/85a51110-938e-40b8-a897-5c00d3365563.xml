@@ -17,6 +17,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </sourceEnd>
   <targetEnd id="85a51110-938e-40b8-a897-5c00d3365563" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>AbstractBaseClass</name>
@@ -35,6 +36,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </targetEnd>
   <associationType>Generalization</associationType>
   <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>

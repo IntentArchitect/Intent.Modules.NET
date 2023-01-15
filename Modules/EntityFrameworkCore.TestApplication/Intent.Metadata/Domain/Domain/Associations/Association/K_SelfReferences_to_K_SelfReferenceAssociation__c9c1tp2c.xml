@@ -17,6 +17,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </sourceEnd>
   <targetEnd id="4b1f87a3-c2db-470f-8e3f-d7bf4411e8c3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>K_SelfReferenceAssociation</name>
@@ -35,6 +36,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </targetEnd>
   <associationType>Association</associationType>
   <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>

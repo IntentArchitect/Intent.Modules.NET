@@ -17,6 +17,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </sourceEnd>
   <targetEnd id="888e9312-9301-4c6a-b07b-b2db00a204f5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>ExplicitKeysCompositeKey</name>
@@ -35,6 +36,7 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <childElements />
   </targetEnd>
   <associationType>Association</associationType>
   <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>

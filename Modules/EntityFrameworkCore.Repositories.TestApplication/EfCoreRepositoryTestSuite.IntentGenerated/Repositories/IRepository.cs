@@ -11,6 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EfCoreRepositoryTestSuite.IntentGenerated.Repositories
 {
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IRepository<TDomain, TPersistence>
     {
         void Add(TDomain entity);
@@ -25,6 +26,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Repositories
         Task<IPagedResult<TDomain>> FindAllAsync(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq, CancellationToken cancellationToken = default);
         Task<int> CountAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+
         IUnitOfWork UnitOfWork { get; }
     }
 }
