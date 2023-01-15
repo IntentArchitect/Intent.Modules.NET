@@ -91,6 +91,18 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                             method.AddStatement($"return await ListAsync(specification: new FindByIdsSpecification(ids), cancellationToken: cancellationToken);");
                         });
+                        
+                        @class.AddNestedClass("FindByIdsSpecification", nested =>
+                        {
+                            nested.Private();
+                            nested.Sealed();
+                            nested.ExtendsClass($"Specification<{GetEntityStateName(template)}>");
+                            nested.AddConstructor(ctor =>
+                            {
+                                ctor.AddParameter($"{GetSurrogateKey(template)}[]", "ids");
+                                ctor.AddStatement("Query.Where(p => ids.Contains(p.Id));");
+                            });
+                        });
                     }
 
                     @class.AddMethod(
