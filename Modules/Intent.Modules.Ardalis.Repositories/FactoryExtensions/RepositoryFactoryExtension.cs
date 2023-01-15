@@ -42,6 +42,8 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
             var repoInterfaceTemplates = application.FindTemplateInstances<CSharpTemplateBase<ClassModel>>(TemplateDependency.OnTemplate(EntityRepositoryInterfaceTemplate.TemplateId));
             foreach (var template in repoInterfaceTemplates)
             {
+                template.AddNugetDependency(NugetPackages.ArdalisSpecification);
+                
                 ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
                     var @interface = file.Interfaces.First();
@@ -50,14 +52,27 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     @interface.Methods.Clear();
                     @interface.ExtendsInterface($"IRepositoryBase<{GetEntityStateName(template)}>");
                     @interface.ExtendsInterface(template.GetReadRepositoryInterfaceName(model));
+                    file.AddUsing("Ardalis.Specification");
                 });
             }
 
             var entityRepoTemplates = application.FindTemplateInstances<CSharpTemplateBase<ClassModel>>(TemplateDependency.OnTemplate(RepositoryTemplate.TemplateId));
             foreach (var template in entityRepoTemplates)
             {
+                template.AddNugetDependency(NugetPackages.ArdalisSpecificationEntityFrameworkCore);
+                
                 ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
+                    file.AddUsing("System");
+                    file.AddUsing("System.Collections.Generic");
+                    file.AddUsing("System.Linq");
+                    file.AddUsing("System.Linq.Expressions");
+                    file.AddUsing("System.Threading");
+                    file.AddUsing("System.Threading.Tasks");
+                    file.AddUsing("Ardalis.Specification");
+                    file.AddUsing("Ardalis.Specification.EntityFrameworkCore");
+                    file.AddUsing("Microsoft.EntityFrameworkCore");
+
                     var @class = file.Classes.First();
                     var model = @class.GetMetadata<ClassModel>("model");
                     @class.Interfaces.Clear();
@@ -81,15 +96,24 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     {
                         @class.AddMethod($"Task<{GetEntityInterfaceName(template)}>", "FindByIdAsync", method =>
                         {
+                            method.Async();
                             method.AddParameter(GetSurrogateKey(template), "id")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                             method.AddStatement($"return await GetByIdAsync(id: id, cancellationToken: cancellationToken);");
                         });
                         @class.AddMethod($"Task<List<{GetEntityInterfaceName(template)}>>", "FindByIdsAsync", method =>
                         {
+                            method.Async();
                             method.AddParameter($"{GetSurrogateKey(template)}[]", "ids")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                            method.AddStatement($"return await ListAsync(specification: new FindByIdsSpecification(ids), cancellationToken: cancellationToken);");
+                            if (GetEntityStateName(template) == GetEntityInterfaceName(template))
+                            {
+                                method.AddStatement($"return await ListAsync(specification: new FindByIdsSpecification(ids), cancellationToken: cancellationToken);");
+                            }
+                            else
+                            {
+                                method.AddStatement($"return (await ListAsync(specification: new FindByIdsSpecification(ids), cancellationToken: cancellationToken)).Cast<{GetEntityInterfaceName(template)}>().ToList();");
+                            }
                         });
                         
                         @class.AddNestedClass("FindByIdsSpecification", nested =>
@@ -163,6 +187,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
                     @class.AddMethod("Task<int>", $"IRepositoryBase<{GetEntityStateName(template)}>.SaveChangesAsync", method =>
                     {
+                        method.WithoutAccessModifier();
                         method.WithComments("// In the event that SaveChanges is invoked explicitly, it should still operate as intended. ");
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement("return base.SaveChangesAsync(cancellationToken);");

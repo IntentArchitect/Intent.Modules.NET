@@ -23,6 +23,7 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ReadRepositoryInterfaceTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.ArdalisSpecification);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

@@ -27,6 +27,12 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
             : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Linq.Expressions")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddInterface("IRepository", @interface =>
                 {
                     @interface.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
@@ -39,10 +45,6 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
                         .AddMethod("void", "Remove", method =>
                         {
                             method.AddParameter(tDomain, "entity");
-                        })
-                        .AddMethod($"Task<{tDomain}>", "FindAsync", method =>
-                        {
-                            method.AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
                         })
                         .AddMethod($"Task<{tDomain}>", "FindAsync", method =>
                         {
