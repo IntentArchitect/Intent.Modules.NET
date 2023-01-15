@@ -25,8 +25,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class RepositoryTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Merge, Body = Mode.Merge)]
+    public partial class RepositoryTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.Repository";
 
@@ -43,6 +43,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 .AddUsing("Microsoft.EntityFrameworkCore")
                 .AddClass($"{Model.Name}Repository", @class =>
                 {
+                    @class.AddMetadata("model", model);
                     @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
                     @class.WithBaseType($"RepositoryBase<{EntityInterfaceName}, {EntityName}, {DbContextName}>");
                     @class.ImplementsInterface(RepositoryContractName);

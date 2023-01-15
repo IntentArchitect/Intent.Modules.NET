@@ -36,6 +36,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                 .AddUsing("System.Collections.Generic")
                 .AddInterface($"I{Model.Name.ToPascalCase()}Repository", @interface =>
                 {
+                    @interface.AddMetadata("model", model);
                     @interface.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
                     @interface.ExtendsInterface($"{RepositoryInterfaceName}<{EntityInterfaceName}, {EntityStateName}>");
 
