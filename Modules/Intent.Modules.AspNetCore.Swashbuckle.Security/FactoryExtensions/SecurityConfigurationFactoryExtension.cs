@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        private string _stsPort = SchemeEventConstants.STS_Port_Tag;
+        private string _stsPort = "0";
         private readonly List<SwaggerOAuth2SchemeEvent> _swaggerSchemes = new();
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
