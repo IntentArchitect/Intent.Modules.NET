@@ -27,13 +27,16 @@ namespace <#= Namespace #>
     {
 #>
         [IntentManaged(Mode.Fully)]
-        Task<<#= GetDomainEntityTypeName() #>?> FindByIdAsync(<#= GetSurrogateKey() #> id, CancellationToken cancellationToken = default);
+        Task<<#= GetDomainEntityTypeName() #>> FindByIdAsync(<#= GetSurrogateKey() #> id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<List<<#= GetDomainEntityTypeName() #>>> FindByIdsAsync(<#= GetSurrogateKey() #>[] ids, CancellationToken cancellationToken = default);
 <#
     } 
 #>
+        [IntentManaged(Mode.Fully)]
+        Task<List<<#= GetDomainEntityTypeName() #>>> FindAllAsync(CancellationToken cancellationToken = default);
+
         [IntentManaged(Mode.Fully)]
         Task<IPagedResult<<#= GetDomainEntityTypeName() #>>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
 

@@ -70,7 +70,7 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             
             #line default
             #line hidden
-            this.Write("?> FindByIdAsync(");
+            this.Write("> FindByIdAsync(");
             
             #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetSurrogateKey()));
@@ -100,51 +100,58 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             
             #line default
             #line hidden
-            this.Write("        [IntentManaged(Mode.Fully)]\r\n        Task<IPagedResult<");
+            this.Write("        [IntentManaged(Mode.Fully)]\r\n        Task<List<");
             
             #line 38 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEntityTypeName()));
             
             #line default
             #line hidden
-            this.Write(">> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<IPagedResult<");
+            this.Write(">> FindAllAsync(CancellationToken cancellationToken = default);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<IPagedResult<");
             
             #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEntityTypeName()));
             
             #line default
             #line hidden
+            this.Write(">> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<IPagedResult<");
+            
+            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEntityTypeName()));
+            
+            #line default
+            #line hidden
             this.Write(">> FindAllAsync(Expression<Func<");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPersistenceEntityTypeName()));
             
             #line default
             #line hidden
             this.Write(", bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);\r\n\r\n        [IntentManaged(Mode.Fully)]\r\n        Task<IPagedResult<");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDomainEntityTypeName()));
             
             #line default
             #line hidden
             this.Write(">> FindAllAsync(Expression<Func<");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPersistenceEntityTypeName()));
             
             #line default
             #line hidden
             this.Write(", bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPersistenceEntityTypeName()));
             
             #line default
             #line hidden
             this.Write(">, IQueryable<");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
+            #line 47 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Ardalis.Repositories\Templates\ReadRepositoryInterface\ReadRepositoryInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPersistenceEntityTypeName()));
             
             #line default

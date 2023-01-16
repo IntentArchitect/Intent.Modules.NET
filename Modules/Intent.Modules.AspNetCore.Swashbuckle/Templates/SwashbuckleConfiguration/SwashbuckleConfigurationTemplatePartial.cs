@@ -24,6 +24,8 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfigurati
         public SwashbuckleConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
+            AddUsing("System");
+            AddUsing("System.Collections.Generic");
             AddUsing("Microsoft.AspNetCore.Builder");
             AddUsing("Microsoft.Extensions.Configuration");
             AddUsing("Microsoft.Extensions.DependencyInjection");

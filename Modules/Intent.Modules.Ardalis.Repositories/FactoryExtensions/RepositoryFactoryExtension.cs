@@ -53,6 +53,21 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     @interface.ExtendsInterface($"IRepositoryBase<{GetEntityStateName(template)}>");
                     @interface.ExtendsInterface(template.GetReadRepositoryInterfaceName(model));
                     file.AddUsing("Ardalis.Specification");
+                    
+                    @interface.AddProperty(template.GetUnitOfWorkInterfaceName(), "UnitOfWork", prop =>
+                    {
+                        prop.ReadOnly();
+                    });
+
+                    @interface.AddMethod("void", "Add", method =>
+                    {
+                        method.AddParameter(GetEntityStateName(template), "entity");
+                    });
+                    
+                    @interface.AddMethod("void", "Remove", method =>
+                    {
+                        method.AddParameter(GetEntityStateName(template), "entity");
+                    });
                 });
             }
 
@@ -91,11 +106,26 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         prop.ReadOnly();
                         prop.Getter.WithExpressionImplementation("_dbContext");
                     });
+                    
+                    @class.AddMethod("void", "Add", method =>
+                    {
+                        method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                        method.AddParameter(GetEntityStateName(template), "entity");
+                        method.AddStatement("base.AddAsync(entity).Wait();");
+                    });
+                    
+                    @class.AddMethod("void", "Remove", method =>
+                    {
+                        method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                        method.AddParameter(GetEntityStateName(template), "entity");
+                        method.AddStatement("base.DeleteAsync(entity).Wait();");
+                    });
 
                     if (HasSinglePrimaryKey(template))
                     {
                         @class.AddMethod($"Task<{GetEntityInterfaceName(template)}>", "FindByIdAsync", method =>
                         {
+                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
                             method.Async();
                             method.AddParameter(GetSurrogateKey(template), "id")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
@@ -103,6 +133,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         });
                         @class.AddMethod($"Task<List<{GetEntityInterfaceName(template)}>>", "FindByIdsAsync", method =>
                         {
+                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
                             method.Async();
                             method.AddParameter($"{GetSurrogateKey(template)}[]", "ids")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
@@ -118,6 +149,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         
                         @class.AddNestedClass("FindByIdsSpecification", nested =>
                         {
+                            nested.AddAttribute("[IntentManaged(Mode.Fully)]");
                             nested.Private();
                             nested.Sealed();
                             nested.ExtendsClass($"Specification<{GetEntityStateName(template)}>");
@@ -130,10 +162,22 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     }
 
                     @class.AddMethod(
+                        $"Task<List<{GetEntityInterfaceName(template)}>>", 
+                        "FindAllAsync",
+                        method =>
+                        {
+                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                            method.Async();
+                            method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                            method.AddStatement($"return await ListAsync(cancellationToken);");
+                        });
+
+                    @class.AddMethod(
                         $"Task<{template.GetPagedResultInterfaceName()}<{GetEntityInterfaceName(template)}>>", 
                         "FindAllAsync", 
                         method =>
                         {
+                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
                             method.AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
@@ -145,6 +189,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         "FindAllAsync", 
                         method =>
                         {
+                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
                             method
                                 .AddParameter($"Expression<Func<{GetEntityStateName(template)}, bool>>", "filterExpression")
                                 .AddParameter("int", "pageNo")
@@ -158,6 +203,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         "FindAllAsync", 
                         method =>
                         {
+                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
                             method.Async();
                             method
                                 .AddParameter($"Expression<Func<{GetEntityStateName(template)}, bool>>", "filterExpression")
@@ -168,7 +214,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             method.AddStatement($"IQueryable<{GetEntityStateName(template)}> queryable = _dbContext.Set<{GetEntityStateName(template)}>();")
                                 .AddStatement($"queryable = queryable.Where(filterExpression);")
                                 .AddStatement($"var result = linq(queryable);")
-                                .AddStatement(new CSharpInvocationStatement($"return await PagedList<TestEntity>.CreateAsync")
+                                .AddStatement(new CSharpInvocationStatement($"return await PagedList<{GetEntityStateName(template)}>.CreateAsync")
                                     .AddArgument("result")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
@@ -178,6 +224,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
                     @class.AddMethod("Task<int>", "SaveChangesAsync", method =>
                     {
+                        method.AddAttribute("[IntentManaged(Mode.Fully)]");
                         method.WithComments("// To avoid escalating db locks early, we are not going to perform saving changes on every operation.")
                             .WithComments("// The overall infrastructure will ensure that the DbContext SaveChanges is ultimately invoked.");
                         method.Override();
@@ -187,6 +234,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
                     @class.AddMethod("Task<int>", $"IRepositoryBase<{GetEntityStateName(template)}>.SaveChangesAsync", method =>
                     {
+                        method.AddAttribute("[IntentManaged(Mode.Fully)]");
                         method.WithoutAccessModifier();
                         method.WithComments("// In the event that SaveChanges is invoked explicitly, it should still operate as intended. ");
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
