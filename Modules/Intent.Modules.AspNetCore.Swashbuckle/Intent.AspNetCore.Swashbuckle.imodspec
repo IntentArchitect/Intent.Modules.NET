@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>4.0.0-pre.0</version>
+  <version>4.0.0</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
@@ -34,7 +34,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.26-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.3.26" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.18" />
@@ -42,12 +42,12 @@
   <interoperability>
     <detect id="Intent.Security.JWT">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.0-pre.0" />
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.0" />
       </install>
     </detect>
     <detect id="Intent.Security.MSAL">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.0-pre.0" />
+        <package id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.0" />
       </install>
     </detect>
   </interoperability>
