@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        private string _stsPort = "0";
+        private string _stsPort = SchemeEventConstants.STS_Port_Tag;
         private readonly List<SwaggerOAuth2SchemeEvent> _swaggerSchemes = new();
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
@@ -111,7 +111,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.FactoryExtensions
 
         private void DetectKnownSwaggerSchemes(IApplication application)
         {
-            if (application.InstalledModules.Any(p => p.ModuleId == "Intent.Security.JWT"))
+            if (application.InstalledModules.Any(p => p.ModuleId == "Intent.IdentityServer4.SecureTokenServer"))
             {
                 _swaggerSchemes.Add(new SwaggerOAuth2SchemeEvent(
                     schemeName: "ClientCredentials",
