@@ -17,7 +17,7 @@ public static class NugetPackages
             _ when project.IsNetCore3App() => "3.1.15",
             _ when project.IsNetApp(5) => "5.0.6",
             _ when project.IsNetApp(6) => "6.0.11",
-            _ when project.IsNetApp(7) => "7.0.2",
+            _ when project.IsNetApp(7) => "7.0.1",
             _ => "5.0.6"
         };
     }
