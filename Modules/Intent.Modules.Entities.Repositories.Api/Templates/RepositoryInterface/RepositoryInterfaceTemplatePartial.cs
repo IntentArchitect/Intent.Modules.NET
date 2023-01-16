@@ -35,7 +35,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface("IRepository", @interface =>
                 {
-                    @interface.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
+                    @interface.AddAttribute("[IntentManaged(Mode.Fully, Signature = Mode.Fully)]");
                     @interface.AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence)
                         .AddMethod("void", "Add", method =>
