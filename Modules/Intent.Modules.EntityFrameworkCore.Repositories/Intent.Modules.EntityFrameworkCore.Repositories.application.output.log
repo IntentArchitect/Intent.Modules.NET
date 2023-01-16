@@ -22,7 +22,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
@@ -94,22 +94,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Repository/RepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Repository/RepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RepositoryBase/RepositoryBaseTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RepositoryBase/RepositoryBaseTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/RepositoryBase/RepositoryBaseTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RepositoryBase/RepositoryBaseTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

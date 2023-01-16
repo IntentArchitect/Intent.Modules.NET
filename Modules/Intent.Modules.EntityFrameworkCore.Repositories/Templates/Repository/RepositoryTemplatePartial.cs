@@ -70,7 +70,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                                     method.Async();
                                     method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                                    
+
                                     method.AddStatement($"return await FindAsync(x => x.{pk.Name} == {pk.Name.ToCamelCase()}, cancellationToken);");
                                 });
                                 @class.AddMethod($"Task<List<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Interface, Model)}>>", "FindByIdsAsync", method =>
@@ -79,7 +79,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                                     method.Async();
                                     method.AddParameter($"{entityTemplate.UseType(pk.Type)}[]", pk.Name.ToCamelCase().Pluralize());
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                                    
+
                                     method.AddStatement($"return await FindAllAsync(x => {pk.Name.ToCamelCase().Pluralize()}.Contains(x.{pk.Name}), cancellationToken);");
                                 });
                             }
@@ -88,6 +88,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                 });
         }
 
+        [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

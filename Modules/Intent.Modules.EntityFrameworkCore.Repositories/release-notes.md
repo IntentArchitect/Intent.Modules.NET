@@ -1,4 +1,8 @@
-﻿### Version 4.0.1
+﻿### Version 4.0.2
+
+- Update: Converted RepositoryBase into Builder Pattern version.
+
+### Version 4.0.1
 
 - Update: Internal template changes.
 
