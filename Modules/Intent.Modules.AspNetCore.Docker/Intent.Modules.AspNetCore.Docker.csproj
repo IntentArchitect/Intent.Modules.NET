@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.11" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
-    <PackageReference Include="Intent.Packager" Version="3.3.0">
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.17" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.26" />
+    <PackageReference Include="Intent.Packager" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

@@ -5,6 +5,7 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Templates;
 using Intent.Utils;
@@ -15,10 +16,18 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
     {
         public const string Identifier = "Intent.AspNetCore.Dockerfile";
 
+        private string _defaultLaunchUrlPath;
+
 
         public DockerfileTemplate(IProject project)
             : base(Identifier, project, null)
         {
+            ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(Handle);
+        }
+
+        private void Handle(DefaultLaunchUrlPathRequest request)
+        {
+            _defaultLaunchUrlPath = request.UrlPath;
         }
 
 
@@ -45,10 +54,20 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
                 { LaunchProfileRegistrationEvent.ProfileNameKey, "Docker" },
                 { LaunchProfileRegistrationEvent.CommandNameKey, "Docker" },
                 { LaunchProfileRegistrationEvent.LaunchBrowserKey, "true" },
-                { LaunchProfileRegistrationEvent.LaunchUrlKey, "{Scheme}://{ServiceHost}:{ServicePort}" },
+                { LaunchProfileRegistrationEvent.LaunchUrlKey, $"{{Scheme}}://{{ServiceHost}}:{{ServicePort}}{AddDefaultLaunchUrl()}" },
                 { LaunchProfileRegistrationEvent.PublishAllPorts, "true" },
                 { LaunchProfileRegistrationEvent.UseSSL, "true" },
             });
+        }
+
+        private string AddDefaultLaunchUrl()
+        {
+            if (string.IsNullOrWhiteSpace(_defaultLaunchUrlPath))
+            {
+                return string.Empty;
+            }
+
+            return $"/{_defaultLaunchUrlPath}";
         }
 
         private string GetRuntime()
@@ -61,13 +80,18 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
             {
                 return "mcr.microsoft.com/dotnet/aspnet:3.1";
             }
-            if (Project.IsNet5App())
+            if (Project.IsNetApp(5))
             {
                 return "mcr.microsoft.com/dotnet/aspnet:5.0";
             }
-            if (Project.IsNet6App())
+            if (Project.IsNetApp(6))
             {
                 return "mcr.microsoft.com/dotnet/aspnet:6.0";
+            }
+
+            if (Project.IsNetApp(7))
+            {
+                return "mcr.microsoft.com/dotnet/aspnet:7.0";
             }
 
             Logging.Log.Warning(@"Project .NET version not supported by this Docker module. You may need to edit your docker file manually.");
@@ -84,13 +108,17 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
             {
                 return "mcr.microsoft.com/dotnet/sdk:3.1";
             }
-            if (Project.IsNet5App())
+            if (Project.IsNetApp(5))
             {
                 return "mcr.microsoft.com/dotnet/sdk:5.0";
             }
-            if (Project.IsNet6App())
+            if (Project.IsNetApp(6))
             {
                 return "mcr.microsoft.com/dotnet/sdk:6.0";
+            }
+            if (Project.IsNetApp(7))
+            {
+                return "mcr.microsoft.com/dotnet/sdk:7.0";
             }
 
             return "mcr.microsoft.com/dotnet/sdk:6.0";
