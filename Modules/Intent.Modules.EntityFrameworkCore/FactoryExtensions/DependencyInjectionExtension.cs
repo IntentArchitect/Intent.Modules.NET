@@ -47,7 +47,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             {
                 return;
             }
-            if (dependencyInjection.OutputTarget.GetProject().IsNetApp(5) || 
+            if (dependencyInjection.OutputTarget.GetProject().IsNetApp(5) ||
                 dependencyInjection.OutputTarget.GetProject().IsNetApp(6) ||
                 dependencyInjection.OutputTarget.GetProject().IsNetApp(7))
             {

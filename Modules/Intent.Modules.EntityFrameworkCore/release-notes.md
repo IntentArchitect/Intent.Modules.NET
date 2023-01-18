@@ -1,5 +1,9 @@
 ﻿### Version 4.0.2
 
+- Fixed: No longer showing two or more Partition Keys when opening up the Domain designer after updating to the latest EF Core Module version.
+
+### Version 4.0.2
+
 - Update: Pattern for Partition Key now defaults to Primary Key by default.
 - Fixed: Partition Key management on Domain Designer bugs.
 - New: Added support for .NET 7 and EF 7.
@@ -21,7 +25,7 @@
 ### Version 3.3.15
 
  * Fixed: Cosmos DB Partition Key logic in Domain Designer for Inherited Classes.
- * Fixed: Migration and DB creationg issues with a ClassA 1-->* ClassB 1-->1 ClassC.
+ * Fixed: Migration and DB creating issues with a ClassA 1-->* ClassB 1-->1 ClassC.
 
 ### Version 3.3.13
  

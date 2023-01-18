@@ -355,6 +355,8 @@ if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasS
 let partitionKey = element.getPackage()?.getStereotype("Cosmos DB Container Settings")?.getProperty("Partition Key")?.value?.trim();
 if (partitionKey == "") { partitionKey = null; }
 
+element.getChildren("Attribute").filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId)).forEach(x =&gt; x.removeStereotype(partitionKeyStereotypeId));
+
 let primaryKeyAttr = element.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))[0];
 if (!partitionKey &amp;&amp; primaryKeyAttr &amp;&amp; !primaryKeyAttr.hasStereotype(partitionKeyStereotypeId)) { 
     primaryKeyAttr.addStereotype(partitionKeyStereotypeId);
