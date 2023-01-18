@@ -24,7 +24,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.27-pre.0" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore.Repositories" Version="4.0.2-pre.1" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
-    <PackageReference Include="Intent.Packager" Version="3.3.2">
+    <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
