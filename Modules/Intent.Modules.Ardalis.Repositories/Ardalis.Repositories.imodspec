@@ -25,9 +25,9 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.17" />
-    <dependency id="Intent.Common.CSharp" version="3.3.26" />
+    <dependency id="Intent.Common.CSharp" version="3.3.27-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.EntityFrameworkCore.Repositories" version="4.0.1" />
+    <dependency id="Intent.EntityFrameworkCore.Repositories" version="4.0.2-pre.1" />
     <dependency id="Intent.Modelers.Domain" version="3.3.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.8" />
   </dependencies>

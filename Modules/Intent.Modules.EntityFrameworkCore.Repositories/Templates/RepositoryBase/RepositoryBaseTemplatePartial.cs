@@ -20,8 +20,8 @@ using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class RepositoryBaseTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+    public partial class RepositoryBaseTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.RepositoryBase";
 
