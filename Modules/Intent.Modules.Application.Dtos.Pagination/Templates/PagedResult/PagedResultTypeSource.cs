@@ -19,7 +19,7 @@ public class PagedResultTypeSource : ITypeSource
     public IResolvedTypeInfo GetType(ITypeReference typeInfo)
     {
         const string pagedResultTypeDefinitionId = "9204e067-bdc8-45e7-8970-8a833fdc5253";
-        if (typeInfo.Element.Id == pagedResultTypeDefinitionId)
+        if (typeInfo?.Element?.Id == pagedResultTypeDefinitionId)
         {
             return CSharpResolvedTypeInfo.Create(
                 resolvedTypeInfo: ResolvedTypeInfo.Create(
