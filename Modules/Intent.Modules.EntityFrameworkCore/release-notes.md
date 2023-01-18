@@ -1,4 +1,4 @@
-﻿### Version 4.0.2
+﻿### Version 4.0.3
 
 - Fixed: No longer showing two or more Partition Keys when opening up the Domain designer after updating to the latest EF Core Module version.
 

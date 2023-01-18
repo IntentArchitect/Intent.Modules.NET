@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Fixed: Added check to prevent Null Reference Exception.
+
 ### Version 3.3.0
 
 - New: Adds types to decorate service operations to be used for paginating results.
