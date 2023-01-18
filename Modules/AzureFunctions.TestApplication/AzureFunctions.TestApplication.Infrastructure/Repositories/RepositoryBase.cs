@@ -123,7 +123,6 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
         {
             var queryable = CreateQuery();
             queryable = queryable.Where(filterExpression);
-
             var result = linq(queryable);
             return result;
         }
@@ -138,7 +137,7 @@ namespace AzureFunctions.TestApplication.Infrastructure.Repositories
             return _dbContext.Set<TPersistence>();
         }
 
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await _dbContext.SaveChangesAsync(cancellationToken);
         }

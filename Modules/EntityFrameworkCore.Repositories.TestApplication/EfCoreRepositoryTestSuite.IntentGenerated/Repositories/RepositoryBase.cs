@@ -121,7 +121,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Repositories
         {
             var queryable = CreateQuery();
             queryable = queryable.Where(filterExpression);
-
             var result = linq(queryable);
             return result;
         }
@@ -136,7 +135,7 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Repositories
             return _dbContext.Set<TPersistence>();
         }
 
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await _dbContext.SaveChangesAsync(cancellationToken);
         }
