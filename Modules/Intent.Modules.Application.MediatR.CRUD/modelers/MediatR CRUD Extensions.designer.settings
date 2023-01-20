@@ -18,9 +18,7 @@
 let defaultDomainClassName = null;
 if (element?.id == null) {
     // For testing as if a package was right clicked, substitute with package id:
-    // element = { id: "7339add6-c32e-4d95-8e1b-1bbe86ca7f1c" }; // Azure
-    // element = { id: "ef5c352b-fc74-4f13-b61b-a970f8360b08" }; // NestJS
-    element = { id: "a7ab362f-e8a8-4490-90d5-484b0371d949" };
+    element = getPackages().filter(x =&gt; x.id == "eafc12ee-88c0-4e8e-abcf-2b989be5d656")[0];
 
     // For element, substitute with service's element id:
     // element = lookup("677c6801-e654-45c5-924e-886713db1f5e");
@@ -30,60 +28,24 @@ if (element?.id == null) {
 }
 
 const _aggregateRootCache = Object.create(null);
-const _aggregateRootOwnerCache = Object.create(null);
+const _nestedCompositionalOwnerCache = Object.create(null);
 
 let entity = await preselectOrPromptEntity(defaultDomainClassName);
 if (!entity) { return; }
 let service = getServiceFromCurrentContext(entity, element);
 
 let entityFolder = getEntityFolder(service, entity);
-createCqrsCreateOperation(entityFolder, entity);
+createCqrsCreateOperation(service, entityFolder, entity);
 let resultCqrsTypeDto = createCqrsResultTypeDTO(entity, entityFolder);
-createCqrsFindByIdOperation(entity, entityFolder, resultCqrsTypeDto);
-createCqrsFindAllOperation(entity, entityFolder, resultCqrsTypeDto);
-createCqrsUpdateOperation(entity, entityFolder);
-createCqrsDeleteOperation(entity, entityFolder);
+createCqrsFindByIdOperation(service, entity, entityFolder, resultCqrsTypeDto);
+createCqrsFindAllOperation(service, entity, entityFolder, resultCqrsTypeDto);
+createCqrsUpdateOperation(service, entity, entityFolder);
+createCqrsDeleteOperation(service, entity, entityFolder);
 
 // === FUNCTIONS ===
 
 async function showObject(object) {
     await dialogService.info(JSON.stringify(object, null, "  "));
-}
-
-function setHttpStereotype(element, stereotypeName, props) {
-    let stereotype = element.getStereotype(stereotypeName);
-    for (let key of Object.keys(props)) {
-        stereotype.getProperty(key).setValue(props[key]);
-    }
-}
-
-function getSurrogateKeyType() {
-    const typeNameToIdMap = new Map();
-    typeNameToIdMap.set("guid", "6b649125-18ea-48fd-a6ba-0bfff0d8f488");
-    typeNameToIdMap.set("int", "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74");
-    typeNameToIdMap.set("long", "33013006-E404-48C2-AC46-24EF5A5774FD");
-
-    let typeName = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")?.getField("Key Type")?.value ?? "int";
-    if (typeNameToIdMap.has(typeName)) {
-        return typeNameToIdMap.get(typeName);
-    }
-
-    return typeNameToIdMap.get("guid");
-}
-
-function isAggregateRoot(element) {
-    if (_aggregateRootCache[element.id]) {
-        return _aggregateRootCache[element.id];
-    }
-    let result = !element.getAssociations("Association")
-            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-    _aggregateRootCache[element.id] = result;
-    return result;
-}
-
-function isUserMutable(attributeName) {
-    const userImmutableFieldNames = new Set(["created", "createdBy", "id", "updated", "updatedBy"]);
-    return !userImmutableFieldNames.has(attributeName.toLowerCase());
 }
 
 async function preselectOrPromptEntity(preselectedDomainClassName) {
@@ -116,9 +78,42 @@ function getFriendlyDisplayNameForClassSelection(element) {
     return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
 }
 
-function getAggregateRootOwner(entity) {
-    if (_aggregateRootOwnerCache[entity.id]) {
-        return _aggregateRootOwnerCache[entity.id];
+function getServiceFromCurrentContext(entity, packageOrServiceElement) {
+    // Auto detect if we're running in the context of a service or package.
+    if (packageOrServiceElement.specialization === "Service") {
+        return packageOrServiceElement;
+    }
+
+    // Must be a package. See if we can find an existing service with the name we expect.
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let expectedServiceName = nestedCompOwner 
+        ? `${pluralize(toPascalCase(nestedCompOwner.name))}Service` 
+        : `${pluralize(toPascalCase(entity.name))}Service`;
+    let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
+    if (services.length &gt; 0) {
+        return services[0];
+    }
+
+    return createElement("Service", expectedServiceName, packageOrServiceElement.id);
+}
+
+function getReturnTypeMediatypeProperty(element) {
+    return element.getStereotype("Http Settings").getProperty("Return Type Mediatype");
+}
+
+function isAggregateRoot(element) {
+    if (_aggregateRootCache[element.id]) {
+        return _aggregateRootCache[element.id];
+    }
+    let result = !element.getAssociations("Association")
+            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+    _aggregateRootCache[element.id] = result;
+    return result;
+}
+
+function getNestedCompositionalOwner(entity) {
+    if (_nestedCompositionalOwnerCache[entity.id]) {
+        return _nestedCompositionalOwnerCache[entity.id];
     }
 
     let result = entity.getAssociations("Association")
@@ -128,404 +123,425 @@ function getAggregateRootOwner(entity) {
             // as one-to-one relationships are more expensive to address and possibly not going to
             // be needed.
             x.getOtherEnd().typeReference.isCollection) [0];
-    if(result)
-    {
-        _aggregateRootOwnerCache[entity.id] = result.typeReference.getType();
+    if(result) {
+        _nestedCompositionalOwnerCache[entity.id] = result.typeReference.getType();
     }
     return result;
 
     function isOwnedBy(association) {
-        return association.isSourceEnd() &amp;&amp; !association.typeReference.isNullable &amp;&amp; !association.typeReference.isCollection;
+        return association.isSourceEnd() &amp;&amp; 
+            !association.typeReference.isNullable &amp;&amp; 
+            !association.typeReference.isCollection;
     }
-}
-
-function ownerIsAggregateRoot(entity) {
-    let result = getAggregateRootOwner(entity);
-    return result ? true : false;
-}
-
-function getServiceFromCurrentContext(entity, packageOrServiceElement) {
-    // Auto detect if we're running in the context of a service or package.
-    if (packageOrServiceElement.specialization === "Service") {
-        return packageOrServiceElement;
-    }
-
-    // Must be a package. See if we can find an existing service with the name we expect.
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedServiceName = aggrRootOwner ? `${pluralize(toPascalCase(aggrRootOwner.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
-    let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
-    if (services.length &gt; 0) {
-        return services[0];
-    }
-
-    return createElement("Service", expectedServiceName, packageOrServiceElement.id);
-}
-
-function getPrimaryKeyTypeId(entity) {
-    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
-    let pkTypeId;
-    switch (true) {
-        case pks.length == 0:
-            pkTypeId = getSurrogateKeyType();
-            break;
-        case pks.length == 1:
-            pkTypeId = pks[0].typeReference?.typeId ?? getSurrogateKeyType();
-            break;
-        case pks.length &gt; 1:
-            pkTypeId = null;
-            break;
-    }
-    return pkTypeId;
-}
-
-function getReturnTypeMediatypeProperty(element) {
-    return element.getStereotype("Http Settings").getProperty("Return Type Mediatype");
 }
 
 function getEntityFolder(service, entity) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedFolderName = aggrRootOwner ? `${pluralize(aggrRootOwner.name)}` : pluralize(entity.name);
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let expectedFolderName = nestedCompOwner 
+        ? `${pluralize(nestedCompOwner.name)}` 
+        : pluralize(entity.name);
     var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
     var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
 }
 
-function getAggregateRootId(entity, aggrRootOwner) {
-    return entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+function hasElementInFolder(entityFolder, expectedElementName) {
+    return entityFolder.getChildren().some(x =&gt; x.name == expectedElementName);
 }
 
-function createCqrsCreateOperation(entityFolder, entity) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+function setHttpStereotype(element, stereotypeName, props) {
+    let stereotype = element.getStereotype(stereotypeName);
+    for (let key of Object.keys(props)) {
+        stereotype.getProperty(key).setValue(props[key]);
+    }
+}
+
+function getSurrogateKeyType() {
+    const typeNameToIdMap = new Map();
+    typeNameToIdMap.set("guid", "6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+    typeNameToIdMap.set("int", "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74");
+    typeNameToIdMap.set("long", "33013006-E404-48C2-AC46-24EF5A5774FD");
+
+    let typeName = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")?.getField("Key Type")?.value ?? "int";
+    if (typeNameToIdMap.has(typeName)) {
+        return typeNameToIdMap.get(typeName);
+    }
+
+    return typeNameToIdMap.get("guid");
+}
+
+// Returns a dictionary instead of element to help deal with explicit vs implicit keys
+function getPrimaryKeyDescriptor(entity) {
+    if (!entity) {
+        throw new Error("entity not specified");
+    }
+    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    switch (true) {
+        case pks.length == 0:
+            return {
+                id: null,
+                name: `Id`,
+                typeId: getSurrogateKeyType(),
+                isExplicit: false
+            };
+        case pks.length == 1:
+            let pkAttr = pks[0];
+            return {
+                id: pkAttr.id,
+                name: pkAttr.name,
+                typeId: pkAttr.typeReference.typeId,
+                isExplicit: true
+            };
+        case pks.length &gt; 1:
+            // We don't support composite keys at this point
+            return {
+                id: null,
+                name: null,
+                typeId: null,
+                isExplicit : null
+            };
+        default:
+            return {
+                id: null,
+                name: null,
+                typeId: null,
+                isExplicit : null
+            };
+    }
+}
+
+// Returns a dictionary instead of element to help deal with explicit vs implicit keys
+function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner) {
+    if (!entity) {
+        throw new Error("entity not specified");
+    }
+    if (!nestedCompOwner) {
+        throw new Error("nestedCompOwner not specified");
+    }
+
+    let explicitFkAttr = entity.getChildren("Attribute")
+        .filter(x =&gt; x.name.toLowerCase().indexOf(nestedCompOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+    
+    if (explicitFkAttr) {
+        return {
+            name: explicitFkAttr.name,
+            typeId: explicitFkAttr.typeReference.typeId,
+            id: explicitFkAttr.id,
+            isExplicit: true
+        };
+    }
+    
+    return {
+        name: `${nestedCompOwner.name}Id`,
+        typeId: getSurrogateKeyType(),
+        id: null,
+        isExplicit: false
+    };
+}
+
+function createCqrsCreateOperation(service, entityFolder, entity) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
     let expectedCommandName = `Create${baseName}Command`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
-        let command = createElement("Command", expectedCommandName, entityFolder.id);
-        command.setMapping(entity.id);
-        command.setMetadata("baseName", baseName);
-
-        let pkTypeId = getPrimaryKeyTypeId(entity);
-        command.typeReference.setType(pkTypeId);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (attribute) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-                aggrRootOwnerParamName = toCamelCase(attribute.name);
-                aggrRootOwnerIdFieldId = field.id;
-            } else {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType());
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let field = createElement("DTO-Field", attribute.name, command.id);
-            field.typeReference.setType(attribute.typeReference.typeId)
-            field.setMapping(attribute.id);
-        }
-        command.collapse();
-
-        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(command.id);
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
-
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        let param = createElement("Parameter", "command", operation.id);
-        param.typeReference.setType(command.id);
-
-        operation.typeReference.setType(pkTypeId);
-        if (pkTypeId) {
-            getReturnTypeMediatypeProperty(operation).setValue("application/json");
-        }
-
-        operation.collapse();
+    
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
+        let pkDescr = getPrimaryKeyDescriptor(entity);
+        command.typeReference.setType(pkDescr.typeId);
         return;
     }
 
-    let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
-    let pkTypeId = getPrimaryKeyTypeId(entity);
-    command.typeReference.setType(pkTypeId);
-}
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
 
-function createCqrsResultTypeDTO(entity, entityFolder) {
-    let dto = null;
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedDtoName = `${baseName}DTO`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedDtoName)) {
-        dto = createElement("DTO", expectedDtoName, entityFolder.id);
-        dto.setMapping(entity.id);
-        dto.setMetadata("baseName", baseName);
+    let operation = createElement("Operation", `Post${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(command.id);
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", dto.id);
-            idField.typeReference.setType(getSurrogateKeyType())
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (!attribute) {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, dto.id);
-                field.typeReference.setType(getSurrogateKeyType())
-            }
-        }
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
 
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Partition Key"))) {
-            let field = createElement("DTO-Field", attribute.name, dto.id);
-            field.typeReference.setType(attribute.typeReference.typeId);
-            field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-            field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-            field.setMapping(attribute.id);
-        }
-        dto.collapse();
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/`});
     } else {
-        dto = entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": ``});
     }
-    return dto;
-}
 
-function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedQueryName = `Get${baseName}ByIdQuery`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
-        let query = createElement("Query", expectedQueryName, entityFolder.id);
-        query.typeReference.setType(resultTypeDto.id)
-        query.setMapping(entity.id);
-        query.setMetadata("baseName", baseName);
+    let operationParamCommand = createElement("Parameter", "command", operation.id);
+    operationParamCommand.typeReference.setType(command.id);
 
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(query.id);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (attribute) {
-                let field = createElement("DTO-Field", attribute.name, query.id);
-                field.typeReference.setType(attribute.typeReference.typeId);
-                field.setMapping(attribute.id);
-                aggrRootOwnerParamName = toCamelCase(attribute.name);
-                aggrRootOwnerIdFieldId = field.id;
-            } else {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
-                field.typeReference.setType(getSurrogateKeyType());
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}/` : "")}{id}`});
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", query.id);
-            idField.typeReference.setType(getSurrogateKeyType())
-
-            let idParam = createElement("Parameter", "id", operation.id);
-            idParam.typeReference.setType(getSurrogateKeyType());
-            idParam.setMapping(idField.id);
-        } else {
-            for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, query.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-
-                let param = createElement("Parameter", field.getName(), operation.id);
-                param.typeReference.setType(field.typeReference.typeId);
-                param.setMapping(field.id);
-            }
-        }
-
-        query.collapse();
-        operation.collapse();
+    if (pkDescr.typeId) {
+        operation.typeReference.setType(pkDescr.typeId);
+        getReturnTypeMediatypeProperty(operation).setValue("application/json");
     }
-}
 
-function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
-    let expectedQueryName = `Get${baseName}Query`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
-        let query = createElement("Query", expectedQueryName, entityFolder.id);
-        query.typeReference.setType(resultTypeDto.id)
-        query.typeReference.setIsCollection(true);
-        query.setMetadata("baseName", baseName);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerParamId = null;
-        if (aggrRootOwner) {
-            let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
-            idField.typeReference.setType(getSurrogateKeyType());
-            aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-            aggrRootOwnerParamId = idField.id;
-        }
-        
-        query.collapse();
-
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(query.id);
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerParamId);
-        }
-
-        operation.collapse();
-    }
-}
-
-function createCqrsUpdateOperation(entity, entityFolder) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Update${baseName}Command`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
-        let command = createElement("Command", expectedCommandName, entityFolder.id);
-        command.setMapping(entity.id);
-        command.setMetadata("baseName", baseName);
-
-        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(command.id);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (!attribute) {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType())
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
+    for (let attribute of entity.getChildren("Attribute")
+        // For Create Commands, we don't want to by default have PKs and FKs
+        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
-        }
-
-        if (aggrRootOwner) {
-            if (!aggrRootOwnerParamName) {
-                let attribute = getAggregateRootId(entity, aggrRootOwner);
-                if (attribute) {
-                    let property = command.getChildren("DTO-Field").filter(x =&gt; x.name.toLowerCase() === attribute.name.toLowerCase())[0];
-                    aggrRootOwnerIdFieldId = property?.id;
-                    aggrRootOwnerParamName = toCamelCase(attribute.name);
-                }
-            }
-
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}/` : "")}{id}`});
-
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", command.id);
-            idField.typeReference.setType(getSurrogateKeyType())
-
-            let idParam = createElement("Parameter", "id", operation.id);
-            idParam.typeReference.setType(getSurrogateKeyType());
-            idParam.setMapping(idField.id);
-        } else {
-            for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-
-                let param = createElement("Parameter", field.getName(), operation.id);
-                param.typeReference.setType(field.typeReference.typeId);
-                param.setMapping(field.id);
-            }
-        }
-
-        let commandParam = createElement("Parameter", "command", operation.id);
-        commandParam.typeReference.setType(command.id);
-
-        command.collapse();
-        operation.collapse();
     }
+
+    command.collapse();
+    operation.collapse();
 }
 
-function createCqrsDeleteOperation(entity, entityFolder) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Delete${baseName}Command`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
-        let command = createElement("Command", expectedCommandName, entityFolder.id);
-        command.setMapping(entity.id);
-        command.setMetadata("baseName", baseName);
+function createCqrsResultTypeDTO(entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedDtoName = `${baseName}DTO`;
 
-        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(command.id);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (attribute) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId);
-                field.setMapping(attribute.id);
-                aggrRootOwnerParamName = toCamelCase(attribute.name);
-                aggrRootOwnerIdFieldId = field.id;
-            } else {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType());
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}/` : "")}{id}`});
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", command.id);
-            idField.typeReference.setType(getSurrogateKeyType());
-
-            let idParam = createElement("Parameter", "id", operation.id);
-            idParam.typeReference.setType(getSurrogateKeyType());
-            idParam.setMapping(idField.id);
-        } else {
-            for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-
-                let param = createElement("Parameter", field.getName(), operation.id);
-                param.typeReference.setType(field.typeReference.typeId);
-                param.setMapping(field.id);
-            }
-        }
-
-        command.collapse();
-        operation.collapse();
+    if (hasElementInFolder(entityFolder, expectedDtoName)) {
+        return entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
     }
+
+    let dto = createElement("DTO", expectedDtoName, entityFolder.id);
+    dto.setMapping(entity.id);
+    dto.setMetadata("baseName", baseName);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    if (!pkDescr.isExplicit) {
+        let idField = createElement("DTO-Field", toCamelCase(pkDescr.name), dto.id);
+        idField.typeReference.setType(pkDescr.typeId);
+    }
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
+            let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, dto.id);
+            nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        }
+    }
+
+    for (let attribute of entity.getChildren("Attribute")) {
+        let field = createElement("DTO-Field", attribute.name, dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+    }
+
+    dto.collapse();
+    return dto;
+}
+
+function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedQueryName = `Get${baseName}ByIdQuery`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.setMapping(entity.id);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(query.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+        
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/{${idParamExpr}}`});
+    } else {
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `{${idParamExpr}}`});
+    }
+
+    let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, query.id);
+    primaryKeyDtoField.typeReference.setType(pkDescr.typeId)
+    if (pkDescr.isExplicit) {
+        primaryKeyDtoField.setMapping(pkDescr.id);
+    }
+
+    let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+    operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
+    operationParamId.setMapping(primaryKeyDtoField.id);
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedQueryName = `Get${baseName}Query`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.typeReference.setIsCollection(true);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(query.id);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", `${nestedCompOwnerFkDescr.name}`, query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}`});
+    } else {
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": ``});
+    }
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsUpdateOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Update${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Put${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/{${idParamExpr}}`});
+    } else {
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `{${idParamExpr}}`});
+    }
+
+    let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, command.id);
+    primaryKeyDtoField.typeReference.setType(pkDescr.typeId)
+    if (pkDescr.isExplicit) {
+        primaryKeyDtoField.setMapping(pkDescr.id);
+    }
+
+    let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+    operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
+    operationParamId.setMapping(primaryKeyDtoField.id);
+
+    let commandParam = createElement("Parameter", "command", operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    for (let attribute of entity.getChildren("Attribute")
+        .filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+function createCqrsDeleteOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Delete${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Delete${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/{${idParamExpr}}`});
+    } else {
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `{${idParamExpr}}`});
+    }
+
+    let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, command.id);
+    primaryKeyDtoField.typeReference.setType(pkDescr.typeId)
+    if (pkDescr.isExplicit) {
+        primaryKeyDtoField.setMapping(pkDescr.id);
+    }
+
+    let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+    operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
+    operationParamId.setMapping(primaryKeyDtoField.id);
+
+    let commandParam = createElement("Parameter", "command", operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    command.collapse();
+    operation.collapse();
 }</script>
         </option>
       </scriptOptions>
@@ -924,9 +940,7 @@ function ensureDtoFields(mappedElement, dto) {
 let defaultDomainClassName = null;
 if (element?.id == null) {
     // For testing as if a package was right clicked, substitute with package id:
-    // element = { id: "7339add6-c32e-4d95-8e1b-1bbe86ca7f1c" }; // Azure
-    // element = { id: "ef5c352b-fc74-4f13-b61b-a970f8360b08" }; // NestJS
-    element = { id: "a7ab362f-e8a8-4490-90d5-484b0371d949" };
+    element = getPackages().filter(x =&gt; x.id == "eafc12ee-88c0-4e8e-abcf-2b989be5d656")[0];
 
     // For element, substitute with service's element id:
     // element = lookup("677c6801-e654-45c5-924e-886713db1f5e");
@@ -936,60 +950,24 @@ if (element?.id == null) {
 }
 
 const _aggregateRootCache = Object.create(null);
-const _aggregateRootOwnerCache = Object.create(null);
+const _nestedCompositionalOwnerCache = Object.create(null);
 
 let entity = await preselectOrPromptEntity(defaultDomainClassName);
 if (!entity) { return; }
 let service = getServiceFromCurrentContext(entity, element);
 
 let entityFolder = getEntityFolder(service, entity);
-createCqrsCreateOperation(entityFolder, entity);
+createCqrsCreateOperation(service, entityFolder, entity);
 let resultCqrsTypeDto = createCqrsResultTypeDTO(entity, entityFolder);
-createCqrsFindByIdOperation(entity, entityFolder, resultCqrsTypeDto);
-createCqrsFindAllOperation(entity, entityFolder, resultCqrsTypeDto);
-createCqrsUpdateOperation(entity, entityFolder);
-createCqrsDeleteOperation(entity, entityFolder);
+createCqrsFindByIdOperation(service, entity, entityFolder, resultCqrsTypeDto);
+createCqrsFindAllOperation(service, entity, entityFolder, resultCqrsTypeDto);
+createCqrsUpdateOperation(service, entity, entityFolder);
+createCqrsDeleteOperation(service, entity, entityFolder);
 
 // === FUNCTIONS ===
 
 async function showObject(object) {
     await dialogService.info(JSON.stringify(object, null, "  "));
-}
-
-function setHttpStereotype(element, stereotypeName, props) {
-    let stereotype = element.getStereotype(stereotypeName);
-    for (let key of Object.keys(props)) {
-        stereotype.getProperty(key).setValue(props[key]);
-    }
-}
-
-function getSurrogateKeyType() {
-    const typeNameToIdMap = new Map();
-    typeNameToIdMap.set("guid", "6b649125-18ea-48fd-a6ba-0bfff0d8f488");
-    typeNameToIdMap.set("int", "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74");
-    typeNameToIdMap.set("long", "33013006-E404-48C2-AC46-24EF5A5774FD");
-
-    let typeName = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")?.getField("Key Type")?.value ?? "int";
-    if (typeNameToIdMap.has(typeName)) {
-        return typeNameToIdMap.get(typeName);
-    }
-
-    return typeNameToIdMap.get("guid");
-}
-
-function isAggregateRoot(element) {
-    if (_aggregateRootCache[element.id]) {
-        return _aggregateRootCache[element.id];
-    }
-    let result = !element.getAssociations("Association")
-            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-    _aggregateRootCache[element.id] = result;
-    return result;
-}
-
-function isUserMutable(attributeName) {
-    const userImmutableFieldNames = new Set(["created", "createdBy", "id", "updated", "updatedBy"]);
-    return !userImmutableFieldNames.has(attributeName.toLowerCase());
 }
 
 async function preselectOrPromptEntity(preselectedDomainClassName) {
@@ -1022,9 +1000,42 @@ function getFriendlyDisplayNameForClassSelection(element) {
     return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
 }
 
-function getAggregateRootOwner(entity) {
-    if (_aggregateRootOwnerCache[entity.id]) {
-        return _aggregateRootOwnerCache[entity.id];
+function getServiceFromCurrentContext(entity, packageOrServiceElement) {
+    // Auto detect if we're running in the context of a service or package.
+    if (packageOrServiceElement.specialization === "Service") {
+        return packageOrServiceElement;
+    }
+
+    // Must be a package. See if we can find an existing service with the name we expect.
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let expectedServiceName = nestedCompOwner 
+        ? `${pluralize(toPascalCase(nestedCompOwner.name))}Service` 
+        : `${pluralize(toPascalCase(entity.name))}Service`;
+    let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
+    if (services.length &gt; 0) {
+        return services[0];
+    }
+
+    return createElement("Service", expectedServiceName, packageOrServiceElement.id);
+}
+
+function getReturnTypeMediatypeProperty(element) {
+    return element.getStereotype("Http Settings").getProperty("Return Type Mediatype");
+}
+
+function isAggregateRoot(element) {
+    if (_aggregateRootCache[element.id]) {
+        return _aggregateRootCache[element.id];
+    }
+    let result = !element.getAssociations("Association")
+            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+    _aggregateRootCache[element.id] = result;
+    return result;
+}
+
+function getNestedCompositionalOwner(entity) {
+    if (_nestedCompositionalOwnerCache[entity.id]) {
+        return _nestedCompositionalOwnerCache[entity.id];
     }
 
     let result = entity.getAssociations("Association")
@@ -1034,404 +1045,425 @@ function getAggregateRootOwner(entity) {
             // as one-to-one relationships are more expensive to address and possibly not going to
             // be needed.
             x.getOtherEnd().typeReference.isCollection) [0];
-    if(result)
-    {
-        _aggregateRootOwnerCache[entity.id] = result.typeReference.getType();
+    if(result) {
+        _nestedCompositionalOwnerCache[entity.id] = result.typeReference.getType();
     }
     return result;
 
     function isOwnedBy(association) {
-        return association.isSourceEnd() &amp;&amp; !association.typeReference.isNullable &amp;&amp; !association.typeReference.isCollection;
+        return association.isSourceEnd() &amp;&amp; 
+            !association.typeReference.isNullable &amp;&amp; 
+            !association.typeReference.isCollection;
     }
-}
-
-function ownerIsAggregateRoot(entity) {
-    let result = getAggregateRootOwner(entity);
-    return result ? true : false;
-}
-
-function getServiceFromCurrentContext(entity, packageOrServiceElement) {
-    // Auto detect if we're running in the context of a service or package.
-    if (packageOrServiceElement.specialization === "Service") {
-        return packageOrServiceElement;
-    }
-
-    // Must be a package. See if we can find an existing service with the name we expect.
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedServiceName = aggrRootOwner ? `${pluralize(toPascalCase(aggrRootOwner.name))}Service` : `${pluralize(toPascalCase(entity.name))}Service`;
-    let services = packageOrServiceElement.getChildren("Service").filter(x =&gt; x.name === expectedServiceName);
-    if (services.length &gt; 0) {
-        return services[0];
-    }
-
-    return createElement("Service", expectedServiceName, packageOrServiceElement.id);
-}
-
-function getPrimaryKeyTypeId(entity) {
-    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
-    let pkTypeId;
-    switch (true) {
-        case pks.length == 0:
-            pkTypeId = getSurrogateKeyType();
-            break;
-        case pks.length == 1:
-            pkTypeId = pks[0].typeReference?.typeId ?? getSurrogateKeyType();
-            break;
-        case pks.length &gt; 1:
-            pkTypeId = null;
-            break;
-    }
-    return pkTypeId;
-}
-
-function getReturnTypeMediatypeProperty(element) {
-    return element.getStereotype("Http Settings").getProperty("Return Type Mediatype");
 }
 
 function getEntityFolder(service, entity) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let expectedFolderName = aggrRootOwner ? `${pluralize(aggrRootOwner.name)}` : pluralize(entity.name);
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let expectedFolderName = nestedCompOwner 
+        ? `${pluralize(nestedCompOwner.name)}` 
+        : pluralize(entity.name);
     var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
     var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
 }
 
-function getAggregateRootId(entity, aggrRootOwner) {
-    return entity.getChildren("Attribute").filter(x =&gt; x.name.toLowerCase().indexOf(aggrRootOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+function hasElementInFolder(entityFolder, expectedElementName) {
+    return entityFolder.getChildren().some(x =&gt; x.name == expectedElementName);
 }
 
-function createCqrsCreateOperation(entityFolder, entity) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
+function setHttpStereotype(element, stereotypeName, props) {
+    let stereotype = element.getStereotype(stereotypeName);
+    for (let key of Object.keys(props)) {
+        stereotype.getProperty(key).setValue(props[key]);
+    }
+}
+
+function getSurrogateKeyType() {
+    const typeNameToIdMap = new Map();
+    typeNameToIdMap.set("guid", "6b649125-18ea-48fd-a6ba-0bfff0d8f488");
+    typeNameToIdMap.set("int", "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74");
+    typeNameToIdMap.set("long", "33013006-E404-48C2-AC46-24EF5A5774FD");
+
+    let typeName = application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")?.getField("Key Type")?.value ?? "int";
+    if (typeNameToIdMap.has(typeName)) {
+        return typeNameToIdMap.get(typeName);
+    }
+
+    return typeNameToIdMap.get("guid");
+}
+
+// Returns a dictionary instead of element to help deal with explicit vs implicit keys
+function getPrimaryKeyDescriptor(entity) {
+    if (!entity) {
+        throw new Error("entity not specified");
+    }
+    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    switch (true) {
+        case pks.length == 0:
+            return {
+                id: null,
+                name: `Id`,
+                typeId: getSurrogateKeyType(),
+                isExplicit: false
+            };
+        case pks.length == 1:
+            let pkAttr = pks[0];
+            return {
+                id: pkAttr.id,
+                name: pkAttr.name,
+                typeId: pkAttr.typeReference.typeId,
+                isExplicit: true
+            };
+        case pks.length &gt; 1:
+            // We don't support composite keys at this point
+            return {
+                id: null,
+                name: null,
+                typeId: null,
+                isExplicit : null
+            };
+        default:
+            return {
+                id: null,
+                name: null,
+                typeId: null,
+                isExplicit : null
+            };
+    }
+}
+
+// Returns a dictionary instead of element to help deal with explicit vs implicit keys
+function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner) {
+    if (!entity) {
+        throw new Error("entity not specified");
+    }
+    if (!nestedCompOwner) {
+        throw new Error("nestedCompOwner not specified");
+    }
+
+    let explicitFkAttr = entity.getChildren("Attribute")
+        .filter(x =&gt; x.name.toLowerCase().indexOf(nestedCompOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+    
+    if (explicitFkAttr) {
+        return {
+            name: explicitFkAttr.name,
+            typeId: explicitFkAttr.typeReference.typeId,
+            id: explicitFkAttr.id,
+            isExplicit: true
+        };
+    }
+    
+    return {
+        name: `${nestedCompOwner.name}Id`,
+        typeId: getSurrogateKeyType(),
+        id: null,
+        isExplicit: false
+    };
+}
+
+function createCqrsCreateOperation(service, entityFolder, entity) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
     let expectedCommandName = `Create${baseName}Command`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
-        let command = createElement("Command", expectedCommandName, entityFolder.id);
-        command.setMapping(entity.id);
-        command.setMetadata("baseName", baseName);
-
-        let pkTypeId = getPrimaryKeyTypeId(entity);
-        command.typeReference.setType(pkTypeId);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (attribute) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-                aggrRootOwnerParamName = toCamelCase(attribute.name);
-                aggrRootOwnerIdFieldId = field.id;
-            } else {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType());
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let field = createElement("DTO-Field", attribute.name, command.id);
-            field.typeReference.setType(attribute.typeReference.typeId)
-            field.setMapping(attribute.id);
-        }
-        command.collapse();
-
-        let operation = createElement("Operation", `Post${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(command.id);
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
-
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        let param = createElement("Parameter", "command", operation.id);
-        param.typeReference.setType(command.id);
-
-        operation.typeReference.setType(pkTypeId);
-        if (pkTypeId) {
-            getReturnTypeMediatypeProperty(operation).setValue("application/json");
-        }
-
-        operation.collapse();
+    
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
+        let pkDescr = getPrimaryKeyDescriptor(entity);
+        command.typeReference.setType(pkDescr.typeId);
         return;
     }
 
-    let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
-    let pkTypeId = getPrimaryKeyTypeId(entity);
-    command.typeReference.setType(pkTypeId);
-}
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
 
-function createCqrsResultTypeDTO(entity, entityFolder) {
-    let dto = null;
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedDtoName = `${baseName}DTO`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedDtoName)) {
-        dto = createElement("DTO", expectedDtoName, entityFolder.id);
-        dto.setMapping(entity.id);
-        dto.setMetadata("baseName", baseName);
+    let operation = createElement("Operation", `Post${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(command.id);
 
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", dto.id);
-            idField.typeReference.setType(getSurrogateKeyType())
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (!attribute) {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, dto.id);
-                field.typeReference.setType(getSurrogateKeyType())
-            }
-        }
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
 
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Partition Key"))) {
-            let field = createElement("DTO-Field", attribute.name, dto.id);
-            field.typeReference.setType(attribute.typeReference.typeId);
-            field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-            field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-            field.setMapping(attribute.id);
-        }
-        dto.collapse();
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/`});
     } else {
-        dto = entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
+        setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": ``});
     }
-    return dto;
-}
 
-function createCqrsFindByIdOperation(entity, entityFolder, resultTypeDto) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedQueryName = `Get${baseName}ByIdQuery`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
-        let query = createElement("Query", expectedQueryName, entityFolder.id);
-        query.typeReference.setType(resultTypeDto.id)
-        query.setMapping(entity.id);
-        query.setMetadata("baseName", baseName);
+    let operationParamCommand = createElement("Parameter", "command", operation.id);
+    operationParamCommand.typeReference.setType(command.id);
 
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(query.id);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (attribute) {
-                let field = createElement("DTO-Field", attribute.name, query.id);
-                field.typeReference.setType(attribute.typeReference.typeId);
-                field.setMapping(attribute.id);
-                aggrRootOwnerParamName = toCamelCase(attribute.name);
-                aggrRootOwnerIdFieldId = field.id;
-            } else {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
-                field.typeReference.setType(getSurrogateKeyType());
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}/` : "")}{id}`});
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", query.id);
-            idField.typeReference.setType(getSurrogateKeyType())
-
-            let idParam = createElement("Parameter", "id", operation.id);
-            idParam.typeReference.setType(getSurrogateKeyType());
-            idParam.setMapping(idField.id);
-        } else {
-            for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, query.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-
-                let param = createElement("Parameter", field.getName(), operation.id);
-                param.typeReference.setType(field.typeReference.typeId);
-                param.setMapping(field.id);
-            }
-        }
-
-        query.collapse();
-        operation.collapse();
+    if (pkDescr.typeId) {
+        operation.typeReference.setType(pkDescr.typeId);
+        getReturnTypeMediatypeProperty(operation).setValue("application/json");
     }
-}
 
-function createCqrsFindAllOperation(entity, entityFolder, resultTypeDto) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${pluralize(entity.name)}` : pluralize(entity.name);
-    let expectedQueryName = `Get${baseName}Query`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedQueryName)) {
-        let query = createElement("Query", expectedQueryName, entityFolder.id);
-        query.typeReference.setType(resultTypeDto.id)
-        query.typeReference.setIsCollection(true);
-        query.setMetadata("baseName", baseName);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerParamId = null;
-        if (aggrRootOwner) {
-            let idField = createElement("DTO-Field", `${aggrRootOwner.name}Id`, query.id);
-            idField.typeReference.setType(getSurrogateKeyType());
-            aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-            aggrRootOwnerParamId = idField.id;
-        }
-        
-        query.collapse();
-
-        let operation = createElement("Operation", `Get${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(query.id);
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}` : "")}`});
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerParamId);
-        }
-
-        operation.collapse();
-    }
-}
-
-function createCqrsUpdateOperation(entity, entityFolder) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Update${baseName}Command`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
-        let command = createElement("Command", expectedCommandName, entityFolder.id);
-        command.setMapping(entity.id);
-        command.setMetadata("baseName", baseName);
-
-        let operation = createElement("Operation", `Put${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(command.id);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (!attribute) {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType())
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        for (let attribute of entity.getChildren("Attribute").filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
+    for (let attribute of entity.getChildren("Attribute")
+        // For Create Commands, we don't want to by default have PKs and FKs
+        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
             let field = createElement("DTO-Field", attribute.name, command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
-        }
-
-        if (aggrRootOwner) {
-            if (!aggrRootOwnerParamName) {
-                let attribute = getAggregateRootId(entity, aggrRootOwner);
-                if (attribute) {
-                    let property = command.getChildren("DTO-Field").filter(x =&gt; x.name.toLowerCase() === attribute.name.toLowerCase())[0];
-                    aggrRootOwnerIdFieldId = property?.id;
-                    aggrRootOwnerParamName = toCamelCase(attribute.name);
-                }
-            }
-
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}/` : "")}{id}`});
-
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", command.id);
-            idField.typeReference.setType(getSurrogateKeyType())
-
-            let idParam = createElement("Parameter", "id", operation.id);
-            idParam.typeReference.setType(getSurrogateKeyType());
-            idParam.setMapping(idField.id);
-        } else {
-            for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-
-                let param = createElement("Parameter", field.getName(), operation.id);
-                param.typeReference.setType(field.typeReference.typeId);
-                param.setMapping(field.id);
-            }
-        }
-
-        let commandParam = createElement("Parameter", "command", operation.id);
-        commandParam.typeReference.setType(command.id);
-
-        command.collapse();
-        operation.collapse();
     }
+
+    command.collapse();
+    operation.collapse();
 }
 
-function createCqrsDeleteOperation(entity, entityFolder) {
-    let aggrRootOwner = getAggregateRootOwner(entity);
-    let baseName = aggrRootOwner ? `${aggrRootOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Delete${baseName}Command`;
-    if (!entityFolder.getChildren().some(x =&gt; x.name == expectedCommandName)) {
-        let command = createElement("Command", expectedCommandName, entityFolder.id);
-        command.setMapping(entity.id);
-        command.setMetadata("baseName", baseName);
+function createCqrsResultTypeDTO(entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedDtoName = `${baseName}DTO`;
 
-        let operation = createElement("Operation", `Delete${aggrRootOwner ? pluralize(entity.name) : ""}`, service.id);
-        operation.setMapping(command.id);
-
-        let aggrRootOwnerParamName = null;
-        let aggrRootOwnerIdFieldId = null;
-        if (aggrRootOwner) {
-            let attribute = getAggregateRootId(entity, aggrRootOwner);
-            if (attribute) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId);
-                field.setMapping(attribute.id);
-                aggrRootOwnerParamName = toCamelCase(attribute.name);
-                aggrRootOwnerIdFieldId = field.id;
-            } else {
-                let field = createElement("DTO-Field", `${aggrRootOwner.name}Id`, command.id);
-                field.typeReference.setType(getSurrogateKeyType());
-                aggrRootOwnerParamName = toCamelCase(`${aggrRootOwner.name}Id`);
-                aggrRootOwnerIdFieldId = field.id;
-            }
-        }
-
-        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${(aggrRootOwnerParamName ? `{${aggrRootOwnerParamName}}/${pluralize(entity.name)}/` : "")}{id}`});
-        if (aggrRootOwnerParamName) {
-            let param = createElement("Parameter", aggrRootOwnerParamName, operation.id);
-            param.typeReference.setType(getSurrogateKeyType());
-            param.setMapping(aggrRootOwnerIdFieldId);
-        }
-
-        if (entity.getChildren("Attribute").every(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Partition Key"))) {
-            let idField = createElement("DTO-Field", "id", command.id);
-            idField.typeReference.setType(getSurrogateKeyType());
-
-            let idParam = createElement("Parameter", "id", operation.id);
-            idParam.typeReference.setType(getSurrogateKeyType());
-            idParam.setMapping(idField.id);
-        } else {
-            for (let attribute of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"))) {
-                let field = createElement("DTO-Field", attribute.name, command.id);
-                field.typeReference.setType(attribute.typeReference.typeId)
-                field.setMapping(attribute.id);
-
-                let param = createElement("Parameter", field.getName(), operation.id);
-                param.typeReference.setType(field.typeReference.typeId);
-                param.setMapping(field.id);
-            }
-        }
-
-        command.collapse();
-        operation.collapse();
+    if (hasElementInFolder(entityFolder, expectedDtoName)) {
+        return entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
     }
+
+    let dto = createElement("DTO", expectedDtoName, entityFolder.id);
+    dto.setMapping(entity.id);
+    dto.setMetadata("baseName", baseName);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    if (!pkDescr.isExplicit) {
+        let idField = createElement("DTO-Field", toCamelCase(pkDescr.name), dto.id);
+        idField.typeReference.setType(pkDescr.typeId);
+    }
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
+            let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, dto.id);
+            nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        }
+    }
+
+    for (let attribute of entity.getChildren("Attribute")) {
+        let field = createElement("DTO-Field", attribute.name, dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+    }
+
+    dto.collapse();
+    return dto;
+}
+
+function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedQueryName = `Get${baseName}ByIdQuery`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.setMapping(entity.id);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(query.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+        
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/{${idParamExpr}}`});
+    } else {
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `{${idParamExpr}}`});
+    }
+
+    let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, query.id);
+    primaryKeyDtoField.typeReference.setType(pkDescr.typeId)
+    if (pkDescr.isExplicit) {
+        primaryKeyDtoField.setMapping(pkDescr.id);
+    }
+
+    let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+    operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
+    operationParamId.setMapping(primaryKeyDtoField.id);
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedQueryName = `Get${baseName}Query`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.typeReference.setIsCollection(true);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(query.id);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", `${nestedCompOwnerFkDescr.name}`, query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}`});
+    } else {
+        setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": ``});
+    }
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsUpdateOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Update${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Put${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/{${idParamExpr}}`});
+    } else {
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": `{${idParamExpr}}`});
+    }
+
+    let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, command.id);
+    primaryKeyDtoField.typeReference.setType(pkDescr.typeId)
+    if (pkDescr.isExplicit) {
+        primaryKeyDtoField.setMapping(pkDescr.id);
+    }
+
+    let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+    operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
+    operationParamId.setMapping(primaryKeyDtoField.id);
+
+    let commandParam = createElement("Parameter", "command", operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    for (let attribute of entity.getChildren("Attribute")
+        .filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", attribute.name, command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+function createCqrsDeleteOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
+    let expectedCommandName = `Delete${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", `Delete${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField);
+
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/{${idParamExpr}}`});
+    } else {
+        let idParamExpr = toCamelCase(pkDescr.name ?? "id");
+        setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": `{${idParamExpr}}`});
+    }
+
+    let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, command.id);
+    primaryKeyDtoField.typeReference.setType(pkDescr.typeId)
+    if (pkDescr.isExplicit) {
+        primaryKeyDtoField.setMapping(pkDescr.id);
+    }
+
+    let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+    operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
+    operationParamId.setMapping(primaryKeyDtoField.id);
+
+    let commandParam = createElement("Parameter", "command", operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    command.collapse();
+    operation.collapse();
 }</script>
         </option>
       </scriptOptions>

@@ -1,3 +1,12 @@
+### Version 4.0.4
+
+- Update: Cleaned up and refactored the `Create CRUD Service` script.
+- Fixed: `Create CRUD Service` script now does better job at fetching Primary Key fields from Domain Entities.
+
+### Version 4.0.3
+
+- Update: Dependency version updates.
+
 ### Version 4.0.2
 
 - Fixed: Create CRUD Service for nested compositional entities will only pick compositional relationships.
