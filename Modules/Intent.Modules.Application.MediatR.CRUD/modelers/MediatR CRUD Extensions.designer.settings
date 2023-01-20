@@ -34,18 +34,351 @@ if (!entity) { return; }
 let service = getServiceFromCurrentContext(entity, element);
 
 let entityFolder = getEntityFolder(service, entity);
-createCqrsCreateOperation(service, entityFolder, entity);
 let resultCqrsTypeDto = createCqrsResultTypeDTO(entity, entityFolder);
+
+createCqrsCreateOperation(service, entityFolder, entity);
 createCqrsFindByIdOperation(service, entity, entityFolder, resultCqrsTypeDto);
 createCqrsFindAllOperation(service, entity, entityFolder, resultCqrsTypeDto);
 createCqrsUpdateOperation(service, entity, entityFolder);
 createCqrsDeleteOperation(service, entity, entityFolder);
 
-// === FUNCTIONS ===
+/*
+========================
+   HOOK-IN FUNCTIONS
+========================
+Easier to alter the behavior of certain key operations.
+Could make certain things configurable in the future.
+*/
+
+function getParameterFormat(str) {
+    return toCamelCase(str);
+}
+
+function getRoutingFormat(str) {
+    return str;
+}
+
+function getFieldFormat(str) {
+    return toCamelCase(str);
+}
+
+function getDomainAttributeNameFormat(str) {
+    return toPascalCase(str);
+}
+
+function getBaseNameForElement(nestedCompOwner, entity) {
+    return nestedCompOwner ? `${toPascalCase(nestedCompOwner.name)}${toPascalCase(entity.name)}` : entity.name;
+}
+
+function getFolderName(nestedCompOwner, entity) {
+    return nestedCompOwner ? pluralize(nestedCompOwner.name) : pluralize(entity.name);
+}
+
+function getOperationFormat(baseName, nestedCompOwner, entity) {
+    return `${baseName}${nestedCompOwner ? pluralize(entity.name) : ""}`;
+}
+
+/*
+========================
+   CREATION FUNCTIONS
+========================
+*/
+
+function createCqrsResultTypeDTO(entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedDtoName = `${baseName}DTO`;
+
+    if (hasElementInFolder(entityFolder, expectedDtoName)) {
+        return entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
+    }
+
+    let dto = createElement("DTO", expectedDtoName, entityFolder.id);
+    dto.setMapping(entity.id);
+    dto.setMetadata("baseName", baseName);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
+            let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), dto.id);
+            nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        }
+    }
+
+    if (pkDescr.specialization == PKSpecializaton.Implicit) {
+        let idField = createElement("DTO-Field", getFieldFormat(pkDescr.name), dto.id);
+        idField.typeReference.setType(pkDescr.typeId);
+    }
+
+    for (let attribute of entity.getChildren("Attribute")) {
+        let field = createElement("DTO-Field", getFieldFormat(attribute.name), dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+    }
+
+    dto.collapse();
+    return dto;
+}
+
+function createCqrsCreateOperation(service, entityFolder, entity) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedCommandName = `Create${baseName}Command`;
+    
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
+        let pkDescr = getPrimaryKeyDescriptor(entity);
+        command.typeReference.setType(pkDescr.typeId);
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Post", nestedCompOwner, entity), service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, null);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": routePath});
+
+    let operationParamCommand = createElement("Parameter", getParameterFormat("command"), operation.id);
+    operationParamCommand.typeReference.setType(command.id);
+
+    if (pkDescr.typeId) {
+        command.typeReference.setType(pkDescr.typeId);
+        getReturnTypeMediatypeProperty(operation).setValue("application/json");
+    }
+
+    for (let attribute of entity.getChildren("Attribute")
+        // For Create Commands, we don't want to by default have PKs and FKs
+        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+            let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedQueryName = `Get${baseName}ByIdQuery`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.setMapping(entity.id);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity), service.id);
+    operation.setMapping(query.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+        
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr);
+    } else {
+        routePath = getRoutePath(null, null, pkDescr);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
+    addPrimaryKeys(query, operation, pkDescr);
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedQueryName = `Get${baseName}Query`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.typeReference.setIsCollection(true);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity), service.id);
+    operation.setMapping(query.id);
+
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, null);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsUpdateOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedCommandName = `Update${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Put", nestedCompOwner, entity), service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr);
+    } else {
+        routePath = getRoutePath(null, null, pkDescr);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": routePath});
+    addPrimaryKeys(command, operation, pkDescr);
+
+    let commandParam = createElement("Parameter", getParameterFormat("command"), operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    for (let attribute of entity.getChildren("Attribute")
+        .filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+function createCqrsDeleteOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedCommandName = `Delete${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Delete", nestedCompOwner, entity), service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr);
+    } else {
+        routePath = getRoutePath(null, null, pkDescr);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": routePath});
+    addPrimaryKeys(command, operation, pkDescr);
+
+    let commandParam = createElement("Parameter", getParameterFormat("command"), operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    command.collapse();
+    operation.collapse();
+}
+
+/*
+========================
+   UTILITY FUNCTIONS
+========================
+*/
 
 function initConstants() {
     _aggregateRootCache = Object.create(null);
     _nestedCompositionalOwnerCache = Object.create(null);
+
     PKSpecializaton = {
         Implicit: "implicit",
         Explicit: "explicit",
@@ -56,11 +389,6 @@ function initConstants() {
 
 async function showObject(object) {
     await dialogService.info(JSON.stringify(object, null, "  "));
-}
-
-// Hook-in point for configurable casing
-function toRoutingCase(str) {
-    return toCamelCase(str);
 }
 
 async function preselectOrPromptEntity(preselectedDomainClassName) {
@@ -150,11 +478,14 @@ function getNestedCompositionalOwner(entity) {
     }
 }
 
+function ownerIsAggregateRoot(entity) {
+    let result = getNestedCompositionalOwner(entity);
+    return result ? true : false;
+}
+
 function getEntityFolder(service, entity) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let expectedFolderName = nestedCompOwner 
-        ? `${pluralize(nestedCompOwner.name)}` 
-        : pluralize(entity.name);
+    let expectedFolderName = getFolderName(nestedCompOwner, entity);
     var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
     var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
@@ -195,7 +526,7 @@ function getPrimaryKeyDescriptor(entity) {
         case pks.length == 0:
             return {
                 id: null,
-                name: `Id`,
+                name: getDomainAttributeNameFormat("Id"),
                 typeId: getSurrogateKeyType(),
                 specialization: PKSpecializaton.Implicit,
                 compositeKeys: null
@@ -204,7 +535,7 @@ function getPrimaryKeyDescriptor(entity) {
             let pkAttr = pks[0];
             return {
                 id: pkAttr.id,
-                name: pkAttr.name,
+                name: getDomainAttributeNameFormat(pkAttr.name),
                 typeId: pkAttr.typeReference.typeId,
                 specialization: PKSpecializaton.Explicit,
                 compositeKeys: null
@@ -218,7 +549,7 @@ function getPrimaryKeyDescriptor(entity) {
                 compositeKeys: pks.map(x =&gt; { 
                     return {
                         id: x.id,
-                        name: x.name,
+                        name: getDomainAttributeNameFormat(x.name),
                         typeId: x.typeReference.typeId
                     }; 
                 })
@@ -248,7 +579,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     
     if (explicitFkAttr) {
         return {
-            name: explicitFkAttr.name,
+            name: getDomainAttributeNameFormat(explicitFkAttr.name),
             typeId: explicitFkAttr.typeReference.typeId,
             id: explicitFkAttr.id,
             isExplicit: true
@@ -256,7 +587,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     }
     
     return {
-        name: `${nestedCompOwner.name}Id`,
+        name: getDomainAttributeNameFormat(`${nestedCompOwner.name}Id`),
         typeId: getSurrogateKeyType(),
         id: null,
         isExplicit: false
@@ -268,10 +599,10 @@ function addPrimaryKeys(commandQuery, operation, pkDescr) {
         case PKSpecializaton.Implicit:
         case PKSpecializaton.Explicit:
             {
-                let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, commandQuery.id);
+                let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(pkDescr.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(pkDescr.typeId);
 
-                let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+                let operationParamId = createElement("Parameter", getParameterFormat(pkDescr.name), operation.id);
                 operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
                 if (pkDescr.specialization == PKSpecializaton.Explicit) {
                     operationParamId.setMapping(primaryKeyDtoField.id);
@@ -280,11 +611,11 @@ function addPrimaryKeys(commandQuery, operation, pkDescr) {
             break;
         case PKSpecializaton.ExplicitComposite:
             for (let key of pkDescr.compositeKeys) {
-                let primaryKeyDtoField = createElement("DTO-Field", key.name, commandQuery.id);
+                let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(key.typeId)
                 primaryKeyDtoField.setMapping(key.id);
 
-                let operationParamId = createElement("Parameter", key.name, operation.id);
+                let operationParamId = createElement("Parameter", getParameterFormat(key.name), operation.id);
                 operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
                 operationParamId.setMapping(primaryKeyDtoField.id);
             }
@@ -292,309 +623,31 @@ function addPrimaryKeys(commandQuery, operation, pkDescr) {
     }
 }
 
-function getRoutePathIds(pkDescr) {
-    if (!pkDescr) {
+function getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr) {
+    let list = []
+    if(nestedCompOwnerFkDescr) {
+        list.push(`{${getParameterFormat(nestedCompOwnerFkDescr.name)}}`);
+    }
+    if(entity) {
+        list.push(`${getRoutingFormat(entity.name)}`);
+    }
+    if (pkDescr) {
+        switch (pkDescr.specialization) {
+            case PKSpecializaton.Implicit:
+            case PKSpecializaton.Explicit:
+                list.push(`{${getParameterFormat(pkDescr.name)}}`);
+                break;
+            case PKSpecializaton.ExplicitComposite:
+                list.push(pkDescr.compositeKeys.map(x =&gt; `{${getParameterFormat(x.name)}}`))
+                break;
+        }
+    }
+    if (list.length == 0) {
         return "";
     }
-    switch (pkDescr.specialization) {
-        case PKSpecializaton.Implicit:
-        case PKSpecializaton.Explicit:
-            return `/{${toRoutingCase(pkDescr.name)}}`;
-        case PKSpecializaton.ExplicitComposite:
-            return `${pkDescr.compositeKeys.reduce((acc, val) =&gt; `${acc}${acc != '' ? '/' : ''}{${toRoutingCase(val.name)}}`, '')}`;
-    }
+    return list.join("/");
 }
-
-function createCqrsCreateOperation(service, entityFolder, entity) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Create${baseName}Command`;
-    
-    if (hasElementInFolder(entityFolder, expectedCommandName)) {
-        let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
-        let pkDescr = getPrimaryKeyDescriptor(entity);
-        command.typeReference.setType(pkDescr.typeId);
-        return;
-    }
-
-    let command = createElement("Command", expectedCommandName, entityFolder.id);
-    command.setMapping(entity.id);
-    command.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Post${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(command.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": routePath});
-
-    let operationParamCommand = createElement("Parameter", "command", operation.id);
-    operationParamCommand.typeReference.setType(command.id);
-
-    if (pkDescr.typeId) {
-        operation.typeReference.setType(pkDescr.typeId);
-        getReturnTypeMediatypeProperty(operation).setValue("application/json");
-    }
-
-    for (let attribute of entity.getChildren("Attribute")
-        // For Create Commands, we don't want to by default have PKs and FKs
-        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
-            let field = createElement("DTO-Field", attribute.name, command.id);
-            field.typeReference.setType(attribute.typeReference.typeId)
-            field.setMapping(attribute.id);
-    }
-
-    command.collapse();
-    operation.collapse();
-}
-
-function createCqrsResultTypeDTO(entity, entityFolder) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedDtoName = `${baseName}DTO`;
-
-    if (hasElementInFolder(entityFolder, expectedDtoName)) {
-        return entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
-    }
-
-    let dto = createElement("DTO", expectedDtoName, entityFolder.id);
-    dto.setMapping(entity.id);
-    dto.setMetadata("baseName", baseName);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
-            let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, dto.id);
-            nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        }
-    }
-
-    if (pkDescr.specialization == PKSpecializaton.Implicit) {
-        let idField = createElement("DTO-Field", toCamelCase(pkDescr.name), dto.id);
-        idField.typeReference.setType(pkDescr.typeId);
-    }
-
-    for (let attribute of entity.getChildren("Attribute")) {
-        let field = createElement("DTO-Field", attribute.name, dto.id);
-        field.typeReference.setType(attribute.typeReference.typeId);
-        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-        field.setMapping(attribute.id);
-    }
-
-    dto.collapse();
-    return dto;
-}
-
-function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedQueryName = `Get${baseName}ByIdQuery`;
-    
-    if (hasElementInFolder(entityFolder, expectedQueryName)) {
-        return;
-    }
-
-    let query = createElement("Query", expectedQueryName, entityFolder.id);
-    query.typeReference.setType(resultTypeDto.id)
-    query.setMapping(entity.id);
-    query.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(query.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-        
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, query.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/${idParamExpr}`;
-    } else {
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${idParamExpr}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
-    addPrimaryKeys(query, operation, pkDescr);
-
-    query.collapse();
-    operation.collapse();
-}
-
-function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedQueryName = `Get${baseName}Query`;
-    
-    if (hasElementInFolder(entityFolder, expectedQueryName)) {
-        return;
-    }
-
-    let query = createElement("Query", expectedQueryName, entityFolder.id);
-    query.typeReference.setType(resultTypeDto.id)
-    query.typeReference.setIsCollection(true);
-    query.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(query.id);
-
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", `${nestedCompOwnerFkDescr.name}`, query.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
-
-    query.collapse();
-    operation.collapse();
-}
-
-function createCqrsUpdateOperation(service, entity, entityFolder) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Update${baseName}Command`;
-
-    if (hasElementInFolder(entityFolder, expectedCommandName)) {
-        return;
-    }
-
-    let command = createElement("Command", expectedCommandName, entityFolder.id);
-    command.setMapping(entity.id);
-    command.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Put${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(command.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/${idParamExpr}`;
-    } else {
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${idParamExpr}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": routePath});
-    addPrimaryKeys(command, operation, pkDescr);
-
-    let commandParam = createElement("Parameter", "command", operation.id);
-    commandParam.typeReference.setType(command.id);
-
-    for (let attribute of entity.getChildren("Attribute")
-        .filter(x =&gt; !x.hasStereotype("Primary Key"))) {
-            let field = createElement("DTO-Field", attribute.name, command.id);
-            field.typeReference.setType(attribute.typeReference.typeId)
-            field.setMapping(attribute.id);
-    }
-
-    command.collapse();
-    operation.collapse();
-}
-
-function createCqrsDeleteOperation(service, entity, entityFolder) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Delete${baseName}Command`;
-
-    if (hasElementInFolder(entityFolder, expectedCommandName)) {
-        return;
-    }
-
-    let command = createElement("Command", expectedCommandName, entityFolder.id);
-    command.setMapping(entity.id);
-    command.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Delete${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(command.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/${idParamExpr}`;
-    } else {
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${idParamExpr}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": routePath});
-    addPrimaryKeys(command, operation, pkDescr);
-
-    let commandParam = createElement("Parameter", "command", operation.id);
-    commandParam.typeReference.setType(command.id);
-
-    command.collapse();
-    operation.collapse();
-}</script>
+</script>
         </option>
       </scriptOptions>
       <typeOrder />
@@ -1008,18 +1061,351 @@ if (!entity) { return; }
 let service = getServiceFromCurrentContext(entity, element);
 
 let entityFolder = getEntityFolder(service, entity);
-createCqrsCreateOperation(service, entityFolder, entity);
 let resultCqrsTypeDto = createCqrsResultTypeDTO(entity, entityFolder);
+
+createCqrsCreateOperation(service, entityFolder, entity);
 createCqrsFindByIdOperation(service, entity, entityFolder, resultCqrsTypeDto);
 createCqrsFindAllOperation(service, entity, entityFolder, resultCqrsTypeDto);
 createCqrsUpdateOperation(service, entity, entityFolder);
 createCqrsDeleteOperation(service, entity, entityFolder);
 
-// === FUNCTIONS ===
+/*
+========================
+   HOOK-IN FUNCTIONS
+========================
+Easier to alter the behavior of certain key operations.
+Could make certain things configurable in the future.
+*/
+
+function getParameterFormat(str) {
+    return toCamelCase(str);
+}
+
+function getRoutingFormat(str) {
+    return str;
+}
+
+function getFieldFormat(str) {
+    return toCamelCase(str);
+}
+
+function getDomainAttributeNameFormat(str) {
+    return toPascalCase(str);
+}
+
+function getBaseNameForElement(nestedCompOwner, entity) {
+    return nestedCompOwner ? `${toPascalCase(nestedCompOwner.name)}${toPascalCase(entity.name)}` : entity.name;
+}
+
+function getFolderName(nestedCompOwner, entity) {
+    return nestedCompOwner ? pluralize(nestedCompOwner.name) : pluralize(entity.name);
+}
+
+function getOperationFormat(baseName, nestedCompOwner, entity) {
+    return `${baseName}${nestedCompOwner ? pluralize(entity.name) : ""}`;
+}
+
+/*
+========================
+   CREATION FUNCTIONS
+========================
+*/
+
+function createCqrsResultTypeDTO(entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedDtoName = `${baseName}DTO`;
+
+    if (hasElementInFolder(entityFolder, expectedDtoName)) {
+        return entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
+    }
+
+    let dto = createElement("DTO", expectedDtoName, entityFolder.id);
+    dto.setMapping(entity.id);
+    dto.setMetadata("baseName", baseName);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
+            let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), dto.id);
+            nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        }
+    }
+
+    if (pkDescr.specialization == PKSpecializaton.Implicit) {
+        let idField = createElement("DTO-Field", getFieldFormat(pkDescr.name), dto.id);
+        idField.typeReference.setType(pkDescr.typeId);
+    }
+
+    for (let attribute of entity.getChildren("Attribute")) {
+        let field = createElement("DTO-Field", getFieldFormat(attribute.name), dto.id);
+        field.typeReference.setType(attribute.typeReference.typeId);
+        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+        field.setMapping(attribute.id);
+    }
+
+    dto.collapse();
+    return dto;
+}
+
+function createCqrsCreateOperation(service, entityFolder, entity) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedCommandName = `Create${baseName}Command`;
+    
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
+        let pkDescr = getPrimaryKeyDescriptor(entity);
+        command.typeReference.setType(pkDescr.typeId);
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Post", nestedCompOwner, entity), service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, null);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": routePath});
+
+    let operationParamCommand = createElement("Parameter", getParameterFormat("command"), operation.id);
+    operationParamCommand.typeReference.setType(command.id);
+
+    if (pkDescr.typeId) {
+        command.typeReference.setType(pkDescr.typeId);
+        getReturnTypeMediatypeProperty(operation).setValue("application/json");
+    }
+
+    for (let attribute of entity.getChildren("Attribute")
+        // For Create Commands, we don't want to by default have PKs and FKs
+        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+            let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedQueryName = `Get${baseName}ByIdQuery`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.setMapping(entity.id);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity), service.id);
+    operation.setMapping(query.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+        
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr);
+    } else {
+        routePath = getRoutePath(null, null, pkDescr);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
+    addPrimaryKeys(query, operation, pkDescr);
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedQueryName = `Get${baseName}Query`;
+    
+    if (hasElementInFolder(entityFolder, expectedQueryName)) {
+        return;
+    }
+
+    let query = createElement("Query", expectedQueryName, entityFolder.id);
+    query.typeReference.setType(resultTypeDto.id)
+    query.typeReference.setIsCollection(true);
+    query.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity), service.id);
+    operation.setMapping(query.id);
+
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), query.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, null);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
+
+    query.collapse();
+    operation.collapse();
+}
+
+function createCqrsUpdateOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedCommandName = `Update${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Put", nestedCompOwner, entity), service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr);
+    } else {
+        routePath = getRoutePath(null, null, pkDescr);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": routePath});
+    addPrimaryKeys(command, operation, pkDescr);
+
+    let commandParam = createElement("Parameter", getParameterFormat("command"), operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    for (let attribute of entity.getChildren("Attribute")
+        .filter(x =&gt; !x.hasStereotype("Primary Key"))) {
+            let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
+            field.typeReference.setType(attribute.typeReference.typeId)
+            field.setMapping(attribute.id);
+    }
+
+    command.collapse();
+    operation.collapse();
+}
+
+function createCqrsDeleteOperation(service, entity, entityFolder) {
+    let nestedCompOwner = getNestedCompositionalOwner(entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let expectedCommandName = `Delete${baseName}Command`;
+
+    if (hasElementInFolder(entityFolder, expectedCommandName)) {
+        return;
+    }
+
+    let command = createElement("Command", expectedCommandName, entityFolder.id);
+    command.setMapping(entity.id);
+    command.setMetadata("baseName", baseName);
+
+    let operation = createElement("Operation", getOperationFormat("Delete", nestedCompOwner, entity), service.id);
+    operation.setMapping(command.id);
+
+    let pkDescr = getPrimaryKeyDescriptor(entity);
+    let routePath = "";
+
+    if (nestedCompOwner) {
+        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
+
+        let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
+        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
+        if (nestedCompOwnerFkDescr.isExplicit) {
+            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
+        }
+
+        let param = createElement("Parameter", getParameterFormat(nestedCompOwnerFkDescr.name), operation.id);
+        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
+        param.setMapping(nestedCompOwnerIdDtoField.id);
+
+        routePath = getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr);
+    } else {
+        routePath = getRoutePath(null, null, pkDescr);
+    }
+
+    setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": routePath});
+    addPrimaryKeys(command, operation, pkDescr);
+
+    let commandParam = createElement("Parameter", getParameterFormat("command"), operation.id);
+    commandParam.typeReference.setType(command.id);
+
+    command.collapse();
+    operation.collapse();
+}
+
+/*
+========================
+   UTILITY FUNCTIONS
+========================
+*/
 
 function initConstants() {
     _aggregateRootCache = Object.create(null);
     _nestedCompositionalOwnerCache = Object.create(null);
+
     PKSpecializaton = {
         Implicit: "implicit",
         Explicit: "explicit",
@@ -1030,11 +1416,6 @@ function initConstants() {
 
 async function showObject(object) {
     await dialogService.info(JSON.stringify(object, null, "  "));
-}
-
-// Hook-in point for configurable casing
-function toRoutingCase(str) {
-    return toCamelCase(str);
 }
 
 async function preselectOrPromptEntity(preselectedDomainClassName) {
@@ -1124,11 +1505,14 @@ function getNestedCompositionalOwner(entity) {
     }
 }
 
+function ownerIsAggregateRoot(entity) {
+    let result = getNestedCompositionalOwner(entity);
+    return result ? true : false;
+}
+
 function getEntityFolder(service, entity) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let expectedFolderName = nestedCompOwner 
-        ? `${pluralize(nestedCompOwner.name)}` 
-        : pluralize(entity.name);
+    let expectedFolderName = getFolderName(nestedCompOwner, entity);
     var existing = service.getParent().getChildren().find(x =&gt; x.name == expectedFolderName);
     var folder = existing || createElement("Folder", expectedFolderName, service.getParent().id);
     return folder;
@@ -1169,7 +1553,7 @@ function getPrimaryKeyDescriptor(entity) {
         case pks.length == 0:
             return {
                 id: null,
-                name: `Id`,
+                name: getDomainAttributeNameFormat("Id"),
                 typeId: getSurrogateKeyType(),
                 specialization: PKSpecializaton.Implicit,
                 compositeKeys: null
@@ -1178,7 +1562,7 @@ function getPrimaryKeyDescriptor(entity) {
             let pkAttr = pks[0];
             return {
                 id: pkAttr.id,
-                name: pkAttr.name,
+                name: getDomainAttributeNameFormat(pkAttr.name),
                 typeId: pkAttr.typeReference.typeId,
                 specialization: PKSpecializaton.Explicit,
                 compositeKeys: null
@@ -1192,7 +1576,7 @@ function getPrimaryKeyDescriptor(entity) {
                 compositeKeys: pks.map(x =&gt; { 
                     return {
                         id: x.id,
-                        name: x.name,
+                        name: getDomainAttributeNameFormat(x.name),
                         typeId: x.typeReference.typeId
                     }; 
                 })
@@ -1222,7 +1606,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     
     if (explicitFkAttr) {
         return {
-            name: explicitFkAttr.name,
+            name: getDomainAttributeNameFormat(explicitFkAttr.name),
             typeId: explicitFkAttr.typeReference.typeId,
             id: explicitFkAttr.id,
             isExplicit: true
@@ -1230,7 +1614,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     }
     
     return {
-        name: `${nestedCompOwner.name}Id`,
+        name: getDomainAttributeNameFormat(`${nestedCompOwner.name}Id`),
         typeId: getSurrogateKeyType(),
         id: null,
         isExplicit: false
@@ -1242,10 +1626,10 @@ function addPrimaryKeys(commandQuery, operation, pkDescr) {
         case PKSpecializaton.Implicit:
         case PKSpecializaton.Explicit:
             {
-                let primaryKeyDtoField = createElement("DTO-Field", pkDescr.name, commandQuery.id);
+                let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(pkDescr.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(pkDescr.typeId);
 
-                let operationParamId = createElement("Parameter", pkDescr.name, operation.id);
+                let operationParamId = createElement("Parameter", getParameterFormat(pkDescr.name), operation.id);
                 operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
                 if (pkDescr.specialization == PKSpecializaton.Explicit) {
                     operationParamId.setMapping(primaryKeyDtoField.id);
@@ -1254,11 +1638,11 @@ function addPrimaryKeys(commandQuery, operation, pkDescr) {
             break;
         case PKSpecializaton.ExplicitComposite:
             for (let key of pkDescr.compositeKeys) {
-                let primaryKeyDtoField = createElement("DTO-Field", key.name, commandQuery.id);
+                let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(key.typeId)
                 primaryKeyDtoField.setMapping(key.id);
 
-                let operationParamId = createElement("Parameter", key.name, operation.id);
+                let operationParamId = createElement("Parameter", getParameterFormat(key.name), operation.id);
                 operationParamId.typeReference.setType(primaryKeyDtoField.typeReference.typeId);
                 operationParamId.setMapping(primaryKeyDtoField.id);
             }
@@ -1266,309 +1650,31 @@ function addPrimaryKeys(commandQuery, operation, pkDescr) {
     }
 }
 
-function getRoutePathIds(pkDescr) {
-    if (!pkDescr) {
+function getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr) {
+    let list = []
+    if(nestedCompOwnerFkDescr) {
+        list.push(`{${getParameterFormat(nestedCompOwnerFkDescr.name)}}`);
+    }
+    if(entity) {
+        list.push(`${getRoutingFormat(entity.name)}`);
+    }
+    if (pkDescr) {
+        switch (pkDescr.specialization) {
+            case PKSpecializaton.Implicit:
+            case PKSpecializaton.Explicit:
+                list.push(`{${getParameterFormat(pkDescr.name)}}`);
+                break;
+            case PKSpecializaton.ExplicitComposite:
+                list.push(pkDescr.compositeKeys.map(x =&gt; `{${getParameterFormat(x.name)}}`))
+                break;
+        }
+    }
+    if (list.length == 0) {
         return "";
     }
-    switch (pkDescr.specialization) {
-        case PKSpecializaton.Implicit:
-        case PKSpecializaton.Explicit:
-            return `/{${toRoutingCase(pkDescr.name)}}`;
-        case PKSpecializaton.ExplicitComposite:
-            return `${pkDescr.compositeKeys.reduce((acc, val) =&gt; `${acc}${acc != '' ? '/' : ''}{${toRoutingCase(val.name)}}`, '')}`;
-    }
+    return list.join("/");
 }
-
-function createCqrsCreateOperation(service, entityFolder, entity) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Create${baseName}Command`;
-    
-    if (hasElementInFolder(entityFolder, expectedCommandName)) {
-        let command = entityFolder.getChildren().filter(x =&gt; x.name == expectedCommandName)[0];
-        let pkDescr = getPrimaryKeyDescriptor(entity);
-        command.typeReference.setType(pkDescr.typeId);
-        return;
-    }
-
-    let command = createElement("Command", expectedCommandName, entityFolder.id);
-    command.setMapping(entity.id);
-    command.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Post${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(command.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "POST", "Route": routePath});
-
-    let operationParamCommand = createElement("Parameter", "command", operation.id);
-    operationParamCommand.typeReference.setType(command.id);
-
-    if (pkDescr.typeId) {
-        operation.typeReference.setType(pkDescr.typeId);
-        getReturnTypeMediatypeProperty(operation).setValue("application/json");
-    }
-
-    for (let attribute of entity.getChildren("Attribute")
-        // For Create Commands, we don't want to by default have PKs and FKs
-        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
-            let field = createElement("DTO-Field", attribute.name, command.id);
-            field.typeReference.setType(attribute.typeReference.typeId)
-            field.setMapping(attribute.id);
-    }
-
-    command.collapse();
-    operation.collapse();
-}
-
-function createCqrsResultTypeDTO(entity, entityFolder) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedDtoName = `${baseName}DTO`;
-
-    if (hasElementInFolder(entityFolder, expectedDtoName)) {
-        return entityFolder.getChildren().filter(x =&gt; x.name == expectedDtoName)[0];
-    }
-
-    let dto = createElement("DTO", expectedDtoName, entityFolder.id);
-    dto.setMapping(entity.id);
-    dto.setMetadata("baseName", baseName);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
-            let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, dto.id);
-            nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        }
-    }
-
-    if (pkDescr.specialization == PKSpecializaton.Implicit) {
-        let idField = createElement("DTO-Field", toCamelCase(pkDescr.name), dto.id);
-        idField.typeReference.setType(pkDescr.typeId);
-    }
-
-    for (let attribute of entity.getChildren("Attribute")) {
-        let field = createElement("DTO-Field", attribute.name, dto.id);
-        field.typeReference.setType(attribute.typeReference.typeId);
-        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-        field.setMapping(attribute.id);
-    }
-
-    dto.collapse();
-    return dto;
-}
-
-function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedQueryName = `Get${baseName}ByIdQuery`;
-    
-    if (hasElementInFolder(entityFolder, expectedQueryName)) {
-        return;
-    }
-
-    let query = createElement("Query", expectedQueryName, entityFolder.id);
-    query.typeReference.setType(resultTypeDto.id)
-    query.setMapping(entity.id);
-    query.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(query.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-        
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, query.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/${idParamExpr}`;
-    } else {
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${idParamExpr}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
-    addPrimaryKeys(query, operation, pkDescr);
-
-    query.collapse();
-    operation.collapse();
-}
-
-function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedQueryName = `Get${baseName}Query`;
-    
-    if (hasElementInFolder(entityFolder, expectedQueryName)) {
-        return;
-    }
-
-    let query = createElement("Query", expectedQueryName, entityFolder.id);
-    query.typeReference.setType(resultTypeDto.id)
-    query.typeReference.setIsCollection(true);
-    query.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Get${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(query.id);
-
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", `${nestedCompOwnerFkDescr.name}`, query.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "GET", "Route": routePath});
-
-    query.collapse();
-    operation.collapse();
-}
-
-function createCqrsUpdateOperation(service, entity, entityFolder) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Update${baseName}Command`;
-
-    if (hasElementInFolder(entityFolder, expectedCommandName)) {
-        return;
-    }
-
-    let command = createElement("Command", expectedCommandName, entityFolder.id);
-    command.setMapping(entity.id);
-    command.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Put${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(command.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/${idParamExpr}`;
-    } else {
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${idParamExpr}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "PUT", "Route": routePath});
-    addPrimaryKeys(command, operation, pkDescr);
-
-    let commandParam = createElement("Parameter", "command", operation.id);
-    commandParam.typeReference.setType(command.id);
-
-    for (let attribute of entity.getChildren("Attribute")
-        .filter(x =&gt; !x.hasStereotype("Primary Key"))) {
-            let field = createElement("DTO-Field", attribute.name, command.id);
-            field.typeReference.setType(attribute.typeReference.typeId)
-            field.setMapping(attribute.id);
-    }
-
-    command.collapse();
-    operation.collapse();
-}
-
-function createCqrsDeleteOperation(service, entity, entityFolder) {
-    let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = nestedCompOwner ? `${nestedCompOwner.name}${entity.name}` : entity.name;
-    let expectedCommandName = `Delete${baseName}Command`;
-
-    if (hasElementInFolder(entityFolder, expectedCommandName)) {
-        return;
-    }
-
-    let command = createElement("Command", expectedCommandName, entityFolder.id);
-    command.setMapping(entity.id);
-    command.setMetadata("baseName", baseName);
-
-    let operation = createElement("Operation", `Delete${nestedCompOwner ? pluralize(entity.name) : ""}`, service.id);
-    operation.setMapping(command.id);
-
-    let pkDescr = getPrimaryKeyDescriptor(entity);
-    let routePath = "";
-
-    if (nestedCompOwner) {
-        let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
-
-        let nestedCompOwnerIdDtoField = createElement("DTO-Field", nestedCompOwnerFkDescr.name, command.id);
-        nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
-            nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
-        }
-
-        let param = createElement("Parameter", toCamelCase(nestedCompOwnerFkDescr.name), operation.id);
-        param.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        param.setMapping(nestedCompOwnerIdDtoField);
-
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${nestedCompOwnerFkDescr.name}/${pluralize(entity.name)}/${idParamExpr}`;
-    } else {
-        let idParamExpr = getRoutePathIds(pkDescr);
-        routePath = `${idParamExpr}`;
-    }
-
-    setHttpStereotype(operation, "Http Settings", {"Verb": "DELETE", "Route": routePath});
-    addPrimaryKeys(command, operation, pkDescr);
-
-    let commandParam = createElement("Parameter", "command", operation.id);
-    commandParam.typeReference.setType(command.id);
-
-    command.collapse();
-    operation.collapse();
-}</script>
+</script>
         </option>
       </scriptOptions>
       <typeOrder />
