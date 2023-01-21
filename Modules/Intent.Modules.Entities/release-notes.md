@@ -1,6 +1,7 @@
 ﻿### Version 4.0.3
 
 * Fixed: When "Separate State from Behaviour" was selected, `using System;` would not be added for `NotImplementedException`s innew operations causing a compilation error.
+* Updated `UpdateHelper` so that if `changedCollection` is `null`, it will only ignore the update request.
 
 ### Version 4.0.2
 

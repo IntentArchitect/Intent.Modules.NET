@@ -39,7 +39,6 @@ namespace <#= Namespace #>
         {
             if (changedCollection == null)
             {
-                baseCollection.Clear();
                 return;
             }
             

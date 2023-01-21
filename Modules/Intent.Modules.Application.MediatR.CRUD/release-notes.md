@@ -5,6 +5,7 @@
 - Fixed: Service and resource names use the singular naming convention now.
 - Fixed: Ids on Commands / Queries for explicit keys should now be mapped.
 - Fixed: Generated CRUD handling code now properly detects Primary Key Ids.
+- Fixed: Requests with incoming `null` values on Collection Properties will no longer throw NullReferenceExceptions.
 
 ### Version 4.0.3
 

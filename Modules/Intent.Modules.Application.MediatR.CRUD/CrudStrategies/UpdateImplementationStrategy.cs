@@ -159,7 +159,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AssociationTargetEndModel.SpecializationTypeId:
                         {
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                            var targetEntity = (IElement)association.Element;
+                            var targetEntityElement = (IElement)association.Element;
                             var attributeName = association.Name.ToPascalCase();
 
                             if (association.Association.AssociationType == AssociationType.Aggregation)
@@ -173,30 +173,32 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 if (association.IsNullable)
                                 {
                                     codeLines.Add($"{entityVarName}.{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
-                                    codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntity.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity, attributeName)})", s => s.Indent());
+                                    codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntityElement.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)})", s => s.Indent());
                                     codeLines.Add($": null;", s => s.Indent());
                                 }
                                 else
                                 {
                                     _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarName}.{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity, attributeName)});");
+                                    codeLines.Add($"{entityVarName}.{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
                                 }
                             }
                             else
                             {
                                 _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                codeLines.Add($"{entityVarName}.{attributeName}{(association.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (x, y) => x.Id == y.Id, {GetUpdateMethodName(targetEntity, attributeName)});");
+                                var targetClass = targetEntityElement.AsClassModel();
+                                var targetDto = field.TypeReference.Element.AsDTOModel();
+                                codeLines.Add($"{entityVarName}.{attributeName}{(association.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
                             }
 
                             var @class = _template.CSharpFile.Classes.First();
                             @class.AddMethod("void",
-                                GetUpdateMethodName(targetEntity, attributeName),
+                                GetUpdateMethodName(targetEntityElement, attributeName),
                                 method => method.Private()
                                     .Static()
                                     .AddAttribute("IntentManaged(Mode.Fully)")
-                                    .AddParameter(_template.GetTypeName(targetEntity), "entity")
+                                    .AddParameter(_template.GetTypeName(targetEntityElement), "entity")
                                     .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                    .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntity, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), true)));
+                                    .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntityElement, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), true)));
                         }
                         break;
                 }

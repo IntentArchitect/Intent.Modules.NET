@@ -158,7 +158,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                         if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                         {
-                            if (association.IsNullable)
+                            if (field.TypeReference.IsNullable)
                             {
                                 codeLines.Add(
                                     $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
@@ -171,7 +171,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         else
                         {
                             codeLines.Add(
-                                $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(association.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType, attributeName)}).ToList(),");
+                                $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType, attributeName)}).ToList() ?? new List<{targetType.Name.ToPascalCase()}>(),");
                         }
 
                         var @class = _template.CSharpFile.Classes.First();
