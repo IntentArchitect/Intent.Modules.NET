@@ -19,9 +19,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core
             builder.Property(x => x.MultipleAggrAttr)
                 .IsRequired();
 
-            builder.HasOne(x => x.J_RequiredDependent)
+            builder.HasOne(x => x.JRequiredDependent)
                 .WithMany()
-                .HasForeignKey(x => x.J_RequiredDependentId)
+                .HasForeignKey(x => x.JRequiredDependentId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

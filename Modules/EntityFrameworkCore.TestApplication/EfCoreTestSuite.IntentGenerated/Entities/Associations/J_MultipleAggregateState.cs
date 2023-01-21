@@ -16,15 +16,14 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string MultipleAggrAttr { get; set; }
 
+        public Guid JRequiredDependentId { get; set; }
 
-        public Guid J_RequiredDependentId { get; set; }
+        public virtual J_RequiredDependent JRequiredDependent { get; set; }
 
-        public virtual J_RequiredDependent J_RequiredDependent { get; set; }
-
-        IJ_RequiredDependent IJ_MultipleAggregate.J_RequiredDependent
+        IJ_RequiredDependent IJ_MultipleAggregate.JRequiredDependent
         {
-            get => J_RequiredDependent;
-            set => J_RequiredDependent = (J_RequiredDependent)value;
+            get => JRequiredDependent;
+            set => JRequiredDependent = (J_RequiredDependent)value;
         }
 
 

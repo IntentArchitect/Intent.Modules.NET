@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string OptionalAggrNavAttr { get; set; }
 
-        IF_OptionalDependent F_OptionalDependent { get; set; }
+        IF_OptionalDependent FOptionalDependent { get; set; }
 
     }
 }

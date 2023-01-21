@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string SelfRefMultipleAttr { get; set; }
 
-        ICollection<IL_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; }
+        ICollection<IL_SelfReferenceMultiple> LSelfReferenceMultiplesDst { get; set; }
 
     }
 }

@@ -15,15 +15,15 @@ namespace EfCoreTestSuite.IntentGenerated.Core
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.PK_CompositeKeyCompositeKeyA)
+            builder.Property(x => x.PKCompositeKeyCompositeKeyA)
                 .IsRequired();
 
-            builder.Property(x => x.PK_CompositeKeyCompositeKeyB)
+            builder.Property(x => x.PKCompositeKeyCompositeKeyB)
                 .IsRequired();
 
-            builder.HasOne(x => x.PK_CompositeKey)
+            builder.HasOne(x => x.PKCompositeKey)
                 .WithMany()
-                .HasForeignKey(x => new { x.PK_CompositeKeyCompositeKeyA, x.PK_CompositeKeyCompositeKeyB })
+                .HasForeignKey(x => new { x.PKCompositeKeyCompositeKeyA, x.PKCompositeKeyCompositeKeyB })
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

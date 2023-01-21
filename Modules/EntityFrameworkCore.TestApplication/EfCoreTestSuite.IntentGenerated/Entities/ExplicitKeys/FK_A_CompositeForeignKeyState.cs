@@ -15,17 +15,17 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys
 
         public Guid Id { get; set; }
 
-        public virtual PK_A_CompositeKey PK_A_CompositeKey { get; set; }
+        public virtual PK_A_CompositeKey PKACompositeKey { get; set; }
 
-        IPK_A_CompositeKey IFK_A_CompositeForeignKey.PK_A_CompositeKey
+        IPK_A_CompositeKey IFK_A_CompositeForeignKey.PKACompositeKey
         {
-            get => PK_A_CompositeKey;
-            set => PK_A_CompositeKey = (PK_A_CompositeKey)value;
+            get => PKACompositeKey;
+            set => PKACompositeKey = (PK_A_CompositeKey)value;
         }
 
-        public Guid PK_A_CompositeKeyCompositeKeyA { get; set; }
+        public Guid PKACompositeKeyCompositeKeyA { get; set; }
 
-        public Guid PK_A_CompositeKeyCompositeKeyB { get; set; }
+        public Guid PKACompositeKeyCompositeKeyB { get; set; }
 
 
     }

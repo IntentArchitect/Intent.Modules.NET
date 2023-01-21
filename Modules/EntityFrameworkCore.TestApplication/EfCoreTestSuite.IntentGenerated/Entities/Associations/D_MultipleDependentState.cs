@@ -16,7 +16,6 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string MultipleDepAttr { get; set; }
 
-
-        public Guid? D_OptionalAggregateId { get; set; }
+        public Guid? DOptionalAggregateId { get; set; }
     }
 }

@@ -16,13 +16,14 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string OptionalAggrNavAttr { get; set; }
 
-        public virtual F_OptionalDependent F_OptionalDependent { get; set; }
+        public Guid? FOptionalDependentId { get; set; }
 
-        IF_OptionalDependent IF_OptionalAggregateNav.F_OptionalDependent
+        public virtual F_OptionalDependent FOptionalDependent { get; set; }
+
+        IF_OptionalDependent IF_OptionalAggregateNav.FOptionalDependent
         {
-            get => F_OptionalDependent;
-            set => F_OptionalDependent = (F_OptionalDependent)value;
+            get => FOptionalDependent;
+            set => FOptionalDependent = (F_OptionalDependent)value;
         }
-        public Guid? F_OptionalDependentId { get; set; }
     }
 }

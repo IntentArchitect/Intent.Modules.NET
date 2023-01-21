@@ -15,12 +15,12 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string ReqCompNavAttr { get; set; }
 
-        public virtual E2_RequiredDependent E2_RequiredDependent { get; set; }
+        public virtual E2_RequiredDependent E2RequiredDependent { get; set; }
 
-        IE2_RequiredDependent IE2_RequiredCompositeNav.E2_RequiredDependent
+        IE2_RequiredDependent IE2_RequiredCompositeNav.E2RequiredDependent
         {
-            get => E2_RequiredDependent;
-            set => E2_RequiredDependent = (E2_RequiredDependent)value;
+            get => E2RequiredDependent;
+            set => E2RequiredDependent = (E2_RequiredDependent)value;
         }
 
 

@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string OptionalAggrAttr { get; set; }
 
-        ICollection<ID_MultipleDependent> D_MultipleDependents { get; set; }
+        ICollection<ID_MultipleDependent> DMultipleDependents { get; set; }
 
     }
 }

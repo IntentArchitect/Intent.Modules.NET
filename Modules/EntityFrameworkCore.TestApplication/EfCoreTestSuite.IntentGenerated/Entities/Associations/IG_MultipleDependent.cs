@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string MultipleDepAttr { get; set; }
 
-        IG_RequiredCompositeNav G_RequiredCompositeNav { get; set; }
+        IG_RequiredCompositeNav GRequiredCompositeNav { get; set; }
 
     }
 }

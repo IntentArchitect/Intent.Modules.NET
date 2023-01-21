@@ -17,12 +17,12 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string RequiredDepAttr { get; set; }
 
-        public virtual E_RequiredCompositeNav E_RequiredCompositeNav { get; set; }
+        public virtual E_RequiredCompositeNav ERequiredCompositeNav { get; set; }
 
-        IE_RequiredCompositeNav IE_RequiredDependent.E_RequiredCompositeNav
+        IE_RequiredCompositeNav IE_RequiredDependent.ERequiredCompositeNav
         {
-            get => E_RequiredCompositeNav;
-            set => E_RequiredCompositeNav = (E_RequiredCompositeNav)value;
+            get => ERequiredCompositeNav;
+            set => ERequiredCompositeNav = (E_RequiredCompositeNav)value;
         }
 
 

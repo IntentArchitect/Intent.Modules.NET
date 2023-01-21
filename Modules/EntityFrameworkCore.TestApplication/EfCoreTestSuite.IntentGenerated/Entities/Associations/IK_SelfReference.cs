@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string SelfRefAttr { get; set; }
 
-        IK_SelfReference K_SelfReferenceAssociation { get; set; }
+        IK_SelfReference KSelfReferenceAssociation { get; set; }
 
     }
 }

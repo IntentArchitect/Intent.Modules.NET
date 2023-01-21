@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string RequiredCompAttr { get; set; }
 
-        ICollection<IC_MultipleDependent> C_MultipleDependents { get; set; }
+        ICollection<IC_MultipleDependent> CMultipleDependents { get; set; }
 
     }
 }

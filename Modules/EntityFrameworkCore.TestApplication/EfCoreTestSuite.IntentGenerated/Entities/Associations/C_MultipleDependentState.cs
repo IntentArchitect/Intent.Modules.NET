@@ -15,8 +15,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string MultipleDepAttr { get; set; }
 
-
-        public Guid C_RequiredCompositeId { get; set; }
+        public Guid CRequiredCompositeId { get; set; }
 
     }
 }

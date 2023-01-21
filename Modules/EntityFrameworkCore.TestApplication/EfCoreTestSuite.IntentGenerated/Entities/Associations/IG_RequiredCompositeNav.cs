@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string ReqCompNavAttr { get; set; }
 
-        ICollection<IG_MultipleDependent> G_MultipleDependents { get; set; }
+        ICollection<IG_MultipleDependent> GMultipleDependents { get; set; }
 
     }
 }
