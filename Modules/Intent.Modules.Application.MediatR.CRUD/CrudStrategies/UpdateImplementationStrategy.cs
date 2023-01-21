@@ -207,7 +207,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private string GetUpdateMethodName(IElement classModel, [CanBeNull] string attibuteName)
         {
-            return $"Update{(!string.IsNullOrEmpty(attibuteName) ? attibuteName : string.Empty)}{classModel.Name.ToPascalCase()}";
+            return $"Update{classModel.Name.ToPascalCase()}";
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);

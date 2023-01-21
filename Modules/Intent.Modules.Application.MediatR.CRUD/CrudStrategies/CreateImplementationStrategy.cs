@@ -220,7 +220,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private string GetCreateMethodName(ICanBeReferencedType classModel, [CanBeNull] string attributeName)
         {
-            return $"Create{(!string.IsNullOrEmpty(attributeName) ? attributeName : string.Empty)}{classModel.Name.ToPascalCase()}";
+            return $"Create{classModel.Name.ToPascalCase()}";
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null);
