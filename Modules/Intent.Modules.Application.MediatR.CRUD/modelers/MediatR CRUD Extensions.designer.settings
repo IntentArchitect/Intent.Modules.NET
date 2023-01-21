@@ -123,7 +123,7 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
         }
     }
 
-    if (entityPkDescr.specialization == PKSpecializaton.Implicit) {
+    if (entityPkDescr.specialization == PKSpecialization.Implicit) {
         let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
         idField.typeReference.setType(entityPkDescr.typeId);
     }
@@ -398,7 +398,7 @@ function initConstants() {
     _aggregateRootCache = Object.create(null);
     _nestedCompositionalOwnerCache = Object.create(null);
 
-    PKSpecializaton = {
+    PKSpecialization = {
         Implicit: "implicit",
         Explicit: "explicit",
         ExplicitComposite: "explicit_composite",
@@ -549,7 +549,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: null,
                 name: getDomainAttributeNameFormat("Id"),
                 typeId: getSurrogateKeyType(),
-                specialization: PKSpecializaton.Implicit,
+                specialization: PKSpecialization.Implicit,
                 compositeKeys: null
             };
         case pks.length == 1:
@@ -558,7 +558,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: pkAttr.id,
                 name: getDomainAttributeNameFormat(pkAttr.name),
                 typeId: pkAttr.typeReference.typeId,
-                specialization: PKSpecializaton.Explicit,
+                specialization: PKSpecialization.Explicit,
                 compositeKeys: null
             };
         case pks.length &gt; 1:
@@ -566,7 +566,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: null,
                 name: null,
                 typeId: null,
-                specialization: PKSpecializaton.ExplicitComposite,
+                specialization: PKSpecialization.ExplicitComposite,
                 compositeKeys: pks.map(x =&gt; { 
                     return {
                         id: x.id,
@@ -580,7 +580,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: null,
                 name: null,
                 typeId: null,
-                specialization: PKSpecializaton.Unknown,
+                specialization: PKSpecialization.Unknown,
                 compositeKeys: null
             };
     }
@@ -617,12 +617,12 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
 
 function addPrimaryKeys(commandQuery, operation, entityPkDescr) {
     switch (entityPkDescr.specialization) {
-        case PKSpecializaton.Implicit:
-        case PKSpecializaton.Explicit:
+        case PKSpecialization.Implicit:
+        case PKSpecialization.Explicit:
             {
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
-                if (entityPkDescr.specialization == PKSpecializaton.Explicit) {
+                if (entityPkDescr.specialization == PKSpecialization.Explicit) {
                     primaryKeyDtoField.setMapping(entityPkDescr.id);
                 }
 
@@ -631,7 +631,7 @@ function addPrimaryKeys(commandQuery, operation, entityPkDescr) {
                 operationParamId.setMapping(primaryKeyDtoField.id);
             }
             break;
-        case PKSpecializaton.ExplicitComposite:
+        case PKSpecialization.ExplicitComposite:
             for (let key of entityPkDescr.compositeKeys) {
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(key.typeId)
@@ -655,11 +655,11 @@ function getRoutePath(nestedCompOwnerFkDescr, entity, entityPkDescr) {
     }
     if (entityPkDescr) {
         switch (entityPkDescr.specialization) {
-            case PKSpecializaton.Implicit:
-            case PKSpecializaton.Explicit:
+            case PKSpecialization.Implicit:
+            case PKSpecialization.Explicit:
                 list.push(`{${getParameterFormat(entityPkDescr.name)}}`);
                 break;
-            case PKSpecializaton.ExplicitComposite:
+            case PKSpecialization.ExplicitComposite:
                 list.push(entityPkDescr.compositeKeys.map(x =&gt; `{${getParameterFormat(x.name)}}`))
                 break;
         }
@@ -1177,7 +1177,7 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
         }
     }
 
-    if (entityPkDescr.specialization == PKSpecializaton.Implicit) {
+    if (entityPkDescr.specialization == PKSpecialization.Implicit) {
         let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
         idField.typeReference.setType(entityPkDescr.typeId);
     }
@@ -1452,7 +1452,7 @@ function initConstants() {
     _aggregateRootCache = Object.create(null);
     _nestedCompositionalOwnerCache = Object.create(null);
 
-    PKSpecializaton = {
+    PKSpecialization = {
         Implicit: "implicit",
         Explicit: "explicit",
         ExplicitComposite: "explicit_composite",
@@ -1603,7 +1603,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: null,
                 name: getDomainAttributeNameFormat("Id"),
                 typeId: getSurrogateKeyType(),
-                specialization: PKSpecializaton.Implicit,
+                specialization: PKSpecialization.Implicit,
                 compositeKeys: null
             };
         case pks.length == 1:
@@ -1612,7 +1612,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: pkAttr.id,
                 name: getDomainAttributeNameFormat(pkAttr.name),
                 typeId: pkAttr.typeReference.typeId,
-                specialization: PKSpecializaton.Explicit,
+                specialization: PKSpecialization.Explicit,
                 compositeKeys: null
             };
         case pks.length &gt; 1:
@@ -1620,7 +1620,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: null,
                 name: null,
                 typeId: null,
-                specialization: PKSpecializaton.ExplicitComposite,
+                specialization: PKSpecialization.ExplicitComposite,
                 compositeKeys: pks.map(x =&gt; { 
                     return {
                         id: x.id,
@@ -1634,7 +1634,7 @@ function getPrimaryKeyDescriptor(entity) {
                 id: null,
                 name: null,
                 typeId: null,
-                specialization: PKSpecializaton.Unknown,
+                specialization: PKSpecialization.Unknown,
                 compositeKeys: null
             };
     }
@@ -1671,12 +1671,12 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
 
 function addPrimaryKeys(commandQuery, operation, entityPkDescr) {
     switch (entityPkDescr.specialization) {
-        case PKSpecializaton.Implicit:
-        case PKSpecializaton.Explicit:
+        case PKSpecialization.Implicit:
+        case PKSpecialization.Explicit:
             {
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
-                if (entityPkDescr.specialization == PKSpecializaton.Explicit) {
+                if (entityPkDescr.specialization == PKSpecialization.Explicit) {
                     primaryKeyDtoField.setMapping(entityPkDescr.id);
                 }
 
@@ -1685,7 +1685,7 @@ function addPrimaryKeys(commandQuery, operation, entityPkDescr) {
                 operationParamId.setMapping(primaryKeyDtoField.id);
             }
             break;
-        case PKSpecializaton.ExplicitComposite:
+        case PKSpecialization.ExplicitComposite:
             for (let key of entityPkDescr.compositeKeys) {
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(key.typeId)
@@ -1709,11 +1709,11 @@ function getRoutePath(nestedCompOwnerFkDescr, entity, entityPkDescr) {
     }
     if (entityPkDescr) {
         switch (entityPkDescr.specialization) {
-            case PKSpecializaton.Implicit:
-            case PKSpecializaton.Explicit:
+            case PKSpecialization.Implicit:
+            case PKSpecialization.Explicit:
                 list.push(`{${getParameterFormat(entityPkDescr.name)}}`);
                 break;
-            case PKSpecializaton.ExplicitComposite:
+            case PKSpecialization.ExplicitComposite:
                 list.push(entityPkDescr.compositeKeys.map(x =&gt; `{${getParameterFormat(x.name)}}`))
                 break;
         }

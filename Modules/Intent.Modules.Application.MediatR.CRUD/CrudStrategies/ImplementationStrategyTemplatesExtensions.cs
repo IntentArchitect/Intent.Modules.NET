@@ -40,38 +40,38 @@ static class ImplementationStrategyTemplatesExtensions
         return dtoTemplate.ClassName;
     }
 
-    public static ClassModel GetAggregateRootOwner(this ClassModel model)
+    public static ClassModel GetNestedCompositionalOwner(this ClassModel entity)
     {
-        var aggregateRootAssociation = model.AssociatedClasses
+        var aggregateRootAssociation = entity.AssociatedClasses
             .SingleOrDefault(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
                                   p.IsSourceEnd() && !p.IsCollection && !p.IsNullable);
         return aggregateRootAssociation?.Class;
     }
 
-    public static DTOFieldModel GetAggregateRootIdField(this IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
+    public static DTOFieldModel GetNestedCompositionalOwnerId(this IEnumerable<DTOFieldModel> properties, ClassModel owner)
     {
-        var explicitKeyField = GetExplicitForeignKeyAggregateRootField(properties, aggregateRootOwner);
+        var explicitKeyField = GetExplicitForeignKeyNestedCompOwnerField(properties, owner);
         if (explicitKeyField != null) return explicitKeyField;
-        var implicitKeyField = GetImplicitForeignKeyAggregateRootField(properties, aggregateRootOwner);
+        var implicitKeyField = GetImplicitForeignKeyNestedCompOwnerField(properties, owner);
         return implicitKeyField;
     }
-    
-    private static DTOFieldModel GetExplicitForeignKeyAggregateRootField(IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
+
+    private static DTOFieldModel GetExplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
     {
         var idField = properties
             .FirstOrDefault(p => 
-                p.Mapping?.Element.AsAttributeModel()?.Name.Contains(aggregateRootOwner.Name, StringComparison.OrdinalIgnoreCase) == true);
+                p.Mapping?.Element.AsAttributeModel()?.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase) == true);
         return idField;
     }
 
-    private static DTOFieldModel GetImplicitForeignKeyAggregateRootField(IEnumerable<DTOFieldModel> properties, ClassModel aggregateRootOwner)
+    private static DTOFieldModel GetImplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
     {
-        var idField = properties.FirstOrDefault(p => p.Name.Equals($"{aggregateRootOwner.Name}Id", StringComparison.OrdinalIgnoreCase));
+        var idField = properties.FirstOrDefault(p => p.Name.Contains($"{owner.Name}Id", StringComparison.OrdinalIgnoreCase));
         return idField;
     }
-
-    public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel aggregateRootEntity, ClassModel nestedCompositionEntity)
+    
+    public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel owner, ClassModel nestedCompositionEntity)
     {
-        return aggregateRootEntity.AssociatedClasses.FirstOrDefault(p => p.Class == nestedCompositionEntity);
+        return owner.AssociatedClasses.FirstOrDefault(p => p.Class == nestedCompositionEntity);
     }
 }

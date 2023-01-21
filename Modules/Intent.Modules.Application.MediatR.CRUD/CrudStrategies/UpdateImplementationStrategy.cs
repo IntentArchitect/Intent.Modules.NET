@@ -62,26 +62,26 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var idField = _matchingElementDetails.Value.IdField;
 
             var codeLines = new List<CSharpStatement>();
-            var aggrRootOwner = _matchingElementDetails.Value.FoundEntity.GetAggregateRootOwner();
-            if (aggrRootOwner != null)
+            var nestedCompOwner = _matchingElementDetails.Value.FoundEntity.GetNestedCompositionalOwner();
+            if (nestedCompOwner != null)
             {
-                var aggregateRootField = _template.Model.Properties.GetAggregateRootIdField(aggrRootOwner);
+                var aggregateRootField = _template.Model.Properties.GetNestedCompositionalOwnerId(nestedCompOwner);
                 if (aggregateRootField == null)
                 {
-                    throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {aggrRootOwner.Name}.");
+                    throw new Exception($"Nested Compositional Entity {foundEntity.Name} doesn't have an Id that refers to its owning Entity {nestedCompOwner.Name}.");
                 }
 
                 codeLines.Add($"var aggregateRoot = await {repository.FieldName}.FindByIdAsync(request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}, cancellationToken);");
                 codeLines.Add($"if (aggregateRoot == null)");
                 codeLines.Add(new CSharpStatementBlock()
-                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
+                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}' could not be found"");"));
 
-                var association = aggrRootOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
+                var association = nestedCompOwner.GetNestedCompositeAssociation(_matchingElementDetails.Value.FoundEntity);
 
                 codeLines.Add($@"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.Id == request.Id);");
                 codeLines.Add($"if (element == null)");
                 codeLines.Add(new CSharpStatementBlock()
-                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.Id}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggrRootOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
+                    .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.Id}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
                 codeLines.AddRange(GetDTOPropertyAssignments("element", "request", foundEntity, _template.Model.Properties, true));
 
                 codeLines.Add("return Unit.Value;");
@@ -113,8 +113,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     return NoMatch;
                 }
 
-                var aggrRootOwner = foundEntity.GetAggregateRootOwner();
-                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(aggrRootOwner != null ? aggrRootOwner : foundEntity);
+                var nestedCompOwner = foundEntity.GetNestedCompositionalOwner();
+                var repositoryInterface = _template.GetEntityRepositoryInterfaceName(nestedCompOwner != null ? nestedCompOwner : foundEntity);
                 if (repositoryInterface == null)
                 {
                     return NoMatch;
@@ -125,39 +125,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 return new StrategyData(true, foundEntity, idField, repository);
             }
-
-            //var matchingEntities = _metadataManager.Domain(_application)
-            //    .GetClassModels().Where(x => new[]
-            //    {
-            //        $"update{x.Name.ToLower()}",
-            //        $"update{x.Name.ToLower()}details",
-            //        $"edit{x.Name.ToLower()}",
-            //        $"edit{x.Name.ToLower()}details",
-            //    }.Contains(_template.Model.Name.ToLower().RemoveSuffix("command"))).ToList();
-
-            //if (matchingEntities.Count == 1)
-            //{
-            //    var foundEntity = matchingEntities.Single();
-
-            //    var idField = _template.Model.Properties.FirstOrDefault(p =>
-            //        string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
-            //        string.Equals(p.Name, $"{foundEntity.Name}Id", StringComparison.InvariantCultureIgnoreCase));
-            //    if (idField == null)
-            //    {
-            //        return NoMatch;
-            //    }
-
-            //    var repositoryInterface = _template.GetEntityRepositoryInterfaceName(foundEntity);
-            //    if (repositoryInterface == null)
-            //    {
-            //        return NoMatch;
-            //    }
-
-            //    var repository = new RequiredService(type: repositoryInterface,
-            //        name: repositoryInterface.Substring(1).ToCamelCase());
-
-            //    return new StrategyData(true, foundEntity, idField, repository);
-            //}
 
             return NoMatch;
         }
