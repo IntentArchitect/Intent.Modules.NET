@@ -77,8 +77,9 @@ function getFolderName(nestedCompOwner, entity) {
     return nestedCompOwner ? pluralize(nestedCompOwner.name) : pluralize(entity.name);
 }
 
-function getBaseNameForElement(nestedCompOwner, entity) {
-    return nestedCompOwner ? `${toPascalCase(nestedCompOwner.name)}${toPascalCase(entity.name)}` : entity.name;
+function getBaseNameForElement(nestedCompOwner, entity, entityIsMany) {
+    let entityName = entityIsMany ? toPascalCase(pluralize(entity.name)) : toPascalCase(entity.name);
+    return nestedCompOwner ? `${toPascalCase(nestedCompOwner.name)}${entityName}` : entityName;
 }
 
 function getServiceName(nestedCompOwner, entity) {
@@ -87,8 +88,9 @@ function getServiceName(nestedCompOwner, entity) {
         : `${toPascalCase(entity.name)}Service`;
 }
 
-function getOperationFormat(baseName, nestedCompOwner, entity) {
-    return `${baseName}${nestedCompOwner ? pluralize(entity.name) : ""}`;
+function getOperationFormat(baseName, nestedCompOwner, entity, entityIsMany) {
+    let entityName = entityIsMany ? pluralize(entity.name) : entity.name;
+    return `${baseName}${nestedCompOwner ? entityName : ""}`;
 }
 
 /*
@@ -99,7 +101,7 @@ function getOperationFormat(baseName, nestedCompOwner, entity) {
 
 function createCqrsResultTypeDTO(entity, entityFolder) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedDtoName = `${baseName}DTO`;
 
     if (hasElementInFolder(entityFolder, expectedDtoName)) {
@@ -140,7 +142,7 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
 
 function createCqrsCreateOperation(service, entityFolder, entity) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedCommandName = `Create${baseName}Command`;
     
     if (hasElementInFolder(entityFolder, expectedCommandName)) {
@@ -200,7 +202,7 @@ function createCqrsCreateOperation(service, entityFolder, entity) {
 
 function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedQueryName = `Get${baseName}ByIdQuery`;
     
     if (hasElementInFolder(entityFolder, expectedQueryName)) {
@@ -245,7 +247,7 @@ function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDt
 
 function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, true);
     let expectedQueryName = `Get${baseName}Query`;
     
     if (hasElementInFolder(entityFolder, expectedQueryName)) {
@@ -257,7 +259,7 @@ function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto
     query.typeReference.setIsCollection(true);
     query.setMetadata("baseName", baseName);
 
-    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity), service.id);
+    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity, true), service.id);
     operation.setMapping(query.id);
 
     let routePath = "";
@@ -283,7 +285,7 @@ function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto
 
 function createCqrsUpdateOperation(service, entity, entityFolder) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedCommandName = `Update${baseName}Command`;
 
     if (hasElementInFolder(entityFolder, expectedCommandName)) {
@@ -341,7 +343,7 @@ function createCqrsUpdateOperation(service, entity, entityFolder) {
 
 function createCqrsDeleteOperation(service, entity, entityFolder) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedCommandName = `Delete${baseName}Command`;
 
     if (hasElementInFolder(entityFolder, expectedCommandName)) {
@@ -1129,8 +1131,9 @@ function getFolderName(nestedCompOwner, entity) {
     return nestedCompOwner ? pluralize(nestedCompOwner.name) : pluralize(entity.name);
 }
 
-function getBaseNameForElement(nestedCompOwner, entity) {
-    return nestedCompOwner ? `${toPascalCase(nestedCompOwner.name)}${toPascalCase(entity.name)}` : entity.name;
+function getBaseNameForElement(nestedCompOwner, entity, entityIsMany) {
+    let entityName = entityIsMany ? toPascalCase(pluralize(entity.name)) : toPascalCase(entity.name);
+    return nestedCompOwner ? `${toPascalCase(nestedCompOwner.name)}${entityName}` : entityName;
 }
 
 function getServiceName(nestedCompOwner, entity) {
@@ -1139,8 +1142,9 @@ function getServiceName(nestedCompOwner, entity) {
         : `${toPascalCase(entity.name)}Service`;
 }
 
-function getOperationFormat(baseName, nestedCompOwner, entity) {
-    return `${baseName}${nestedCompOwner ? pluralize(entity.name) : ""}`;
+function getOperationFormat(baseName, nestedCompOwner, entity, entityIsMany) {
+    let entityName = entityIsMany ? pluralize(entity.name) : entity.name;
+    return `${baseName}${nestedCompOwner ? entityName : ""}`;
 }
 
 /*
@@ -1151,7 +1155,7 @@ function getOperationFormat(baseName, nestedCompOwner, entity) {
 
 function createCqrsResultTypeDTO(entity, entityFolder) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedDtoName = `${baseName}DTO`;
 
     if (hasElementInFolder(entityFolder, expectedDtoName)) {
@@ -1192,7 +1196,7 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
 
 function createCqrsCreateOperation(service, entityFolder, entity) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedCommandName = `Create${baseName}Command`;
     
     if (hasElementInFolder(entityFolder, expectedCommandName)) {
@@ -1252,7 +1256,7 @@ function createCqrsCreateOperation(service, entityFolder, entity) {
 
 function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDto) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedQueryName = `Get${baseName}ByIdQuery`;
     
     if (hasElementInFolder(entityFolder, expectedQueryName)) {
@@ -1297,7 +1301,7 @@ function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDt
 
 function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, true);
     let expectedQueryName = `Get${baseName}Query`;
     
     if (hasElementInFolder(entityFolder, expectedQueryName)) {
@@ -1309,7 +1313,7 @@ function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto
     query.typeReference.setIsCollection(true);
     query.setMetadata("baseName", baseName);
 
-    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity), service.id);
+    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity, true), service.id);
     operation.setMapping(query.id);
 
     let routePath = "";
@@ -1335,7 +1339,7 @@ function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto
 
 function createCqrsUpdateOperation(service, entity, entityFolder) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedCommandName = `Update${baseName}Command`;
 
     if (hasElementInFolder(entityFolder, expectedCommandName)) {
@@ -1393,7 +1397,7 @@ function createCqrsUpdateOperation(service, entity, entityFolder) {
 
 function createCqrsDeleteOperation(service, entity, entityFolder) {
     let nestedCompOwner = getNestedCompositionalOwner(entity);
-    let baseName = getBaseNameForElement(nestedCompOwner, entity);
+    let baseName = getBaseNameForElement(nestedCompOwner, entity, false);
     let expectedCommandName = `Delete${baseName}Command`;
 
     if (hasElementInFolder(entityFolder, expectedCommandName)) {
