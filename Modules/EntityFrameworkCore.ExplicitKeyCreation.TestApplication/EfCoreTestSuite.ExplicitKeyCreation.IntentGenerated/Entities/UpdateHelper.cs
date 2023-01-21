@@ -32,7 +32,6 @@ namespace EfCoreTestSuite.ExplicitKeyCreation.IntentGenerated.Entities
         {
             if (changedCollection == null)
             {
-                baseCollection.Clear();
                 return;
             }
 

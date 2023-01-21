@@ -12,26 +12,26 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
     {
         public Guid Id { get; set; }
 
-        public Guid? M_SelfReferenceBiNavAssocationId { get; set; }
-
         public string PartitionKey { get; set; }
 
         public string SelfRefBiNavAttr { get; set; }
 
-        public virtual M_SelfReferenceBiNav M_SelfReferenceBiNavAssocation { get; set; }
+        public Guid? MSelfReferenceBiNavAssocationId { get; set; }
 
-        IM_SelfReferenceBiNav IM_SelfReferenceBiNav.M_SelfReferenceBiNavAssocation
+        public virtual M_SelfReferenceBiNav MSelfReferenceBiNavAssocation { get; set; }
+
+        IM_SelfReferenceBiNav IM_SelfReferenceBiNav.MSelfReferenceBiNavAssocation
         {
-            get => M_SelfReferenceBiNavAssocation;
-            set => M_SelfReferenceBiNavAssocation = (M_SelfReferenceBiNav)value;
+            get => MSelfReferenceBiNavAssocation;
+            set => MSelfReferenceBiNavAssocation = (M_SelfReferenceBiNav)value;
         }
 
-        public virtual ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; } = new List<M_SelfReferenceBiNav>();
+        public virtual ICollection<M_SelfReferenceBiNav> MSelfReferenceBiNavs { get; set; } = new List<M_SelfReferenceBiNav>();
 
-        ICollection<IM_SelfReferenceBiNav> IM_SelfReferenceBiNav.M_SelfReferenceBiNavs
+        ICollection<IM_SelfReferenceBiNav> IM_SelfReferenceBiNav.MSelfReferenceBiNavs
         {
-            get => M_SelfReferenceBiNavs.CreateWrapper<IM_SelfReferenceBiNav, M_SelfReferenceBiNav>();
-            set => M_SelfReferenceBiNavs = value.Cast<M_SelfReferenceBiNav>().ToList();
+            get => MSelfReferenceBiNavs.CreateWrapper<IM_SelfReferenceBiNav, M_SelfReferenceBiNav>();
+            set => MSelfReferenceBiNavs = value.Cast<M_SelfReferenceBiNav>().ToList();
         }
     }
 }

@@ -10,18 +10,18 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
     {
         public Guid Id { get; set; }
 
-        public Guid? K_SelfReferenceAssociationId { get; set; }
-
         public string PartitionKey { get; set; }
 
         public string SelfRefAttr { get; set; }
 
-        public virtual K_SelfReference K_SelfReferenceAssociation { get; set; }
+        public Guid? KSelfReferenceAssociationId { get; set; }
 
-        IK_SelfReference IK_SelfReference.K_SelfReferenceAssociation
+        public virtual K_SelfReference KSelfReferenceAssociation { get; set; }
+
+        IK_SelfReference IK_SelfReference.KSelfReferenceAssociation
         {
-            get => K_SelfReferenceAssociation;
-            set => K_SelfReferenceAssociation = (K_SelfReference)value;
+            get => KSelfReferenceAssociation;
+            set => KSelfReferenceAssociation = (K_SelfReference)value;
         }
     }
 }

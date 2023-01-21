@@ -147,8 +147,8 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext, I
         Assert.Equal(secondLevel.BaseClassNonAbstracts.Count, retrievedSecondLevel.BaseClassNonAbstracts.Count);
         foreach (var nonAbstract in retrievedSecondLevel.BaseClassNonAbstracts)
         {
-            Assert.Equal(nonAbstract.BaseField, nonAbstract.Poly_RootAbstract_Comp.CompField);
-            Assert.Equal(secondLevelConcretes.Item1.Id, nonAbstract.Poly_RootAbstract_Aggr.Id);
+            Assert.Equal(nonAbstract.BaseField, nonAbstract.PolyRootAbstractComp.CompField);
+            Assert.Equal(secondLevelConcretes.Item1.Id, nonAbstract.PolyRootAbstractAggr.Id);
         }
         
         (Poly_RootAbstract_Aggr, Poly_BaseClassNonAbstract, Poly_ConcreteA, Poly_ConcreteB) CreateNewPolyClasses()
@@ -160,23 +160,23 @@ public class InheritanceTPCTests : SharedDatabaseFixture<ApplicationDbContext, I
             var baseClass = new Poly_BaseClassNonAbstract();
             baseClass.AbstractField = "Base Class Non Abstract Value";
             baseClass.BaseField = "Base Class Non Abstract Value";
-            baseClass.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Base Class Non Abstract Value" };
-            baseClass.Poly_RootAbstract_Aggr = rootAbstractAggr;
+            baseClass.PolyRootAbstractComp = new Poly_RootAbstract_Comp() { CompField = "Base Class Non Abstract Value" };
+            baseClass.PolyRootAbstractAggr = rootAbstractAggr;
         
             var concreteA = new Poly_ConcreteA();
             concreteA.ConcreteField = "Concrete Value";
             concreteA.AbstractField = "Concrete Value";
             concreteA.BaseField = "Concrete Value";
-            concreteA.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
-            concreteA.Poly_RootAbstract_Aggr = rootAbstractAggr;
+            concreteA.PolyRootAbstractComp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
+            concreteA.PolyRootAbstractAggr = rootAbstractAggr;
             DbContext.Poly_ConcreteAs.Add(concreteA);
         
             var concreteB = new Poly_ConcreteB();
             concreteB.ConcreteField = "Concrete Value";
             concreteB.AbstractField = "Concrete Value";
             concreteB.BaseField = "Concrete Value";
-            concreteB.Poly_RootAbstract_Comp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
-            concreteB.Poly_RootAbstract_Aggr = rootAbstractAggr;
+            concreteB.PolyRootAbstractComp = new Poly_RootAbstract_Comp() { CompField = "Concrete Value" };
+            concreteB.PolyRootAbstractAggr = rootAbstractAggr;
             DbContext.Poly_ConcreteBs.Add(concreteB);
             
             return (rootAbstractAggr, baseClass, concreteA, concreteB);

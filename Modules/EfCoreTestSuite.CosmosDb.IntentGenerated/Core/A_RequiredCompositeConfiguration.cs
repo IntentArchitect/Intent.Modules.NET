@@ -25,10 +25,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.OwnsOne(x => x.A_OptionalDependent, ConfigureA_OptionalDependent);
+            builder.OwnsOne(x => x.AOptionalDependent, ConfigureAOptionalDependent);
         }
 
-        public void ConfigureA_OptionalDependent(OwnedNavigationBuilder<A_RequiredComposite, A_OptionalDependent> builder)
+        public void ConfigureAOptionalDependent(OwnedNavigationBuilder<A_RequiredComposite, A_OptionalDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

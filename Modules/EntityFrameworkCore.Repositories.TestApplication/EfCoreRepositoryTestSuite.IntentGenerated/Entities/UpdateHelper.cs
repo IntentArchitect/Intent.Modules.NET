@@ -32,7 +32,6 @@ namespace EfCoreRepositoryTestSuite.IntentGenerated.Entities
         {
             if (changedCollection == null)
             {
-                baseCollection.Clear();
                 return;
             }
 

@@ -12,6 +12,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         string PartitionKey { get; set; }
 
-        IB_OptionalDependent B_OptionalDependent { get; set; }
+        IB_OptionalDependent BOptionalDependent { get; set; }
     }
 }

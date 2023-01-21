@@ -32,7 +32,6 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities
         {
             if (changedCollection == null)
             {
-                baseCollection.Clear();
                 return;
             }
 

@@ -32,7 +32,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities
         {
             if (changedCollection == null)
             {
-                baseCollection.Clear();
                 return;
             }
 

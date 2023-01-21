@@ -12,12 +12,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string MultipleDepAttr { get; set; }
 
-        public virtual G_RequiredCompositeNav G_RequiredCompositeNav { get; set; }
+        public virtual G_RequiredCompositeNav GRequiredCompositeNav { get; set; }
 
-        IG_RequiredCompositeNav IG_MultipleDependent.G_RequiredCompositeNav
+        IG_RequiredCompositeNav IG_MultipleDependent.GRequiredCompositeNav
         {
-            get => G_RequiredCompositeNav;
-            set => G_RequiredCompositeNav = (G_RequiredCompositeNav)value;
+            get => GRequiredCompositeNav;
+            set => GRequiredCompositeNav = (G_RequiredCompositeNav)value;
         }
     }
 }

@@ -10,10 +10,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
     {
         public Guid Id { get; set; }
 
-        public Guid? D_OptionalAggregateId { get; set; }
-
         public string MultipleDependentAttr { get; set; }
 
         public string PartitionKey { get; set; }
+
+        public Guid? DOptionalAggregateId { get; set; }
     }
 }

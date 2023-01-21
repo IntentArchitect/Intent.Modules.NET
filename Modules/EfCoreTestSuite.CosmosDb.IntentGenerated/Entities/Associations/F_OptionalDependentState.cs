@@ -14,12 +14,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string OptionalDependentAttr { get; set; }
 
-        public virtual F_OptionalAggregateNav F_OptionalAggregateNav { get; set; }
+        public virtual F_OptionalAggregateNav FOptionalAggregateNav { get; set; }
 
-        IF_OptionalAggregateNav IF_OptionalDependent.F_OptionalAggregateNav
+        IF_OptionalAggregateNav IF_OptionalDependent.FOptionalAggregateNav
         {
-            get => F_OptionalAggregateNav;
-            set => F_OptionalAggregateNav = (F_OptionalAggregateNav)value;
+            get => FOptionalAggregateNav;
+            set => FOptionalAggregateNav = (F_OptionalAggregateNav)value;
         }
     }
 }

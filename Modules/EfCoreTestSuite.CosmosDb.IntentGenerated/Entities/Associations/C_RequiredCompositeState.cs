@@ -16,12 +16,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string RequiredCompositeAttr { get; set; }
 
-        public virtual ICollection<C_MultipleDependent> C_MultipleDependents { get; set; } = new List<C_MultipleDependent>();
+        public virtual ICollection<C_MultipleDependent> CMultipleDependents { get; set; } = new List<C_MultipleDependent>();
 
-        ICollection<IC_MultipleDependent> IC_RequiredComposite.C_MultipleDependents
+        ICollection<IC_MultipleDependent> IC_RequiredComposite.CMultipleDependents
         {
-            get => C_MultipleDependents.CreateWrapper<IC_MultipleDependent, C_MultipleDependent>();
-            set => C_MultipleDependents = value.Cast<C_MultipleDependent>().ToList();
+            get => CMultipleDependents.CreateWrapper<IC_MultipleDependent, C_MultipleDependent>();
+            set => CMultipleDependents = value.Cast<C_MultipleDependent>().ToList();
         }
     }
 }

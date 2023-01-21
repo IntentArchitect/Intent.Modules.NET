@@ -16,12 +16,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string OptionalAggrNavAttr { get; set; }
 
-        public virtual ICollection<H_MultipleDependent> H_MultipleDependents { get; set; } = new List<H_MultipleDependent>();
+        public virtual ICollection<H_MultipleDependent> HMultipleDependents { get; set; } = new List<H_MultipleDependent>();
 
-        ICollection<IH_MultipleDependent> IH_OptionalAggregateNav.H_MultipleDependents
+        ICollection<IH_MultipleDependent> IH_OptionalAggregateNav.HMultipleDependents
         {
-            get => H_MultipleDependents.CreateWrapper<IH_MultipleDependent, H_MultipleDependent>();
-            set => H_MultipleDependents = value.Cast<H_MultipleDependent>().ToList();
+            get => HMultipleDependents.CreateWrapper<IH_MultipleDependent, H_MultipleDependent>();
+            set => HMultipleDependents = value.Cast<H_MultipleDependent>().ToList();
         }
     }
 }

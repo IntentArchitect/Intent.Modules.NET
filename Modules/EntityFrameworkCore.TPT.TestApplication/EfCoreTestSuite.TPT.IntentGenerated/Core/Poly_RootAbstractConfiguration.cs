@@ -17,12 +17,12 @@ namespace EfCoreTestSuite.TPT.IntentGenerated.Core
             builder.Property(x => x.AbstractField)
                 .IsRequired();
 
-            builder.HasOne(x => x.Poly_RootAbstract_Aggr)
+            builder.HasOne(x => x.PolyRootAbstractAggr)
                 .WithMany()
-                .HasForeignKey(x => x.Poly_RootAbstract_AggrId)
+                .HasForeignKey(x => x.PolyRootAbstractAggrId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(x => x.Poly_RootAbstract_Comp)
+            builder.HasOne(x => x.PolyRootAbstractComp)
                 .WithOne()
                 .HasForeignKey<Poly_RootAbstract_Comp>(x => x.Id)
                 .IsRequired()

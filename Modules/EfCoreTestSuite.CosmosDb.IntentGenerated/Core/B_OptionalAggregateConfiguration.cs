@@ -25,9 +25,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.HasOne(x => x.B_OptionalDependent)
+            builder.HasOne(x => x.BOptionalDependent)
                 .WithOne()
-                .HasForeignKey<B_OptionalAggregate>(x => x.B_OptionalDependentId)
+                .HasForeignKey<B_OptionalAggregate>(x => x.BOptionalDependentId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

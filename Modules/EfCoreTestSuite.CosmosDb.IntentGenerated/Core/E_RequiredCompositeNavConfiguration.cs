@@ -25,13 +25,13 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.PartitionKey)
                 .IsRequired();
 
-            builder.OwnsOne(x => x.E_RequiredDependent, ConfigureE_RequiredDependent)
-                .Navigation(x => x.E_RequiredDependent).IsRequired();
+            builder.OwnsOne(x => x.ERequiredDependent, ConfigureERequiredDependent)
+                .Navigation(x => x.ERequiredDependent).IsRequired();
         }
 
-        public void ConfigureE_RequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
+        public void ConfigureERequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
         {
-            builder.WithOwner(x => x.E_RequiredCompositeNav)
+            builder.WithOwner(x => x.ERequiredCompositeNav)
                 .HasForeignKey(x => x.Id);
 
             builder.HasKey(x => x.Id);

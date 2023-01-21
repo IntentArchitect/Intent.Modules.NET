@@ -10,6 +10,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         string RequiredDependentAttr { get; set; }
 
-        IE_RequiredCompositeNav E_RequiredCompositeNav { get; set; }
+        IE_RequiredCompositeNav ERequiredCompositeNav { get; set; }
     }
 }

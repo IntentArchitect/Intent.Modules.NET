@@ -25,10 +25,10 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.RequiredCompositeAttr)
                 .IsRequired();
 
-            builder.OwnsMany(x => x.C_MultipleDependents, ConfigureC_MultipleDependents);
+            builder.OwnsMany(x => x.CMultipleDependents, ConfigureCMultipleDependents);
         }
 
-        public void ConfigureC_MultipleDependents(OwnedNavigationBuilder<C_RequiredComposite, C_MultipleDependent> builder)
+        public void ConfigureCMultipleDependents(OwnedNavigationBuilder<C_RequiredComposite, C_MultipleDependent> builder)
         {
             builder.WithOwner();
 

@@ -25,9 +25,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core
             builder.Property(x => x.SelfRefBiNavAttr)
                 .IsRequired();
 
-            builder.HasOne(x => x.M_SelfReferenceBiNavAssocation)
-                .WithMany(x => x.M_SelfReferenceBiNavs)
-                .HasForeignKey(x => x.M_SelfReferenceBiNavAssocationId)
+            builder.HasOne(x => x.MSelfReferenceBiNavAssocation)
+                .WithMany(x => x.MSelfReferenceBiNavs)
+                .HasForeignKey(x => x.MSelfReferenceBiNavAssocationId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

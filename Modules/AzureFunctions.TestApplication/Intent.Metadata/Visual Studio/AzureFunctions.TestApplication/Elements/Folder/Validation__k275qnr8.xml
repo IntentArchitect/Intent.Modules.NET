@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f06204f7-b1a1-47f0-8252-8c14f6a129da</parentFolderId>
+      <packageId>e62be142-f704-46c0-b83f-a8c9b795549b</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -43,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f06204f7-b1a1-47f0-8252-8c14f6a129da</parentFolderId>
+      <packageId>e62be142-f704-46c0-b83f-a8c9b795549b</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

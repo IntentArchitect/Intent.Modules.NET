@@ -16,23 +16,22 @@ namespace EfCoreTestSuite.TPH.IntentGenerated.Entities.Polymorphic
 
         public string AbstractField { get; set; }
 
+        public Guid? PolyRootAbstractAggrId { get; set; }
 
-        public Guid? Poly_RootAbstract_AggrId { get; set; }
+        public virtual Poly_RootAbstract_Aggr PolyRootAbstractAggr { get; set; }
 
-        public virtual Poly_RootAbstract_Aggr Poly_RootAbstract_Aggr { get; set; }
-
-        IPoly_RootAbstract_Aggr IPoly_RootAbstract.Poly_RootAbstract_Aggr
+        IPoly_RootAbstract_Aggr IPoly_RootAbstract.PolyRootAbstractAggr
         {
-            get => Poly_RootAbstract_Aggr;
-            set => Poly_RootAbstract_Aggr = (Poly_RootAbstract_Aggr)value;
+            get => PolyRootAbstractAggr;
+            set => PolyRootAbstractAggr = (Poly_RootAbstract_Aggr)value;
         }
 
-        public virtual Poly_RootAbstract_Comp Poly_RootAbstract_Comp { get; set; }
+        public virtual Poly_RootAbstract_Comp PolyRootAbstractComp { get; set; }
 
-        IPoly_RootAbstract_Comp IPoly_RootAbstract.Poly_RootAbstract_Comp
+        IPoly_RootAbstract_Comp IPoly_RootAbstract.PolyRootAbstractComp
         {
-            get => Poly_RootAbstract_Comp;
-            set => Poly_RootAbstract_Comp = (Poly_RootAbstract_Comp)value;
+            get => PolyRootAbstractComp;
+            set => PolyRootAbstractComp = (Poly_RootAbstract_Comp)value;
         }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

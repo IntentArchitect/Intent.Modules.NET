@@ -10,18 +10,18 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
     {
         public Guid Id { get; set; }
 
-        public Guid J_RequiredDependentId { get; set; }
-
         public string PartitionKey { get; set; }
 
         public string MultipleAggrAttr { get; set; }
 
-        public virtual J_RequiredDependent J_RequiredDependent { get; set; }
+        public Guid JRequiredDependentId { get; set; }
 
-        IJ_RequiredDependent IJ_MultipleAggregate.J_RequiredDependent
+        public virtual J_RequiredDependent JRequiredDependent { get; set; }
+
+        IJ_RequiredDependent IJ_MultipleAggregate.JRequiredDependent
         {
-            get => J_RequiredDependent;
-            set => J_RequiredDependent = (J_RequiredDependent)value;
+            get => JRequiredDependent;
+            set => JRequiredDependent = (J_RequiredDependent)value;
         }
     }
 }

@@ -32,7 +32,6 @@ namespace AzureFunctions.TestApplication.Domain.Common
         {
             if (changedCollection == null)
             {
-                baseCollection.Clear();
                 return;
             }
 
