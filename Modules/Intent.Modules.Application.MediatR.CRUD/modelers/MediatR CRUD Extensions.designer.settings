@@ -63,7 +63,14 @@ function getFieldFormat(str) {
 }
 
 function getDomainAttributeNameFormat(str) {
-    return toPascalCase(str);
+    let convention = getDomainAttributeNamingConvention();
+    switch (convention) {
+        case "pascal-case":
+            return toPascalCase(str);
+        case "camel-case":
+            return toCamelCase(str);
+    }
+    return str;
 }
 
 function getBaseNameForElement(nestedCompOwner, entity) {
@@ -102,7 +109,7 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
     if (nestedCompOwner) {
         let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
 
-        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
+        if (!nestedCompOwnerFkDescr || nestedCompOwnerFkDescr.specialization == FKSpecialization.Implicit) {
             let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), dto.id);
             nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
         }
@@ -152,7 +159,7 @@ function createCqrsCreateOperation(service, entityFolder, entity) {
 
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -210,7 +217,7 @@ function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDt
         
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), query.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -292,7 +299,7 @@ function createCqrsUpdateOperation(service, entity, entityFolder) {
 
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -346,7 +353,7 @@ function createCqrsDeleteOperation(service, entity, entityFolder) {
 
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -384,7 +391,11 @@ function initConstants() {
         Explicit: "explicit",
         ExplicitComposite: "explicit_composite",
         Unknown: "unknown"
-    }
+    };
+    FKSpecialization = {
+        Implicit: "implicit",
+        Explicit: "explicit",
+    };
 }
 
 async function showObject(object) {
@@ -582,7 +593,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
             name: getDomainAttributeNameFormat(explicitFkAttr.name),
             typeId: explicitFkAttr.typeReference.typeId,
             id: explicitFkAttr.id,
-            isExplicit: true
+            specialization: FKSpecialization.Explicit
         };
     }
     
@@ -590,7 +601,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
         name: getDomainAttributeNameFormat(`${nestedCompOwner.name}Id`),
         typeId: getSurrogateKeyType(),
         id: null,
-        isExplicit: false
+        specialization: FKSpecialization.Implicit
     };
 }
 
@@ -647,7 +658,12 @@ function getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr) {
     }
     return list.join("/");
 }
-</script>
+
+function getDomainAttributeNamingConvention() {
+    const domainSettingsId = "c4d1e35c-7c0d-4926-afe0-18f17563ce17";
+    return application.getSettings(domainSettingsId)
+        ?.getField("Attribute Naming Convention")?.value ?? "pascal-case";
+}</script>
         </option>
       </scriptOptions>
       <typeOrder />
@@ -1090,7 +1106,14 @@ function getFieldFormat(str) {
 }
 
 function getDomainAttributeNameFormat(str) {
-    return toPascalCase(str);
+    let convention = getDomainAttributeNamingConvention();
+    switch (convention) {
+        case "pascal-case":
+            return toPascalCase(str);
+        case "camel-case":
+            return toCamelCase(str);
+    }
+    return str;
 }
 
 function getBaseNameForElement(nestedCompOwner, entity) {
@@ -1129,7 +1152,7 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
     if (nestedCompOwner) {
         let nestedCompOwnerFkDescr = getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner);
 
-        if (!nestedCompOwnerFkDescr || !nestedCompOwnerFkDescr.isExplicit) {
+        if (!nestedCompOwnerFkDescr || nestedCompOwnerFkDescr.specialization == FKSpecialization.Implicit) {
             let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), dto.id);
             nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
         }
@@ -1179,7 +1202,7 @@ function createCqrsCreateOperation(service, entityFolder, entity) {
 
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -1237,7 +1260,7 @@ function createCqrsFindByIdOperation(service, entity, entityFolder, resultTypeDt
         
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), query.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -1319,7 +1342,7 @@ function createCqrsUpdateOperation(service, entity, entityFolder) {
 
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -1373,7 +1396,7 @@ function createCqrsDeleteOperation(service, entity, entityFolder) {
 
         let nestedCompOwnerIdDtoField = createElement("DTO-Field", getFieldFormat(nestedCompOwnerFkDescr.name), command.id);
         nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId)
-        if (nestedCompOwnerFkDescr.isExplicit) {
+        if (nestedCompOwnerFkDescr.specialization == FKSpecialization.Explicit) {
             nestedCompOwnerIdDtoField.setMapping(nestedCompOwnerFkDescr.id);
         }
 
@@ -1411,7 +1434,11 @@ function initConstants() {
         Explicit: "explicit",
         ExplicitComposite: "explicit_composite",
         Unknown: "unknown"
-    }
+    };
+    FKSpecialization = {
+        Implicit: "implicit",
+        Explicit: "explicit",
+    };
 }
 
 async function showObject(object) {
@@ -1609,7 +1636,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
             name: getDomainAttributeNameFormat(explicitFkAttr.name),
             typeId: explicitFkAttr.typeReference.typeId,
             id: explicitFkAttr.id,
-            isExplicit: true
+            specialization: FKSpecialization.Explicit
         };
     }
     
@@ -1617,7 +1644,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
         name: getDomainAttributeNameFormat(`${nestedCompOwner.name}Id`),
         typeId: getSurrogateKeyType(),
         id: null,
-        isExplicit: false
+        specialization: FKSpecialization.Implicit
     };
 }
 
@@ -1674,7 +1701,12 @@ function getRoutePath(nestedCompOwnerFkDescr, entity, pkDescr) {
     }
     return list.join("/");
 }
-</script>
+
+function getDomainAttributeNamingConvention() {
+    const domainSettingsId = "c4d1e35c-7c0d-4926-afe0-18f17563ce17";
+    return application.getSettings(domainSettingsId)
+        ?.getField("Attribute Naming Convention")?.value ?? "pascal-case";
+}</script>
         </option>
       </scriptOptions>
       <typeOrder />
