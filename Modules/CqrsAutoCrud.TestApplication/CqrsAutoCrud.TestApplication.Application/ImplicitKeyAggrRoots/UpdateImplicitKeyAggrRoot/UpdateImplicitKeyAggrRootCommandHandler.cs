@@ -29,12 +29,12 @@ namespace CqrsAutoCrud.TestApplication.Application.ImplicitKeyAggrRoots.UpdateIm
         {
             var existingImplicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
             existingImplicitKeyAggrRoot.Attribute = request.Attribute;
-            existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions.UpdateCollection(request.ImplicitKeyNestedCompositions, (x, y) => x.Id == y.Id, UpdateImplicitKeyNestedCompositionsImplicitKeyNestedComposition);
+            existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions.UpdateCollection(request.ImplicitKeyNestedCompositions, (e, d) => e.Id == d.Id, UpdateImplicitKeyNestedComposition);
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateImplicitKeyNestedCompositionsImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity, UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDTO dto)
+        private static void UpdateImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity, UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDTO dto)
         {
             entity.Attribute = dto.Attribute;
         }

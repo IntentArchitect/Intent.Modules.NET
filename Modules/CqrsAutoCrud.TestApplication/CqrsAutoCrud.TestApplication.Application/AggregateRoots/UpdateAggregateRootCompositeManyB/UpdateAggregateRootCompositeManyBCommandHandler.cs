@@ -41,20 +41,20 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.UpdateAggregat
             element.AggregateRootId = request.AggregateRootId;
             element.SomeDate = request.SomeDate;
             element.Composite = request.Composite != null
-                ? (element.Composite ?? new CompositeSingleBB()).UpdateObject(request.Composite, UpdateCompositeCompositeSingleBB)
+                ? (element.Composite ?? new CompositeSingleBB()).UpdateObject(request.Composite, UpdateCompositeSingleBB)
                 : null;
-            element.Composites.UpdateCollection(request.Composites, (x, y) => x.Id == y.Id, UpdateCompositesCompositeManyBB);
+            element.Composites.UpdateCollection(request.Composites, (e, d) => e.Id == d.Id, UpdateCompositeManyBB);
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDTO dto)
+        private static void UpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositesCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDTO dto)
+        private static void UpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDTO dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
             entity.ACompositeManyId = dto.ACompositeManyId;

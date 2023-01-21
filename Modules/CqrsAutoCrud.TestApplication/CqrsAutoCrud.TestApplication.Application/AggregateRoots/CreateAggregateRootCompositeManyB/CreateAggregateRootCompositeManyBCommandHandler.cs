@@ -36,8 +36,8 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
                 AggregateRootId = request.AggregateRootId,
                 CompositeAttr = request.CompositeAttr,
                 SomeDate = request.SomeDate,
-                Composite = request.Composite != null ? CreateCompositeCompositeSingleBB(request.Composite) : null,
-                Composites = request.Composites.Select(CreateCompositesCompositeManyBB).ToList(),
+                Composite = request.Composite != null ? CreateCompositeSingleBB(request.Composite) : null,
+                Composites = request.Composites.Select(CreateCompositeManyBB).ToList(),
             };
 
             aggregateRoot.Composites.Add(newCompositeManyB);
@@ -46,7 +46,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleBB CreateCompositeCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDTO dto)
+        private CompositeSingleBB CreateCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDTO dto)
         {
             return new CompositeSingleBB
             {
@@ -55,7 +55,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyBB CreateCompositesCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDTO dto)
+        private CompositeManyBB CreateCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDTO dto)
         {
             return new CompositeManyBB
             {

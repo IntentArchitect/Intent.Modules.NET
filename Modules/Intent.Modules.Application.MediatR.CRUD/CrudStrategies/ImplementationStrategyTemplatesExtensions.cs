@@ -53,7 +53,14 @@ static class ImplementationStrategyTemplatesExtensions
 
     public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity)
     {
-        return entity.Attributes.Where(p => p.HasPrimaryKey()).Select(s => new EntityIdAttribute(s.Name)).FirstOrDefault();
+        var explicitKeyField = GetExplicitEntityIdField(entity);
+        if (explicitKeyField != null) return explicitKeyField;
+        return new EntityIdAttribute("Id");
+
+        EntityIdAttribute GetExplicitEntityIdField(ClassModel entity)
+        {
+            return entity.Attributes.Where(p => p.HasPrimaryKey()).Select(s => new EntityIdAttribute(s.Name)).FirstOrDefault();
+        }
     }
 
     public static DTOFieldModel GetEntityIdField(this IEnumerable<DTOFieldModel> properties, ClassModel entity)

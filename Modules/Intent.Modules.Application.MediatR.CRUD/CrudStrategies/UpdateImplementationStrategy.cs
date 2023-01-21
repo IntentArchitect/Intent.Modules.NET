@@ -170,7 +170,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                             if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                             {
-                                if (association.IsNullable)
+                                if (field.TypeReference.IsNullable)
                                 {
                                     codeLines.Add($"{entityVarName}.{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
                                     codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntityElement.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)})", s => s.Indent());
@@ -187,7 +187,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
                                 var targetClass = targetEntityElement.AsClassModel();
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{entityVarName}.{attributeName}{(association.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
+                                codeLines.Add($"{entityVarName}.{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
                             }
 
                             var @class = _template.CSharpFile.Classes.First();

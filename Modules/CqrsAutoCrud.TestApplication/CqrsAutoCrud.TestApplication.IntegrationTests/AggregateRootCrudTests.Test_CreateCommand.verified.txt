@@ -12,7 +12,7 @@
       {
         Id: Guid_2,
         CompositeAttr: Create Aggregate Root_3,
-        A_Composite_SingleId: Guid_1
+        ACompositeSingleId: Guid_1
       }
     ]
   },
@@ -30,7 +30,7 @@
         {
           Id: Guid_4,
           CompositeAttr: Create Aggregate Root_6,
-          A_Composite_ManyId: Guid_3
+          ACompositeManyId: Guid_3
         }
       ]
     }

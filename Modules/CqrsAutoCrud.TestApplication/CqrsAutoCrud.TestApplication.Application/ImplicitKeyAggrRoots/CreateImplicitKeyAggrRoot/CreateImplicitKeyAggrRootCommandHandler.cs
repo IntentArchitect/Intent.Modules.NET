@@ -29,7 +29,7 @@ namespace CqrsAutoCrud.TestApplication.Application.ImplicitKeyAggrRoots.CreateIm
             var newImplicitKeyAggrRoot = new ImplicitKeyAggrRoot
             {
                 Attribute = request.Attribute,
-                ImplicitKeyNestedCompositions = request.ImplicitKeyNestedCompositions.Select(CreateImplicitKeyNestedCompositionsImplicitKeyNestedComposition).ToList(),
+                ImplicitKeyNestedCompositions = request.ImplicitKeyNestedCompositions.Select(CreateImplicitKeyNestedComposition).ToList(),
             };
 
             _implicitKeyAggrRootRepository.Add(newImplicitKeyAggrRoot);
@@ -38,7 +38,7 @@ namespace CqrsAutoCrud.TestApplication.Application.ImplicitKeyAggrRoots.CreateIm
         }
 
         [IntentManaged(Mode.Fully)]
-        private ImplicitKeyNestedComposition CreateImplicitKeyNestedCompositionsImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDTO dto)
+        private ImplicitKeyNestedComposition CreateImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDTO dto)
         {
             return new ImplicitKeyNestedComposition
             {

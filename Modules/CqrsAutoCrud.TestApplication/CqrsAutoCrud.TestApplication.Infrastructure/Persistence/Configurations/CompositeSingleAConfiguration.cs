@@ -29,7 +29,7 @@ namespace CqrsAutoCrud.TestApplication.Infrastructure.Persistence.Configurations
         public void ConfigureComposites(OwnedNavigationBuilder<CompositeSingleA, CompositeManyAA> builder)
         {
             builder.WithOwner()
-                .HasForeignKey(x => x.A_Composite_SingleId);
+                .HasForeignKey(x => x.ACompositeSingleId);
 
             builder.HasKey(x => x.Id);
 

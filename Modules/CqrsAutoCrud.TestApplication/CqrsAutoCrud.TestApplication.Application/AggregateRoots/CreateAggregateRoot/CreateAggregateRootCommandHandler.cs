@@ -29,8 +29,8 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
             var newAggregateRoot = new AggregateRoot
             {
                 AggregateAttr = request.AggregateAttr,
-                Composite = request.Composite != null ? CreateCompositeCompositeSingleA(request.Composite) : null,
-                Composites = request.Composites.Select(CreateCompositesCompositeManyB).ToList(),
+                Composite = request.Composite != null ? CreateCompositeSingleA(request.Composite) : null,
+                Composites = request.Composites.Select(CreateCompositeManyB).ToList(),
 #warning Field not a composite association: Aggregate
             };
 
@@ -40,18 +40,18 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleA CreateCompositeCompositeSingleA(CreateAggregateRootCompositeSingleADTO dto)
+        private CompositeSingleA CreateCompositeSingleA(CreateAggregateRootCompositeSingleADTO dto)
         {
             return new CompositeSingleA
             {
                 CompositeAttr = dto.CompositeAttr,
-                Composite = dto.Composite != null ? CreateCompositeCompositeSingleAA(dto.Composite) : null,
-                Composites = dto.Composites.Select(CreateCompositesCompositeManyAA).ToList(),
+                Composite = dto.Composite != null ? CreateCompositeSingleAA(dto.Composite) : null,
+                Composites = dto.Composites.Select(CreateCompositeManyAA).ToList(),
             };
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleAA CreateCompositeCompositeSingleAA(CreateAggregateRootCompositeSingleACompositeSingleAADTO dto)
+        private CompositeSingleAA CreateCompositeSingleAA(CreateAggregateRootCompositeSingleACompositeSingleAADTO dto)
         {
             return new CompositeSingleAA
             {
@@ -60,7 +60,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyAA CreateCompositesCompositeManyAA(CreateAggregateRootCompositeSingleACompositeManyAADTO dto)
+        private CompositeManyAA CreateCompositeManyAA(CreateAggregateRootCompositeSingleACompositeManyAADTO dto)
         {
             return new CompositeManyAA
             {
@@ -70,19 +70,19 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyB CreateCompositesCompositeManyB(CreateAggregateRootCompositeManyBDTO dto)
+        private CompositeManyB CreateCompositeManyB(CreateAggregateRootCompositeManyBDTO dto)
         {
             return new CompositeManyB
             {
                 CompositeAttr = dto.CompositeAttr,
                 SomeDate = dto.SomeDate,
-                Composite = dto.Composite != null ? CreateCompositeCompositeSingleBB(dto.Composite) : null,
-                Composites = dto.Composites.Select(CreateCompositesCompositeManyBB).ToList(),
+                Composite = dto.Composite != null ? CreateCompositeSingleBB(dto.Composite) : null,
+                Composites = dto.Composites.Select(CreateCompositeManyBB).ToList(),
             };
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleBB CreateCompositeCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDTO dto)
+        private CompositeSingleBB CreateCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDTO dto)
         {
             return new CompositeSingleBB
             {
@@ -91,7 +91,7 @@ namespace CqrsAutoCrud.TestApplication.Application.AggregateRoots.CreateAggregat
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyBB CreateCompositesCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDTO dto)
+        private CompositeManyBB CreateCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDTO dto)
         {
             return new CompositeManyBB
             {

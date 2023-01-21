@@ -12,7 +12,7 @@
       {
         Id: Guid_2,
         CompositeAttr: Update Aggregate Root_5,
-        A_Composite_SingleId: Guid_1
+        ACompositeSingleId: Guid_1
       }
     ]
   },
@@ -30,7 +30,7 @@
         {
           Id: Guid_4,
           CompositeAttr: Update Aggregate Root_10,
-          A_Composite_ManyId: Guid_3
+          ACompositeManyId: Guid_3
         }
       ]
     },
@@ -47,7 +47,7 @@
         {
           Id: Guid_6,
           CompositeAttr: Update Aggregate Root_13,
-          A_Composite_ManyId: Guid_5
+          ACompositeManyId: Guid_5
         }
       ]
     }

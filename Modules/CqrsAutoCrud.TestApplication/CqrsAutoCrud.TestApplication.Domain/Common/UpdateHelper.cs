@@ -32,7 +32,6 @@ public static class UpdateHelper
     {
         if (changedCollection == null)
         {
-            baseCollection.Clear();
             return;
         }
 
