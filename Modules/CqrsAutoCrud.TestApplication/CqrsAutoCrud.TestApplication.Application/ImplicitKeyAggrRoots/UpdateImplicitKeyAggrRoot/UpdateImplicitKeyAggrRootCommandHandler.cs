@@ -29,7 +29,7 @@ namespace CqrsAutoCrud.TestApplication.Application.ImplicitKeyAggrRoots.UpdateIm
         {
             var existingImplicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
             existingImplicitKeyAggrRoot.Attribute = request.Attribute;
-            existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions.UpdateCollection(request.ImplicitKeyNestedCompositions, (e, d) => e.Id == d.id, UpdateImplicitKeyNestedComposition);
+            existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions.UpdateCollection(request.ImplicitKeyNestedCompositions, (e, d) => e.Id == d.Id, UpdateImplicitKeyNestedComposition);
             return Unit.Value;
         }
 

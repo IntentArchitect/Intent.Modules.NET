@@ -187,7 +187,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
                                 var targetClass = targetEntityElement.AsClassModel();
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{entityVarName}.{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
+                                codeLines.Add($"{entityVarName}.{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
                             }
 
                             var @class = _template.CSharpFile.Classes.First();

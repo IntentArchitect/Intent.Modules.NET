@@ -294,7 +294,7 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="b2a1151a-3b8a-44bf-bb8a-78e2ae2cd45e" name="id" type="element" specialization="DTO-Field" />
+              <target id="b2a1151a-3b8a-44bf-bb8a-78e2ae2cd45e" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>6068a2d8-7eb4-460e-8c61-23a931ad129b</parentFolderId>
@@ -873,7 +873,7 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="542f610a-0bf9-466c-b5b4-d7600805095c" name="id" type="element" specialization="DTO-Field" />
+              <target id="542f610a-0bf9-466c-b5b4-d7600805095c" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>47cee2a3-9c3d-42d0-9cd4-d0d83a9ff5c5</parentFolderId>
