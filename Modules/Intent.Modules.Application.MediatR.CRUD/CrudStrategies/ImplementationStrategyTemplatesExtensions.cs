@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -48,28 +49,75 @@ static class ImplementationStrategyTemplatesExtensions
         return aggregateRootAssociation?.Class;
     }
 
-    public static DTOFieldModel GetNestedCompositionalOwnerId(this IEnumerable<DTOFieldModel> properties, ClassModel owner)
+    public record EntityIdAttribute(string IdName);
+
+    public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity)
+    {
+        return entity.Attributes.Where(p => p.HasPrimaryKey()).Select(s => new EntityIdAttribute(s.Name)).FirstOrDefault();
+    }
+
+    public static DTOFieldModel GetEntityIdField(this IEnumerable<DTOFieldModel> properties, ClassModel entity)
+    {
+        var explicitKeyField = GetExplicitEntityIdField(properties, entity);
+        if (explicitKeyField != null) return explicitKeyField;
+        var implicitKeyField = GetImplicitEntityIdField(properties, entity);
+        return implicitKeyField;
+        
+        DTOFieldModel GetExplicitEntityIdField(IEnumerable<DTOFieldModel> properties, ClassModel entity)
+        {
+            var idField = properties
+                .FirstOrDefault(field =>
+                {
+                    var attr = field.Mapping?.Element.AsAttributeModel();
+                    if (attr == null)
+                    {
+                        return false;
+                    }
+
+                    return attr.HasPrimaryKey();
+                });
+            return idField;
+        }
+
+        DTOFieldModel GetImplicitEntityIdField(IEnumerable<DTOFieldModel> properties, ClassModel entity)
+        {
+            var idField = properties.FirstOrDefault(p =>
+                string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
+                string.Equals(p.Name, $"{entity.Name}Id", StringComparison.InvariantCultureIgnoreCase));
+            return idField;
+        }
+    }
+
+    public static DTOFieldModel GetNestedCompositionalOwnerIdField(this IEnumerable<DTOFieldModel> properties, ClassModel owner)
     {
         var explicitKeyField = GetExplicitForeignKeyNestedCompOwnerField(properties, owner);
         if (explicitKeyField != null) return explicitKeyField;
         var implicitKeyField = GetImplicitForeignKeyNestedCompOwnerField(properties, owner);
         return implicitKeyField;
+        
+        DTOFieldModel GetExplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
+        {
+            var idField = properties
+                .FirstOrDefault(field =>
+                {
+                    var attr = field.Mapping?.Element.AsAttributeModel();
+                    if (attr == null)
+                    {
+                        return false;
+                    }
+
+                    return attr.HasForeignKey() && attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
+                });
+            return idField;
+        }
+
+        DTOFieldModel GetImplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
+        {
+            var idField = properties.FirstOrDefault(p => p.Name.Contains($"{owner.Name}Id", StringComparison.OrdinalIgnoreCase));
+            return idField;
+        }
     }
 
-    private static DTOFieldModel GetExplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
-    {
-        var idField = properties
-            .FirstOrDefault(p => 
-                p.Mapping?.Element.AsAttributeModel()?.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase) == true);
-        return idField;
-    }
-
-    private static DTOFieldModel GetImplicitForeignKeyNestedCompOwnerField(IEnumerable<DTOFieldModel> properties, ClassModel owner)
-    {
-        var idField = properties.FirstOrDefault(p => p.Name.Contains($"{owner.Name}Id", StringComparison.OrdinalIgnoreCase));
-        return idField;
-    }
-    
     public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel owner, ClassModel nestedCompositionEntity)
     {
         return owner.AssociatedClasses.FirstOrDefault(p => p.Class == nestedCompositionEntity);
