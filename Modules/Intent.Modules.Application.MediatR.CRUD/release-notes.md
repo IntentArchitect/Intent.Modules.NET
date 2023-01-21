@@ -2,7 +2,8 @@
 
 - Update: Cleaned up and refactored the `Create CRUD Service` script.
 - Fixed: `Create CRUD Service` script now does better job at fetching Primary Key fields from Domain Entities.
-- Fixed: 
+- Fixed: Service and resource names use the singular naming convention now.
+- Fixed: Ids on Commands / Queries for explicit keys should now be mapped.
 
 ### Version 4.0.3
 
