@@ -1,4 +1,8 @@
-﻿### Version 4.0.2
+﻿### Version 4.0.3
+
+* Fixed: When "Separate State from Behaviour" was selected, `using System;` would not be added for `NotImplementedException`s innew operations causing a compilation error.
+
+### Version 4.0.2
 
 * Support for `[Flags]` attribute on enums. To add this attribute, apply the `Flags` stereotype to the enum.
 

@@ -99,7 +99,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             {
                                 method.AddParameter(GetOperationTypeName(parameter), parameter.Name);
                             }
-                            method.AddStatement(@"throw new NotImplementedException(""Replace with your implementation..."");");
+                            method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
                         });
 
                         if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces() &&
