@@ -63,40 +63,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class));
                             method.AddStatements(GetCheckConstraints(Model));
                             method.AddStatements(GetIndexes(Model));
-                            if (_entityTemplate is ICSharpFileBuilderTemplate builderTemplate)
-                            {
-                                // GCB - this approach (using the properties) is potentially worth exploring as it decouples the EF Core from the Domain designer
-                                //builderTemplate.CSharpFile.OnBuild(file =>
-                                //{
-                                //    foreach (var property in file.Classes.First().GetAllProperties())
-                                //    {
-                                //        if (property.TryGetMetadata<AttributeModel>("model", out var attribute))
-                                //        {
-                                //            method.AddStatement(GetAttributeMapping(attribute, @class));
-                                //        }
-                                //        else if (property.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
-                                //        {
-                                //            method.AddStatement(GetAssociationMapping(associationEnd, @class));
-                                //        }
-                                //    }
-                                //    method.Statements.SeparateAll();
-                                //});
-
-                                builderTemplate.CSharpFile.AfterBuild(file => // Needs to run after other decorators of the entity
-                                {
-                                    foreach (var property in file.Classes.First().GetAllProperties())
-                                    {
-                                        if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent &&
-                                            !ParentConfigurationExists(Model))
-                                        {
-                                            method.AddStatement($"builder.Ignore(e => e.{property.Name});");
-                                        }
-                                    }
-                                    method.Statements.SeparateAll();
-                                });
-                            }
-
                             method.Statements.SeparateAll();
+                            
+                            AddIgnoreForNonPersistent(method);
                         });
 
                     foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(x => x.KeyColumns.Any())))
@@ -113,6 +82,45 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             statement.RequiredProperties);
                     }
                 });
+        }
+
+        private void AddIgnoreForNonPersistent(CSharpClassMethod method)
+        {
+            if (_entityTemplate is not ICSharpFileBuilderTemplate builderTemplate)
+            {
+                return;
+            }
+
+            // GCB - this approach (using the properties) is potentially worth exploring as it decouples the EF Core from the Domain designer
+            //builderTemplate.CSharpFile.OnBuild(file =>
+            //{
+            //    foreach (var property in file.Classes.First().GetAllProperties())
+            //    {
+            //        if (property.TryGetMetadata<AttributeModel>("model", out var attribute))
+            //        {
+            //            method.AddStatement(GetAttributeMapping(attribute, @class));
+            //        }
+            //        else if (property.TryGetMetadata<AssociationEndModel>("model", out var associationEnd))
+            //        {
+            //            method.AddStatement(GetAssociationMapping(associationEnd, @class));
+            //        }
+            //    }
+            //    method.Statements.SeparateAll();
+            //});
+
+            builderTemplate.CSharpFile.AfterBuild(file => // Needs to run after other decorators of the entity
+            {
+                foreach (var property in file.Classes.First().GetAllProperties())
+                {
+                    if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent &&
+                        !ParentConfigurationExists(Model))
+                    {
+                        method.AddStatement($"builder.Ignore(e => e.{property.Name});");
+                    }
+                }
+
+                method.Statements.SeparateAll();
+            });
         }
 
         public CSharpFile CSharpFile { get; }
@@ -228,6 +236,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>", "builder");
                 method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
                 method.Statements.SeparateAll();
+
+                AddIgnoreForNonPersistent(method);
             });
 
             return attribute.TypeReference.IsCollection
@@ -257,6 +267,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             method.AddStatement(field.CreateWithOwner().WithForeignKey(associationEnd.Element.IsClassModel()));
                             method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
+
+                            AddIgnoreForNonPersistent(method);
                         });
 
                         return field;
@@ -282,6 +294,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                                 method.Statements.SeparateAll();
+
+                                AddIgnoreForNonPersistent(method);
                             });
 
                             return field;

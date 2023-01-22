@@ -1,4 +1,8 @@
-﻿### Version 4.0.3
+﻿### Version 4.0.4
+
+- Fixed: Properties on composite entities were not being ignored when they should be (for example for `DomainEvents`).
+
+### Version 4.0.3
 
 - Fixed: No longer showing two or more Partition Keys when opening up the Domain designer after updating to the latest EF Core Module version.
 
