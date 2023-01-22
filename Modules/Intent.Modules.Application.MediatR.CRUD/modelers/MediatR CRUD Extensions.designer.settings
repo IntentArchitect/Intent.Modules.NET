@@ -779,7 +779,7 @@ function ensureDtoFields(mappedElement, dto) {
         if (isCreateMode &amp;&amp; isOwnerForeignKey(attribute, domainElement)) {
             continue;
         }
-        if (attribute.hasStereotype("Partition Key")) {
+        if (legacyPartitionKey(attribute)) {
             continue;
         }
         let field = createElement("DTO-Field", attribute.name, dto.id);
@@ -792,7 +792,7 @@ function ensureDtoFields(mappedElement, dto) {
 
     let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key") || x.getName().toLowerCase() === "id")[0];
     if (!isCreateMode &amp;&amp; !explicitPk) {
-        let field = createElement("DTO-Field", "id", dto.id);
+        let field = createElement("DTO-Field", "Id", dto.id);
         field.typeReference.setType(getSurrogateKeyType());
     }
 
@@ -822,6 +822,12 @@ function isOwnerForeignKey(attribute, domainElement) {
         }
     }
     return false;
+}
+
+// Just in case someone still uses this convention. Used to filter out those attributes when mapping
+// to domain entities that are within a Cosmos DB paradigm.
+function legacyPartitionKey(attribute) {
+    return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
 }</script>
         </macro>
       </macros>
@@ -986,7 +992,7 @@ function ensureDtoFields(mappedElement, dto) {
         if (isCreateMode &amp;&amp; isOwnerForeignKey(attribute, domainElement)) {
             continue;
         }
-        if (attribute.hasStereotype("Partition Key")) {
+        if (legacyPartitionKey(attribute)) {
             continue;
         }
         let field = createElement("DTO-Field", attribute.name, dto.id);
@@ -999,7 +1005,7 @@ function ensureDtoFields(mappedElement, dto) {
 
     let explicitPk = dto.getChildren("DTO-Field").filter(x =&gt; x.getMapping()?.getElement()?.hasStereotype("Primary Key") || x.getName().toLowerCase() === "id")[0];
     if (!isCreateMode &amp;&amp; !explicitPk) {
-        let field = createElement("DTO-Field", "id", dto.id);
+        let field = createElement("DTO-Field", "Id", dto.id);
         field.typeReference.setType(getSurrogateKeyType());
     }
 
@@ -1029,6 +1035,12 @@ function isOwnerForeignKey(attribute, domainElement) {
         }
     }
     return false;
+}
+
+// Just in case someone still uses this convention. Used to filter out those attributes when mapping
+// to domain entities that are within a Cosmos DB paradigm.
+function legacyPartitionKey(attribute) {
+    return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
 }</script>
         </macro>
       </macros>
@@ -1080,9 +1092,6 @@ function ensureDtoFields(mappedElement, dto) {
         .getChildren("Attribute");
     let dtoFields = dto.getChildren("DTO-Field");
     for (let attribute of mappedElementAttributes.filter(x =&gt; ! dtoFields.some(y =&gt; x.name === y.name))) {
-        if (attribute.hasStereotype("Partition Key")) {
-            continue;
-        }
         let field = createElement("DTO-Field", attribute.name, dto.id);
         field.typeReference.setType(attribute.typeReference.typeId);
         field.typeReference.setIsNullable(attribute.typeReference.isNullable);
