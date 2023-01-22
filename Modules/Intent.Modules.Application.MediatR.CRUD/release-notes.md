@@ -1,8 +1,9 @@
-### Version 4.0.4
+### Version 4.1.0
 
+- New: Aggregate Root can inherit from a base class and the Id will be respected.
 - Update: Cleaned up and refactored the `Create CRUD Service` script.
+- Update: Service and resource names use the singular naming convention now.
 - Fixed: `Create CRUD Service` script now does better job at fetching Primary Key fields from Domain Entities.
-- Fixed: Service and resource names use the singular naming convention now.
 - Fixed: Ids on Commands / Queries for explicit keys should now be mapped.
 - Fixed: Generated CRUD handling code now properly detects Primary Key Ids.
 - Fixed: Requests with incoming `null` values on Collection Properties will no longer throw NullReferenceExceptions.

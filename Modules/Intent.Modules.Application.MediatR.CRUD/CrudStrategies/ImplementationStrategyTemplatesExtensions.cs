@@ -81,7 +81,7 @@ static class ImplementationStrategyTemplatesExtensions
                         return false;
                     }
 
-                    return attr.HasPrimaryKey() && entity.Attributes.Any(p => p.Id == attr.Id);
+                    return attr.HasPrimaryKey();
                 });
             return idField;
         }

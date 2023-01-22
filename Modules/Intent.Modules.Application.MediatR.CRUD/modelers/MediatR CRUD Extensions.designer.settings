@@ -128,12 +128,13 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
         idField.typeReference.setType(entityPkDescr.typeId);
     }
 
-    for (let attribute of entity.getChildren("Attribute")) {
-        let field = createElement("DTO-Field", getFieldFormat(attribute.name), dto.id);
-        field.typeReference.setType(attribute.typeReference.typeId);
-        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-        field.setMapping(attribute.id);
+    for (let attribute of entity.getChildren("Attribute")
+        .filter(attr =&gt; !legacyPartitionKey(attr))) {
+            let field = createElement("DTO-Field", getFieldFormat(attribute.name), dto.id);
+            field.typeReference.setType(attribute.typeReference.typeId);
+            field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+            field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+            field.setMapping(attribute.id);
     }
 
     dto.collapse();
@@ -190,7 +191,7 @@ function createCqrsCreateOperation(service, entityFolder, entity) {
 
     for (let attribute of entity.getChildren("Attribute")
         // For Create Commands, we don't want to by default have PKs and FKs
-        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !legacyPartitionKey(x))) {
             let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -259,7 +260,7 @@ function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto
     query.typeReference.setIsCollection(true);
     query.setMetadata("baseName", baseName);
 
-    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity, true), service.id);
+    let operation = createElement("Operation", getOperationFormat("GetAll", nestedCompOwner, entity, true), service.id);
     operation.setMapping(query.id);
 
     let routePath = "";
@@ -327,7 +328,7 @@ function createCqrsUpdateOperation(service, entity, entityFolder) {
     commandParam.typeReference.setType(command.id);
 
     for (let attribute of entity.getChildren("Attribute")
-        .filter(attr =&gt; !hasAttributeInCommand(command, attr))) {
+        .filter(attr =&gt; !hasAttributeInCommand(command, attr) &amp;&amp; !legacyPartitionKey(attr))) {
             let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -542,7 +543,23 @@ function getPrimaryKeyDescriptor(entity) {
     if (!entity) {
         throw new Error("entity not specified");
     }
-    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let pks = entity.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype("Primary Key"));
+
+    let mapPaths = [];
+    if (pks.length == 1) {
+        mapPaths.push(pks[0].id);
+    } else if (pks.length == 0) {
+        let inheritResult = getInheritanceAttributes(entity);
+        if (inheritResult) {
+            pks = inheritResult.attributes.filter(x =&gt; x.hasStereotype("Primary Key"));
+            if (pks) {
+                mapPaths.push(inheritResult.association.id);
+                mapPaths.push(pks[0].id)
+            }
+        }
+    }
+
     switch (true) {
         case pks.length == 0:
             return {
@@ -550,7 +567,8 @@ function getPrimaryKeyDescriptor(entity) {
                 name: getDomainAttributeNameFormat("Id"),
                 typeId: getSurrogateKeyType(),
                 specialization: PKSpecialization.Implicit,
-                compositeKeys: null
+                compositeKeys: null,
+                mapPath: null
             };
         case pks.length == 1:
             let pkAttr = pks[0];
@@ -559,7 +577,8 @@ function getPrimaryKeyDescriptor(entity) {
                 name: getDomainAttributeNameFormat(pkAttr.name),
                 typeId: pkAttr.typeReference.typeId,
                 specialization: PKSpecialization.Explicit,
-                compositeKeys: null
+                compositeKeys: null,
+                mapPath: mapPaths
             };
         case pks.length &gt; 1:
             return {
@@ -573,7 +592,8 @@ function getPrimaryKeyDescriptor(entity) {
                         name: getDomainAttributeNameFormat(x.name),
                         typeId: x.typeReference.typeId
                     }; 
-                })
+                }),
+                mapPath: null
             };
         default:
             return {
@@ -581,9 +601,21 @@ function getPrimaryKeyDescriptor(entity) {
                 name: null,
                 typeId: null,
                 specialization: PKSpecialization.Unknown,
-                compositeKeys: null
+                compositeKeys: null,
+                mapPath: null
             };
     }
+}
+
+function getInheritanceAttributes(entity) {
+    let association = entity.getAssociations("Generalization")[0];
+    if (association) {
+        return { 
+            association: association,
+            attributes: association.typeReference.getType().getChildren("Attribute") 
+        };
+    }
+    return null;
 }
 
 // Returns a dictionary instead of element to help deal with explicit vs implicit keys
@@ -623,7 +655,7 @@ function addPrimaryKeys(commandQuery, operation, entityPkDescr) {
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
                 if (entityPkDescr.specialization == PKSpecialization.Explicit) {
-                    primaryKeyDtoField.setMapping(entityPkDescr.id);
+                    primaryKeyDtoField.setMapping(entityPkDescr.mapPath);
                 }
 
                 let operationParamId = createElement("Parameter", getParameterFormat(entityPkDescr.name), operation.id);
@@ -674,6 +706,12 @@ function getDomainAttributeNamingConvention() {
     const domainSettingsId = "c4d1e35c-7c0d-4926-afe0-18f17563ce17";
     return application.getSettings(domainSettingsId)
         ?.getField("Attribute Naming Convention")?.value ?? "pascal-case";
+}
+
+// Just in case someone still uses this convention. Used to filter out those attributes when mapping
+// to domain entities that are within a Cosmos DB paradigm.
+function legacyPartitionKey(attribute) {
+    return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
 }</script>
         </option>
       </scriptOptions>
@@ -1182,12 +1220,13 @@ function createCqrsResultTypeDTO(entity, entityFolder) {
         idField.typeReference.setType(entityPkDescr.typeId);
     }
 
-    for (let attribute of entity.getChildren("Attribute")) {
-        let field = createElement("DTO-Field", getFieldFormat(attribute.name), dto.id);
-        field.typeReference.setType(attribute.typeReference.typeId);
-        field.typeReference.setIsNullable(attribute.typeReference.isNullable);
-        field.typeReference.setIsCollection(attribute.typeReference.isCollection);
-        field.setMapping(attribute.id);
+    for (let attribute of entity.getChildren("Attribute")
+        .filter(attr =&gt; !legacyPartitionKey(attr))) {
+            let field = createElement("DTO-Field", getFieldFormat(attribute.name), dto.id);
+            field.typeReference.setType(attribute.typeReference.typeId);
+            field.typeReference.setIsNullable(attribute.typeReference.isNullable);
+            field.typeReference.setIsCollection(attribute.typeReference.isCollection);
+            field.setMapping(attribute.id);
     }
 
     dto.collapse();
@@ -1244,7 +1283,7 @@ function createCqrsCreateOperation(service, entityFolder, entity) {
 
     for (let attribute of entity.getChildren("Attribute")
         // For Create Commands, we don't want to by default have PKs and FKs
-        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key"))) {
+        .filter(x =&gt; !x.hasStereotype("Primary Key") &amp;&amp; !x.hasStereotype("Foreign Key") &amp;&amp; !legacyPartitionKey(x))) {
             let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -1313,7 +1352,7 @@ function createCqrsFindAllOperation(service, entity, entityFolder, resultTypeDto
     query.typeReference.setIsCollection(true);
     query.setMetadata("baseName", baseName);
 
-    let operation = createElement("Operation", getOperationFormat("Get", nestedCompOwner, entity, true), service.id);
+    let operation = createElement("Operation", getOperationFormat("GetAll", nestedCompOwner, entity, true), service.id);
     operation.setMapping(query.id);
 
     let routePath = "";
@@ -1381,7 +1420,7 @@ function createCqrsUpdateOperation(service, entity, entityFolder) {
     commandParam.typeReference.setType(command.id);
 
     for (let attribute of entity.getChildren("Attribute")
-        .filter(attr =&gt; !hasAttributeInCommand(command, attr))) {
+        .filter(attr =&gt; !hasAttributeInCommand(command, attr) &amp;&amp; !legacyPartitionKey(attr))) {
             let field = createElement("DTO-Field", getFieldFormat(attribute.name), command.id);
             field.typeReference.setType(attribute.typeReference.typeId)
             field.setMapping(attribute.id);
@@ -1596,7 +1635,23 @@ function getPrimaryKeyDescriptor(entity) {
     if (!entity) {
         throw new Error("entity not specified");
     }
-    let pks = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let pks = entity.getChildren("Attribute")
+        .filter(x =&gt; x.hasStereotype("Primary Key"));
+
+    let mapPaths = [];
+    if (pks.length == 1) {
+        mapPaths.push(pks[0].id);
+    } else if (pks.length == 0) {
+        let inheritResult = getInheritanceAttributes(entity);
+        if (inheritResult) {
+            pks = inheritResult.attributes.filter(x =&gt; x.hasStereotype("Primary Key"));
+            if (pks) {
+                mapPaths.push(inheritResult.association.id);
+                mapPaths.push(pks[0].id)
+            }
+        }
+    }
+
     switch (true) {
         case pks.length == 0:
             return {
@@ -1604,7 +1659,8 @@ function getPrimaryKeyDescriptor(entity) {
                 name: getDomainAttributeNameFormat("Id"),
                 typeId: getSurrogateKeyType(),
                 specialization: PKSpecialization.Implicit,
-                compositeKeys: null
+                compositeKeys: null,
+                mapPath: null
             };
         case pks.length == 1:
             let pkAttr = pks[0];
@@ -1613,7 +1669,8 @@ function getPrimaryKeyDescriptor(entity) {
                 name: getDomainAttributeNameFormat(pkAttr.name),
                 typeId: pkAttr.typeReference.typeId,
                 specialization: PKSpecialization.Explicit,
-                compositeKeys: null
+                compositeKeys: null,
+                mapPath: mapPaths
             };
         case pks.length &gt; 1:
             return {
@@ -1627,7 +1684,8 @@ function getPrimaryKeyDescriptor(entity) {
                         name: getDomainAttributeNameFormat(x.name),
                         typeId: x.typeReference.typeId
                     }; 
-                })
+                }),
+                mapPath: null
             };
         default:
             return {
@@ -1635,9 +1693,21 @@ function getPrimaryKeyDescriptor(entity) {
                 name: null,
                 typeId: null,
                 specialization: PKSpecialization.Unknown,
-                compositeKeys: null
+                compositeKeys: null,
+                mapPath: null
             };
     }
+}
+
+function getInheritanceAttributes(entity) {
+    let association = entity.getAssociations("Generalization")[0];
+    if (association) {
+        return { 
+            association: association,
+            attributes: association.typeReference.getType().getChildren("Attribute") 
+        };
+    }
+    return null;
 }
 
 // Returns a dictionary instead of element to help deal with explicit vs implicit keys
@@ -1677,7 +1747,7 @@ function addPrimaryKeys(commandQuery, operation, entityPkDescr) {
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), commandQuery.id);
                 primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
                 if (entityPkDescr.specialization == PKSpecialization.Explicit) {
-                    primaryKeyDtoField.setMapping(entityPkDescr.id);
+                    primaryKeyDtoField.setMapping(entityPkDescr.mapPath);
                 }
 
                 let operationParamId = createElement("Parameter", getParameterFormat(entityPkDescr.name), operation.id);
@@ -1728,6 +1798,12 @@ function getDomainAttributeNamingConvention() {
     const domainSettingsId = "c4d1e35c-7c0d-4926-afe0-18f17563ce17";
     return application.getSettings(domainSettingsId)
         ?.getField("Attribute Naming Convention")?.value ?? "pascal-case";
+}
+
+// Just in case someone still uses this convention. Used to filter out those attributes when mapping
+// to domain entities that are within a Cosmos DB paradigm.
+function legacyPartitionKey(attribute) {
+    return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
 }</script>
         </option>
       </scriptOptions>
