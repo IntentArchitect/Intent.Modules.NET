@@ -150,6 +150,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 GetDecorators().ToList().ForEach(x => x.UpdateServiceAuthorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
                 attributes.Add(GetAuthorizationAttribute(authModel));
             }
+            else if (Model.HasUnsecured())
+            {
+                attributes.Add("[AllowAnonymous]");
+            }
 
             attributes.Add(
                 $@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
@@ -218,24 +222,29 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             var attributes = new List<string>();
             attributes.AddRange(GetDecorators().SelectMany(x => x.GetOperationAttributes(operation)));
             attributes.Add(GetHttpVerbAndPath(operation));
-            if ((!IsControllerSecured() && operation.HasSecured()) ||
-                !string.IsNullOrWhiteSpace(operation.GetSecured()?.Roles()))
+            if (operation.HasSecured() || operation.HasUnsecured())
             {
-                // We can extend this later (if desired) to have multiple Secure stereotypes create
-                // multiple Authorization Models.
-                // NOTE: GCB - the following is an anti-pattern imo @Dandre. Passing in an object to some method which results in mutations is
-                // bad programming practice. It forces us to break encapsulation to determine what is in fact going on. I will replace this with a 
-                // better approach at a later stage.
-                // TODO: GCB - convert the auth system to use a generic role/policy based system that decouples it from WebApi module.
-                var authModel = new AuthorizationModel();
-                GetDecorators().ToList().ForEach(x =>
-                    x.UpdateOperationAuthorization(authModel,
-                        new OperationSecureModel(operation, operation.GetSecured())));
-                attributes.Add(GetAuthorizationAttribute(authModel));
-            }
-            else if (IsControllerSecured() && operation.HasUnsecured())
-            {
-                attributes.Add("[AllowAnonymous]");
+                if ((!IsControllerSecured() && IsOperationSecured(operation)) ||
+                    !string.IsNullOrWhiteSpace(operation.GetSecured()?.Roles()))
+                {
+                    // We can extend this later (if desired) to have multiple Secure stereotypes create
+                    // multiple Authorization Models.
+                    // NOTE: GCB - the following is an anti-pattern imo @Dandre. Passing in an object to some method which results in mutations is
+                    // bad programming practice. It forces us to break encapsulation to determine what is in fact going on. I will replace this with a 
+                    // better approach at a later stage.
+                    // TODO: GCB - convert the auth system to use a generic role/policy based system that decouples it from WebApi module.
+                    var authModel = new AuthorizationModel();
+                    GetDecorators().ToList().ForEach(x =>
+                        x.UpdateOperationAuthorization(authModel,
+                            new OperationSecureModel(operation, operation.GetSecured())));
+                    attributes.Add(GetAuthorizationAttribute(authModel));
+                }
+                else if (IsControllerSecured() &&
+                         !IsOperationSecured(operation) &&
+                         operation.HasUnsecured())
+                {
+                    attributes.Add("[AllowAnonymous]");
+                }
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
@@ -320,12 +329,24 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private bool IsControllerSecured()
         {
-            return Model.HasSecured() || ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().IsSecured();
+            return ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
+            {
+                APISettings.DefaultAPISecurityOptionsEnum.Secured => Model.HasSecured() || !Model.HasUnsecured(),
+                APISettings.DefaultAPISecurityOptionsEnum.Unsecured => Model.HasSecured(),
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
         private bool IsOperationSecured(OperationModel operation)
         {
-            return (IsControllerSecured() || operation.HasSecured()) && !operation.HasUnsecured();
+            if (!operation.HasSecured() && !operation.HasUnsecured())
+            {
+                return IsControllerSecured();
+            }
+
+            return IsControllerSecured()
+                ? operation.HasSecured() || !operation.HasUnsecured()
+                : operation.HasSecured();
         }
 
         private string GetHttpVerbAndPath(OperationModel o)

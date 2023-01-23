@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Fixed: Applying unsecured to a service would have no effect, it would need to be applied to individual operations.
+
 ### Version 4.0.0
 
 - New: Upgraded Templates to use new Builder Pattern paradigm.
