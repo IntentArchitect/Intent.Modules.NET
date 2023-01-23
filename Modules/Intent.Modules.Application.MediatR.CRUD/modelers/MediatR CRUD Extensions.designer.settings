@@ -651,6 +651,7 @@ function isOwnerForeignKey(attribute, domainElement) {
           <symbol>fa-long-arrow-right</symbol>
           <targetTypeOptions>
             <option specializationType="04e12b51-ed12-42a3-9667-a6aa81bb6d10" displayText="Class" />
+            <option specializationType="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" displayText="Value Object" />
           </targetTypeOptions>
           <mapFrom>root</mapFrom>
           <mappings>
@@ -700,6 +701,27 @@ function isOwnerForeignKey(attribute, domainElement) {
                     <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                   </criteria>
                   <mapTo childMappingMode="traverse" useMappingSettings="64ebfd83-8720-407a-9308-d6a293873861" />
+                  <behaviour autoSelectChildren="false" />
+                  <childMappings />
+                </mapping>
+              </childMappings>
+            </mapping>
+            <mapping id="7a05fe8c-62d8-40e8-b6cf-c1ad30da801e">
+              <criteria specializationType="Value Object">
+                <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+                <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
+              </criteria>
+              <mapTo specializationType="DTO" childMappingMode="map-to-child" />
+              <behaviour autoSelectChildren="true" />
+              <childMappings>
+                <mapping id="88887618-18ad-4240-8051-e95ebccf244a">
+                  <criteria specializationType="Attribute">
+                    <hasTypeReference>true</hasTypeReference>
+                    <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
+                    <hasChildren>false</hasChildren>
+                  </criteria>
+                  <mapTo specializationType="DTO-Field" childMappingMode="map-to-child" />
                   <behaviour autoSelectChildren="false" />
                   <childMappings />
                 </mapping>

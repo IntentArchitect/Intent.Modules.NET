@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -28,12 +28,14 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>NewCSharpTemplate.tt</DependentUpon>
-    </Compile></ItemGroup>
+    </Compile>
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="Templates\NewCSharp\NewCSharpTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>NewCSharpTemplate.cs</LastGenOutput>
-    </None></ItemGroup>
+    </None>
+  </ItemGroup>
 
 </Project>
