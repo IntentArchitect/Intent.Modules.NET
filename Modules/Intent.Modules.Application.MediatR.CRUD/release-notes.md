@@ -1,6 +1,6 @@
 ### Version 4.1.0
 
-- New: Aggregate Root can inherit from a base class and the Id will be respected.
+- New: Now Commands, Queries and DTOs will include fields of mapped Entities' inheritance hierarchies.
 - Update: Cleaned up and refactored the `Create CRUD Service` script.
 - Update: Service and resource names use the singular naming convention now.
 - Fixed: `Create CRUD Service` script now does better job at fetching Primary Key fields from Domain Entities.
