@@ -104,7 +104,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             if (_template.Model.TypeReference.Element != null)
             {
                 codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
-                codeLines.Add($"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass.Attributes).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+                codeLines.Add($"return new{foundEntity.Name}.{(foundEntity.Attributes).Concat(foundEntity.ParentClass?.Attributes??new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
             else
             {
