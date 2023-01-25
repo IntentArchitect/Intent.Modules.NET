@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
@@ -11,7 +10,6 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
@@ -64,8 +62,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             method.AddStatements(GetCheckConstraints(Model));
                             method.AddStatements(GetIndexes(Model));
                             method.Statements.SeparateAll();
-                            
-                            AddIgnoreForNonPersistent(method);
+
+                            AddIgnoreForNonPersistent(method, isOwned: false);
                         });
 
                     foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(x => x.KeyColumns.Any())))
@@ -84,9 +82,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 });
         }
 
-        private void AddIgnoreForNonPersistent(CSharpClassMethod method)
+        private void AddIgnoreForNonPersistent(CSharpClassMethod method, bool isOwned)
         {
-            if (_entityTemplate is not ICSharpFileBuilderTemplate builderTemplate)
+            if (_entityTemplate is not ICSharpFileBuilderTemplate entityBuilder)
             {
                 return;
             }
@@ -108,12 +106,20 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             //    method.Statements.SeparateAll();
             //});
 
-            builderTemplate.CSharpFile.AfterBuild(file => // Needs to run after other decorators of the entity
+            entityBuilder.CSharpFile.AfterBuild(_ => // Needs to run after other decorators of the entity
             {
-                foreach (var property in file.Classes.First().GetAllProperties())
+                if (!method.TryGetMetadata("model", out IElement element) ||
+                    (!TryGetTemplate("Domain.Entity.State", element, out ICSharpFileBuilderTemplate entityTemplate) &&
+                     !TryGetTemplate("Domain.Entity", element, out entityTemplate)))
                 {
-                    if (property.TryGetMetadata<bool>("non-persistent", out var nonPersistent) && nonPersistent &&
-                        !ParentConfigurationExists(Model))
+                    return;
+                }
+
+                var @class = entityTemplate.CSharpFile.Classes.First();
+                foreach (var property in @class.GetAllProperties())
+                {
+                    if (property.TryGetMetadata("non-persistent", out bool nonPersistent) && nonPersistent &&
+                        (isOwned || !ParentConfigurationExists(element.AsClassModel())))
                     {
                         method.AddStatement($"builder.Ignore(e => e.{property.Name});");
                     }
@@ -237,7 +243,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class).ToArray());
                 method.Statements.SeparateAll();
 
-                AddIgnoreForNonPersistent(method);
+                AddIgnoreForNonPersistent(method, isOwned: true);
             });
 
             return attribute.TypeReference.IsCollection
@@ -268,7 +274,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                             method.Statements.SeparateAll();
 
-                            AddIgnoreForNonPersistent(method);
+                            AddIgnoreForNonPersistent(method, isOwned: true);
                         });
 
                         return field;
@@ -295,7 +301,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class).ToArray());
                                 method.Statements.SeparateAll();
 
-                                AddIgnoreForNonPersistent(method);
+                                AddIgnoreForNonPersistent(method, isOwned: true);
                             });
 
                             return field;
