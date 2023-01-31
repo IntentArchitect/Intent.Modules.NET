@@ -1,6 +1,7 @@
 ﻿### Version 4.0.4
 
 - Fixed: Properties on composite entities were not being ignored when they should be (for example for `DomainEvents`).
+- Update: Fill Factors can now be configured from Indexes thanks to the new property on the Index element from the RDBMS module.
 
 ### Version 4.0.3
 

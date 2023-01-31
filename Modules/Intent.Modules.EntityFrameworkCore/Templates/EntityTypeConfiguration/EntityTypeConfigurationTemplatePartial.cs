@@ -395,6 +395,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .HasDatabaseName(""{index.Name}"")");
                 }
 
+                if (index.FillFactor.HasValue)
+                {
+                    sb.Append($@"
+                .HasFillFactor({index.FillFactor.Value})");
+                }
+
                 sb.Append(";");
 
                 statements.Add(sb.ToString());
