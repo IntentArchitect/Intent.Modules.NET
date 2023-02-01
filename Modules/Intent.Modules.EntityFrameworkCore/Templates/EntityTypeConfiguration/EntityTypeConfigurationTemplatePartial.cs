@@ -40,7 +40,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             AddTypeSource("Domain.Entity");
             AddTypeSource("Domain.ValueObject");
 
-            CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.EntityFrameworkCore")
                 .AddUsing("Microsoft.EntityFrameworkCore.Metadata.Builders")
                 .AddClass($"{Model.Name}Configuration", @class =>
@@ -135,9 +135,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name}Configuration",
-                @namespace: $"{OutputTarget.GetNamespace()}");
+            return CSharpFile.GetConfig();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
