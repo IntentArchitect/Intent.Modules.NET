@@ -10,14 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5e1b24a8-9c9b-4f8b-a99f-354df92e2ee4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/A_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>A_RequiredCompositeConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
@@ -26,74 +18,146 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5e1b24a8-9c9b-4f8b-a99f-354df92e2ee4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/A_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/A_RequiredCompositeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6986c322-2b24-4945-9e7c-7badb3dbdc24</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/B_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>B_OptionalAggregateConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/B_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/B_OptionalAggregateConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#44b3acd9-2233-42f9-b216-564fe9f907c4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/B_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>B_OptionalDependentConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/BranchConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BranchConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/B_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/B_OptionalDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d79a991a-b905-431e-81b4-f8de802cfd1e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/C_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>C_RequiredCompositeConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ComplexDefaultIndexConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ComplexDefaultIndexConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/CustomIndexConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomIndexConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/C_RequiredCompositeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/C_RequiredCompositeConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a769c8f6-2f60-4537-ab66-8f854a9ec719</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/D_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/D_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/D_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#334605d2-7b0a-4deb-928c-1006efc73878</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/D_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>D_OptionalAggregateConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/D_OptionalAggregateConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/D_OptionalAggregateConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c497d83c-116e-4d0c-9b7f-7571243be1bd</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cf08ba2a-9eaa-4dfe-89b1-a7dec3c7d57d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/DefaultIndexConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DefaultIndexConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/E_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/E_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6825bb11-6c60-41fe-902c-e754a85071ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/E2_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/E2_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/F_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/F_OptionalAggregateNavConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#921d87ec-c2e6-4135-9d49-c968c2ce6e36</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/F_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/F_OptionalDependentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#654a828d-d589-4153-9504-dcf419bbfae0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/G_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/G_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ac148e9c-6f1f-44e0-9268-5053c13cd511</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/H_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/H_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9e9a2017-c3f9-409d-82e6-5aba9d64842f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/H_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/H_OptionalAggregateNavConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6d0beed8-d7eb-41f7-8103-79900de9376d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/J_MultipleAggregateConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/J_MultipleAggregateConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#06fcf6dc-1f26-45b7-9a0e-d6a4089cdbcf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/J_RequiredDependentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/J_RequiredDependentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b8353eea-e647-47f0-a017-4533953f4e91</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/K_SelfReferenceConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/K_SelfReferenceConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#26935a83-9c1a-422a-a353-94be5e0bca00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/L_SelfReferenceMultipleConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/L_SelfReferenceMultipleConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ce2a9afd-5a97-43db-a8a6-57e1dfddf129</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Associations/M_SelfReferenceBiNavConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Associations/M_SelfReferenceBiNavConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -106,74 +170,50 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cf08ba2a-9eaa-4dfe-89b1-a7dec3c7d57d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/E_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6825bb11-6c60-41fe-902c-e754a85071ea</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/E2_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>E2_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/F_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>F_OptionalAggregateNavConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#921d87ec-c2e6-4135-9d49-c968c2ce6e36</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/F_OptionalDependentConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>F_OptionalDependentConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#54c8aea3-533c-44da-9772-94237f7514ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/FK_A_CompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FK_A_CompositeForeignKeyConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ExplicitKeys/FK_A_CompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/FK_A_CompositeForeignKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#e390052d-6d7f-4f6b-918d-6c6591f3444f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/FK_B_CompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FK_B_CompositeForeignKeyConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ExplicitKeys/FK_B_CompositeForeignKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/FK_B_CompositeForeignKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#654a828d-d589-4153-9504-dcf419bbfae0</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3f69120b-3e96-4443-9794-3df7e6696f2b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/G_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>G_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ExplicitKeys/PK_A_CompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/PK_A_CompositeKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ac148e9c-6f1f-44e0-9268-5053c13cd511</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/H_MultipleDependentConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>H_MultipleDependentConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ExplicitKeys/PK_B_CompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/PK_B_CompositeKeyConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9e9a2017-c3f9-409d-82e6-5aba9d64842f</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5dbcf4c4-c9f1-4752-adcf-a206ae3f1734</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/H_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>H_OptionalAggregateNavConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ExplicitKeys/PK_PrimaryKeyIntConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/PK_PrimaryKeyIntConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a85f623c-6917-4789-972c-c05c8680f138</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/ExplicitKeys/PK_PrimaryKeyLongConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExplicitKeys/PK_PrimaryKeyLongConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -186,50 +226,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c1cb27e5-2d3b-402d-8ad0-bfa2c5b522f6</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/InhabitantConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InhabitantConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Indexes/ComplexDefaultIndexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/ComplexDefaultIndexConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6d0beed8-d7eb-41f7-8103-79900de9376d</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#05fb33a3-4cde-432a-86df-b40b0332911a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/J_MultipleAggregateConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>J_MultipleAggregateConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Indexes/CustomIndexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/CustomIndexConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#06fcf6dc-1f26-45b7-9a0e-d6a4089cdbcf</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c497d83c-116e-4d0c-9b7f-7571243be1bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/J_RequiredDependentConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>J_RequiredDependentConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Indexes/DefaultIndexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/DefaultIndexConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b8353eea-e647-47f0-a017-4533953f4e91</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/K_SelfReferenceConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>K_SelfReferenceConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#26935a83-9c1a-422a-a353-94be5e0bca00</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/L_SelfReferenceMultipleConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>L_SelfReferenceMultipleConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ce2a9afd-5a97-43db-a8a6-57e1dfddf129</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/M_SelfReferenceBiNavConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>M_SelfReferenceBiNavConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/Indexes/StereotypeIndexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Indexes/StereotypeIndexConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -242,58 +266,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3f69120b-3e96-4443-9794-3df7e6696f2b</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/PK_A_CompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PK_A_CompositeKeyConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/NestedAssociations/BranchConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/BranchConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#fb8d55f6-2a75-47b9-95a6-e569e7b97dbf</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c1cb27e5-2d3b-402d-8ad0-bfa2c5b522f6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/PK_B_CompositeKeyConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PK_B_CompositeKeyConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5dbcf4c4-c9f1-4752-adcf-a206ae3f1734</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/PK_PrimaryKeyIntConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PK_PrimaryKeyIntConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a85f623c-6917-4789-972c-c05c8680f138</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/PK_PrimaryKeyLongConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PK_PrimaryKeyLongConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9257f961-5662-4e92-8e31-b76c592ad5cf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/StereotypeIndexConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StereotypeIndexConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/NestedAssociations/InhabitantConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/InhabitantConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0deadbb5-9406-4718-aedc-bb2454e63ebc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/TextureConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TextureConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/NestedAssociations/TextureConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/TextureConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e4d84d57-4ba6-47ac-abcb-24d79e46775f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#c9e9e39c-be7a-45a0-a094-3d9258eafbc4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/TreeConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TreeConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.IntentGenerated/Core/NestedAssociations/TreeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NestedAssociations/TreeConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

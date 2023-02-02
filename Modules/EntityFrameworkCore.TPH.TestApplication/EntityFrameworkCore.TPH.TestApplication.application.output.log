@@ -10,42 +10,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8763894e-f81b-4e83-8115-8f3546465e2d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/AbstractBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AbstractBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#430a2a8c-f5d5-40dd-94c4-8e9e565444b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/AbstractBaseClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AbstractBaseClassConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8f81247b-89a3-465b-b28f-658f30cb40c8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/ConcreteBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConcreteBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#97fab82a-feae-421e-be8c-2bf595bb194c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/ConcreteBaseClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConcreteBaseClassConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -58,74 +26,106 @@
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/IApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8763894e-f81b-4e83-8115-8f3546465e2d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/AbstractBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/AbstractBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#430a2a8c-f5d5-40dd-94c4-8e9e565444b1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/AbstractBaseClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/AbstractBaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8f81247b-89a3-465b-b28f-658f30cb40c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/ConcreteBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/ConcreteBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#97fab82a-feae-421e-be8c-2bf595bb194c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/ConcreteBaseClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/ConcreteBaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f8391723-79aa-4353-b532-0b9411d77f05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassForAbstractAssociatedConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DerivedClassForAbstractAssociatedConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/DerivedClassForAbstractAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/DerivedClassForAbstractAssociatedConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#30f7d442-8658-48d5-b964-e03541cf2df2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassForAbstractConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DerivedClassForAbstractConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/DerivedClassForAbstractConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/DerivedClassForAbstractConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#1d074074-5f1f-4891-902c-2f21653a5341</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassForConcreteAssociatedConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DerivedClassForConcreteAssociatedConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/DerivedClassForConcreteAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/DerivedClassForConcreteAssociatedConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ab9c3435-b5e0-43c7-8b96-4a0f796a831b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/DerivedClassForConcreteConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DerivedClassForConcreteConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/DerivedClassForConcreteConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/DerivedClassForConcreteConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#bfffe5d6-41d3-4506-84be-7a7d59cad374</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/FkAssociatedClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FkAssociatedClassConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/FkAssociatedClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/FkAssociatedClassConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8598e4f3-4bf2-4314-96c4-717b2e638e02</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/FkBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FkBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/FkBaseClassAssociatedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/FkBaseClassAssociatedConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3fdfe3ff-2cb4-4642-baaa-6ce3c14bd826</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/FkBaseClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FkBaseClassConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/FkBaseClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/FkBaseClassConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4ac4980a-ce7d-4871-a7a3-9f6bb874ad0b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/FkDerivedClassConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FkDerivedClassConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/IApplicationDbContext.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/InheritanceAssociations/FkDerivedClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InheritanceAssociations/FkDerivedClassConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -140,56 +140,56 @@
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#93cbd4c1-3549-4f13-9f4c-6f95247c0664</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_BaseClassNonAbstractConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Poly_BaseClassNonAbstractConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Polymorphic/Poly_BaseClassNonAbstractConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_BaseClassNonAbstractConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8b63613c-5b77-4f55-bc99-7bab9b4e4019</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_ConcreteAConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Poly_ConcreteAConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Polymorphic/Poly_ConcreteAConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteAConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7c4e1ca9-c132-4729-861b-09c914a12f05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_ConcreteBConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Poly_ConcreteBConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Polymorphic/Poly_ConcreteBConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_ConcreteBConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#412c3048-2803-4632-8145-142ff487672a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_RootAbstract_AggrConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Poly_RootAbstract_AggrConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Polymorphic/Poly_RootAbstract_AggrConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_RootAbstract_AggrConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#edc78564-7dbb-480b-8b9d-eb5edbe7510d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_RootAbstractConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Poly_RootAbstractConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Polymorphic/Poly_RootAbstractConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_RootAbstractConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5cc30eb0-664f-417e-a792-96927004a94a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_SecondLevelConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Poly_SecondLevelConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Polymorphic/Poly_SecondLevelConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_SecondLevelConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>75591c07-e807-4d19-97f5-2aab82627ecb</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#053bd987-e679-4605-a341-5026daa8b0c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Poly_TopLevelConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Poly_TopLevelConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EfCoreTestSuite.TPH.IntentGenerated/Core/Polymorphic/Poly_TopLevelConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Polymorphic/Poly_TopLevelConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

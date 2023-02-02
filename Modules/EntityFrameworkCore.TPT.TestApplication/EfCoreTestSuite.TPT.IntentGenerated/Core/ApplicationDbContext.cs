@@ -1,6 +1,8 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EfCoreTestSuite.TPT.IntentGenerated.Core.InheritanceAssociations;
+using EfCoreTestSuite.TPT.IntentGenerated.Core.Polymorphic;
 using EfCoreTestSuite.TPT.IntentGenerated.DomainEvents;
 using EfCoreTestSuite.TPT.IntentGenerated.Entities;
 using EfCoreTestSuite.TPT.IntentGenerated.Entities.InheritanceAssociations;

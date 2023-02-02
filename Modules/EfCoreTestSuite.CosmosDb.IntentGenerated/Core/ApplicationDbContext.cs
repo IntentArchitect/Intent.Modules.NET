@@ -1,6 +1,11 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Core.Associations;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Core.Inheritance;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Core.InheritanceAssociations;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Core.NestedComposition;
+using EfCoreTestSuite.CosmosDb.IntentGenerated.Core.Polymorphic;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.DependencyInjection;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities;
 using EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations;

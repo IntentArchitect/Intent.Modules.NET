@@ -1,6 +1,10 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using EfCoreTestSuite.IntentGenerated.Core.Associations;
+using EfCoreTestSuite.IntentGenerated.Core.ExplicitKeys;
+using EfCoreTestSuite.IntentGenerated.Core.Indexes;
+using EfCoreTestSuite.IntentGenerated.Core.NestedAssociations;
 using EfCoreTestSuite.IntentGenerated.Entities;
 using EfCoreTestSuite.IntentGenerated.Entities.Associations;
 using EfCoreTestSuite.IntentGenerated.Entities.ExplicitKeys;
