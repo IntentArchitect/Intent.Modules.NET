@@ -1,4 +1,4 @@
-﻿### Version 4.0.4
+﻿### Version 4.1.0
 
 - Fixed: Properties on composite entities were not being ignored when they should be (for example for `DomainEvents`).
 - Fixed: DbSet names bug fixed which seemed to have resurfaced.

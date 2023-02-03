@@ -498,21 +498,23 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     var entityClass = file.Classes.First();
                     foreach (var column in columns)
                     {
-                        if (entityClass.GetAllProperties().All(x => !x.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
+                        if (entityClass.GetAllProperties().Any(prop => prop.Name.Equals(column.Name, StringComparison.InvariantCultureIgnoreCase)))
                         {
-                            var typeName = column.Type != null
-                                ? template.GetTypeName(column.Type.AsTypeReference(isNullable: column.IsNullable, isCollection: column.IsCollection))
-                                : this.GetDefaultSurrogateKeyType() + (column.IsNullable ? "?" : string.Empty);
+                            continue;
+                        }
 
-                            var associationProperty = entityClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
-                            if (associationProperty != null)
-                            {
-                                entityClass.InsertProperty(entityClass.Properties.IndexOf(associationProperty), template.UseType(typeName), column.Name, column.ConfigureProperty);
-                            }
-                            else
-                            {
-                                entityClass.AddProperty(template.UseType(typeName), column.Name, column.ConfigureProperty);
-                            }
+                        var typeName = column.Type != null
+                            ? template.GetTypeName(column.Type.AsTypeReference(isNullable: column.IsNullable, isCollection: column.IsCollection))
+                            : this.GetDefaultSurrogateKeyType() + (column.IsNullable ? "?" : string.Empty);
+
+                        var associationProperty = entityClass.Properties.SingleOrDefault(x => x.Name.Equals(column.Name.RemoveSuffix("Id")));
+                        if (associationProperty != null)
+                        {
+                            entityClass.InsertProperty(entityClass.Properties.IndexOf(associationProperty), template.UseType(typeName), column.Name, column.ConfigureProperty);
+                        }
+                        else
+                        {
+                            entityClass.AddProperty(template.UseType(typeName), column.Name, column.ConfigureProperty);
                         }
                     }
                 });

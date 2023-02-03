@@ -127,7 +127,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         switch (_associationEnd.Association.GetRelationshipType())
         {
             case RelationshipType.OneToMany:
-                return AddForeignKey(GetForeignColumns(_associationEnd));
+                return AddForeignKey(GetForeignColumns(_associationEnd, _associationEnd.Id));
             case RelationshipType.OneToOne:
                 if (_associationEnd.OtherEnd().IsNullable)
                 {
@@ -135,7 +135,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
                 }
                 return AddForeignKey(GetForeignColumns(_associationEnd));
             case RelationshipType.ManyToOne:
-                return AddForeignKey(GetForeignColumns(_associationEnd.OtherEnd()));
+                return AddForeignKey(GetForeignColumns(_associationEnd.OtherEnd(), _associationEnd.Id));
             case RelationshipType.ManyToMany:
             default:
                 throw new ArgumentOutOfRangeException();
@@ -192,13 +192,26 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         return this;
     }
 
-    private RequiredEntityProperty[] GetForeignColumns(AssociationEndModel associationEnd)
+    private RequiredEntityProperty[] GetForeignColumns(AssociationEndModel associationEnd, string foreignKeyAssociationId = null)
     {
-
         if (associationEnd.OtherEnd().Class.GetExplicitPrimaryKey().Any())
         {
             if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
             {
+                var fkAttributeWithAssociation = associationEnd.Class.Attributes
+                    .FirstOrDefault(p => p.GetForeignKey()?.Association().Id == foreignKeyAssociationId);
+                if (foreignKeyAssociationId != null && fkAttributeWithAssociation != null)
+                {
+                    return new[]
+                    {
+                        new RequiredEntityProperty(
+                            Class: associationEnd.Element,
+                            Name: fkAttributeWithAssociation.Name,
+                            Type: fkAttributeWithAssociation.Type.Element,
+                            IsNullable: associationEnd.IsNullable)
+                    };
+                }
+                
                 return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
                     .Select(selector: x => new RequiredEntityProperty(
                         Class: associationEnd.Element,
@@ -207,6 +220,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
                         IsNullable: associationEnd.IsNullable))
                     .ToArray();
             }
+            
             // compositional one-to-ones:
             return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
                 .Select(selector: x => new RequiredEntityProperty(

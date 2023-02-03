@@ -22,11 +22,11 @@ public class EfCoreKeyMappingStatement : CSharpStatement
             //    rootEntity = rootEntity.ParentClass;
             //}
 
-            KeyColumns = new[] { new RequiredEntityProperty(model.InternalElement, "Id", null) };
+            KeyColumns = new[] { new RequiredEntityProperty(Class: model.InternalElement, Name: "Id", Type: null) };
         }
         else
         {
-            KeyColumns = model.GetExplicitPrimaryKey().Select(x => new RequiredEntityProperty(model.InternalElement, x.Name.ToPascalCase(), x.Type.Element)).ToArray();
+            KeyColumns = model.GetExplicitPrimaryKey().Select(x => new RequiredEntityProperty(Class: model.InternalElement, Name: x.Name.ToPascalCase(), Type: x.Type.Element)).ToArray();
         }
     }
 
