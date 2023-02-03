@@ -88,7 +88,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"I{Model.Name}Repository",
+                className: $"I{Model.Name.ToPascalCase()}Repository",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

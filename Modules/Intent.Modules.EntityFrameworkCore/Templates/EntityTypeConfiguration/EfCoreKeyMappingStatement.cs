@@ -26,7 +26,7 @@ public class EfCoreKeyMappingStatement : CSharpStatement
         }
         else
         {
-            KeyColumns = model.GetExplicitPrimaryKey().Select(x => new RequiredEntityProperty(Class: model.InternalElement, Name: x.Name.ToPascalCase(), Type: x.Type.Element)).ToArray();
+            KeyColumns = model.GetExplicitPrimaryKey().Select(x => new RequiredEntityProperty(Class: model.InternalElement, Name: x.Name, Type: x.Type.Element)).ToArray();
         }
     }
 
