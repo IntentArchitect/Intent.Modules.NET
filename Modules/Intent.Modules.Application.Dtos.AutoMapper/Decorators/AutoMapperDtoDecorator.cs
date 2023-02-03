@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -143,11 +144,21 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Decorators
             return $"src.{association.Name.ToPascalCase()}Id";
         }
 
-        private string GetPath(IEnumerable<IElementMappingPathTarget> path)
+        private static string GetPath(IEnumerable<IElementMappingPathTarget> path)
         {
             return string.Join(".", path
                 .Where(x => x.Specialization != GeneralizationModel.SpecializationType)
-                .Select(x => x.Specialization == OperationModel.SpecializationType ? $"{x.Name.ToPascalCase()}()" : x.Name.ToPascalCase()));
+                .Select(x =>
+                {
+                    // Can't just .ToPascalCase(), since it turns string like "Count(x => x.IsAssigned())" into "Count(x => X.IsAssigned())"
+                    var name = !string.IsNullOrWhiteSpace(x.Name)
+                        ? char.ToUpperInvariant(x.Name[0]) + x.Name[1..]
+                        : x.Name;
+
+                    return x.Specialization == OperationModel.SpecializationType
+                        ? $"{name}()"
+                        : name;
+                }));
         }
     }
 }

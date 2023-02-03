@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Fixed: Mappping paths like `property.Count(x => x.Method())` would be incorrectly transformed to `property.Count(x => X.Method())` in AutoMapper profiles.
+
 ### Version 3.3.6
 
 - Fixed: Mapping from a DTO field that is of a complex type to a Domain Entity association that is also of Complex type no longer results in trying to map a surrogate key to the DTO Field.
