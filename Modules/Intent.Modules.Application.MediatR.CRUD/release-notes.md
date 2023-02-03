@@ -7,6 +7,7 @@
 - Fixed: Ids on Commands / Queries for explicit keys should now be mapped.
 - Fixed: Generated CRUD handling code now properly detects Primary Key Ids.
 - Fixed: Requests with incoming `null` values on Collection Properties will no longer throw NullReferenceExceptions.
+- New: Using the new Association property on Foreign Key stereotype to identify the correct Attribute on an Entity.
 
 ### Version 4.0.3
 

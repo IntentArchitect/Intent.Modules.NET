@@ -113,7 +113,19 @@ static class ImplementationStrategyTemplatesExtensions
                         return false;
                     }
 
-                    return attr.HasForeignKey() && attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
+                    if (!attr.HasForeignKey())
+                    {
+                        return false;
+                    }
+
+                    var fkAssociation = attr.GetForeignKey().Association()?.AsAssociationTargetEndModel();
+                    // Backward compatible lookup method
+                    if (fkAssociation == null)
+                    {
+                        return attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
+                    }
+
+                    return owner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
                 });
             return idField;
         }

@@ -590,18 +590,35 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     if (!nestedCompOwner) {
         throw new Error("nestedCompOwner not specified");
     }
-    let explicitFkAttr = entity.getChildren("Attribute")
-        .filter(x =&gt; x.name.toLowerCase().indexOf(nestedCompOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+    let explicitFkAttr;
+    for (let attr of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Foreign Key"))) {
+        console.log("attr");
+        console.log(attr);
+        let associationId = attr.getStereotype("Foreign Key").getProperty("Association")?.getValue();
+        console.log("associationId");
+        console.log(associationId);
+        let foundAssociations = nestedCompOwner.getAssociations("Association").filter(x =&gt; x.id == associationId);
+        console.log("foundAssociations");
+        console.log(foundAssociations);
+        if (foundAssociations.length &gt; 0) {
+            explicitFkAttr = attr;
+        }
+    }
+    // Backward compatible
+    if (!explicitFkAttr) {
+        explicitFkAttr = entity.getChildren("Attribute")
+            .filter(x =&gt; x.getName().toLowerCase().indexOf(nestedCompOwner.getName().toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+    }
     if (explicitFkAttr) {
         return {
-            name: getDomainAttributeNameFormat(explicitFkAttr.name),
+            name: getDomainAttributeNameFormat(explicitFkAttr.getName()),
             typeId: explicitFkAttr.typeReference.typeId,
             id: explicitFkAttr.id,
             specialization: globals.FKSpecialization.Explicit
         };
     }
     return {
-        name: getDomainAttributeNameFormat(`${nestedCompOwner.name}Id`),
+        name: getDomainAttributeNameFormat(`${nestedCompOwner.getName()}Id`),
         typeId: getSurrogateKeyType(),
         id: null,
         specialization: globals.FKSpecialization.Implicit
@@ -675,8 +692,7 @@ function getDomainAttributeNamingConvention() {
 // to domain entities that are within a Cosmos DB paradigm.
 function legacyPartitionKey(attribute) {
     return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
-}
-</script>
+}</script>
         </option>
       </scriptOptions>
       <typeOrder />
@@ -2029,18 +2045,35 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     if (!nestedCompOwner) {
         throw new Error("nestedCompOwner not specified");
     }
-    let explicitFkAttr = entity.getChildren("Attribute")
-        .filter(x =&gt; x.name.toLowerCase().indexOf(nestedCompOwner.name.toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+    let explicitFkAttr;
+    for (let attr of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Foreign Key"))) {
+        console.log("attr");
+        console.log(attr);
+        let associationId = attr.getStereotype("Foreign Key").getProperty("Association")?.getValue();
+        console.log("associationId");
+        console.log(associationId);
+        let foundAssociations = nestedCompOwner.getAssociations("Association").filter(x =&gt; x.id == associationId);
+        console.log("foundAssociations");
+        console.log(foundAssociations);
+        if (foundAssociations.length &gt; 0) {
+            explicitFkAttr = attr;
+        }
+    }
+    // Backward compatible
+    if (!explicitFkAttr) {
+        explicitFkAttr = entity.getChildren("Attribute")
+            .filter(x =&gt; x.getName().toLowerCase().indexOf(nestedCompOwner.getName().toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
+    }
     if (explicitFkAttr) {
         return {
-            name: getDomainAttributeNameFormat(explicitFkAttr.name),
+            name: getDomainAttributeNameFormat(explicitFkAttr.getName()),
             typeId: explicitFkAttr.typeReference.typeId,
             id: explicitFkAttr.id,
             specialization: globals.FKSpecialization.Explicit
         };
     }
     return {
-        name: getDomainAttributeNameFormat(`${nestedCompOwner.name}Id`),
+        name: getDomainAttributeNameFormat(`${nestedCompOwner.getName()}Id`),
         typeId: getSurrogateKeyType(),
         id: null,
         specialization: globals.FKSpecialization.Implicit
@@ -2114,8 +2147,7 @@ function getDomainAttributeNamingConvention() {
 // to domain entities that are within a Cosmos DB paradigm.
 function legacyPartitionKey(attribute) {
     return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
-}
-</script>
+}</script>
         </option>
       </scriptOptions>
       <typeOrder />
