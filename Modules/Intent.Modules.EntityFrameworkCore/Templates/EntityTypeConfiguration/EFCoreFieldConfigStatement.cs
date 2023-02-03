@@ -104,6 +104,12 @@ public class EfCoreFieldConfigStatement : CSharpStatement
                 defaultValue = $"\"{defaultValue}\"";
             }
 
+            if (treatAsSqlExpression &&
+                !defaultValue.TrimStart().StartsWith("\""))
+            {
+                defaultValue = $"\"{defaultValue}\"";
+            }
+
             var method = treatAsSqlExpression
                 ? "HasDefaultValueSql"
                 : "HasDefaultValue";
