@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -28,6 +29,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.DbContext";
 
         private readonly IList<EntityTypeConfigurationCreatedEvent> _entityTypeConfigurations = new List<EntityTypeConfigurationCreatedEvent>();
+
+        private readonly ISet<string> _existingDbSetNames = new HashSet<string>();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public DbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
@@ -94,13 +97,44 @@ modelBuilder.Entity<Car>().HasData(
             {
                 _entityTypeConfigurations.Add(typeConfiguration);
                 var @class = CSharpFile.Classes.First();
-
-                @class.AddProperty($"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", GetEntityNameOnly(typeConfiguration.Template.Model).Pluralize());
+                
+                var dbSetPropName = GetAndEnsureDbSetPropertyNameUnique();
+                
+                @class.AddProperty(
+                    type: $"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", 
+                    name: dbSetPropName,
+                    configure: prop => prop.AddMetadata("model", typeConfiguration.Template.Model));
 
                 @class.Methods.Single(x => x.Name.Equals("OnModelCreating"))
                     .AddStatement($"modelBuilder.ApplyConfiguration(new {GetTypeName(typeConfiguration.Template)}());");
 
                 AddTemplateDependency(TemplateDependency.OnTemplate(typeConfiguration.Template)); // needed? GetTypeName does the same thing?
+
+                string GetAndEnsureDbSetPropertyNameUnique()
+                {
+                    var proposedDbSetPropName = GetEntityNameOnly(typeConfiguration.Template.Model).ToPascalCase().Pluralize();
+                    
+                    if (_existingDbSetNames.Add(proposedDbSetPropName)) return proposedDbSetPropName;
+
+                    _existingDbSetNames.Remove(proposedDbSetPropName);
+                    
+                    var collisionProp = @class.Properties.First(p => p.Name == proposedDbSetPropName);
+                    var collisionPropModel = collisionProp.GetMetadata<ClassModel>("model");
+                    var collisionPropModelPrefix = string.Concat(((IHasFolder)collisionPropModel).GetParentFolderNames().Select(s => s.ToPascalCase()));
+                    
+                    @class.Properties.Remove(collisionProp);
+                    
+                    var collisionPropNewName = collisionPropModelPrefix + proposedDbSetPropName;
+                    _existingDbSetNames.Add(collisionPropNewName);
+
+                    @class.AddProperty(
+                        type: collisionProp.Type,
+                        name: collisionPropNewName,
+                        configure: prop => prop.AddMetadata("model", collisionPropModel));
+
+                    var newPropModelPrefix = string.Concat(((IHasFolder)typeConfiguration.Template.Model).GetParentFolderNames().Select(s => s.ToPascalCase()));
+                    return newPropModelPrefix + proposedDbSetPropName;
+                }
             });
         }
         public CSharpFile CSharpFile { get; }
