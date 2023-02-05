@@ -37,6 +37,7 @@ namespace Intent.Modules.VisualStudio.Projects
         public static bool NullableIsEnabled(this AzureFunctionsProjectModel model) => model.InternalElement.NullableIsEnabled();
         public static bool NullableIsEnabled(this ConsoleAppNETCoreModel model) => model.InternalElement.NullableIsEnabled();
         public static bool NullableIsEnabled(this ASPNETCoreWebApplicationModel model) => model.InternalElement.NullableIsEnabled();
+        public static bool NullableIsEnabled(this CSharpProjectNETModel model) => model.InternalElement.NullableIsEnabled();
 
         private static bool NullableIsEnabled(this IHasStereotypes element)
         {

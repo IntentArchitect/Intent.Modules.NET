@@ -6,10 +6,12 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Templates;
+using Intent.Modules.VisualStudio.Projects.Templates.CSharpProject;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 
@@ -59,6 +61,34 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     hasChange |= SyncProperty(doc, "AssemblyName", netCoreSettings.AssemblyName());
                     hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netCoreSettings.GenerateRuntimeConfigurationFiles().Value);
                     hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netCoreSettings.GenerateDocumentationFile().Value);
+                }
+
+                if (template.Project is CSharpProjectNETModel model &&
+                    model.HasNETSettings())
+                {
+                    var netSettings = model.GetNETSettings();
+
+                    if (doc.Root!.Attribute("Sdk")!.Value != netSettings.SDK().Value)
+                    {
+                        doc.Root.Attribute("Sdk")!.Value = netSettings.SDK().Value;
+                        hasChange = true;
+                    }
+
+                    hasChange |= SyncProperty(doc, "OutputType", netSettings.OutputType().Value switch
+                    {
+                        "Class Library" => "Library",
+                        "Console Application" => "Exe",
+                        "Windows Application" => "WinExe",
+                        _ => null
+                    });
+                    hasChange |= SyncProperty(doc, "AzureFunctionsVersion", netSettings.AzureFunctionsVersion().Value, true);
+                    hasChange |= SyncProperty(doc, "Configurations", netSettings.Configurations());
+                    hasChange |= SyncProperty(doc, "RuntimeIdentifiers", netSettings.RuntimeIdentifiers());
+                    hasChange |= SyncProperty(doc, "UserSecretsId", netSettings.UserSecretsId());
+                    hasChange |= SyncProperty(doc, "RootNamespace", netSettings.RootNamespace());
+                    hasChange |= SyncProperty(doc, "AssemblyName", netSettings.AssemblyName());
+                    hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netSettings.GenerateRuntimeConfigurationFiles().Value);
+                    hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netSettings.GenerateDocumentationFile().Value);
                 }
 
                 var projectOptions = template.Project.GetCSharpProjectOptions();

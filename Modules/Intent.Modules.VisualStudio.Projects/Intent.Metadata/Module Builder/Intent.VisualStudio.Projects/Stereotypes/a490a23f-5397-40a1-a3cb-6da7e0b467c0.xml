@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="a490a23f-5397-40a1-a3cb-6da7e0b467c0" version="3.1.0">
+  <name>.NET Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="8e9e6693-2888-4f48-a0d6-0f163baab740">C# Project (.NET)</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>f0d6fe41-55fc-486f-998b-5b49efa2e07f</parentFolderId>
+  <order>0</order>
+  <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
+  <packageName>Intent.VisualStudio.Projects</packageName>
+  <properties>
+    <property id="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf">
+      <name>SDK</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>Microsoft.NET.Sdk</defaultValue>
+      <valueOptions>
+        <option>Microsoft.NET.Sdk</option>
+        <option>Microsoft.NET.Sdk.Web</option>
+      </valueOptions>
+      <lookupTypes />
+      <isActiveFunction />
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="6a7d81d7-351e-4cdf-a596-142a74507455">
+      <name>Output Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unspecified)</placeholder>
+      <valueOptions>
+        <option>Class Library</option>
+        <option>Console Application</option>
+        <option>Windows Application</option>
+      </valueOptions>
+      <lookupTypes />
+      <isActiveFunction />
+    </property>
+    <property id="9da51e12-529a-4592-9119-491d7bc9d5d5">
+      <name>Azure Functions Version</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <valueOptions>
+        <option>v2</option>
+        <option>v3</option>
+        <option>v4</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0">
+      <name>Target Multiple Frameworks</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="d53ab03c-90cf-4b6a-b733-73b6983ab603">
+      <hint />
+      <name>Target Framework</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue>16d99e3e-7b91-42f8-ae3b-2686edde94b7</defaultValue>
+      <valueOptions />
+      <lookupTypes>
+        <type>65fb2757-ce97-41a8-9c53-b03d53c2c03f</type>
+        <type>6453c4bd-78b8-4589-a223-9f57a348a1a1</type>
+      </lookupTypes>
+      <isActiveFunction>return properties["Target Multiple Frameworks"].value == false;</isActiveFunction>
+      <isRequiredFunction>true</isRequiredFunction>
+    </property>
+    <property id="b9685057-b337-42d8-9536-d0185ea69b73">
+      <hint />
+      <name>Target Frameworks</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder>(required)</placeholder>
+      <defaultValue />
+      <valueOptions />
+      <lookupTypes>
+        <type>65fb2757-ce97-41a8-9c53-b03d53c2c03f</type>
+        <type>6453c4bd-78b8-4589-a223-9f57a348a1a1</type>
+      </lookupTypes>
+      <isActiveFunction>return properties["Target Multiple Frameworks"].value == true;</isActiveFunction>
+      <isRequiredFunction>true</isRequiredFunction>
+    </property>
+    <property id="8ee6e435-e556-439c-9712-a3f287972813">
+      <hint />
+      <name>Runtime Identifiers</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="c9fc7052-9557-4485-a759-fa33363472b3">
+      <hint />
+      <name>Configurations</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="c27f8813-bee4-4289-81e5-570e755a8f30">
+      <hint />
+      <name>Root Namespace</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="a6660df2-6016-40c6-8453-8e5993f407c9">
+      <hint />
+      <name>User Secrets Id</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="16ac8254-c83f-42d9-98bb-db9c0532bce6">
+      <hint />
+      <name>Generate Runtime Configuration Files</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unmanaged)</placeholder>
+      <valueOptions>
+        <option>(unspecified)</option>
+        <option>false</option>
+        <option>true</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="94e630db-ee2b-4d4f-a423-19d3469178fa">
+      <hint />
+      <name>Generate Documentation File</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unmanaged)</placeholder>
+      <valueOptions>
+        <option>(unspecified)</option>
+        <option>false</option>
+        <option>true</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="d6c50001-ac9d-4819-94a9-8b6aa7f02e47">
+      <name>Assembly Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

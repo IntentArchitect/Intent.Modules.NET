@@ -119,6 +119,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new AzureFunctionsProjectModel(x))
             .ToList();
 
+        public IList<CSharpProjectNETModel> CSharpProjectNETs => _element.ChildElements
+            .GetElementsOfType(CSharpProjectNETModel.SpecializationTypeId)
+            .Select(x => new CSharpProjectNETModel(x))
+            .ToList();
+
         public IList<ConsoleAppNETCoreModel> ConsoleAppNETCores => _element.ChildElements
             .GetElementsOfType(ConsoleAppNETCoreModel.SpecializationTypeId)
             .Select(x => new ConsoleAppNETCoreModel(x))

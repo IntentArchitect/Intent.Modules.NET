@@ -28,13 +28,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
         public string TemplateId => SqlProjectTemplate.TemplateId;
 
 
-        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var models = _metadataManager.VisualStudio(application).GetSQLServerDatabaseProjectModels();
+            var models = _metadataManager.VisualStudio(applicationManager).GetSQLServerDatabaseProjectModels();
 
             foreach (var model in models)
             {
-                var project = application.OutputTargets.Single(x => x.Id == model.Id);
+                var project = applicationManager.OutputTargets.Single(x => x.Id == model.Id);
                 registry.RegisterTemplate(TemplateId, project, p => new SqlProjectTemplate(p, model));
             }
         }

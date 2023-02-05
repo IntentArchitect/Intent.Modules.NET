@@ -14,7 +14,7 @@ using Intent.Templates;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
+namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 {
     public class LaunchSettingsJsonTemplate : IntentFileTemplateBase<object>, ITemplate
     {
@@ -238,7 +238,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
                          .Select(x => x.Value))
                 {
                     profile.environmentVariables ??= JObject.FromObject(new EnvironmentVariables());
-                    ((dynamic)profile.environmentVariables)[environmentVariable.Key] ??= environmentVariable.Value;
+                    profile.environmentVariables[environmentVariable.Key] ??= environmentVariable.Value;
                 }
             }
 

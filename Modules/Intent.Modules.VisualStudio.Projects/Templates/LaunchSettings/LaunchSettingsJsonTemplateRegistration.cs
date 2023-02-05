@@ -1,15 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject;
 using Intent.Registrations;
-using Intent.Templates;
 
-
-namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
+namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 {
     [Description(LaunchSettingsJsonTemplate.Identifier)]
     public class LaunchSettingsJsonTemplateRegistration : ITemplateRegistration
@@ -24,11 +19,15 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.LaunchSettings
 
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
-            var models = _metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels();
+            var modelIds = _metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels()
+                .Select(x => x.Id)
+                .Union(_metadataManager.VisualStudio(application).GetCSharpProjectNETModels()
+                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb())
+                    .Select(x => x.Id));
 
-            foreach (var model in models)
+            foreach (var modelId in modelIds)
             {
-                var project = application.Projects.Single(x => x.Id == model.Id);
+                var project = application.Projects.Single(x => x.Id == modelId);
                 registry.Register(TemplateId, project, p => new LaunchSettingsJsonTemplate(p, project.Application.EventDispatcher));
             }
         }

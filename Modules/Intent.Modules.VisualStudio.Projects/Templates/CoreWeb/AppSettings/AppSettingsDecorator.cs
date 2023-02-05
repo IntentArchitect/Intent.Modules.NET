@@ -1,3 +1,4 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 

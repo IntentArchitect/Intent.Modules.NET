@@ -43,10 +43,6 @@
       <LastGenOutput>CoreConsoleAppTemplate.cs</LastGenOutput>
       <Generator>TextTemplatingFilePreprocessor</Generator>
     </None>
-    <None Update="Templates\CoreWeb\AppSettings\AppSettingsTemplate.tt">
-      <LastGenOutput>AppSettingsTemplate.cs</LastGenOutput>
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-    </None>
     <None Update="Templates\CSharpProject\CSharpProjectTemplate.tt">
       <LastGenOutput>CSharpProjectTemplate.cs</LastGenOutput>
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -55,6 +51,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SqlProjectTemplate.cs</LastGenOutput>
     </None>
+    <Compile Update="Templates\AppSettings\AppSettingsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppSettingsTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\AzureFunctions\CsProject\AzureFunctionsCsProjectTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -64,11 +65,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CoreConsoleAppTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\CoreWeb\AppSettings\AppSettingsTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AppSettingsTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\CSharpProject\CSharpProjectTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -113,6 +109,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CoreLibraryCSProjectTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\AppSettings\AppSettingsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AppSettingsTemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CoreWebCSProjectTemplate.cs</LastGenOutput>
@@ -144,6 +144,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CoreWebCSProjectTemplate.tt</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Templates\CoreWeb\AppSettings\" />
   </ItemGroup>
 
 </Project>

@@ -25,6 +25,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 .Concat(metadataManager.VisualStudio(application).GetSQLServerDatabaseProjectModels())
                 .Concat(metadataManager.VisualStudio(application).GetAzureFunctionsProjectModels())
                 .Concat(metadataManager.VisualStudio(application).GetConsoleAppNETCoreModels())
+                .Concat(metadataManager.VisualStudio(application).GetCSharpProjectNETModels())
                 .ToList();
         }
 
@@ -117,6 +118,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         {
             return designer.GetElementsOfType(AzureFunctionsProjectModel.SpecializationTypeId)
                 .Select(x => new AzureFunctionsProjectModel(x))
+                .ToList();
+        }
+
+        public static IList<CSharpProjectNETModel> GetCSharpProjectNETModels(this IDesigner designer)
+        {
+            return designer.GetElementsOfType(CSharpProjectNETModel.SpecializationTypeId)
+                .Select(x => new CSharpProjectNETModel(x))
                 .ToList();
         }
 

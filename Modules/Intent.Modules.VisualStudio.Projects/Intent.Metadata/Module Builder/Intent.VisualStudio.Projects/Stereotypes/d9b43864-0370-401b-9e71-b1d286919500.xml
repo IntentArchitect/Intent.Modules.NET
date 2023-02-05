@@ -11,6 +11,7 @@
     <type id="3CDFF513-03D8-4BAB-9435-160108A086A3">WCF Service Application</type>
     <type id="73e51385-5e20-4e2c-aa0b-6eb2dc8de52e">Azure Functions Project</type>
     <type id="27b265c8-e185-4c33-9908-8d23d5e945d1">Console App (.NET Core)</type>
+    <type id="8e9e6693-2888-4f48-a0d6-0f163baab740">C# Project (.NET)</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>

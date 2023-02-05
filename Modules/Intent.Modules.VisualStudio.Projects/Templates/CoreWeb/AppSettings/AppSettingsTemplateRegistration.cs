@@ -26,19 +26,32 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             _metadataManager = metadataManager;
         }
 
-        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var aspProjects = _metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels();
+            var projects = _metadataManager.VisualStudio(applicationManager).GetASPNETCoreWebApplicationModels()
+                .Select(x => new
+                {
+                    x.Id,
+                    x.RuntimeEnvironments
+                })
+                .Union(_metadataManager.VisualStudio(applicationManager).GetCSharpProjectNETModels()
+                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb())
+                    .Select(x => new
+                    {
+                        x.Id,
+                        x.RuntimeEnvironments
+                    }));
 
-            foreach (var aspProject in aspProjects)
+            foreach (var aspProject in projects)
             {
-                var outputTarget = application.OutputTargets.Single(x => x.Id == aspProject.Id);
+                var outputTarget = applicationManager.OutputTargets.Single(x => x.Id == aspProject.Id);
 
-                registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(aspProject)));
+                registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel()));
 
                 foreach (var runtimeEnvironment in aspProject.RuntimeEnvironments)
                 {
-                    registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(aspProject, runtimeEnvironment)));
+                    registry.RegisterTemplate(TemplateId, outputTarget, target => new AppSettingsTemplate(target, new AppSettingsModel(runtimeEnvironment)));
                 }
             }
         }
