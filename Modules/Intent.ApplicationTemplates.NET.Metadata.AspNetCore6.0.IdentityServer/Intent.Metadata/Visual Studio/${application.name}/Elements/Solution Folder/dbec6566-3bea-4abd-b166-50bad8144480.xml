@@ -3,7 +3,7 @@
   <name>2 - Infrastructure</name>
   <display>2 - Infrastructure</display>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>2a163ff4-f39a-4c62-94ac-20b510ffbcbd</parentFolderId>
