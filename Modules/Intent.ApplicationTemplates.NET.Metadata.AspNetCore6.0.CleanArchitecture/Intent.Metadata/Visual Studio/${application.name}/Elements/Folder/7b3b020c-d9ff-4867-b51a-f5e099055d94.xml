@@ -4,9 +4,10 @@
   <display>Entities</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
+  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>0e3e7cf8-3356-47f5-a317-b036a278695c</parentFolderId>
+  <parentFolderId>2df1abc0-1bf8-4f28-8819-fd522fcfdae2</parentFolderId>
   <packageId>e177fd07-ad3d-4cdf-abaa-1e5fefce17e5</packageId>
   <packageName>${application.name}</packageName>
   <stereotypes>
