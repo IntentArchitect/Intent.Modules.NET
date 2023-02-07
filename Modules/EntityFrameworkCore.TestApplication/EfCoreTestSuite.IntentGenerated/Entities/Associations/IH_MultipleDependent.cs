@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string MultipleDepAttr { get; set; }
 
-        IH_OptionalAggregateNav HOptionalAggregateNav { get; set; }
+        IH_OptionalAggregateNav H_OptionalAggregateNav { get; set; }
 
     }
 }

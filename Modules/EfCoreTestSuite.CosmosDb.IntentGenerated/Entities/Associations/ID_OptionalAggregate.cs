@@ -13,6 +13,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         string OptionalAggregateAttr { get; set; }
 
-        ICollection<ID_MultipleDependent> DMultipleDependents { get; set; }
+        ICollection<ID_MultipleDependent> D_MultipleDependents { get; set; }
     }
 }

@@ -27,12 +27,12 @@ public class GeneralEFTests
         DbContext.SaveChanges();
 
         var dst = new A_OptionalDependent() { OptionalDependentAttr = "test 2" };
-        src.AOptionalDependent = dst;
+        src.A_OptionalDependent = dst;
         DbContext.SaveChanges();
 
         var owner = DbContext.A_RequiredComposites.SingleOrDefault(p => p.Id == src.Id);
         Assert.NotNull(owner);
-        Assert.NotNull(owner.AOptionalDependent);
+        Assert.NotNull(owner.A_OptionalDependent);
     }
 
     [IgnoreOnCiBuildFact]
@@ -46,19 +46,19 @@ public class GeneralEFTests
         DbContext.B_OptionalDependents.Add(dst);
         DbContext.SaveChanges();
 
-        src.BOptionalDependent = dst;
+        src.B_OptionalDependent = dst;
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.B_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
-        Assert.Equal(dst, DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id)?.BOptionalDependent);
+        Assert.Equal(dst, DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id)?.B_OptionalDependent);
 
-        src.BOptionalDependent = null;
+        src.B_OptionalDependent = null;
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.B_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
-        Assert.Null(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.BOptionalDependentId == dst.Id));
+        Assert.Null(DbContext.B_OptionalAggregates.SingleOrDefault(p => p.B_OptionalDependentId == dst.Id));
     }
 
     [IgnoreOnCiBuildFact]
@@ -74,12 +74,12 @@ public class GeneralEFTests
             new C_MultipleDependent() { MultipleDependentAttr = "test 3" }
         };
 
-        src.CMultipleDependents.AddRange(dstList);
+        src.C_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         var owner = DbContext.C_RequiredComposites.SingleOrDefault(p => p.Id == src.Id);
         Assert.NotNull(owner);
-        Assert.Equal(dstList.Count, owner.CMultipleDependents.Count(p => dstList.Contains(p)));
+        Assert.Equal(dstList.Count, owner.C_MultipleDependents.Count(p => dstList.Contains(p)));
 
         // I previously had an orphan check here. Keeping just in case.
         // Assert.Throws<DbUpdateException>(() =>
@@ -104,13 +104,13 @@ public class GeneralEFTests
             new D_MultipleDependent() { MultipleDependentAttr = "test 3", PartitionKey = "ABC" }
         };
 
-        src.DMultipleDependents.AddRange(dstList);
+        src.D_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.D_OptionalAggregates.SingleOrDefault(p => p.Id == src.Id));
         Assert.Equal(dstList.Count, DbContext.D_MultipleDependents.Count(p => dstList.Contains(p)));
 
-        dstList.ForEach(x => x.DOptionalAggregateId = null);
+        dstList.ForEach(x => x.D_OptionalAggregateId = null);
         DbContext.SaveChanges();
 
         Assert.Equal(dstList.Count, DbContext.D_MultipleDependents.Count(p => dstList.Contains(p)));
@@ -123,13 +123,13 @@ public class GeneralEFTests
         DbContext.E_RequiredCompositeNavs.Add(src);
 
         var dst = new E_RequiredDependent() { RequiredDependentAttr = "test 2" };
-        src.ERequiredDependent = dst;
+        src.E_RequiredDependent = dst;
 
         DbContext.SaveChanges();
 
         var owner = DbContext.E_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id);
         Assert.NotNull(owner);
-        Assert.NotNull(owner.ERequiredDependent);
+        Assert.NotNull(owner.E_RequiredDependent);
 
         // These constraints are not being enforced
         
@@ -157,21 +157,21 @@ public class GeneralEFTests
         DbContext.F_OptionalDependents.Add(dst);
         DbContext.SaveChanges();
 
-        src.FOptionalDependent = dst;
+        src.F_OptionalDependent = dst;
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
-        Assert.Equal(dst, DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id)?.FOptionalDependent);
-        Assert.Equal(src, DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.FOptionalAggregateNav);
+        Assert.Equal(dst, DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id)?.F_OptionalDependent);
+        Assert.Equal(src, DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.F_OptionalAggregateNav);
 
-        src.FOptionalDependent = null;
+        src.F_OptionalDependent = null;
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
         Assert.NotNull(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id));
-        Assert.Null(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id)?.FOptionalDependent);
-        Assert.Null(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.FOptionalAggregateNav);
+        Assert.Null(DbContext.F_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id)?.F_OptionalDependent);
+        Assert.Null(DbContext.F_OptionalDependents.SingleOrDefault(p => p.Id == dst.Id)?.F_OptionalAggregateNav);
     }
 
     [IgnoreOnCiBuildFact]
@@ -187,12 +187,12 @@ public class GeneralEFTests
             new G_MultipleDependent() { MultipleDepAttr = "test 3" }
         };
 
-        src.GMultipleDependents.AddRange(dstList);
+        src.G_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         var owner = DbContext.G_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id);
         Assert.NotNull(owner);
-        Assert.Equal(dstList.Count, owner.GMultipleDependents.Count(p => dstList.Contains(p)));
+        Assert.Equal(dstList.Count, owner.G_MultipleDependents.Count(p => dstList.Contains(p)));
 
         // I previously had an orphan check here. Keeping just in case.
         // Assert.Throws<DbUpdateException>(() =>
@@ -216,13 +216,13 @@ public class GeneralEFTests
             new H_MultipleDependent() { MultipleDepAttr = "test 3", PartitionKey = "ABC" }
         };
 
-        src.HMultipleDependents.AddRange(dstList);
+        src.H_MultipleDependents.AddRange(dstList);
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.H_OptionalAggregateNavs.SingleOrDefault(p => p.Id == src.Id));
         Assert.Equal(dstList.Count, DbContext.H_MultipleDependents.Count(p => dstList.Contains(p)));
 
-        dstList.ForEach(x => x.HOptionalAggregateNavId = null);
+        dstList.ForEach(x => x.H_OptionalAggregateNavId = null);
         DbContext.SaveChanges();
 
         Assert.Equal(dstList.Count, DbContext.H_MultipleDependents.Count(p => dstList.Contains(p)));
@@ -243,7 +243,7 @@ public class GeneralEFTests
         srcList.ForEach(x =>
         {
             DbContext.J_MultipleAggregates.Add(x);
-            x.JRequiredDependent = dst;
+            x.J_RequiredDependent = dst;
         });
         DbContext.SaveChanges();
 
@@ -275,13 +275,13 @@ public class GeneralEFTests
         children.ForEach(x =>
         {
             DbContext.K_SelfReferences.Add(x);
-            x.KSelfReferenceAssociation = root;
+            x.K_SelfReferenceAssociation = root;
         });
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.K_SelfReferences.SingleOrDefault(p => p.Id == root.Id));
         Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => children.Contains(p)));
-        Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => p.KSelfReferenceAssociationId == root.Id));
+        Assert.Equal(children.Count, DbContext.K_SelfReferences.Count(p => p.K_SelfReferenceAssociationId == root.Id));
     }
 
     [IgnoreOnCiBuildFact]
@@ -299,13 +299,13 @@ public class GeneralEFTests
         children.ForEach(x =>
         {
             DbContext.M_SelfReferenceBiNavs.Add(x);
-            x.MSelfReferenceBiNavAssocation = root;
+            x.M_SelfReferenceBiNavAssocation = root;
         });
         DbContext.SaveChanges();
 
         Assert.NotNull(DbContext.M_SelfReferenceBiNavs.SingleOrDefault(p => p.Id == root.Id));
         Assert.Equal(children.Count, DbContext.M_SelfReferenceBiNavs.Count(p => children.Contains(p)));
-        Assert.Equal(children.Count, root.MSelfReferenceBiNavs.Count);
+        Assert.Equal(children.Count, root.M_SelfReferenceBiNavs.Count);
     }
 
     [IgnoreOnCiBuildFact]

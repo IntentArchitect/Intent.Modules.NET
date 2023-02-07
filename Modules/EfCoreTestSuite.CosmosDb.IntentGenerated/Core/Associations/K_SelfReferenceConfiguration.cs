@@ -25,9 +25,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core.Associations
             builder.Property(x => x.SelfRefAttr)
                 .IsRequired();
 
-            builder.HasOne(x => x.KSelfReferenceAssociation)
+            builder.HasOne(x => x.K_SelfReferenceAssociation)
                 .WithMany()
-                .HasForeignKey(x => x.KSelfReferenceAssociationId)
+                .HasForeignKey(x => x.K_SelfReferenceAssociationId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

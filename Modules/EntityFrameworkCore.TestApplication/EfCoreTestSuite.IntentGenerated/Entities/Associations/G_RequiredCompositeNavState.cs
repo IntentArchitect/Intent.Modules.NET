@@ -17,12 +17,12 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string ReqCompNavAttr { get; set; }
 
-        public virtual ICollection<G_MultipleDependent> GMultipleDependents { get; set; } = new List<G_MultipleDependent>();
+        public virtual ICollection<G_MultipleDependent> G_MultipleDependents { get; set; } = new List<G_MultipleDependent>();
 
-        ICollection<IG_MultipleDependent> IG_RequiredCompositeNav.GMultipleDependents
+        ICollection<IG_MultipleDependent> IG_RequiredCompositeNav.G_MultipleDependents
         {
-            get => GMultipleDependents.CreateWrapper<IG_MultipleDependent, G_MultipleDependent>();
-            set => GMultipleDependents = value.Cast<G_MultipleDependent>().ToList();
+            get => G_MultipleDependents.CreateWrapper<IG_MultipleDependent, G_MultipleDependent>();
+            set => G_MultipleDependents = value.Cast<G_MultipleDependent>().ToList();
         }
 
 

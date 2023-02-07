@@ -41,6 +41,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e3e874fd-f882-41ba-b3b4-2fbaef7c51ea</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.TestSuite.IntentGenerated/EF/ApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e3e874fd-f882-41ba-b3b4-2fbaef7c51ea</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.TestSuite.IntentGenerated/EF/IApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e3e874fd-f882-41ba-b3b4-2fbaef7c51ea</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.TestSuite.IntentGenerated/EF/MIGRATION_README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2d38a75e-922d-493f-95d6-e064ba125214</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#ccf1be84-cd55-4586-82fe-ede9de7c6cd4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -14,6 +14,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string PartitionKey { get; set; }
 
-        public Guid? DOptionalAggregateId { get; set; }
+        public Guid? D_OptionalAggregateId { get; set; }
     }
 }

@@ -24,17 +24,17 @@ namespace EfCoreTestSuite.TPC.IntentGenerated.Core.Polymorphic
             builder.Property(x => x.BaseField)
                 .IsRequired();
 
-            builder.HasOne(x => x.PolyRootAbstractAggr)
+            builder.HasOne(x => x.Poly_RootAbstract_Aggr)
                 .WithMany()
-                .HasForeignKey(x => x.PolyRootAbstractAggrId)
+                .HasForeignKey(x => x.Poly_RootAbstract_AggrId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.OwnsOne(x => x.PolyRootAbstractComp, ConfigurePolyRootAbstractComp);
+            builder.OwnsOne(x => x.Poly_RootAbstract_Comp, ConfigurePoly_RootAbstract_Comp);
 
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigurePolyRootAbstractComp(OwnedNavigationBuilder<Poly_BaseClassNonAbstract, Poly_RootAbstract_Comp> builder)
+        public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<Poly_BaseClassNonAbstract, Poly_RootAbstract_Comp> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

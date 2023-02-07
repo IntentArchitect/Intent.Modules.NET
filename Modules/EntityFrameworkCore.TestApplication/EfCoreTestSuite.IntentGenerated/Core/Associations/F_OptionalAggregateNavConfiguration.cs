@@ -19,9 +19,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core.Associations
             builder.Property(x => x.OptionalAggrNavAttr)
                 .IsRequired();
 
-            builder.HasOne(x => x.FOptionalDependent)
-                .WithOne(x => x.FOptionalAggregateNav)
-                .HasForeignKey<F_OptionalAggregateNav>(x => x.FOptionalDependentId)
+            builder.HasOne(x => x.F_OptionalDependent)
+                .WithOne(x => x.F_OptionalAggregateNav)
+                .HasForeignKey<F_OptionalAggregateNav>(x => x.F_OptionalDependentId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

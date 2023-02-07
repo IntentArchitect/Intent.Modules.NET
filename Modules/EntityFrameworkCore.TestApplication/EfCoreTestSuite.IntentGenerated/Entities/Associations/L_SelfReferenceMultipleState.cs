@@ -17,15 +17,15 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string SelfRefMultipleAttr { get; set; }
 
-        public virtual ICollection<L_SelfReferenceMultiple> LSelfReferenceMultiplesDst { get; set; } = new List<L_SelfReferenceMultiple>();
+        public virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; } = new List<L_SelfReferenceMultiple>();
 
-        ICollection<IL_SelfReferenceMultiple> IL_SelfReferenceMultiple.LSelfReferenceMultiplesDst
+        ICollection<IL_SelfReferenceMultiple> IL_SelfReferenceMultiple.L_SelfReferenceMultiplesDst
         {
-            get => LSelfReferenceMultiplesDst.CreateWrapper<IL_SelfReferenceMultiple, L_SelfReferenceMultiple>();
-            set => LSelfReferenceMultiplesDst = value.Cast<L_SelfReferenceMultiple>().ToList();
+            get => L_SelfReferenceMultiplesDst.CreateWrapper<IL_SelfReferenceMultiple, L_SelfReferenceMultiple>();
+            set => L_SelfReferenceMultiplesDst = value.Cast<L_SelfReferenceMultiple>().ToList();
         }
 
-        protected virtual ICollection<L_SelfReferenceMultiple> LSelfReferenceMultiplesSrc { get; set; }
+        protected virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesSrc { get; set; }
 
 
     }

@@ -17,22 +17,22 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string SelfRefBiNavAttr { get; set; }
 
-        public Guid? MSelfReferenceBiNavDstId { get; set; }
+        public Guid? M_SelfReferenceBiNavDstId { get; set; }
 
-        public virtual M_SelfReferenceBiNav MSelfReferenceBiNavDst { get; set; }
+        public virtual M_SelfReferenceBiNav M_SelfReferenceBiNavDst { get; set; }
 
-        IM_SelfReferenceBiNav IM_SelfReferenceBiNav.MSelfReferenceBiNavDst
+        IM_SelfReferenceBiNav IM_SelfReferenceBiNav.M_SelfReferenceBiNavDst
         {
-            get => MSelfReferenceBiNavDst;
-            set => MSelfReferenceBiNavDst = (M_SelfReferenceBiNav)value;
+            get => M_SelfReferenceBiNavDst;
+            set => M_SelfReferenceBiNavDst = (M_SelfReferenceBiNav)value;
         }
 
-        public virtual ICollection<M_SelfReferenceBiNav> MSelfReferenceBiNavs { get; set; } = new List<M_SelfReferenceBiNav>();
+        public virtual ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; } = new List<M_SelfReferenceBiNav>();
 
-        ICollection<IM_SelfReferenceBiNav> IM_SelfReferenceBiNav.MSelfReferenceBiNavs
+        ICollection<IM_SelfReferenceBiNav> IM_SelfReferenceBiNav.M_SelfReferenceBiNavs
         {
-            get => MSelfReferenceBiNavs.CreateWrapper<IM_SelfReferenceBiNav, M_SelfReferenceBiNav>();
-            set => MSelfReferenceBiNavs = value.Cast<M_SelfReferenceBiNav>().ToList();
+            get => M_SelfReferenceBiNavs.CreateWrapper<IM_SelfReferenceBiNav, M_SelfReferenceBiNav>();
+            set => M_SelfReferenceBiNavs = value.Cast<M_SelfReferenceBiNav>().ToList();
         }
 
 

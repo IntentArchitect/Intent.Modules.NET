@@ -14,14 +14,14 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string PartitionKey { get; set; }
 
-        public Guid? BOptionalDependentId { get; set; }
+        public Guid? B_OptionalDependentId { get; set; }
 
-        public virtual B_OptionalDependent BOptionalDependent { get; set; }
+        public virtual B_OptionalDependent B_OptionalDependent { get; set; }
 
-        IB_OptionalDependent IB_OptionalAggregate.BOptionalDependent
+        IB_OptionalDependent IB_OptionalAggregate.B_OptionalDependent
         {
-            get => BOptionalDependent;
-            set => BOptionalDependent = (B_OptionalDependent)value;
+            get => B_OptionalDependent;
+            set => B_OptionalDependent = (B_OptionalDependent)value;
         }
     }
 }

@@ -12,6 +12,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         string MultipleAggrAttr { get; set; }
 
-        IJ_RequiredDependent JRequiredDependent { get; set; }
+        IJ_RequiredDependent J_RequiredDependent { get; set; }
     }
 }

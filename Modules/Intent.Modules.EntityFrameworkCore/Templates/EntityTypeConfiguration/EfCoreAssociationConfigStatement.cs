@@ -199,7 +199,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
             if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
             {
                 var fkAttributeWithAssociation = associationEnd.Class.Attributes
-                    .FirstOrDefault(p => p.GetForeignKey()?.Association().Id == foreignKeyAssociationId);
+                    .FirstOrDefault(p => p.GetForeignKey()?.Association()?.Id == foreignKeyAssociationId);
                 if (foreignKeyAssociationId != null && fkAttributeWithAssociation != null)
                 {
                     return new[]

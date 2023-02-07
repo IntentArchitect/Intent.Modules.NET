@@ -25,9 +25,9 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Core.Associations
             builder.Property(x => x.OptionalAggregateAttr)
                 .IsRequired();
 
-            builder.HasMany(x => x.DMultipleDependents)
+            builder.HasMany(x => x.D_MultipleDependents)
                 .WithOne()
-                .HasForeignKey(x => x.DOptionalAggregateId);
+                .HasForeignKey(x => x.D_OptionalAggregateId);
         }
     }
 }

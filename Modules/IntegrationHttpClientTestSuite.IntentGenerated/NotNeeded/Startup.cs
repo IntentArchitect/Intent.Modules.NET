@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IntegrationHttpClientTestSuite.IntentGenerated.DependencyInjection;
+using IntegrationHttpClientTestSuite.IntentGenerated.EF;
 using IntegrationHttpClientTestSuite.IntentGenerated.HttpClients;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -34,6 +35,7 @@ namespace IntegrationHttpClientTestSuite.IntentGenerated.NotNeeded
         {
             services.AddControllers();
             services.AddHttpClients(Configuration);
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

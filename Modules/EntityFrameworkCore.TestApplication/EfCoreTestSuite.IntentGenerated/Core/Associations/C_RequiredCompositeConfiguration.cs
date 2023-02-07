@@ -19,13 +19,13 @@ namespace EfCoreTestSuite.IntentGenerated.Core.Associations
             builder.Property(x => x.RequiredCompAttr)
                 .IsRequired();
 
-            builder.OwnsMany(x => x.CMultipleDependents, ConfigureCMultipleDependents);
+            builder.OwnsMany(x => x.C_MultipleDependents, ConfigureC_MultipleDependents);
         }
 
-        public void ConfigureCMultipleDependents(OwnedNavigationBuilder<C_RequiredComposite, C_MultipleDependent> builder)
+        public void ConfigureC_MultipleDependents(OwnedNavigationBuilder<C_RequiredComposite, C_MultipleDependent> builder)
         {
             builder.WithOwner()
-                .HasForeignKey(x => x.CRequiredCompositeId);
+                .HasForeignKey(x => x.C_RequiredCompositeId);
 
             builder.HasKey(x => x.Id);
 

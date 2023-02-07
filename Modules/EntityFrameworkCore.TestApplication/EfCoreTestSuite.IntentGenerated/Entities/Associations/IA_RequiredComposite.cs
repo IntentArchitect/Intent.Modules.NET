@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string RequiredCompAttr { get; set; }
 
-        IA_OptionalDependent AOptionalDependent { get; set; }
+        IA_OptionalDependent A_OptionalDependent { get; set; }
 
     }
 }

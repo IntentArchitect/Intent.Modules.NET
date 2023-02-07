@@ -19,9 +19,9 @@ namespace EfCoreTestSuite.IntentGenerated.Core.Associations
             builder.Property(x => x.SelfRefBiNavAttr)
                 .IsRequired();
 
-            builder.HasOne(x => x.MSelfReferenceBiNavDst)
-                .WithMany(x => x.MSelfReferenceBiNavs)
-                .HasForeignKey(x => x.MSelfReferenceBiNavDstId)
+            builder.HasOne(x => x.M_SelfReferenceBiNavDst)
+                .WithMany(x => x.M_SelfReferenceBiNavs)
+                .HasForeignKey(x => x.M_SelfReferenceBiNavDstId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

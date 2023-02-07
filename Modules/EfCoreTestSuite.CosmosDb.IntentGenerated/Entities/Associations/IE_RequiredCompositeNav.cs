@@ -12,6 +12,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         string PartitionKey { get; set; }
 
-        IE_RequiredDependent ERequiredDependent { get; set; }
+        IE_RequiredDependent E_RequiredDependent { get; set; }
     }
 }

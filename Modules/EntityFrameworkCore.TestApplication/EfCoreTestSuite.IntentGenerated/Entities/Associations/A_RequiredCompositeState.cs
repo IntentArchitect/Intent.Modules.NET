@@ -16,12 +16,12 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string RequiredCompAttr { get; set; }
 
-        public virtual A_OptionalDependent AOptionalDependent { get; set; }
+        public virtual A_OptionalDependent A_OptionalDependent { get; set; }
 
-        IA_OptionalDependent IA_RequiredComposite.AOptionalDependent
+        IA_OptionalDependent IA_RequiredComposite.A_OptionalDependent
         {
-            get => AOptionalDependent;
-            set => AOptionalDependent = (A_OptionalDependent)value;
+            get => A_OptionalDependent;
+            set => A_OptionalDependent = (A_OptionalDependent)value;
         }
 
 

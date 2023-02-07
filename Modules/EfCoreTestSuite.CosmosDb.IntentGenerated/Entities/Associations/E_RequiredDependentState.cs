@@ -12,12 +12,12 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         public string RequiredDependentAttr { get; set; }
 
-        public virtual E_RequiredCompositeNav ERequiredCompositeNav { get; set; }
+        public virtual E_RequiredCompositeNav E_RequiredCompositeNav { get; set; }
 
-        IE_RequiredCompositeNav IE_RequiredDependent.ERequiredCompositeNav
+        IE_RequiredCompositeNav IE_RequiredDependent.E_RequiredCompositeNav
         {
-            get => ERequiredCompositeNav;
-            set => ERequiredCompositeNav = (E_RequiredCompositeNav)value;
+            get => E_RequiredCompositeNav;
+            set => E_RequiredCompositeNav = (E_RequiredCompositeNav)value;
         }
     }
 }

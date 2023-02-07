@@ -12,6 +12,6 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         string OptionalDependentAttr { get; set; }
 
-        IF_OptionalAggregateNav FOptionalAggregateNav { get; set; }
+        IF_OptionalAggregateNav F_OptionalAggregateNav { get; set; }
     }
 }

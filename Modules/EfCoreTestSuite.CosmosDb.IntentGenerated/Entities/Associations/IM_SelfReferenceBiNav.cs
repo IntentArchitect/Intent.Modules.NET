@@ -13,8 +13,8 @@ namespace EfCoreTestSuite.CosmosDb.IntentGenerated.Entities.Associations
 
         string SelfRefBiNavAttr { get; set; }
 
-        IM_SelfReferenceBiNav MSelfReferenceBiNavAssocation { get; set; }
+        IM_SelfReferenceBiNav M_SelfReferenceBiNavAssocation { get; set; }
 
-        ICollection<IM_SelfReferenceBiNav> MSelfReferenceBiNavs { get; set; }
+        ICollection<IM_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; }
     }
 }

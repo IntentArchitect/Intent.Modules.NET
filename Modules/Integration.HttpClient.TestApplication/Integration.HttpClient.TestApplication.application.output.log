@@ -59,6 +59,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>21909c95-c1a2-4051-9312-ec506eee5482</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/EF/ApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21909c95-c1a2-4051-9312-ec506eee5482</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContextInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/EF/IApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>21909c95-c1a2-4051-9312-ec506eee5482</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../IntegrationHttpClientTestSuite.IntentGenerated/EF/MIGRATION_README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d08fe0ec-f21a-4fac-b7b9-b9045486879e</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

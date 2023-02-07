@@ -13,7 +13,7 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         string ReqCompNavAttr { get; set; }
 
-        IE2_RequiredDependent E2RequiredDependent { get; set; }
+        IE2_RequiredDependent E2_RequiredDependent { get; set; }
 
     }
 }

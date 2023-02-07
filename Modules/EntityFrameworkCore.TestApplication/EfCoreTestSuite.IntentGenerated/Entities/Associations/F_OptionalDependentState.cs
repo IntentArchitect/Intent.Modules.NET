@@ -16,12 +16,12 @@ namespace EfCoreTestSuite.IntentGenerated.Entities.Associations
 
         public string OptionalDepAttr { get; set; }
 
-        public virtual F_OptionalAggregateNav FOptionalAggregateNav { get; set; }
+        public virtual F_OptionalAggregateNav F_OptionalAggregateNav { get; set; }
 
-        IF_OptionalAggregateNav IF_OptionalDependent.FOptionalAggregateNav
+        IF_OptionalAggregateNav IF_OptionalDependent.F_OptionalAggregateNav
         {
-            get => FOptionalAggregateNav;
-            set => FOptionalAggregateNav = (F_OptionalAggregateNav)value;
+            get => F_OptionalAggregateNav;
+            set => F_OptionalAggregateNav = (F_OptionalAggregateNav)value;
         }
     }
 }
