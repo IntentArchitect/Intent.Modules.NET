@@ -1,6 +1,6 @@
 $modulesFolderPath = "Intent.Modules"
-$pathToModules = "Tests"
-$solutionFile = "Intent.Modules.NET.Tests.isln"
+$pathToModules = "Modules"
+$solutionFile = "Tests/Intent.Modules.NET.Tests.isln"
 
 $repoConfigContent = 
 "<?xml version=""1.0"" encoding=""utf-8""?>
@@ -8,7 +8,7 @@ $repoConfigContent =
   <entries>
     <entry>
       <name>CI Compiled Modules</name>
-      <address>$($modulesFolderPath)</address>
+      <address>../$($pathToModules)/$($modulesFolderPath)</address>
       <isBuiltIn>false</isBuiltIn>
       <order>3</order>
     </entry>
@@ -45,13 +45,19 @@ $moduleFileNames = Get-ChildItem "./$($pathToModules)/$($modulesFolderPath)/*.im
     }
 }
 
-$repoConfigContent | Set-Content ./$pathToModules/intent.repositories.config -Encoding UTF8
+$curLocation = Get-Location;
+Write-Host "`$curLocation = $curLocation"
 
-$testSln = [xml] (Get-Content ./$pathToModules/$solutionFile -Encoding UTF8)
+$testSln = [xml] (Get-Content ./$solutionFile -Encoding UTF8)
+$testSlnDir = [System.IO.Path]::GetDirectoryName($solutionFile)
+Write-Host "`$testSlnDir = $testSlnDir"
+
+$repoPath = [System.IO.Path]::Combine($curLocation, $testSlnDir, "intent.repositories.config")
+Write-Host "`$repoPath = $repoPath"
+$repoConfigContent | Set-Content $repoPath -Encoding UTF8
 
 $testSln.solution.applications.application | % {
-    $curLocation = Get-Location;
-    $appRelPath = [System.IO.Path]::Combine($curLocation, $pathToModules, $_.relativePath)
+    $appRelPath = [System.IO.Path]::Combine($curLocation, $testSlnDir, $_.relativePath)
     $basePath = [System.IO.Path]::GetDirectoryName($appRelPath)
     $modulesConfig = [System.IO.Path]::Combine($basePath, "modules.config")
 

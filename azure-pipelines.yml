@@ -13,7 +13,7 @@ variables:
   value: '**/*.sln'
 - group: 'Intent Architect Credentials'
 - name: 'intent-solution'
-  value: 'Modules/Intent.Modules.NET.Tests.isln'
+  value: 'Tests/Intent.Modules.NET.Tests.isln'
 - name: 'warning-logging-command'
   value: '##vso[task.logissue type=warning;]{@m} {@x}\n'
 - name: 'error-logging-command'
