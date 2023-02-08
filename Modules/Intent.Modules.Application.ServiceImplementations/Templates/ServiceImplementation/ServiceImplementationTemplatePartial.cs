@@ -9,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
@@ -28,6 +29,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             : base(TemplateId, outputTarget, model)
         {
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
+            SetDefaultTypeCollectionFormat("List<{0}>");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
