@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="11b3c35d-2972-4df0-afdc-3496c85c23ea" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>InheritanceAssociations</name>
+  <display>InheritanceAssociations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ac8f81ff-8202-4275-b702-7700145ed073</parentFolderId>
+  <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

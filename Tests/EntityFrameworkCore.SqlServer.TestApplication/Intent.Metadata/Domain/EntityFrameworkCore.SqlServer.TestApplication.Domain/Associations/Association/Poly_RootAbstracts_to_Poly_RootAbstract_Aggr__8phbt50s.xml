@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fe32c97d-0e1c-468e-8689-2856f96dc4a4">
+  <sourceEnd id="73aa015a-55cb-4841-8bf9-58b92171b665" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Poly_RootAbstracts</name>
+    <display>Poly_RootAbstracts: Poly_RootAbstract[*]</display>
+    <order>0</order>
+    <typeReference id="ee9ff876-6836-410c-8389-dec96521ea9d">
+      <typeId>fb211777-0bb4-4c63-81a5-6ec73f9cfe35</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fe32c97d-0e1c-468e-8689-2856f96dc4a4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Poly_RootAbstract_Aggr</name>
+    <display>Poly_RootAbstract_Aggr: Poly_RootAbstract_Aggr?</display>
+    <order>1</order>
+    <typeReference id="59721e76-e99a-41a9-9292-8fe9102317a4">
+      <typeId>8d34697e-1e8a-461a-b264-c39fa230cbce</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

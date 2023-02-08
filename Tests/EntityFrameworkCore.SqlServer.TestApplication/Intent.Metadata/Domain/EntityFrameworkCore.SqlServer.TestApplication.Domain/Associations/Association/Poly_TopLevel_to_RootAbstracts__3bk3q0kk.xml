@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="40295530-b424-4ddd-ba27-1ab32555c01c">
+  <sourceEnd id="77562961-9bbc-4f2b-a896-4a59e1798535" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Poly_TopLevel</name>
+    <display>Poly_TopLevel: Poly_TopLevel?</display>
+    <order>0</order>
+    <typeReference id="81d0f95a-1366-4386-8d1a-bf70b958c9ef">
+      <typeId>b9f2ed44-32da-4154-b11f-dc6b6bda0a9f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="40295530-b424-4ddd-ba27-1ab32555c01c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>RootAbstracts</name>
+    <display>RootAbstracts: Poly_RootAbstract[*]</display>
+    <order>1</order>
+    <typeReference id="bc66c36c-77ef-4fe7-a8bc-f965bc5c4b98">
+      <typeId>d1447c1d-0b27-4879-926a-3e704ad0c9dc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

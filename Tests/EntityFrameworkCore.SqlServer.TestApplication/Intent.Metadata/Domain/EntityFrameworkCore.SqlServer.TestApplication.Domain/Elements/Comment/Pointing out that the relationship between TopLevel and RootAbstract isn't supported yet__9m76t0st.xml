@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="11847d04-46b0-49ae-9be4-cf5b4b3c30db" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</name>
+  <display>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f3362071-dd1c-4730-9759-f30e14c60c30</parentFolderId>
+  <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

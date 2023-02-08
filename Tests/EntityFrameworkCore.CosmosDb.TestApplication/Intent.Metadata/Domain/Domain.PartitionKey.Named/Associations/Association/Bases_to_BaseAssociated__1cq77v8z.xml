@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a028f013-0ca9-49d3-9804-e5f55e68b95e">
+  <sourceEnd id="d7003910-d6a4-4ae5-8a39-9933bb4ec161" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Bases</name>
+    <display>Bases: Base[*]</display>
+    <order>0</order>
+    <typeReference id="d26b3afe-697b-4780-aabe-8c7b67c7e7da">
+      <typeId>82b2c294-9b83-4dd6-8719-f4039dc40a27</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a028f013-0ca9-49d3-9804-e5f55e68b95e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>BaseAssociated</name>
+    <display>BaseAssociated: BaseAssociated?</display>
+    <order>2</order>
+    <typeReference id="add44da1-f086-4f2d-9fc1-532addfd5ac8">
+      <typeId>b489e216-b18b-4a29-a961-c6d6d6aaa49a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

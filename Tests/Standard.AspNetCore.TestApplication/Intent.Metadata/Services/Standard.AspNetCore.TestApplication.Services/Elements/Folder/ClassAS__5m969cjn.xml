@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="023c5a51-20bc-453f-aef8-49c35e9bd710" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ClassAS</name>
+  <display>ClassAS</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</parentFolderId>
+  <packageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</packageId>
+  <packageName>Standard.AspNetCore.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

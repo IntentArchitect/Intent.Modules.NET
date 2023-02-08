@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b7776943-d1c3-4c60-a3c1-2cb27e34202b" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>a84ef5e8-2d37-4ba8-a1a2-e412a3404665</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</parentFolderId>
+  <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+  <packageName>Integration.HttpClients.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

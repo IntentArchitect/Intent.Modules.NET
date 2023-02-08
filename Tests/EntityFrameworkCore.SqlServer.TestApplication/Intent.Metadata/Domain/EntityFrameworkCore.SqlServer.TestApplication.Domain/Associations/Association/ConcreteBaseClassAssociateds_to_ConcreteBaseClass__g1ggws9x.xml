@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="71b740cb-9306-49b6-be8a-55973d9539c3">
+  <sourceEnd id="13701d15-d057-43e5-a325-90839e964988" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ConcreteBaseClassAssociateds</name>
+    <display>ConcreteBaseClassAssociateds: ConcreteBaseClassAssociated[*]</display>
+    <order>0</order>
+    <typeReference id="baa6fc59-2236-44ca-9274-753747540ade">
+      <typeId>c19451ea-1a05-40ca-ac84-f50d3f8f1f08</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="71b740cb-9306-49b6-be8a-55973d9539c3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ConcreteBaseClass</name>
+    <display>ConcreteBaseClass: ConcreteBaseClass</display>
+    <order>1</order>
+    <typeReference id="56967a01-df0a-43b3-ae0d-df030bfb56f6">
+      <typeId>9c00db3b-7945-4fb1-85fa-9c4d4356e001</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

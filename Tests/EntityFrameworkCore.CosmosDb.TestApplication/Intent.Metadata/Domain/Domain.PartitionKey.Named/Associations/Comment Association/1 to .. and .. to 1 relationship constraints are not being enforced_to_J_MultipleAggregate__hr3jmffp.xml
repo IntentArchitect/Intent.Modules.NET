@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e159d3e3-5722-4740-b3a8-ab6fa87356b6">
+  <sourceEnd id="bbbb0604-6dce-4fd6-983f-2b174071e488" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <name>1 to .. and .. to 1 relationship constraints are not being enforced</name>
+    <display>1 to .. and .. to 1 relationship constraints are not being enforced: 1 to .. and .. to 1 relationship constraints are not being enforced</display>
+    <order>3</order>
+    <typeReference id="0a6ab6d3-463e-4489-97eb-69d507b1a177">
+      <typeId>eefabb43-338e-43a1-8834-40ee31fb2214</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e159d3e3-5722-4740-b3a8-ab6fa87356b6" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <name>J_MultipleAggregate</name>
+    <display>J_MultipleAggregate: J_MultipleAggregate</display>
+    <order>1</order>
+    <typeReference id="847cf7ae-34e5-4a36-ae86-d87e45eeea4c">
+      <typeId>62c1d293-ce8c-4833-bcb8-2a3bcc4da6f3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>

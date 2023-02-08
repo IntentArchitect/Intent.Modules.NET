@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4c4e3099-87a8-44c6-bb6d-cc22037b85d0">
+  <sourceEnd id="67e1d053-98bb-4793-84a2-99df58c1d93f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>FkBaseClassAssociateds</name>
+    <display>FkBaseClassAssociateds: FkBaseClassAssociated[*]</display>
+    <order>0</order>
+    <typeReference id="bef01320-b4e0-40a7-a652-07347ee4f8f5">
+      <typeId>d702260c-0343-44c3-afc5-0a072ad534e2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4c4e3099-87a8-44c6-bb6d-cc22037b85d0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>FkBaseClass</name>
+    <display>FkBaseClass: FkBaseClass</display>
+    <order>3</order>
+    <typeReference id="a93b7e05-16fd-4e5f-b153-c90f740f6fa1">
+      <typeId>143cfd28-49d4-4ffd-8f1a-a0e5c25b4df2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

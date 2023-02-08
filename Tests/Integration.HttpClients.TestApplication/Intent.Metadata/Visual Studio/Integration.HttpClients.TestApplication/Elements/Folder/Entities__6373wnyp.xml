@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6f885258-5ae3-4278-b889-9b198ba220e4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Entities</name>
+  <display>Entities</display>
+  <externalReference>45a2c76c-21c3-422b-a937-ab95106c6267</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>149c3ae6-e2c4-4c98-83fa-497c2ca8baf5</parentFolderId>
+  <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+  <packageName>Integration.HttpClients.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="c790b6e9-c960-45a6-af51-814f92d9a870" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntity</name>
+      <display>Intent.Entities.DomainEntity</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6f885258-5ae3-4278-b889-9b198ba220e4</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e2f9138f-4b46-41a8-aff6-add63847e308" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityInterface</name>
+      <display>Intent.Entities.DomainEntityInterface</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6f885258-5ae3-4278-b889-9b198ba220e4</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="522781ba-1a75-4fea-a070-e29def9af759" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityState</name>
+      <display>Intent.Entities.DomainEntityState</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6f885258-5ae3-4278-b889-9b198ba220e4</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="03ef6f67-ee8f-48a7-8dc9-ad503e1d52b0" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Domain.Entity</name>
+      <display>Domain.Entity</display>
+      <externalReference>e581a3bc-a93d-487a-b54f-0401524210ae</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6f885258-5ae3-4278-b889-9b198ba220e4</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

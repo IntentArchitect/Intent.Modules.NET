@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5a71de03-bee0-4164-84d7-863dab30f36c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Invoices</name>
+  <display>Invoices</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dc0e7cd8-bf03-4b59-b558-e47897b2afcd</parentFolderId>
+  <packageId>dc0e7cd8-bf03-4b59-b558-e47897b2afcd</packageId>
+  <packageName>Integration.HttpClients.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{747BBC3F-1F9E-4918-9F7A-F5C97A4C5696}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "EntityFrameworkCore.CosmosDb.TestApplication.Api", "EntityFrameworkCore.CosmosDb.TestApplication.Api\EntityFrameworkCore.CosmosDb.TestApplication.Api.csproj", "{4BFD3425-074C-4B52-8A74-0463B0A24B90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{81CC902A-FA37-4966-8BEE-52E32CE9FE04}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.CosmosDb.TestApplication.Application", "EntityFrameworkCore.CosmosDb.TestApplication.Application\EntityFrameworkCore.CosmosDb.TestApplication.Application.csproj", "{BEA39EFA-3215-439B-8DEA-FC33F85E3F4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{71190112-2453-4247-9292-CBA51B498E8F}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.CosmosDb.TestApplication.Domain", "EntityFrameworkCore.CosmosDb.TestApplication.Domain\EntityFrameworkCore.CosmosDb.TestApplication.Domain.csproj", "{72463D11-29F9-4D30-BB1C-89A20309DABB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{1C743670-75B9-4A76-B3D6-D22EA5C92946}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure", "EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure\EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.csproj", "{7AB10A9A-FA45-4944-A3D8-E1CA83CBD38C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BFD3425-074C-4B52-8A74-0463B0A24B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFD3425-074C-4B52-8A74-0463B0A24B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFD3425-074C-4B52-8A74-0463B0A24B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFD3425-074C-4B52-8A74-0463B0A24B90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA39EFA-3215-439B-8DEA-FC33F85E3F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA39EFA-3215-439B-8DEA-FC33F85E3F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA39EFA-3215-439B-8DEA-FC33F85E3F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA39EFA-3215-439B-8DEA-FC33F85E3F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72463D11-29F9-4D30-BB1C-89A20309DABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72463D11-29F9-4D30-BB1C-89A20309DABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72463D11-29F9-4D30-BB1C-89A20309DABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72463D11-29F9-4D30-BB1C-89A20309DABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB10A9A-FA45-4944-A3D8-E1CA83CBD38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB10A9A-FA45-4944-A3D8-E1CA83CBD38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB10A9A-FA45-4944-A3D8-E1CA83CBD38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB10A9A-FA45-4944-A3D8-E1CA83CBD38C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4BFD3425-074C-4B52-8A74-0463B0A24B90} = {747BBC3F-1F9E-4918-9F7A-F5C97A4C5696}
+		{BEA39EFA-3215-439B-8DEA-FC33F85E3F4A} = {81CC902A-FA37-4966-8BEE-52E32CE9FE04}
+		{72463D11-29F9-4D30-BB1C-89A20309DABB} = {71190112-2453-4247-9292-CBA51B498E8F}
+		{7AB10A9A-FA45-4944-A3D8-E1CA83CBD38C} = {1C743670-75B9-4A76-B3D6-D22EA5C92946}
+	EndGlobalSection
+EndGlobal

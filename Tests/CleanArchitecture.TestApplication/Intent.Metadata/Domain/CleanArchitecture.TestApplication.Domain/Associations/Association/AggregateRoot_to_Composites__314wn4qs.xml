@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="61a5f22b-69f5-446c-ab28-1ff7b59ab9b5">
+  <sourceEnd id="64dcd7fe-e20b-4984-8961-10458b0e9eeb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRoot</name>
+    <display>AggregateRoot: AggregateRoot</display>
+    <order>0</order>
+    <typeReference id="ad851ea4-8323-4bed-a0ee-28936aa9e98f">
+      <typeId>d4caf10c-064e-41ff-9202-7ba1c44d40c4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="61a5f22b-69f5-446c-ab28-1ff7b59ab9b5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Composites</name>
+    <display>Composites: CompositeManyB[*]</display>
+    <order>2</order>
+    <typeReference id="5106f0d8-5b1b-49c8-872b-b9db20f3493f">
+      <typeId>ef7b22c0-fe8f-4782-9aeb-9fa810eb158a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

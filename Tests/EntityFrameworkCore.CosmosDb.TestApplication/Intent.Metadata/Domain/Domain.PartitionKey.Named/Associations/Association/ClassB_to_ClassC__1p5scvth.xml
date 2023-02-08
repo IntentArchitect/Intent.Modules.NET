@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="78a25b18-c66e-41fe-a884-88c96becafcb">
+  <sourceEnd id="483a1296-d283-467d-ad44-204542fa1b5d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ClassB</name>
+    <display>ClassB: ClassB</display>
+    <order>0</order>
+    <typeReference id="45a589e8-626c-4347-8a4c-e07cb974b1fb">
+      <typeId>012ac484-4858-45b9-ab8d-3c0e32fa2e73</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="78a25b18-c66e-41fe-a884-88c96becafcb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ClassC</name>
+    <display>ClassC: ClassC</display>
+    <order>1</order>
+    <typeReference id="6afac25b-4d9b-4235-985d-10204ccdb956">
+      <typeId>322ab6a2-4ab3-4e13-9e44-354dcc333c92</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

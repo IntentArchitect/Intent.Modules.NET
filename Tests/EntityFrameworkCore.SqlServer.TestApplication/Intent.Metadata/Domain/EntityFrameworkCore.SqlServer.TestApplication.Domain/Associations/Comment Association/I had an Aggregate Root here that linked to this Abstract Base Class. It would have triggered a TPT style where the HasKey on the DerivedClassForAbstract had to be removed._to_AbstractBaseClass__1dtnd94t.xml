@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e3d77414-8e5d-4fd7-b33e-7cb38f428033">
+  <sourceEnd id="ae30e3de-7d72-405a-93de-997595c0bac1" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <name>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</name>
+    <display>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.: I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</display>
+    <order>1</order>
+    <typeReference id="475ee2c6-d693-4ad0-aeff-e188003127e2">
+      <typeId>0d24bef8-066e-45de-a222-73a76f01b769</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e3d77414-8e5d-4fd7-b33e-7cb38f428033" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <name>AbstractBaseClass</name>
+    <display>AbstractBaseClass: AbstractBaseClass</display>
+    <order>0</order>
+    <typeReference id="981e8a40-146f-4bc7-83a4-e7e82aade5a8">
+      <typeId>7d4d1bb4-7686-47fd-9a4e-d7de331d2cb9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8c68eb93-f1df-430b-aec2-7ede115f3ee8" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>f2a117ac-89a8-44c5-b8c1-f5568d9438cb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</parentFolderId>
+  <packageId>07842d4d-0659-4f4f-8e98-4c3ed802d4b0</packageId>
+  <packageName>Standard.AspNetCore.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

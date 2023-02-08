@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0a3ead52-3caf-437c-8f5d-629ab489564e">
+  <sourceEnd id="3a0ecbce-4bd7-4457-a773-c5a532af74b0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CompositeManyB</name>
+    <display>CompositeManyB: CompositeManyB</display>
+    <order>0</order>
+    <typeReference id="7711f610-3eb1-45a6-a9ab-2600747f0f31">
+      <typeId>ef7b22c0-fe8f-4782-9aeb-9fa810eb158a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0a3ead52-3caf-437c-8f5d-629ab489564e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Composite</name>
+    <display>Composite: CompositeSingleBB?</display>
+    <order>4</order>
+    <typeReference id="9a5cc462-cf93-49f6-a7de-82e036ed6df0">
+      <typeId>856d711f-0890-4d0f-9e3f-013b053052dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

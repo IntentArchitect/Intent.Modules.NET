@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f4e47322-3775-4f58-acb6-e9891512f174">
+  <sourceEnd id="2438002e-a9fb-4943-8594-1f69a9901592" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AbstractBaseClassAssociateds</name>
+    <display>AbstractBaseClassAssociateds: AbstractBaseClassAssociated[*]</display>
+    <order>0</order>
+    <typeReference id="b4ea945f-2ab7-4d65-bd50-d445687d184d">
+      <typeId>695723ef-d8da-4cea-9b03-48ae7884b4f9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f4e47322-3775-4f58-acb6-e9891512f174" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AbstractBaseClass</name>
+    <display>AbstractBaseClass: AbstractBaseClass</display>
+    <order>1</order>
+    <typeReference id="1f9e4338-1978-4c23-b50c-5391208a53c4">
+      <typeId>1dce3abd-c1b2-454c-a229-bd2fb93dffb2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

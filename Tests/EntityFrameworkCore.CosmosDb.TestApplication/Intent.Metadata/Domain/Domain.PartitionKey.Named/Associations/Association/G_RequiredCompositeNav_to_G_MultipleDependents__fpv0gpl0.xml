@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="68d14ac6-f822-46bf-b426-13fb7b9b5657">
+  <sourceEnd id="e5b4780d-d873-4472-9bd7-7384f658c5a3" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>G_RequiredCompositeNav</name>
+    <display>G_RequiredCompositeNav: G_RequiredCompositeNav</display>
+    <order>1</order>
+    <typeReference id="7fb01abf-f28e-4a8b-95bd-c90e210734ce">
+      <typeId>065a7c75-32f4-4b19-bae9-61fb02facc59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="68d14ac6-f822-46bf-b426-13fb7b9b5657" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>G_MultipleDependents</name>
+    <display>G_MultipleDependents: G_MultipleDependent[*]</display>
+    <order>2</order>
+    <typeReference id="dc2ed555-b09a-4ba1-a865-a8ae82e914bd">
+      <typeId>62cc400f-65fa-439a-9108-acef9391ea93</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

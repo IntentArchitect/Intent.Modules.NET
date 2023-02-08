@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8676f595-7042-486d-b9dc-e3cd60fb9e73">
+  <sourceEnd id="bb28795e-7087-4c28-abf4-ef47c7f2cc84" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRoot2Composition</name>
+    <display>AggregateRoot2Composition: AggregateRoot2Composition</display>
+    <order>0</order>
+    <typeReference id="225cea01-445f-4507-9dfa-0c69d1cbdc10">
+      <typeId>70a857f9-1962-4404-86f2-24bf09d6b715</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8676f595-7042-486d-b9dc-e3cd60fb9e73" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggregateRoot2Single</name>
+    <display>AggregateRoot2Single: AggregateRoot2Single</display>
+    <order>0</order>
+    <typeReference id="34dcd70b-c931-4d4f-83f6-4a2889c285a6">
+      <typeId>78033a20-df45-40ae-85fa-cb02c63d5c49</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

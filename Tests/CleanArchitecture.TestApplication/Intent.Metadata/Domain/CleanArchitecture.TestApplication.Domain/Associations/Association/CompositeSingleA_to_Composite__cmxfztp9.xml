@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0d0875a8-39c4-470d-bf49-9d7d7630344a">
+  <sourceEnd id="252cc4bf-3ab8-4d77-ad08-b6ae3cbfd10f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CompositeSingleA</name>
+    <display>CompositeSingleA: CompositeSingleA</display>
+    <order>0</order>
+    <typeReference id="d7896a00-557f-448b-9eb9-e6307243ac9b">
+      <typeId>445f6443-589b-4ae1-9d6a-3bc8bffa43a8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0d0875a8-39c4-470d-bf49-9d7d7630344a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Composite</name>
+    <display>Composite: CompositeSingleAA?</display>
+    <order>2</order>
+    <typeReference id="6ffa1181-1ecb-4b3c-972d-fddf17642b29">
+      <typeId>c00ee60f-03c5-4e8c-b75a-fadf6d3ec23d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

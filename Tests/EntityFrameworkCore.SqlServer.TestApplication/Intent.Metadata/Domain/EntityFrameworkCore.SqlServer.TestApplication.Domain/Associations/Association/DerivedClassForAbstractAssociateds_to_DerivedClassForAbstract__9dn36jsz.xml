@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="413e2088-e80b-4ce6-a0b7-9712f490c771">
+  <sourceEnd id="bce6230e-a0ab-4b23-95b0-70bca7a7e0d5" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>DerivedClassForAbstractAssociateds</name>
+    <display>DerivedClassForAbstractAssociateds: DerivedClassForAbstractAssociated[*]</display>
+    <order>0</order>
+    <typeReference id="3ae4df51-2adc-4849-ab0b-cb680d9ec6b8">
+      <typeId>327b4ba6-1dec-4713-977c-0bfb8c58afbb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="413e2088-e80b-4ce6-a0b7-9712f490c771" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DerivedClassForAbstract</name>
+    <display>DerivedClassForAbstract: DerivedClassForAbstract</display>
+    <order>1</order>
+    <typeReference id="a3158005-5c7d-4645-b1e0-07e250228df4">
+      <typeId>efbcd83b-5289-45ce-afb9-d62fc800df15</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

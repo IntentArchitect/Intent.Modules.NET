@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ed050dbc-93cf-414d-9622-2632f7ea4c41" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</parentFolderId>
+  <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

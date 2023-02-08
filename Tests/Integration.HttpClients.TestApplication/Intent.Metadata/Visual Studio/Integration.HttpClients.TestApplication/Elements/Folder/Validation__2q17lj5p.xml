@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d9b73927-3cdd-4c3c-91fb-5a3c1e2e3afd" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Validation</name>
+  <display>Validation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f48994f0-2bf0-462a-8e41-4d24109327c5</parentFolderId>
+  <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+  <packageName>Integration.HttpClients.TestApplication</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="9066efe5-d638-45ea-a4f5-f526e41ca296" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</name>
+      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</display>
+      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b73927-3cdd-4c3c-91fb-5a3c1e2e3afd</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="84bb41ae-b9f7-4557-924a-e7cdc7ca7171" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</name>
+      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</display>
+      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d9b73927-3cdd-4c3c-91fb-5a3c1e2e3afd</parentFolderId>
+      <packageId>c00d0d61-0bec-476f-aefd-69cfa79e2aa2</packageId>
+      <packageName>Integration.HttpClients.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

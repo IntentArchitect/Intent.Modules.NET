@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4b1f87a3-c2db-470f-8e3f-d7bf4411e8c3">
+  <sourceEnd id="815d967d-8559-460b-824c-e36e617c6ae7" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>K_SelfReferences</name>
+    <display>K_SelfReferences: K_SelfReference[*]</display>
+    <order>0</order>
+    <typeReference id="714b1f0a-fb40-48ca-8223-ed531965e2fb">
+      <typeId>b8353eea-e647-47f0-a017-4533953f4e91</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4b1f87a3-c2db-470f-8e3f-d7bf4411e8c3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>K_SelfReferenceAssociation</name>
+    <display>K_SelfReferenceAssociation: K_SelfReference?</display>
+    <order>1</order>
+    <typeReference id="edbbf7c6-4f5b-4afe-86f5-3294f5cbccb6">
+      <typeId>b8353eea-e647-47f0-a017-4533953f4e91</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

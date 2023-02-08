@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2ee09ffd-8547-4a75-9c60-4c26239c27f3">
+  <sourceEnd id="7334812a-5c0d-4c4c-9f71-c7441db4c7c7" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <name>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</name>
+    <display>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet: Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</display>
+    <order>1</order>
+    <typeReference id="bd90cc85-e5f0-42ec-82f0-cd9463a8cc3c">
+      <typeId>11847d04-46b0-49ae-9be4-cf5b4b3c30db</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2ee09ffd-8547-4a75-9c60-4c26239c27f3" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <name>Poly_TopLevel</name>
+    <display>Poly_TopLevel: Poly_TopLevel</display>
+    <order>0</order>
+    <typeReference id="8fc6fc17-193e-46ed-aa24-4c3d16bffbe5">
+      <typeId>c2d307e8-a068-45d5-8953-ba0cb2670d78</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>

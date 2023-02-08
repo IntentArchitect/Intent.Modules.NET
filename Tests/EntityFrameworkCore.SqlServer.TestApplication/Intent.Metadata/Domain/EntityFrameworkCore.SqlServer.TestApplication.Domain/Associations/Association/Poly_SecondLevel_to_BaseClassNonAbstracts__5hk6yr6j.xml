@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f8339b4f-c316-47f0-b950-f027ec6f01f8">
+  <sourceEnd id="a5a3a03b-825b-4461-9567-a4e74b50222b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Poly_SecondLevel</name>
+    <display>Poly_SecondLevel: Poly_SecondLevel?</display>
+    <order>0</order>
+    <typeReference id="6d2a6efa-68c9-41ca-9cd7-5b0c2ec72724">
+      <typeId>a4bfe085-0e38-4189-9412-2a95faf2148e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f8339b4f-c316-47f0-b950-f027ec6f01f8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>BaseClassNonAbstracts</name>
+    <display>BaseClassNonAbstracts: Poly_BaseClassNonAbstract[*]</display>
+    <order>1</order>
+    <typeReference id="5818dd52-586e-4efa-8039-f35d8f371e3d">
+      <typeId>f6f79e0a-639f-4e87-87f0-ab56b945d6d2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

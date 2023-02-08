@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40ae311a-2c52-4486-9d09-81213ad3c2ad" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetImplicitKeyAggrRootsQuery</name>
+  <display>GetImplicitKeyAggrRootsQuery: ImplicitKeyAggrRootDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="090d1922-7865-44a4-ba2a-498bd4ae001c">
+    <typeId>f0df561d-b1d4-43ae-b09e-4e8f8809a111</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>602153b7-266f-4ee8-a4af-0fb335fbbe9c</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="ImplicitKeyAggrRoots" />
+  </metadata>
+  <childElements />
+</class>

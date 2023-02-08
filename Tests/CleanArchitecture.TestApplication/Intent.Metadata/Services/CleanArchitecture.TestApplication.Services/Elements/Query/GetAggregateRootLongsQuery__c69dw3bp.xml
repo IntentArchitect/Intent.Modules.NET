@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4f531aa2-0d9f-4411-a3cf-b84dc34d6ac3" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAggregateRootLongsQuery</name>
+  <display>GetAggregateRootLongsQuery: AggregateRootLongDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="57a84238-d54f-4272-8917-4d20d2b00db2">
+    <typeId>45d8d606-4be9-4569-8251-720fc6a463a4</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>f455c8b7-d2f7-4539-a9ea-db842e67209f</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="AggregateRootLongs" />
+  </metadata>
+  <childElements />
+</class>

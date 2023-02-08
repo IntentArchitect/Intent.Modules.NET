@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d48da061-1c92-4a9a-9378-daa7be92de08">
+  <sourceEnd id="1d9c9c9e-756d-4de1-b956-0b5574c3f631" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRoot2Composition</name>
+    <display>AggregateRoot2Composition: AggregateRoot2Composition</display>
+    <order>0</order>
+    <typeReference id="ebcb5e0b-08f5-428b-9047-dbac821b30ea">
+      <typeId>70a857f9-1962-4404-86f2-24bf09d6b715</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d48da061-1c92-4a9a-9378-daa7be92de08" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggregateRoot2Nullable</name>
+    <display>AggregateRoot2Nullable: AggregateRoot2Nullable?</display>
+    <order>1</order>
+    <typeReference id="59db3d65-734f-4e8c-abea-2f29385fa66c">
+      <typeId>6f563862-75b6-43ab-a354-0a28d276b1e6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

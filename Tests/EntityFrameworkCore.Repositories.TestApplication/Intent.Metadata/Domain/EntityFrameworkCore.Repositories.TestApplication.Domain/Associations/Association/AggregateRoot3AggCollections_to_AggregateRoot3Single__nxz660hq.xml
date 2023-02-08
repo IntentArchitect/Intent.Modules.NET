@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e36bc509-4031-4480-b866-3825bbb274c8">
+  <sourceEnd id="67bec906-ef1a-4a5a-b1b1-1aa5fb3b90a0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRoot3AggCollections</name>
+    <display>AggregateRoot3AggCollections: AggregateRoot3AggCollection[*]</display>
+    <order>0</order>
+    <typeReference id="7eb2f7b0-5916-4909-9c49-4b21230a5130">
+      <typeId>b579f4e2-4a79-4160-845b-6a35ca08db0f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e36bc509-4031-4480-b866-3825bbb274c8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggregateRoot3Single</name>
+    <display>AggregateRoot3Single: AggregateRoot3Single</display>
+    <order>0</order>
+    <typeReference id="a666d5e4-2b6b-4f66-9dbc-0630a27b4210">
+      <typeId>3789c1b2-8479-4b80-a35a-bb9739ab561c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

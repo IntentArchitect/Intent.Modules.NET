@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="500ce7a5-0646-48e5-9b85-6b5586e7850a">
+  <sourceEnd id="d9f83754-8beb-4d7a-959c-64704fb42434" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>C_RequiredComposite</name>
+    <display>C_RequiredComposite: C_RequiredComposite</display>
+    <order>0</order>
+    <typeReference id="f4c3ff34-aaa2-4852-94d4-06fda8a269a4">
+      <typeId>7ec36c05-700c-4770-a29f-d60d0f5f1a43</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="500ce7a5-0646-48e5-9b85-6b5586e7850a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>C_MultipleDependents</name>
+    <display>C_MultipleDependents: C_MultipleDependent[*]</display>
+    <order>2</order>
+    <typeReference id="978ef730-bee7-4eb7-80e0-ace02d09207d">
+      <typeId>581e6908-5909-427a-b5c4-3a026a748d1d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Domain.PartitionKey.Named</typePackageName>
+      <typePackageId>9e512d5a-048e-470d-ae7b-b02162bf1b20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

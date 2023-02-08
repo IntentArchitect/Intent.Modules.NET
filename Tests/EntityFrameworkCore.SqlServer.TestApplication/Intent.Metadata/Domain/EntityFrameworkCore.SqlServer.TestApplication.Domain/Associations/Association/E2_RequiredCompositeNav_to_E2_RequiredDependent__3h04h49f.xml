@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="182b6932-0137-4874-b230-2992c9986d41">
+  <sourceEnd id="4ff48774-8249-4cb8-9f28-2b32f69da51b" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>E2_RequiredCompositeNav</name>
+    <display>E2_RequiredCompositeNav: E2_RequiredCompositeNav</display>
+    <order>1</order>
+    <typeReference id="0187ff9c-c746-4ed5-bb6e-326e002bb757">
+      <typeId>6825bb11-6c60-41fe-902c-e754a85071ea</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="182b6932-0137-4874-b230-2992c9986d41" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>E2_RequiredDependent</name>
+    <display>E2_RequiredDependent: E2_RequiredDependent</display>
+    <order>1</order>
+    <typeReference id="8c68d886-56fd-48ab-a25c-8dee9e629fb7">
+      <typeId>bac11582-86fc-4300-b112-251a9eef8224</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

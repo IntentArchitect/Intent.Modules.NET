@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4b2b5e97-94de-4c02-969f-4f2c754315f4" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ListedUnlistedServices</name>
+  <display>ListedUnlistedServices</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d334321a-377b-4cd9-ae64-2aec501e2a55</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4260a48c-f8ed-476b-8909-1937cfff38ef" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ListedServiceFunc</name>
+      <display>ListedServiceFunc(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2f8bac8b-67ad-40da-9223-30f701c8c040">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4b2b5e97-94de-4c02-969f-4f2c754315f4</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="dc6ee497-a53f-4e6c-bbed-2dbd9951796c" name="Azure Function">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="707d002a-e612-4112-bf5a-22bc194e71e2" display="Type" value="Http Trigger" isActive="true" />
+            <property name="a1910492-781d-42ab-bb76-e5db6810240f" display="Authorization Level" value="Function" isActive="true" />
+            <property name="8b1d6b10-b9c9-4562-a8cf-bf3eb9123621" display="Method" value="POST" isActive="true" />
+            <property name="095baa56-16b2-4aaa-91e2-a43c1698b7e0" display="Route" value="listedunlistedservices/{param}" isActive="true" />
+            <property name="43a2e28b-7c0c-4c81-88f4-8404c7ddff02" display="Queue Name" isActive="false" />
+            <property name="b2bfad15-1818-4fa5-86ec-15c34b3bd7ee" display="Connection" isActive="false" />
+            <property name="a6952628-d858-432d-a9fb-3bb08081a37f" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="30e5fbc7-f001-483e-83ed-d551c4c3fd10" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5b1de12a-38bd-47ce-a56b-a1407e838d3d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4260a48c-f8ed-476b-8909-1937cfff38ef</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="9c43b6a8-7d38-4799-b441-399923e5790b" name="Parameter Setting">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+              <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+              <properties>
+                <property name="2f757dda-f5c0-4901-b442-fa06ddf9acba" display="Source" value="Default" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="e671ca5b-06b7-46c5-acaa-dad01c01b5a9" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UnlistedServiceFunc</name>
+      <display>UnlistedServiceFunc(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0b2383a3-4ee9-48e1-b31d-15490849af47">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4b2b5e97-94de-4c02-969f-4f2c754315f4</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.TestApplication.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ab299467-b2ee-4073-ad09-d09a34aceb41">
+  <sourceEnd id="cff249ad-cd18-4b43-853a-3bb17be0cc27" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Branches</name>
+    <display>Branches: Branch[*]</display>
+    <order>0</order>
+    <typeReference id="a9d9a505-f629-4dd1-ba0c-3194f9d3c522">
+      <typeId>c3f1e3ec-de5e-4f42-85a0-8e69a2be7a75</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ab299467-b2ee-4073-ad09-d09a34aceb41" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Texture</name>
+    <display>Texture: Texture</display>
+    <order>1</order>
+    <typeReference id="8a368ebd-b888-41fb-a1a1-c7c3c5ed6a93">
+      <typeId>0deadbb5-9406-4718-aedc-bb2454e63ebc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

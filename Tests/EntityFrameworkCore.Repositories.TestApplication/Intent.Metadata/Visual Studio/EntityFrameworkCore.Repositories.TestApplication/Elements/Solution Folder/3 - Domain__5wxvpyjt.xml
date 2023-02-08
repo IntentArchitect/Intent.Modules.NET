@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="17e76155-57d6-4377-903f-02c776958f85" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</parentFolderId>
+  <packageId>9f2cb83e-a5fc-4377-8dda-dc86eecaea12</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

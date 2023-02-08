@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="537ff2c5-8fbc-47d9-9b9b-30abb1bd0468">
+  <sourceEnd id="86fac223-9fda-4a70-8567-d1f94e71d9e9" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRoot4AggNullable</name>
+    <display>AggregateRoot4AggNullable: AggregateRoot4AggNullable?</display>
+    <order>0</order>
+    <typeReference id="e51286b0-62d6-404c-a5da-13fa5f491443">
+      <typeId>1143e110-335a-4d5c-bf45-8e954cfd63a8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="537ff2c5-8fbc-47d9-9b9b-30abb1bd0468" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggregateRoot4Collections</name>
+    <display>AggregateRoot4Collections: AggregateRoot4Collection[*]</display>
+    <order>1</order>
+    <typeReference id="5ea8faf7-906d-47fd-8674-2f293eda5e6a">
+      <typeId>30c3c4cc-0e99-4a05-9272-cf8ebd81351c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
