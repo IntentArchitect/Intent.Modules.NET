@@ -102,10 +102,10 @@ function createCqrsResultTypeDto(entity, entityFolder) {
             nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
         }
     }
-    if (entityPkDescr.specialization == globals.PKSpecialization.Implicit) {
-        let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
-        idField.typeReference.setType(entityPkDescr.typeId);
-    }
+    // if (entityPkDescr.specialization == globals.PKSpecialization.Implicit) {
+    //     let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
+    //     idField.typeReference.setType(entityPkDescr.typeId);
+    // }
     addPrimaryKeysCqrs(dto, null, entityPkDescr);
     let attributesWithMapPaths = getAttributesWithMapPath(entity);
     for (var keyName of Object.keys(attributesWithMapPaths)) {
@@ -590,21 +590,16 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     if (!nestedCompOwner) {
         throw new Error("nestedCompOwner not specified");
     }
+    // Use the new Associated property on the FK stereotype method for FK Attribute lookup
     let explicitFkAttr;
     for (let attr of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Foreign Key"))) {
-        console.log("attr");
-        console.log(attr);
         let associationId = attr.getStereotype("Foreign Key").getProperty("Association")?.getValue();
-        console.log("associationId");
-        console.log(associationId);
         let foundAssociations = nestedCompOwner.getAssociations("Association").filter(x =&gt; x.id == associationId);
-        console.log("foundAssociations");
-        console.log(foundAssociations);
         if (foundAssociations.length &gt; 0) {
             explicitFkAttr = attr;
         }
     }
-    // Backward compatible
+    // Backward compatible lookup method
     if (!explicitFkAttr) {
         explicitFkAttr = entity.getChildren("Attribute")
             .filter(x =&gt; x.getName().toLowerCase().indexOf(nestedCompOwner.getName().toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
@@ -629,7 +624,7 @@ function addPrimaryKeysCqrs(dto, operation, entityPkDescr) {
         case globals.PKSpecialization.Implicit:
         case globals.PKSpecialization.Explicit:
             {
-                if (dto) {
+                if (dto &amp;&amp; !dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(entityPkDescr.name))) {
                     let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
                     primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
                     if (entityPkDescr.specialization == globals.PKSpecialization.Explicit) {
@@ -645,7 +640,7 @@ function addPrimaryKeysCqrs(dto, operation, entityPkDescr) {
             break;
         case globals.PKSpecialization.ExplicitComposite:
             for (let key of entityPkDescr.compositeKeys) {
-                if (dto) {
+                if (dto &amp;&amp; !dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(key.name))) {
                     let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), dto.id);
                     primaryKeyDtoField.typeReference.setType(key.typeId);
                     primaryKeyDtoField.setMapping(key.id);
@@ -753,7 +748,7 @@ function initGlobals() {
 }
 function getOrCreateDto(elementName, parentElement) {
     const expectedDtoName = `${elementName}Dto`;
-    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === expectedDtoName)[0];
+    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.getName() === expectedDtoName)[0];
     if (existingDto) {
         return existingDto;
     }
@@ -773,6 +768,9 @@ function ensureDtoFields(mappedElement, dto) {
             continue;
         }
         if (isCreateMode &amp;&amp; isOwnerForeignKey(entry.name, domainElement)) {
+            continue;
+        }
+        if (dto.getChildren("DTO-Field").some(x =&gt; x.getName() == entry.name)) {
             continue;
         }
         let field = createElement("DTO-Field", entry.name, dto.id);
@@ -795,6 +793,9 @@ function addPrimaryKeys(dto, entityPkDescr) {
         case globals.PKSpecialization.Implicit:
         case globals.PKSpecialization.Explicit:
             {
+                if (dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(entityPkDescr.name))) {
+                    return;
+                }
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
                 primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
                 if (entityPkDescr.specialization == globals.PKSpecialization.Explicit) {
@@ -804,6 +805,9 @@ function addPrimaryKeys(dto, entityPkDescr) {
             break;
         case globals.PKSpecialization.ExplicitComposite:
             for (let key of entityPkDescr.compositeKeys) {
+                if (dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(key.name))) {
+                    continue;
+                }
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), dto.id);
                 primaryKeyDtoField.typeReference.setType(key.typeId);
                 primaryKeyDtoField.setMapping(key.id);
@@ -979,8 +983,7 @@ function getDomainAttributeNamingConvention() {
 // to domain entities that are within a Cosmos DB paradigm.
 function legacyPartitionKey(attribute) {
     return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
-}
-</script>
+}</script>
         </macro>
       </macros>
     </elementExtension>
@@ -1139,7 +1142,7 @@ function initGlobals() {
     };
 }
 function getOrCreateDto(elementName, parentElement) {
-    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === `${elementName}Dto`)[0];
+    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.getName() === `${elementName}Dto`)[0];
     if (existingDto) {
         return existingDto;
     }
@@ -1159,6 +1162,9 @@ function ensureDtoFields(mappedElement, dto) {
             continue;
         }
         if (isCreateMode &amp;&amp; isOwnerForeignKey(entry.name, domainElement)) {
+            continue;
+        }
+        if (dto.getChildren("DTO-Field").some(x =&gt; x.getName() == entry.name)) {
             continue;
         }
         let field = createElement("DTO-Field", entry.name, dto.id);
@@ -1181,6 +1187,9 @@ function addPrimaryKeys(dto, entityPkDescr) {
         case globals.PKSpecialization.Implicit:
         case globals.PKSpecialization.Explicit:
             {
+                if (dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(entityPkDescr.name))) {
+                    return;
+                }
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
                 primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
                 if (entityPkDescr.specialization == globals.PKSpecialization.Explicit) {
@@ -1190,6 +1199,9 @@ function addPrimaryKeys(dto, entityPkDescr) {
             break;
         case globals.PKSpecialization.ExplicitComposite:
             for (let key of entityPkDescr.compositeKeys) {
+                if (dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(key.name))) {
+                    continue;
+                }
                 let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), dto.id);
                 primaryKeyDtoField.typeReference.setType(key.typeId);
                 primaryKeyDtoField.setMapping(key.id);
@@ -1365,8 +1377,7 @@ function getDomainAttributeNamingConvention() {
 // to domain entities that are within a Cosmos DB paradigm.
 function legacyPartitionKey(attribute) {
     return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
-}
-</script>
+}</script>
         </macro>
       </macros>
     </elementExtension>
@@ -1421,7 +1432,7 @@ function initGlobals() {
 }
 function getOrCreateDto(elementName, parentElement) {
     const expectedQueryName = `${elementName}Dto`;
-    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.name === expectedQueryName)[0];
+    let existingDto = parentElement.getChildren("DTO").filter(x =&gt; x.getName() === expectedQueryName)[0];
     if (existingDto) {
         return existingDto;
     }
@@ -1435,8 +1446,11 @@ function ensureDtoFields(mappedElement, dto) {
         .getType()
         .getChildren("Attribute");
     let dtoFields = dto.getChildren("DTO-Field");
-    for (let attribute of mappedElementAttributes.filter(x =&gt; !dtoFields.some(y =&gt; x.name === y.name))) {
-        let field = createElement("DTO-Field", attribute.name, dto.id);
+    for (let attribute of mappedElementAttributes.filter(x =&gt; !dtoFields.some(y =&gt; x.getName() === y.getName()))) {
+        if (dto.getChildren("DTO-Field").some(x =&gt; x.getName() == attribute.getName())) {
+            continue;
+        }
+        let field = createElement("DTO-Field", attribute.getName(), dto.id);
         field.typeReference.setType(attribute.typeReference.typeId);
         field.typeReference.setIsNullable(attribute.typeReference.isNullable);
         field.typeReference.setIsCollection(attribute.typeReference.isCollection);
@@ -1456,8 +1470,7 @@ function getDomainAttributeNamingConvention() {
 // to domain entities that are within a Cosmos DB paradigm.
 function legacyPartitionKey(attribute) {
     return attribute.hasStereotype("Partition Key") &amp;&amp; attribute.name === "PartitionKey";
-}
-</script>
+}</script>
         </macro>
       </macros>
     </elementExtension>
@@ -1557,10 +1570,10 @@ function createCqrsResultTypeDto(entity, entityFolder) {
             nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
         }
     }
-    if (entityPkDescr.specialization == globals.PKSpecialization.Implicit) {
-        let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
-        idField.typeReference.setType(entityPkDescr.typeId);
-    }
+    // if (entityPkDescr.specialization == globals.PKSpecialization.Implicit) {
+    //     let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
+    //     idField.typeReference.setType(entityPkDescr.typeId);
+    // }
     addPrimaryKeysCqrs(dto, null, entityPkDescr);
     let attributesWithMapPaths = getAttributesWithMapPath(entity);
     for (var keyName of Object.keys(attributesWithMapPaths)) {
@@ -2045,21 +2058,16 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     if (!nestedCompOwner) {
         throw new Error("nestedCompOwner not specified");
     }
+    // Use the new Associated property on the FK stereotype method for FK Attribute lookup
     let explicitFkAttr;
     for (let attr of entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Foreign Key"))) {
-        console.log("attr");
-        console.log(attr);
         let associationId = attr.getStereotype("Foreign Key").getProperty("Association")?.getValue();
-        console.log("associationId");
-        console.log(associationId);
         let foundAssociations = nestedCompOwner.getAssociations("Association").filter(x =&gt; x.id == associationId);
-        console.log("foundAssociations");
-        console.log(foundAssociations);
         if (foundAssociations.length &gt; 0) {
             explicitFkAttr = attr;
         }
     }
-    // Backward compatible
+    // Backward compatible lookup method
     if (!explicitFkAttr) {
         explicitFkAttr = entity.getChildren("Attribute")
             .filter(x =&gt; x.getName().toLowerCase().indexOf(nestedCompOwner.getName().toLowerCase()) &gt;= 0 &amp;&amp; x.hasStereotype("Foreign Key"))[0];
@@ -2084,7 +2092,7 @@ function addPrimaryKeysCqrs(dto, operation, entityPkDescr) {
         case globals.PKSpecialization.Implicit:
         case globals.PKSpecialization.Explicit:
             {
-                if (dto) {
+                if (dto &amp;&amp; !dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(entityPkDescr.name))) {
                     let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
                     primaryKeyDtoField.typeReference.setType(entityPkDescr.typeId);
                     if (entityPkDescr.specialization == globals.PKSpecialization.Explicit) {
@@ -2100,7 +2108,7 @@ function addPrimaryKeysCqrs(dto, operation, entityPkDescr) {
             break;
         case globals.PKSpecialization.ExplicitComposite:
             for (let key of entityPkDescr.compositeKeys) {
-                if (dto) {
+                if (dto &amp;&amp; !dto.getChildren("DTO-Field").some(x =&gt; x.getName() == getFieldFormat(key.name))) {
                     let primaryKeyDtoField = createElement("DTO-Field", getFieldFormat(key.name), dto.id);
                     primaryKeyDtoField.typeReference.setType(key.typeId);
                     primaryKeyDtoField.setMapping(key.id);

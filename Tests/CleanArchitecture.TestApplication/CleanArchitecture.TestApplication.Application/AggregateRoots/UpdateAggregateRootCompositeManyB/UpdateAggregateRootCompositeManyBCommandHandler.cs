@@ -51,14 +51,11 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         private static void UpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
-            entity.CompositeAttr = dto.CompositeAttr;
         }
 
         [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
-            entity.CompositeAttr = dto.CompositeAttr;
-            entity.CompositeManyBId = dto.CompositeManyBId;
             entity.CompositeAttr = dto.CompositeAttr;
             entity.CompositeManyBId = dto.CompositeManyBId;
         }

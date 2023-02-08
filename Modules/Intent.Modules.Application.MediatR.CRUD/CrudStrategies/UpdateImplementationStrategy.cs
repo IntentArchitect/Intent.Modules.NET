@@ -172,6 +172,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             {
                                 if (field.TypeReference.IsNullable)
                                 {
+                                _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
                                     codeLines.Add($"{entityVarName}.{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
                                     codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntityElement.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)})", s => s.Indent());
                                     codeLines.Add($": null;", s => s.Indent());

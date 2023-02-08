@@ -15,5 +15,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
 
         public string Attribute { get; set; }
 
+        public List<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto> ImplicitKeyNestedCompositions { get; set; }
+
     }
 }

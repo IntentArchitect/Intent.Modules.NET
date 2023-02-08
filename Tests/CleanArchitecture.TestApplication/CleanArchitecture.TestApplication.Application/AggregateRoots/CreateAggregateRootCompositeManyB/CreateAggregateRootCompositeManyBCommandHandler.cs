@@ -51,7 +51,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             return new CompositeSingleBB
             {
                 CompositeAttr = dto.CompositeAttr,
-                CompositeAttr = dto.CompositeAttr,
             };
         }
 
@@ -60,7 +59,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         {
             return new CompositeManyBB
             {
-                CompositeAttr = dto.CompositeAttr,
                 CompositeAttr = dto.CompositeAttr,
             };
         }

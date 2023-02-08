@@ -43,24 +43,21 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             entity.CompositeAttr = dto.CompositeAttr;
             entity.SomeDate = dto.SomeDate;
             entity.AggregateRootId = dto.AggregateRootId;
+            entity.Composites.UpdateCollection(dto.Composites, (e, d) => e.Id == d.Id, UpdateCompositeManyBB);
             entity.Composite = dto.Composite != null
                 ? (entity.Composite ?? new CompositeSingleBB()).UpdateObject(dto.Composite, UpdateCompositeSingleBB)
                 : null;
-            entity.Composites.UpdateCollection(dto.Composites, (e, d) => e.Id == d.Id, UpdateCompositeManyBB);
         }
 
         [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
             entity.CompositeAttr = dto.CompositeAttr;
-            entity.CompositeAttr = dto.CompositeAttr;
         }
 
         [IntentManaged(Mode.Fully)]
         private static void UpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
-            entity.CompositeAttr = dto.CompositeAttr;
-            entity.CompositeManyBId = dto.CompositeManyBId;
             entity.CompositeAttr = dto.CompositeAttr;
             entity.CompositeManyBId = dto.CompositeManyBId;
         }

@@ -18,10 +18,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         }
 
         public static AggregateRootCompositeManyBDto Create(
-            Guid id,
-            string compositeAttr,
-            DateTime? someDate,
-            Guid aggregateRootId,
             string compositeAttr,
             DateTime? someDate,
             Guid aggregateRootId,
@@ -31,10 +27,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
         {
             return new AggregateRootCompositeManyBDto
             {
-                Id = id,
-                CompositeAttr = compositeAttr,
-                SomeDate = someDate,
-                AggregateRootId = aggregateRootId,
                 CompositeAttr = compositeAttr,
                 SomeDate = someDate,
                 AggregateRootId = aggregateRootId,
@@ -43,14 +35,6 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 Composites = composites,
             };
         }
-
-        public Guid Id { get; set; }
-
-        public string CompositeAttr { get; set; }
-
-        public DateTime? SomeDate { get; set; }
-
-        public Guid AggregateRootId { get; set; }
 
         public string CompositeAttr { get; set; }
 

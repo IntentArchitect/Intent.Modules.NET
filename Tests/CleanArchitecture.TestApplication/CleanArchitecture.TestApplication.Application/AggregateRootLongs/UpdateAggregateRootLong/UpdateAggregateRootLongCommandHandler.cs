@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;

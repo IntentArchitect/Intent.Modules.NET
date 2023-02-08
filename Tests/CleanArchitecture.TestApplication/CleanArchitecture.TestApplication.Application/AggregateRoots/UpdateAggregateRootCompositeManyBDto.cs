@@ -19,8 +19,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
             DateTime? someDate,
             Guid aggregateRootId,
             Guid id,
-            UpdateAggregateRootCompositeManyBCompositeSingleBBDto? composite,
-            List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> composites)
+            List<UpdateAggregateRootCompositeManyBCompositeManyBBDto> composites,
+            UpdateAggregateRootCompositeManyBCompositeSingleBBDto? composite)
         {
             return new UpdateAggregateRootCompositeManyBDto
             {
@@ -28,8 +28,8 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
                 SomeDate = someDate,
                 AggregateRootId = aggregateRootId,
                 Id = id,
-                Composite = composite,
                 Composites = composites,
+                Composite = composite,
             };
         }
 

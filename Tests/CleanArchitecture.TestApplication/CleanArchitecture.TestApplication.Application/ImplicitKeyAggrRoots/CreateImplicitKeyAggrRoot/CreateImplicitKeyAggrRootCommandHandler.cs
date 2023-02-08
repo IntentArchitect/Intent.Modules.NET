@@ -29,11 +29,21 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
             var newImplicitKeyAggrRoot = new ImplicitKeyAggrRoot
             {
                 Attribute = request.Attribute,
+                ImplicitKeyNestedCompositions = request.ImplicitKeyNestedCompositions.Select(CreateImplicitKeyNestedComposition).ToList(),
             };
 
             _implicitKeyAggrRootRepository.Add(newImplicitKeyAggrRoot);
             await _implicitKeyAggrRootRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return newImplicitKeyAggrRoot.Id;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private ImplicitKeyNestedComposition CreateImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
+        {
+            return new ImplicitKeyNestedComposition
+            {
+                Attribute = dto.Attribute,
+            };
         }
     }
 }

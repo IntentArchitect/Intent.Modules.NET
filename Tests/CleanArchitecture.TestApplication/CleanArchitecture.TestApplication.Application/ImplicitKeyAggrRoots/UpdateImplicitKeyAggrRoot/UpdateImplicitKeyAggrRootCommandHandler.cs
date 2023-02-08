@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.TestApplication.Domain.Common;
+using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -27,7 +29,14 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
         {
             var existingImplicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
             existingImplicitKeyAggrRoot.Attribute = request.Attribute;
+            existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions.UpdateCollection(request.ImplicitKeyNestedCompositions, (e, d) => e.Id == d.Id, UpdateImplicitKeyNestedComposition);
             return Unit.Value;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static void UpdateImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity, UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
+        {
+            entity.Attribute = dto.Attribute;
         }
     }
 }

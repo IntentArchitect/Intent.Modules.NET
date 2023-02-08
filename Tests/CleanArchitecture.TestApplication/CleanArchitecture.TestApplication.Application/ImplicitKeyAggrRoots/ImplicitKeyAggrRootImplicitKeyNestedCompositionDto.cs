@@ -18,27 +18,19 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
         }
 
         public static ImplicitKeyAggrRootImplicitKeyNestedCompositionDto Create(
-            Guid implicitKeyAggrRootId,
-            Guid id,
-            Guid id,
-            string attribute)
+            string attribute,
+            Guid id)
         {
             return new ImplicitKeyAggrRootImplicitKeyNestedCompositionDto
             {
-                ImplicitKeyAggrRootId = implicitKeyAggrRootId,
-                Id = id,
-                Id = id,
                 Attribute = attribute,
+                Id = id,
             };
         }
 
-        public Guid ImplicitKeyAggrRootId { get; set; }
-
-        public Guid Id { get; set; }
-
-        public Guid Id { get; set; }
-
         public string Attribute { get; set; }
+
+        public Guid Id { get; set; }
 
         public void Mapping(Profile profile)
         {

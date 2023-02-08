@@ -22,6 +22,9 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
             RuleFor(v => v.Attribute)
                 .NotNull();
 
+            RuleFor(v => v.ImplicitKeyNestedCompositions)
+                .NotNull();
+
         }
     }
 }

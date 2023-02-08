@@ -19,26 +19,27 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots
 
         public static ImplicitKeyAggrRootDto Create(
             Guid id,
-            Guid id,
-            string attribute)
+            string attribute,
+            List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto> implicitKeyNestedCompositions)
         {
             return new ImplicitKeyAggrRootDto
             {
                 Id = id,
-                Id = id,
                 Attribute = attribute,
+                ImplicitKeyNestedCompositions = implicitKeyNestedCompositions,
             };
         }
 
         public Guid Id { get; set; }
 
-        public Guid Id { get; set; }
-
         public string Attribute { get; set; }
+
+        public List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto> ImplicitKeyNestedCompositions { get; set; }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<ImplicitKeyAggrRoot, ImplicitKeyAggrRootDto>();
+            profile.CreateMap<ImplicitKeyAggrRoot, ImplicitKeyAggrRootDto>()
+                .ForMember(d => d.ImplicitKeyNestedCompositions, opt => opt.MapFrom(src => src.ImplicitKeyNestedCompositions));
         }
     }
 }

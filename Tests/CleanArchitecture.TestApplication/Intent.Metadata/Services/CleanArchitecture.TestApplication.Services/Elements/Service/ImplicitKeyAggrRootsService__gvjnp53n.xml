@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bc52f4d6-706e-4d34-82a8-95db0c914894" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ImplicitKeyAggrRootsService</name>
+  <display>ImplicitKeyAggrRootsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>67511d9d-7243-42f6-a28c-6c3475a97892</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.TestApplication.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="813d78a7-f6c3-4acd-91fc-381e517c8f54" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Post</name>
+      <display>Post(command: CreateImplicitKeyAggrRootCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="cb550b89-38bb-4aef-8875-01b809c6626b">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="f25e0a78-82b1-4574-b473-e36da1f13b3f" name="CreateImplicitKeyAggrRootCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f7b2124d-9184-4a29-91ec-690ab824f26b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: CreateImplicitKeyAggrRootCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8d5e7445-ff1c-44a7-b19c-dff9b0443397">
+            <typeId>f25e0a78-82b1-4574-b473-e36da1f13b3f</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>813d78a7-f6c3-4acd-91fc-381e517c8f54</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2dfc6d34-7845-49f7-96b1-ebd58ccb9ee6" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Get</name>
+      <display>Get(id: guid): ImplicitKeyAggrRootDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="5704273b-a11a-48b3-abad-cac3623bb6aa">
+        <typeId>692b9881-11a4-4e0d-b793-0b956e07bdb4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ca4b1acb-c361-4407-a3c5-1398e1413e00" name="GetImplicitKeyAggrRootByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8bebbe9c-6c6e-4bc7-bbe4-67780c3ee5ca" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9f16b1d3-e9bb-465e-941c-e703f5820b72">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="5d88b54a-af84-4e88-a62b-615e3e084118" name="Id" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>2dfc6d34-7845-49f7-96b1-ebd58ccb9ee6</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a1c6da2d-f4ce-4ddd-837a-df91330a05d2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetAll</name>
+      <display>GetAll(): ImplicitKeyAggrRootDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="096ad77e-89fa-4406-b62a-eaab8ae0da2a">
+        <typeId>692b9881-11a4-4e0d-b793-0b956e07bdb4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="a5cd32f4-3ab1-42e7-aebe-69e108760f12" name="GetImplicitKeyAggrRootsQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c8dc596a-704d-42e4-b6fb-ddcd654ca3cb" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Put</name>
+      <display>Put(id: guid, command: UpdateImplicitKeyAggrRootCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="0dd6f300-beb3-4a90-8e6d-09a550fa8ede">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="154084b8-9495-4f13-80f5-a97a8f0ab694" name="UpdateImplicitKeyAggrRootCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d5c864be-9cbf-49f2-bee9-fdf962ce8325" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2477bb25-ad96-49eb-91ff-60a6b4a0b4b7">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="8d1357bc-8631-4b53-b4d1-cb50feedee7e" name="Id" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>c8dc596a-704d-42e4-b6fb-ddcd654ca3cb</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a4788499-5671-4ceb-9d6a-52db522efcc6" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: UpdateImplicitKeyAggrRootCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1a54798e-5fa3-484f-8f2f-f4c75b9ba59f">
+            <typeId>154084b8-9495-4f13-80f5-a97a8f0ab694</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c8dc596a-704d-42e4-b6fb-ddcd654ca3cb</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="26aef106-253b-452b-95c7-d3fe2fef3d98" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Delete</name>
+      <display>Delete(id: guid, command: DeleteImplicitKeyAggrRootCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a5ca168a-ac96-4a0d-bd42-5bf31ec50239">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="2a0a86d7-9dd9-4ae4-83bf-4f0608fbd052" name="DeleteImplicitKeyAggrRootCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="732f6df7-06b4-427c-848f-eda2285c69b2" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="67cb2829-45e3-4bd6-96b5-6a4ccf6857a8">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="69067c9c-03c9-401d-9117-424237bfb4a1" name="Id" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>26aef106-253b-452b-95c7-d3fe2fef3d98</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e9d7b837-9801-43c6-9be3-e4d05409d150" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: DeleteImplicitKeyAggrRootCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9632edc2-e64a-4922-bb28-6e0e220e08ea">
+            <typeId>2a0a86d7-9dd9-4ae4-83bf-4f0608fbd052</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>26aef106-253b-452b-95c7-d3fe2fef3d98</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="886033a6-a612-4e69-a951-247a4065bf46" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>PostImplicitKeyNestedComposition</name>
+      <display>PostImplicitKeyNestedComposition(implicitKeyAggrRootId: guid, command: CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="39d14bd4-3d37-4d82-9689-69e3130e8cf1">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="83b9d479-8ce1-4a29-be85-fa4b7680b6ec" name="CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="7ee157dd-02a6-4b12-9d2e-8f98964d673f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>implicitKeyAggrRootId</name>
+          <display>in : implicitKeyAggrRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="26acf9fe-86e8-4f68-b795-a37da3163977">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="17135332-12c8-4c30-9cf5-cc6dd4f97ef3" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>886033a6-a612-4e69-a951-247a4065bf46</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bfce8073-d0e1-4bf3-b752-458baf037515" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="34c91a85-796c-4fc3-a4fb-cfe70cd0d5ca">
+            <typeId>83b9d479-8ce1-4a29-be85-fa4b7680b6ec</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>886033a6-a612-4e69-a951-247a4065bf46</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a1717590-f59e-4fc4-92a1-dd7617f5c67d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetImplicitKeyNestedComposition</name>
+      <display>GetImplicitKeyNestedComposition(implicitKeyAggrRootId: guid, id: guid): ImplicitKeyAggrRootImplicitKeyNestedCompositionDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="ccc726de-bdb4-4e4a-b400-bbf0059a7267">
+        <typeId>30ac497d-6788-4bf8-bdce-279782ba9ef4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="09d3f6cf-f99f-4e4a-bfd2-330976ebbf9c" name="GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c275fbc9-4c51-4da9-8cc9-b74cfb1c3290" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>implicitKeyAggrRootId</name>
+          <display>in : implicitKeyAggrRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ee0cd78b-4d30-4095-bd45-569f61ddc9c3">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="35b5e6b4-548f-461d-aa1b-25fec7771142" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>a1717590-f59e-4fc4-92a1-dd7617f5c67d</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="57b5bf26-7a6a-448f-9a32-eb8cb2226420" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3ec5302c-dc6b-4737-b06e-53742191d60e">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="7689c83f-9d98-47a1-a829-f5305c11a143" name="Id" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>a1717590-f59e-4fc4-92a1-dd7617f5c67d</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="fdd88db6-2ae0-48b8-9cbc-c3094a231bff" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetAllImplicitKeyNestedCompositions</name>
+      <display>GetAllImplicitKeyNestedCompositions(implicitKeyAggrRootId: guid): ImplicitKeyAggrRootImplicitKeyNestedCompositionDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a69c5c12-4825-46e5-b777-eedaaf0177d2">
+        <typeId>30ac497d-6788-4bf8-bdce-279782ba9ef4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="02029650-e167-47d3-ba72-cad619d54fb5" name="GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4abac382-e1b9-4012-af12-d6748cf297f2" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>implicitKeyAggrRootId</name>
+          <display>in : implicitKeyAggrRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="446c9dc6-1072-40a1-8b7e-93a67c134ac2">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="e1fdf2c2-9008-4c39-a67d-47495bc94ece" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>fdd88db6-2ae0-48b8-9cbc-c3094a231bff</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="70d4eeed-d8df-458e-86fb-c72d39db16b5" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>PutImplicitKeyNestedComposition</name>
+      <display>PutImplicitKeyNestedComposition(implicitKeyAggrRootId: guid, id: guid, command: UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="36b16e28-2984-4fba-a984-8f632b06d399">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="04ffa1e6-f690-4726-88c1-dcc452d7ca78" name="UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f5d62f64-6f5a-4276-aa15-c6e07538c8a8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>implicitKeyAggrRootId</name>
+          <display>in : implicitKeyAggrRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a58cacb6-ae81-43d6-85ac-bc9e814c4a40">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="a2409926-4f52-4e28-8bea-1e97ce0726ab" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>70d4eeed-d8df-458e-86fb-c72d39db16b5</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="24049323-97e6-4097-b8e5-45baaf7c5ec8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3f7e0fdf-7933-46c9-88c8-f42e1e1ee04c">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="c39ffdee-28f2-471e-ba9c-a90e128d09ac" name="Id" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>70d4eeed-d8df-458e-86fb-c72d39db16b5</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2c0befd0-b980-4d16-9208-82d70cbb8f3d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3f3f6f70-7d35-4dd3-92ed-4a7b344b7af3">
+            <typeId>04ffa1e6-f690-4726-88c1-dcc452d7ca78</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>70d4eeed-d8df-458e-86fb-c72d39db16b5</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7a40e645-9727-47b9-a93a-a1800423e8be" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteImplicitKeyNestedComposition</name>
+      <display>DeleteImplicitKeyNestedComposition(implicitKeyAggrRootId: guid, id: guid, command: DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="0748cb02-c732-4923-8629-116304466fa5">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+        <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+        <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="8ae62317-9e1b-4965-917c-c5f9289fe55c" name="DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>bc52f4d6-706e-4d34-82a8-95db0c914894</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.TestApplication.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{implicitKeyAggrRootId}/ImplicitKeyNestedCompositions/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1557aa6b-1623-4280-a29c-61c0c66957e0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>implicitKeyAggrRootId</name>
+          <display>in : implicitKeyAggrRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="bed244ac-7d90-4182-bb95-78c1ed02a09e">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="11cfa856-f505-45f9-899a-9d3708c86bd5" name="ImplicitKeyAggrRootId" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>7a40e645-9727-47b9-a93a-a1800423e8be</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ae233d90-f226-4143-bd83-41ff1d132401" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="96088a81-9dc4-490d-9e41-4034188d714e">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
+            <autoSyncTypeReference>true</autoSyncTypeReference>
+            <mappedPath>
+              <target id="5ffe6336-a6aa-4b8c-853f-a3fb54dee22e" name="Id" type="element" specialization="DTO-Field" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>7a40e645-9727-47b9-a93a-a1800423e8be</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8efd37a9-db3e-4506-9220-26c3861f43de" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>command</name>
+          <display>in : command: DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="48a685b9-ebf9-40e9-8fd6-81a69eb40ada">
+            <typeId>8ae62317-9e1b-4965-917c-c5f9289fe55c</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7a40e645-9727-47b9-a93a-a1800423e8be</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.TestApplication.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

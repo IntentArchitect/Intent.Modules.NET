@@ -19,16 +19,12 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 
         public static AggregateRootCompositeSingleADto Create(
             string compositeAttr,
-            Guid id,
-            AggregateRootCompositeSingleACompositeSingleAADto? composite,
-            List<AggregateRootCompositeSingleACompositeManyAADto> composites)
+            Guid id)
         {
             return new AggregateRootCompositeSingleADto
             {
                 CompositeAttr = compositeAttr,
                 Id = id,
-                Composite = composite,
-                Composites = composites,
             };
         }
 
@@ -36,14 +32,9 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 
         public Guid Id { get; set; }
 
-        public AggregateRootCompositeSingleACompositeSingleAADto? Composite { get; set; }
-
-        public List<AggregateRootCompositeSingleACompositeManyAADto> Composites { get; set; }
-
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CompositeSingleA, AggregateRootCompositeSingleADto>()
-                .ForMember(d => d.Composites, opt => opt.MapFrom(src => src.Composites));
+            profile.CreateMap<CompositeSingleA, AggregateRootCompositeSingleADto>();
         }
     }
 }

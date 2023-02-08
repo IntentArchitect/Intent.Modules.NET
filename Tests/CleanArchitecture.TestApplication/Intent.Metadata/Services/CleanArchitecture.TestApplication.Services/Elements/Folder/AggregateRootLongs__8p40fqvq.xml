@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e7829d7d-4886-41fe-a14d-ccce068c6984" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>AggregateRootLongs</name>
+  <display>AggregateRootLongs</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>67511d9d-7243-42f6-a28c-6c3475a97892</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

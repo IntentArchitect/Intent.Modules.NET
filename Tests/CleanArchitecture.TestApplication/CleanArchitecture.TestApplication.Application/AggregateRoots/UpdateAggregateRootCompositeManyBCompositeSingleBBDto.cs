@@ -16,22 +16,14 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots
 
         public static UpdateAggregateRootCompositeManyBCompositeSingleBBDto Create(
             string compositeAttr,
-            Guid id,
-            string compositeAttr,
             Guid id)
         {
             return new UpdateAggregateRootCompositeManyBCompositeSingleBBDto
             {
                 CompositeAttr = compositeAttr,
                 Id = id,
-                CompositeAttr = compositeAttr,
-                Id = id,
             };
         }
-
-        public string CompositeAttr { get; set; }
-
-        public Guid Id { get; set; }
 
         public string CompositeAttr { get; set; }
 
