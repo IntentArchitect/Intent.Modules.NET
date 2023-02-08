@@ -198,22 +198,22 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
         {
             if (!associationEnd.Association.IsOneToOne() || associationEnd.OtherEnd().IsNullable)
             {
-                var fkAttributeWithAssociation = associationEnd.Class.Attributes
-                    .FirstOrDefault(p => p.GetForeignKey()?.Association()?.Id == foreignKeyAssociationId);
-                if (foreignKeyAssociationId != null && fkAttributeWithAssociation != null)
+                var fkAttributeWithAssociations = associationEnd.Class.Attributes
+                    .Where(p => p.GetForeignKey()?.Association()?.Id == foreignKeyAssociationId)
+                    .ToArray();
+                if (foreignKeyAssociationId != null && fkAttributeWithAssociations.Any())
                 {
-                    return new[]
-                    {
-                        new RequiredEntityProperty(
+                    return fkAttributeWithAssociations
+                        .Select(x => new RequiredEntityProperty(
                             Class: associationEnd.Element,
-                            Name: fkAttributeWithAssociation.Name,
-                            Type: fkAttributeWithAssociation.Type.Element,
-                            IsNullable: associationEnd.IsNullable)
-                    };
+                            Name: x.Name,
+                            Type: x.Type.Element,
+                            IsNullable: associationEnd.IsNullable))
+                        .ToArray();
                 }
                 
                 return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
-                    .Select(selector: x => new RequiredEntityProperty(
+                    .Select(x => new RequiredEntityProperty(
                         Class: associationEnd.Element,
                         Name: $"{associationEnd.OtherEnd().Name.ToPascalCase()}{x.Name.ToPascalCase()}",
                         Type: x.Type.Element,
@@ -223,7 +223,7 @@ public class EfCoreAssociationConfigStatement : CSharpStatement
             
             // compositional one-to-ones:
             return associationEnd.OtherEnd().Class.GetExplicitPrimaryKey()
-                .Select(selector: x => new RequiredEntityProperty(
+                .Select(x => new RequiredEntityProperty(
                     Class: associationEnd.Element,
                     Name: $"{x.Name.ToPascalCase()}",
                     Type: x.Type.Element,
