@@ -1,5 +1,5 @@
 $modulesFolderPath = "Intent.Modules"
-$pathToModules = "Modules"
+$pathToModules = "Tests"
 $solutionFile = "Intent.Modules.NET.Tests.isln"
 
 $repoConfigContent = 
