@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Intent.Engine;
-using System.IO;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
-using Microsoft.Build.Construction;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudio2015Solution
 {

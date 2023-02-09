@@ -20,6 +20,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.ConsoleApp.CsProject
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
             var models = _metadataManager.VisualStudio(application).GetConsoleAppNETFrameworkModels();
+            if (models.Count > 0)
+            {
+                MsBuildLoaderHelper.EnsureMsBuildLoaded();
+            }
 
             foreach (var model in models)
             {

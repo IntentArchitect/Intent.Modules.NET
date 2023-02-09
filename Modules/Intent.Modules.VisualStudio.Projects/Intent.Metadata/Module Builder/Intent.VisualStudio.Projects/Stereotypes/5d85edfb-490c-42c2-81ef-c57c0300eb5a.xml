@@ -142,5 +142,19 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="96c39bf5-320f-4d4c-9545-76c52cb29e91">
+      <hint />
+      <name>Implicit Usings</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unmanaged)</placeholder>
+      <valueOptions>
+        <option>(unspecified)</option>
+        <option>disable</option>
+        <option>enable</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
   </properties>
 </stereotypeDefinition>

@@ -121,6 +121,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<string>("Assembly Name");
             }
 
+            public ImplicitUsingsOptions ImplicitUsings()
+            {
+                return new ImplicitUsingsOptions(_stereotype.GetProperty<string>("Implicit Usings"));
+            }
+
             public class GenerateRuntimeConfigurationFilesOptions
             {
                 public readonly string Value;
@@ -208,6 +213,50 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 Unspecified,
                 False,
                 True
+            }
+            public class ImplicitUsingsOptions
+            {
+                public readonly string Value;
+
+                public ImplicitUsingsOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public ImplicitUsingsOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "(unspecified)":
+                            return ImplicitUsingsOptionsEnum.Unspecified;
+                        case "disable":
+                            return ImplicitUsingsOptionsEnum.Disable;
+                        case "enable":
+                            return ImplicitUsingsOptionsEnum.Enable;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsUnspecified()
+                {
+                    return Value == "(unspecified)";
+                }
+                public bool IsDisable()
+                {
+                    return Value == "disable";
+                }
+                public bool IsEnable()
+                {
+                    return Value == "enable";
+                }
+            }
+
+            public enum ImplicitUsingsOptionsEnum
+            {
+                Unspecified,
+                Disable,
+                Enable
             }
         }
 

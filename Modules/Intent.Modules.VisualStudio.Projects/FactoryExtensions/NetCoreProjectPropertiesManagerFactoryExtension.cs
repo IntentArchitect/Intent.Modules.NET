@@ -59,6 +59,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     hasChange |= SyncProperty(doc, "UserSecretsId", netCoreSettings.UserSecretsId());
                     hasChange |= SyncProperty(doc, "RootNamespace", netCoreSettings.RootNamespace());
                     hasChange |= SyncProperty(doc, "AssemblyName", netCoreSettings.AssemblyName());
+                    hasChange |= SyncManageableBooleanProperty(doc, "ImplicitUsings", netCoreSettings.ImplicitUsings().Value);
                     hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netCoreSettings.GenerateRuntimeConfigurationFiles().Value);
                     hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netCoreSettings.GenerateDocumentationFile().Value);
                 }
@@ -87,6 +88,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     hasChange |= SyncProperty(doc, "UserSecretsId", netSettings.UserSecretsId());
                     hasChange |= SyncProperty(doc, "RootNamespace", netSettings.RootNamespace());
                     hasChange |= SyncProperty(doc, "AssemblyName", netSettings.AssemblyName());
+                    hasChange |= SyncManageableBooleanProperty(doc, "ImplicitUsings", netSettings.ImplicitUsings().Value);
                     hasChange |= SyncManageableBooleanProperty(doc, "GenerateRuntimeConfigurationFiles", netSettings.GenerateRuntimeConfigurationFiles().Value);
                     hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netSettings.GenerateDocumentationFile().Value);
                 }
@@ -141,12 +143,12 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         /// <description>The property should be removed from the <c>.csproj</c> file.</description>
         /// </item>
         /// <item>
-        /// <term><see langword="false"/></term>
-        /// <description>The property's value should be set to <c>false</c>.</description>
+        /// <term><see langword="false"/> / <c>disable</c></term>
+        /// <description>The property's value should be set to <c>false</c>. / <c>disable</c></description>
         /// </item>
         /// <item>
-        /// <term><see langword="true"/></term>
-        /// <description>The property's value should be set to <c>true</c>.</description>
+        /// <term><see langword="true"/> / <c>enable</c></term>
+        /// <description>The property's value should be set to <c>true</c> / <c>enable</c>.</description>
         /// </item>
         /// </list>
         /// </summary>
@@ -155,6 +157,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         {
             if (!string.IsNullOrWhiteSpace(value) &&
                 value is not "(unspecified)" &&
+                value is not "enable" &&
+                value is not "disable" &&
                 value is not "true" &&
                 value is not "false")
             {

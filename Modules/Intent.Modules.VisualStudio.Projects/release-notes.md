@@ -1,5 +1,7 @@
 ﻿### Version 3.3.20
 
+- To improve compatibility with the `Intent.OutputManager.RoslynWeaver` module, [Microsoft.Build.Locator](https://www.nuget.org/packages/Microsoft.Build.Locator) is now used to load MSBuild assemblies which are required for generation of `.NET Framework` `.csproj` files. As `Microsoft.Build.Locator` requires that .NET SDK >= 6 be installed, the Software Factory execution will throw an exception if it's not found and a `.NET Framework` `.csproj` file is to be generated.
+- Added support for Implicit Usings for projects.
 - Fixed: Added SSL URI in `applicationUrl` for `Project` Laumch Profiles.
 
 ### Version 3.3.19
