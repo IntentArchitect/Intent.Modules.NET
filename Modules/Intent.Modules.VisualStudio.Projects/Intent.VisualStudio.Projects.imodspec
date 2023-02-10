@@ -2,7 +2,7 @@
 <package>
   <id>Intent.VisualStudio.Projects</id>
   <version>3.3.21-pre.1</version>
-  <supportedClientVersions>[3.4.1-pre.5, 4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.3.14-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
   <authors>Intent Architect</authors>
@@ -73,6 +73,8 @@
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
+    <file src="$outDir$/Microsoft.Build.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Build.Framework.dll" inspect="false" />
   </files>
   <moduleSettings />
   <moduleSettingsExtensions />

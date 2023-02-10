@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
@@ -21,10 +23,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LibraryCSProjectFile
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
             var models = _metadataManager.VisualStudio(application).GetClassLibraryNETFrameworkModels();
-            if (models.Count > 0)
-            {
-                MsBuildLoaderHelper.EnsureMsBuildLoaded();
-            }
 
             foreach (var model in models)
             {

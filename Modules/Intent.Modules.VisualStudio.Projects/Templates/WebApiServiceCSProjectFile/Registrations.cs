@@ -1,12 +1,15 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 
+
 namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectFile
 {
-    [Description("Web Api Service CS Project File - VS Projects")]
+    [Description("Web Api Service CS Project File - VS Projects")] 
     public class Registrations : ITemplateRegistration
     {
         public string TemplateId => WebApiServiceCSProjectFileTemplate.Identifier;
@@ -20,10 +23,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectF
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
             var models = _metadataManager.VisualStudio(application).GetASPNETWebApplicationNETFrameworkModels();
-            if (models.Count > 0)
-            {
-                MsBuildLoaderHelper.EnsureMsBuildLoaded();
-            }
 
             foreach (var model in models)
             {
