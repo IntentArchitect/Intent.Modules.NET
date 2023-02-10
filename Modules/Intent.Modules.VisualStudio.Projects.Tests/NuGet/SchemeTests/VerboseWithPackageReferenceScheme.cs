@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
-using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
-using Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using NuGet.Versioning;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         {
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
-            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
             // Act
@@ -35,7 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "PackageToInstall.Id", "1.0.0" }
             });
@@ -50,7 +50,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 
             // Assert
             Assert.Equal(
-                expected: 
+                expected:
 @"<?xml version=""1.0"" encoding=""utf-8""?>
 <Project xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
   <ItemGroup>
@@ -71,7 +71,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "TestPackage.One", "3.0.0" }
             });
@@ -106,7 +106,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackageReferencesSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackageReference, TestVersion.Low, existingPackage, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackageReference, TestVersion.Low, existingPackage, new Dictionary<string, string>
             {
                 { $"{nameof(TestPackage)}.{testPackageToInstall}", "1.0.0" }
             });

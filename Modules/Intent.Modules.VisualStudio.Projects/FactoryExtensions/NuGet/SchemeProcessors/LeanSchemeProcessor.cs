@@ -7,7 +7,7 @@ using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using NuGet.Versioning;
 
-namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
+namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
 {
     internal class LeanSchemeProcessor : INuGetSchemeProcessor
     {
@@ -171,7 +171,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                 targetElement.Add(attribute);
                 return;
             }
-            
+
             attribute.SetValue(value);
         }
     }

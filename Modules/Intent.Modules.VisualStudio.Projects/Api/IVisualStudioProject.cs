@@ -1,5 +1,4 @@
-﻿using System.CodeDom;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
@@ -39,6 +38,5 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             var roles = folder.Roles.Select(x => new ProjectOutput(x.Name, x.Folder?.Name)).ToList<IOutputTargetRole>();
             return roles;
         }
-
     }
 }

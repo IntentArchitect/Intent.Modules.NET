@@ -9,14 +9,16 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
+using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
-using Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 using NuGet.Versioning;
 
-namespace Intent.Modules.VisualStudio.Projects.NuGet
+namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 {
     public class NugetInstallerFactoryExtension : FactoryExtensionBase, IExecutionLifeCycle
     {
@@ -34,10 +36,10 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
         {
             NuGetProjectSchemeProcessors = new Dictionary<VisualStudioProjectScheme, INuGetSchemeProcessor>
             {
-                { VisualStudioProjectScheme.Lean, new LeanSchemeProcessor() },
+                { VisualStudioProjectScheme.Sdk, new LeanSchemeProcessor() },
                 { VisualStudioProjectScheme.Unsupported, new UnsupportedSchemeProcessor() },
-                { VisualStudioProjectScheme.VerboseWithPackageReference, new VerboseWithPackageReferencesSchemeProcessor() },
-                { VisualStudioProjectScheme.VerboseWithPackagesDotConfig, new VerboseWithPackagesDotConfigSchemeProcessor() }
+                { VisualStudioProjectScheme.FrameworkWithPackageReference, new VerboseWithPackageReferencesSchemeProcessor() },
+                { VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, new VerboseWithPackagesDotConfigSchemeProcessor() }
             };
         }
 
@@ -360,12 +362,12 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
 
             if (xNode.XPathSelectElement($"/{prefix}:Project[@Sdk]", namespaceManager) != null)
             {
-                return VisualStudioProjectScheme.Lean;
+                return VisualStudioProjectScheme.Sdk;
             }
 
             if (xNode.XPathSelectElement($"/{prefix}:Project/{prefix}:ItemGroup/{prefix}:None[@Include='packages.config']", namespaceManager) != null)
             {
-                return VisualStudioProjectScheme.VerboseWithPackagesDotConfig;
+                return VisualStudioProjectScheme.FrameworkWithPackagesDotConfig;
             }
 
             if (xNode.XPathSelectElement($"/{prefix}:Project", namespaceManager) != null)
@@ -373,7 +375,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
                 // Even if there is no PackageReference element, so long as there is no packages.config, then we are free to to use
                 // PackageReferences going forward. In the event there is PackageReference element, then we are of course already
                 // using the PackageReference scheme.
-                return VisualStudioProjectScheme.VerboseWithPackageReference;
+                return VisualStudioProjectScheme.FrameworkWithPackageReference;
             }
 
             return VisualStudioProjectScheme.Unsupported;
@@ -406,7 +408,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet
             //
             // </Project>
 
-            if (document.ResolveProjectScheme() != VisualStudioProjectScheme.Lean)
+            if (document.ResolveProjectScheme() != VisualStudioProjectScheme.Sdk)
             {
                 return document.ToString();
             }

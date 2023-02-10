@@ -2,19 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Intent.Configuration;
 using Intent.Engine;
 using Intent.Eventing;
-using Intent.Metadata.Models;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
-using Intent.Modules.VisualStudio.Projects.NuGet;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Templates;
-using Intent.Templates;
 using NSubstitute;
-using IApplication = Intent.Engine.IApplication;
-using SearchOption = Intent.Engine.SearchOption;
 
 namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
 {
@@ -98,13 +94,13 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
             string path;
             switch (scheme)
             {
-                case VisualStudioProjectScheme.Lean:
+                case VisualStudioProjectScheme.Sdk:
                     path = $@"{scheme}/{testVersion}Version{number}.xml";
                     break;
-                case VisualStudioProjectScheme.VerboseWithPackageReference:
+                case VisualStudioProjectScheme.FrameworkWithPackageReference:
                     path = $@"{scheme}/{testVersion}Version{number}.xml";
                     break;
-                case VisualStudioProjectScheme.VerboseWithPackagesDotConfig:
+                case VisualStudioProjectScheme.FrameworkWithPackagesDotConfig:
                     path = $@"{scheme}/{testVersion}Version{number}/csproj.xml";
                     break;
                 case VisualStudioProjectScheme.Unsupported:

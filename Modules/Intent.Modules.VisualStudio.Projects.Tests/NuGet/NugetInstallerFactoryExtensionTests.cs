@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
-using Intent.Modules.VisualStudio.Projects.NuGet;
-using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using Xunit;
 
@@ -10,12 +10,12 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
     public class NugetInstallerFactoryExtensionTests
     {
         [Theory]
-        [InlineData(VisualStudioProjectScheme.Lean)]
-        [InlineData(VisualStudioProjectScheme.VerboseWithPackageReference)]
-        [InlineData(VisualStudioProjectScheme.VerboseWithPackagesDotConfig)]
+        [InlineData(VisualStudioProjectScheme.Sdk)]
+        [InlineData(VisualStudioProjectScheme.FrameworkWithPackageReference)]
+        [InlineData(VisualStudioProjectScheme.FrameworkWithPackagesDotConfig)]
         public void ResolvesCorrectly(object untypedNuGetScheme)
         {
-            var nuGetScheme = (VisualStudioProjectScheme) untypedNuGetScheme;
+            var nuGetScheme = (VisualStudioProjectScheme)untypedNuGetScheme;
 
             // Arrange
             var project = TestFixtureHelper.CreateProject(nuGetScheme, TestVersion.High, TestPackage.One, new Dictionary<string, string>());
@@ -36,8 +36,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
             var projects = new[]
             {
-                TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.High, TestPackage.One, new Dictionary<string, string>()),
-                TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.High, TestPackage.One, new Dictionary<string, string>()),
+                TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.High, TestPackage.One, new Dictionary<string, string>()),
+                TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.High, TestPackage.One, new Dictionary<string, string>()),
             };
 
             // Act
@@ -54,8 +54,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             var tracing = new TestTracing();
             var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
             var saved = new List<(string path, string content)>();
-            var project1 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.High, TestPackage.One, new Dictionary<string, string>());
-            var project2 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
+            var project1 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.High, TestPackage.One, new Dictionary<string, string>());
+            var project2 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var projects = new[] { project1, project2 };
 
             // Act
@@ -85,8 +85,8 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             var tracing = new TestTracing();
             var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
             var saved = new List<(string path, string content)>();
-            var project1 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.High, TestPackage.One, new Dictionary<string, string>());
-            var project2 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.High, TestPackage.Two, new Dictionary<string, string>
+            var project1 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.High, TestPackage.One, new Dictionary<string, string>());
+            var project2 = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.High, TestPackage.Two, new Dictionary<string, string>
             {
                 { "TestPackage.One", "1.0.0" }
             });

@@ -3,7 +3,7 @@ using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 
-namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
+namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
 {
     internal class UnsupportedSchemeProcessor : INuGetSchemeProcessor
     {

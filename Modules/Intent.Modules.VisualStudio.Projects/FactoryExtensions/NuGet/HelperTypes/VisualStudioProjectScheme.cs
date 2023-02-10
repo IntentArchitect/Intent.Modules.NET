@@ -1,21 +1,21 @@
-namespace Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes
+namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes
 {
     internal enum VisualStudioProjectScheme
     {
         /// <summary>
-        /// New lean format, required for use by .NET Standard and .NET Core project types.
+        /// New lean format, required for use by .NET Standard and .NET project types.
         /// </summary>
-        Lean,
+        Sdk,
 
         /// <summary>
         /// The old verbose format used by .NET Framework projects, set to use newer PackageReference NuGet scheme.
         /// </summary>
-        VerboseWithPackageReference,
+        FrameworkWithPackageReference,
 
         /// <summary>
         /// The old verbose format used by .NET Framework projects, set to use older packages.config NuGet scheme.
         /// </summary>
-        VerboseWithPackagesDotConfig,
+        FrameworkWithPackagesDotConfig,
 
         /// <summary>
         /// Unsupported / unknown projected type.

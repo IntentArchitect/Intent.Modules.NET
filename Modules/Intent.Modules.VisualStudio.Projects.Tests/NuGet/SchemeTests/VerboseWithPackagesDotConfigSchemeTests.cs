@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
-using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
-using Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using NuGet.Versioning;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         {
             // Arrange
             var sut = new VerboseWithPackagesDotConfigSchemeProcessor();
-            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.VerboseWithPackagesDotConfig, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
             // Act
@@ -35,7 +35,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackagesDotConfigSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackagesDotConfig, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "PackageToInstall.Id", "1.0.0" }
             });
@@ -61,7 +61,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new VerboseWithPackagesDotConfigSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.VerboseWithPackagesDotConfig, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.FrameworkWithPackagesDotConfig, TestVersion.Low, TestPackage.One, nugetPackagesToInstall: new Dictionary<string, string>
             {
                 { "TestPackage.One", "3.0.0" }
             });

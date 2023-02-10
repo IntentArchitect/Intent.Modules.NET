@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using Intent.Configuration;
-using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
-
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.WcfServiceCSProjectFile
 {

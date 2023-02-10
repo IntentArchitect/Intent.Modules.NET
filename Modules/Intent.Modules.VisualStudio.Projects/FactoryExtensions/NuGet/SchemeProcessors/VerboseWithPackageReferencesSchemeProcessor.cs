@@ -5,10 +5,11 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using NuGet.Versioning;
 
-namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
+namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors
 {
     internal class VerboseWithPackageReferencesSchemeProcessor : INuGetSchemeProcessor
     {
@@ -39,7 +40,7 @@ namespace Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors
                         : new string[0];
 
                     var name = element.Attribute("Include")?.Value;
-                    
+
                     return NuGetPackage.Create(projectPath, name, version, includeAssets, privateAssets);
                 });
         }

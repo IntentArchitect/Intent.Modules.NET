@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using Intent.Modules.Constants;
 using Intent.Engine;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Registrations;
 
-
 namespace Intent.Modules.VisualStudio.Projects.Templates.WebApiServiceCSProjectFile
 {
-    [Description("Web Api Service CS Project File - VS Projects")] 
+    [Description("Web Api Service CS Project File - VS Projects")]
     public class Registrations : ITemplateRegistration
     {
         public string TemplateId => WebApiServiceCSProjectFileTemplate.Identifier;

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
-using Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using Xunit;
 

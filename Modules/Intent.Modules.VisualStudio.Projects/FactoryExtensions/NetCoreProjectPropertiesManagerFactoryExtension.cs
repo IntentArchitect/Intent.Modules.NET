@@ -8,10 +8,9 @@ using Intent.Eventing;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.NuGet;
-using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Templates;
-using Intent.Modules.VisualStudio.Projects.Templates.CSharpProject;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Utils;
 
@@ -42,7 +41,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             foreach (var template in _projectTemplates)
             {
                 var doc = XDocument.Parse(template.LoadContent());
-                if (doc.ResolveProjectScheme() != VisualStudioProjectScheme.Lean)
+                if (doc.ResolveProjectScheme() != VisualStudioProjectScheme.Sdk)
                 {
                     continue;
                 }

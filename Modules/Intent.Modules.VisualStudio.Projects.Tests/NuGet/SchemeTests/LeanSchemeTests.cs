@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
-using Intent.Modules.VisualStudio.Projects.NuGet.HelperTypes;
-using Intent.Modules.VisualStudio.Projects.NuGet.SchemeProcessors;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
+using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.SchemeProcessors;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
 using NuGet.Versioning;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
-            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
             // Act
@@ -28,13 +28,13 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
                 Assert.Equal(x.Value.Version, VersionRange.Parse("1.0.0"));
             });
         }
-        
+
         [Fact]
         public void GetsInstalledPackages_NestedVersion()
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
-            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>());
+            var project = TestFixtureHelper.CreateProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>());
             var doc = XDocument.Load(project.FilePath);
 
             // Act
@@ -54,7 +54,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
                 {
                     {"PackageToInstall.Id", "1.0.0"}
                 });
@@ -80,14 +80,14 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 </Project>",
                 actual: result);
         }
-        
+
         [Fact]
         public void InstallsPackage_NestedVersion()
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
             {
                 {"PackageToInstall.Id", "1.0.0"}
             });
@@ -122,7 +122,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.One, new Dictionary<string, string>
             {
                 { "TestPackage.One", "3.0.0" }
             });
@@ -147,14 +147,14 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 </Project>",
                 actual: result);
         }
-        
+
         [Fact]
         public void UpgradesPackage_NestedVersion()
         {
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, TestPackage.Three, new Dictionary<string, string>
             {
                 { "TestPackage.Three", "3.0.0" }
             });
@@ -190,7 +190,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             // Arrange
             var sut = new LeanSchemeProcessor();
             var tracing = new TestTracing();
-            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Lean, TestVersion.Low, existingPackage, new Dictionary<string, string>
+            var project = TestFixtureHelper.CreateNuGetProject(VisualStudioProjectScheme.Sdk, TestVersion.Low, existingPackage, new Dictionary<string, string>
             {
                 { $"{nameof(TestPackage)}.{testPackageToInstall}", "1.0.0" }
             });

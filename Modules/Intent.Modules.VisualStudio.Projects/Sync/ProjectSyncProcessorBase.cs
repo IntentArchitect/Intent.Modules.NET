@@ -289,7 +289,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
         internal static bool IsIgnored(XNode node)
         {
             return node is XElement element &&
-                   string.Equals(element?.Attribute("IntentIgnore")?.Value, true.ToString(), StringComparison.OrdinalIgnoreCase);
+                   string.Equals(element.Attribute("IntentIgnore")?.Value, true.ToString(), StringComparison.OrdinalIgnoreCase);
         }
 
         /// <remarks>
@@ -364,12 +364,12 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                         data.MsBuildFileItemGenerationBehaviour = MsBuildFileItemGenerationBehaviour.Never;
                         break;
                     default:
-                        #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
                         if (key == CustomMetadataKeys.AlwaysGenerateProjectItem)
                         {
                             data.MsBuildFileItemGenerationBehaviour = MsBuildFileItemGenerationBehaviour.Always;
                         }
-                        #pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 // Type or member is obsolete
                         break;
                 }
             }
