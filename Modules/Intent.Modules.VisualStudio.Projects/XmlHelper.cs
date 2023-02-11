@@ -8,5 +8,10 @@ namespace Intent.Modules.VisualStudio.Projects
         {
             return XDocument.Parse(original).ToString() == XDocument.Parse(updated).ToString();
         }
+
+        public static bool IsSemanticallyTheSame(string original, XDocument updated)
+        {
+            return XDocument.Parse(original).ToString() == updated.ToString();
+        }
     }
 }
