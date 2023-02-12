@@ -97,11 +97,11 @@ modelBuilder.Entity<Car>().HasData(
             {
                 _entityTypeConfigurations.Add(typeConfiguration);
                 var @class = CSharpFile.Classes.First();
-                
+
                 var dbSetPropName = GetAndEnsureDbSetPropertyNameUnique();
-                
+
                 @class.AddProperty(
-                    type: $"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>", 
+                    type: $"DbSet<{GetEntityName(typeConfiguration.Template.Model)}>",
                     name: dbSetPropName,
                     configure: prop => prop.AddMetadata("model", typeConfiguration.Template.Model));
 
@@ -113,17 +113,17 @@ modelBuilder.Entity<Car>().HasData(
                 string GetAndEnsureDbSetPropertyNameUnique()
                 {
                     var proposedDbSetPropName = GetEntityNameOnly(typeConfiguration.Template.Model).ToPascalCase().Pluralize();
-                    
+
                     if (_existingDbSetNames.Add(proposedDbSetPropName)) return proposedDbSetPropName;
 
                     _existingDbSetNames.Remove(proposedDbSetPropName);
-                    
+
                     var collisionProp = @class.Properties.First(p => p.Name == proposedDbSetPropName);
                     var collisionPropModel = collisionProp.GetMetadata<ClassModel>("model");
                     var collisionPropModelPrefix = string.Concat(((IHasFolder)collisionPropModel).GetParentFolderNames().Select(s => s.ToPascalCase()));
-                    
+
                     @class.Properties.Remove(collisionProp);
-                    
+
                     var collisionPropNewName = collisionPropModelPrefix + proposedDbSetPropName;
                     _existingDbSetNames.Add(collisionPropNewName);
 

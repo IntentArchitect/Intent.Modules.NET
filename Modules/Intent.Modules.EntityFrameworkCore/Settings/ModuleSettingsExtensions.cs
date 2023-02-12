@@ -33,6 +33,7 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
                     "in-memory" => DatabaseProviderOptionsEnum.InMemory,
                     "sql-server" => DatabaseProviderOptionsEnum.SqlServer,
                     "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
+                    "my-sql" => DatabaseProviderOptionsEnum.MySql,
                     "cosmos" => DatabaseProviderOptionsEnum.Cosmos,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
@@ -53,6 +54,11 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
                 return Value == "postgresql";
             }
 
+            public bool IsMySql()
+            {
+                return Value == "my-sql";
+            }
+
             public bool IsCosmos()
             {
                 return Value == "cosmos";
@@ -64,6 +70,7 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             InMemory,
             SqlServer,
             Postgresql,
+            MySql,
             Cosmos,
         }
     }

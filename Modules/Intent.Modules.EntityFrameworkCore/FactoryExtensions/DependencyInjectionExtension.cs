@@ -73,6 +73,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         connectionString: $"Host=127.0.0.1;Port=5432;Database={dependencyInjection.OutputTarget.ApplicationName()};Username=postgres;Password=password;",
                         providerName: ""));
                     break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
+                    dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
+                    application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                        name: "DefaultConnection",
+                        connectionString: $"Server=localhost;Database={dependencyInjection.OutputTarget.ApplicationName()};Uid=root;Pwd=P@ssw0rd;",
+                        providerName: ""));
+                    break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                     dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(dependencyInjection.OutputTarget.GetProject()));
                     application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountEndpoint", "https://localhost:8081"));
@@ -132,6 +139,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .WithArgumentsOnNewLines()
                         .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument($@"b => b.MigrationsAssembly(typeof({dependencyInjection.GetDbContextName()}).Assembly.FullName)"));
+                    statements.Add($@"options.UseLazyLoadingProxies();");
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
+                    dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
+
+                    statements.Add(new CSharpInvocationStatement($@"options.UseMySQL")
+                        .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true)));
                     statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:

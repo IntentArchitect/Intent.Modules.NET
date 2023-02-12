@@ -90,6 +90,20 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="b960f1d1-aff6-4087-aacd-40377db94ed0" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>My SQL</name>
+          <display>My SQL = my-sql</display>
+          <isAbstract>false</isAbstract>
+          <value>my-sql</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="dd09aae1-4d24-4c87-802c-8cd04e96c918" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Cosmos DB</name>
           <display>Cosmos DB = cosmos</display>
