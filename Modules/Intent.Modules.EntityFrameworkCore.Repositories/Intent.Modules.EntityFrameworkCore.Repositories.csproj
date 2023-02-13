@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>4.0.2-pre.1</Version>
+    <Version>4.0.2</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.17" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.27-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.27" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
