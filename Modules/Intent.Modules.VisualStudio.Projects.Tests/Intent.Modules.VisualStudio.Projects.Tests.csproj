@@ -6,86 +6,86 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="NuGet\Data\Lean\HighVersion1.xml" />
-    <None Remove="NuGet\Data\Lean\HighVersion2.xml" />
-    <None Remove="NuGet\Data\Lean\LowVersion1.xml" />
-    <None Remove="NuGet\Data\Lean\LowVersion2.xml" />
-    <None Remove="NuGet\Data\VerboseWithNoScheme\csproj.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackageReference\HighVersion1.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackageReference\HighVersion2.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackageReference\LowVersion1.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackageReference\LowVersion2.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion1\csproj.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion1\packages.config" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion2\csproj.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion2\packages.config" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion1\csproj.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion1\packages.config" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion2\csproj.xml" />
-    <None Remove="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion2\packages.config" />
+    <None Remove="NuGet\Data\Sdk\HighVersion1.xml" />
+    <None Remove="NuGet\Data\Sdk\HighVersion2.xml" />
+    <None Remove="NuGet\Data\Sdk\LowVersion1.xml" />
+    <None Remove="NuGet\Data\Sdk\LowVersion2.xml" />
+    <None Remove="NuGet\Data\Unsupported\csproj.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackageReference\HighVersion1.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackageReference\HighVersion2.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackageReference\LowVersion1.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackageReference\LowVersion2.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion1\csproj.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion1\packages.config" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion2\csproj.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion2\packages.config" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion1\csproj.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion1\packages.config" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion2\csproj.xml" />
+    <None Remove="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion2\packages.config" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="NuGet\Data\VerboseWithNoScheme\csproj.xml">
+    <Content Include="NuGet\Data\Unsupported\csproj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackageReference\HighVersion1.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackageReference\HighVersion1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackageReference\HighVersion2.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackageReference\HighVersion2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackageReference\LowVersion1.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackageReference\LowVersion1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackageReference\LowVersion2.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackageReference\LowVersion2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion1\csproj.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion1\csproj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion1\packages.config">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion1\packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion2\csproj.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion2\csproj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\HighVersion2\packages.config">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\HighVersion2\packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion1\csproj.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion1\csproj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion1\packages.config">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion1\packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion2\csproj.xml">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion2\csproj.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\VerboseWithPackagesDotConfig\LowVersion2\packages.config">
+    <Content Include="NuGet\Data\FrameworkWithPackagesDotConfig\LowVersion2\packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Remove="NuGet\Data\Lean\HighVersion3.xml" />
-    <Content Include="NuGet\Data\Lean\HighVersion3.xml">
+    <None Remove="NuGet\Data\Sdk\HighVersion3.xml" />
+    <Content Include="NuGet\Data\Sdk\HighVersion3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Remove="NuGet\Data\Lean\LowVersion3.xml" />
-    <Content Include="NuGet\Data\Lean\LowVersion3.xml">
+    <None Remove="NuGet\Data\Sdk\LowVersion3.xml" />
+    <Content Include="NuGet\Data\Sdk\LowVersion3.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="NuGet\Data\Lean\HighVersion1.xml">
+    <Content Include="NuGet\Data\Sdk\HighVersion1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\Lean\HighVersion2.xml">
+    <Content Include="NuGet\Data\Sdk\HighVersion2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\Lean\LowVersion1.xml">
+    <Content Include="NuGet\Data\Sdk\LowVersion1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NuGet\Data\Lean\LowVersion2.xml">
+    <Content Include="NuGet\Data\Sdk\LowVersion2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

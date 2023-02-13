@@ -105,7 +105,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers
                     break;
                 case VisualStudioProjectScheme.Unsupported:
                 case null:
-                    path = $@"VerboseWithNoScheme/csproj.xml";
+                    path = $@"Unsupported/csproj.xml";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(scheme), scheme, null);
