@@ -1,6 +1,7 @@
 ﻿### Version 4.1.0
 
 - New: Foreign Keys now refer to its own Association link as opposed to matching Attributes with Association by naming convention.
+- New: Added My SQL database provider.
 - Update: Fill Factors can now be configured from Indexes thanks to the new property on the Index element from the RDBMS module.
 - Update: `EntityTypeConfiguration` files will output now to their respective relative folders if Domain Entities are organized into folders in the designer. This will alleviate any potential file output conflicts.
 - Fixed: Properties on composite entities were not being ignored when they should be (for example for `DomainEvents`).
