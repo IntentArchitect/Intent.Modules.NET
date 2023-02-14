@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.WebApi.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
@@ -35,7 +38,26 @@ namespace Intent.Modules.MongoDb.Repositories.AspNetCore.FactoryExtensions
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ControllerTemplate.TemplateId));
             foreach (var template in templates)
             {
-                
+                template.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var ctor = @class.Constructors.First();
+                    ctor.AddParameter(GetUnitOfWork(template), "unitOfWork", p =>
+                    {
+                        p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
+                    });
+
+                    foreach (var method in @class.Methods)
+                    {
+                        if (method.TryGetMetadata<OperationModel>("model", out var operation) &&
+                            operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
+                        {
+                            template.AddUsing("System.Transactions");
+                            method.Statements.FirstOrDefault(x => x.ToString().Contains("return "))
+                                ?.InsertAbove($"await _unitOfWork.SaveChangesAsync(cancellationToken);");
+                        }
+                    }
+                }, order: 1);
             }
         }
         
