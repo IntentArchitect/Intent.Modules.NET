@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.7" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.10" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -91,5 +91,6 @@
     <application id="311ca1c2-2a54-474c-8ba3-ab9b14a180bd" name="Intent.Modules.Ardalis.Repositories" relativePath="Intent.Modules.Ardalis.Repositories/Intent.Modules.Ardalis.Repositories.application.config" />
     <application id="203823b3-aea0-442c-ae76-cb4f46b5eea7" name="Intent.Modules.Ardalis.GuardClauses" relativePath="Intent.Modules.Ardalis.GuardClauses/Intent.Modules.Ardalis.GuardClauses.application.config" />
     <application id="6c374adc-05a4-4f95-875d-35de36a52689" name="Intent.Modules.AspNetCore.Swashbuckle.Security" relativePath="Intent.Modules.AspNetCore.Swashbuckle.Security/Intent.Modules.AspNetCore.Swashbuckle.Security.application.config" />
+    <application id="6d534c85-5115-43f3-83ae-39a819807a2d" name="Intent.Modules.AspNetCore.Identity.UI" relativePath="Intent.Modules.AspNetCore.Identity.UI/Intent.Modules.AspNetCore.Identity.UI.application.config" />
   </applications>
 </solution>

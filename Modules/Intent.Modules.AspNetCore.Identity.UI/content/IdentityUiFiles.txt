@@ -1,0 +1,2 @@
+Sources obtained by as per instructions here:
+https://learn.microsoft.com/aspnet/core/security/authentication/scaffold-identity

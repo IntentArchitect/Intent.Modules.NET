@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9a91ca57-cc57-46a4-8021-54eb9309081e" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AspNetCoreIdentityUiFactoryExtension</name>
+  <display>AspNetCoreIdentityUiFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82075c63-63fe-4353-a1b9-3917beee99ed</parentFolderId>
+  <packageId>82075c63-63fe-4353-a1b9-3917beee99ed</packageId>
+  <packageName>Intent.AspNetCore.Identity.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

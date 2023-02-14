@@ -15,7 +15,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class AspNetCoreIdentityConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class AspNetCoreIdentityConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AspNetCore.Identity.AspNetCoreIdentityConfiguration";
 
