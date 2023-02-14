@@ -179,6 +179,8 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.S
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Identity.UI", "Intent.Modules.AspNetCore.Identity.UI\Intent.Modules.AspNetCore.Identity.UI.csproj", "{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Identity.JWT", "Intent.Modules.AspNetCore.Identity.JWT\Intent.Modules.AspNetCore.Identity.JWT.csproj", "{E989D79E-D842-4E1F-8CDB-CADC324296DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -513,6 +515,10 @@ Global
 		{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E989D79E-D842-4E1F-8CDB-CADC324296DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E989D79E-D842-4E1F-8CDB-CADC324296DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E989D79E-D842-4E1F-8CDB-CADC324296DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E989D79E-D842-4E1F-8CDB-CADC324296DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -600,6 +606,7 @@ Global
 		{C5472CE5-B273-46D6-8072-34ADFC531CF1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{09C2DEE1-C9C4-4798-BCFD-DCC9836E6823} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{E989D79E-D842-4E1F-8CDB-CADC324296DB} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
