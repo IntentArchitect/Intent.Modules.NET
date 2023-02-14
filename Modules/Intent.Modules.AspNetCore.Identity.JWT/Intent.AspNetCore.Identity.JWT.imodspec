@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Identity.JWT</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.2</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Basic account registration and account authentication which returns JWT tokens.</summary>
   <description>Basic account registration and account authentication which returns JWT tokens.</description>
@@ -37,6 +37,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
+    <dependency id="Intent.AspNetCore.Identity" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.17" />
     <dependency id="Intent.Common.CSharp" version="3.3.25" />
     <dependency id="Intent.Common.Types" version="3.3.7" />

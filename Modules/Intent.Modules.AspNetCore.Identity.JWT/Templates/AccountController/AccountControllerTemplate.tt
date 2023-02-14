@@ -7,13 +7,18 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
@@ -117,11 +122,14 @@ namespace <#= Namespace #>
                 return BadRequest(ModelState);
             }
 
+            var email = input.Email!;
+            var password = input.Password!;
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, set lockoutOnFailure: true
             var result = await _signInManager.PasswordSignInAsync(
-                userName: input.Email!,
-                password: input.Password!,
+                userName: email,
+                password: password,
                 isPersistent: false,
                 lockoutOnFailure: false);
 
@@ -137,61 +145,40 @@ namespace <#= Namespace #>
                 return Forbid();
             }
 
-            var token = await GetToken(input.Email!);
+            var token = GetJwtToken(
+                username: email,
+                signingKey: Convert.FromBase64String(_configuration.GetSection("JwtToken:SigningKey").Get<string>()!),
+                issuer: _configuration.GetSection("JwtToken:Issuer").Get<string>()!,
+                audience: _configuration.GetSection("JwtToken:Audience").Get<string>()!,
+                expiration: TimeSpan.FromMinutes(120));
+
             _logger.LogInformation("User logged in.");
             return Ok(token);
         }
 
-        private async Task<string> GetToken(string email)
-        {
-            var user = await _userManager.FindByEmailAsync(email);
-
-            var claims = new List<Claim>();
-            claims.Add(new Claim("username", user.Email));
-
-            var token = GetJwtToken(
-                username: email,
-                signingKey: _configuration.GetSection("JwtToken:Authority.SigningKey").Get<string>()!,
-                issuer: _configuration.GetSection("JwtToken:Authority.Issuer").Get<string>()!,
-                audience: _configuration.GetSection("JwtToken:Authority.Audience").Get<string>()!,
-                expiration: TimeSpan.FromMinutes(120),
-                additionalClaims: claims.ToArray());
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-
-        private JwtSecurityToken GetJwtToken(
+        private static string GetJwtToken(
             string username,
-            string signingKey,
+            byte[] signingKey,
             string issuer,
             string audience,
-            TimeSpan expiration,
-            Claim[] additionalClaims = null)
+            TimeSpan expiration)
         {
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub,username),
-                // this guarantees the token is unique
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
-            if (additionalClaims is object)
-            {
-                var claimList = new List<Claim>(claims);
-                claimList.AddRange(additionalClaims);
-                claims = claimList.ToArray();
-            }
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("signingKey"));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            return new JwtSecurityToken(
+            var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
                 expires: DateTime.UtcNow.Add(expiration),
                 claims: claims,
-                signingCredentials: creds
-            );
+                signingCredentials: new(
+                    key: new SymmetricSecurityKey(signingKey),
+                    algorithm: SecurityAlgorithms.HmacSha256));
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
         [HttpPost]

@@ -32,13 +32,18 @@ namespace Intent.Modules.AspNetCore.Identity.JWT.Templates.AccountController
         /// </summary>
         public override string TransformText()
         {
-            this.Write(@"using System.Text;
+            this.Write(@"using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
@@ -46,7 +51,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -54,7 +59,7 @@ namespace ");
             this.Write("\r\n{\r\n    [Route(\"api/[controller]/[action]\")]\r\n    [ApiController]\r\n    public cl" +
                     "ass ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -66,14 +71,14 @@ namespace ");
         private readonly IUserStore<IdentityUser> _userStore;
         private readonly ILogger<");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 36 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("> _logger;\r\n        private readonly ");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAccountEmailSenderInterfaceName()));
             
             #line default
@@ -81,7 +86,7 @@ namespace ");
             this.Write(" _accountEmailSender;\r\n        private readonly IConfiguration _configuration;\r\n\r" +
                     "\n        public ");
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -90,14 +95,14 @@ namespace ");
                     "<IdentityUser> userStore,\r\n            UserManager<IdentityUser> userManager,\r\n " +
                     "           ILogger<");
             
-            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("> logger,\r\n            ");
             
-            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 45 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAccountEmailSenderInterfaceName()));
             
             #line default
@@ -135,65 +140,56 @@ namespace ");
                     "        if (string.IsNullOrWhiteSpace(input.Password))\r\n            {\r\n         " +
                     "       ModelState.AddModelError<LoginDto>(x => x.Password, \"Mandatory\");\r\n      " +
                     "      }\r\n\r\n            if (!ModelState.IsValid)\r\n            {\r\n                " +
-                    "return BadRequest(ModelState);\r\n            }\r\n\r\n            // This doesn\'t cou" +
-                    "nt login failures towards account lockout\r\n            // To enable password fai" +
-                    "lures to trigger account lockout, set lockoutOnFailure: true\r\n            var re" +
-                    "sult = await _signInManager.PasswordSignInAsync(\r\n                userName: inpu" +
-                    "t.Email!,\r\n                password: input.Password!,\r\n                isPersist" +
-                    "ent: false,\r\n                lockoutOnFailure: false);\r\n\r\n            if (result" +
-                    ".IsLockedOut)\r\n            {\r\n                _logger.LogWarning(\"User account l" +
-                    "ocked out.\");\r\n                return Forbid();\r\n            }\r\n\r\n            if" +
-                    " (!result.Succeeded)\r\n            {\r\n                _logger.LogWarning(\"Invalid" +
-                    " login attempt.\");\r\n                return Forbid();\r\n            }\r\n\r\n         " +
-                    "   var token = await GetToken(input.Email!);\r\n            _logger.LogInformation" +
-                    "(\"User logged in.\");\r\n            return Ok(token);\r\n        }\r\n\r\n        privat" +
-                    "e async Task<string> GetToken(string email)\r\n        {\r\n            var user = a" +
-                    "wait _userManager.FindByEmailAsync(email);\r\n\r\n            var claims = new List<" +
-                    "Claim>();\r\n            claims.Add(new Claim(\"username\", user.Email));\r\n\r\n       " +
-                    "     var token = GetJwtToken(\r\n                username: email,\r\n               " +
-                    " signingKey: _configuration.GetSection(\"JwtToken:Authority.SigningKey\").Get<stri" +
-                    "ng>()!,\r\n                issuer: _configuration.GetSection(\"JwtToken:Authority.I" +
-                    "ssuer\").Get<string>()!,\r\n                audience: _configuration.GetSection(\"Jw" +
-                    "tToken:Authority.Audience\").Get<string>()!,\r\n                expiration: TimeSpa" +
-                    "n.FromMinutes(120),\r\n                additionalClaims: claims.ToArray());\r\n\r\n   " +
-                    "         return new JwtSecurityTokenHandler().WriteToken(token);\r\n        }\r\n\r\n " +
-                    "       private JwtSecurityToken GetJwtToken(\r\n            string username,\r\n    " +
-                    "        string signingKey,\r\n            string issuer,\r\n            string audie" +
-                    "nce,\r\n            TimeSpan expiration,\r\n            Claim[] additionalClaims = n" +
-                    "ull)\r\n        {\r\n            var claims = new[]\r\n            {\r\n                " +
-                    "new Claim(JwtRegisteredClaimNames.Sub,username),\r\n                // this guaran" +
-                    "tees the token is unique\r\n                new Claim(JwtRegisteredClaimNames.Jti," +
-                    " Guid.NewGuid().ToString())\r\n            };\r\n\r\n            if (additionalClaims " +
-                    "is object)\r\n            {\r\n                var claimList = new List<Claim>(claim" +
-                    "s);\r\n                claimList.AddRange(additionalClaims);\r\n                clai" +
-                    "ms = claimList.ToArray();\r\n            }\r\n\r\n            var key = new SymmetricS" +
-                    "ecurityKey(Encoding.UTF8.GetBytes(\"signingKey\"));\r\n            var creds = new S" +
-                    "igningCredentials(key, SecurityAlgorithms.HmacSha256);\r\n\r\n            return new" +
+                    "return BadRequest(ModelState);\r\n            }\r\n\r\n            var email = input.E" +
+                    "mail!;\r\n            var password = input.Password!;\r\n\r\n            // This doesn" +
+                    "\'t count login failures towards account lockout\r\n            // To enable passwo" +
+                    "rd failures to trigger account lockout, set lockoutOnFailure: true\r\n            " +
+                    "var result = await _signInManager.PasswordSignInAsync(\r\n                userName" +
+                    ": email,\r\n                password: password,\r\n                isPersistent: fal" +
+                    "se,\r\n                lockoutOnFailure: false);\r\n\r\n            if (result.IsLocke" +
+                    "dOut)\r\n            {\r\n                _logger.LogWarning(\"User account locked ou" +
+                    "t.\");\r\n                return Forbid();\r\n            }\r\n\r\n            if (!resul" +
+                    "t.Succeeded)\r\n            {\r\n                _logger.LogWarning(\"Invalid login a" +
+                    "ttempt.\");\r\n                return Forbid();\r\n            }\r\n\r\n            var t" +
+                    "oken = GetJwtToken(\r\n                username: email,\r\n                signingKe" +
+                    "y: Convert.FromBase64String(_configuration.GetSection(\"JwtToken:SigningKey\").Get" +
+                    "<string>()!),\r\n                issuer: _configuration.GetSection(\"JwtToken:Issue" +
+                    "r\").Get<string>()!,\r\n                audience: _configuration.GetSection(\"JwtTok" +
+                    "en:Audience\").Get<string>()!,\r\n                expiration: TimeSpan.FromMinutes(" +
+                    "120));\r\n\r\n            _logger.LogInformation(\"User logged in.\");\r\n            re" +
+                    "turn Ok(token);\r\n        }\r\n\r\n        private static string GetJwtToken(\r\n      " +
+                    "      string username,\r\n            byte[] signingKey,\r\n            string issue" +
+                    "r,\r\n            string audience,\r\n            TimeSpan expiration)\r\n        {\r\n " +
+                    "           var claims = new[]\r\n            {\r\n                new Claim(JwtRegis" +
+                    "teredClaimNames.Sub,username),\r\n                new Claim(JwtRegisteredClaimName" +
+                    "s.Jti, Guid.NewGuid().ToString())\r\n            };\r\n\r\n            var token = new" +
                     " JwtSecurityToken(\r\n                issuer: issuer,\r\n                audience: a" +
                     "udience,\r\n                expires: DateTime.UtcNow.Add(expiration),\r\n           " +
-                    "     claims: claims,\r\n                signingCredentials: creds\r\n            );\r" +
-                    "\n        }\r\n\r\n        [HttpPost]\r\n        public async Task<IActionResult> Confi" +
-                    "rmEmail(ConfirmEmailDto input)\r\n        {\r\n            if (string.IsNullOrWhiteS" +
-                    "pace(input.UserId))\r\n            {\r\n                ModelState.AddModelError<Con" +
-                    "firmEmailDto>(x => x.UserId, \"Mandatory\");\r\n            }\r\n\r\n            if (str" +
-                    "ing.IsNullOrWhiteSpace(input.Code))\r\n            {\r\n                ModelState.A" +
-                    "ddModelError<ConfirmEmailDto>(x => x.Code, \"Mandatory\");\r\n            }\r\n\r\n     " +
-                    "       if (!ModelState.IsValid)\r\n            {\r\n                return BadReques" +
-                    "t(ModelState);\r\n            }\r\n\r\n            var userId = input.UserId!;\r\n      " +
-                    "      var code = input.Code!;\r\n            var user = await _userManager.FindByI" +
-                    "dAsync(input.UserId!);\r\n            if (user == null)\r\n            {\r\n          " +
-                    "      return NotFound($\"Unable to load user with ID \'{userId}\'.\");\r\n            " +
-                    "}\r\n\r\n            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code" +
-                    "));\r\n\r\n            var result = await _userManager.ConfirmEmailAsync(user, code)" +
-                    ";\r\n            if (!result.Succeeded)\r\n            {\r\n                ModelState" +
-                    ".AddModelError<ConfirmEmailDto>(x => x, \"Error confirming your email.\");\r\n      " +
-                    "          return BadRequest(ModelState);\r\n            }\r\n\r\n            return Ok" +
-                    "();\r\n        }\r\n    }\r\n\r\n    public class RegisterDto\r\n    {\r\n        public str" +
-                    "ing? Email { get; set; }\r\n        public string? Password { get; set; }\r\n    }\r\n" +
-                    "\r\n    public class LoginDto\r\n    {\r\n        public string? Email { get; set; }\r\n" +
-                    "        public string? Password { get; set; }\r\n    }\r\n\r\n    public class Confirm" +
-                    "EmailDto\r\n    {\r\n        public string? UserId { get; set; }\r\n        public str" +
-                    "ing? Code { get; set; }\r\n    }\r\n}\r\n");
+                    "     claims: claims,\r\n                signingCredentials: new(\r\n                " +
+                    "    key: new SymmetricSecurityKey(signingKey),\r\n                    algorithm: S" +
+                    "ecurityAlgorithms.HmacSha256));\r\n\r\n            return new JwtSecurityTokenHandle" +
+                    "r().WriteToken(token);\r\n        }\r\n\r\n        [HttpPost]\r\n        public async Ta" +
+                    "sk<IActionResult> ConfirmEmail(ConfirmEmailDto input)\r\n        {\r\n            if" +
+                    " (string.IsNullOrWhiteSpace(input.UserId))\r\n            {\r\n                Model" +
+                    "State.AddModelError<ConfirmEmailDto>(x => x.UserId, \"Mandatory\");\r\n            }" +
+                    "\r\n\r\n            if (string.IsNullOrWhiteSpace(input.Code))\r\n            {\r\n     " +
+                    "           ModelState.AddModelError<ConfirmEmailDto>(x => x.Code, \"Mandatory\");\r" +
+                    "\n            }\r\n\r\n            if (!ModelState.IsValid)\r\n            {\r\n         " +
+                    "       return BadRequest(ModelState);\r\n            }\r\n\r\n            var userId =" +
+                    " input.UserId!;\r\n            var code = input.Code!;\r\n            var user = awa" +
+                    "it _userManager.FindByIdAsync(input.UserId!);\r\n            if (user == null)\r\n  " +
+                    "          {\r\n                return NotFound($\"Unable to load user with ID \'{use" +
+                    "rId}\'.\");\r\n            }\r\n\r\n            code = Encoding.UTF8.GetString(WebEncode" +
+                    "rs.Base64UrlDecode(code));\r\n\r\n            var result = await _userManager.Confir" +
+                    "mEmailAsync(user, code);\r\n            if (!result.Succeeded)\r\n            {\r\n   " +
+                    "             ModelState.AddModelError<ConfirmEmailDto>(x => x, \"Error confirming" +
+                    " your email.\");\r\n                return BadRequest(ModelState);\r\n            }\r\n" +
+                    "\r\n            return Ok();\r\n        }\r\n    }\r\n\r\n    public class RegisterDto\r\n  " +
+                    "  {\r\n        public string? Email { get; set; }\r\n        public string? Password" +
+                    " { get; set; }\r\n    }\r\n\r\n    public class LoginDto\r\n    {\r\n        public string" +
+                    "? Email { get; set; }\r\n        public string? Password { get; set; }\r\n    }\r\n\r\n " +
+                    "   public class ConfirmEmailDto\r\n    {\r\n        public string? UserId { get; set" +
+                    "; }\r\n        public string? Code { get; set; }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
