@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface;
 using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
 using Intent.Plugins.FactoryExtensions;
@@ -34,6 +35,28 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
+            UpdateDbContextTemplate(application);
+            UpdateRepositoryInterfaceTemplate(application);
+        }
+
+        private static void UpdateRepositoryInterfaceTemplate(IApplication application)
+        {
+            var repositoryTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(RepositoryInterfaceTemplate.TemplateId));
+            if (repositoryTemplate == null)
+            {
+                return;
+            }
+
+            var inter = repositoryTemplate.CSharpFile.Interfaces.First();
+            inter.InsertMethod(2, "object", "Update", method =>
+            {
+                method.AddParameter($"Expression<Func<TPersistence, bool>>", "predicate")
+                    .AddParameter("TDomain", "entity");
+            });
+        }
+
+        private static void UpdateDbContextTemplate(IApplication application)
+        {
             var dbContextTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
             if (dbContextTemplate == null)
             {
@@ -56,9 +79,6 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
                 .ForInterface(intentTemplate.GetTemplate<IClassProvider>(UnitOfWorkInterfaceTemplate.TemplateId))
                 .ForConcern("Infrastructure")
                 .WithResolveFromContainer());
-            
-            // TODO: Update IRepository to include Update method
-            //object Update(Expression<Func<TPersistence, bool>> predicate, TDomain entity);
         }
     }
 }
