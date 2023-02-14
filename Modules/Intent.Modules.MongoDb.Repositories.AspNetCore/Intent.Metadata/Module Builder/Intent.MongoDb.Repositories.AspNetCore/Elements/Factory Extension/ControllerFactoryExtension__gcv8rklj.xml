@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fa1319d0-889e-42ff-a808-7df623fda465" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ControllerFactoryExtension</name>
+  <display>ControllerFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d5a7a604-ed94-49d0-a5ab-badf3e57a309</parentFolderId>
+  <packageId>d5a7a604-ed94-49d0-a5ab-badf3e57a309</packageId>
+  <packageName>Intent.MongoDb.Repositories.AspNetCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

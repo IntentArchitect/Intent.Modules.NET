@@ -181,6 +181,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.AccountController", "Intent.Modules.AspNetCore.Identity.AccountController\Intent.Modules.AspNetCore.Identity.AccountController.csproj", "{E989D79E-D842-4E1F-8CDB-CADC324296DB}"
 EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb", "Intent.Modules.MongoDb\Intent.Modules.MongoDb.csproj", "{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb.Repositories", "Intent.Modules.MongoDb.Repositories\Intent.Modules.MongoDb.Repositories.csproj", "{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb.Repositories.AspNetCore", "Intent.Modules.MongoDb.Repositories.AspNetCore\Intent.Modules.MongoDb.Repositories.AspNetCore.csproj", "{F877E4EC-6149-4457-9EE0-6101308B5EEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -519,6 +525,18 @@ Global
 		{E989D79E-D842-4E1F-8CDB-CADC324296DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E989D79E-D842-4E1F-8CDB-CADC324296DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E989D79E-D842-4E1F-8CDB-CADC324296DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F877E4EC-6149-4457-9EE0-6101308B5EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F877E4EC-6149-4457-9EE0-6101308B5EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F877E4EC-6149-4457-9EE0-6101308B5EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F877E4EC-6149-4457-9EE0-6101308B5EEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -607,6 +625,9 @@ Global
 		{09C2DEE1-C9C4-4798-BCFD-DCC9836E6823} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{E989D79E-D842-4E1F-8CDB-CADC324296DB} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{F877E4EC-6149-4457-9EE0-6101308B5EEA} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

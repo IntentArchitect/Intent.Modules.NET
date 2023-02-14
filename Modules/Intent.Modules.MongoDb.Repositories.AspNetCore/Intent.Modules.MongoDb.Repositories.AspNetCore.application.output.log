@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>d3e85c55-a730-4331-ba77-fb87ba150bd9</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#cba1e6f0-4d5e-402f-906a-9066d618d4d7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0357fc8a-ebe3-4028-9a4f-fb13b8e75e46</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#fa1319d0-889e-42ff-a808-7df623fda465</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/ControllerFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f877e4ec-6149-4457-9ee0-6101308b5eea</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#f877e4ec-6149-4457-9ee0-6101308b5eea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.MongoDb.Repositories.AspNetCore.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.MongoDb.Repositories.AspNetCore.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f877e4ec-6149-4457-9ee0-6101308b5eea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.MongoDb.Repositories.AspNetCore.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.MongoDb.Repositories.AspNetCore.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f877e4ec-6149-4457-9ee0-6101308b5eea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

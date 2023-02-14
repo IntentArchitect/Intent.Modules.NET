@@ -93,5 +93,8 @@
     <application id="6c374adc-05a4-4f95-875d-35de36a52689" name="Intent.Modules.AspNetCore.Swashbuckle.Security" relativePath="Intent.Modules.AspNetCore.Swashbuckle.Security/Intent.Modules.AspNetCore.Swashbuckle.Security.application.config" />
     <application id="6d534c85-5115-43f3-83ae-39a819807a2d" name="Intent.Modules.AspNetCore.Identity.UI" relativePath="Intent.Modules.AspNetCore.Identity.UI/Intent.Modules.AspNetCore.Identity.UI.application.config" />
     <application id="510a23ce-6417-46e7-bf54-7ff862e535a5" name="AspNetCore.Identity.AccountController" relativePath="Intent.Modules.AspNetCore.Identity.AccountController/Intent.Modules.AspNetCore.Identity.AccountController.application.config" />
+    <application id="55fab815-1172-48e8-b36a-c34d6468f928" name="Intent.Modules.MongoDb" relativePath="Intent.Modules.MongoDb/Intent.Modules.MongoDb.application.config" />
+    <application id="e406684b-ac67-4f35-8f6c-c02af49695d4" name="Intent.Modules.MongoDb.Repositories" relativePath="Intent.Modules.MongoDb.Repositories/Intent.Modules.MongoDb.Repositories.application.config" />
+    <application id="d3e85c55-a730-4331-ba77-fb87ba150bd9" name="Intent.Modules.MongoDb.Repositories.AspNetCore" relativePath="Intent.Modules.MongoDb.Repositories.AspNetCore/Intent.Modules.MongoDb.Repositories.AspNetCore.application.config" />
   </applications>
 </solution>
