@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Identity.JWT.Templates.AccountEmailSenderInterface;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -19,6 +21,11 @@ namespace Intent.Modules.AspNetCore.Identity.JWT.Templates.AccountEmailSender
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AccountEmailSenderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this).ForInterface(GetTemplate<AccountEmailSenderInterfaceTemplate>(AccountEmailSenderInterfaceTemplate.TemplateId)));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

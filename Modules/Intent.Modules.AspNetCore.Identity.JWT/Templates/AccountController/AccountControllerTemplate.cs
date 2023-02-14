@@ -40,12 +40,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
@@ -53,7 +54,7 @@ namespace ");
             this.Write("\r\n{\r\n    [Route(\"api/[controller]/[action]\")]\r\n    [ApiController]\r\n    public cl" +
                     "ass ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -65,21 +66,22 @@ namespace ");
         private readonly IUserStore<IdentityUser> _userStore;
         private readonly ILogger<");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("> _logger;\r\n        private readonly ");
             
-            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAccountEmailSenderInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(" _accountEmailSender;\r\n\r\n        public ");
+            this.Write(" _accountEmailSender;\r\n        private readonly IConfiguration _configuration;\r\n\r" +
+                    "\n        public ");
             
-            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -88,83 +90,110 @@ namespace ");
                     "<IdentityUser> userStore,\r\n            UserManager<IdentityUser> userManager,\r\n " +
                     "           ILogger<");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write("> logger, ");
+            this.Write("> logger,\r\n            ");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.JWT\Templates\AccountController\AccountControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAccountEmailSenderInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(" accountEmailSender)\r\n        {\r\n            _signInManager = signInManager;\r\n   " +
-                    "         _userStore = userStore;\r\n            _userManager = userManager;\r\n     " +
-                    "       _logger = logger;\r\n            _accountEmailSender = accountEmailSender;\r" +
-                    "\n        }\r\n\r\n        [HttpPost]\r\n        public async Task<IActionResult> Regis" +
-                    "ter(RegisterDto input)\r\n        {\r\n            if (string.IsNullOrWhiteSpace(inp" +
-                    "ut.Email))\r\n            {\r\n                ModelState.AddModelError<RegisterDto>" +
-                    "(x => x.Email, \"Mandatory\");\r\n            }\r\n\r\n            if (string.IsNullOrWh" +
-                    "iteSpace(input.Password))\r\n            {\r\n                ModelState.AddModelErr" +
-                    "or<RegisterDto>(x => x.Password, \"Mandatory\");\r\n            }\r\n\r\n            if " +
-                    "(!ModelState.IsValid)\r\n            {\r\n                return BadRequest(ModelSta" +
-                    "te);\r\n            }\r\n\r\n            var user = new IdentityUser();\r\n\r\n           " +
-                    " await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);\r\n" +
-                    "            await _userManager.SetEmailAsync(user, input.Email);\r\n            va" +
-                    "r result = await _userManager.CreateAsync(user, input.Password!);\r\n\r\n           " +
-                    " if (!result.Succeeded)\r\n            {\r\n                foreach (var error in re" +
-                    "sult.Errors)\r\n                {\r\n                    ModelState.AddModelError(st" +
-                    "ring.Empty, error.Description);\r\n                }\r\n\r\n                return Bad" +
-                    "Request(ModelState);\r\n            }\r\n\r\n            _logger.LogInformation(\"User " +
-                    "created a new account with password.\");\r\n\r\n            var userId = await _userM" +
-                    "anager.GetUserIdAsync(user);\r\n            var code = await _userManager.Generate" +
-                    "EmailConfirmationTokenAsync(user);\r\n            code = WebEncoders.Base64UrlEnco" +
-                    "de(Encoding.UTF8.GetBytes(code));\r\n\r\n            if (_userManager.Options.SignIn" +
-                    ".RequireConfirmedAccount)\r\n            {\r\n                await _accountEmailSen" +
-                    "der.SendEmailConfirmationRequest(\r\n                    email: input.Email!,\r\n   " +
-                    "                 userId: userId,\r\n                    code: code);\r\n            " +
-                    "}\r\n\r\n            return Ok();\r\n        }\r\n\r\n        [HttpPost]\r\n        public a" +
-                    "sync Task<IActionResult> Login(LoginDto input)\r\n        {\r\n            if (strin" +
-                    "g.IsNullOrWhiteSpace(input.Email))\r\n            {\r\n                ModelState.Ad" +
-                    "dModelError<LoginDto>(x => x.Email, \"Mandatory\");\r\n            }\r\n\r\n            " +
-                    "if (string.IsNullOrWhiteSpace(input.Password))\r\n            {\r\n                M" +
-                    "odelState.AddModelError<LoginDto>(x => x.Password, \"Mandatory\");\r\n            }\r" +
-                    "\n\r\n            if (!ModelState.IsValid)\r\n            {\r\n                return B" +
-                    "adRequest(ModelState);\r\n            }\r\n\r\n            // This doesn\'t count login" +
-                    " failures towards account lockout\r\n            // To enable password failures to" +
-                    " trigger account lockout, set lockoutOnFailure: true\r\n            var result = a" +
-                    "wait _signInManager.PasswordSignInAsync(\r\n                userName: input.Email!" +
-                    ",\r\n                password: input.Password!,\r\n                isPersistent: fal" +
-                    "se,\r\n                lockoutOnFailure: false);\r\n\r\n            if (result.IsLocke" +
-                    "dOut)\r\n            {\r\n                _logger.LogWarning(\"User account locked ou" +
-                    "t.\");\r\n                return Forbid();\r\n            }\r\n\r\n            if (!resul" +
-                    "t.Succeeded)\r\n            {\r\n                _logger.LogWarning(\"Invalid login a" +
-                    "ttempt.\");\r\n                return Forbid();\r\n            }\r\n\r\n            _logg" +
-                    "er.LogInformation(\"User logged in.\");\r\n            return Ok();\r\n        }\r\n\r\n  " +
-                    "      [HttpPost]\r\n        public async Task<IActionResult> ConfirmEmail(ConfirmE" +
-                    "mailDto input)\r\n        {\r\n            if (string.IsNullOrWhiteSpace(input.UserI" +
-                    "d))\r\n            {\r\n                ModelState.AddModelError<ConfirmEmailDto>(x " +
-                    "=> x.UserId, \"Mandatory\");\r\n            }\r\n\r\n            if (string.IsNullOrWhit" +
-                    "eSpace(input.Code))\r\n            {\r\n                ModelState.AddModelError<Con" +
-                    "firmEmailDto>(x => x.Code, \"Mandatory\");\r\n            }\r\n\r\n            if (!Mode" +
-                    "lState.IsValid)\r\n            {\r\n                return BadRequest(ModelState);\r\n" +
-                    "            }\r\n\r\n            var userId = input.UserId!;\r\n            var code =" +
-                    " input.Code!;\r\n            var user = await _userManager.FindByIdAsync(input.Use" +
-                    "rId!);\r\n            if (user == null)\r\n            {\r\n                return Not" +
-                    "Found($\"Unable to load user with ID \'{userId}\'.\");\r\n            }\r\n\r\n           " +
-                    " code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));\r\n\r\n         " +
-                    "   var result = await _userManager.ConfirmEmailAsync(user, code);\r\n            i" +
-                    "f (!result.Succeeded)\r\n            {\r\n                ModelState.AddModelError<C" +
-                    "onfirmEmailDto>(x => x, \"Error confirming your email.\");\r\n                return" +
-                    " BadRequest(ModelState);\r\n            }\r\n\r\n            return Ok();\r\n        }\r\n" +
-                    "    }\r\n\r\n    public class RegisterDto\r\n    {\r\n        public string? Email { get" +
-                    "; set; }\r\n        public string? Password { get; set; }\r\n    }\r\n\r\n    public cla" +
-                    "ss LoginDto\r\n    {\r\n        public string? Email { get; set; }\r\n        public s" +
-                    "tring? Password { get; set; }\r\n    }\r\n\r\n    public class ConfirmEmailDto\r\n    {\r" +
-                    "\n        public string? UserId { get; set; }\r\n        public string? Code { get;" +
-                    " set; }\r\n    }\r\n}\r\n");
+            this.Write(" accountEmailSender,\r\n            IConfiguration configuration)\r\n        {\r\n     " +
+                    "       _signInManager = signInManager;\r\n            _userStore = userStore;\r\n   " +
+                    "         _userManager = userManager;\r\n            _logger = logger;\r\n           " +
+                    " _accountEmailSender = accountEmailSender;\r\n            _configuration = configu" +
+                    "ration;\r\n        }\r\n\r\n        [HttpPost]\r\n        public async Task<IActionResul" +
+                    "t> Register(RegisterDto input)\r\n        {\r\n            if (string.IsNullOrWhiteS" +
+                    "pace(input.Email))\r\n            {\r\n                ModelState.AddModelError<Regi" +
+                    "sterDto>(x => x.Email, \"Mandatory\");\r\n            }\r\n\r\n            if (string.Is" +
+                    "NullOrWhiteSpace(input.Password))\r\n            {\r\n                ModelState.Add" +
+                    "ModelError<RegisterDto>(x => x.Password, \"Mandatory\");\r\n            }\r\n\r\n       " +
+                    "     if (!ModelState.IsValid)\r\n            {\r\n                return BadRequest(" +
+                    "ModelState);\r\n            }\r\n\r\n            var user = new IdentityUser();\r\n\r\n   " +
+                    "         await _userStore.SetUserNameAsync(user, input.Email, CancellationToken." +
+                    "None);\r\n            await _userManager.SetEmailAsync(user, input.Email);\r\n      " +
+                    "      var result = await _userManager.CreateAsync(user, input.Password!);\r\n\r\n   " +
+                    "         if (!result.Succeeded)\r\n            {\r\n                foreach (var err" +
+                    "or in result.Errors)\r\n                {\r\n                    ModelState.AddModel" +
+                    "Error(string.Empty, error.Description);\r\n                }\r\n\r\n                re" +
+                    "turn BadRequest(ModelState);\r\n            }\r\n\r\n            _logger.LogInformatio" +
+                    "n(\"User created a new account with password.\");\r\n\r\n            var userId = awai" +
+                    "t _userManager.GetUserIdAsync(user);\r\n            var code = await _userManager." +
+                    "GenerateEmailConfirmationTokenAsync(user);\r\n            code = WebEncoders.Base6" +
+                    "4UrlEncode(Encoding.UTF8.GetBytes(code));\r\n\r\n            if (_userManager.Option" +
+                    "s.SignIn.RequireConfirmedAccount)\r\n            {\r\n                await _account" +
+                    "EmailSender.SendEmailConfirmationRequest(\r\n                    email: input.Emai" +
+                    "l!,\r\n                    userId: userId,\r\n                    code: code);\r\n    " +
+                    "        }\r\n\r\n            return Ok();\r\n        }\r\n\r\n        [HttpPost]\r\n        " +
+                    "public async Task<IActionResult> Login(LoginDto input)\r\n        {\r\n            i" +
+                    "f (string.IsNullOrWhiteSpace(input.Email))\r\n            {\r\n                Model" +
+                    "State.AddModelError<LoginDto>(x => x.Email, \"Mandatory\");\r\n            }\r\n\r\n    " +
+                    "        if (string.IsNullOrWhiteSpace(input.Password))\r\n            {\r\n         " +
+                    "       ModelState.AddModelError<LoginDto>(x => x.Password, \"Mandatory\");\r\n      " +
+                    "      }\r\n\r\n            if (!ModelState.IsValid)\r\n            {\r\n                " +
+                    "return BadRequest(ModelState);\r\n            }\r\n\r\n            // This doesn\'t cou" +
+                    "nt login failures towards account lockout\r\n            // To enable password fai" +
+                    "lures to trigger account lockout, set lockoutOnFailure: true\r\n            var re" +
+                    "sult = await _signInManager.PasswordSignInAsync(\r\n                userName: inpu" +
+                    "t.Email!,\r\n                password: input.Password!,\r\n                isPersist" +
+                    "ent: false,\r\n                lockoutOnFailure: false);\r\n\r\n            if (result" +
+                    ".IsLockedOut)\r\n            {\r\n                _logger.LogWarning(\"User account l" +
+                    "ocked out.\");\r\n                return Forbid();\r\n            }\r\n\r\n            if" +
+                    " (!result.Succeeded)\r\n            {\r\n                _logger.LogWarning(\"Invalid" +
+                    " login attempt.\");\r\n                return Forbid();\r\n            }\r\n\r\n         " +
+                    "   var token = await GetToken(input.Email!);\r\n            _logger.LogInformation" +
+                    "(\"User logged in.\");\r\n            return Ok(token);\r\n        }\r\n\r\n        privat" +
+                    "e async Task<string> GetToken(string email)\r\n        {\r\n            var user = a" +
+                    "wait _userManager.FindByEmailAsync(email);\r\n\r\n            var claims = new List<" +
+                    "Claim>();\r\n            claims.Add(new Claim(\"username\", user.Email));\r\n\r\n       " +
+                    "     var token = GetJwtToken(\r\n                username: email,\r\n               " +
+                    " signingKey: _configuration.GetSection(\"JwtToken:Authority.SigningKey\").Get<stri" +
+                    "ng>()!,\r\n                issuer: _configuration.GetSection(\"JwtToken:Authority.I" +
+                    "ssuer\").Get<string>()!,\r\n                audience: _configuration.GetSection(\"Jw" +
+                    "tToken:Authority.Audience\").Get<string>()!,\r\n                expiration: TimeSpa" +
+                    "n.FromMinutes(120),\r\n                additionalClaims: claims.ToArray());\r\n\r\n   " +
+                    "         return new JwtSecurityTokenHandler().WriteToken(token);\r\n        }\r\n\r\n " +
+                    "       private JwtSecurityToken GetJwtToken(\r\n            string username,\r\n    " +
+                    "        string signingKey,\r\n            string issuer,\r\n            string audie" +
+                    "nce,\r\n            TimeSpan expiration,\r\n            Claim[] additionalClaims = n" +
+                    "ull)\r\n        {\r\n            var claims = new[]\r\n            {\r\n                " +
+                    "new Claim(JwtRegisteredClaimNames.Sub,username),\r\n                // this guaran" +
+                    "tees the token is unique\r\n                new Claim(JwtRegisteredClaimNames.Jti," +
+                    " Guid.NewGuid().ToString())\r\n            };\r\n\r\n            if (additionalClaims " +
+                    "is object)\r\n            {\r\n                var claimList = new List<Claim>(claim" +
+                    "s);\r\n                claimList.AddRange(additionalClaims);\r\n                clai" +
+                    "ms = claimList.ToArray();\r\n            }\r\n\r\n            var key = new SymmetricS" +
+                    "ecurityKey(Encoding.UTF8.GetBytes(\"signingKey\"));\r\n            var creds = new S" +
+                    "igningCredentials(key, SecurityAlgorithms.HmacSha256);\r\n\r\n            return new" +
+                    " JwtSecurityToken(\r\n                issuer: issuer,\r\n                audience: a" +
+                    "udience,\r\n                expires: DateTime.UtcNow.Add(expiration),\r\n           " +
+                    "     claims: claims,\r\n                signingCredentials: creds\r\n            );\r" +
+                    "\n        }\r\n\r\n        [HttpPost]\r\n        public async Task<IActionResult> Confi" +
+                    "rmEmail(ConfirmEmailDto input)\r\n        {\r\n            if (string.IsNullOrWhiteS" +
+                    "pace(input.UserId))\r\n            {\r\n                ModelState.AddModelError<Con" +
+                    "firmEmailDto>(x => x.UserId, \"Mandatory\");\r\n            }\r\n\r\n            if (str" +
+                    "ing.IsNullOrWhiteSpace(input.Code))\r\n            {\r\n                ModelState.A" +
+                    "ddModelError<ConfirmEmailDto>(x => x.Code, \"Mandatory\");\r\n            }\r\n\r\n     " +
+                    "       if (!ModelState.IsValid)\r\n            {\r\n                return BadReques" +
+                    "t(ModelState);\r\n            }\r\n\r\n            var userId = input.UserId!;\r\n      " +
+                    "      var code = input.Code!;\r\n            var user = await _userManager.FindByI" +
+                    "dAsync(input.UserId!);\r\n            if (user == null)\r\n            {\r\n          " +
+                    "      return NotFound($\"Unable to load user with ID \'{userId}\'.\");\r\n            " +
+                    "}\r\n\r\n            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code" +
+                    "));\r\n\r\n            var result = await _userManager.ConfirmEmailAsync(user, code)" +
+                    ";\r\n            if (!result.Succeeded)\r\n            {\r\n                ModelState" +
+                    ".AddModelError<ConfirmEmailDto>(x => x, \"Error confirming your email.\");\r\n      " +
+                    "          return BadRequest(ModelState);\r\n            }\r\n\r\n            return Ok" +
+                    "();\r\n        }\r\n    }\r\n\r\n    public class RegisterDto\r\n    {\r\n        public str" +
+                    "ing? Email { get; set; }\r\n        public string? Password { get; set; }\r\n    }\r\n" +
+                    "\r\n    public class LoginDto\r\n    {\r\n        public string? Email { get; set; }\r\n" +
+                    "        public string? Password { get; set; }\r\n    }\r\n\r\n    public class Confirm" +
+                    "EmailDto\r\n    {\r\n        public string? UserId { get; set; }\r\n        public str" +
+                    "ing? Code { get; set; }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

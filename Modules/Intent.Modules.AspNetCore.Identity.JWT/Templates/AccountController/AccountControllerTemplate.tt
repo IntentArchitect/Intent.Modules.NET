@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -29,18 +30,22 @@ namespace <#= Namespace #>
         private readonly IUserStore<IdentityUser> _userStore;
         private readonly ILogger<<#= ClassName #>> _logger;
         private readonly <#= this.GetAccountEmailSenderInterfaceName() #> _accountEmailSender;
+        private readonly IConfiguration _configuration;
 
         public <#= ClassName #>(
             SignInManager<IdentityUser> signInManager,
             IUserStore<IdentityUser> userStore,
             UserManager<IdentityUser> userManager,
-            ILogger<<#= ClassName #>> logger, <#= this.GetAccountEmailSenderInterfaceName() #> accountEmailSender)
+            ILogger<<#= ClassName #>> logger,
+            <#= this.GetAccountEmailSenderInterfaceName() #> accountEmailSender,
+            IConfiguration configuration)
         {
             _signInManager = signInManager;
             _userStore = userStore;
             _userManager = userManager;
             _logger = logger;
             _accountEmailSender = accountEmailSender;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -132,8 +137,61 @@ namespace <#= Namespace #>
                 return Forbid();
             }
 
+            var token = await GetToken(input.Email!);
             _logger.LogInformation("User logged in.");
-            return Ok();
+            return Ok(token);
+        }
+
+        private async Task<string> GetToken(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            var claims = new List<Claim>();
+            claims.Add(new Claim("username", user.Email));
+
+            var token = GetJwtToken(
+                username: email,
+                signingKey: _configuration.GetSection("JwtToken:Authority.SigningKey").Get<string>()!,
+                issuer: _configuration.GetSection("JwtToken:Authority.Issuer").Get<string>()!,
+                audience: _configuration.GetSection("JwtToken:Authority.Audience").Get<string>()!,
+                expiration: TimeSpan.FromMinutes(120),
+                additionalClaims: claims.ToArray());
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        private JwtSecurityToken GetJwtToken(
+            string username,
+            string signingKey,
+            string issuer,
+            string audience,
+            TimeSpan expiration,
+            Claim[] additionalClaims = null)
+        {
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub,username),
+                // this guarantees the token is unique
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            if (additionalClaims is object)
+            {
+                var claimList = new List<Claim>(claims);
+                claimList.AddRange(additionalClaims);
+                claims = claimList.ToArray();
+            }
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("signingKey"));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            return new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                expires: DateTime.UtcNow.Add(expiration),
+                claims: claims,
+                signingCredentials: creds
+            );
         }
 
         [HttpPost]

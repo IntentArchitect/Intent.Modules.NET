@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -19,6 +20,19 @@ namespace Intent.Modules.AspNetCore.Identity.JWT.Templates.AccountController
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AccountControllerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            var randomBytesBuffer = new byte[32];
+            Random.Shared.NextBytes(randomBytesBuffer);
+
+            this.ApplyAppSetting("JwtToken", new
+            {
+                Issuer = OutputTarget.ExecutionContext.GetApplicationConfig().Name,
+                Audience = OutputTarget.ExecutionContext.GetApplicationConfig().Name,
+                SigningKey = Convert.ToBase64String(randomBytesBuffer)
+            });
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
