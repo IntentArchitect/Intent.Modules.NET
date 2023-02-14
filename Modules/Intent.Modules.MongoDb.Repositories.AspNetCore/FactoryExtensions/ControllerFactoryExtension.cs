@@ -33,7 +33,7 @@ namespace Intent.Modules.MongoDb.Repositories.AspNetCore.FactoryExtensions
         /// <remarks>
         /// It is safe to update or delete this method.
         /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ControllerTemplate.TemplateId));
             foreach (var template in templates)

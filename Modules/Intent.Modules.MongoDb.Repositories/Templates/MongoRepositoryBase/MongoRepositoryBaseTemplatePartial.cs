@@ -152,7 +152,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                                 .AddStatement("query = query.Where(filterExpression);"))
                             .AddStatement(new CSharpStatementBlock("if (linq != null)")
                                 .AddStatement($"query = (IMongoQueryable<{tPersistence}>)linq(query);"));
-                        method.AddStatement(new CSharpInvocationStatement($"return await {this.GetMongoPagedListName()}<{tDomain}>.CreateAsync")
+                        method.AddStatement(new CSharpInvocationStatement($"return await {this.GetMongoPagedListName()}<{tPersistence}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")

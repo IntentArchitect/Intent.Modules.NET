@@ -56,6 +56,9 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
                 .ForInterface(intentTemplate.GetTemplate<IClassProvider>(UnitOfWorkInterfaceTemplate.TemplateId))
                 .ForConcern("Infrastructure")
                 .WithResolveFromContainer());
+            
+            // TODO: Update IRepository to include Update method
+            //object Update(Expression<Func<TPersistence, bool>> predicate, TDomain entity);
         }
     }
 }
