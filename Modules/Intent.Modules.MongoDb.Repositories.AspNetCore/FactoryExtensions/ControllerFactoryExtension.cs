@@ -60,7 +60,7 @@ namespace Intent.Modules.MongoDb.Repositories.AspNetCore.FactoryExtensions
                 }, order: 1);
             }
         }
-        
+
         private string GetUnitOfWork(ICSharpFileBuilderTemplate template)
         {
             if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWork) ||

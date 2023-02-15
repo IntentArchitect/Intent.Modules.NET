@@ -87,7 +87,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
                     }
                 });
         }
-        
+
         public string EntityName => GetTypeName("Domain.Entity", Model);
 
         public string EntityInterfaceName => GetTypeName("Domain.Entity.Interface", Model);
@@ -110,7 +110,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
         {
             return CSharpFile.ToString();
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);

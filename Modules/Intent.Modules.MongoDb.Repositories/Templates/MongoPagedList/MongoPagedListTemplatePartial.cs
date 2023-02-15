@@ -22,7 +22,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoPagedList
         {
             AddNugetDependency(NugetPackages.MongoDbDataUnitOfWork);
         }
-        
+
         public string PagedResultInterfaceName => GetTypeName(PagedResultInterfaceTemplate.TemplateId);
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

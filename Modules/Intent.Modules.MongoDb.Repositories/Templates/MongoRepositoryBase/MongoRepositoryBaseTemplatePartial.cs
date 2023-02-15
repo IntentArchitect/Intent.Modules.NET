@@ -23,7 +23,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
         public MongoRepositoryBaseTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MongoDbDataUnitOfWork);
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
