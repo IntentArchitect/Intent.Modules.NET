@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Fixed: Didn't take "requires namespaces" into account.
+
 ### Version 4.0.0
 
 - New: Upgraded Templates to use new Builder Pattern paradigm.

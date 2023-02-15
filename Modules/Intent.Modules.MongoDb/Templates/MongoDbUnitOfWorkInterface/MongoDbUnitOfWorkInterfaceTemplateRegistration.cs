@@ -11,16 +11,16 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.MongoDb.Repositories.Templates.MongoPagedList
+namespace Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class MongoPagedListTemplateRegistration : SingleFileTemplateRegistration
+    public class MongoDbUnitOfWorkInterfaceTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => MongoPagedListTemplate.TemplateId;
+        public override string TemplateId => MongoDbUnitOfWorkInterfaceTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new MongoPagedListTemplate(outputTarget);
+            return new MongoDbUnitOfWorkInterfaceTemplate(outputTarget);
         }
     }
 }

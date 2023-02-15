@@ -33,6 +33,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5c398472-f84b-48a1-8cb1-20a55d15804a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/UnitOfWorkIntegrationFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkIntegrationFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -78,6 +86,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationMongoDbContext/ApplicationMongoDbContextTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#97a9caeb-8167-47f9-a31d-0e8f8c99d5c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#97a9caeb-8167-47f9-a31d-0e8f8c99d5c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

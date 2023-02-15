@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="243035d9-a149-449b-820f-69a101407fb7" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+<class id="65a28881-3d38-46e8-83dd-2e69e60ffff0" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
   <name>MongoRepoFactoryExtension</name>
   <display>MongoRepoFactoryExtension</display>
   <isAbstract>false</isAbstract>

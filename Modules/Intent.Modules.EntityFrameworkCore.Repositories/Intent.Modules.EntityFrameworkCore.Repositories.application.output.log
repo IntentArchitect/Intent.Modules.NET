@@ -9,20 +9,12 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>c61839e6-1add-422e-8e22-7d280b166bc1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed</CorrelationId>
+      <ProjectId>c65a7d10-e6c8-49bf-b699-5a7ffd06b41f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5a0baf83-b93a-428d-8f47-3bf1b6a67f99</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreRepositoryDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityFrameworkCoreRepositoryDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/PagedListFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedListFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c61839e6-1add-422e-8e22-7d280b166bc1</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EntityFrameworkCoreRepositoryDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
@@ -35,7 +27,7 @@
     <FileLog>
       <ProjectId>5dd354ae-1260-4a29-a506-037941ec04ae</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#5dd354ae-1260-4a29-a506-037941ec04ae</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.Repositories.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.Repositories.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -50,22 +42,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList/PagedListTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedList/PagedListTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -74,7 +50,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#09506297-8b03-44b4-9f6b-09c0cdeaa5ef</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedList/PagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedList/PagedListTemplateRegistration.cs</ProjectRelativeFilePath>

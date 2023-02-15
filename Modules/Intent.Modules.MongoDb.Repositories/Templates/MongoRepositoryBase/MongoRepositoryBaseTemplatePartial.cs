@@ -4,6 +4,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.MongoDb.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -152,7 +153,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                                 .AddStatement("query = query.Where(filterExpression);"))
                             .AddStatement(new CSharpStatementBlock("if (linq != null)")
                                 .AddStatement($"query = (IMongoQueryable<{tPersistence}>)linq(query);"));
-                        method.AddStatement(new CSharpInvocationStatement($"return await {this.GetMongoPagedListName()}<{tPersistence}>.CreateAsync")
+                        method.AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tPersistence}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")

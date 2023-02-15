@@ -39,7 +39,6 @@ namespace Intent.Modules.MongoDb.Finbuckle.Templates.MongoDbMultiTenancyConfigur
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier())
                             .AddParameter("IConfiguration", "configuration");
-                        method.AddStatement($"services.AddTransient<IMongoDbContext>(x => x.GetService<{this.GetApplicationMongoDbContextName()}>());");
                         method.AddStatement(new CSharpInvocationStatement("services.AddScoped<ApplicationMongoDbContext>")
                             .AddArgument(new CSharpLambdaBlock("provider")
                                 .AddStatement(

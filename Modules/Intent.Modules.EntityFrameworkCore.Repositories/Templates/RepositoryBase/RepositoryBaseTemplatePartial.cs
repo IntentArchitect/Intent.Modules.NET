@@ -36,8 +36,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.EntityFrameworkCore")
-                .AddClass($"RepositoryBase", @class =>
+                .AddClass($"RepositoryBase")
+                .OnBuild(file =>
                 {
+                    var @class = file.Classes.First();
                     @class.AddGenericParameter("TDomain", out var tDomain)
                         .AddGenericParameter("TPersistence", out var tPersistence)
                         .AddGenericParameter("TDbContext", out var tDbContext);
@@ -122,7 +124,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(x => true);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetPagedListName()}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -133,12 +135,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>","filterExpression")
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(filterExpression);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetPagedListName()}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -149,13 +151,13 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBa
                     {
                         method.Virtual();
                         method.Async();
-                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>","filterExpression")
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetPagedListName()}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")

@@ -13,21 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\MongoPagedList\MongoPagedListTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MongoPagedListTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Templates\MongoPagedList\MongoPagedListTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MongoPagedListTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.0" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.1" />

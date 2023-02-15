@@ -10,7 +10,7 @@
   <tags>repository mongo</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
-    <template id="Intent.MongoDb.Repositories.MongoPagedList" externalReference="c644ed68-913e-4447-bdae-40120d9d61a1">
+    <template id="Intent.MongoDb.Repositories.MongoRepositoryBase" externalReference="78babbf0-6214-4f6b-a1a5-d3382afe42a3">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -18,12 +18,12 @@
       <role>Repository.Implementation.MongoDb</role>
       <location>Repositories</location>
     </template>
-    <template id="Intent.MongoDb.Repositories.MongoRepositoryBase" externalReference="78babbf0-6214-4f6b-a1a5-d3382afe42a3">
+    <template id="Intent.MongoDb.Repositories.PagedList" externalReference="e8b00b82-2337-49a6-aeab-96e85201732a">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Repository.Implementation.MongoDb</role>
+      <role>Repository.Implementation.PagedList</role>
       <location>Repositories</location>
     </template>
     <template id="Intent.MongoDb.Repositories.Repository" externalReference="6e39f618-35c1-42e0-b3db-191b71f8c50c">
@@ -37,7 +37,8 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.MongoDb.Repositories.MongoRepoFactoryExtension" externalReference="243035d9-a149-449b-820f-69a101407fb7" />
+    <factoryExtension id="Intent.MongoDb.Repositories.MongoRepoFactoryExtension" externalReference="65a28881-3d38-46e8-83dd-2e69e60ffff0" />
+    <factoryExtension id="Intent.MongoDb.Repositories.PagedListFactoryExtension" externalReference="6dbad6b7-e298-4176-bdba-e2970f5e1dc2" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

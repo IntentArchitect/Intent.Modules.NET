@@ -36,9 +36,9 @@ namespace Intent.MongoDb.Api
         public string FileLocation => UnderlyingPackage.FileLocation;
 
         public IList<TypeDefinitionModel> Types => UnderlyingPackage.ChildElements
-    .GetElementsOfType(TypeDefinitionModel.SpecializationTypeId)
-    .Select(x => new TypeDefinitionModel(x))
-    .ToList();
+            .GetElementsOfType(TypeDefinitionModel.SpecializationTypeId)
+            .Select(x => new TypeDefinitionModel(x))
+            .ToList();
 
         public IList<EnumModel> Enums => UnderlyingPackage.ChildElements
             .GetElementsOfType(EnumModel.SpecializationTypeId)

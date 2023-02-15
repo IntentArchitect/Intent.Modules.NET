@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.MongoDb.Repositories.Templates.MongoPagedList;
 using Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase;
+using Intent.Modules.MongoDb.Repositories.Templates.PagedList;
 using Intent.Modules.MongoDb.Repositories.Templates.Repository;
 using Intent.RoslynWeaver.Attributes;
 
@@ -13,14 +13,15 @@ namespace Intent.Modules.MongoDb.Repositories.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetMongoPagedListName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(MongoPagedListTemplate.TemplateId);
-        }
 
         public static string GetMongoRepositoryBaseName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MongoRepositoryBaseTemplate.TemplateId);
+        }
+
+        public static string GetPagedListName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(PagedListTemplate.TemplateId);
         }
 
         public static string GetRepositoryName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Domain.Api.ClassModel

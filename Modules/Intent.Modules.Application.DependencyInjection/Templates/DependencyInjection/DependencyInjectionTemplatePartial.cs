@@ -50,6 +50,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
 
             @event.MarkAsHandled();
             _containerRegistrationRequests.Add(@event);
+            
             foreach (var templateDependency in @event.TemplateDependencies)
             {
                 var template = GetTemplate<IClassProvider>(templateDependency);
@@ -59,6 +60,11 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
                 }
 
                 AddTemplateDependency(templateDependency);
+            }
+            
+            foreach (var ns in @event.RequiredNamespaces)
+            {
+                AddUsing(ns);
             }
         }
 
@@ -71,6 +77,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
 
             @event.MarkAsHandled();
             _serviceConfigurationRequests.Add(@event);
+            
             foreach (var templateDependency in @event.TemplateDependencies)
             {
                 var template = GetTemplate<IClassProvider>(templateDependency);
@@ -80,6 +87,11 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
                 }
 
                 AddTemplateDependency(templateDependency);
+            }
+            
+            foreach (var ns in @event.RequiredNamespaces)
+            {
+                AddUsing(ns);
             }
         }
 
@@ -107,16 +119,39 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
                 _ => "AddTransient"
             };
 
-            if (request.ConcreteType.StartsWith("typeof("))
-            {
-                return request.InterfaceType != null
-                    ? $"services.{registrationType}({UseTypeOf(request.InterfaceType)}, {UseTypeOf(request.ConcreteType)});"
-                    : $"services.{registrationType}({UseTypeOf(request.ConcreteType)});";
-            }
+            var usesTypeOfFormat = request.ConcreteType.StartsWith("typeof(");
+            var hasInterface = request.InterfaceType != null;
+            var useProvider = request.ResolveFromContainer;
 
-            return request.InterfaceType != null
-                ? $"services.{registrationType}<{UseType(request.InterfaceType)}, {UseType(request.ConcreteType)}>();"
-                : $"services.{registrationType}<{UseType(request.ConcreteType)}>();";
+            var concreteType = usesTypeOfFormat
+                ? UseTypeOf(request.ConcreteType)
+                : UseType(request.ConcreteType);
+
+            var interfaceType = hasInterface
+                ? usesTypeOfFormat
+                    ? UseTypeOf(request.InterfaceType)
+                    : UseType(request.InterfaceType)
+                : null;
+
+            // ReSharper disable ConditionIsAlwaysTrueOrFalse
+
+            // This is a 3 way truth table to string mapping:
+            return useProvider switch
+            {
+                false when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{concreteType}>();",
+                false when !hasInterface && usesTypeOfFormat => $"services.{registrationType}({concreteType});",
+                false when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}, {concreteType}>();",
+                false when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, {concreteType});",
+                true when !hasInterface && !usesTypeOfFormat => throw new InvalidOperationException($"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
+                true when !hasInterface && usesTypeOfFormat => throw new InvalidOperationException($"Using a service provider for resolution during registration without an interface can cause an infinite loop. Concrete Type: {concreteType}"),
+                // These configurations can cause an infinite loop.
+                // true when !hasInterface && !usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService<{concreteType}>());",
+                // true when !hasInterface && usesTypeOfFormat => $"services.{registrationType}(provider => provider.GetService({concreteType}));",
+                true when hasInterface && !usesTypeOfFormat => $"services.{registrationType}<{interfaceType}>(provider => provider.GetService<{concreteType}>());",
+                true when hasInterface && usesTypeOfFormat => $"services.{registrationType}({interfaceType}, provider => provider.GetService({concreteType}));",
+                _ => throw new InvalidOperationException()
+            };
+            // ReSharper restore ConditionIsAlwaysTrueOrFalse
         }
 
         private string ServiceConfigurationRegistration(ServiceConfigurationRequest registration)

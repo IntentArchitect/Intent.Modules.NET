@@ -1,26 +1,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
+namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
-    public partial class PagedListTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    partial class PagedListTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.PagedList";
+        public const string TemplateId = "Intent.MongoDb.Repositories.PagedList";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PagedListTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

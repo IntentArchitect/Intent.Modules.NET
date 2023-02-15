@@ -5,6 +5,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -30,6 +31,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                 .AddClass($"ApplicationMongoDbContext", @class =>
                 {
                     @class.WithBaseType("MongoDbContext");
+                    @class.ImplementsInterface(GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId));
                     @class.AddConstructor(ctor =>
                     {
                         ctor.Static();
@@ -48,6 +50,12 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                         });
                         ctor.AddStatement("AcceptAllChangesOnSave = true;");
                         ctor.AddStatement("AddCommand(() => null);");
+                    });
+                    @class.AddMethod("Task<int>", $"SaveChangesAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter("CancellationToken", "cancellationToken");
+                        method.AddStatement("return (await base.SaveChangesAsync(cancellationToken)).Results.Count;");
                     });
                 });
         }
@@ -69,12 +77,25 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
 
         public override void BeforeTemplateExecution()
         {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister("AddMongoDbUnitOfWork")
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("AddMongoDbUnitOfWork")
                 .ForConcern("Infrastructure")
                 .RequiresUsingNamespaces("MongoDB.UnitOfWork.Abstractions.Extensions"));
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister($"AddMongoDbUnitOfWork<{ClassName}>")
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister($"AddMongoDbUnitOfWork<{ClassName}>")
                 .ForConcern("Infrastructure")
                 .RequiresUsingNamespaces("MongoDB.UnitOfWork.Abstractions.Extensions"));
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(this)
+                .ForInterface(this.GetTemplate<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId))
+                .ForConcern("Infrastructure")
+                .WithResolveFromContainer());
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(this)
+                .ForInterface("IMongoDbContext")
+                .RequiresUsingNamespaces("MongoDB.Infrastructure")
+                .ForConcern("Infrastructure")
+                .WithResolveFromContainer());
         }
     }
 }

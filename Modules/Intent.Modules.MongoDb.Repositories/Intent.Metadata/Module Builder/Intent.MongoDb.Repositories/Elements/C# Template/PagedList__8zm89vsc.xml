@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="09506297-8b03-44b4-9f6b-09c0cdeaa5ef" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="e8b00b82-2337-49a6-aeab-96e85201732a" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>PagedList</name>
   <display>PagedList: Custom</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="434d34a0-bf45-4113-b865-e17eaa44e693">
+  <typeReference id="4412c1fe-22a2-4cc8-a89e-c0ede98ced9f">
     <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>5869084c-2a08-4e40-a5c9-ff26220470c8</parentFolderId>
-  <packageId>5869084c-2a08-4e40-a5c9-ff26220470c8</packageId>
-  <packageName>Intent.EntityFrameworkCore.Repositories</packageName>
+  <parentFolderId>6b0339b1-f588-45b6-bce4-7dafbc54edaf</parentFolderId>
+  <packageId>6b0339b1-f588-45b6-bce4-7dafbc54edaf</packageId>
+  <packageName>Intent.MongoDb.Repositories</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

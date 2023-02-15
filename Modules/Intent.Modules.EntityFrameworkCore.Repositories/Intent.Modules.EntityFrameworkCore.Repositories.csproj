@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.17" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.27" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.0" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.1" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.2.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
@@ -29,7 +29,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0-pre.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,10 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\PagedList\PagedListTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>PagedListTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\RepositoryBase\RepositoryBaseTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RepositoryBaseTemplate.cs</LastGenOutput>
@@ -52,11 +48,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\PagedList\PagedListTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PagedListTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\RepositoryBase\RepositoryBaseTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Registrations;
@@ -14,10 +12,10 @@ using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
+namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class PagedListTemplateRegistration : ITemplateRegistration
@@ -28,7 +26,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.PagedList
         {
             _metadataManager = metadataManager;
         }
-
         public string TemplateId => PagedListTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

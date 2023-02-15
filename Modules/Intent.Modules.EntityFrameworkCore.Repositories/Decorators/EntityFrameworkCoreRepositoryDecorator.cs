@@ -8,20 +8,13 @@ using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
-
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Decorators
 {
-    [IntentManaged(Mode.Merge)]
     public class EntityFrameworkCoreRepositoryDecorator : DecoratorBase
     {
-        [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.EntityFrameworkCore.Repositories.EntityFrameworkCoreRepositoryDecorator";
 
-        [IntentManaged(Mode.Fully)]
         private readonly DbContextTemplate _template;
-        [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

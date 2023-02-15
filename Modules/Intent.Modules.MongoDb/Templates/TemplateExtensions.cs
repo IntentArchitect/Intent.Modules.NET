@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
+using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,6 +15,11 @@ namespace Intent.Modules.MongoDb.Templates
         public static string GetApplicationMongoDbContextName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(ApplicationMongoDbContextTemplate.TemplateId);
+        }
+
+        public static string GetMongoDbUnitOfWorkInterfaceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId);
         }
 
     }

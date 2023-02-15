@@ -14,6 +14,11 @@
             }
         }
 
+        public static class Repository
+        {
+            public const string PagedList = "Repository.Implementation.PagedList";
+        }
+
         public static class Application
         {
             public static class Common

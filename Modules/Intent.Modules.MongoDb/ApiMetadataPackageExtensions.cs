@@ -17,6 +17,9 @@ namespace Intent.MongoDb.Api
                 .ToList();
         }
 
-
+        public static bool IsMongoDomainPackageModel(this IPackage package)
+        {
+            return package?.SpecializationTypeId == MongoDomainPackageModel.SpecializationTypeId;
+        }
     }
 }

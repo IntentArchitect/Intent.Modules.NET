@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
   <version>4.1.0-pre.0</version>
@@ -12,7 +12,7 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
     <template id="Intent.EntityFrameworkCore.Repositories.PagedList" externalReference="09506297-8b03-44b4-9f6b-09c0cdeaa5ef">
-      <role>Repository.Implementation</role>
+      <role>Repository.Implementation.PagedList</role>
       <location>Repositories</location>
     </template>
     <template id="Intent.EntityFrameworkCore.Repositories.Repository" externalReference="a78eb6c0-6400-436f-87d7-1b9cf35effa9">
@@ -29,17 +29,18 @@
     </template>
   </templates>
   <decorators>
-    <decorator id="Intent.EntityFrameworkCore.Repositories.EntityFrameworkCoreRepositoryDecorator" externalReference="2fa4d18b-3b4a-4b8e-9d6d-31ba739f74ed" />
+    <decorator id="Intent.EntityFrameworkCore.Repositories.EntityFrameworkCoreRepositoryDecorator" />
   </decorators>
   <interoperability></interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.17" />
-    <dependency id="Intent.Common.CSharp" version="3.3.27" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.0" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.1" />
     <dependency id="Intent.EntityFrameworkCore" version="4.2.0-pre.0" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.3.10" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.8" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -48,4 +49,7 @@
   <moduleSettings />
   <metadata />
   <moduleSettingsExtensions />
+  <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.Repositories.PagedListFactoryExtension" externalReference="5a0baf83-b93a-428d-8f47-3bf1b6a67f99" />
+  </factoryExtensions>
 </package>
