@@ -18,7 +18,7 @@ namespace Intent.Modules.MongoDb.Finbuckle.Templates.MongoDbMultiTenancyConfigur
     [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
     public partial class MongoDbMultiTenancyConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.MongoDb.Finbuckle.MongoDbMultiTenancyConfiguration";
+        public const string TemplateId = "Intent.MongoDb.Finbuckle.MongoDbMultiTenancyConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MongoDbMultiTenancyConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

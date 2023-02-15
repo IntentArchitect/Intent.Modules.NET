@@ -20,8 +20,8 @@
       <ProjectId>ae62f3c5-d5a0-4418-8989-0ab094554a73</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.MongoDb.Finbuckle.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.MongoDb.Finbuckle.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.MongoDb.Finbuckle.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.MongoDb.Finbuckle.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

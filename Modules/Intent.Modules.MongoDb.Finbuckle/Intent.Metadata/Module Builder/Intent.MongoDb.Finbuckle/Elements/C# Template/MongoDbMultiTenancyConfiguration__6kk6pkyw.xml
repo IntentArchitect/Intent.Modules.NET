@@ -18,7 +18,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>ee1f8b6e-f991-403e-92a5-b54a3a33977e</parentFolderId>
   <packageId>ee1f8b6e-f991-403e-92a5-b54a3a33977e</packageId>
-  <packageName>Intent.Modules.MongoDb.Finbuckle</packageName>
+  <packageName>Intent.MongoDb.Finbuckle</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
