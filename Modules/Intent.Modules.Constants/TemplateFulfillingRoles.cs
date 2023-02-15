@@ -29,6 +29,7 @@
 
         public static class Infrastructure
         {
+            public const string DependencyInjection = "Infrastructure.DependencyInjection";
             public static class Data
             {
                 public const string DbContext = "Infrastructure.Data.DbContext";

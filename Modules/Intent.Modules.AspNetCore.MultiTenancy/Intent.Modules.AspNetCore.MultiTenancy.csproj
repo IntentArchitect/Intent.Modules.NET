@@ -17,7 +17,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt">

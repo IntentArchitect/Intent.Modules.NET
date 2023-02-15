@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -53,7 +54,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
             var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.DbContext");
             if (dbContext != null && application.Settings.GetMultitenancySettings().DataIsolation().IsSeparateDatabase())
             {
-                var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.DependencyInjection");
+                var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
                 dependencyInjection?.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant", "6.5.1"));
                 dependencyInjection?.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1"));
 
