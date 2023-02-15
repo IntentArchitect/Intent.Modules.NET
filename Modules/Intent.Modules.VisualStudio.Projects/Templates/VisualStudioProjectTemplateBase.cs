@@ -104,7 +104,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
 
         var hasChange = ApplySettings(doc);
 
-        return !hadExistingContent || (hasChange && !XmlHelper.IsSemanticallyTheSame(existingFileContent, content))
+        return !hadExistingContent || (hasChange && !XmlHelper.IsSemanticallyTheSame(existingFileContent, doc))
             ? doc.ToFormattedProjectString()
             : existingFileContent;
     }

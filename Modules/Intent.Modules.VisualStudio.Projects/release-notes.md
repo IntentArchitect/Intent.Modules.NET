@@ -1,4 +1,8 @@
-﻿### Version 3.3.20
+﻿### Version 3.3.22
+
+- Fixed: Updates to `.csproj` files would not always be applied.
+
+### Version 3.3.21
 
 - Added support for Implicit Usings for projects.
 - Fixed: Added SSL URI in `applicationUrl` for `Project` Laumch Profiles.
