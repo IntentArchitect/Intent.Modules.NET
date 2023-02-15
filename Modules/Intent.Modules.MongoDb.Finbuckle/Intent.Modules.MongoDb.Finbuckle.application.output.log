@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>26306383-da29-474e-a319-4d32ec919ea8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#3934160a-3925-4b0b-b816-b9478dc0c7ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DependencyInjectionFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DependencyInjectionFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ae62f3c5-d5a0-4418-8989-0ab094554a73</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#ae62f3c5-d5a0-4418-8989-0ab094554a73</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

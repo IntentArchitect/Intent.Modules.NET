@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3934160a-3925-4b0b-b816-b9478dc0c7ec" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DependencyInjectionFactoryExtension</name>
+  <display>DependencyInjectionFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ee1f8b6e-f991-403e-92a5-b54a3a33977e</parentFolderId>
+  <packageId>ee1f8b6e-f991-403e-92a5-b54a3a33977e</packageId>
+  <packageName>Intent.MongoDb.Finbuckle</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

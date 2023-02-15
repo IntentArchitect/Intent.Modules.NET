@@ -74,28 +74,5 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         {
             return CSharpFile.ToString();
         }
-
-        public override void BeforeTemplateExecution()
-        {
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("AddMongoDbUnitOfWork")
-                .ForConcern("Infrastructure")
-                .RequiresUsingNamespaces("MongoDB.UnitOfWork.Abstractions.Extensions"));
-            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister($"AddMongoDbUnitOfWork<{ClassName}>")
-                .ForConcern("Infrastructure")
-                .RequiresUsingNamespaces("MongoDB.UnitOfWork.Abstractions.Extensions"));
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(this)
-                .ForInterface(this.GetTemplate<IClassProvider>(MongoDbUnitOfWorkInterfaceTemplate.TemplateId))
-                .ForConcern("Infrastructure")
-                .WithResolveFromContainer());
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(this)
-                .ForInterface("IMongoDbContext")
-                .RequiresUsingNamespaces("MongoDB.Infrastructure")
-                .ForConcern("Infrastructure")
-                .WithResolveFromContainer());
-        }
     }
 }
