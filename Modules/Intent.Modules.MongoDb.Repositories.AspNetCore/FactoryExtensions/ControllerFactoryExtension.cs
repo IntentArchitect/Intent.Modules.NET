@@ -42,13 +42,19 @@ namespace Intent.Modules.MongoDb.Repositories.AspNetCore.FactoryExtensions
                 {
                     var @class = file.Classes.First();
                     var ctor = @class.Constructors.First();
-                    ctor.AddParameter(GetUnitOfWork(template), "unitOfWork", p =>
+
+                    if (ctor.Parameters.All(p => p.Name != "unitOfWork"))
                     {
-                        p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                    });
+                        ctor.AddParameter(GetUnitOfWork(template), "unitOfWork", p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+                    }
 
                     foreach (var method in @class.Methods)
                     {
+                        if (method.Statements.Any(p => p.GetText("").Contains("_unitOfWork.SaveChangesAsync")))
+                        {
+                            continue;
+                        }
+
                         if (method.TryGetMetadata<OperationModel>("model", out var operation) &&
                             operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
                         {

@@ -1,14 +1,17 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface;
 using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
+using Intent.MongoDb.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -41,18 +44,25 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
 
         private static void UpdateRepositoryInterfaceTemplate(IApplication application)
         {
-            var repositoryTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(RepositoryInterfaceTemplate.TemplateId));
-            if (repositoryTemplate == null)
+            var repositoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(EntityRepositoryInterfaceTemplate.TemplateId));
+            foreach (var repositoryTemplate in repositoryTemplates)
             {
-                return;
-            }
+                repositoryTemplate.CSharpFile.AddUsing("System.Linq.Expressions");
+                var inter = repositoryTemplate.CSharpFile.Interfaces.First();
+                var model = inter.GetMetadata<ClassModel>("model");
 
-            var inter = repositoryTemplate.CSharpFile.Interfaces.First();
-            inter.InsertMethod(2, "object", "Update", method =>
-            {
-                method.AddParameter($"Expression<Func<TPersistence, bool>>", "predicate")
-                    .AddParameter("TDomain", "entity");
-            });
+                if (model.InternalElement?.Package?.SpecializationTypeId != MongoDomainPackageModel.SpecializationTypeId)
+                {
+                    continue;
+                }
+                
+                inter.AddMethod("object", "Update", method =>
+                {
+                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                    method.AddParameter($"Expression<Func<{repositoryTemplate.GetTypeName("Domain.Entity", model)}, bool>>", "predicate")
+                        .AddParameter(repositoryTemplate.GetTypeName("Domain.Entity.Interface", model), "entity");
+                });
+            }
         }
 
         private static void UpdateDbContextTemplate(IApplication application)
