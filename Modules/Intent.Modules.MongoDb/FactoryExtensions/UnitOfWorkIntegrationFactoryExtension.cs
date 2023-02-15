@@ -1,5 +1,11 @@
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -16,17 +22,36 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.Start"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            // Your custom logic here.
+            var controllerTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.AspNetCore.Controllers.Controller"));
+            foreach (var template in controllerTemplates)
+            {
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var ctor = @class.Constructors.First();
+                    ctor.AddParameter(GetUnitOfWork(template), "mongoDbUnitOfWork", p =>
+                    {
+                        p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
+                    });
+
+                    foreach (var method in @class.Methods)
+                    {
+                        if (method.TryGetMetadata<IHasStereotypes>("model", out var operation) &&
+                            operation.HasStereotype("Http Settings") && operation.GetStereotype("Http Settings").GetProperty<string>("Verb") != "GET")
+                        {
+                            method.Statements.LastOrDefault(x => x.ToString().Contains("return "))
+                                ?.InsertAbove($"await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
+                        }
+                    }
+                });
+            }
+        }
+
+        private string GetUnitOfWork(ICSharpFileBuilderTemplate template)
+        {
+            return template.GetTypeName(ApplicationMongoDbContextTemplate.TemplateId);
         }
     }
 }
