@@ -35,7 +35,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels().ToList();
+            return _metadataManager.Domain(application).GetClassModels()
+                .Where(p => p.InternalElement?.Package?.SpecializationTypeId == DomainPackageModel.SpecializationTypeId)
+                .ToList();
         }
     }
 }

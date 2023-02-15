@@ -1,4 +1,8 @@
-﻿### Version 4.0.2
+﻿### Version 4.1.0
+
+- Update: Repositories will only be generated for Classes created inside a "Domain Package".
+
+### Version 4.0.2
 
 - Update: Converted RepositoryBase into Builder Pattern version.
 

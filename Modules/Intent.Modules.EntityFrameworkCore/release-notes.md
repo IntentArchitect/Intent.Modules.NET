@@ -1,4 +1,8 @@
-﻿### Version 4.1.0
+﻿### Version 4.2.0
+
+- Update: Configuration and DbSet code will only be generated for Classes created inside a "Domain Package".
+
+### Version 4.1.0
 
 - New: Foreign Keys now refer to its own Association link as opposed to matching Attributes with Association by naming convention.
 - New: Added My SQL database provider.

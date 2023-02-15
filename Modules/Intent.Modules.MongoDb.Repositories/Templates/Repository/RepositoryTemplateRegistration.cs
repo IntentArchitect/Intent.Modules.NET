@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.MongoDb.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -35,7 +36,8 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => x.IsAggregateRoot() && !x.IsAbstract)
+                .Where(x => x.InternalElement?.Package?.SpecializationTypeId == MongoDomainPackageModel.SpecializationTypeId &&
+                            x.IsAggregateRoot() && !x.IsAbstract)
                 .ToArray();
         }
     }
