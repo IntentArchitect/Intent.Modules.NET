@@ -12,8 +12,10 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.MongoDb.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -33,10 +35,19 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Domain.Entity.Primary));
             foreach (var template in templates)
             {
+                var templateModel = ((CSharpTemplateBase<ClassModel>)template).Model;
+                if (!templateModel.InternalElement.Package.IsMongoDomainPackageModel())
+                {
+                    continue;
+                }
+                
+                LogAggregateRelationshipsAsError(templateModel);
+
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
                     var model = @class.GetMetadata<ClassModel>("model");
+
                     var pks = model.GetExplicitPrimaryKey();
                     var primaryKeyProperties = new List<CSharpProperty>();
                     if (pks.Any())
@@ -74,6 +85,21 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }
                 });
+            }
+        }
+
+        private void LogAggregateRelationshipsAsError(ClassModel model)
+        {
+            var notSupportedAssociations = model
+                .AssociationEnds()
+                .Where(x => x.Association.SourceEnd.Element.Id == model.Id &&
+                            (x.Association.SourceEnd.IsCollection || x.Association.SourceEnd.IsNullable))
+                .ToArray();
+            foreach (var association in notSupportedAssociations)
+            {
+                var sourceClass = model;
+                var targetClass = association.Class;
+                Logging.Log.Failure($"Association not supported between {sourceClass.Name} and {targetClass.Name}. Ensure the source end is set to not be Is Nullable and not Is Collection.");
             }
         }
 
