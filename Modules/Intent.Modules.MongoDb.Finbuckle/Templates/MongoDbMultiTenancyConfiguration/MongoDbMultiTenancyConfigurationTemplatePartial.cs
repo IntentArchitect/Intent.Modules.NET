@@ -23,6 +23,7 @@ namespace Intent.Modules.MongoDb.Finbuckle.Templates.MongoDbMultiTenancyConfigur
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MongoDbMultiTenancyConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenantMongoFramework);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Finbuckle.MultiTenant")
                 .AddUsing("Microsoft.Extensions.Configuration")
