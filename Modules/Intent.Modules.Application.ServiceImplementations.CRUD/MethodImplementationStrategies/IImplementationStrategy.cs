@@ -8,8 +8,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 {
     interface IImplementationStrategy
     {
-        bool Match(ClassModel domainModel, OperationModel operationModel);
-        string GetImplementation(ClassModel domainModel, OperationModel operationModel);
-        IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel);
+        bool IsMatch(OperationModel operationModel);
+        void ApplyStrategy(OperationModel operationModel);
     }
 }

@@ -5,7 +5,6 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts;
-using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -16,12 +15,12 @@ using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
-    public class GetByIdImplementationStrategy : IImplementationStrategy
+    public class LegacyDeleteImplementationStrategy : IImplementationStrategy
     {
         private readonly ServiceImplementationTemplate _template;
         private readonly IApplication _application;
 
-        public GetByIdImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
+        public LegacyDeleteImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
@@ -29,30 +28,36 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public bool IsMatch(OperationModel operationModel)
         {
-            if (operationModel.Parameters.Count != 1)
-            {
-                return false;
-            }
-
-            if (!operationModel.Parameters.Any(p => p.Name.Contains("id", StringComparison.OrdinalIgnoreCase)))
-            {
-                return false;
-            }
-
-            var dtoModel = operationModel.TypeReference.Element?.AsDTOModel();
-            if (dtoModel == null)
-            {
-                return false;
-            }
-
-            var domainModel = dtoModel.Mapping?.Element?.AsClassModel();
+            var domainModel = GetDomainForService(operationModel.ParentService);
             if (domainModel == null)
             {
                 return false;
             }
-
+        
+            var lowerDomainName = domainModel.Name.ToLower();
             var lowerOperationName = operationModel.Name.ToLower();
-            return new[] { "get", "find", domainModel.Name }.Any(x => lowerOperationName.Contains(x));
+            if (operationModel.Parameters.Count != 1)
+            {
+                return false;
+            }
+        
+            if (!operationModel.Parameters.Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase) ||
+                                                    string.Equals(p.Name, $"{lowerDomainName}Id", StringComparison.InvariantCultureIgnoreCase)))
+            {
+                return false;
+            }
+        
+            if (operationModel.TypeReference.Element != null)
+            {
+                return false;
+            }
+
+            return new[]
+                {
+                    "delete",
+                    $"delete{lowerDomainName}"
+                }
+                .Contains(lowerOperationName);
         }
 
         public void ApplyStrategy(OperationModel operationModel)
@@ -60,23 +65,20 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
-            
-            var dtoModel = operationModel.TypeReference.Element.AsDTOModel();
-            var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
-                ? dtoName
-                : dtoModel.Name.ToPascalCase();
-            var domainModel = dtoModel.Mapping.Element.AsClassModel();
+
+            var domainModel = GetDomainForService(operationModel.ParentService);
             var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
                 ? result
                 : domainModel.Name;
             var domainTypePascalCased = domainType.ToPascalCase();
             var repositoryTypeName = _template.GetTypeName(_template.GetRepositoryInterfaceName(), domainModel);
             var repositoryFieldName = $"{repositoryTypeName.ToCamelCase()}Repository";
-            
+
             var codeLines = new CSharpStatementAggregator();
-            codeLines.Add($@"var element ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.First().Name.ToCamelCase()});");
-            codeLines.Add($@"return element.MapTo{dtoType}(_mapper);");
-            
+            codeLines.Add(
+                $@"var existing{domainTypePascalCased} ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.Single().Name.ToCamelCase()});");
+            codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Remove(existing{domainTypePascalCased});");
+
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
             var attr = method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault();
@@ -89,16 +91,25 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             attr.WithBodyFully();
             method.Statements.Clear();
             method.AddStatements(codeLines.ToList());
-        
+
             var ctor = @class.Constructors.First();
             if (ctor.Parameters.All(p => p.Name != repositoryFieldName))
             {
                 ctor.AddParameter(repositoryTypeName, repositoryFieldName, parm => parm.IntroduceReadonlyField());
             }
+
             if (ctor.Parameters.All(p => p.Name != "mapper"))
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parm => parm.IntroduceReadonlyField());
             }
+        }
+
+        private ClassModel GetDomainForService(ServiceModel service)
+        {
+            var serviceIdentifier = service.Name.RemoveSuffix("RestController", "Controller", "Service", "Manager").ToLower();
+            var entities = _application.MetadataManager.Domain(_application).GetClassModels();
+            return entities.SingleOrDefault(e => e.Name.Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase) ||
+                                                 e.Name.Pluralize().Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

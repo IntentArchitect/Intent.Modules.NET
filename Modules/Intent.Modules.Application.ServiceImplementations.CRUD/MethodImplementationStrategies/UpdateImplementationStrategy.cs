@@ -2,111 +2,194 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Intent.Modelers.Domain.Api;
+using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Application.Contracts;
-using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Decorators;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Constants;
+using Intent.Modules.Entities.Repositories.Api.Templates;
+using JetBrains.Annotations;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
-using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies
 {
     public class UpdateImplementationStrategy : IImplementationStrategy
     {
-        private readonly CrudConventionDecorator _decorator;
+        private readonly ServiceImplementationTemplate _template;
+        private readonly IApplication _application;
 
-        public UpdateImplementationStrategy(CrudConventionDecorator decorator)
+        public UpdateImplementationStrategy(ServiceImplementationTemplate template, IApplication application)
         {
-            _decorator = decorator;
+            _template = template;
+            _application = application;
         }
 
-        public bool Match(ClassModel domainModel, OperationModel operationModel)
+        public bool IsMatch(OperationModel operationModel)
         {
-            var lowerDomainName = domainModel.Name.ToLower();
+            if (operationModel.Parameters.Count != 2)
+            {
+                return false;
+            }
+            
+            if (!operationModel.Parameters.Any(p => p.Name.Contains("id", StringComparison.OrdinalIgnoreCase)))
+            {
+                return false;
+            }
+
+            if (operationModel.TypeReference.Element != null)
+            {
+                return false;
+            }
+
+            var dtoModel = operationModel.Parameters.FirstOrDefault(x => x.TypeReference?.Element?.IsDTOModel() == true)?.TypeReference?.Element?.AsDTOModel();
+            if (dtoModel == null)
+            {
+                return false;
+            }
+
+            var domainModel = dtoModel.Mapping?.Element?.AsClassModel();
+            if (domainModel == null)
+            {
+                return false;
+            }
+
+            if (dtoModel.Fields.GetEntityIdField(domainModel) == null)
+            {
+                return false;
+            }
+
             var lowerOperationName = operationModel.Name.ToLower();
-            if (operationModel.Parameters.Count() != 2)
-            {
-                return false;
-            }
+            return new[] { "put", "update" }.Any(x => lowerOperationName.Contains(x));
+        }
 
-            if (!operationModel.Parameters
-                    .Any(p => string.Equals(p.Name, "id", StringComparison.InvariantCultureIgnoreCase)
-                              || string.Equals(p.Name, $"{lowerDomainName}Id",
-                                  StringComparison.InvariantCultureIgnoreCase)))
+        public void ApplyStrategy(OperationModel operationModel)
+        {
+            _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
+            _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
+            _template.AddUsing("System.Linq");
+            
+            var dtoModel = operationModel.Parameters.First().TypeReference.Element.AsDTOModel();
+            var domainModel = dtoModel.Mapping.Element.AsClassModel();
+            var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
+                ? result
+                : domainModel.Name;
+            var domainTypePascalCased = domainType.ToPascalCase();
+            var repositoryTypeName = _template.GetTypeName(_template.GetRepositoryInterfaceName(), domainModel);
+            var repositoryFieldName = $"{repositoryTypeName.ToCamelCase()}Repository";
+            var idField = dtoModel.Fields.GetEntityIdField(domainModel);
+            
+            var codeLines = new CSharpStatementAggregator();
+            codeLines.Add($"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
+            codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", "request", domainModel.InternalElement, dtoModel.Fields, true));
+            
+            var @class = _template.CSharpFile.Classes.First();
+            var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
+            var attr = method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault();
+            if (attr == null)
             {
-                return false;
+                attr = CSharpIntentManagedAttribute.Fully();
+                method.AddAttribute(attr);
             }
+            attr.WithBodyFully();
+            method.Statements.Clear();
+            method.AddStatements(codeLines.ToList());
 
-            if (operationModel.TypeReference?.Element != null)
+            var ctor = @class.Constructors.First();
+            if (ctor.Parameters.All(p => p.Name != repositoryFieldName))
             {
-                return false;
+                ctor.AddParameter(repositoryTypeName, repositoryFieldName, parm => parm.IntroduceReadonlyField());
             }
-
-            if (!_decorator.HasEntityRepositoryInterfaceName(domainModel))
+        }
+        
+        private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, IElement domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
+        {
+            var codeLines = new CSharpStatementAggregator();
+            foreach (var field in dtoFields)
             {
-                return false;
-            }
-
-            return new[]
+                if (skipIdField && field.Name.Equals("id", StringComparison.OrdinalIgnoreCase))
                 {
-                    "put",
-                    $"put{lowerDomainName}",
-                    "update",
-                    $"update{lowerDomainName}",
-                }
-                .Contains(lowerOperationName);
-        }
-
-        public string GetImplementation(ClassModel domainModel, OperationModel operationModel)
-        {
-            var idParam =
-                operationModel.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
-            var dtoParam =
-                operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
-
-            return
-                $@"var existing{domainModel.Name} ={(operationModel.IsAsync() ? " await" : "")} {domainModel.Name.ToPrivateMemberName()}Repository.FindById{(operationModel.IsAsync() ? "Async" : "")}({idParam.Name});
-                {GetPropertyAssignments(domainModel, "existing" + domainModel.Name, dtoParam)}";
-        }
-
-        public IEnumerable<ConstructorParameter> GetRequiredServices(ClassModel domainModel)
-        {
-            var repo = _decorator.GetEntityRepositoryInterfaceName(domainModel);
-            return new[]
-            {
-                new ConstructorParameter(repo, repo.Substring(1).ToCamelCase()),
-            };
-        }
-
-        private string GetPropertyAssignments(ClassModel domainModel, string domainVarName,
-            ParameterModel operationParameterModel)
-        {
-            var sb = new StringBuilder();
-            var dto = _decorator.FindDTOModel(operationParameterModel.TypeReference.Element.Id);
-            foreach (var dtoField in dto.Fields)
-            {
-                var domainAttribute = domainModel.Attributes.FirstOrDefault(p =>
-                    p.Name.Equals(dtoField.Name, StringComparison.OrdinalIgnoreCase));
-                if (domainAttribute == null)
-                {
-                    sb.AppendLine($"                    #warning No matching field found for {dtoField.Name}");
                     continue;
                 }
 
-                if (domainAttribute.Type.Element.Id != dtoField.TypeReference.Element.Id)
+                if (field.Mapping?.Element == null
+                    && domainModel.ChildElements.All(p => p.Name != field.Name))
                 {
-                    sb.AppendLine(
-                        $"                    #warning No matching type for Domain: {domainAttribute.Name} and DTO: {dtoField.Name}");
+                    codeLines.Add($"#warning No matching field found for {field.Name}");
                     continue;
                 }
 
-                sb.AppendLine(
-                    $"                    {domainVarName}.{domainAttribute.Name.ToPascalCase()} = {operationParameterModel.Name}.{dtoField.Name.ToPascalCase()};");
+                switch (field.Mapping?.Element?.SpecializationTypeId)
+                {
+                    default:
+                        var mappedPropertyName = field.Mapping?.Element?.Name ?? "<null>";
+                        codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {field.Name}");
+                        break;
+                    case null:
+                    case AttributeModel.SpecializationTypeId:
+                        var attribute = field.Mapping?.Element
+                                        ?? domainModel.ChildElements.First(p => p.Name == field.Name);
+                        codeLines.Add($"{entityVarName}.{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()};");
+                        break;
+                    case AssociationTargetEndModel.SpecializationTypeId:
+                        {
+                            var association = field.Mapping.Element.AsAssociationTargetEndModel();
+                            var targetEntityElement = (IElement)association.Element;
+                            var attributeName = association.Name.ToPascalCase();
+
+                            if (association.Association.AssociationType == AssociationType.Aggregation)
+                            {
+                                codeLines.Add($@"#warning Field not a composite association: {field.Name.ToPascalCase()}");
+                                break;
+                            }
+
+                            if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                            {
+                                if (field.TypeReference.IsNullable)
+                                {
+                                _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
+                                    codeLines.Add($"{entityVarName}.{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
+                                    codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntityElement.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)})", s => s.Indent());
+                                    codeLines.Add($": null;", s => s.Indent());
+                                }
+                                else
+                                {
+                                    _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
+                                    codeLines.Add($"{entityVarName}.{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
+                                }
+                            }
+                            else
+                            {
+                                _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
+                                var targetClass = targetEntityElement.AsClassModel();
+                                var targetDto = field.TypeReference.Element.AsDTOModel();
+                                codeLines.Add($"{entityVarName}.{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
+                            }
+
+                            var @class = _template.CSharpFile.Classes.First();
+                            @class.AddMethod("void",
+                                GetUpdateMethodName(targetEntityElement, attributeName),
+                                method => method.Private()
+                                    .Static()
+                                    .AddAttribute("IntentManaged(Mode.Fully)")
+                                    .AddParameter(_template.GetTypeName(targetEntityElement), "entity")
+                                    .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
+                                    .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntityElement, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), true)));
+                        }
+                        break;
+                }
             }
 
-            return sb.ToString().Trim();
+            return codeLines.ToList();
+        }
+
+        private string GetUpdateMethodName(IElement classModel, [CanBeNull] string attibuteName)
+        {
+            return $"Update{classModel.Name.ToPascalCase()}";
         }
     }
 }

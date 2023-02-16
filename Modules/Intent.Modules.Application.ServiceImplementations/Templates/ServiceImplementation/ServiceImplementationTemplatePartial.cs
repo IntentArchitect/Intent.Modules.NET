@@ -6,6 +6,7 @@ using Intent.Modules.Application.Contracts;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -19,8 +20,8 @@ using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.
 
 namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class ServiceImplementationTemplate : CSharpTemplateBase<ServiceModel, ServiceImplementationDecorator>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+    public partial class ServiceImplementationTemplate : CSharpTemplateBase<ServiceModel, ServiceImplementationDecorator>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Application.ServiceImplementations.ServiceImplementation";
 
@@ -30,15 +31,69 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
         {
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             SetDefaultTypeCollectionFormat("List<{0}>");
+            CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
+                .AddClass($"{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service")
+                .OnBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    priClass.AddMetadata("model", Model);
+                    priClass.AddAttribute(CSharpIntentManagedAttribute.Merge());
+                    priClass.ImplementsInterface(GetServiceInterfaceName());
+                    priClass.AddConstructor(ctor =>
+                    {
+                        ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                    });
+                    foreach (var operation in Model.Operations)
+                    {
+                        priClass.AddMethod(GetOperationReturnType(operation), operation.Name.ToPascalCase(), method =>
+                        {
+                            method.AddMetadata("model", operation);
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                            method.AddStatement($@"throw new NotImplementedException(""Write your implementation for this service here..."");");
+                        });
+                    }
+                    priClass.AddMethod("void", "Dispose");
+                })
+                .AfterBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    var ctor = priClass.Constructors.First();
+                    var dependencies = GetConstructorDependencies();
+                    foreach (var dependency in dependencies)
+                    {
+                        ctor.AddParameter(dependency.ParameterType, dependency.ParameterName, parm => parm.IntroduceReadonlyField());
+                    }
+
+                    foreach (var method in priClass.Methods)
+                    {
+                        if (!method.TryGetMetadata<OperationModel>("model", out var operation))
+                        {
+                            continue;
+                        }
+                        var output = GetDecorators().Aggregate(x => x.GetDecoratedImplementation(operation));
+                        if (!string.IsNullOrWhiteSpace(output))
+                        {
+                            method.Statements.Clear();
+                            method.AddStatements(output);
+                        }
+                    }
+                });
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: ModelHasFolderTemplateExtensions.GetFolderPath(this));
+            return CSharpFile.GetConfig();
+        }
+
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
 
         public override void BeforeTemplateExecution()
@@ -80,17 +135,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                 .Distinct()
                 .ToArray();
             return parameters;
-        }
-
-        private string GetImplementation(OperationModel operation)
-        {
-            var output = GetDecorators().Aggregate(x => x.GetDecoratedImplementation(operation));
-            if (string.IsNullOrWhiteSpace(output))
-            {
-                return @"
-            throw new NotImplementedException(""Write your implementation for this service here..."");";
-            }
-            return output;
         }
     }
 }

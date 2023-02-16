@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2d628d87-8a8b-4804-aecf-5d63a480462b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CrudServiceFactoryExtension</name>
+  <display>CrudServiceFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d6896515-75f1-4dee-9b72-7523b5948b2b</parentFolderId>
+  <packageId>d6896515-75f1-4dee-9b72-7523b5948b2b</packageId>
+  <packageName>Intent.Application.ServiceImplementations.Conventions.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
