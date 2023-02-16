@@ -34,15 +34,18 @@ namespace Intent.Modules.MongoDb.Templates.Integration.UnitOfWorkBehaviour
                 {
                     var @class = file.Classes.First();
                     @class.AddGenericParameter("TRequest", out var TRequest)
-                        .AddGenericParameter("TRequest", out var TResponse);
+                        .AddGenericParameter("TResponse", out var TResponse);
                     @class.ImplementsInterface($"IPipelineBehavior<{TRequest}, {TResponse}>");
-                    @class.AddGenericTypeConstraint(TRequest, type => type.AddType($"IRequest<{TResponse}>").AddType("ICommand"));
+                    @class.AddGenericTypeConstraint(TRequest, type => type
+                        .AddType($"IRequest<{TResponse}>")
+                        .AddType(GetTypeName("Application.Command.Interface")));
                     @class.AddConstructor(ctor =>
                         ctor.AddParameter(GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId), "dataSource", param => param.IntroduceReadonlyField()));
                     @class.AddMethod($"Task<{TResponse}>", "Handle", method =>
                     {
+                        method.Async();
                         method.AddParameter(TRequest, "request")
-                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken")
                             .AddParameter($"RequestHandlerDelegate<{TResponse}>", "next");
                         method.AddStatement($"var response = await next();")
                             .AddStatement($"await _dataSource.SaveChangesAsync(cancellationToken);")
@@ -55,7 +58,7 @@ namespace Intent.Modules.MongoDb.Templates.Integration.UnitOfWorkBehaviour
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
-                .WithPriority(6)
+                .WithPriority(4)
                 .ForConcern("Application")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
