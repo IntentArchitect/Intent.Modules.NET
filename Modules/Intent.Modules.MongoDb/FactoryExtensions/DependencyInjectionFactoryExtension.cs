@@ -33,7 +33,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             {
                 return;
             }
-            
+
             var dependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
             if (dependencyInjection == null)
             {
@@ -51,9 +51,9 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                             .WithArgumentsOnNewLines(),
                         stmt => stmt.AddMetadata("application-mongodb-context", true));
             });
-            
+
             application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name}", string.Empty));
-            
+
             application.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("AddMongoDbUnitOfWork")
                 .ForConcern("Infrastructure")

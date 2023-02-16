@@ -88,5 +88,42 @@
   <elementSettings />
   <elementExtensions />
   <associationSettings />
-  <associationExtensions />
+  <associationExtensions>
+    <associationExtension type="Association" typeId="eaf9ed4e-0b61-4ac1-ba88-09f912c12087">
+      <sourceEndExtension>
+        <typeReferenceExtension>
+          <isRequired>true</isRequired>
+          <targetTypes />
+          <allowIsNavigable>inherit</allowIsNavigable>
+          <allowIsNullable>inherit</allowIsNullable>
+          <allowIsCollection>inherit</allowIsCollection>
+        </typeReferenceExtension>
+      </sourceEndExtension>
+      <targetEndExtension>
+        <typeReferenceExtension>
+          <isRequired>true</isRequired>
+          <targetTypes />
+          <allowIsNavigable>inherit</allowIsNavigable>
+          <allowIsNullable>inherit</allowIsNullable>
+          <allowIsCollection>inherit</allowIsCollection>
+        </typeReferenceExtension>
+      </targetEndExtension>
+      <macros>
+        <macro trigger="on-created">
+          <script>if (!association) {
+    return;
+}
+let sourceEnd = association.getOtherEnd().typeReference;
+if (sourceEnd.getType().getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+//let targetEnd = association.typeReference;
+sourceEnd.setIsCollection(false);
+sourceEnd.setIsNullable(false);
+//targetEnd.setIsCollection(false);
+//targetEnd.setIsNullable(false);</script>
+        </macro>
+      </macros>
+    </associationExtension>
+  </associationExtensions>
 </settings>
