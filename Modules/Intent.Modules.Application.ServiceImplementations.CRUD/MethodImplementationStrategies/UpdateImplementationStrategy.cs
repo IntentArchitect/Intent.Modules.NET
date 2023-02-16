@@ -73,19 +73,22 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
             
-            var dtoModel = operationModel.Parameters.First().TypeReference.Element.AsDTOModel();
+            var dtoModel = operationModel.Parameters.FirstOrDefault(x => x.TypeReference.Element.IsDTOModel()).TypeReference.Element.AsDTOModel();
             var domainModel = dtoModel.Mapping.Element.AsClassModel();
             var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
                 ? result
                 : domainModel.Name;
             var domainTypePascalCased = domainType.ToPascalCase();
-            var repositoryTypeName = _template.GetTypeName(_template.GetRepositoryInterfaceName(), domainModel);
-            var repositoryFieldName = $"{repositoryTypeName.ToCamelCase()}Repository";
+            var domainTypeCamelCased = domainType.ToCamelCase();
+            var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
+            var repositoryFieldName = $"{domainTypeCamelCased}Repository";
             var idField = dtoModel.Fields.GetEntityIdField(domainModel);
+            var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
             
             var codeLines = new CSharpStatementAggregator();
-            codeLines.Add($"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
-            codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", "request", domainModel.InternalElement, dtoModel.Fields, true));
+            codeLines.Add(
+                $"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({operationModel.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase)).Name});");
+            codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
             
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
@@ -133,6 +136,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element
                                         ?? domainModel.ChildElements.First(p => p.Name == field.Name);
+                        if (field.TypeReference.IsCollection)
+                        {
+                            codeLines.Add($"{entityVarName}.{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}.ToList();");
+                            break;
+                        }
                         codeLines.Add($"{entityVarName}.{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()};");
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
@@ -175,7 +183,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                                 GetUpdateMethodName(targetEntityElement, attributeName),
                                 method => method.Private()
                                     .Static()
-                                    .AddAttribute("IntentManaged(Mode.Fully)")
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully())
                                     .AddParameter(_template.GetTypeName(targetEntityElement), "entity")
                                     .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
                                     .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntityElement, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), true)));

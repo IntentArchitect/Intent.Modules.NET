@@ -32,6 +32,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             SetDefaultTypeCollectionFormat("List<{0}>");
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
+                .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service")
                 .OnBuild(file =>
                 {
@@ -49,6 +50,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                         {
                             method.AddMetadata("model", operation);
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                            foreach (var parameter in operation.Parameters)
+                            {
+                                method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name);
+                            }
                             method.AddStatement($@"throw new NotImplementedException(""Write your implementation for this service here..."");");
                         });
                     }
@@ -102,15 +107,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Application")
                 .ForInterface(GetTemplate<IClassProvider>(ServiceContractTemplate.TemplateId, Model)));
-        }
-
-        private string GetOperationDefinitionParameters(OperationModel o)
-        {
-            if (!o.Parameters.Any())
-            {
-                return "";
-            }
-            return o.Parameters.Select(x => $"{GetTypeName(x.TypeReference)} {x.Name}").Aggregate((x, y) => x + ", " + y);
         }
 
         private string GetOperationReturnType(OperationModel o)

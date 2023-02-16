@@ -69,8 +69,9 @@ public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
             ? result
             : domainModel.Name;
         var domainTypePascalCased = domainType.ToPascalCase();
-        var repositoryTypeName = _template.GetTypeName(_template.GetRepositoryInterfaceName(), domainModel);
-        var repositoryFieldName = $"{repositoryTypeName.ToCamelCase()}Repository";
+        var domainTypeCamelCased = domainType.ToCamelCase();
+        var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
+        var repositoryFieldName = $"{domainTypeCamelCased}Repository";
 
         var codeLines = new CSharpStatementAggregator();
         codeLines.Add(

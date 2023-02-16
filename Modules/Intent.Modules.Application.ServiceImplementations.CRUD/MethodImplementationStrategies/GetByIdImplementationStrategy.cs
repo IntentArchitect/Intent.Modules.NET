@@ -70,8 +70,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 ? result
                 : domainModel.Name;
             var domainTypePascalCased = domainType.ToPascalCase();
-            var repositoryTypeName = _template.GetTypeName(_template.GetRepositoryInterfaceName(), domainModel);
-            var repositoryFieldName = $"{repositoryTypeName.ToCamelCase()}Repository";
+            var domainTypeCamelCased = domainType.ToCamelCase();
+            var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
+            var repositoryFieldName = $"{domainTypeCamelCased}Repository";
             
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add($@"var element ={(operationModel.IsAsync() ? " await" : "")} {repositoryFieldName.ToPrivateMemberName()}.FindById{(operationModel.IsAsync() ? "Async" : "")}({operationModel.Parameters.First().Name.ToCamelCase()});");

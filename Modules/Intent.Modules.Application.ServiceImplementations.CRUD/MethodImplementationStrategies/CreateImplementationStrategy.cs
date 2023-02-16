@@ -72,15 +72,17 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 ? result
                 : domainModel.Name;
             var domainTypePascalCased = domainType.ToPascalCase();
-            var repositoryTypeName = _template.GetTypeName(_template.GetRepositoryInterfaceName(), domainModel);
-            var repositoryFieldName = $"{repositoryTypeName.ToCamelCase()}Repository";
+            var domainTypeCamelCased = domainType.ToCamelCase();
+            var repositoryTypeName = _template.GetEntityRepositoryInterfaceName(domainModel);
+            var repositoryFieldName = $"{domainTypeCamelCased}Repository";
+            var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
             
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add($"var new{domainTypePascalCased} = new {domainType}");
             codeLines.Add(new CSharpStatementBlock()
-                .AddStatements(GetDTOPropertyAssignments("", "request", domainModel.InternalElement, dtoModel.Fields))
+                .AddStatements(GetDTOPropertyAssignments("", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields))
                 .WithSemicolon());
-            codeLines.Add($"await {repositoryFieldName.ToPrivateMemberName()}.Add(new{domainTypePascalCased});");
+            codeLines.Add($"{repositoryFieldName.ToPrivateMemberName()}.Add(new{domainTypePascalCased});");
             codeLines.Add($@"await {repositoryFieldName.ToPrivateMemberName()}.UnitOfWork.SaveChangesAsync();");
             codeLines.Add(
                 $"return new{domainTypePascalCased}.{(domainModel.Attributes).Concat(domainModel.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.HasPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
@@ -127,6 +129,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element
                                         ?? domainModel.ChildElements.First(p => p.Name == field.Name);
+                        if (field.TypeReference.IsCollection)
+                        {
+                            codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}.ToList(),");
+                            break;
+                        }
                         if (!attribute.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
                         {
                             codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()},");
