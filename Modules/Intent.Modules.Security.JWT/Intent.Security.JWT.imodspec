@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>4.0.0</version>
+  <version>4.0.1-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Configures API Service security authorization using JWT bearer tokens</summary>
   <description>Configures API Service security authorization using JWT bearer tokens</description>
@@ -14,7 +14,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>JwtConfiguration,Startup</role>
       <location>Configuration</location>
     </template>
     <template id="Intent.Security.JWT.CurrentUserService" externalReference="fefdfb74-adf1-4844-843a-ca2b2c71b7e9">
@@ -27,7 +27,6 @@
     </template>
   </templates>
   <decorators>
-    <decorator id="Intent.Security.JWT.ConfigurationJWTAuthenticationDefaultDecorator" externalReference="27254a54-ff9b-4c8e-b1cf-abb220d2bf94" />
     <decorator id="Intent.Security.JWT.ConfigurationSettingsJWTDecorator" externalReference="e695d66c-d375-42a5-9b24-636b6ef61e6b" />
     <decorator id="Intent.Security.JWT.StartupDefaultJWTDecorator" externalReference="ea59acfd-4fa7-4419-8714-a9355fd5a9b3" />
   </decorators>
@@ -35,10 +34,10 @@
   <dependencies>
     <dependency id="Intent.Application.Identity" version="3.3.6" />
     <dependency id="Intent.AspNetCore" version="4.0.0" />
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.24" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
+    <dependency id="Intent.Common" version="3.3.17" />
+    <dependency id="Intent.Common.CSharp" version="3.3.25" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.18" />
   </dependencies>
   <interoperability>

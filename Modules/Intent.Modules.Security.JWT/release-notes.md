@@ -1,4 +1,7 @@
-﻿### Version 3.3.9
+﻿### Version 4.0.1
+
+- `AspNetCoreIdentityConfigurationTemplate` now uses the `CSharpFileBuilder` templating method.
+
+### Version 3.3.9
 
 - Update: Null check added to HttpContext in the event that this gets used outside of an HttpContext scope.
-

@@ -3,10 +3,11 @@
   <name>Settings</name>
   <display>Settings</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <order>4</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>7133cd2e-f7e0-4d02-8cbe-22a5165f1289</parentFolderId>
+  <parentFolderId>791eee69-05d8-4815-b31d-3e180f1db897</parentFolderId>
   <packageId>cba83286-8d23-45ae-b996-ec6009c0f936</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
@@ -26,7 +27,6 @@
       <display>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9fc256df-f830-453d-bfb6-bc37abb2ea28</parentFolderId>
