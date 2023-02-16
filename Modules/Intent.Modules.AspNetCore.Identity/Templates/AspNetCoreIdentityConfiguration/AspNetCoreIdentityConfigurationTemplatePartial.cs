@@ -15,24 +15,22 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class AspNetCoreIdentityConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    partial class AspNetCoreIdentityConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AspNetCore.Identity.AspNetCoreIdentityConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AspNetCoreIdentityConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            this.ExecutionContext.EventDispatcher.Publish(
-                ServiceConfigurationRequest.ToRegister("ConfigureIdentity").HasDependency(this));
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister("ConfigureIdentity").HasDependency(this));
 
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(outputTarget.GetProject()));
-            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityUI(outputTarget.GetProject()));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.AspNetCore.Identity")
                 .AddUsing("System")
-                .AddClass($"AspNetCoreIdentityConfiguration", @class =>
+                .AddClass("AspNetCoreIdentityConfiguration", @class =>
                 {
                     @class.Static();
                     @class.AddMethod("void", "ConfigureIdentity", method =>
@@ -42,7 +40,7 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                         {
                             param.WithThisModifier();
                         });
-                        method.AddStatement(new CSharpMethodChainStatement("services.AddIdentity<IdentityUser, IdentityRole>()")
+                        method.AddStatement(new CSharpMethodChainStatement("services.AddIdentityWithoutCookieAuth<IdentityUser, IdentityRole>()")
                             .AddChainStatement($@"AddEntityFrameworkStores<{this.GetTypeName("Infrastructure.Data.DbContext")}>()")
                             .AddChainStatement($@"AddDefaultTokenProviders()"));
                         method.AddStatement(new CSharpInvocationStatement("services.Configure<IdentityOptions>")
@@ -65,7 +63,6 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                                 .AddStatement("options.User.RequireUniqueEmail = false;")
                             )
                             .WithArgumentsOnNewLines());
-                        method.AddStatement($@"services.AddAuthentication();");
                     });
                 });
         }

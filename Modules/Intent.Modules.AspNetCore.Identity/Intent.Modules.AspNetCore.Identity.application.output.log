@@ -66,6 +66,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>f8a02488-6dd1-4d0f-80ac-82723353523f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#d59668e1-415c-497d-871a-4db5a469a75d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f8a02488-6dd1-4d0f-80ac-82723353523f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#d59668e1-415c-497d-871a-4db5a469a75d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f8a02488-6dd1-4d0f-80ac-82723353523f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d59668e1-415c-497d-871a-4db5a469a75d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f8a02488-6dd1-4d0f-80ac-82723353523f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#d59668e1-415c-497d-871a-4db5a469a75d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityServiceCollectionExtensions/IdentityServiceCollectionExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f8a02488-6dd1-4d0f-80ac-82723353523f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
