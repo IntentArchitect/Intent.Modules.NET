@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b369949a-03ff-4cb6-a99b-b7c3ba692613" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ConfigureJwtAuthentication</name>
+  <display>ConfigureJwtAuthentication</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</parentFolderId>
+  <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+  <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
