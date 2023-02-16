@@ -30,6 +30,7 @@
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.MongoDb" version="1.0.0-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+    <dependency id="Intent.Modules.AspNetCore.MultiTenancy" version="4.0.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
