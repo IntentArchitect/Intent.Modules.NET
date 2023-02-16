@@ -3,10 +3,11 @@
   <name>Decorators</name>
   <display>Decorators</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>996404d7-407c-498a-9939-352e801a574f</parentFolderId>
+  <parentFolderId>c3b25078-a955-4a12-a7a9-a7fa29fdad1a</parentFolderId>
   <packageId>1c908d16-e0d4-4593-8ef0-850d5481a767</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
@@ -26,7 +27,6 @@
       <display>Intent.ModuleBuilder.DecoratorRegistration.Template</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>0</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</parentFolderId>
@@ -41,7 +41,6 @@
       <display>Intent.ModuleBuilder.DecoratorTemplate</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>1</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</parentFolderId>
@@ -56,7 +55,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateDecorator</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>2</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</parentFolderId>
@@ -71,7 +69,6 @@
       <display>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
-      <order>3</order>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>026a32df-d3c4-4a3f-94b7-9ad59af60ba7</parentFolderId>
