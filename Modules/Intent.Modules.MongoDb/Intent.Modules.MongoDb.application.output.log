@@ -98,6 +98,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6dfc5b92-bbbc-4a2b-8441-75ffbb49e718</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Integration/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Integration/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#6dfc5b92-bbbc-4a2b-8441-75ffbb49e718</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Integration/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Integration/UnitOfWorkBehaviour/UnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#97a9caeb-8167-47f9-a31d-0e8f8c99d5c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkInterface/MongoDbUnitOfWorkInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>

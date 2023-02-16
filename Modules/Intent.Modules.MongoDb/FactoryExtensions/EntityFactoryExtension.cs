@@ -40,7 +40,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 {
                     continue;
                 }
-                
+
                 LogAggregateRelationshipsAsError(templateModel);
 
                 template.CSharpFile.OnBuild(file =>

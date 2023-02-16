@@ -24,6 +24,11 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            if (!UnitOfWorkHandler.ShouldInstallStandardIntegration(application))
+            {
+                return;
+            }
+            
             var controllerTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.AspNetCore.Controllers.Controller"));
             foreach (var template in controllerTemplates)
             {
