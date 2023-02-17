@@ -28,6 +28,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MongoDB.Driver")
+                .AddUsing("MongoDB.Infrastructure")
                 .AddClass($"ApplicationMongoDbContext", @class =>
                 {
                     @class.WithBaseType("MongoDbContext");

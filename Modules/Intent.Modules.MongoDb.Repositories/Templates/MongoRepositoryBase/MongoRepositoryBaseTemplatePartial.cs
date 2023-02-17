@@ -34,6 +34,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MongoDB.Driver")
                 .AddUsing("MongoDB.Driver.Linq")
+                .AddUsing("MongoDB.Repository")
                 .AddClass($"MongoRepositoryBase", @class =>
                 {
                     @class.Abstract();

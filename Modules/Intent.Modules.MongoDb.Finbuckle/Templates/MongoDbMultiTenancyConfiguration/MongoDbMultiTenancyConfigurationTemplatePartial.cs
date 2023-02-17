@@ -40,17 +40,17 @@ namespace Intent.Modules.MongoDb.Finbuckle.Templates.MongoDbMultiTenancyConfigur
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier())
                             .AddParameter("IConfiguration", "configuration");
-                        method.AddStatement(new CSharpInvocationStatement("services.AddScoped<ApplicationMongoDbContext>")
-                            .AddArgument(new CSharpLambdaBlock("provider")
-                                .AddStatement(
-                                    $@"var tenantInfo = provider.GetService<MongoPerTenantConnection>() ?? throw new MultiTenantException(""Failed to resolve tenant info."");")
-                                .AddStatement($@"var dbContext = new ApplicationMongoDbContext(tenantInfo.Url.Url, tenantInfo.Url.DatabaseName);")
-                                .AddStatement($@"return dbContext;"))
-                            .WithArgumentsOnNewLines());
                         method.AddStatement(new CSharpInvocationStatement($@"services.AddScoped<MongoPerTenantConnection>")
                             .AddArgument(new CSharpLambdaBlock("x")
                                 .AddStatement($@"var tenantInfo = x.GetService<ITenantInfo>();")
                                 .AddStatement($@"return tenantInfo == null ? default : new MongoPerTenantConnection(tenantInfo);"))
+                            .WithArgumentsOnNewLines());
+                        method.AddStatement(new CSharpInvocationStatement($"services.AddScoped<{this.GetApplicationMongoDbContextName()}>")
+                            .AddArgument(new CSharpLambdaBlock("provider")
+                                .AddStatement(
+                                    $@"var tenantInfo = provider.GetService<MongoPerTenantConnection>() ?? throw new MultiTenantException(""Failed to resolve tenant info."");")
+                                .AddStatement($@"var dbContext = new {this.GetApplicationMongoDbContextName()}(tenantInfo.Url.Url, tenantInfo.Url.DatabaseName);")
+                                .AddStatement($@"return dbContext;"))
                             .WithArgumentsOnNewLines());
                         method.AddStatement($@"services.AddTransient<IMongoPerTenantConnection>(x => x.GetService<MongoPerTenantConnection>());");
                         method.AddStatement($@"return services;");
