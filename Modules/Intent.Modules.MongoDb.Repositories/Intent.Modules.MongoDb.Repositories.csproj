@@ -16,7 +16,7 @@
     <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.0" />
     <PackageReference Include="Intent.Modules.Entities.Repositories.Api" Version="4.0.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.MongoDb" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
