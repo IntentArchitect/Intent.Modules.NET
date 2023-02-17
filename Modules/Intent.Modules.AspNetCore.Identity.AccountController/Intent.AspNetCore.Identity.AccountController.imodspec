@@ -39,7 +39,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore.Identity" version="4.0.0" />
+    <dependency id="Intent.AspNetCore.Identity" version="4.0.1-pre.0" />
     <dependency id="Intent.Common" version="3.3.17" />
     <dependency id="Intent.Common.CSharp" version="3.3.25" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
