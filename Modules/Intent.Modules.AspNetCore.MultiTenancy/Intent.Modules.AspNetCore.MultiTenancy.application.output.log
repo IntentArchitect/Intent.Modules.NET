@@ -50,22 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#a3891593-98b6-49e4-86ee-98d138f3527e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MultiTenancyConfiguration/MultiTenancyConfigurationTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#a3891593-98b6-49e4-86ee-98d138f3527e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MultiTenancyConfiguration/MultiTenancyConfigurationTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a3891593-98b6-49e4-86ee-98d138f3527e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -78,22 +62,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultiTenancyConfiguration/MultiTenancyConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -118,6 +86,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#864465e9-a139-4208-9ae8-10786191fa07</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TenantExtendedInfo/TenantExtendedInfoTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TenantExtendedInfo/TenantExtendedInfoTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#864465e9-a139-4208-9ae8-10786191fa07</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TenantExtendedInfo/TenantExtendedInfoTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TenantExtendedInfo/TenantExtendedInfoTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#864465e9-a139-4208-9ae8-10786191fa07</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#864465e9-a139-4208-9ae8-10786191fa07</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TenantExtendedInfo/TenantExtendedInfoTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TenantExtendedInfo/TenantExtendedInfoTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

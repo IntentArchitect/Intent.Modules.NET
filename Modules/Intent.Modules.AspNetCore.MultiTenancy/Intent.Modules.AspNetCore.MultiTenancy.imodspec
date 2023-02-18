@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
-  <version>4.0.1</version>
+  <version>4.0.2-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
@@ -19,6 +19,14 @@
       <location>Configuration</location>
     </template>
     <template id="Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext" externalReference="0010a2e5-2a3a-4c32-a2c3-b125afe9f750">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure</role>
+      <location>MultiTenant</location>
+    </template>
+    <template id="Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo" externalReference="864465e9-a139-4208-9ae8-10786191fa07">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -67,10 +75,10 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.AspNetCore" version="4.0.0" />
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.24" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
+    <dependency id="Intent.Common" version="3.3.17" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.2" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

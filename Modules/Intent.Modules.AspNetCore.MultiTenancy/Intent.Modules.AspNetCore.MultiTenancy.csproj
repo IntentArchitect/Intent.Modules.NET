@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,15 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.16" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,26 +21,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.tt">
+    <None Update="Templates\TenantExtendedInfo\TenantExtendedInfoTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MultiTenancyConfigurationTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\MultiTenantStoreDbContext\MultiTenantStoreDbContextTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MultiTenantStoreDbContextTemplate.cs</LastGenOutput>
+      <LastGenOutput>TenantExtendedInfoTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\MultiTenancyConfiguration\MultiTenancyConfigurationTemplate.cs">
+    <Compile Update="Templates\TenantExtendedInfo\TenantExtendedInfoTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>MultiTenancyConfigurationTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\MultiTenantStoreDbContext\MultiTenantStoreDbContextTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MultiTenantStoreDbContextTemplate.tt</DependentUpon>
+      <DependentUpon>TenantExtendedInfoTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

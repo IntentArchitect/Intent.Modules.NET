@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfiguration;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbContext;
+using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -19,6 +20,11 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates
         public static string GetMultiTenantStoreDbContextName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MultiTenantStoreDbContextTemplate.TemplateId);
+        }
+
+        public static string GetTenantExtendedInfoName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(TenantExtendedInfoTemplate.TemplateId);
         }
 
     }

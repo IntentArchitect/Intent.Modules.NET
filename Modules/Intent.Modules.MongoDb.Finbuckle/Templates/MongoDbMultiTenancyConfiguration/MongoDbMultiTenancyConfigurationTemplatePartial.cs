@@ -42,8 +42,12 @@ namespace Intent.Modules.MongoDb.Finbuckle.Templates.MongoDbMultiTenancyConfigur
                             .AddParameter("IConfiguration", "configuration");
                         method.AddStatement(new CSharpInvocationStatement($@"services.AddScoped<MongoPerTenantConnection>")
                             .AddArgument(new CSharpLambdaBlock("x")
-                                .AddStatement($@"var tenantInfo = x.GetService<ITenantInfo>();")
-                                .AddStatement($@"return tenantInfo == null ? default : new MongoPerTenantConnection(tenantInfo);"))
+                                .AddStatement(
+                                    "var tenantInfo = x.GetService<ITenantInfo>();",
+                                    statement => statement.AddMetadata("get-tenant-info", true))
+                                .AddStatement(
+                                    "return tenantInfo == null ? default : new MongoPerTenantConnection(tenantInfo);",
+                                    statement => statement.AddMetadata("return-connection", true)))
                             .WithArgumentsOnNewLines());
                         method.AddStatement(new CSharpInvocationStatement($"services.AddScoped<{this.GetApplicationMongoDbContextName()}>")
                             .AddArgument(new CSharpLambdaBlock("provider")
