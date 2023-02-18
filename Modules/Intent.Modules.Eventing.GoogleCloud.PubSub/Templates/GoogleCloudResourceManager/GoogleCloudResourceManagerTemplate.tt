@@ -1,0 +1,121 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Google.Cloud.PubSub.V1;
+using Grpc.Core;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>;
+
+public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() #>
+{
+    private readonly ILogger<<#= ClassName #>> _logger;
+    private readonly HttpClient _httpClient;
+    
+    public <#= ClassName #>(IConfiguration configuration, ILogger<<#= ClassName #>> logger)
+    {
+        _logger = logger;
+        _httpClient = new HttpClient();
+        _httpClient.DefaultRequestHeaders.Add("Metadata-Flavor", "Google");
+        PopulateDetails(configuration);
+    }
+
+    public string ProjectId { get; private set; }
+    public bool ShouldSetupCloudResources { get; private set; }
+
+    public async Task CreateTopicIfNotExistAsync(string topicId, CancellationToken cancellationToken = default)
+    {
+        var publisherService = await PublisherServiceApiClient.CreateAsync(cancellationToken);
+        try
+        {
+            var topic = await publisherService.GetTopicAsync($"projects/{ProjectId}/topics/{topicId}");
+            return;
+        }
+        catch (RpcException ex)
+        {
+            if (ex.Status.StatusCode != StatusCode.NotFound)
+            {
+                throw;
+            }
+        }
+
+        try
+        {
+            var newTopic = await publisherService.CreateTopicAsync(
+                name: new TopicName(ProjectId, topicId), 
+                cancellationToken);
+        }
+        catch (RpcException ex)
+        {
+            if (ex.Status.StatusCode != StatusCode.AlreadyExists)
+            {
+                throw;
+            }
+        }
+    }
+
+    public async Task CreateSubscriptionIfNotExistAsync((string SubscriptionId, string TopicId) subscription, CancellationToken cancellationToken = default)
+    {
+        var subscriberService = await SubscriberServiceApiClient.CreateAsync(cancellationToken);
+        try
+        {
+            var existingSubscription = await subscriberService.GetSubscriptionAsync($"projects/{ProjectId}/subscriptions/{subscription.SubscriptionId}", cancellationToken);
+            return;
+        }
+        catch (RpcException ex)
+        {
+            if (ex.Status.StatusCode != StatusCode.NotFound)
+            {
+                throw;
+            }
+        }
+
+        try
+        {
+            var newSubscription = await subscriberService.CreateSubscriptionAsync(
+                name: new SubscriptionName(ProjectId, subscription.SubscriptionId),
+                topic: new TopicName(ProjectId, subscription.TopicId),
+                pushConfig: null,
+                ackDeadlineSeconds: 60,
+                cancellationToken: cancellationToken);
+        }
+        catch (RpcException nestedEx)
+        {
+            if (nestedEx.Status.StatusCode != StatusCode.AlreadyExists)
+            {
+                throw;
+            }
+        }
+    }
+
+    private void PopulateDetails(IConfiguration configuration)
+    {
+        bool.TryParse(configuration["GoogleCloud:UseMetadataServer"], out var useMetadataServer);
+        ProjectId = useMetadataServer ? GetGoogleProjectId() : configuration["GoogleCloud:ProjectId"];
+
+        bool.TryParse(configuration["GoogleCloud:ShouldSetupCloudResources"], out var shouldSetupCloudResources);
+        ShouldSetupCloudResources = shouldSetupCloudResources;
+    }
+
+    private string GetGoogleProjectId()
+    {
+        var request = new HttpRequestMessage() {
+            RequestUri = new Uri("http://metadata.google.internal/computeMetadata/v1/project/project-id"),
+            Method = HttpMethod.Get
+        };
+        return _httpClient.Send(request).Content.ReadAsStringAsync().Result;
+    }
+}

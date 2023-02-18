@@ -1,0 +1,71 @@
+<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Google.Cloud.PubSub.V1;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace <#= Namespace #>;
+
+public class <#= ClassName #> : BackgroundService
+{
+    private readonly IServiceProvider _serviceProvider;
+    private readonly string _subscriptionId;
+    private readonly string _topicId;
+    private SubscriberClient _subscriberClient;
+
+    public <#= ClassName #>(
+        IServiceProvider serviceProvider,
+        string subscriptionId,
+        string topicId)
+    {
+        _serviceProvider = serviceProvider;
+        _subscriptionId = subscriptionId;
+        _topicId = topicId;
+    }
+
+    public override async Task StartAsync(CancellationToken cancellationToken)
+    {
+        var resourceManager = _serviceProvider.GetService<<#= this.GetCloudResourceManagerInterfaceName() #>>();
+        if (resourceManager.ShouldSetupCloudResources)
+        {
+            await resourceManager.CreateTopicIfNotExistAsync(_topicId, cancellationToken);
+            await resourceManager.CreateSubscriptionIfNotExistAsync((_subscriptionId, _topicId), cancellationToken);
+        }
+        var subscriptionName = SubscriptionName.FromProjectSubscription(resourceManager.ProjectId, _subscriptionId);
+        _subscriberClient = await SubscriberClient.CreateAsync(subscriptionName);
+        await base.StartAsync(cancellationToken);
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            await _subscriberClient.StartAsync(async (message, token) =>
+            {
+                var subscriptionManager = _serviceProvider.GetService<<#= this.GetEventBusSubscriptionManagerInterfaceName() #>>();
+                await subscriptionManager.DispatchAsync(_serviceProvider, message, token);
+                
+                return SubscriberClient.Reply.Ack;
+            });
+        }
+    }
+
+    public override async Task StopAsync(CancellationToken cancellationToken)
+    {
+        await _subscriberClient.StopAsync(cancellationToken);
+        await base.StopAsync(cancellationToken);
+    }
+}

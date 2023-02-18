@@ -2,21 +2,121 @@
 <package>
   <id>Intent.Eventing.GoogleCloud.PubSub</id>
   <version>1.0.0-pre.0</version>
-  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</summary>
   <description>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</description>
-  <authors>Intent.Modules.NET</authors>
+  <authors>Intent Architect</authors>
   <iconUrl>data:image/png;base64,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</iconUrl>
   <tags>eventing google cloud pubsub c# net</tags>
   <releaseNotes>release-notes.md</releaseNotes>
-  <templates></templates>
+  <templates>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.CloudResourceManagerInterface" externalReference="2994bc8d-a2d5-4ba4-ac15-536dbbb5690b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.ResourceManagerInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventBusSubscriptionManagerInterface" externalReference="27cb0841-838a-404f-8cdb-7a80f1d372d6">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.SubscriptionManagerInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventBusTopicEventManagerInterface" externalReference="3cd884c1-8387-471b-bb5f-eadeaddc52ca">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManagerInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GenericIntegrationEventHandlerImplementation" externalReference="ea8b62de-1ea3-4a52-9cd7-efef904a0ee9">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEventHandlers</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GenericMessage" externalReference="86daca52-fa7a-456c-a692-7ddd1fe2970c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.Message.GenericMessage</role>
+      <location>IntegrationEvents</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleCloudPubSubConfiguration" externalReference="6b590f67-8a8e-45c7-a5fb-9ea5f6b4fbd8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.GoogleCloudPubSub</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleCloudPubSubSubscriberBackgroundService" externalReference="68bcbb5e-4b2b-4a23-9e9b-7d918307d368">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.BackgroundService</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleCloudResourceManager" externalReference="da83a346-0deb-4aeb-9895-f1e708baf57f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.ResourceManager</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleEventBusSubscriptionManager" externalReference="3ecfa9f3-92e1-41e0-983b-19bed2f3a204">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.SubscriptionManager</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleEventBusTopicEventManager" externalReference="153eca58-a64d-4a5a-b030-69dc92a79063">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManager</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.GooglePubSubEventBus" externalReference="7870870d-bb92-4f24-82db-c65a7c2a32e7">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.EventBus</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.IntegrationEventHandlerImplementation" externalReference="e86f35cd-0d5c-4b30-b2a6-a72169b733aa">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEventHandlers</location>
+    </template>
+  </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.17" />
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Eventing.Contracts" version="4.0.0" />
     <dependency id="Intent.Modelers.Eventing" version="4.0.1-pre.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
