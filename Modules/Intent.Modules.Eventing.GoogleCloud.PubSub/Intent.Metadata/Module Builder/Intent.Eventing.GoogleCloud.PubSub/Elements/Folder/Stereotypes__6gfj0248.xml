@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0a868d5d-7d65-437c-9141-d0506ebb1f86" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Stereotypes</name>
+  <display>Stereotypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>31d9c488-d921-432b-8217-cddd5e6ed979</parentFolderId>
+  <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
+  <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

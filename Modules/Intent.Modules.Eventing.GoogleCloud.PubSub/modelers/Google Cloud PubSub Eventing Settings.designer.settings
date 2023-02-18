@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>50bcc92c-4244-445f-a1ed-a2a9845fb43e</id>
+  <name>Google Cloud PubSub Eventing Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions>
+    <packageExtension type="Eventing Package" typeId="df96d537-7bb5-4c49-811f-973fa6e95beb">
+      <requiredPackages />
+      <creationOptions />
+      <scriptOptions />
+      <typeOrder />
+      <macros>
+        <macro trigger="on-created">
+          <script>const googleCloudPubSubStereotypeId = "aa81be5c-6e14-4abd-accf-41c3aea752ae";
+
+if (!element.hasStereotype(googleCloudPubSubStereotypeId)) {
+    element.addStereotype(googleCloudPubSubStereotypeId);
+
+    if(getPackages().length == 1) {
+        element.getStereotype(googleCloudPubSubStereotypeId)
+            .getProperty("Topic Id")
+            .setValue(toKebabCase(application.name));
+    }
+}</script>
+        </macro>
+        <macro trigger="on-loaded">
+          <script>const googleCloudPubSubStereotypeId = "aa81be5c-6e14-4abd-accf-41c3aea752ae";
+
+if (!element.hasStereotype(googleCloudPubSubStereotypeId)) {
+    element.addStereotype(googleCloudPubSubStereotypeId);
+
+    if(getPackages().length == 1) {
+        element.getStereotype(googleCloudPubSubStereotypeId)
+            .getProperty("Topic Id")
+            .setValue(toKebabCase(application.name));
+    }
+}</script>
+        </macro>
+      </macros>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings />
+  <elementExtensions />
+  <associationSettings />
+  <associationExtensions />
+</settings>

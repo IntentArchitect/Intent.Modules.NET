@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="74e43186-2cff-44cb-8913-a5907500f542" type="Package Extension" typeId="ab4152df-3add-4a08-81b6-0fefc7cbb204">
+  <name>Package Extension</name>
+  <display>Package Extension: Eventing Package</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <typeReference id="393c568b-2834-421e-a26c-39d81cec74f9">
+    <typeId>df96d537-7bb5-4c49-811f-973fa6e95beb</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Eventing</typePackageName>
+    <typePackageId>73db16ce-8cc2-4b89-8348-9a8bda3fda4c</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>50bcc92c-4244-445f-a1ed-a2a9845fb43e</parentFolderId>
+  <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
+  <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a84be53c-ec1a-4b04-b426-c56814e397d1" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>74e43186-2cff-44cb-8913-a5907500f542</parentFolderId>
+      <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
+      <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="78326e4c-75dd-4470-91c4-c824bcb27dae" type="Package Event Settings" typeId="48bcdd5f-690c-425b-8f5e-99097a7188dc">
+      <name>NewPackageEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>74e43186-2cff-44cb-8913-a5907500f542</parentFolderId>
+      <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
+      <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="1305f3b9-42d5-4dfe-9b72-e4ed3e8e51a6" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Created</name>
+          <display>On Created: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="55347f9f-92d1-4990-8df6-a7b0da5b1af8">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>78326e4c-75dd-4470-91c4-c824bcb27dae</parentFolderId>
+          <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
+          <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const googleCloudPubSubStereotypeId = &quot;aa81be5c-6e14-4abd-accf-41c3aea752ae&quot;;&#xD;&#xA;&#xD;&#xA;if (!element.hasStereotype(googleCloudPubSubStereotypeId)) {&#xD;&#xA;    element.addStereotype(googleCloudPubSubStereotypeId);&#xD;&#xA;&#xD;&#xA;    if(getPackages().length == 1) {&#xD;&#xA;        element.getStereotype(googleCloudPubSubStereotypeId)&#xD;&#xA;            .getProperty(&quot;Topic Id&quot;)&#xD;&#xA;            .setValue(toKebabCase(application.name));&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1099ccd8-21a0-432d-b2bb-b815e604d880" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Loaded</name>
+          <display>On Loaded: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="359e57a0-4f33-4bdd-99e9-4e48545fe1b6">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>78326e4c-75dd-4470-91c4-c824bcb27dae</parentFolderId>
+          <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
+          <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const googleCloudPubSubStereotypeId = &quot;aa81be5c-6e14-4abd-accf-41c3aea752ae&quot;;&#xD;&#xA;&#xD;&#xA;if (!element.hasStereotype(googleCloudPubSubStereotypeId)) {&#xD;&#xA;    element.addStereotype(googleCloudPubSubStereotypeId);&#xD;&#xA;&#xD;&#xA;    if(getPackages().length == 1) {&#xD;&#xA;        element.getStereotype(googleCloudPubSubStereotypeId)&#xD;&#xA;            .getProperty(&quot;Topic Id&quot;)&#xD;&#xA;            .setValue(toKebabCase(application.name));&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
