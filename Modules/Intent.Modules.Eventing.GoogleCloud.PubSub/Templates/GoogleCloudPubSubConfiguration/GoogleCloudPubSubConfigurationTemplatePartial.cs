@@ -5,6 +5,7 @@ using Intent.Eventing.GoogleCloud.PubSub.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -77,6 +78,22 @@ services.AddTransient<{this.GetEventBusSubscriptionManagerInterfaceName()}>(prov
                         method.AddStatement("return services;");
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("AddSubscribers")
+                .ForConcern("Infrastructure")
+                .HasDependency(this));
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("RegisterEventHandlers")
+                .ForConcern("Infrastructure")
+                .HasDependency(this));
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("RegisterTopicEvents")
+                .ForConcern("Infrastructure")
+                .HasDependency(this));
         }
 
         [IntentManaged(Mode.Fully)]

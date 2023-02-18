@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.CloudResourceManagerInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,6 +31,20 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.GoogleCloudResour
                 className: $"GoogleCloudResourceManager",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(this)
+                .ForConcern("Infrastructure")
+                .WithSingletonLifeTime());
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(this)
+                .ForInterface(this.GetCloudResourceManagerInterfaceName())
+                .ForConcern("Infrastructure")
+                .HasDependency(GetTemplate<IClassProvider>(CloudResourceManagerInterfaceTemplate.TemplateId))
+                .WithResolveFromContainer());
         }
     }
 }

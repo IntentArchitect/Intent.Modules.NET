@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,6 +32,20 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.GooglePubSubEvent
                 className: $"GooglePubSubEventBus",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+        
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(this)
+                .ForConcern("Infrastructure")
+                .WithPerServiceCallLifeTime());
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
+                .ToRegister(this)
+                .ForInterface(this.GetEventBusInterfaceName())
+                .HasDependency(GetTemplate<IClassProvider>(EventBusInterfaceTemplate.TemplateId))
+                .ForConcern("Infrastructure")
+                .WithResolveFromContainer());
         }
     }
 }

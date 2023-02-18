@@ -3,9 +3,12 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
+using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.GenericMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -42,6 +45,16 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.GenericIntegratio
                         method.AddStatement("throw new NotImplementedException();");
                     });
                 });
+        }
+        
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{this.GetGenericMessageName()}>")
+                .ForConcern("Application")
+                .WithPriority(100)
+                .HasDependency(GetTemplate<IClassProvider>(IntegrationEventHandlerInterfaceTemplate.TemplateId))
+                .HasDependency(GetTemplate<IClassProvider>(GenericMessageTemplate.TemplateId)));
         }
 
         [IntentManaged(Mode.Fully)]

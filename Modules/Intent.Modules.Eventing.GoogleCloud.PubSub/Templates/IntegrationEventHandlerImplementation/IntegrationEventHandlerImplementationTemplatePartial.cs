@@ -4,9 +4,12 @@ using Intent.Engine;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -32,17 +35,32 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.IntegrationEventH
                 {
                     var priClass = file.Classes.First();
                     priClass.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                    priClass.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetTypeName(Model.TypeReference)}>");
+                    priClass.ImplementsInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName()}>");
                     priClass.AddConstructor(ctor => ctor.AddAttribute(CSharpIntentManagedAttribute.Ignore()));
                     priClass.AddMethod("Task", "HandleAsync", method =>
                     {
                         method.Async();
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
-                        method.AddParameter(GetTypeName(Model.TypeReference), "message")
+                        method.AddParameter(GetMessageName(), "message")
                             .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
                         method.AddStatement("throw new NotImplementedException();");
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForInterface($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName()}>")
+                .ForConcern("Application")
+                .WithPriority(100)
+                .HasDependency(GetTemplate<IClassProvider>(IntegrationEventHandlerInterfaceTemplate.TemplateId))
+                .HasDependency(GetTemplate<IClassProvider>(IntegrationEventMessageTemplate.TemplateId, Model.TypeReference.Element)));
+        }
+        
+        private string GetMessageName()
+        {
+            return GetTypeName(Model.TypeReference);
         }
 
         [IntentManaged(Mode.Fully)]
