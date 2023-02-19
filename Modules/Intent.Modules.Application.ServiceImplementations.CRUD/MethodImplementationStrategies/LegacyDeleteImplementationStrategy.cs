@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
 
         public bool IsMatch(OperationModel operationModel)
         {
-            var domainModel = GetDomainForService(operationModel.ParentService);
+            var domainModel = operationModel.GetLegacyDeleteDomainModel(_application);;
             if (domainModel == null)
             {
                 return false;
@@ -66,7 +66,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
 
-            var domainModel = GetDomainForService(operationModel.ParentService);
+            var domainModel = operationModel.GetLegacyDeleteDomainModel(_application);
             var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
                 ? result
                 : domainModel.Name;
@@ -103,14 +103,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", parm => parm.IntroduceReadonlyField());
             }
-        }
-
-        private ClassModel GetDomainForService(ServiceModel service)
-        {
-            var serviceIdentifier = service.Name.RemoveSuffix("RestController", "Controller", "Service", "Manager").ToLower();
-            var entities = _application.MetadataManager.Domain(_application).GetClassModels();
-            return entities.SingleOrDefault(e => e.Name.Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase) ||
-                                                 e.Name.Pluralize().Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

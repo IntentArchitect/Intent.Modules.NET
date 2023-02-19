@@ -73,8 +73,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
             
-            var dtoModel = operationModel.Parameters.FirstOrDefault(x => x.TypeReference.Element.IsDTOModel()).TypeReference.Element.AsDTOModel();
-            var domainModel = dtoModel.Mapping.Element.AsClassModel();
+            var (dtoModel, domainModel) = operationModel.GetUpdateModelPair();
             var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
                 ? result
                 : domainModel.Name;

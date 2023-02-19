@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Dtos.Templates.DtoModel;
+using Intent.Modules.Common.Templates;
+using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 
@@ -53,5 +57,42 @@ public static class ImplementationStrategyTemplatesExtensions
                 string.Equals(p.Name, $"{entity.Name}Id", StringComparison.InvariantCultureIgnoreCase));
             return idField;
         }
+    }
+
+    public record ModelPair(DTOModel DtoModel, ClassModel DomainModel);
+
+    public static ModelPair GetCreateModelPair(this OperationModel operationModel)
+    {
+        var dtoModel = operationModel.Parameters.First().TypeReference.Element.AsDTOModel();
+        var domainModel = dtoModel.Mapping.Element.AsClassModel();
+        return new ModelPair(dtoModel, domainModel);
+    }
+
+    public static ModelPair GetUpdateModelPair(this OperationModel operationModel)
+    {
+        var dtoModel = operationModel.Parameters.FirstOrDefault(x => x.TypeReference.Element.IsDTOModel()).TypeReference.Element.AsDTOModel();
+        var domainModel = dtoModel.Mapping.Element.AsClassModel();
+        return new ModelPair(dtoModel, domainModel);
+    }
+
+    public static ModelPair GetDeleteModelPair(this OperationModel operationModel)
+    {
+        var dtoModel = operationModel.TypeReference.Element.AsDTOModel();
+        var domainModel = dtoModel.Mapping.Element.AsClassModel();
+        return new ModelPair(dtoModel, domainModel);
+    }
+
+    public static ClassModel GetLegacyDeleteDomainModel(this OperationModel operationModel, IApplication application)
+    {
+        var domainModel = GetDomainForService(operationModel.ParentService, application);
+        return domainModel;
+    }
+    
+    private static ClassModel GetDomainForService(ServiceModel service, IApplication application)
+    {
+        var serviceIdentifier = service.Name.RemoveSuffix("RestController", "Controller", "Service", "Manager").ToLower();
+        var entities = application.MetadataManager.Domain(application).GetClassModels();
+        return entities.SingleOrDefault(e => e.Name.Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase) ||
+                                             e.Name.Pluralize().Equals(serviceIdentifier, StringComparison.InvariantCultureIgnoreCase));
     }
 }

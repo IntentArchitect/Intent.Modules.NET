@@ -97,5 +97,6 @@
     <application id="e406684b-ac67-4f35-8f6c-c02af49695d4" name="Intent.Modules.MongoDb.Repositories" relativePath="Intent.Modules.MongoDb.Repositories/Intent.Modules.MongoDb.Repositories.application.config" />
     <application id="2d9fa7ff-7549-4b1b-991a-174bc43774d7" name="Intent.Modules.MongoDb.Finbuckle" relativePath="Intent.Modules.MongoDb.Finbuckle/Intent.Modules.MongoDb.Finbuckle.application.config" />
     <application id="e52f40cb-16cd-44c7-bd67-987f2b672c32" name="Intent.Modules.Eventing.GoogleCloud.PubSub" relativePath="Intent.Modules.Eventing.GoogleCloud.PubSub/Intent.Modules.Eventing.GoogleCloud.PubSub.application.config" />
+    <application id="a69e29bd-a26c-4598-9469-9058cd1f1658" name="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing/Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.application.config" />
   </applications>
 </solution>

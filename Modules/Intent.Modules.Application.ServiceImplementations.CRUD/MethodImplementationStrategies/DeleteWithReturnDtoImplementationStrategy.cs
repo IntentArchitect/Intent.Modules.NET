@@ -60,11 +60,10 @@ public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
         _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
         _template.AddUsing("System.Linq");
 
-        var dtoModel = operationModel.TypeReference.Element.AsDTOModel();
+        var (dtoModel, domainModel) = operationModel.GetDeleteModelPair(); 
         var dtoType = _template.TryGetTypeName(DtoModelTemplate.TemplateId, dtoModel, out var dtoName)
             ? dtoName
             : dtoModel.Name.ToPascalCase();
-        var domainModel = dtoModel.Mapping.Element.AsClassModel();
         var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
             ? result
             : domainModel.Name;
