@@ -98,38 +98,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#da83a346-0deb-4aeb-9895-f1e708baf57f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.cs</ApplicationRelativeFilePath>
@@ -254,6 +222,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleSubscriberBackgroundService/GoogleSubscriberBackgroundServiceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleSubscriberBackgroundService/GoogleSubscriberBackgroundServiceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleSubscriberBackgroundService/GoogleSubscriberBackgroundServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleSubscriberBackgroundService/GoogleSubscriberBackgroundServiceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

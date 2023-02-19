@@ -13,23 +13,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleCloudPubSubSubscriberBackgroundService
+namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleSubscriberBackgroundService
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration : SingleFileTemplateRegistration
+    public class GoogleSubscriberBackgroundServiceTemplateRegistration : SingleFileTemplateRegistration
     {
         private readonly IMetadataManager _metadataManager;
 
-        public GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration(IMetadataManager metadataManager)
+        public GoogleSubscriberBackgroundServiceTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => GoogleCloudPubSubSubscriberBackgroundServiceTemplate.TemplateId;
+        public override string TemplateId => GoogleSubscriberBackgroundServiceTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new GoogleCloudPubSubSubscriberBackgroundServiceTemplate(outputTarget);
+            return new GoogleSubscriberBackgroundServiceTemplate(outputTarget);
         }
     }
 }

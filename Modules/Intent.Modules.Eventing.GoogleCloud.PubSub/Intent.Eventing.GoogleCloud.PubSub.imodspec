@@ -26,14 +26,6 @@
       <role>Application.Eventing.EventHandler</role>
       <location>IntegrationEventHandlers</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleCloudPubSubSubscriberBackgroundService" externalReference="68bcbb5e-4b2b-4a23-9e9b-7d918307d368">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.BackgroundService</role>
-      <location>Eventing</location>
-    </template>
     <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleCloudResourceManager" externalReference="da83a346-0deb-4aeb-9895-f1e708baf57f">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -64,6 +56,14 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Infrastructure.Eventing.GoogleCloudPubSub.EventBus</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleSubscriberBackgroundService" externalReference="68bcbb5e-4b2b-4a23-9e9b-7d918307d368">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleBackgroundService</role>
       <location>Eventing</location>
     </template>
     <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.IntegrationEventHandlerImplementation" externalReference="e86f35cd-0d5c-4b30-b2a6-a72169b733aa">

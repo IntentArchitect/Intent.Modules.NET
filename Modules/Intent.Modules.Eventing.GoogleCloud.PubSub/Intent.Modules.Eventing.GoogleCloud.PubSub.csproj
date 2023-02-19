@@ -103,11 +103,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>GenericMessageTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\ImplementationTemplates\GoogleCloudPubSubSubscriberBackgroundService\GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\ImplementationTemplates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -192,10 +187,6 @@
     <None Update="Templates\MessageTemplates\GenericMessage\GenericMessageTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GenericMessageTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\ImplementationTemplates\GoogleCloudPubSubSubscriberBackgroundService\GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\ImplementationTemplates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

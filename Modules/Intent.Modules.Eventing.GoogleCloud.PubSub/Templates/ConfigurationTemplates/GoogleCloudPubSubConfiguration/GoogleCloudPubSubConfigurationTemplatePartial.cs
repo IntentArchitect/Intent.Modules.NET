@@ -38,7 +38,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemp
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
                         method.AddStatements(Model.Select(packageModel =>
-                            $@"services.AddHostedService(provider => new {this.GetGoogleCloudPubSubSubscriberBackgroundServiceName()}(provider, ""{Helper.GetSubscriptionId(OutputTarget.ApplicationName(), packageModel)}"", ""{packageModel.GetGoogleCloudSettings().TopicId()}""));"));
+                            $@"services.AddHostedService(provider => new {this.GetGoogleSubscriberBackgroundServiceName()}(provider, ""{Helper.GetSubscriptionId(OutputTarget.ApplicationName(), packageModel)}"", ""{packageModel.GetGoogleCloudSettings().TopicId()}""));"));
                         method.AddStatement($@"return services;");
                     });
                     priClass.AddMethod("IServiceCollection", "RegisterTopicEvents", method =>

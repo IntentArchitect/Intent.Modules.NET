@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemplates.GoogleCloudPubSubConfiguration;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GenericIntegrationEventHandlerImplementation;
-using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleCloudPubSubSubscriberBackgroundService;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleCloudResourceManager;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleEventBusSubscriptionManager;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleEventBusTopicEventManager;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GooglePubSubEventBus;
+using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleSubscriberBackgroundService;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.IntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.InterfaceTemplates.CloudResourceManagerInterface;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.InterfaceTemplates.EventBusSubscriptionManagerInterface;
@@ -52,11 +52,6 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates
             return template.GetTypeName(GoogleCloudPubSubConfigurationTemplate.TemplateId);
         }
 
-        public static string GetGoogleCloudPubSubSubscriberBackgroundServiceName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(GoogleCloudPubSubSubscriberBackgroundServiceTemplate.TemplateId);
-        }
-
         public static string GetGoogleCloudResourceManagerName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(GoogleCloudResourceManagerTemplate.TemplateId);
@@ -75,6 +70,11 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates
         public static string GetGooglePubSubEventBusName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(GooglePubSubEventBusTemplate.TemplateId);
+        }
+
+        public static string GetGoogleSubscriberBackgroundServiceName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(GoogleSubscriberBackgroundServiceTemplate.TemplateId);
         }
 
         public static string GetIntegrationEventHandlerImplementationName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel
