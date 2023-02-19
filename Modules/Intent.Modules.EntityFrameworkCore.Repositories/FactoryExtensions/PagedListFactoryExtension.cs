@@ -1,12 +1,12 @@
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -40,14 +40,16 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                 {
                     method.Static();
                     method.Async();
-                    method.AddParameter($"IMongoQueryable<{T}>", "source")
+                    method.AddParameter($"IQueryable<{T}>", "source")
                         .AddParameter("int", "pageNo")
                         .AddParameter("int", "pageSize")
                         .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
                     method.AddStatement("var count = await source.CountAsync(cancellationToken);");
                     method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
-                    method.AddStatement("IAsyncCursorSource<T> cursorSource = source.Skip(skip).Take(pageSize);");
-                    method.AddStatement("var results = await cursorSource.ToListAsync(cancellationToken);");
+                    method.AddStatement(new CSharpMethodChainStatement("var results = await source")
+                        .AddChainStatement("Skip(skip)")
+                        .AddChainStatement("Take(pageSize)")
+                        .AddChainStatement("ToListAsync(cancellationToken)"));
                     method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
                 });
             });

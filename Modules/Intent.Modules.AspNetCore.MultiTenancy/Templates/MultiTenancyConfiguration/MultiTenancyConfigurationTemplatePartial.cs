@@ -31,8 +31,6 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                 .AddUsing("Microsoft.AspNetCore.Builder")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
-                .AddUsing("MongoMultiTenancy.Infrastructure")
-                .AddUsing("MongoMultiTenancy.Infrastructure.MultiTenant")
                 .AddClass("MultiTenancyConfiguration", @class =>
                 {
                     @class

@@ -215,7 +215,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
                     var method = file.Classes.First().FindMethod("SetupInMemoryStore");
                     if (method != null)
                     {
-                        method.Parameters[0] = new("InMemoryStoreOptions<TenantInfo>", "options");
+                        method.Parameters[0] = new($"InMemoryStoreOptions<{extendedInfoTypeName}>", "options");
                     }
                 }
 
@@ -253,6 +253,10 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
         private static void UpdateMultiTenantStoreDbContextTemplate(IApplication application)
         {
             var template = application.FindTemplateInstance<MultiTenantStoreDbContextTemplate>(MultiTenantStoreDbContextTemplate.TemplateId);
+            if (template == null)
+            {
+                return;
+            }
             var extendedInfoTypeName = template.GetTypeName(TenantExtendedInfoTemplate.TemplateId);
 
             template.CSharpFile.AfterBuild(file =>
