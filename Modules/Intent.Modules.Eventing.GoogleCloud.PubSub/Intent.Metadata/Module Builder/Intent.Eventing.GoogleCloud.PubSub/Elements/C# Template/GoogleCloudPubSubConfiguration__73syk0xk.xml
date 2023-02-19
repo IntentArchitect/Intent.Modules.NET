@@ -16,7 +16,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>31d9c488-d921-432b-8217-cddd5e6ed979</parentFolderId>
+  <parentFolderId>aeded92f-41fc-4410-9e8d-8d01257f2d43</parentFolderId>
   <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
   <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
   <stereotypes>

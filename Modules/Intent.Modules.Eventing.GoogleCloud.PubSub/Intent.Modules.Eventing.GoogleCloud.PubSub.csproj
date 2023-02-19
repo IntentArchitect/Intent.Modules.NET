@@ -79,6 +79,51 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>GoogleCloudResourceManagerTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\InterfaceTemplates\CloudResourceManagerInterface\CloudResourceManagerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CloudResourceManagerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\InterfaceTemplates\EventBusSubscriptionManagerInterface\EventBusSubscriptionManagerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventBusSubscriptionManagerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\InterfaceTemplates\EventBusTopicEventManagerInterface\EventBusTopicEventManagerInterfaceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EventBusTopicEventManagerInterfaceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\MessageTemplates\GenericMessage\GenericMessageTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GenericMessageTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ImplementationTemplates\GoogleCloudPubSubSubscriberBackgroundService\GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ImplementationTemplates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GoogleCloudResourceManagerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ImplementationTemplates\GoogleEventBusSubscriptionManager\GoogleEventBusSubscriptionManagerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GoogleEventBusSubscriptionManagerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ImplementationTemplates\GoogleEventBusTopicEventManager\GoogleEventBusTopicEventManagerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GoogleEventBusTopicEventManagerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GooglePubSubEventBusTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -117,6 +162,42 @@
     <None Update="Templates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GoogleCloudResourceManagerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\InterfaceTemplates\CloudResourceManagerInterface\CloudResourceManagerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CloudResourceManagerInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\InterfaceTemplates\EventBusSubscriptionManagerInterface\EventBusSubscriptionManagerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventBusSubscriptionManagerInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\InterfaceTemplates\EventBusTopicEventManagerInterface\EventBusTopicEventManagerInterfaceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EventBusTopicEventManagerInterfaceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MessageTemplates\GenericMessage\GenericMessageTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GenericMessageTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ImplementationTemplates\GoogleCloudPubSubSubscriberBackgroundService\GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ImplementationTemplates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GoogleCloudResourceManagerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ImplementationTemplates\GoogleEventBusSubscriptionManager\GoogleEventBusSubscriptionManagerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GoogleEventBusSubscriptionManagerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ImplementationTemplates\GoogleEventBusTopicEventManager\GoogleEventBusTopicEventManagerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GoogleEventBusTopicEventManagerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GooglePubSubEventBusTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

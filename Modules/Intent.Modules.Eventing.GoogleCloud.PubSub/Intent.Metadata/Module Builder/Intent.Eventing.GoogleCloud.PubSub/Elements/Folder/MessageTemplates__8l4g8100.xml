@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8cc4387c-a8ce-4698-90b2-f304b8976d63" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>MessageTemplates</name>
+  <display>MessageTemplates</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>31d9c488-d921-432b-8217-cddd5e6ed979</parentFolderId>
+  <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
+  <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -58,338 +58,338 @@
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ea8b62de-1ea3-4a52-9cd7-efef904a0ee9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ea8b62de-1ea3-4a52-9cd7-efef904a0ee9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericMessage/GenericMessageTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericMessage/GenericMessageTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericMessage/GenericMessageTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericMessage/GenericMessageTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericMessage/GenericMessageTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericMessage/GenericMessageTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GenericMessage/GenericMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GenericMessage/GenericMessageTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b590f67-8a8e-45c7-a5fb-9ea5f6b4fbd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ConfigurationTemplates/GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationTemplates/GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#6b590f67-8a8e-45c7-a5fb-9ea5f6b4fbd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ConfigurationTemplates/GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationTemplates/GoogleCloudPubSubConfiguration/GoogleCloudPubSubConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ea8b62de-1ea3-4a52-9cd7-efef904a0ee9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ea8b62de-1ea3-4a52-9cd7-efef904a0ee9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#68bcbb5e-4b2b-4a23-9e9b-7d918307d368</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudPubSubSubscriberBackgroundService/GoogleCloudPubSubSubscriberBackgroundServiceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#da83a346-0deb-4aeb-9895-f1e708baf57f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#da83a346-0deb-4aeb-9895-f1e708baf57f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#da83a346-0deb-4aeb-9895-f1e708baf57f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudResourceManager/GoogleCloudResourceManagerTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#da83a346-0deb-4aeb-9895-f1e708baf57f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleCloudResourceManager/GoogleCloudResourceManagerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleCloudResourceManager/GoogleCloudResourceManagerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#3ecfa9f3-92e1-41e0-983b-19bed2f3a204</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#3ecfa9f3-92e1-41e0-983b-19bed2f3a204</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3ecfa9f3-92e1-41e0-983b-19bed2f3a204</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3ecfa9f3-92e1-41e0-983b-19bed2f3a204</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusSubscriptionManager/GoogleEventBusSubscriptionManagerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#153eca58-a64d-4a5a-b030-69dc92a79063</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#153eca58-a64d-4a5a-b030-69dc92a79063</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#153eca58-a64d-4a5a-b030-69dc92a79063</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#153eca58-a64d-4a5a-b030-69dc92a79063</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GoogleEventBusTopicEventManager/GoogleEventBusTopicEventManagerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#7870870d-bb92-4f24-82db-c65a7c2a32e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GooglePubSubEventBus/GooglePubSubEventBusTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GooglePubSubEventBus/GooglePubSubEventBusTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#7870870d-bb92-4f24-82db-c65a7c2a32e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GooglePubSubEventBus/GooglePubSubEventBusTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GooglePubSubEventBus/GooglePubSubEventBusTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7870870d-bb92-4f24-82db-c65a7c2a32e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GooglePubSubEventBus/GooglePubSubEventBusTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GooglePubSubEventBus/GooglePubSubEventBusTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#7870870d-bb92-4f24-82db-c65a7c2a32e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/GooglePubSubEventBus/GooglePubSubEventBusTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>GooglePubSubEventBus/GooglePubSubEventBusTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/GooglePubSubEventBus/GooglePubSubEventBusTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e86f35cd-0d5c-4b30-b2a6-a72169b733aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e86f35cd-0d5c-4b30-b2a6-a72169b733aa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/ImplementationTemplates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplementationTemplates/IntegrationEventHandlerImplementation/IntegrationEventHandlerImplementationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2994bc8d-a2d5-4ba4-ac15-536dbbb5690b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/CloudResourceManagerInterface/CloudResourceManagerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#27cb0841-838a-404f-8cdb-7a80f1d372d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusSubscriptionManagerInterface/EventBusSubscriptionManagerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3cd884c1-8387-471b-bb5f-eadeaddc52ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MessageTemplates/GenericMessage/GenericMessageTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageTemplates/GenericMessage/GenericMessageTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MessageTemplates/GenericMessage/GenericMessageTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageTemplates/GenericMessage/GenericMessageTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MessageTemplates/GenericMessage/GenericMessageTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageTemplates/GenericMessage/GenericMessageTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#86daca52-fa7a-456c-a692-7ddd1fe2970c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MessageTemplates/GenericMessage/GenericMessageTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageTemplates/GenericMessage/GenericMessageTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -10,47 +10,7 @@
   <tags>eventing google cloud pubsub c# net</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.CloudResourceManagerInterface" externalReference="2994bc8d-a2d5-4ba4-ac15-536dbbb5690b">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.ResourceManagerInterface</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.EventBusSubscriptionManagerInterface" externalReference="27cb0841-838a-404f-8cdb-7a80f1d372d6">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.SubscriptionManagerInterface</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.EventBusTopicEventManagerInterface" externalReference="3cd884c1-8387-471b-bb5f-eadeaddc52ca">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManagerInterface</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GenericIntegrationEventHandlerImplementation" externalReference="ea8b62de-1ea3-4a52-9cd7-efef904a0ee9">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEventHandlers</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GenericMessage" externalReference="86daca52-fa7a-456c-a692-7ddd1fe2970c">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.Message.GenericMessage</role>
-      <location>IntegrationEvents</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleCloudPubSubConfiguration" externalReference="6b590f67-8a8e-45c7-a5fb-9ea5f6b4fbd8">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ConfigurationTemplates.GoogleCloudPubSubConfiguration" externalReference="6b590f67-8a8e-45c7-a5fb-9ea5f6b4fbd8">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -58,47 +18,7 @@
       <role>Infrastructure.DependencyInjection.GoogleCloudPubSub</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleCloudPubSubSubscriberBackgroundService" externalReference="68bcbb5e-4b2b-4a23-9e9b-7d918307d368">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.BackgroundService</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleCloudResourceManager" externalReference="da83a346-0deb-4aeb-9895-f1e708baf57f">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.ResourceManager</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleEventBusSubscriptionManager" externalReference="3ecfa9f3-92e1-41e0-983b-19bed2f3a204">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.SubscriptionManager</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GoogleEventBusTopicEventManager" externalReference="153eca58-a64d-4a5a-b030-69dc92a79063">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManager</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.GooglePubSubEventBus" externalReference="7870870d-bb92-4f24-82db-c65a7c2a32e7">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.GoogleCloudPubSub.EventBus</role>
-      <location>Eventing</location>
-    </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.IntegrationEventHandlerImplementation" externalReference="e86f35cd-0d5c-4b30-b2a6-a72169b733aa">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GenericIntegrationEventHandlerImplementation" externalReference="ea8b62de-1ea3-4a52-9cd7-efef904a0ee9">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -106,9 +26,89 @@
       <role>Application.Eventing.EventHandler</role>
       <location>IntegrationEventHandlers</location>
     </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleCloudPubSubSubscriberBackgroundService" externalReference="68bcbb5e-4b2b-4a23-9e9b-7d918307d368">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.BackgroundService</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleCloudResourceManager" externalReference="da83a346-0deb-4aeb-9895-f1e708baf57f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.ResourceManager</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleEventBusSubscriptionManager" externalReference="3ecfa9f3-92e1-41e0-983b-19bed2f3a204">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.SubscriptionManager</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleEventBusTopicEventManager" externalReference="153eca58-a64d-4a5a-b030-69dc92a79063">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManager</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GooglePubSubEventBus" externalReference="7870870d-bb92-4f24-82db-c65a7c2a32e7">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.EventBus</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.IntegrationEventHandlerImplementation" externalReference="e86f35cd-0d5c-4b30-b2a6-a72169b733aa">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEventHandlers</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.CloudResourceManagerInterface" externalReference="2994bc8d-a2d5-4ba4-ac15-536dbbb5690b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.ResourceManagerInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.EventBusSubscriptionManagerInterface" externalReference="27cb0841-838a-404f-8cdb-7a80f1d372d6">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.SubscriptionManagerInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.EventBusTopicEventManagerInterface" externalReference="3cd884c1-8387-471b-bb5f-eadeaddc52ca">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManagerInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.MessageTemplates.GenericMessage" externalReference="86daca52-fa7a-456c-a692-7ddd1fe2970c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.Message.GenericMessage</role>
+      <location>IntegrationEvents</location>
+    </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions />
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
