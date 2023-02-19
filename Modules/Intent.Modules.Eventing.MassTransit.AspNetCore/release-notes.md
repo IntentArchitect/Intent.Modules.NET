@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Fixed: Publishing will also target readonly operations.
+
 ### Version 4.0.1
 
 - Update: Updates due to underlying code changes.

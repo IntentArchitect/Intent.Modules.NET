@@ -11,6 +11,7 @@ using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplat
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.InterfaceTemplates.CloudResourceManagerInterface;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.InterfaceTemplates.EventBusSubscriptionManagerInterface;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.InterfaceTemplates.EventBusTopicEventManagerInterface;
+using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.MediatRTemplates.MessageBusPublishBehaviour;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.MessageTemplates.GenericMessage;
 using Intent.RoslynWeaver.Attributes;
 
@@ -84,6 +85,11 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates
         public static string GetIntegrationEventHandlerImplementationName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.MessageSubscribeAssocationTargetEndModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerImplementationTemplate.TemplateId, model);
+        }
+
+        public static string GetMessageBusPublishBehaviourName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(MessageBusPublishBehaviourTemplate.TemplateId);
         }
 
     }

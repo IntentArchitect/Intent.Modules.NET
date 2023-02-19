@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2bfe3dfc-f849-4505-a948-85966d0f746f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#440e048b-07ef-4db4-be1f-3da1e6ef2866</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/ControllerMessageBusPublishInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerMessageBusPublishInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>74bb14c6-6f81-4e25-b7a2-8eb81166eeb1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -358,6 +366,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InterfaceTemplates/EventBusTopicEventManagerInterface/EventBusTopicEventManagerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#ef412af9-f31f-4d44-861f-5f32ac6f5d49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#ef412af9-f31f-4d44-861f-5f32ac6f5d49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ef412af9-f31f-4d44-861f-5f32ac6f5d49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#ef412af9-f31f-4d44-861f-5f32ac6f5d49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MediatRTemplates/MessageBusPublishBehaviour/MessageBusPublishBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

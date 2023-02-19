@@ -39,19 +39,15 @@ namespace Intent.Modules.Eventing.MassTransit.AspNetCore.Decorators
 
                 foreach (var method in @class.Methods)
                 {
-                    if (method.TryGetMetadata<OperationModel>("model", out var operation) && 
-                        operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
+                    if (IsTransactionalOutboxPatternSelected())
                     {
-                        if (IsTransactionalOutboxPatternSelected())
-                        {
-                            method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("await "))?
-                                .InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
-                        }
-                        else
-                        {
-                            method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("return "))?
-                                .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
-                        }
+                        method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("await "))?
+                            .InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
+                    }
+                    else
+                    {
+                        method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("return "))?
+                            .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
                     }
                 }
             }, order: -100);

@@ -25,6 +25,10 @@
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
             }
+            public static class Services
+            {
+                public const string Controllers = "Intent.AspNetCore.Controllers.Controller";
+            }
         }
 
         public static class Infrastructure

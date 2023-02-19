@@ -27,6 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\..\logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -124,6 +128,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>GooglePubSubEventBusTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\IntegrationTemplate\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\MediatRTemplates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -198,6 +212,14 @@
     <None Update="Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GooglePubSubEventBusTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\IntegrationTemplate\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\MediatRTemplates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

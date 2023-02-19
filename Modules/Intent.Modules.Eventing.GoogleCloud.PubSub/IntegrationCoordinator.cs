@@ -1,10 +1,9 @@
 ﻿using System.Linq;
 using Intent.Engine;
 
-namespace Intent.Modules.MongoDb;
+namespace Intent.Modules.Eventing.GoogleCloud.PubSub;
 
-// Just a simple way to coordinate what gets installed between different modules.
-public static class UnitOfWorkHandler
+public static class IntegrationCoordinator
 {
     public static bool ShouldInstallStandardIntegration(IApplication application)
     {
