@@ -2,6 +2,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -25,22 +26,49 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (!IntegrationCoordinator.ShouldInstallStandardIntegration(application))
+            InstallMongoDbUnitOfWorkForStandardIntegration(application);
+            InstallMongoDbUnitOfWorkForGoogleCloudPubSubIntegration(application);
+        }
+
+        private void InstallMongoDbUnitOfWorkForGoogleCloudPubSubIntegration(IApplication application)
+        {
+            if (!IntegrationCoordinator.ShouldInstallGoogleCloudPubSubIntegration(application))
             {
                 return;
             }
             
-            var controllerTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+            var controllerTemplates =
+                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+            foreach (var template in controllerTemplates)
+            {
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("RequestHandler");
+                    method.FindStatement(p => p.HasMetadata("create-scope"))
+                        .InsertBelow($"var mongoDbUnitOfWork = scope.ServiceProvider.GetService<{GetUnitOfWork(template)}>();");
+                    method.FindStatement(p => p.HasMetadata("return"))
+                        .InsertAbove($"await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
+                });
+            }
+        }
+
+        private void InstallMongoDbUnitOfWorkForStandardIntegration(IApplication application)
+        {
+            if (!IntegrationCoordinator.ShouldInstallStandardIntegration(application))
+            {
+                return;
+            }
+
+            var controllerTemplates =
+                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
             foreach (var template in controllerTemplates)
             {
                 template.CSharpFile.AfterBuild(file =>
                 {
                     var @class = file.Classes.First();
                     var ctor = @class.Constructors.First();
-                    ctor.AddParameter(GetUnitOfWork(template), "mongoDbUnitOfWork", p =>
-                    {
-                        p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                    });
+                    ctor.AddParameter(GetUnitOfWork(template), "mongoDbUnitOfWork", p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                     foreach (var method in @class.Methods)
                     {

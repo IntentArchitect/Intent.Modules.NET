@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>22f24e32-f090-4f05-ac9e-bd455c07def6</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#1e902287-37eb-4aee-836a-1f941ce6d448</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>740e87e5-6ce8-46af-8b7e-4c58b712b064</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b26a0a7a-7f6c-47cb-aa08-6b19767d4081</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/UnitOfWorkInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>895d68fc-022c-4f47-a5eb-443e4cf22907</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>895d68fc-022c-4f47-a5eb-443e4cf22907</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#895d68fc-022c-4f47-a5eb-443e4cf22907</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>895d68fc-022c-4f47-a5eb-443e4cf22907</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

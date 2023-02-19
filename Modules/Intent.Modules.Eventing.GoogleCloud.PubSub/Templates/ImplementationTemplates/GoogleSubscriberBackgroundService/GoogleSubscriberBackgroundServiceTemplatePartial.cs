@@ -63,11 +63,18 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
                         method.AddParameter("CancellationToken", "stoppingToken");
                         method.AddStatement(new CSharpStatementBlock("while (!stoppingToken.IsCancellationRequested)")
                             .AddStatement(new CSharpInvocationStatement("await _subscriberClient.StartAsync")
-                                .AddArgument(new CSharpLambdaBlock("async (message, token)")
-                                    .AddStatement($"var subscriptionManager = _serviceProvider.GetService<{this.GetEventBusSubscriptionManagerInterfaceName()}>();")
-                                    .AddStatement($"await subscriptionManager.DispatchAsync(_serviceProvider, message, token);")
-                                    .AddStatement($"return SubscriberClient.Reply.Ack;"))
-                                .WithArgumentsOnNewLines()));
+                                .AddArgument("RequestHandler")));
+                    });
+
+                    priClass.AddMethod($"Task<SubscriberClient.Reply>", "RequestHandler", method =>
+                    {
+                        method.Private().Async();
+                        method.AddParameter("PubsubMessage", "message")
+                            .AddParameter("CancellationToken", "token");
+                        method.AddStatement($"using var scope = _serviceProvider.CreateScope();", stmt => stmt.AddMetadata("create-scope", true))
+                            .AddStatement($"var subscriptionManager = scope.ServiceProvider.GetService<{this.GetEventBusSubscriptionManagerInterfaceName()}>();")
+                            .AddStatement($"await subscriptionManager.DispatchAsync(scope.ServiceProvider, message, token);")
+                            .AddStatement($"return SubscriberClient.Reply.Ack;", stmt => stmt.AddMetadata("return", true));
                     });
 
                     priClass.AddMethod("Task", "StopAsync", method =>
