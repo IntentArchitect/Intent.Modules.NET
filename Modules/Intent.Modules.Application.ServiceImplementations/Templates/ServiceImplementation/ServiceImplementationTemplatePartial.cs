@@ -32,6 +32,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             SetDefaultTypeCollectionFormat("List<{0}>");
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
+                .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service")
                 .OnBuild(file =>
