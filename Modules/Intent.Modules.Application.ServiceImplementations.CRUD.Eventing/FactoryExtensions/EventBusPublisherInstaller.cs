@@ -57,6 +57,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                     continue;
                 }
 
+                AddMessageExtensionsUsings(application, file, messageModel);
                 var lastStatement = method.FindStatement(p => p.GetText(string.Empty).Contains("return"));
                 var line = $"_eventBus.Publish(new{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());";
                 if (lastStatement != null)
@@ -79,6 +80,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                     continue;
                 }
 
+                AddMessageExtensionsUsings(application, file, messageModel);
                 method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());");
                 hasAtLeastOneMatch = true;
             }
@@ -91,6 +93,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                     continue;
                 }
 
+                AddMessageExtensionsUsings(application, file, messageModel);
                 var lastStatement = method.FindStatement(p => p.GetText(string.Empty).Contains("return"));
                 var line = $"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());";
                 if (lastStatement != null)
@@ -113,19 +116,28 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                     continue;
                 }
 
+                AddMessageExtensionsUsings(application, file, messageModel);
                 method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());");
                 hasAtLeastOneMatch = true;
             }
         }
 
-        if (hasAtLeastOneMatch)
+        if (!hasAtLeastOneMatch)
         {
-            var ctor = priClass.Constructors.First();
-            if (ctor.Parameters.All(p => p.Name != "eventBus"))
-            {
-                ctor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", parm => parm.IntroduceReadonlyField());
-            }
+            return;
         }
+
+        var ctor = priClass.Constructors.First();
+        if (ctor.Parameters.All(p => p.Name != "eventBus"))
+        {
+            ctor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", parm => parm.IntroduceReadonlyField());
+        }
+    }
+
+    private static void AddMessageExtensionsUsings(IApplication application, CSharpFile cSharpFile, MessageModel message)
+    {
+        var mapToMethodTemplate = application.FindTemplateInstance<IClassProvider>("Application.Eventing.MessageExtensions", message);
+        cSharpFile.AddUsing(mapToMethodTemplate.Namespace);
     }
 
     private MessageModel GetMessageModel(IApplication application, ClassModel domainModel)
