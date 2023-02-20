@@ -48,7 +48,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.IntegrationEventHandlerI
 
         private string GetMessageName()
         {
-            return GetTypeName(Model.TypeReference);
+            return GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", Model.TypeReference.Element);
         }
     }
 }

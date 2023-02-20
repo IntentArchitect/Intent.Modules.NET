@@ -63,7 +63,7 @@ return topicEventManager;"))
                         method.AddParameter(this.GetGoogleEventBusTopicEventManagerName(), "topicEventManager");
                         method.AddStatements(Model
                             .SelectMany(packageModel => packageModel.Messages.Select(message => new { Message = message, Package = packageModel }))
-                            .Select(x => $@"topicEventManager.RegisterTopicEvent<{GetTypeName(x.Message.InternalElement)}>(""{x.Package.GetGoogleCloudSettings().TopicId()}"");"));
+                            .Select(x => $@"topicEventManager.RegisterTopicEvent<{GetMessageName(x.Message)}>(""{x.Package.GetGoogleCloudSettings().TopicId()}"");"));
                     });
                     priClass.AddMethod("IServiceCollection", "RegisterEventHandlers", method =>
                     {
@@ -74,7 +74,7 @@ var subscriptionManager = new {this.GetGoogleEventBusSubscriptionManagerName()}(
 services.AddSingleton(subscriptionManager);
 services.AddTransient<{this.GetEventBusSubscriptionManagerInterfaceName()}>(provider => provider.GetService<{this.GetGoogleEventBusSubscriptionManagerName()}>());");
 
-                        method.AddStatements(Model.SelectMany(package => package.Messages).Select(message => $@"subscriptionManager.RegisterEventHandler<{GetTypeName(message.InternalElement)}>();"));
+                        method.AddStatements(Model.SelectMany(package => package.Messages).Select(message => $@"subscriptionManager.RegisterEventHandler<{GetMessageName(message)}>();"));
                         method.AddStatement("return services;");
                     });
                 });
@@ -94,6 +94,11 @@ services.AddTransient<{this.GetEventBusSubscriptionManagerInterfaceName()}>(prov
                 .ToRegister("RegisterTopicEvents")
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
+        }
+        
+        private string GetMessageName(MessageModel messageModel)
+        {
+            return GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", messageModel.InternalElement);
         }
 
         [IntentManaged(Mode.Fully)]

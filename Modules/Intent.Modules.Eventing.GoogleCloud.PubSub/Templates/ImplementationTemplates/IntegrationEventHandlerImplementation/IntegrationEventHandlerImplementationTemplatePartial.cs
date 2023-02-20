@@ -60,7 +60,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
 
         private string GetMessageName()
         {
-            return GetTypeName(Model.TypeReference);
+            return GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", Model.TypeReference.Element);
         }
 
         [IntentManaged(Mode.Fully)]
