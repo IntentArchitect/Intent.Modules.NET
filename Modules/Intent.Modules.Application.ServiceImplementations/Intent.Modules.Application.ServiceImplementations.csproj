@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Contracts" Version="4.0.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.3" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.7" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>

@@ -26,7 +26,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.MongoDb" version="1.0.0-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
