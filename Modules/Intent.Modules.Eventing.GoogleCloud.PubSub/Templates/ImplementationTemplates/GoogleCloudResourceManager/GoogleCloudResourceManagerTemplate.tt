@@ -54,6 +54,7 @@ public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() 
 
         try
         {
+            _logger.LogInformation($"Creating Topic {topicId} for Project {ProjectId} on Google Cloud Pub/Sub...");
             var newTopic = await publisherService.CreateTopicAsync(
                 name: new TopicName(ProjectId, topicId), 
                 cancellationToken);
@@ -85,6 +86,7 @@ public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() 
 
         try
         {
+            _logger.LogInformation($"Creating Subscription {subscription.SubscriptionId} for Topic {subscription.TopicId} in Project {ProjectId} on Google Cloud Pub/Sub...");
             var newSubscription = await subscriberService.CreateSubscriptionAsync(
                 name: new SubscriptionName(ProjectId, subscription.SubscriptionId),
                 topic: new TopicName(ProjectId, subscription.TopicId),
@@ -105,6 +107,12 @@ public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() 
     {
         bool.TryParse(configuration["GoogleCloud:UseMetadataServer"], out var useMetadataServer);
         ProjectId = useMetadataServer ? GetGoogleProjectId() : configuration["GoogleCloud:ProjectId"];
+
+        if (ProjectId == null)
+        {
+            throw new Exception(@"No Project Id has been specified for use with Google Cloud Pub/Sub.
+Either configure 'GoogleCloud:UseMetadataServer' to 'true' to use the Metadata server or configure 'GoogleCloud:ProjectId' to be the actual Project Id in your appsettings.json file.");
+        }
 
         bool.TryParse(configuration["GoogleCloud:ShouldSetupCloudResources"], out var shouldSetupCloudResources);
         ShouldSetupCloudResources = shouldSetupCloudResources;

@@ -34,9 +34,9 @@ public class <#= ClassName #> : <#= this.GetEventBusInterfaceName() #>
     
     public void Publish<T>(T message) where T : class
     {
-        if (typeof(T) == typeof(GenericMessage))
+        if (typeof(T) == typeof(<#= this.GetGenericMessageName() #>))
         {
-            throw new ArgumentException($"{nameof(GenericMessage)} is not meant to be published. Create a new Message type intended for your given use case.");
+            throw new ArgumentException($"{nameof(<#= this.GetGenericMessageName() #>)} is not meant to be published. Create a new Message type intended for your given use case.");
         }
         _messagesToPublish.Add(new PubsubMessage
         {

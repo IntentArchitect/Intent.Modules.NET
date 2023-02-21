@@ -37,9 +37,9 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.Factory
                     method.InsertStatement(1, new CSharpStatementBlock($"using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))")
                         .AddStatement($"var unitOfWork = scope.ServiceProvider.GetService<{GetUnitOfWorkName(template)}>();")
                         .AddStatements(body)
-                        .AddStatement($"await unitOfWork.SaveChangesAsync(token);")
+                        .AddStatement($"await unitOfWork.SaveChangesAsync(cancellationToken);")
                         .AddStatement($"transaction.Complete();"));
-                });
+                }, -200);
             }
         }
         

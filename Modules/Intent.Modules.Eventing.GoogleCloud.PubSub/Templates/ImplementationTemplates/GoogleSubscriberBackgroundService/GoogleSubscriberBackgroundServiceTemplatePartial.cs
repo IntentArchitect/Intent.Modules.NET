@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -24,7 +25,8 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
         public GoogleSubscriberBackgroundServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.GoogleCloudPubSubV1);
-            
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingAbstractions(outputTarget));
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -70,10 +72,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
                     {
                         method.Private().Async();
                         method.AddParameter("PubsubMessage", "message")
-                            .AddParameter("CancellationToken", "token");
+                            .AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement($"using var scope = _serviceProvider.CreateScope();", stmt => stmt.AddMetadata("create-scope", true))
                             .AddStatement($"var subscriptionManager = scope.ServiceProvider.GetService<{this.GetEventBusSubscriptionManagerInterfaceName()}>();")
-                            .AddStatement($"await subscriptionManager.DispatchAsync(scope.ServiceProvider, message, token);")
+                            .AddStatement($"await subscriptionManager.DispatchAsync(scope.ServiceProvider, message, cancellationToken);")
                             .AddStatement($"return SubscriberClient.Reply.Ack;", stmt => stmt.AddMetadata("return", true));
                     });
 
@@ -84,7 +86,16 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
                         method.AddStatement($"await _subscriberClient.StopAsync(cancellationToken);");
                         method.AddStatement($"await base.StopAsync(cancellationToken);");
                     });
-                });
+                })
+                .AfterBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    var method = priClass.FindMethod("RequestHandler");
+                    method.FindStatement(p => p.HasMetadata("create-scope"))
+                        .InsertBelow($"var eventBus = scope.ServiceProvider.GetService<{this.GetEventBusInterfaceName()}>();");
+                    method.FindStatement(p => p.HasMetadata("return"))
+                        .InsertAbove($"await eventBus.FlushAllAsync(cancellationToken);");
+                }, 200);
         }
 
         [IntentManaged(Mode.Fully)]

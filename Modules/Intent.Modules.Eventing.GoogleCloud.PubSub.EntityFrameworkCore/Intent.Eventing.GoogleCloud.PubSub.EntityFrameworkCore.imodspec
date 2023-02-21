@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.GoogleCloud.PubSub.EntityFrameworkCore</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Integrates Google Cloud Pub/Sub with Entity Framework Core to bring you proper transaction scope handling in your subscribers.</summary>
   <description>Integrates Google Cloud Pub/Sub with Entity Framework Core to bring you proper transaction scope handling in your subscribers.</description>

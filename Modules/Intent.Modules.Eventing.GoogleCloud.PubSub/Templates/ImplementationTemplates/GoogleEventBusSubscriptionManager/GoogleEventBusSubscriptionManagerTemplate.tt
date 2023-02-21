@@ -50,7 +50,7 @@ public class <#= ClassName #> : <#= this.GetEventBusSubscriptionManagerInterface
             !_handlers.TryGetValue(messageTypeStr, out var messageHandler))
         {
             var handler = serviceProvider.GetService<<#= this.GetIntegrationEventHandlerInterfaceName() #><GenericMessage>>()!;
-            await handler.HandleAsync(new GenericMessage(
+            await handler.HandleAsync(new <#= this.GetGenericMessageName() #>(
                 MessageId: message.MessageId, 
                 Attributes: message.Attributes, 
                 MessageBody: System.Text.Encoding.UTF8.GetString(message.Data.ToArray())), cancellationToken);

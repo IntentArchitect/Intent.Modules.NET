@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.GoogleCloud.PubSub</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</summary>
   <description>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</description>
@@ -116,6 +116,23 @@
     </template>
   </templates>
   <decorators></decorators>
+  <interoperability>
+    <detect id="Intent.EntityFrameworkCore">
+      <install>
+        <package id="Intent.Eventing.GoogleCloud.PubSub.EntityFrameworkCore" version="1.0.0-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR.CRUD">
+      <install>
+        <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
+      <install>
+        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.GoogleCloud.PubSub.ControllerMessageBusPublishInstaller" externalReference="440e048b-07ef-4db4-be1f-3da1e6ef2866" />
   </factoryExtensions>

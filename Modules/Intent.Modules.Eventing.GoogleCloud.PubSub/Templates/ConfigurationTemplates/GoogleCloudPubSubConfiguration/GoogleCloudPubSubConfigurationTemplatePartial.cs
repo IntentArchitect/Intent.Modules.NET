@@ -25,6 +25,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemp
         public GoogleCloudPubSubConfigurationTemplate(IOutputTarget outputTarget, IList<EventingPackageModel> model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.GoogleCloudPubSubV1);
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingAbstractions(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")

@@ -35,6 +35,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
 
         public override void BeforeTemplateExecution()
         {
+            this.ApplyAppSetting("GoogleCloud:UseMetadataServer", false);
+            this.ApplyAppSetting("GoogleCloud:ProjectId", $"x-object-xyz");
+            this.ApplyAppSetting("GoogleCloud:ShouldSetupCloudResources", true);
+            
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(this)
                 .ForConcern("Infrastructure")
