@@ -8,6 +8,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
+using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -38,7 +39,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             }
             
             var controllerTemplates =
-                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Eventing.GoogleBackgroundService"));
             foreach (var template in controllerTemplates)
             {
                 template.CSharpFile.AfterBuild(file =>
@@ -46,10 +47,10 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     var @class = file.Classes.First();
                     var method = @class.FindMethod("RequestHandler");
                     method.FindStatement(p => p.HasMetadata("create-scope"))
-                        .InsertBelow($"var mongoDbUnitOfWork = scope.ServiceProvider.GetService<{GetUnitOfWork(template)}>();");
+                        .InsertBelow($"var mongoDbUnitOfWork = scope.ServiceProvider.GetService<{GetAppDbContext(template)}>();");
                     method.FindStatement(p => p.HasMetadata("return"))
                         .InsertAbove($"await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
-                });
+                }, -120);
             }
         }
 
@@ -68,7 +69,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 {
                     var @class = file.Classes.First();
                     var ctor = @class.Constructors.First();
-                    ctor.AddParameter(GetUnitOfWork(template), "mongoDbUnitOfWork", p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+                    ctor.AddParameter(template.GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId), "mongoDbUnitOfWork", p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                     foreach (var method in @class.Methods)
                     {
@@ -79,11 +80,11 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                                 ?.InsertAbove($"await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
                         }
                     }
-                });
+                }, -150);
             }
         }
 
-        private string GetUnitOfWork(ICSharpFileBuilderTemplate template)
+        private string GetAppDbContext(ICSharpFileBuilderTemplate template)
         {
             return template.GetTypeName(ApplicationMongoDbContextTemplate.TemplateId);
         }
