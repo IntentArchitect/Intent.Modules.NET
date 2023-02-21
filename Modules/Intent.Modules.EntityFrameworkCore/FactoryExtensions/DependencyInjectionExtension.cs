@@ -140,8 +140,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
 
                     statements.Add(new CSharpInvocationStatement($@"options.UseMySql")
-                        .AddArgument($"configuration.GetConnectionString({connection})")
-                        .AddArgument($@"ServerVersion.AutoDetect(configuration.GetConnectionString({connection}))", a => a.AddMetadata("is-connection-string", true)));
+                        .AddArgument($"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true))
+                        .AddArgument($@"ServerVersion.Parse(""8.0"")"));
                     statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:

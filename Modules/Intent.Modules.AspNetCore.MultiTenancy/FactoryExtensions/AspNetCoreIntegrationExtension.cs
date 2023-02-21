@@ -95,21 +95,30 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
                 }
 
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
-                template?.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant", "6.5.1"));
-                template?.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1"));
+                if (template == null)
+                {
+                    return;
+                }
+                
+                template.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant", "6.5.1"));
+                template.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1"));
 
-                template?.CSharpFile.AfterBuild(file =>
+                template.CSharpFile.AfterBuild(file =>
                 {
                     var (castTo, indexer) = hasMultipleConnectionStrings
                         ? ($"({template.GetTypeName(TenantExtendedInfoTemplate.TemplateId)})", $"[\"{connectionStringNameInternal}\"]")
                         : (string.Empty, string.Empty);
 
                     var method = file.Classes.First().FindMethod("AddInfrastructure");
+                    if (method == null)
+                    {
+                        return;
+                    }
 
                     method?.FindAndReplaceStatement(x => x.HasMetadata("is-connection-string"), $"tenantInfo{indexer}.ConnectionString");
 
-                    method?.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"))
-                        ?.InsertAbove($@"var tenantInfo = {castTo}sp.GetService<{template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");");
+                    method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"))
+                        .InsertAbove($@"var tenantInfo = {castTo}sp.GetService<{template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");");
                 });
             };
 
