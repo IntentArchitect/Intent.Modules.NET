@@ -32,8 +32,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.17" />
-    <dependency id="Intent.Common.CSharp" version="3.3.26" />
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.EntityFrameworkCore" version="4.1.0" />
     <dependency id="Intent.Metadata.RDBMS" version="3.4.0" />

@@ -15,7 +15,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore" version="4.0.0" />
     <dependency id="Intent.AspNetCore.Controllers" version="4.0.1" />
-    <dependency id="Intent.Common" version="3.3.17" />
+    <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Security.JWT" version="4.0.0" />
   </dependencies>
