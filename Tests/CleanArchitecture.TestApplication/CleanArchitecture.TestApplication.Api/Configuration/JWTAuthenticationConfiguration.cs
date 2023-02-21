@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Security.JWT.ConfigurationJWTAuthentication", Version = "1.0")]
@@ -24,7 +25,6 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
             services.AddHttpContextAccessor();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                // JWT tokens (default scheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
                     options.Authority = configuration.GetSection("Security.Bearer:Authority").Get<string>();
@@ -32,8 +32,7 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
 
                     options.TokenValidationParameters.RoleClaimType = "role";
                     options.SaveToken = true;
-                })
-                ;
+                });
             services.AddAuthorization(ConfigureAuthorization);
 
             return services;

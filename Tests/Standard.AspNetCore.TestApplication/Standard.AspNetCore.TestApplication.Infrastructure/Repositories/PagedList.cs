@@ -26,10 +26,11 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Repositories
             PageSize = pageSize;
             var skip = ((PageNo - 1) * PageSize);
 
-            AddRange(source
-                .Skip(skip)
-                .Take(PageSize)
-                .ToList());
+            AddRange(
+                source
+                    .Skip(skip)
+                    .Take(PageSize)
+                    .ToList());
         }
 
         public PagedList(int totalCount, int pageNo, int pageSize, List<T> results)
@@ -45,6 +46,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Repositories
         {
             var count = await source.CountAsync(cancellationToken);
             var skip = ((pageNo - 1) * pageSize);
+
             var results = await source
                 .Skip(skip)
                 .Take(pageSize)
@@ -55,8 +57,9 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Repositories
         private int GetPageCount(int pageSize, int totalCount)
         {
             if (pageSize == 0)
+            {
                 return 0;
-
+            }
             var remainder = totalCount % pageSize;
             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);
         }
