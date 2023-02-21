@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
-  <version>4.0.2-pre.0</version>
+  <version>4.0.2-pre.1</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
@@ -39,6 +39,13 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Modules.AspNetCore.MultiTenancy.AspNetCoreIntegrationExtension" externalReference="51668d76-10ce-4ae5-9725-650808a9dcd8" />
   </factoryExtensions>
+  <interoperability>
+    <detect id="Intent.MongoDb">
+      <install>
+        <package id="Intent.MongoDb.Finbuckle" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <moduleSettings>
     <group id="41ae5a02-3eb2-42a6-ade2-322b3c1f1115" title="Multitenancy Settings" externalReference="41ae5a02-3eb2-42a6-ade2-322b3c1f1115">
       <settings>
