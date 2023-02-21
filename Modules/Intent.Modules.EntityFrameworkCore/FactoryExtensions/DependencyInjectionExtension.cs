@@ -48,12 +48,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             {
                 return;
             }
-            if (dependencyInjection.OutputTarget.GetProject().IsNetApp(5) ||
-                dependencyInjection.OutputTarget.GetProject().IsNetApp(6) ||
-                dependencyInjection.OutputTarget.GetProject().IsNetApp(7))
-            {
-                dependencyInjection.AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(dependencyInjection.OutputTarget.GetProject()));
-            }
 
             switch (dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum())
             {
@@ -145,8 +139,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
                     dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
 
-                    statements.Add(new CSharpInvocationStatement($@"options.UseMySQL")
-                        .AddArgument($@"configuration.GetConnectionString({connection})", a => a.AddMetadata("is-connection-string", true)));
+                    statements.Add(new CSharpInvocationStatement($@"options.UseMySql")
+                        .AddArgument($"configuration.GetConnectionString({connection})")
+                        .AddArgument($@"ServerVersion.AutoDetect(configuration.GetConnectionString({connection}))", a => a.AddMetadata("is-connection-string", true)));
                     statements.Add($@"options.UseLazyLoadingProxies();");
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:

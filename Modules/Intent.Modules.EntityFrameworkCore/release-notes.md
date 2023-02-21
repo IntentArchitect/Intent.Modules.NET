@@ -1,6 +1,7 @@
 ﻿### Version 4.2.0
 
 - Update: Configuration and DbSet code will only be generated for Classes created inside a "Domain Package".
+- Update: Changed underlying MySql provider from `MySql.EntityFrameworkCore` to `Pomelo.EntityFrameworkCore.MySql`.
 
 ### Version 4.1.0
 

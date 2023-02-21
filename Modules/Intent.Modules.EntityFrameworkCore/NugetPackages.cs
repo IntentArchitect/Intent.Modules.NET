@@ -16,27 +16,15 @@ namespace Intent.Modules.EntityFrameworkCore
         public static NugetPackageInfo EntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Cosmos", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.InMemory", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreProxies(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Proxies", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo MicrosoftExtensionsConfigurationBinder(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Configuration.Binder", GetMicrosoftExtensionsConfigurationBinderVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo MySqlEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo("MySql.EntityFrameworkCore", GetMySqlVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo MySqlEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo("Pomelo.EntityFrameworkCore.MySql", GetMySqlVersion(outputTarget.GetProject()));
 
         private static string GetMySqlVersion(ICSharpProject project)
         {
             return project switch
             {
-                _ when project.IsNetApp(5) => "5.0.17.1",
-                _ when project.IsNetApp(6) => "6.0.10",
+                _ when project.IsNetApp(5) => "5.0.4",
+                _ when project.IsNetApp(6) => "6.0.2",
                 _ when project.IsNetApp(7) => "7.0.0",
-                _ => throw new Exception("Not supported version of .NET Core") 
-            };
-        }
-        
-        private static string GetMicrosoftExtensionsConfigurationBinderVersion(ICSharpProject project)
-        {
-            return project switch
-            {
-                _ when project.IsNetApp(5) => "5.0.0",
-                _ when project.IsNetApp(6) => "6.0.0",
-                _ when project.IsNetApp(7) => "7.0.1",
                 _ => throw new Exception("Not supported version of .NET Core") 
             };
         }
