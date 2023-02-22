@@ -61,13 +61,20 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                                     ? template.GetTypeName(attribute.Type.Element.AsTypeReference(isNullable: attribute.Type.IsNullable, isCollection: attribute.Type.IsCollection))
                                     : GetDefaultSurrogateKeyType(template.ExecutionContext) + (attribute.Type.IsNullable ? "?" : string.Empty);
 
+                                @class.AddField(template.UseType(typeName) + "?", attribute.Name.ToPrivateMemberName());
                                 @class.InsertProperty(0, template.UseType(typeName), attribute.Name, property =>
                                 {
+                                    property.Getter.WithExpressionImplementation($"{attribute.Name.ToPrivateMemberName()} ??= {GetNewSurrogateInstance(template.ExecutionContext)}");
+                                    property.Setter.WithExpressionImplementation($"{attribute.Name.ToPrivateMemberName()} = value");
                                     primaryKeyProperties.Add(property);
                                 });
                             }
                             else
                             {
+                                @class.AddField(template.UseType(existingPk.Type) + "?", existingPk.Name.ToPrivateMemberName());
+                                existingPk.Getter.WithExpressionImplementation($"{attribute.Name.ToPrivateMemberName()} ??= {GetNewSurrogateInstance(template.ExecutionContext)}");
+                                existingPk.Setter.WithExpressionImplementation($"{attribute.Name.ToPrivateMemberName()} = value");
+                                
                                 primaryKeyProperties.Add(existingPk);
                             }
                         }
@@ -78,6 +85,14 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         {
                             primaryKeyProperties.Add(property);
                         });
+                        
+                        @class.AddField(template.UseType(GetDefaultSurrogateKeyType(template.ExecutionContext)) + "?", "_id");
+                        @class.InsertProperty(0, GetDefaultSurrogateKeyType(template.ExecutionContext), "Id", property =>
+                        {
+                            property.Getter.WithExpressionImplementation($"_id ??= {GetNewSurrogateInstance(template.ExecutionContext)}");
+                            property.Setter.WithExpressionImplementation($"_id = value");
+                            primaryKeyProperties.Add(property);
+                        });
                     }
 
                     if (!@class.TryGetMetadata("primary-keys", out var keys))
@@ -85,6 +100,22 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         @class.AddMetadata("primary-keys", primaryKeyProperties.ToArray());
                     }
                 });
+            }
+        }
+
+        private string GetNewSurrogateInstance(ISoftwareFactoryExecutionContext executionContext)
+        {
+            var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
+            switch (settingType)
+            {
+                case "guid":
+                    return "Guid.NewGuid()";
+                case "int":
+                    return "new Random().Next()";
+                case "long":
+                    return "new Random().NextInt64()";
+                default:
+                    return "default";
             }
         }
 
