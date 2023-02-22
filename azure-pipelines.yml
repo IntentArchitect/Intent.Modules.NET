@@ -20,14 +20,14 @@ variables:
   value: '##vso[task.logissue type=error;]{@m} {@x}\n'
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 steps:
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      git config --system core.longpaths true
+# - task: CmdLine@2
+#   inputs:
+#     script: |
+#       git config --system core.longpaths true
 
 - checkout: 'self'
   persistCredentials: 'true'
