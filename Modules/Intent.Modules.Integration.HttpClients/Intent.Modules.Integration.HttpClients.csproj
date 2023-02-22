@@ -35,16 +35,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>HttpClientConfigurationTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\HttpClientRequestException\HttpClientRequestExceptionTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>HttpClientRequestExceptionTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\JsonResponse\JsonResponseTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>JsonResponseTemplate.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -71,14 +61,6 @@
     <None Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HttpClientConfigurationTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\HttpClientRequestException\HttpClientRequestExceptionTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>HttpClientRequestExceptionTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\JsonResponse\JsonResponseTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

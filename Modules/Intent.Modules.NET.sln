@@ -181,17 +181,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.AccountController", "Intent.Modules.AspNetCore.Identity.AccountController\Intent.Modules.AspNetCore.Identity.AccountController.csproj", "{E989D79E-D842-4E1F-8CDB-CADC324296DB}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb", "Intent.Modules.MongoDb\Intent.Modules.MongoDb.csproj", "{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb", "Intent.Modules.MongoDb\Intent.Modules.MongoDb.csproj", "{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb.Repositories", "Intent.Modules.MongoDb.Repositories\Intent.Modules.MongoDb.Repositories.csproj", "{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb.Repositories", "Intent.Modules.MongoDb.Repositories\Intent.Modules.MongoDb.Repositories.csproj", "{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb.Finbuckle", "Intent.Modules.MongoDb.Finbuckle\Intent.Modules.MongoDb.Finbuckle.csproj", "{AE62F3C5-D5A0-4418-8989-0AB094554A73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb.Finbuckle", "Intent.Modules.MongoDb.Finbuckle\Intent.Modules.MongoDb.Finbuckle.csproj", "{AE62F3C5-D5A0-4418-8989-0AB094554A73}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.GoogleCloud.PubSub", "Intent.Modules.Eventing.GoogleCloud.PubSub\Intent.Modules.Eventing.GoogleCloud.PubSub.csproj", "{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.GoogleCloud.PubSub", "Intent.Modules.Eventing.GoogleCloud.PubSub\Intent.Modules.Eventing.GoogleCloud.PubSub.csproj", "{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing", "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing\Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.csproj", "{4B8347B4-3AC3-49B2-8E72-2C7B10476943}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing", "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing\Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.csproj", "{4B8347B4-3AC3-49B2-8E72-2C7B10476943}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore", "Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore\Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.csproj", "{895D68FC-022C-4F47-A5EB-443E4CF22907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore", "Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore\Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.csproj", "{895D68FC-022C-4F47-A5EB-443E4CF22907}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.HttpClients.Shared", "Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.shproj", "{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -649,8 +651,13 @@ Global
 		{74BB14C6-6F81-4E25-B7A2-8EB81166EEB1} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{4B8347B4-3AC3-49B2-8E72-2C7B10476943} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{895D68FC-022C-4F47-A5EB-443E4CF22907} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{0adb36a1-6e3e-4f12-a296-6cb695acce17}*SharedItemsImports = 13
+		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{46ad781b-04fc-4d8d-9a46-4dbffe73628d}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

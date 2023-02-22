@@ -6,11 +6,10 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
-using JetBrains.Annotations;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 using ParameterModel = Intent.Modelers.Services.Api.ParameterModel;
 
-namespace Intent.Modules.Integration.HttpClients.Templates;
+namespace Intent.Modules.Integration.HttpClients.Shared.Templates;
 
 // Since we have to cater for both WebAPI metadata and Azure Functions (and who knows what else in the future),
 // I've decided to abstract those concerns in this class.
@@ -207,32 +206,32 @@ public static class ServiceMetadataQueries
         return false;
     }
 
-    private static bool IsDefault([CanBeNull] this string source)
+    private static bool IsDefault(this string source)
     {
         return source == "Default";
     }
 
-    private static bool IsFromQuery([CanBeNull] this string source)
+    private static bool IsFromQuery(this string source)
     {
         return source == "From Query";
     }
 
-    private static bool IsFromBody([CanBeNull] this string source)
+    private static bool IsFromBody(this string source)
     {
         return source == "From Body";
     }
 
-    private static bool IsFromRoute([CanBeNull] this string source)
+    private static bool IsFromRoute(this string source)
     {
         return source == "From Route";
     }
 
-    private static bool IsFromHeader([CanBeNull] this string source)
+    private static bool IsFromHeader(this string source)
     {
         return source == "From Header";
     }
 
-    private static bool IsFromForm([CanBeNull] this string source)
+    private static bool IsFromForm(this string source)
     {
         return source == "From Form";
     }
