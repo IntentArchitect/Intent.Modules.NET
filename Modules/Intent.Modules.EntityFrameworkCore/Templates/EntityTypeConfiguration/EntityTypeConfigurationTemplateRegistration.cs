@@ -40,7 +40,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetClassModels()
-                .Where(x => x.InternalElement?.Package?.SpecializationTypeId == DomainPackageModel.SpecializationTypeId && 
+                .Where(x => x.InternalElement?.Package?.SpecializationTypeId == DomainPackageModel.SpecializationTypeId &&
                     !x.IsOwned(application) && (
                     !x.IsAbstract || // is concrete class
                     x.HasTable() || // has Table stereotype

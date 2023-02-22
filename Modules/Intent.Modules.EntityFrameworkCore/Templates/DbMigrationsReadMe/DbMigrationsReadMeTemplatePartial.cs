@@ -53,6 +53,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             }
             .ToArray();
         }
-        
+
     }
 }

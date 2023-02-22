@@ -186,7 +186,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>67ac698c-a53d-4381-8cd6-6d1c947d0e2d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.T4Template#8dca43ad-a912-4d76-aca9-4eaf77d6127a</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateT4#8dca43ad-a912-4d76-aca9-4eaf77d6127a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DbMigrationsReadMe/DbMigrationsReadMeTemplate.tt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DbMigrationsReadMe/DbMigrationsReadMeTemplate.tt</ProjectRelativeFilePath>
