@@ -30,11 +30,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RequestHttpExceptionTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\HttpClient\HttpClientTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>HttpClientTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -73,10 +68,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RequestHttpExceptionTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\HttpClient\HttpClientTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>HttpClientTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\HttpClientConfiguration\HttpClientConfigurationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HttpClientConfigurationTemplate.cs</LastGenOutput>
@@ -92,18 +83,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.3.16" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24" />
-    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.6" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.4" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.7" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.6" />
     <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="3.3.6" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.10" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -113,5 +104,7 @@
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems" Label="Shared" />
 
 </Project>

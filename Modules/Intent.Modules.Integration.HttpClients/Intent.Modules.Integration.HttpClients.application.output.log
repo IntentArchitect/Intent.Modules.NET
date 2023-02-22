@@ -34,22 +34,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#8d97669a-b03f-4f1c-907f-8dbb94dca221</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/HttpClient/HttpClientTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClient/HttpClientTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#8d97669a-b03f-4f1c-907f-8dbb94dca221</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/HttpClient/HttpClientTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClient/HttpClientTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8d97669a-b03f-4f1c-907f-8dbb94dca221</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HttpClient/HttpClientTemplatePartial.cs</ApplicationRelativeFilePath>
