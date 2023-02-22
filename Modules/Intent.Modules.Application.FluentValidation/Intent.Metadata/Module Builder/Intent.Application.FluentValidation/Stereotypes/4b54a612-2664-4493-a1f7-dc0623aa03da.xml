@@ -119,7 +119,7 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <lookupTypes />
     </property>
     <property id="13d364d0-975e-47e9-ae0c-a3137326ee60">
-      <hint>e.g. surname =&gt; surname == "Foo"</hint>
+      <hint>Message as text without quotes</hint>
       <name>Predicate Message</name>
       <type>string</type>
       <controlType>text</controlType>
