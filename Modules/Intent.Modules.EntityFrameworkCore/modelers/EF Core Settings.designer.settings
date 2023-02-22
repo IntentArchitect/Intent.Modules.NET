@@ -19,6 +19,10 @@ const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 // console.log(`Package (${element.getName()}) :: On Changed
 //     isCosmosDbProvider() = ${isCosmosDbProvider()}`);
 
+if (element.specialization !== "Domain Package") {
+    return;
+}
+
 if (!isCosmosDbProvider()) {
     return;
 }
@@ -69,10 +73,8 @@ function getNamingConvention() {
 }</script>
         </macro>
         <macro trigger="on-created">
-          <script>function isCosmosDbProvider() {
-    return application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")
-        ?.getField("Database Provider")
-        ?.value == "cosmos";
+          <script>if (element.specialization !== "Domain Package") {
+    return;
 }
 
 if (!isCosmosDbProvider()) {
@@ -81,13 +83,17 @@ if (!isCosmosDbProvider()) {
 
 if (! element.hasStereotype("Cosmos DB Container Settings")) {
     element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+}
+
+function isCosmosDbProvider() {
+    return application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")
+        ?.getField("Database Provider")
+        ?.value == "cosmos";
 }</script>
         </macro>
         <macro trigger="on-loaded">
-          <script>function isCosmosDbProvider() {
-    return application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")
-        ?.getField("Database Provider")
-        ?.value == "cosmos";
+          <script>if (element.specialization !== "Domain Package") {
+    return;
 }
 
 if (!isCosmosDbProvider()) {
@@ -96,6 +102,12 @@ if (!isCosmosDbProvider()) {
 
 if (! element.hasStereotype("Cosmos DB Container Settings")) {
     element.addStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+}
+
+function isCosmosDbProvider() {
+    return application.getSettings("ac0a788e-d8b3-4eea-b56d-538608f1ded9")
+        ?.getField("Database Provider")
+        ?.value == "cosmos";
 }</script>
         </macro>
       </macros>
@@ -114,6 +126,10 @@ const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 //     isCosmosDbProvider() = ${isCosmosDbProvider()}
 //     isAggregateRoot(element.getParent()) = ${isAggregateRoot(element.getParent())}
 //     hasSuperClass(element.getParent()) = ${hasSuperClass(element.getParent())}`);
+
+if (element.getPackage().specialization !== "Domain Package") {
+    return;
+}
 
 if (!isCosmosDbProvider() || (!isAggregateRoot(element.getParent()) &amp;&amp; !element.getParent().hasStereotype("Table")) || hasSuperClass(element.getParent())) { 
     return; 
@@ -157,6 +173,10 @@ const partitionKeyStereotypeId = "3a203a3e-116e-4a7c-b375-e690570efc3f";
 //     isCosmosDbProvider() = ${isCosmosDbProvider()}
 //     isAggregateRoot(element.getParent()) = ${isAggregateRoot(element.getParent())}
 //     hasSuperClass(element.getParent()) = ${hasSuperClass(element.getParent())}`);
+
+if (element.getPackage().specialization !== "Domain Package") {
+    return;
+}
 
 if (!isCosmosDbProvider() || (!isAggregateRoot(element.getParent()) &amp;&amp; !element.getParent().hasStereotype("Table")) || hasSuperClass(element.getParent())) { 
     return; 
@@ -213,6 +233,10 @@ const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 //     isCosmosDbProvider() = ${isCosmosDbProvider()}
 //     isAggregateRoot(element) = ${isAggregateRoot(element)}
 //     hasSuperClass(element) = ${hasSuperClass(element)}`);
+
+if (element.getPackage().specialization !== "Domain Package") {
+    return;
+}
 
 if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || hasSuperClass(element)) { 
     element.getChildren("Attribute")
@@ -276,6 +300,10 @@ const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 //     isCosmosDbProvider() = ${isCosmosDbProvider()}
 //     isAggregateRoot(element) = ${isAggregateRoot(element)}
 //     hasSuperClass(element) = ${hasSuperClass(element)}`);
+
+if (element.getPackage().specialization !== "Domain Package") {
+    return;
+}
 
 if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || hasSuperClass(element)) { 
     element.getChildren("Attribute")
@@ -341,6 +369,10 @@ const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 //     isCosmosDbProvider() = ${isCosmosDbProvider()}
 //     isAggregateRoot(element) = ${isAggregateRoot(element)}
 //     hasSuperClass(element) = ${hasSuperClass(element)}`);
+
+if (element.getPackage().specialization !== "Domain Package") {
+    return;
+}
 
 if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || hasSuperClass(element)) { 
     element.getChildren("Attribute")
@@ -436,6 +468,11 @@ if (!element) { return; }
 //     isAggregateRoot(element) = ${isAggregateRoot(element)}
 //     hasSuperClass(element) = ${hasSuperClass(element)}`);
 
+let sourceEnd = association.getOtherEnd().typeReference;
+if (sourceEnd.getType().getPackage().specialization !== "Domain Package") {
+    return;
+}
+
 if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || hasSuperClass(element)) { 
     element.getChildren("Attribute")
         .filter(x =&gt; x.hasStereotype(partitionKeyStereotypeId))
@@ -523,6 +560,11 @@ if (!element) { return; }
 //     isCosmosDbProvider() = ${isCosmosDbProvider()}
 //     isAggregateRoot(element) = ${isAggregateRoot(element)}
 //     hasSuperClass(element) = ${hasSuperClass(element)}`);
+
+let sourceEnd = association.getOtherEnd().typeReference;
+if (sourceEnd.getType().getPackage().specialization !== "Domain Package") {
+    return;
+}
 
 if (!isCosmosDbProvider() || (!isAggregateRoot(element) &amp;&amp; !element.hasStereotype("Table")) || hasSuperClass(element)) { 
     element.getChildren("Attribute")
