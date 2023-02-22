@@ -77,6 +77,9 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
                             case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
                                 method.AddStatement("optionsBuilder.UseNpgsql(connectionString);");
                                 break;
+                            case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
+                                method.AddStatement(@"optionsBuilder.UseMySql(connectionString, ServerVersion.Parse(""8.0""));");
+                                break;
                             case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
                             default:
                                 // NO OP

@@ -20,10 +20,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
     [IntentManaged(Mode.Merge)]
     partial class DbMigrationsReadMeTemplate : IntentTemplateBase<object>, ITemplate, IHasNugetDependencies
     {
-        public const string Identifier = "Intent.EntityFrameworkCore.DbMigrationsReadMe";
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.EntityFrameworkCore.DbMigrationsReadMe";
+        public const string Identifier = "Intent.EntityFrameworkCore.DbMigrationsReadMe"; // Anything using this?
 
         [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-        public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(Identifier, outputTarget, null)
+        public DbMigrationsReadMeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, null)
         {
         }
 
@@ -51,7 +53,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             }
             .ToArray();
         }
-        [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.EntityFrameworkCore.DbMigrationsReadMe";
+        
     }
 }

@@ -23,7 +23,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
         public const string TemplateId = "Intent.EntityFrameworkCore.DesignTimeDbContextFactory.ApplicationSettingsJson";
 
         private readonly IList<ConnectionStringRegistrationRequest> _connectionStrings = new List<ConnectionStringRegistrationRequest>();
-        
+
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public ApplicationSettingsJsonTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
@@ -61,14 +61,14 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
 
             return JsonConvert.SerializeObject(json, new JsonSerializerSettings { Formatting = Formatting.Indented });
         }
-        
+
         private void HandleConnectionString(ConnectionStringRegistrationRequest @event)
         {
             if (@event.RuntimeEnvironment is not (null or "" or "Development"))
             {
                 return;
             }
-            
+
             if (_connectionStrings.Any(x => x.Name == @event.Name && x.ConnectionString != @event.ConnectionString))
             {
                 throw new Exception($"Misconfiguration in [{GetType().Name}]: ConnectionString with name [{@event.Name}] already defined with different value to [{@event.ConnectionString}].");
