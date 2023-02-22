@@ -37,7 +37,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             {
                 return;
             }
-            
+
             var controllerTemplates =
                 application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Eventing.GoogleBackgroundService"));
             foreach (var template in controllerTemplates)

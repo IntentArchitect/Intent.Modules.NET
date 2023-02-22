@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#984a206d-ce63-419b-ac66-356136d65c0f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ClassExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClassExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageModel#9d80acf2-6f29-4688-955b-6c17f94042ff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/MongoDomainPackageModel.cs</ApplicationRelativeFilePath>

@@ -53,7 +53,7 @@ namespace Intent.Modules.MongoDb.Templates.Integration.UnitOfWorkBehaviour
                     });
                 });
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")

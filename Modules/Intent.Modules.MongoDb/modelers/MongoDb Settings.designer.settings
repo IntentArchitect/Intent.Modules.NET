@@ -86,7 +86,27 @@
   </packageSettings>
   <packageExtensions />
   <elementSettings />
-  <elementExtensions />
+  <elementExtensions>
+    <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>if (element.getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+let idAttr = createElement("Attribute", "Id", element.id);
+idAttr.typeReference.setType(isAggregateRoot(element) ? StringTypeId : GuidTypeId);
+idAttr.addMetadata("id", "true");
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
   <associationSettings />
   <associationExtensions>
     <associationExtension type="Association" typeId="eaf9ed4e-0b61-4ac1-ba88-09f912c12087">
@@ -109,6 +129,18 @@
         </typeReferenceExtension>
       </targetEndExtension>
       <macros>
+        <macro trigger="on-changed">
+          <script>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+let targetClass = association.typeReference.getType();
+if (!isAggregateRoot(targetClass)) {
+    targetClass.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id")).forEach(x =&gt; x.typeReference.setType(GuidTypeId));
+}
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
         <macro trigger="on-created">
           <script>if (!association) {
     return;
@@ -122,6 +154,18 @@ sourceEnd.setIsCollection(false);
 sourceEnd.setIsNullable(false);
 //targetEnd.setIsCollection(false);
 //targetEnd.setIsNullable(false);</script>
+        </macro>
+        <macro trigger="on-deleted">
+          <script>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+let targetClass = association.typeReference.getType();
+if (isAggregateRoot(targetClass)) {
+    targetClass.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id")).forEach(x =&gt; x.typeReference.setType(StringTypeId));
+}
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
         </macro>
       </macros>
     </associationExtension>
