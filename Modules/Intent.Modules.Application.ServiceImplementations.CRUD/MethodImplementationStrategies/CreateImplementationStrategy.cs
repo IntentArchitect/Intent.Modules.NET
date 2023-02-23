@@ -36,14 +36,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 return false;
             }
 
-            // We seriously need a better way to check for a surrogate key here. This is not a good approach.
-            if (operationModel.TypeReference.Element != null
-                && !_template.GetTypeInfo(operationModel.TypeReference).IsPrimitive
-                && !operationModel.TypeReference.HasGuidType())
-            {
-                return false;
-            }
-
             var dtoModel = operationModel.Parameters.First().TypeReference.Element.AsDTOModel();
             if (dtoModel == null)
             {

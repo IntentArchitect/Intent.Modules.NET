@@ -87,6 +87,46 @@
   <packageExtensions />
   <elementSettings />
   <elementExtensions>
+    <elementExtension type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+if (!element.hasMetadata("id")) {
+    if (!element.hasStereotype(PrimaryKeyStereotypeId)) {
+        element.removeStereotype(PrimaryKeyStereotypeId);
+    }
+    return;
+}
+if (!element.hasStereotype(PrimaryKeyStereotypeId)) {
+    element.addStereotype(PrimaryKeyStereotypeId);
+}</script>
+        </macro>
+        <macro trigger="on-deleted">
+          <script>if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+if (!element.hasMetadata("id")) {
+    return;
+}
+const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+let idAttr = createElement("Attribute", "Id", element.getParent().id);
+idAttr.typeReference.setType(isAggregateRoot(element.getParent()) ? StringTypeId : GuidTypeId);
+idAttr.setOrder(0);
+idAttr.addMetadata("id", "true");
+idAttr.addStereotype(PrimaryKeyStereotypeId);
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
     <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
       <mappingSettings />
       <macros>
@@ -96,9 +136,36 @@
 }
 const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
 let idAttr = createElement("Attribute", "Id", element.id);
 idAttr.typeReference.setType(isAggregateRoot(element) ? StringTypeId : GuidTypeId);
 idAttr.addMetadata("id", "true");
+idAttr.addStereotype(PrimaryKeyStereotypeId);
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+        <macro trigger="on-loaded">
+          <script>if (element.getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id"))[0];
+if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
+    return;
+}
+const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+let idAttr = pk || createElement("Attribute", "Id", element.id);
+idAttr.setOrder(0);
+idAttr.typeReference.setType(isAggregateRoot(element) ? StringTypeId : GuidTypeId);
+if (!idAttr.hasMetadata("id")) {
+    idAttr.addMetadata("id", "true");
+}
+if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
+    idAttr.addStereotype(PrimaryKeyStereotypeId);
+}
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);

@@ -18,6 +18,14 @@
       <role>Infrastructure.Data.DbContext.MongoDb</role>
       <location>Persistence</location>
     </template>
+    <template id="Intent.MongoDb.BsonClassMap" externalReference="588e50b6-f605-4fc3-9942-3c87c7a91169">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.BsonClassMap</role>
+      <location>Persistence/BsonClassMaps</location>
+    </template>
     <template id="Intent.MongoDb.Integration.UnitOfWorkBehaviour" externalReference="6dfc5b92-bbbc-4a2b-8441-75ffbb49e718">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -46,6 +54,7 @@
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.3.12" />
     <dependency id="Intent.Modelers.Domain" version="3.3.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>

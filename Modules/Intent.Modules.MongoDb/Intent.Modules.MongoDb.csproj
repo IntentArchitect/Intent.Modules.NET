@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.3" />
+    <PackageReference Include="Intent.Modules.Metadata.RDBMS" Version="3.3.12" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
@@ -27,7 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Include="..\..\logo.png">
       <Pack>True</Pack>
