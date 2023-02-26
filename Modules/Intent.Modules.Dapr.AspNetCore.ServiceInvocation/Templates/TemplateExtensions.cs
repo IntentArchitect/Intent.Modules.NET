@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.DaprConfiguration;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientRequestException;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonResponse;
@@ -14,10 +13,6 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDaprConfigurationName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(DaprConfigurationTemplate.TemplateId);
-        }
         public static string GetHttpClientName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel
         {
             return template.GetTypeName(HttpClientTemplate.TemplateId, template.Model);

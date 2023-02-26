@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.5" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.5" />
     <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="3.3.6" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
@@ -19,10 +19,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Contracts.Clients\Intent.Modules.Application.Contracts.Clients.csproj" />
+    <ProjectReference Include="..\Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj" />
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems" Label="Shared" />
-
-  <Import Project="..\Intent.Modules.Dapr.AspNetCore.Shared\Intent.Modules.Dapr.AspNetCore.Shared.projitems" Label="Shared" />
 
 </Project>

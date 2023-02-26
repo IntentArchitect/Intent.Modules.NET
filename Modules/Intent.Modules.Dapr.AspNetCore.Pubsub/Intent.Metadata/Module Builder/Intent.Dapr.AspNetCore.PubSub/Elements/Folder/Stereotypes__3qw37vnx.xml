@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="827e1536-b614-476e-82b4-c1a60d19f3e1" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Stereotypes</name>
+  <display>Stereotypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</parentFolderId>
+  <packageId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</packageId>
+  <packageName>Intent.Dapr.AspNetCore.Pubsub</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
