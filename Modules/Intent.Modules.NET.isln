@@ -99,5 +99,6 @@
     <application id="e52f40cb-16cd-44c7-bd67-987f2b672c32" name="Intent.Modules.Eventing.GoogleCloud.PubSub" relativePath="Intent.Modules.Eventing.GoogleCloud.PubSub/Intent.Modules.Eventing.GoogleCloud.PubSub.application.config" />
     <application id="a69e29bd-a26c-4598-9469-9058cd1f1658" name="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing" relativePath="Intent.Modules.Application.ServiceImplementations.CRUD.Eventing/Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.application.config" />
     <application id="22f24e32-f090-4f05-ac9e-bd455c07def6" name="Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore" relativePath="Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore/Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.application.config" />
+    <application id="b4e9c0f4-3f0a-4f58-aabd-dc50a903bc84" name="Intent.Modules.Dapr.AspNetCore" relativePath="Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Intent.Modules.Dapr.AspNetCore.ServiceInvocation.application.config" />
   </applications>
 </solution>

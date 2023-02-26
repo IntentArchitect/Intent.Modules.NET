@@ -53,6 +53,7 @@ namespace Intent.Modules.Security.JWT.Templates.ConfigurationJWTAuthentication
                         .AddStatement("services.AddAuthorization(ConfigureAuthorization);")
                         .AddStatement("return services;", s => s.SeparatedFromPrevious()))
                     .AddMethod("void", "ConfigureAuthorization", method => method
+                        .Private()
                         .Static()
                         .AddAttribute("[IntentManaged(Mode.Ignore)]")
                         .AddParameter("AuthorizationOptions", "options")

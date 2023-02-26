@@ -195,6 +195,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Goo
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.HttpClients.Shared", "Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.shproj", "{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.ServiceInvocation", "Intent.Modules.Dapr.AspNetCore.ServiceInvocation\Intent.Modules.Dapr.AspNetCore.ServiceInvocation.csproj", "{84B0552E-7C31-4F40-9023-C2AFB16304E2}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Dapr.AspNetCore.Shared", "Intent.Modules.Dapr.AspNetCore.Shared\Intent.Modules.Dapr.AspNetCore.Shared.shproj", "{DC146A60-5742-4188-8F62-1C060D897900}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -557,6 +561,10 @@ Global
 		{895D68FC-022C-4F47-A5EB-443E4CF22907}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{895D68FC-022C-4F47-A5EB-443E4CF22907}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{895D68FC-022C-4F47-A5EB-443E4CF22907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B0552E-7C31-4F40-9023-C2AFB16304E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B0552E-7C31-4F40-9023-C2AFB16304E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B0552E-7C31-4F40-9023-C2AFB16304E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B0552E-7C31-4F40-9023-C2AFB16304E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -652,6 +660,8 @@ Global
 		{4B8347B4-3AC3-49B2-8E72-2C7B10476943} = {3621A3CE-CF23-4454-B901-013B2A16A5FE}
 		{895D68FC-022C-4F47-A5EB-443E4CF22907} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{84B0552E-7C31-4F40-9023-C2AFB16304E2} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{DC146A60-5742-4188-8F62-1C060D897900} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
@@ -659,5 +669,8 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{0adb36a1-6e3e-4f12-a296-6cb695acce17}*SharedItemsImports = 13
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{46ad781b-04fc-4d8d-9a46-4dbffe73628d}*SharedItemsImports = 5
+		Intent.Modules.Dapr.AspNetCore.Shared\Intent.Modules.Dapr.AspNetCore.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
+		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
+		Intent.Modules.Dapr.AspNetCore.Shared\Intent.Modules.Dapr.AspNetCore.Shared.projitems*{dc146a60-5742-4188-8f62-1c060d897900}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

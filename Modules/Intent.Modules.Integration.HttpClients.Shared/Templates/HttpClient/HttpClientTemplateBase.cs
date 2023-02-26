@@ -60,7 +60,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient
                             .AddStatement(@"_serializerOptions = new JsonSerializerOptions()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        }"));
+        };"));
 
                     foreach (var operation in Model.MappedService.Operations.Where(ContractMetadataQueries.IsAbleToReference))
                     {
