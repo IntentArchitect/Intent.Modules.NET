@@ -62,6 +62,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventBusImplementation
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
                 .ToRegister(ClassName)
+                .WithPerServiceCallLifeTime()
                 .ForInterface(this.GetEventBusInterfaceName())
                 .WithPriority(6)
                 .ForConcern("Application")

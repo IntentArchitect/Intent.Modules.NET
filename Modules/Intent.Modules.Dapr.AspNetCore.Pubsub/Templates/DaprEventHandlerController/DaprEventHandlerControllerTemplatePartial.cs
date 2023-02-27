@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Intent.Dapr.AspNetCore.Pubsub.Api;
 using Intent.Engine;
@@ -65,6 +66,36 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                         });
                     }
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+
+            var startupTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Startup");
+            if (startupTemplate == null)
+            {
+                return;
+            }
+
+            startupTemplate.CSharpFile.AfterBuild(file =>
+            {
+                var configureMethod = file.Classes.First().FindMethod("Configure");
+                if (configureMethod == null)
+                {
+                    return;
+                }
+
+                configureMethod.Statements[1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
+                configureMethod.Statements[1].InsertAbove("app.UseCloudEvents();", s => s.SeparatedFromPrevious());
+
+                var block = (IHasCSharpStatements)configureMethod
+                    .FindStatement(x => x.ToString().Contains("app.UseEndpoints"));
+
+                block?
+                    .FindStatement(x => x.ToString().Contains("endpoints.MapControllers()"))
+                    .InsertAbove("endpoints.MapSubscribeHandler();");
+            });
         }
 
         public override bool CanRunTemplate()

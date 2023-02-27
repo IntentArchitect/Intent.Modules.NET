@@ -42,7 +42,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.Event
 
             return !string.IsNullOrWhiteSpace(pubsub)
                 ? $"\"{pubsub}\""
-                : $"\"{ExecutionContext.GetDaprSolutionName()}\"";
+                : $"\"pubsub\"";
         }
 
         private string TopicName()
