@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             var newAggregateRoot = new AggregateRoot
             {
                 AggregateAttr = request.AggregateAttr,
-                Composites = request.Composites.Select(CreateCompositeManyB).ToList(),
+                Composites = request.Composites?.Select(CreateCompositeManyB).ToList() ?? new List<CompositeManyB>(),
                 Composite = request.Composite != null ? CreateCompositeSingleA(request.Composite) : null,
 #warning Field not a composite association: Aggregate
             };

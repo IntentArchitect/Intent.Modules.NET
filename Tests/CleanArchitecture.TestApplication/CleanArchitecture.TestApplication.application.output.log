@@ -107,6 +107,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#36da585a-bff5-4a4f-afb0-a7a6646a622b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CleanArchitecture.TestApplication.Application.Tests.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#ceb6f4e9-c3b3-4092-aa60-ed7347c3f9b1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
