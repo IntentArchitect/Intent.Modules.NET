@@ -22,8 +22,7 @@ namespace Integration.HttpClients.TestApplication.Application.Common.Exceptions
             return new HttpClientRequestException(fullRequestUri, response.StatusCode, headers, response.ReasonPhrase, content);
         }
 
-        public HttpClientRequestException(
-            Uri requestUri,
+        public HttpClientRequestException(Uri requestUri,
             HttpStatusCode statusCode,
             IReadOnlyDictionary<string, IEnumerable<string>> responseHeaders,
             string reasonPhrase,

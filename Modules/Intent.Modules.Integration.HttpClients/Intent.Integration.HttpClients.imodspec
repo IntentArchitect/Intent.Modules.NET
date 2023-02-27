@@ -48,7 +48,7 @@
   <dependencies>
     <dependency id="Intent.Application.Contracts.Clients" version="3.3.9" />
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.4" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.5" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Metadata.WebApi" version="3.3.9" />
     <dependency id="Intent.Modelers.ServiceProxies" version="3.3.6" />

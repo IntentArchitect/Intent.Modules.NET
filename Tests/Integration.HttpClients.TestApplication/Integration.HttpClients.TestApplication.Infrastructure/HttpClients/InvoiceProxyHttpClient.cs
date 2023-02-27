@@ -23,14 +23,15 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
     {
         private readonly HttpClient _httpClient;
 
-        private readonly JsonSerializerOptions _serializerOptions = new JsonSerializerOptions()
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        };
+        private readonly JsonSerializerOptions _serializerOptions;
 
         public InvoiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+            _serializerOptions = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            };
         }
 
         public async Task CreateAsync(InvoiceCreateDTO dto, CancellationToken cancellationToken = default)
@@ -41,7 +42,6 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
             request.Content = new StringContent(content, Encoding.Default, "application/json");
-
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -106,7 +106,6 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
             request.Content = new StringContent(content, Encoding.Default, "application/json");
 
-
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
                 if (!response.IsSuccessStatusCode)
@@ -137,7 +136,6 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
             queryParams.Add("param1", param1);
             queryParams.Add("param2", param2.ToString());
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
-
             var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -164,7 +162,6 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
             var request = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             request.Headers.Add("MY-HEADER", param1);
-
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -216,7 +213,6 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
 
             var content = JsonSerializer.Serialize(param1, _serializerOptions);
             request.Content = new StringContent(content, Encoding.Default, "application/json");
-
 
             using (var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -332,7 +328,7 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
-                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); }
+                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
                     return Guid.Parse(str);
                 }
             }
@@ -382,7 +378,7 @@ namespace Integration.HttpClients.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync().ConfigureAwait(false);
-                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); }
+                    if (str != null && (str.StartsWith(@"""") || str.StartsWith("'"))) { str = str.Substring(1, str.Length - 2); };
                     return int.Parse(str);
                 }
             }

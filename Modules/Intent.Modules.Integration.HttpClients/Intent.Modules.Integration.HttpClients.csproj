@@ -66,7 +66,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.4" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.5" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.6" />
