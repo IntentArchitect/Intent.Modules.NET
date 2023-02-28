@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,6 +24,7 @@ namespace Intent.Modules.MongoDb.Templates.BsonClassMap
         public BsonClassMapTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MongoDbDataUnitOfWork);
+            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}ClassMap")
