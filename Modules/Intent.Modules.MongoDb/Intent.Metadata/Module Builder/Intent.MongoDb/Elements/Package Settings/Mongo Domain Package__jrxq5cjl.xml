@@ -159,13 +159,13 @@
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="17fdf00a-040c-4e15-9572-0aa099b18c59">
-            <typeId>4d66fecd-e9b8-436f-aa50-c59040ad0879</typeId>
+            <typeId>67f81f34-af38-4245-9c8e-1816e3012cce</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.Modelers.Domain</typePackageName>
-            <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+            <typePackageName>Intent.MongoDb</typePackageName>
+            <typePackageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>
