@@ -38,7 +38,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Contracts.Clients" version="3.3.9" />
-    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common" version="3.3.19-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.5" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Dapr.AspNetCore" version="1.0.0-pre.0" />

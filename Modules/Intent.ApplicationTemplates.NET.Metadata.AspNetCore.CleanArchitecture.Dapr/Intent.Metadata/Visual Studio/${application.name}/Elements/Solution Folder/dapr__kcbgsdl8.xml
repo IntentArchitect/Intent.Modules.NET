@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="be7544fb-3c66-490b-9cd0-19bf93507aeb" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>dapr</name>
+  <display>dapr</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a2afecb9-c16c-43d8-86f5-43e19aae8feb</parentFolderId>
+  <packageId>526e57ad-955e-4f18-bc19-93f0557a1755</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f6dd24de-6d3d-44b7-a2da-51027c491b30" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Dapr</name>
+      <display>Dapr</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>be7544fb-3c66-490b-9cd0-19bf93507aeb</parentFolderId>
+      <packageId>526e57ad-955e-4f18-bc19-93f0557a1755</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

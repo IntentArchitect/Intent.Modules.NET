@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#3d474ae5-467a-493b-add4-e223d61b188a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr/metadata.iatspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61f239a7-101b-4b4d-bacc-19a6cc318a71</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#ae95e070-1305-4206-a8ea-e607ffe5f301</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore5.0.WebApi.FullStack/metadata.iatspec</ApplicationRelativeFilePath>

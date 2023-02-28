@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="71a83a0b-0404-48b7-85ab-a020b714dc65" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Integration</name>
+  <display>Integration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>7</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
+  <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="f89fc561-b8de-47fe-927a-1b567a5f2eec" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Dapr Service-to-Service Invocation</name>
+      <display>Dapr Service-to-Service Invocation</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71a83a0b-0404-48b7-85ab-a020b714dc65</parentFolderId>
+      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAYAAADHl1ErAAAAAXNSR0IArs4c6QAABOJJREFUeF7tmu9rU1cYx7+61jZ1tUntr6RZaV2sbJ0zY5Ux8Y3tYL6QKYgMEWH7Ayb4zj9AcIyBqxtssDd7YdkbwW2UIYyF0mHHsFvjGnV2rtbZXzFpmrRpbWvXyIlcya43Oee5nLvu3nsOFEryvffc55PnPOec7z2bcCaWg2rCBDYpYMKs8kIFjMZLASPyUsAUMCoBol7VMAWMSIAoVxmmgBEJEOUqwxQwIgGiXGWYAkYkQJSrDLMLsCOnOoiPCnxz4Qb5msILyso3o21PLWqbquBtqMx/lX6wjNTMEu5eT2Ht0Tr3/huWYf81sOb2GrS+4kN9cKshlOTkIsZH5jAxmikJzRXAGKxwlx/lW54rCePR6j+IRqYxWQKa44Ft9W5BuCtQNLP0BBMTi4hGprCYXjWE6zhg5w814XTfzNNgd3bWoWNfI7c2FQpiP8VxZzjpDmC5cx24OJzG+5emsLaeQ+fBIILtNSRgrI4NXZmwP7DLfvG4v/o1jXP9CQTfbsG27RXiFwKYn11BpPeO/YEdnkpzA3/vde9TzaXYPL5ABaqpwFIriFx0ADCRdRgbkqx9fzuLjweSyLb7wGZJSmOz5DUnDElRYFdGszjWex/Z1XWYKfo3BuP4c8glRf/zI3588N1MvuCzVu2rwJ4uP+qajRes+sxjC9jrkWkszK3Yv4aJZJhRlAzW/qOt3FGZW8/h6uV7YNCKNcetw4oFqrZG3Hx5VmDrzXexeNks98nV2X+t1k2wseySDRuSCpik31RlGBGkbYHJKJCirKq2lePF8Hb4mqrwQsCDzQ/XEL2Vwd2ROWSLrIdE723GqGT3LraEMaxhIlMwC6aU0SYaUNurtdixu9Zwv8c8qbHfU/k/tkYy0ywHJtOd5AXYutuH8IEAT4aRgRn8FZ3l6owElgKT7U5qAXz6jj+/TNC2K+zzmrpKhLsD8DV6uCAyyWX89sMkMollrlbfl6XAzGxUS7mTWnSskPf9sYDjX0/kN8SsvfRmA3btrecC0AS3ryVw6+cHXL2+L0uByXYnC4Gx/7+9uYCPBpIYvLeENw61wL+jmgtAE0yPLeCXvr+5es3e0fpqONzGvcZIIFT0u06EyO5kSxnQI54o6B9bxIEvx9F9MpR3EkRbcxnwGaEfdl/WV49HzKXQP4cQsO4TIbI72VIO9NSJhd0bzeDD/gRi8RW8dTKE5y0EpvUVejck9nA6lRCwvQeDUt3JwiHJ7GJWw7TCb+WQLOzL0hpmpuiXcic1YPpXX+zzl/c1or1TMDUBjA4lcXMwzs0WfV+WApPtTpaKztvoyb9g9dY/OeNQqs0nlzH84xTm4g950me+txQY602mO8mLji2SWRngNfb6fjyW4skMv7ccGOtVZGskcnBDJELbb420INXm2/holTIQRYZBgUYBU8CIBIjyDcswM7OX2feSMuuya4DJmvldAUymKep4YLJNUccB0zuuZvbHrjuyWejuyjZFbZVhlCObmuNauT9ANkUdc2STAowtJZjjenapjGyKzrvxyKbmuHpeq5dqitpqSIosXNlLkELH1UzRd9WRTb3jKtsUdVyGGW0NZZqirgAm0xR1DTAGTYYpumHAiK7K/0augBF/CgVMASMSIMpVhilgRAJEucowBYxIgChXGaaAEQkQ5SrDFDAiAaL8MSb2sL40yYXBAAAAAElFTkSuQmCC&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Perform direct, secure, service-to-service method calls." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cf941153-a136-4ef8-8313-cfad962e69f0" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Dapr.AspNetCore.ServiceInvocation</name>
+          <display>Intent.Dapr.AspNetCore.ServiceInvocation</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f89fc561-b8de-47fe-927a-1b567a5f2eec</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-pre.0" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a0f232ce-4740-4fea-8fe1-deca457079de" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Dapr Publish and Subscribe</name>
+      <display>Dapr Publish and Subscribe</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71a83a0b-0404-48b7-85ab-a020b714dc65</parentFolderId>
+      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABPCAYAAAB8kULjAAAAAXNSR0IArs4c6QAAA35JREFUeF7t279PE2EYB/Cn0FJqQ6GgUTDyI5IYjBIGEwdiwsBAXJxYNCZI4j/g7qK7jA4m/gNOBkEGB8XwM2C0akijiO0JVyhKoWmhpe2ZK+3RQrn3vT6aEPK9DXi+afu573tveym2uoGhuuqkc4NwlCVgA2BZbkYIgDw/AiAAmQLMOBoIQKYAM44GApApwIyjgQBkCjDjaCAAmQLMOBoIQKYAM44GApApwIyjgQBkCjDjaCAAmQLMOBoIQKYAM44GApApwIybNrDjQj1VVFRIPUQ0nqRgeMuYdZ2pI5vDLs5qGYqrf4y5c143NXhc4lxu4mtg3Zh1uF3kqHVLZXfCEcrspqRmzYZMAf3PBslzyin1IGNzS3RvaMyYvfqgn9xNp4XZ1HaC5h4+N+Ye3e2m+32dwlx+oPHO0338G53UeqtbKut78oLiK/v4UqESQwAsVy6XAyAAsYRxDdRXATaREtcC7MLiCyQ2EbGR6QQAAfhvduHK6iqqdDoouRmzRIoG5rhq2hrJ29FCoYnPlhBNAXu7Wshul/ssvLYRpw+Lq8bZ87SfJ/2sig4tnaHIQsAY0z9/t5ytFcWMv+u7f/6obvCQq7FBKrv1fZnSO0lj1nuljS7291B43k/qu0/SiLidlSPUAS8N9FE6sUtrswu0/GaeUrEd4ckA4AFA/Ud9VYQmv5AyMk2ZVLr8XTi7BG024Vk4CQPejmZqv91b9FLUcR8po+aIpg289niQ7C6521knAbHUa1Df+0yXMwAFZz6/nNW3H0tuLACUWDr5jSU07qPERrQoAUAJQH0kFU9k3+IcRASgJGAhYuFyBqAFQH004lco8HKCttf2/sEVgBYAY0qYAq8mKfpDJU3TAChtp2kUU39TcHiKNr/9wiYiDZf9WLKHp4zMUMQfPBTFEhZoxlbWj8QTXgObb16X+3aBpVN6PIf1Ozney61FT06/5gVHpw8t28Ih3EwocTNB/1X0Z4iU1zO0tbhS/s2E49mV//Os8rezsnhLKiljs0W77VGPigYeaGC+edGlEGmZjPBsAbAAsKmniwLDUxQLrhrv80SCAMwJOetrqMrjzl77rBwAtKJVYhaAAGQKMONoIACZAsw4GghApgAzjgYCkCnAjKOBAGQKMONoIACZAsw4GghApgAzjgYCkCnAjKOBAGQKMONoIACZAsw4GsgE/AuhL9WXt+4nFgAAAABJRU5ErkJggg==&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Secure, scalable messaging between services." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e2d46f74-423d-4baf-84ed-3a5923fc809f" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Dapr.AspNetCore.Pubsub</name>
+          <display>Intent.Dapr.AspNetCore.Pubsub</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a0f232ce-4740-4fea-8fe1-deca457079de</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-pre.0" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
