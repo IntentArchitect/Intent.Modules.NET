@@ -103,5 +103,6 @@
     <application id="e9a258c4-0bf0-4ffc-b31c-0897e5076e02" name="Intent.Modules.Dapr.AspNetCore" relativePath="Intent.Modules.Dapr.AspNetCore/Intent.Modules.Dapr.AspNetCore.application.config" />
     <application id="858ff064-47cf-4765-be7f-75a121e9c8d6" name="Dapr.AspNetCore.Pubsub" relativePath="Intent.Modules.Dapr.AspNetCore.Pubsub/Intent.Modules.Dapr.AspNetCore.Pubsub.application.config" />
     <application id="1ab414a9-a3d6-45c6-b446-87bd6b656285" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr/Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr.application.config" />
+    <application id="f6e6f600-dec7-4d45-905b-659a4513cb0a" name="Intent.Modules.Dapr.AspNetCore.StateManagement" relativePath="Intent.Modules.Dapr.AspNetCore.StateManagement/Intent.Modules.Dapr.AspNetCore.StateManagement.application.config" />
   </applications>
 </solution>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0b8f70f8-9712-419e-aa38-3089f8633839" type="MongoDB Diagram" typeId="67f81f34-af38-4245-9c8e-1816e3012cce">
+  <name>New Diagram</name>
+  <display>New Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fd9cfbdd-48fb-450c-bcbb-3a39bcdca362</parentFolderId>
+  <packageId>fd9cfbdd-48fb-450c-bcbb-3a39bcdca362</packageId>
+  <packageName>${application.name}.Domain</packageName>
+  <diagram />
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

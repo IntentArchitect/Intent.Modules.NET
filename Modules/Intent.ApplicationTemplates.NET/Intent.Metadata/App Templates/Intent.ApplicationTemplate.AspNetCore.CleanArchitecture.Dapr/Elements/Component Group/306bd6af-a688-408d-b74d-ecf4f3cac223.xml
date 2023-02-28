@@ -222,5 +222,55 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="9a2e5aec-c76b-4fb3-b283-f2015dd338c6" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Dapr State Management</name>
+      <display>Dapr State Management</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>306bd6af-a688-408d-b74d-ecf4f3cac223</parentFolderId>
+      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Create long running, stateless and stateful services." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="2ade4661-d5c8-49a3-9d20-b56266d0c42d" type="Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Dapr.AspNetCore.StateManagement</name>
+          <display>Intent.Dapr.AspNetCore.StateManagement</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9a2e5aec-c76b-4fb3-b283-f2015dd338c6</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-pre.0" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>
