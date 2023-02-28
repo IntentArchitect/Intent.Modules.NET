@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
 
         public override bool CanRunTemplate()
         {
-            return TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _unitOfWorkTypeName) ||
+            return TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _unitOfWorkTypeName) &&
                    TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out _unitOfWorkTypeName);
         }
 
@@ -43,6 +43,11 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
 
         public override void BeforeTemplateExecution()
         {
+            if (!CanRunTemplate())
+            {
+                return;
+            }
+
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(5)
