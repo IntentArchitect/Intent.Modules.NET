@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore
                 _ when project.IsNetCore3App() => "3.1.24",
                 _ when project.IsNetApp(5) => "5.0.16",
                 _ when project.IsNetApp(6) => "6.0.4",
-                _ when project.IsNetApp(7) => "7.0.1",
+                _ when project.IsNetApp(7) => "7.0.2",
                 _ => "6.0.4"
             };
         }

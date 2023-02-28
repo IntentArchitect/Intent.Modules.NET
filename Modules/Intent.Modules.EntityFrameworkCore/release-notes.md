@@ -2,6 +2,7 @@
 
 - Update: Configuration and DbSet code will only be generated for Classes created inside a "Domain Package".
 - Update: Changed underlying MySql provider from `MySql.EntityFrameworkCore` to `Pomelo.EntityFrameworkCore.MySql`.
+- Update: For .NET 7, `Microsoft.EntityFrameworkCore` nuget packages will be `7.0.2` for the `Pomelo.EntityFrameworkCore.MySql` to install without issues.
 - Fixed: Domain Designer would always prompt to save changes even if you haven't made any changes inside the Designer.
 
 ### Version 4.1.0
