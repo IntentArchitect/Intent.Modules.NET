@@ -11,14 +11,14 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.MongoDb.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class DiagramModel : IMetadataModel, IHasStereotypes, IHasName
+    public class MongoDBDiagramModel : IMetadataModel, IHasStereotypes, IHasName
     {
-        public const string SpecializationType = "Diagram";
+        public const string SpecializationType = "MongoDB Diagram";
         public const string SpecializationTypeId = "67f81f34-af38-4245-9c8e-1816e3012cce";
         protected readonly IElement _element;
 
         [IntentManaged(Mode.Fully)]
-        public DiagramModel(IElement element, string requiredType = SpecializationType)
+        public MongoDBDiagramModel(IElement element, string requiredType = SpecializationType)
         {
             if (!requiredType.Equals(element.SpecializationType, StringComparison.InvariantCultureIgnoreCase))
             {
@@ -42,7 +42,7 @@ namespace Intent.MongoDb.Api
             return _element.ToString();
         }
 
-        public bool Equals(DiagramModel other)
+        public bool Equals(MongoDBDiagramModel other)
         {
             return Equals(_element, other?._element);
         }
@@ -52,7 +52,7 @@ namespace Intent.MongoDb.Api
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((DiagramModel)obj);
+            return Equals((MongoDBDiagramModel)obj);
         }
 
         public override int GetHashCode()
@@ -62,17 +62,17 @@ namespace Intent.MongoDb.Api
     }
 
     [IntentManaged(Mode.Fully)]
-    public static class DiagramModelExtensions
+    public static class MongoDBDiagramModelExtensions
     {
 
-        public static bool IsDiagramModel(this ICanBeReferencedType type)
+        public static bool IsMongoDBDiagramModel(this ICanBeReferencedType type)
         {
-            return type != null && type is IElement element && element.SpecializationTypeId == DiagramModel.SpecializationTypeId;
+            return type != null && type is IElement element && element.SpecializationTypeId == MongoDBDiagramModel.SpecializationTypeId;
         }
 
-        public static DiagramModel AsDiagramModel(this ICanBeReferencedType type)
+        public static MongoDBDiagramModel AsMongoDBDiagramModel(this ICanBeReferencedType type)
         {
-            return type.IsDiagramModel() ? new DiagramModel((IElement)type) : null;
+            return type.IsMongoDBDiagramModel() ? new MongoDBDiagramModel((IElement)type) : null;
         }
     }
 }

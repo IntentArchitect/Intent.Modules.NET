@@ -11,10 +11,10 @@ namespace Intent.MongoDb.Api
 {
     public static class ApiMetadataProviderExtensions
     {
-        public static IList<DiagramModel> GetDiagramModels(this IDesigner designer)
+        public static IList<MongoDBDiagramModel> GetMongoDBDiagramModels(this IDesigner designer)
         {
-            return designer.GetElementsOfType(DiagramModel.SpecializationTypeId)
-                .Select(x => new DiagramModel(x))
+            return designer.GetElementsOfType(MongoDBDiagramModel.SpecializationTypeId)
+                .Select(x => new MongoDBDiagramModel(x))
                 .ToList();
         }
 

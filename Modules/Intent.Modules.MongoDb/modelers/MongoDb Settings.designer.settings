@@ -37,10 +37,10 @@
           <allowMultiple>true</allowMultiple>
         </option>
         <option type="element">
-          <specializationType>Diagram</specializationType>
+          <specializationType>MongoDB Diagram</specializationType>
           <specializationTypeId>67f81f34-af38-4245-9c8e-1816e3012cce</specializationTypeId>
           <text>New Diagram</text>
-          <defaultName>NewDiagram</defaultName>
+          <defaultName>New Diagram</defaultName>
           <icon type="UrlImagePath" source="./img/icons/uml/View_256x.png" />
           <allowMultiple>true</allowMultiple>
         </option>
@@ -78,7 +78,7 @@
         <type order="1">Type-Definition</type>
         <type order="2">Enum</type>
         <type order="3">Comment</type>
-        <type order="4">Diagram</type>
+        <type order="4">MongoDB Diagram</type>
         <type order="5">Class</type>
         <type order="6">Stereotype-Definition</type>
       </typeOrder>
@@ -86,7 +86,7 @@
   </packageSettings>
   <packageExtensions />
   <elementSettings>
-    <elementSetting type="Diagram" typeId="67f81f34-af38-4245-9c8e-1816e3012cce">
+    <elementSetting type="MongoDB Diagram" typeId="67f81f34-af38-4245-9c8e-1816e3012cce">
       <icon type="UrlImagePath" source="./img/icons/uml/View_256x.png" />
       <saveAsOwnFile>true</saveAsOwnFile>
       <allowRename>true</allowRename>

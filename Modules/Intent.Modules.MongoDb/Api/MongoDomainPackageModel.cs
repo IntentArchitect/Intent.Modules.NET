@@ -50,9 +50,9 @@ namespace Intent.MongoDb.Api
             .Select(x => new CommentModel(x))
             .ToList();
 
-        public IList<DiagramModel> Diagrams => UnderlyingPackage.ChildElements
-            .GetElementsOfType(DiagramModel.SpecializationTypeId)
-            .Select(x => new DiagramModel(x))
+        public IList<MongoDBDiagramModel> Diagrams => UnderlyingPackage.ChildElements
+            .GetElementsOfType(MongoDBDiagramModel.SpecializationTypeId)
+            .Select(x => new MongoDBDiagramModel(x))
             .ToList();
 
         public IList<FolderModel> Folders => UnderlyingPackage.ChildElements
