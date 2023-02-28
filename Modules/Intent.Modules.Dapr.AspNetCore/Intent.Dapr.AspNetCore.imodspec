@@ -16,6 +16,14 @@
       <role>Startup</role>
       <location>Configuration</location>
     </template>
+    <template id="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprComponentFilesStaticContentTemplateRegistration" externalReference="2b7880a4-d400-404b-b02b-04ed6a199767">
+      <role>Dapr.Components</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistrations.DaprFilesStaticContentTemplateRegistration" externalReference="7f8f1a8e-b5a8-4d62-9f0e-f2a8aed6e913">
+      <role>Dapr</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
@@ -23,7 +31,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common" version="3.3.19-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.5" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />

@@ -27,7 +27,9 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
             {
                 Sidecar = new
                 {
-                    AppId = application.GetDaprApplicationName(application.Id)
+                    AppId = application.GetDaprApplicationName(application.Id),
+                    ComponentsDirectory = "../../dapr/components",
+                    ConfigFile = "../../dapr/config.yaml"
                 }
             }));
 
