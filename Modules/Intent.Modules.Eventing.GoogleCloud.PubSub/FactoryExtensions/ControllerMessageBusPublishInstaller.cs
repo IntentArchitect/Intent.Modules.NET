@@ -7,6 +7,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
+using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplates.PubSubController;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -25,22 +26,46 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (!IntegrationCoordinator.ShouldInstallStandardIntegration(application))
-            {
-                return;
-            }
+            InstallStandardControllerIntegration(application);
+            InstallPubSubControllerIntegration(application);
+        }
 
-            var controllerTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+        private static void InstallPubSubControllerIntegration(IApplication application)
+        {
+            var controllerTemplates =
+                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(PubSubControllerTemplate.TemplateId));
             foreach (var template in controllerTemplates)
             {
                 template.CSharpFile.AfterBuild(file =>
                 {
                     var @class = file.Classes.First();
                     var ctor = @class.Constructors.First();
-                    ctor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus", p =>
-                    {
-                        p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                    });
+                    ctor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus",
+                        p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+
+                    var requestHandlerMethod = @class.FindMethod("RequestHandler");
+                    requestHandlerMethod.Statements.Last().InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
+                }, order: -100);
+            }
+        }
+
+        private static void InstallStandardControllerIntegration(IApplication application)
+        {
+            if (!IntegrationCoordinator.ShouldInstallStandardIntegration(application))
+            {
+                return;
+            }
+
+            var controllerTemplates =
+                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
+            foreach (var template in controllerTemplates)
+            {
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var ctor = @class.Constructors.First();
+                    ctor.AddParameter(template.GetTypeName(EventBusInterfaceTemplate.TemplateId), "eventBus",
+                        p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                     foreach (var method in @class.Methods)
                     {

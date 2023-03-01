@@ -24,25 +24,58 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.EntityFrameworkCore.Factory
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            InstallBackgroundServiceCode(application);
+            InstallWebhookCode(application);
+        }
+
+        private void InstallWebhookCode(IApplication application)
+        {
+            var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.Controller.PubSub"));
+            foreach (var template in templates)
+            {
+                template.AddUsing("System.Transactions");
+                template.AddUsing("Microsoft.Extensions.DependencyInjection");
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    var method = priClass.FindMethod("RequestHandler");
+                    var body = method.Statements.ToList();
+                    body.ForEach(x => method.Statements.Remove(x));
+                    method.InsertStatement(0,
+                        new CSharpStatementBlock(
+                                $"using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))")
+                            .AddStatement($"var unitOfWork = _serviceProvider.GetService<{GetUnitOfWorkName(template)}>();")
+                            .AddStatements(body)
+                            .AddStatement($"await unitOfWork.SaveChangesAsync(cancellationToken);")
+                            .AddStatement($"transaction.Complete();"));
+                }, -200);
+            }
+        }
+
+        private void InstallBackgroundServiceCode(IApplication application)
+        {
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Eventing.GoogleBackgroundService"));
             foreach (var template in templates)
             {
                 template.AddUsing("System.Transactions");
+                template.AddUsing("Microsoft.Extensions.DependencyInjection");
                 template.CSharpFile.AfterBuild(file =>
                 {
                     var priClass = file.Classes.First();
                     var method = priClass.FindMethod("RequestHandler");
                     var body = method.Statements.Where(p => !p.HasMetadata("create-scope") && !p.HasMetadata("return")).ToList();
                     body.ForEach(x => method.Statements.Remove(x));
-                    method.InsertStatement(1, new CSharpStatementBlock($"using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))")
-                        .AddStatement($"var unitOfWork = scope.ServiceProvider.GetService<{GetUnitOfWorkName(template)}>();")
-                        .AddStatements(body)
-                        .AddStatement($"await unitOfWork.SaveChangesAsync(cancellationToken);")
-                        .AddStatement($"transaction.Complete();"));
+                    method.InsertStatement(1,
+                        new CSharpStatementBlock(
+                                $"using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))")
+                            .AddStatement($"var unitOfWork = scope.ServiceProvider.GetService<{GetUnitOfWorkName(template)}>();")
+                            .AddStatements(body)
+                            .AddStatement($"await unitOfWork.SaveChangesAsync(cancellationToken);")
+                            .AddStatement($"transaction.Complete();"));
                 }, -200);
             }
         }
-        
+
         private string GetUnitOfWorkName(ICSharpFileBuilderTemplate template)
         {
             if (template.TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkTypeName) ||

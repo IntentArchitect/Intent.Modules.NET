@@ -33,7 +33,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplat
                     file.AddUsing("Microsoft.AspNetCore.Mvc");
                     file.AddUsing("Microsoft.Extensions.Options");
                     file.AddUsing("Newtonsoft.Json");
-                    
+
                     var priClass = file.Classes.First();
                     priClass.AddAttribute($@"Route(""api/[controller]"")");
                     priClass.WithBaseType("Controller");

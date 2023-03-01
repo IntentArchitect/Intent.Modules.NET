@@ -28,10 +28,34 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             InstallMongoDbUnitOfWorkForStandardIntegration(application);
-            InstallMongoDbUnitOfWorkForGoogleCloudPubSubIntegration(application);
+            InstallMongoDbUnitOfWorkForGoogleCloudPubSubBackgroundServiceIntegration(application);
+            InstallMongoDbUnitOfWorkForGoogleCloudPubSubWebhookIntegration(application);
         }
 
-        private void InstallMongoDbUnitOfWorkForGoogleCloudPubSubIntegration(IApplication application)
+        private void InstallMongoDbUnitOfWorkForGoogleCloudPubSubWebhookIntegration(IApplication application)
+        {
+            if (!IntegrationCoordinator.ShouldInstallGoogleCloudPubSubIntegration(application))
+            {
+                return;
+            }
+
+            var controllerTemplates =
+                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.Controller.PubSub"));
+            foreach (var template in controllerTemplates)
+            {
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("RequestHandler");
+                    method.Statements.First()
+                        .InsertAbove($"var mongoDbUnitOfWork = _serviceProvider.GetService<{GetAppDbContext(template)}>();");
+                    method.Statements.Last()
+                        .InsertBelow($"await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
+                }, -120);
+            }
+        }
+
+        private void InstallMongoDbUnitOfWorkForGoogleCloudPubSubBackgroundServiceIntegration(IApplication application)
         {
             if (!IntegrationCoordinator.ShouldInstallGoogleCloudPubSubIntegration(application))
             {

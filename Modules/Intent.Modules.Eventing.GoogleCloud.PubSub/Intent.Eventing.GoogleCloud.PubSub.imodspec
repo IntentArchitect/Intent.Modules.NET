@@ -31,7 +31,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Distribution</role>
+      <role>Distribution.Controller.PubSub</role>
       <location>Controllers</location>
     </template>
     <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GenericIntegrationEventHandlerImplementation" externalReference="ea8b62de-1ea3-4a52-9cd7-efef904a0ee9">

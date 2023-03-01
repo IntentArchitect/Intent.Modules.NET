@@ -28,7 +28,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemp
                 .OnBuild(file =>
                 {
                     file.AddUsing("Google.Api.Gax");
-                    
+
                     var priClass = file.Classes.First();
                     priClass.AddProperty("bool", "UseMetadataServer");
                     priClass.AddProperty("bool", "ShouldSetupCloudResources");
@@ -46,7 +46,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemp
                     });
                 });
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             this.ApplyAppSetting("GoogleCloudPubSub:UseMetadataServer", false);
