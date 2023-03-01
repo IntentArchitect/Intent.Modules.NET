@@ -33,56 +33,70 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing System.Text.Json;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\nusing Google.Cloud.PubSub.V1;\r\nusing Google.Protobuf;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
+            this.Write("using System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nusing System.Text.Json;\r\nusing System.Threading;\r\nusing System.Threading.Tasks;\r\nusing Google.Cloud.PubSub.V1;\r\nusing Google.Protobuf;\r\nusing Microsoft.Extensions.Options;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\npublic class ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    private readonly ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusTopicEventManagerInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(" _topicEventManager;\r\n\r\n    private readonly List<PubsubMessage> _messagesToPublish = new();\r\n\r\n    public GooglePubSubEventBus(");
+            this.Write(" _topicEventManager;\r\n\r\n    private readonly List<PubsubMessage> _messagesToPublish = new();\r\n    private readonly ");
             
             #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPubSubOptionsName()));
+            
+            #line default
+            #line hidden
+            this.Write(" _pubSubOptions;\r\n\r\n    public GooglePubSubEventBus(");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusTopicEventManagerInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(" topicEventManager)\r\n    {\r\n        _topicEventManager = topicEventManager;\r\n    }\r\n    \r\n    public void Publish<T>(T message) where T : class\r\n    {\r\n        if (typeof(T) == typeof(");
+            this.Write(" topicEventManager, IOptions<");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPubSubOptionsName()));
+            
+            #line default
+            #line hidden
+            this.Write("> pubSubOptions)\r\n    {\r\n        _topicEventManager = topicEventManager;\r\n        _pubSubOptions = pubSubOptions.Value;\r\n    }\r\n    \r\n    public void Publish<T>(T message) where T : class\r\n    {\r\n        if (typeof(T) == typeof(");
+            
+            #line 40 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetGenericMessageName()));
             
             #line default
             #line hidden
             this.Write("))\r\n        {\r\n            throw new ArgumentException($\"{nameof(");
             
-            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
+            #line 42 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Eventing.GoogleCloud.PubSub\Templates\ImplementationTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetGenericMessageName()));
             
             #line default
             #line hidden
-            this.Write(")} is not meant to be published. Create a new Message type intended for your given use case.\");\r\n        }\r\n        _messagesToPublish.Add(new PubsubMessage\r\n        {\r\n            Attributes = { { \"MessageType\", typeof(T).FullName } },\r\n            Data = ByteString.CopyFromUtf8(JsonSerializer.Serialize(message))\r\n        });\r\n    }\r\n\r\n    public async Task FlushAllAsync(CancellationToken cancellationToken = default)\r\n    {\r\n        await Task.WhenAll(_messagesToPublish.Select(async message =>\r\n        {\r\n            var topicName = _topicEventManager.GetTopicName(message);\r\n            var publisher = await PublisherClient.CreateAsync(topicName);\r\n            await publisher.PublishAsync(message);\r\n        }));\r\n        _messagesToPublish.Clear();\r\n    }\r\n}");
+            this.Write(")} is not meant to be published. Create a new Message type intended for your given use case.\");\r\n        }\r\n        _messagesToPublish.Add(new PubsubMessage\r\n        {\r\n            Attributes = { { \"MessageType\", typeof(T).FullName } },\r\n            Data = ByteString.CopyFromUtf8(JsonSerializer.Serialize(message))\r\n        });\r\n    }\r\n\r\n    public async Task FlushAllAsync(CancellationToken cancellationToken = default)\r\n    {\r\n        await Task.WhenAll(_messagesToPublish.Select(async message =>\r\n        {\r\n            var topicName = _topicEventManager.GetTopicName(message);\r\n            var publisher = await new PublisherClientBuilder()\r\n            {\r\n                TopicName = topicName,\r\n                EmulatorDetection = _pubSubOptions.GetEmulatorDetectionMode()\r\n            }.BuildAsync(cancellationToken);\r\n            await publisher.PublishAsync(message);\r\n        }));\r\n        _messagesToPublish.Clear();\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

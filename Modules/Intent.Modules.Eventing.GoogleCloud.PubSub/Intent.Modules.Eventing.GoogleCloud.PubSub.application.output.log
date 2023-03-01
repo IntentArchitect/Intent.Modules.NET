@@ -82,6 +82,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f37c8d55-a274-43b6-8e4f-7c9f2856a699</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ConfigurationTemplates/PubSubOptions/PubSubOptionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationTemplates/PubSubOptions/PubSubOptionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f37c8d55-a274-43b6-8e4f-7c9f2856a699</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ConfigurationTemplates/PubSubOptions/PubSubOptionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ConfigurationTemplates/PubSubOptions/PubSubOptionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fbf7cf52-ab8a-4415-9160-78ea5371a417</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ControllerTemplates/PubSubController/PubSubControllerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerTemplates/PubSubController/PubSubControllerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fbf7cf52-ab8a-4415-9160-78ea5371a417</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ControllerTemplates/PubSubController/PubSubControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ControllerTemplates/PubSubController/PubSubControllerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>178b8227-5659-409c-8725-cca6a634d637</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ea8b62de-1ea3-4a52-9cd7-efef904a0ee9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ImplementationTemplates/GenericIntegrationEventHandlerImplementation/GenericIntegrationEventHandlerImplementationTemplatePartial.cs</ApplicationRelativeFilePath>

@@ -13,8 +13,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Google.Cloud.PubSub.V1;
 using Grpc.Core;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -23,14 +23,16 @@ namespace <#= Namespace #>;
 public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() #>
 {
     private readonly ILogger<<#= ClassName #>> _logger;
+    private readonly <#= this.GetPubSubOptionsName() #> _pubSubOptions;
     private readonly HttpClient _httpClient;
     
-    public <#= ClassName #>(IConfiguration configuration, ILogger<<#= ClassName #>> logger)
+    public <#= ClassName #>(IOptions<<#= this.GetPubSubOptionsName() #>> pubSubOptions, ILogger<<#= ClassName #>> logger)
     {
         _logger = logger;
+        _pubSubOptions = pubSubOptions.Value;
         _httpClient = new HttpClient();
         _httpClient.DefaultRequestHeaders.Add("Metadata-Flavor", "Google");
-        PopulateDetails(configuration);
+        PopulateDetails();
     }
 
     public string ProjectId { get; private set; }
@@ -38,7 +40,10 @@ public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() 
 
     public async Task CreateTopicIfNotExistAsync(string topicId, CancellationToken cancellationToken = default)
     {
-        var publisherService = await PublisherServiceApiClient.CreateAsync(cancellationToken);
+        var publisherService = await new PublisherServiceApiClientBuilder
+        {
+            EmulatorDetection = _pubSubOptions.GetEmulatorDetectionMode()
+        }.BuildAsync(cancellationToken);
         try
         {
             var topic = await publisherService.GetTopicAsync($"projects/{ProjectId}/topics/{topicId}");
@@ -70,7 +75,10 @@ public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() 
 
     public async Task CreateSubscriptionIfNotExistAsync((string SubscriptionId, string TopicId) subscription, CancellationToken cancellationToken = default)
     {
-        var subscriberService = await SubscriberServiceApiClient.CreateAsync(cancellationToken);
+        var subscriberService = await new SubscriberServiceApiClientBuilder()
+        {
+            EmulatorDetection = _pubSubOptions.GetEmulatorDetectionMode()
+        }.BuildAsync(cancellationToken);
         try
         {
             var existingSubscription = await subscriberService.GetSubscriptionAsync($"projects/{ProjectId}/subscriptions/{subscription.SubscriptionId}", cancellationToken);
@@ -103,10 +111,9 @@ public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() 
         }
     }
 
-    private void PopulateDetails(IConfiguration configuration)
+    private void PopulateDetails()
     {
-        bool.TryParse(configuration["GoogleCloud:UseMetadataServer"], out var useMetadataServer);
-        ProjectId = useMetadataServer ? GetGoogleProjectId() : configuration["GoogleCloud:ProjectId"];
+        ProjectId = _pubSubOptions.UseMetadataServer ? GetGoogleProjectId() : _pubSubOptions.ProjectId;
 
         if (ProjectId == null)
         {
@@ -114,8 +121,7 @@ public class <#= ClassName #> : <#= this.GetCloudResourceManagerInterfaceName() 
 Either configure 'GoogleCloud:UseMetadataServer' to 'true' to use the Metadata server or configure 'GoogleCloud:ProjectId' to be the actual Project Id in your appsettings.json file.");
         }
 
-        bool.TryParse(configuration["GoogleCloud:ShouldSetupCloudResources"], out var shouldSetupCloudResources);
-        ShouldSetupCloudResources = shouldSetupCloudResources;
+        ShouldSetupCloudResources = _pubSubOptions.ShouldSetupCloudResources;
     }
 
     private string GetGoogleProjectId()

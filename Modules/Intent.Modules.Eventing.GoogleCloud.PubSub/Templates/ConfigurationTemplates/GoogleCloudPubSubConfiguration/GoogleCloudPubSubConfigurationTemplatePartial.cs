@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -17,7 +18,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemplates.GoogleCloudPubSubConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class GoogleCloudPubSubConfigurationTemplate : CSharpTemplateBase<IList<EventingPackageModel>>, ICSharpFileBuilderTemplate
+    public partial class GoogleCloudPubSubConfigurationTemplate : CSharpTemplateBase<IList<EventingPackageModel>>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.GoogleCloud.PubSub.ConfigurationTemplates.GoogleCloudPubSubConfiguration";
 
@@ -34,6 +35,19 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemp
                 {
                     var priClass = file.Classes.First();
                     priClass.Static();
+                    priClass.AddMethod("IServiceCollection", "RegisterGoogleCloudPubSubServices", method =>
+                    {
+                        method.Static();
+                        method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
+                        method.AddParameter("IConfiguration", "configuration");
+                        method.AddStatements($@"
+services.Configure<{this.GetPubSubOptionsName()}>(configuration.GetSection(""GoogleCloudPubSub""));
+services.AddScoped<{this.GetGooglePubSubEventBusName()}>();
+services.AddTransient<{this.GetEventBusInterfaceName()}>(provider => provider.GetService<{this.GetGooglePubSubEventBusName()}>());
+services.AddSingleton<{this.GetGoogleCloudResourceManagerName()}>();
+services.AddTransient<{this.GetCloudResourceManagerInterfaceName()}>(provider => provider.GetService<{this.GetGoogleCloudResourceManagerName()}>());
+return services;");
+                    });
                     priClass.AddMethod("IServiceCollection", "AddSubscribers", method =>
                     {
                         method.Static();
@@ -84,6 +98,10 @@ services.AddTransient<{this.GetEventBusSubscriptionManagerInterfaceName()}>(prov
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("RegisterGoogleCloudPubSubServices", ServiceConfigurationRequest.ParameterType.Configuration)
+                .ForConcern("Infrastructure")
+                .HasDependency(this));
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("AddSubscribers")
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
@@ -96,7 +114,7 @@ services.AddTransient<{this.GetEventBusSubscriptionManagerInterfaceName()}>(prov
                 .ForConcern("Infrastructure")
                 .HasDependency(this));
         }
-        
+
         private string GetMessageName(MessageModel messageModel)
         {
             return GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", messageModel.InternalElement);

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemplates.GoogleCloudPubSubConfiguration;
+using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ConfigurationTemplates.PubSubOptions;
+using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplates.PubSubController;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GenericIntegrationEventHandlerImplementation;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleCloudResourceManager;
 using Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleEventBusSubscriptionManager;
@@ -90,6 +92,16 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates
         public static string GetMessageBusPublishBehaviourName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MessageBusPublishBehaviourTemplate.TemplateId);
+        }
+
+        public static string GetPubSubControllerName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(PubSubControllerTemplate.TemplateId);
+        }
+
+        public static string GetPubSubOptionsName<T>(this IntentTemplateBase<T> template)
+        {
+            return template.GetTypeName(PubSubOptionsTemplate.TemplateId);
         }
 
     }

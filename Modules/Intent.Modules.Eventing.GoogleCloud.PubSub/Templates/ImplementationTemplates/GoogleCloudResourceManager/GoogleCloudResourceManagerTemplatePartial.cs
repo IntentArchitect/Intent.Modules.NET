@@ -32,23 +32,5 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
-
-        public override void BeforeTemplateExecution()
-        {
-            this.ApplyAppSetting("GoogleCloud:UseMetadataServer", false);
-            this.ApplyAppSetting("GoogleCloud:ProjectId", $"x-object-xyz");
-            this.ApplyAppSetting("GoogleCloud:ShouldSetupCloudResources", true);
-            
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(this)
-                .ForConcern("Infrastructure")
-                .WithSingletonLifeTime());
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(this)
-                .ForInterface(this.GetCloudResourceManagerInterfaceName())
-                .ForConcern("Infrastructure")
-                .HasDependency(GetTemplate<IClassProvider>(CloudResourceManagerInterfaceTemplate.TemplateId))
-                .WithResolveFromContainer());
-        }
     }
 }

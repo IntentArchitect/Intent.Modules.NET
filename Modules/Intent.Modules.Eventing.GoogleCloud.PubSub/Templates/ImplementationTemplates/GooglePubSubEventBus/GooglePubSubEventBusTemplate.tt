@@ -16,6 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Google.Cloud.PubSub.V1;
 using Google.Protobuf;
+using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 
@@ -26,10 +27,12 @@ public class <#= ClassName #> : <#= this.GetEventBusInterfaceName() #>
     private readonly <#= this.GetEventBusTopicEventManagerInterfaceName() #> _topicEventManager;
 
     private readonly List<PubsubMessage> _messagesToPublish = new();
+    private readonly <#= this.GetPubSubOptionsName() #> _pubSubOptions;
 
-    public GooglePubSubEventBus(<#= this.GetEventBusTopicEventManagerInterfaceName() #> topicEventManager)
+    public GooglePubSubEventBus(<#= this.GetEventBusTopicEventManagerInterfaceName() #> topicEventManager, IOptions<<#= this.GetPubSubOptionsName() #>> pubSubOptions)
     {
         _topicEventManager = topicEventManager;
+        _pubSubOptions = pubSubOptions.Value;
     }
     
     public void Publish<T>(T message) where T : class
@@ -50,7 +53,11 @@ public class <#= ClassName #> : <#= this.GetEventBusInterfaceName() #>
         await Task.WhenAll(_messagesToPublish.Select(async message =>
         {
             var topicName = _topicEventManager.GetTopicName(message);
-            var publisher = await PublisherClient.CreateAsync(topicName);
+            var publisher = await new PublisherClientBuilder()
+            {
+                TopicName = topicName,
+                EmulatorDetection = _pubSubOptions.GetEmulatorDetectionMode()
+            }.BuildAsync(cancellationToken);
             await publisher.PublishAsync(message);
         }));
         _messagesToPublish.Clear();

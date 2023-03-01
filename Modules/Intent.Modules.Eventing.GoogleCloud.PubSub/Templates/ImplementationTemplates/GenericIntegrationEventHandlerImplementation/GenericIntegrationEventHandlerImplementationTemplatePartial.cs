@@ -18,7 +18,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GenericIntegrationEventHandlerImplementation
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class GenericIntegrationEventHandlerImplementationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class GenericIntegrationEventHandlerImplementationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GenericIntegrationEventHandlerImplementation";
 

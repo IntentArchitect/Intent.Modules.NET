@@ -17,7 +17,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.GoogleSubscriberBackgroundService
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class GoogleSubscriberBackgroundServiceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class GoogleSubscriberBackgroundServiceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleSubscriberBackgroundService";
 

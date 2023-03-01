@@ -33,19 +33,5 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTem
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
-
-        public override void BeforeTemplateExecution()
-        {
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(this)
-                .ForConcern("Infrastructure")
-                .WithPerServiceCallLifeTime());
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest
-                .ToRegister(this)
-                .ForInterface(this.GetEventBusInterfaceName())
-                .HasDependency(GetTemplate<IClassProvider>(EventBusInterfaceTemplate.TemplateId))
-                .ForConcern("Infrastructure")
-                .WithResolveFromContainer());
-        }
     }
 }

@@ -19,7 +19,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ImplementationTemplates.IntegrationEventHandlerImplementation
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class IntegrationEventHandlerImplementationTemplate : CSharpTemplateBase<MessageSubscribeAssocationTargetEndModel>, ICSharpFileBuilderTemplate
+    public partial class IntegrationEventHandlerImplementationTemplate : CSharpTemplateBase<MessageSubscribeAssocationTargetEndModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.IntegrationEventHandlerImplementation";
 

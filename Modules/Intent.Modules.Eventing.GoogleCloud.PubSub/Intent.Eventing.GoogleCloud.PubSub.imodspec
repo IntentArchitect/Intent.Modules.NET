@@ -18,6 +18,22 @@
       <role>Infrastructure.DependencyInjection.GoogleCloudPubSub</role>
       <location>Configuration</location>
     </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ConfigurationTemplates.PubSubOptions" externalReference="f37c8d55-a274-43b6-8e4f-7c9f2856a699">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.PubSubOptions</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.GoogleCloud.PubSub.ControllerTemplates.PubSubController" externalReference="fbf7cf52-ab8a-4415-9160-78ea5371a417">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution</role>
+      <location>Controllers</location>
+    </template>
     <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GenericIntegrationEventHandlerImplementation" externalReference="ea8b62de-1ea3-4a52-9cd7-efef904a0ee9">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -139,7 +155,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.5" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Eventing.Contracts" version="4.0.0" />
     <dependency id="Intent.Modelers.Eventing" version="4.0.1-pre.0" />
