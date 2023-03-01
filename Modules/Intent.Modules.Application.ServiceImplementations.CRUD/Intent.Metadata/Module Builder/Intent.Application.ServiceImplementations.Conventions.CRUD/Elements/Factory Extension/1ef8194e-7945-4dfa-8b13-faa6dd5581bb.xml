@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ef8194e-7945-4dfa-8b13-faa6dd5581bb" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>IntegrationFactoryExtension</name>
+  <display>IntegrationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d6896515-75f1-4dee-9b72-7523b5948b2b</parentFolderId>
+  <packageId>d6896515-75f1-4dee-9b72-7523b5948b2b</packageId>
+  <packageName>Intent.Application.ServiceImplementations.Conventions.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

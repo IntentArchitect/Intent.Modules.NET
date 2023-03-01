@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
-  <version>4.1.0-pre.1</version>
+  <version>4.1.0-pre.2</version>
   <supportedClientVersions>[3.3.12,4.0.0)</supportedClientVersions>
   <summary>CRUD conventions for standard Services</summary>
   <description>CRUD conventions for standard Services</description>
@@ -13,15 +13,15 @@
   <dependencies>
     <dependency id="Intent.Application.AutoMapper" version="4.0.0" />
     <dependency id="Intent.Application.ServiceImplementations" version="4.1.0-pre.0" />
-    <dependency id="Intent.Modelers.Services.CRUD.ServiceDispatch" version="3.4.0" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.4.0" />
-    <dependency id="Intent.Entities.Repositories.Api" version="4.0.2" />
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Entities.Repositories.Api" version="4.0.2" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.0" />
-    <dependency id="Intent.Modelers.Services" version="3.3.7" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.3.10" />
+    <dependency id="Intent.Modelers.Services" version="3.3.7" />
+    <dependency id="Intent.Modelers.Services.CRUD.ServiceDispatch" version="3.4.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
@@ -54,5 +54,6 @@
   <moduleSettingsExtensions />
   <factoryExtensions>
     <factoryExtension id="Intent.Application.ServiceImplementations.Conventions.CRUD.CrudServiceFactoryExtension" externalReference="2d628d87-8a8b-4804-aecf-5d63a480462b" />
+    <factoryExtension id="Intent.Application.ServiceImplementations.Conventions.CRUD.IntegrationFactoryExtension" externalReference="1ef8194e-7945-4dfa-8b13-faa6dd5581bb" />
   </factoryExtensions>
 </package>

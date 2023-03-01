@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6c06fe9e-d240-49c9-b664-cca3bbabad1a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>IntegrationFactoryExtension</name>
+  <display>IntegrationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</parentFolderId>
+  <packageId>4c21efb8-ec70-4d57-8ea4-d6e9f7e6b9f6</packageId>
+  <packageName>Intent.Application.MediatR.CRUD</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
