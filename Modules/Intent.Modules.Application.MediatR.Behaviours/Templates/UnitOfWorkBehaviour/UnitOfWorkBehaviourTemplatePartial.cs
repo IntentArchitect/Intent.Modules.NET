@@ -19,8 +19,6 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour";
 
-        private string _unitOfWorkTypeName;
-
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public UnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
@@ -29,11 +27,19 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
 
         public override bool CanRunTemplate()
         {
-            var hasUnitOfWorkInterace = TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _unitOfWorkTypeName) ||
-                               TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out _unitOfWorkTypeName);
-            // Using the TryGetTypeName() will add the using directive which we don't want for concrete types.
-            var hasUnitOfWorkConcrete = ExecutionContext.FindTemplateInstance("Infrastructure.Data.DbContext") != null;
-            return hasUnitOfWorkInterace && hasUnitOfWorkConcrete;
+            var hasUnitOfWorkInterface =
+                ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Domain.UnitOfWork) != null ||
+                ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Application.Common.DbContextInterface) != null; 
+            var hasUnitOfWorkConcrete = ExecutionContext.FindTemplateInstance<IClassProvider>("Infrastructure.Data.DbContext") != null;
+            return hasUnitOfWorkInterface && hasUnitOfWorkConcrete;
+        }
+
+        private string GetUnitOfWorkTypeName()
+        {
+            var result = TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkTypeName) || 
+                TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWorkTypeName);
+            
+            return unitOfWorkTypeName;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

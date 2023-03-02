@@ -27,9 +27,9 @@ namespace <#= Namespace #>
     public class <#= ClassName #><TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>, <#= this.GetCommandInterfaceName() #>
     {
-        private readonly <#= _unitOfWorkTypeName #> _dataSource;
+        private readonly <#= GetUnitOfWorkTypeName() #> _dataSource;
 
-        public <#= ClassName #>(<#= _unitOfWorkTypeName #> dataSource)
+        public <#= ClassName #>(<#= GetUnitOfWorkTypeName() #> dataSource)
         {
             _dataSource = dataSource;
         }
