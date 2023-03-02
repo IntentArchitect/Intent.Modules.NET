@@ -99,7 +99,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.FactoryExtensions
                 {
                     return;
                 }
-                
+
                 template.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant", "6.5.1"));
                 template.AddNugetDependency(new NugetPackageInfo("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1"));
 

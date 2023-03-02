@@ -82,6 +82,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#c51b6146-73a7-4724-a229-d8d9fed6bed4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#c51b6146-73a7-4724-a229-d8d9fed6bed4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c51b6146-73a7-4724-a229-d8d9fed6bed4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#c51b6146-73a7-4724-a229-d8d9fed6bed4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Swagger/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a368017c-ecbe-43ab-a18f-537046ab6297</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>

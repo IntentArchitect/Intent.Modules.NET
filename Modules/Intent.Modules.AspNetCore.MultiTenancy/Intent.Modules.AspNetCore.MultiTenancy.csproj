@@ -25,6 +25,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>TenantExtendedInfoTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\Swagger\TenantHeaderOperationFilter\TenantHeaderOperationFilterTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TenantHeaderOperationFilterTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +36,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>TenantExtendedInfoTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Swagger\TenantHeaderOperationFilter\TenantHeaderOperationFilterTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TenantHeaderOperationFilterTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
