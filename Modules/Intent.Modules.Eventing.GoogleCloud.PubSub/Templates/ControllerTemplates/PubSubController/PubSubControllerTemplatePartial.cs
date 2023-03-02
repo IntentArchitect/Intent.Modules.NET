@@ -33,6 +33,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplat
                     file.AddUsing("Microsoft.AspNetCore.Mvc");
                     file.AddUsing("Microsoft.Extensions.Options");
                     file.AddUsing("Newtonsoft.Json");
+                    file.AddUsing("ProtoTimestamp = Google.Protobuf.WellKnownTypes.Timestamp");
 
                     var priClass = file.Classes.First();
                     priClass.AddAttribute($@"Route(""api/[controller]"")");
@@ -73,8 +74,8 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplat
                         method.AddStatement(string.Empty);
                         method.AddStatement("var message = new PubsubMessage();");
                         method.AddStatement("message.Attributes.Add(body.message.attributes);");
-                        method.AddStatement("message.MessageId = body.message.message_id;");
-                        method.AddStatement("message.PublishTime = Timestamp.FromDateTime(DateTime.Parse(body.message.publish_time));");
+                        method.AddStatement("message.MessageId = body.message.message_id ?? body.message.messageId;");
+                        method.AddStatement("message.PublishTime = !string.IsNullOrWhiteSpace(body.message.publish_time) ? ProtoTimestamp.FromDateTime(DateTime.Parse(body.message.publish_time)) : null;");
                         method.AddStatement("message.Data = ByteString.FromBase64(body.message.data);");
                         method.AddStatement(string.Empty);
                         method.AddStatement("await RequestHandler(message, cancellationToken);");
@@ -98,11 +99,13 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplat
                         nested.AddProperty("PushMessage", "message");
                         nested.AddProperty("string", "subscription");
                     });
+                    // See here for sample: https://cloud.google.com/pubsub/docs/push#receive_push
                     priClass.AddNestedClass("PushMessage", nested =>
                     {
                         nested.AddProperty("Dictionary<string, string>", "attributes");
                         nested.AddProperty("string", "data");
                         nested.AddProperty("string", "message_id");
+                        nested.AddProperty("string", "messageId");
                         nested.AddProperty("string", "publish_time");
                     });
                     priClass.AddNestedClass("PubSubPayload", nested =>
