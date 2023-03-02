@@ -24,12 +24,16 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public UnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            
         }
 
         public override bool CanRunTemplate()
         {
-            return TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _unitOfWorkTypeName) &&
-                   TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out _unitOfWorkTypeName);
+            var hasUnitOfWorkInterace = TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out _unitOfWorkTypeName) ||
+                               TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out _unitOfWorkTypeName);
+            // Using the TryGetTypeName() will add the using directive which we don't want for concrete types.
+            var hasUnitOfWorkConcrete = ExecutionContext.FindTemplateInstance("Infrastructure.Data.DbContext") != null;
+            return hasUnitOfWorkInterace && hasUnitOfWorkConcrete;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
