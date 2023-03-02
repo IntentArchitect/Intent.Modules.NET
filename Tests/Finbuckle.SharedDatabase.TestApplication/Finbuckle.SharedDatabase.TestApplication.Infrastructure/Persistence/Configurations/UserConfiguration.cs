@@ -1,3 +1,4 @@
+using Finbuckle.MultiTenant.EntityFrameworkCore;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence.Co
                 .IsRequired();
 
             builder.OwnsMany(x => x.Roles, ConfigureRoles);
+            builder.IsMultiTenant();
         }
 
         public void ConfigureRoles(OwnedNavigationBuilder<User, Role> builder)

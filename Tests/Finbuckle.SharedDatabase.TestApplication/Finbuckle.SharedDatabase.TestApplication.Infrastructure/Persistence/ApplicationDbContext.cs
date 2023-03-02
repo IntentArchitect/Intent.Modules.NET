@@ -1,3 +1,8 @@
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.EntityFrameworkCore;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Common.Interfaces;
 using Finbuckle.SharedDatabase.TestApplication.Domain.Entities;
 using Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence.Configurations;
@@ -9,10 +14,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext, IUnitOfWork
+    public class ApplicationDbContext : DbContext, IUnitOfWork, IMultiTenantDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(ITenantInfo tenantInfo, DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+            TenantInfo = tenantInfo;
         }
 
         public DbSet<User> Users { get; set; }
@@ -23,6 +29,18 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+        }
+
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            this.EnforceMultiTenant();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
+
+        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken())
+        {
+            this.EnforceMultiTenant();
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         [IntentManaged(Mode.Ignore)]
@@ -38,5 +56,9 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             new Car() { CarId = 3, Make = "Labourghini", Model = "Countach" });
             */
         }
+
+        public ITenantInfo TenantInfo { get; internal set; }
+        public TenantMismatchMode TenantMismatchMode { get; set; } = TenantMismatchMode.Throw;
+        public TenantNotSetMode TenantNotSetMode { get; set; } = TenantNotSetMode.Throw;
     }
 }
