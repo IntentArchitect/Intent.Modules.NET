@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dc84d9b3-81e9-4b3b-aa48-cd047ba8ce1f" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Users</name>
+  <display>Users</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>155b1a00-cd93-427b-8e4c-86fd67ba7120</parentFolderId>
+  <packageId>155b1a00-cd93-427b-8e4c-86fd67ba7120</packageId>
+  <packageName>Finbuckle.SeparateDatabase.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
