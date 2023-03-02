@@ -17,5 +17,6 @@
     <application id="794893b1-0854-4d56-ab58-82e53b116290" name="EntityFrameworkCore.CosmosDb.TestApplication" relativePath="EntityFrameworkCore.CosmosDb.TestApplication/EntityFrameworkCore.CosmosDb.TestApplication.application.config" />
     <application id="f593d91c-03c8-4db7-b0be-f07f1c1b8103" name="Integration.HttpClients.TestApplication" relativePath="Integration.HttpClients.TestApplication/Integration.HttpClients.TestApplication.application.config" />
     <application id="8ebf5599-97b8-49b0-9b9a-7ade23c96882" name="Finbuckle.SeparateDatabase.TestApplication" relativePath="Finbuckle.SeparateDatabase.TestApplication/Finbuckle.SeparateDatabase.TestApplication.application.config" />
+    <application id="8913a8a9-4b21-4c49-8bd1-bc4ab2ef443b" name="Finbuckle.SharedDatabase.TestApplication" relativePath="Finbuckle.SharedDatabase.TestApplication/Finbuckle.SharedDatabase.TestApplication.application.config" />
   </applications>
 </solution>

@@ -17,13 +17,15 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
         public static UserUpdateDto Create(
             Guid id,
             string email,
-            string username)
+            string username,
+            List<UpdateUserRoleDto> roles)
         {
             return new UserUpdateDto
             {
                 Id = id,
                 Email = email,
                 Username = username,
+                Roles = roles,
             };
         }
 
@@ -32,6 +34,8 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
         public string Email { get; set; }
 
         public string Username { get; set; }
+
+        public List<UpdateUserRoleDto> Roles { get; set; }
 
     }
 }

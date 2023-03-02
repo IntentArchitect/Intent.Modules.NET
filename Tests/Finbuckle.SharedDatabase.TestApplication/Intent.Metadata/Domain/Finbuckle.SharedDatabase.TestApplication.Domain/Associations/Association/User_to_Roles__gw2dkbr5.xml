@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a0d634d7-5959-43b9-8655-6f1a12e38e14">
+  <sourceEnd id="7bf94add-73b6-4642-9816-6cca6b8107f1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>User</name>
+    <display>User: User</display>
+    <order>0</order>
+    <typeReference id="800dbca1-1b74-4327-9810-5b2ad5af6055">
+      <typeId>d3ffe8ff-8a81-4c54-832f-329acba344fb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Finbuckle.SharedDatabase.TestApplication.Domain</typePackageName>
+      <typePackageId>d5f94e5b-8913-40e7-8182-8478b74e5592</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a0d634d7-5959-43b9-8655-6f1a12e38e14" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Roles</name>
+    <display>Roles: Role[*]</display>
+    <order>3</order>
+    <typeReference id="2e06e923-c2e6-4671-9304-b7a6d31cf9d9">
+      <typeId>c87dc024-bb4a-444d-9166-8b33c9217f6a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Finbuckle.SharedDatabase.TestApplication.Domain</typePackageName>
+      <typePackageId>d5f94e5b-8913-40e7-8182-8478b74e5592</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

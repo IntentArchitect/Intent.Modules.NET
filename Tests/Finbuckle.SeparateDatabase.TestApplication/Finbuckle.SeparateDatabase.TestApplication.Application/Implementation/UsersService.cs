@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Users;
+using Finbuckle.SeparateDatabase.TestApplication.Domain.Common;
 using Finbuckle.SeparateDatabase.TestApplication.Domain.Entities;
 using Finbuckle.SeparateDatabase.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -34,6 +35,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
             {
                 Email = dto.Email,
                 Username = dto.Username,
+                Roles = dto.Roles.Select(CreateRole).ToList(),
             };
             _userRepository.Add(newUser);
             await _userRepository.UnitOfWork.SaveChangesAsync();
@@ -60,6 +62,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
             var existingUser = await _userRepository.FindByIdAsync(id);
             existingUser.Email = dto.Email;
             existingUser.Username = dto.Username;
+            existingUser.Roles.UpdateCollection(dto.Roles, (e, d) => e.Id == d.Id, UpdateRole);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -72,6 +75,22 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
 
         public void Dispose()
         {
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private Role CreateRole(CreateUserRoleDto dto)
+        {
+            return new Role
+            {
+                Name = dto.Name,
+            };
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static void UpdateRole(Role entity, UpdateUserRoleDto dto)
+        {
+            entity.UserId = dto.UserId;
+            entity.Name = dto.Name;
         }
     }
 }

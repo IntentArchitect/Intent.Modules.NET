@@ -40,8 +40,8 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Configuration
             var scopeServices = sp.CreateScope().ServiceProvider;
             var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantInfo>>();
 
-            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection" }).Wait();
-            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection" }).Wait();
+            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Server=.;Initial Catalog=SeparateDatabase.Tenant1;Integrated Security=true;MultipleActiveResultSets=True;Encrypt=False" }).Wait();
+            store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Server=.;Initial Catalog=SeparateDatabase.Tenant2;Integrated Security=true;MultipleActiveResultSets=True;Encrypt=False" }).Wait();
         }
     }
 }

@@ -54,5 +54,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="d0d176ae-55ad-4e55-bd4c-9cf7240917a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</name>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory</display>
+      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b6c79da-1a9d-4904-a440-6f1909b4144a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4e8475bd-1472-44b2-8949-b228440f3a16" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbMigrationsReadMe</name>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbMigrationsReadMe</display>
+      <externalReference>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b6c79da-1a9d-4904-a440-6f1909b4144a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

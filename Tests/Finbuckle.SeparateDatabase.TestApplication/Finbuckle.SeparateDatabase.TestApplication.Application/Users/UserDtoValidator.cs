@@ -25,6 +25,9 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
             RuleFor(v => v.Username)
                 .NotNull();
 
+            RuleFor(v => v.Roles)
+                .NotNull();
+
         }
     }
 }

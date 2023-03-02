@@ -20,7 +20,9 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Infrastructure
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 var tenantInfo = sp.GetService<ITenantInfo>() ?? throw new MultiTenantException("Failed to resolve tenant info.");
-                options.UseInMemoryDatabase(tenantInfo.ConnectionString);
+                options.UseSqlServer(
+                    tenantInfo.ConnectionString,
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());

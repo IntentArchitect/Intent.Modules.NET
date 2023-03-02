@@ -38,9 +38,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="ddecb594-d58e-4e19-8a2e-688dde617700" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.AspNetCore.MultiTenancy.Swagger.TenantHeaderOperationFilter</name>
-      <display>Intent.Modules.AspNetCore.MultiTenancy.Swagger.TenantHeaderOperationFilter</display>
+    <childElement id="48bc526f-fb2e-4405-91f8-5ac5613e1431" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</name>
+      <display>Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter</display>
       <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
