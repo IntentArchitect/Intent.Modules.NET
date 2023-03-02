@@ -26,7 +26,7 @@
       <role>Infrastructure</role>
       <location>MultiTenant</location>
     </template>
-    <template id="Intent.Modules.AspNetCore.MultiTenancy.Swagger.TenantHeaderOperationFilter" externalReference="c51b6146-73a7-4724-a229-d8d9fed6bed4">
+    <template id="Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter" externalReference="c51b6146-73a7-4724-a229-d8d9fed6bed4">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -83,6 +83,7 @@
           <defaultValue>separate-database</defaultValue>
           <options>
             <option value="separate-database" description="Separate Databases" />
+            <option value="shared-database" description="Shared Database" />
           </options>
         </setting>
       </settings>

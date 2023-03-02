@@ -11,12 +11,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swagger.TenantHeaderOperationFilter
+namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHeaderOperationFilter
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class TenantHeaderOperationFilterTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.AspNetCore.MultiTenancy.Swagger.TenantHeaderOperationFilter";
+        public const string TemplateId = "Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TenantHeaderOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

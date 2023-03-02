@@ -1,6 +1,7 @@
 ﻿### Version 4.1.0
 
 - New: Integration with Swagger to add the Tentant Id HTTP Header if that Strategy is chosen.
+- New: Multi-tenancy now supports Shared Database isolation.
 
 ### Version 4.0.1
 
