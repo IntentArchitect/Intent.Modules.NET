@@ -23,8 +23,8 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.Template
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DesignTimeDbContextFactoryTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "6.0.0");
-            AddNugetDependency("Microsoft.Extensions.Configuration.Json", "6.0.0");
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationJson(OutputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationFileExtensions(OutputTarget));
             CSharpFile = new CSharpFile($"{this.GetNamespace()}", $"{this.GetFolderPath()}")
                 .AddUsing("System.IO")
                 .AddUsing("System.Linq")
