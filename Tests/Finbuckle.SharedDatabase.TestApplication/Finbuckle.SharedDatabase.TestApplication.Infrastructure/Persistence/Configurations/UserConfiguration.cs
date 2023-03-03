@@ -22,6 +22,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence.Co
                 .IsRequired();
 
             builder.OwnsMany(x => x.Roles, ConfigureRoles);
+
             builder.IsMultiTenant();
         }
 

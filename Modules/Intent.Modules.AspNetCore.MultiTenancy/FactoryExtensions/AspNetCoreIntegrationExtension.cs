@@ -10,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
@@ -87,43 +88,121 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         const string connectionStringNameInternal = "EntityFrameworkCore";
 
         connectionStringName = connectionStringNameInternal;
-        applyConfiguration = hasMultipleConnectionStrings =>
-        {
-            if (!application.Settings.GetMultitenancySettings().DataIsolation().IsSeparateDatabase())
+        applyConfiguration =
+            application.Settings.GetMultitenancySettings().DataIsolation().AsEnum() switch
             {
-                return;
-            }
-
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
-            if (template == null)
-            {
-                return;
-            }
-
-            template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
-            template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore);
-
-            template.CSharpFile.AfterBuild(file =>
-            {
-                var (castTo, indexer) = hasMultipleConnectionStrings
-                    ? ($"({template.GetTypeName(TenantExtendedInfoTemplate.TemplateId)})", $"[\"{connectionStringNameInternal}\"]")
-                    : (string.Empty, string.Empty);
-
-                var method = file.Classes.First().FindMethod("AddInfrastructure");
-                if (method == null)
-                {
-                    return;
-                }
-
-                method?.FindAndReplaceStatement(x => x.HasMetadata("is-connection-string"), $"tenantInfo{indexer}.ConnectionString");
-
-                method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"))
-                    .InsertAbove(
-                        $@"var tenantInfo = {castTo}sp.GetService<{template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");");
-            });
-        };
+                MultitenancySettings.DataIsolationOptionsEnum.SeparateDatabase => 
+                    multiConnStr => GetSeparateDatabaseDataIsolationConfiguration(multiConnStr, application, connectionStringNameInternal),
+                MultitenancySettings.DataIsolationOptionsEnum.SharedDatabase => 
+                    multiConnStr => GetSharedDatabaseDataIsolationConfiguration(multiConnStr, application, connectionStringNameInternal, efDbContext),
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
         return true;
+    }
+
+    private static void GetSharedDatabaseDataIsolationConfiguration(
+        bool hasMultipleConnectionStrings, 
+        IApplication application, 
+        string connectionStringNameInternal, 
+        ICSharpFileBuilderTemplate dbContextTemplate)
+    {
+        if (!application.Settings.GetMultitenancySettings().DataIsolation().IsSharedDatabase())
+        {
+            return;
+        }
+
+        dbContextTemplate.CSharpFile.AfterBuild(file =>
+        {
+            file.AddUsing("Finbuckle.MultiTenant");
+            file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
+            
+            var priClass = file.Classes.First();
+            priClass.ImplementsInterface("IMultiTenantDbContext");
+            
+            var ctor = priClass.Constructors.First();
+            ctor.AddParameter("ITenantInfo", "tenantInfo");
+            ctor.AddStatement("TenantInfo = tenantInfo;");
+
+            priClass.AddProperty("ITenantInfo", "TenantInfo", prop => prop.PrivateSetter());
+            priClass.AddProperty("TenantMismatchMode", "TenantMismatchMode", prop => prop.WithInitialValue("TenantMismatchMode.Throw"));
+            priClass.AddProperty("TenantNotSetMode", "TenantNotSetMode", prop => prop.WithInitialValue("TenantNotSetMode.Throw"));
+
+            var syncSave = priClass.FindMethod(p => "SaveChanges".Equals(p.Name) && p.Parameters.Count == 1);
+            if (syncSave == null)
+            {
+                priClass.AddMethod("int", "SaveChanges", method => method
+                    .Override()
+                    .AddParameter("bool", "acceptAllChangesOnSuccess")
+                    .AddStatement("return base.SaveChanges(acceptAllChangesOnSuccess);"));
+                syncSave = priClass.FindMethod(p => "SaveChanges".Equals(p.Name) && p.Parameters.Count == 1);
+            }
+            
+            var asyncSave = priClass.FindMethod(p => "SaveChangesAsync".Equals(p.Name) && p.Parameters.Count == 2);
+            if (asyncSave == null)
+            {
+                priClass.AddMethod("Task<int>", "SaveChangesAsync", method => method
+                    .Override()
+                    .Async()
+                    .AddParameter("bool", "acceptAllChangesOnSuccess")
+                    .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"))
+                    .AddStatement("return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);"));
+                asyncSave = priClass.FindMethod(p => "SaveChangesAsync".Equals(p.Name) && p.Parameters.Count == 2);
+            }
+
+            syncSave.FindStatement(stmt => stmt.GetText("").Contains("return"))
+                .InsertAbove("this.EnforceMultiTenant();");
+            asyncSave.FindStatement(stmt => stmt.GetText("").Contains("return"))
+                .InsertAbove("this.EnforceMultiTenant();");
+        });
+
+        var entityTypeConfigTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.EntityTypeConfiguration"));
+        foreach (var template in entityTypeConfigTemplates)
+        {
+            template.CSharpFile.AfterBuild(file =>
+            {
+                file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
+                
+                var priClass = file.Classes.First();
+                priClass.FindMethod("Configure").AddStatement("builder.IsMultiTenant();");
+            });
+        }
+    }
+
+    private static void GetSeparateDatabaseDataIsolationConfiguration(bool hasMultipleConnectionStrings, IApplication application, string connectionStringNameInternal)
+    {
+        if (!application.Settings.GetMultitenancySettings().DataIsolation().IsSeparateDatabase())
+        {
+            return;
+        }
+
+        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+        if (template == null)
+        {
+            return;
+        }
+
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore);
+
+        template.CSharpFile.AfterBuild(file =>
+        {
+            var (castTo, indexer) = hasMultipleConnectionStrings
+                ? ($"({template.GetTypeName(TenantExtendedInfoTemplate.TemplateId)})", $"[\"{connectionStringNameInternal}\"]")
+                : (string.Empty, string.Empty);
+
+            var method = file.Classes.First().FindMethod("AddInfrastructure");
+            if (method == null)
+            {
+                return;
+            }
+
+            method?.FindAndReplaceStatement(x => x.HasMetadata("is-connection-string"), $"tenantInfo{indexer}.ConnectionString");
+
+            method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"))
+                .InsertAbove(
+                    $@"var tenantInfo = {castTo}sp.GetService<{template.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new {template.UseType("Finbuckle.MultiTenant.MultiTenantException")}(""Failed to resolve tenant info."");");
+        });
     }
 
     private static bool TryGetMongoDbConfiguration(IApplication application, out string connectionStringName, out ApplyConfiguration applyConfiguration)

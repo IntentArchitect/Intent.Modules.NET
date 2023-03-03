@@ -16,12 +16,15 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext, IUnitOfWork, IMultiTenantDbContext
     {
-        public ApplicationDbContext(ITenantInfo tenantInfo, DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantInfo tenantInfo) : base(options)
         {
             TenantInfo = tenantInfo;
         }
 
         public DbSet<User> Users { get; set; }
+        public ITenantInfo TenantInfo { get; private set; }
+        public TenantMismatchMode TenantMismatchMode { get; set; } = TenantMismatchMode.Throw;
+        public TenantNotSetMode TenantNotSetMode { get; set; } = TenantNotSetMode.Throw;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,17 +34,6 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
 
-        public override int SaveChanges(bool acceptAllChangesOnSuccess)
-        {
-            this.EnforceMultiTenant();
-            return base.SaveChanges(acceptAllChangesOnSuccess);
-        }
-
-        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken())
-        {
-            this.EnforceMultiTenant();
-            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        }
 
         [IntentManaged(Mode.Ignore)]
         private void ConfigureModel(ModelBuilder modelBuilder)
@@ -57,8 +49,17 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence
             */
         }
 
-        public ITenantInfo TenantInfo { get; internal set; }
-        public TenantMismatchMode TenantMismatchMode { get; set; } = TenantMismatchMode.Throw;
-        public TenantNotSetMode TenantNotSetMode { get; set; } = TenantNotSetMode.Throw;
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            this.EnforceMultiTenant();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
+
+        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            this.EnforceMultiTenant();
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
+
     }
 }
