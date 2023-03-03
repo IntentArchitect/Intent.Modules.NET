@@ -24,7 +24,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MultiTenancyConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency("Finbuckle.MultiTenant.AspNetCore", "6.5.1");
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Finbuckle.MultiTenant")

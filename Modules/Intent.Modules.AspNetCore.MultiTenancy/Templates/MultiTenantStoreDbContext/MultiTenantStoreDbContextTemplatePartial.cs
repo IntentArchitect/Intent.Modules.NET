@@ -22,9 +22,10 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbCon
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MultiTenantStoreDbContextTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency("Finbuckle.MultiTenant.EntityFrameworkCore", "6.5.1");
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore);
             AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(OutputTarget.GetProject()));
-            AddNugetDependency("Finbuckle.MultiTenant.AspNetCore", "6.5.1");
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenantAspNetCore);
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Finbuckle.MultiTenant")
                 .AddUsing("Finbuckle.MultiTenant.Stores")
