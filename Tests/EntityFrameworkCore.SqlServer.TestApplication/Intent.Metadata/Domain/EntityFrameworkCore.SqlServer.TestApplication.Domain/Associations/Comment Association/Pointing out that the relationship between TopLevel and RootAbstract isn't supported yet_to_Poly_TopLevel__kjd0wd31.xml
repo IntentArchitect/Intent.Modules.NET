@@ -2,7 +2,7 @@
 <association id="2ee09ffd-8547-4a75-9c60-4c26239c27f3">
   <sourceEnd id="7334812a-5c0d-4c4c-9f71-c7441db4c7c7" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
     <name>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</name>
-    <display>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet: Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</display>
+    <display>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet: Note</display>
     <order>1</order>
     <typeReference id="bd90cc85-e5f0-42ec-82f0-cd9463a8cc3c">
       <typeId>11847d04-46b0-49ae-9be4-cf5b4b3c30db</typeId>

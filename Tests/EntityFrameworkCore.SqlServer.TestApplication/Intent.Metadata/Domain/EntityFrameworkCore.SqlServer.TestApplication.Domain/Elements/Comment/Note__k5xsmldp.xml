@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="0d24bef8-066e-45de-a222-73a76f01b769" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
-  <name>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</name>
-  <display>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</display>
+  <comment>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</comment>
+  <name>Note</name>
+  <display>Note</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

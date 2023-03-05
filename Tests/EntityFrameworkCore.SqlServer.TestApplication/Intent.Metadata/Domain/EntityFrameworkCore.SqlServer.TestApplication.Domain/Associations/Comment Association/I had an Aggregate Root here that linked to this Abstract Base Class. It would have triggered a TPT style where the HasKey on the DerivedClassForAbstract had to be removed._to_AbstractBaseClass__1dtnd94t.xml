@@ -2,7 +2,7 @@
 <association id="e3d77414-8e5d-4fd7-b33e-7cb38f428033">
   <sourceEnd id="ae30e3de-7d72-405a-93de-997595c0bac1" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
     <name>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</name>
-    <display>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.: I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.</display>
+    <display>I had an Aggregate Root here that linked to this Abstract Base Class. It would have triggered a TPT style where the HasKey on the DerivedClassForAbstract had to be removed.: Note</display>
     <order>1</order>
     <typeReference id="475ee2c6-d693-4ad0-aeff-e188003127e2">
       <typeId>0d24bef8-066e-45de-a222-73a76f01b769</typeId>

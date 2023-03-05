@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="11847d04-46b0-49ae-9be4-cf5b4b3c30db" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
-  <name>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</name>
-  <display>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</display>
+  <comment>Pointing out that the relationship between TopLevel and RootAbstract isn't supported yet</comment>
+  <name>Note</name>
+  <display>Note</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
