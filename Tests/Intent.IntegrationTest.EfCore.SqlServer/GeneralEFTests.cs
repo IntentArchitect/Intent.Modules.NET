@@ -140,35 +140,6 @@ public class GeneralEFTests : SharedDatabaseFixture<ApplicationDbContext, Genera
     }
 
     [IgnoreOnCiBuildFact]
-    public void Test_E2_Bidirectional_1_To_1_Association()
-    {
-        var src = new E2_RequiredCompositeNav() { ReqCompNavAttr = "test 1" };
-        DbContext.E2_RequiredCompositeNavs.Add(src);
-
-        var dst = new E2_RequiredDependent() { ReqDepAttr = "test 2" };
-        src.E2_RequiredDependent = dst;
-
-        DbContext.SaveChanges();
-
-        var owner = DbContext.E2_RequiredCompositeNavs.SingleOrDefault(p => p.Id == src.Id);
-        Assert.NotNull(owner);
-        Assert.NotNull(owner.E2_RequiredDependent);
-
-        // Until such a time when Microsoft can enforce this, this code will need to be commented out.
-        // Assert.Throws<Microsoft.EntityFrameworkCore.DbUpdateException>(() =>
-        // {
-        //     DbContext.E2_RequiredCompositeNavs.Add(new E2_RequiredCompositeNav() { Attribute = "test 3" });
-        //     DbContext.SaveChanges();
-        // });
-
-        Assert.Throws<InvalidOperationException>(() =>
-        {
-            DbContext.Set<E2_RequiredDependent>().Add(new E2_RequiredDependent());
-            DbContext.SaveChanges();
-        });
-    }
-
-    [IgnoreOnCiBuildFact]
     public void Test_F_Bidirectional_0to1_To_0to1_Association()
     {
         var src = new F_OptionalAggregateNav() { OptionalAggrNavAttr = "test 1" };

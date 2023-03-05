@@ -356,22 +356,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#6825bb11-6c60-41fe-902c-e754a85071ea</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/E2_RequiredCompositeNav.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/E2_RequiredCompositeNav.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#bac11582-86fc-4300-b112-251a9eef8224</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/E2_RequiredDependent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/E2_RequiredDependent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>adff8eaf-5c11-40ec-abaa-8c8b6e9b1926</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Entities/Associations/F_OptionalAggregateNav.cs</ApplicationRelativeFilePath>
@@ -1124,14 +1108,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#6825bb11-6c60-41fe-902c-e754a85071ea</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Associations/IE2_RequiredCompositeNavRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/IE2_RequiredCompositeNavRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2f63dffa-3964-44c8-b904-c74da090fa30</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Domain/Repositories/Associations/IF_OptionalAggregateNavRepository.cs</ApplicationRelativeFilePath>
@@ -1844,14 +1820,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6825bb11-6c60-41fe-902c-e754a85071ea</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Associations/E2_RequiredCompositeNavConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/E2_RequiredCompositeNavConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7ed06ae6-df2a-4561-82bb-6dc3cfe1454b</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#911f65b6-575b-4ca0-b4c7-a71f08726076</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Persistence/Configurations/Associations/F_OptionalAggregateNavConfiguration.cs</ApplicationRelativeFilePath>
@@ -2544,14 +2512,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Associations/E_RequiredCompositeNavRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Associations/E_RequiredCompositeNavRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>374e932a-aac0-40a9-9198-bf3ff31da1eb</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#6825bb11-6c60-41fe-902c-e754a85071ea</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.TestApplication.Infrastructure/Repositories/Associations/E2_RequiredCompositeNavRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Associations/E2_RequiredCompositeNavRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
