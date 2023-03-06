@@ -1,15 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -63,23 +60,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             });
         }
 
-        //public override string EnterClass()
-        //{
-        //    return $@"
-        //private readonly ISender _mediator;";
-        //}
-
-        //public override IEnumerable<string> ConstructorParameters()
-        //{
-        //    return new[] { $"ISender mediator" };
-        //}
-
-        //public override string ConstructorImplementation()
-        //{
-        //    return $@"
-        //    _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));";
-        //}
-
         private IEnumerable<string> GetValidations(OperationModel operationModel)
         {
             var validations = new List<string>();
@@ -114,26 +94,26 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
         {
             switch (_template.GetHttpVerb(operationModel))
             {
-                case ControllerTemplate.HttpVerb.GET:
-                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
-                case ControllerTemplate.HttpVerb.POST:
+                case ControllerTemplate.HttpVerb.Get:
+                    return operationModel.ReturnType == null ? @"return NoContent();" : @"return Ok(result);";
+                case ControllerTemplate.HttpVerb.Post:
                     var getByIdOperation = _template.Model.Operations.FirstOrDefault(x => (x.Name == "Get" || x.Name == $"Get{operationModel.Name.Replace("Create", "")}") && x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdOperation != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
                     {
-                        return $@"return CreatedAtAction(nameof(Get), new {{ id = result }}, new {{ Id = result }});";
+                        return @"return CreatedAtAction(nameof(Get), new { id = result }, new { Id = result });";
                     }
-                    return operationModel.ReturnType == null ? $@"return Created(string.Empty, null);" : $@"return Created(string.Empty, result);";
-                case ControllerTemplate.HttpVerb.PUT:
-                case ControllerTemplate.HttpVerb.PATCH:
-                    return operationModel.ReturnType == null ? $@"return NoContent();" : $@"return Ok(result);";
-                case ControllerTemplate.HttpVerb.DELETE:
-                    return operationModel.ReturnType == null ? $@"return Ok();" : $@"return Ok(result);";
+                    return operationModel.ReturnType == null ? @"return Created(string.Empty, null);" : @"return Created(string.Empty, result);";
+                case ControllerTemplate.HttpVerb.Put:
+                case ControllerTemplate.HttpVerb.Patch:
+                    return operationModel.ReturnType == null ? @"return NoContent();" : @"return Ok(result);";
+                case ControllerTemplate.HttpVerb.Delete:
+                    return operationModel.ReturnType == null ? @"return Ok();" : @"return Ok(result);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private ParameterModel GetPayloadParameter(OperationModel operationModel)
+        private static ParameterModel GetPayloadParameter(OperationModel operationModel)
         {
             return operationModel.Parameters.SingleOrDefault(x =>
                 x.Type.Element.SpecializationTypeId == CommandModel.SpecializationTypeId ||

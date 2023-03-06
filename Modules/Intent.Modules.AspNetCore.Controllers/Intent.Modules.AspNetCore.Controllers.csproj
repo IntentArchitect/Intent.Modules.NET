@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -39,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.16" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.10" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.5" />

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
@@ -21,10 +20,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
     [IntentManaged(Mode.Merge)]
     public class ContractDispatchDecorator : ControllerDecorator
     {
-        [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.Contracts.ContractDispatchDecorator";
+        [IntentManaged(Mode.Fully)]
+        public const string DecoratorId = "Intent.AspNetCore.Controllers.Interop.Contracts.ContractDispatchDecorator";
 
-        [IntentManaged(Mode.Fully)] private readonly ControllerTemplate _template;
-        [IntentManaged(Mode.Fully)] private readonly IApplication _application;
+        [IntentManaged(Mode.Fully)]
+        private readonly ControllerTemplate _template;
+
+        [IntentManaged(Mode.Fully)]
+        private readonly IApplication _application;
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
         public ContractDispatchDecorator(ControllerTemplate template, IApplication application)
@@ -59,27 +62,27 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
                 }
             });
         }
-        
+
         public string GetReturnStatement(OperationModel operationModel)
         {
             switch (_template.GetHttpVerb(operationModel))
             {
                 case ControllerTemplate.HttpVerb.Get:
                     return operationModel.ReturnType == null
-                        ? $@"return NoContent();"
+                        ? @"return NoContent();"
                         : $@"return Ok({GetResultExpression(operationModel)});";
                 case ControllerTemplate.HttpVerb.Post:
                     return operationModel.ReturnType == null
-                        ? $@"return Created(string.Empty, null);"
+                        ? @"return Created(string.Empty, null);"
                         : $@"return Created(string.Empty, {GetResultExpression(operationModel)});";
                 case ControllerTemplate.HttpVerb.Put:
                 case ControllerTemplate.HttpVerb.Patch:
                     return operationModel.ReturnType == null
-                        ? $@"return NoContent();"
+                        ? @"return NoContent();"
                         : $@"return Ok({GetResultExpression(operationModel)});";
                 case ControllerTemplate.HttpVerb.Delete:
                     return operationModel.ReturnType == null
-                        ? $@"return Ok();"
+                        ? @"return Ok();"
                         : $@"return Ok({GetResultExpression(operationModel)});";
                 default:
                     throw new ArgumentOutOfRangeException();

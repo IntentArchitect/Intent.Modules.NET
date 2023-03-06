@@ -21,7 +21,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>, ICSharpFileBuilderTemplate
+    public partial class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
 
@@ -92,52 +92,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return CSharpFile.ToString();
         }
 
-        //public string GetEnterClass()
-        //{
-        //    return GetDecorators().Aggregate(x => x.EnterClass());
-        //}
-
-        //public string GetExitClass()
-        //{
-        //    return GetDecorators().Aggregate(x => x.ExitClass());
-        //}
-
-        //public string GetEnterOperationBody(OperationModel o)
-        //{
-        //    return GetDecorators().Aggregate(x => x.EnterOperationBody(o));
-        //}
-
-        //public string GetMidOperationBody(OperationModel o)
-        //{
-        //    return GetDecorators().Aggregate(x => x.MidOperationBody(o));
-        //}
-
-        //public string GetExitOperationBody(OperationModel o)
-        //{
-        //    return GetDecorators().Aggregate(x => x.ExitOperationBody(o));
-        //}
-
         public HttpVerb GetHttpVerb(OperationModel operation)
         {
             var verb = operation.GetHttpSettings().Verb();
 
             return Enum.TryParse(verb.Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
         }
-
-        //private string GetControllerBase()
-        //{
-        //    return GetDecorators().Select(x => x.BaseClass()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x)) ??
-        //           "ControllerBase";
-        //}
-
-        //private string ConstructorBaseCall()
-        //{
-        //    var baseCallParameters = GetDecorators().Select(x => x.ConstructorBaseCall()).SingleOrDefault(x => !string.IsNullOrWhiteSpace(x));
-
-        //    return baseCallParameters != null
-        //        ? $" : base({baseCallParameters})"
-        //        : string.Empty;
-        //}
 
         private IEnumerable<string> GetControllerAttributes()
         {
@@ -163,19 +123,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
         private IEnumerable<string> GetOperationComments(OperationModel operation)
         {
-            var lines = new List<string>();
+            var lines = new List<string>
+            {
+                "/// <summary>"
+            };
 
-            lines.Add($"/// <summary>");
             if (!string.IsNullOrWhiteSpace(operation.Comment))
             {
-                foreach (var commentLine in operation.Comment.Split(new[] { '\n', '\r' },
-                             StringSplitOptions.RemoveEmptyEntries))
-                {
-                    lines.Add($"/// {commentLine}");
-                }
+                lines.AddRange(operation.Comment
+                    .Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(commentLine => $"/// {commentLine}"));
             }
 
-            lines.Add($"/// </summary>");
+            lines.Add("/// </summary>");
             switch (GetHttpVerb(operation))
             {
                 case HttpVerb.Get:
@@ -183,15 +143,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                         $"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
                 case HttpVerb.Post:
-                    lines.Add($"/// <response code=\"201\">Successfully created.</response>");
+                    lines.Add("/// <response code=\"201\">Successfully created.</response>");
                     break;
                 case HttpVerb.Patch:
                 case HttpVerb.Put:
-                    lines.Add(
-                        $"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
+                    lines.Add($"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
                     break;
                 case HttpVerb.Delete:
-                    lines.Add($"/// <response code=\"200\">Successfully deleted.</response>");
+                    lines.Add("/// <response code=\"200\">Successfully deleted.</response>");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -199,13 +158,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.Parameters.Any())
             {
-                lines.Add($"/// <response code=\"400\">One or more validation errors have occurred.</response>");
+                lines.Add("/// <response code=\"400\">One or more validation errors have occurred.</response>");
             }
 
             if (IsOperationSecured(operation))
             {
-                lines.Add($"/// <response code=\"401\">Unauthorized request.</response>");
-                lines.Add($"/// <response code=\"403\">Forbidden request.</response>");
+                lines.Add("/// <response code=\"401\">Unauthorized request.</response>");
+                lines.Add("/// <response code=\"403\">Forbidden request.</response>");
             }
 
             if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
@@ -266,7 +225,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 case HttpVerb.Patch:
                     attributes.Add(operation.ReturnType != null
                         ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
-                        : $@"[ProducesResponseType(StatusCodes.Status204NoContent)]");
+                        : @"[ProducesResponseType(StatusCodes.Status204NoContent)]");
                     break;
                 case HttpVerb.Delete:
                     attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
@@ -288,7 +247,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
-                attributes.Add($@"[ProducesResponseType(StatusCodes.Status404NotFound)]");
+                attributes.Add(@"[ProducesResponseType(StatusCodes.Status404NotFound)]");
             }
 
             attributes.Add(@"[ProducesResponseType(StatusCodes.Status500InternalServerError)]");
@@ -355,28 +314,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 $"[Http{GetHttpVerb(o).ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]";
         }
 
-        private string GetOperationParameters(OperationModel operation)
-        {
-            var parameters = new List<string>();
-            var verb = GetHttpVerb(operation);
-            switch (verb)
-            {
-                case HttpVerb.Post:
-                case HttpVerb.Put:
-                case HttpVerb.Get:
-                case HttpVerb.Delete:
-                case HttpVerb.Patch:
-                    parameters.AddRange(operation.Parameters.Select(x =>
-                        $"{GetParameterBindingAttribute(operation, x)}{GetTypeName(x.TypeReference)} {x.Name}"));
-                    break;
-                default:
-                    throw new NotSupportedException($"{verb} not supported");
-            }
-
-            parameters.Add("CancellationToken cancellationToken");
-            return string.Join(", ", parameters);
-        }
-
         private string GetReturnType(OperationModel operation)
         {
             return operation.ReturnType == null
@@ -425,17 +362,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => "[FromRoute]",
                 _ => string.Empty
             };
-        }
-
-        private string GetConstructorParameters()
-        {
-            return string.Join(@",
-            ", GetDecorators().SelectMany(x => x.ConstructorParameters()));
-        }
-
-        private string GetConstructorImplementation()
-        {
-            return GetDecorators().Aggregate(x => x.ConstructorImplementation());
         }
 
         public enum HttpVerb
