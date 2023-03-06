@@ -109,6 +109,15 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         {
             return;
         }
+        
+        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateFulfillingRoles.Infrastructure.DependencyInjection);
+        if (template == null)
+        {
+            return;
+        }
+
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore);
 
         dbContextTemplate.CSharpFile.AfterBuild(file =>
         {
@@ -155,9 +164,9 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         });
 
         var entityTypeConfigTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.EntityTypeConfiguration"));
-        foreach (var template in entityTypeConfigTemplates)
+        foreach (var entityTypeTemplate in entityTypeConfigTemplates)
         {
-            template.CSharpFile.AfterBuild(file =>
+            entityTypeTemplate.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
                 
