@@ -92,9 +92,9 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             application.Settings.GetMultitenancySettings().DataIsolation().AsEnum() switch
             {
                 MultitenancySettings.DataIsolationOptionsEnum.SeparateDatabase => 
-                    multiConnStr => GetSeparateDatabaseDataIsolationConfiguration(multiConnStr, application, connectionStringNameInternal),
+                    hasMultiConnStr => GetSeparateDatabaseDataIsolationConfiguration(hasMultiConnStr, application, connectionStringNameInternal),
                 MultitenancySettings.DataIsolationOptionsEnum.SharedDatabase => 
-                    multiConnStr => GetSharedDatabaseDataIsolationConfiguration(multiConnStr, application, connectionStringNameInternal, efDbContext),
+                    _ => GetSharedDatabaseDataIsolationConfiguration(application, efDbContext),
                 _ => throw new ArgumentOutOfRangeException()
             };
 
@@ -102,9 +102,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
     }
 
     private static void GetSharedDatabaseDataIsolationConfiguration(
-        bool hasMultipleConnectionStrings, 
         IApplication application, 
-        string connectionStringNameInternal, 
         ICSharpFileBuilderTemplate dbContextTemplate)
     {
         if (!application.Settings.GetMultitenancySettings().DataIsolation().IsSharedDatabase())
@@ -197,7 +195,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                 return;
             }
 
-            method?.FindAndReplaceStatement(x => x.HasMetadata("is-connection-string"), $"tenantInfo{indexer}.ConnectionString");
+            method.FindAndReplaceStatement(x => x.HasMetadata("is-connection-string"), $"tenantInfo{indexer}.ConnectionString");
 
             method.FindStatement(x => x.GetText(string.Empty).StartsWith("options.Use"))
                 .InsertAbove(
