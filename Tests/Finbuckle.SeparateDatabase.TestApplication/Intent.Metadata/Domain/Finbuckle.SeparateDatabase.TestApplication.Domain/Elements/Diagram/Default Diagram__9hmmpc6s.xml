@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="23e68489-8b12-433e-90a1-14ff65f089cc" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>977e49c2-87e6-4c1c-a6d9-60587ff7176d</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3941bb06-5bec-4bd2-a5c5-f5b24a9241f8</parentFolderId>
+  <packageId>3941bb06-5bec-4bd2-a5c5-f5b24a9241f8</packageId>
+  <packageName>Finbuckle.SeparateDatabase.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>3941bb06-5bec-4bd2-a5c5-f5b24a9241f8</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

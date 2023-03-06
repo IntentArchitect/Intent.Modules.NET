@@ -190,6 +190,20 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="acbfd22c-a9fc-4055-99a7-447012feba00" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Shared Database</name>
+          <display>Shared Database = shared-database</display>
+          <isAbstract>false</isAbstract>
+          <value>shared-database</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>be7c671e-bbef-4d75-b42d-a6547de3ae82</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

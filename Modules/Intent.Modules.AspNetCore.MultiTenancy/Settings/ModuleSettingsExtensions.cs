@@ -145,6 +145,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
                 return Value switch
                 {
                     "separate-database" => DataIsolationOptionsEnum.SeparateDatabase,
+                    "shared-database" => DataIsolationOptionsEnum.SharedDatabase,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -153,11 +154,17 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             {
                 return Value == "separate-database";
             }
+
+            public bool IsSharedDatabase()
+            {
+                return Value == "shared-database";
+            }
         }
 
         public enum DataIsolationOptionsEnum
         {
             SeparateDatabase,
+            SharedDatabase,
         }
     }
 }

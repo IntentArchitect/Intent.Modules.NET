@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Finbuckle.SharedDatabase.TestApplication.Application\Finbuckle.SharedDatabase.TestApplication.Application.csproj" />
+    <ProjectReference Include="..\Finbuckle.SharedDatabase.TestApplication.Infrastructure\Finbuckle.SharedDatabase.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Finbuckle.SharedDatabase.TestApplication.Domain\Finbuckle.SharedDatabase.TestApplication.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Finbuckle.MultiTenant" Version="6.5.1" />
+    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.5.1" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>

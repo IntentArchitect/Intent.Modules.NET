@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.MultiTenancy.Settings;
@@ -23,7 +24,9 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MultiTenancyConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency("Finbuckle.MultiTenant.AspNetCore", "6.5.1");
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenantAspNetCore);
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Finbuckle.MultiTenant")
@@ -45,34 +48,38 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                 methodChainStatement.AddMetadata("add-multi-tenant", true);
                                 methodChainStatement.WithoutSemicolon();
 
-                                if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsEfcore())
+                                switch (ExecutionContext.Settings.GetMultitenancySettings().Store().AsEnum())
                                 {
-                                    methodChainStatement.AddChainStatement($"WithEFCoreStore<{this.GetMultiTenantStoreDbContextName()}, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#efcore-store", s =>
-                                        s.AddMetadata("with-ef-core-store", true));
-                                }
-                                else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsInMemory())
-                                {
-                                    methodChainStatement.AddChainStatement("WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store");
-                                }
-                                else if (ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration())
-                                {
-                                    methodChainStatement.AddChainStatement("WithConfigurationStore() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#configuration-store");
+                                    case MultitenancySettings.StoreOptionsEnum.InMemory:
+                                        methodChainStatement.AddChainStatement("WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#in-memory-store");
+                                        break;
+                                    case MultitenancySettings.StoreOptionsEnum.Efcore:
+                                        methodChainStatement.AddChainStatement($"WithEFCoreStore<{this.GetMultiTenantStoreDbContextName()}, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#efcore-store", s =>
+                                            s.AddMetadata("with-ef-core-store", true));
+                                        break;
+                                    case MultitenancySettings.StoreOptionsEnum.Configuration:
+                                        methodChainStatement.AddChainStatement("WithConfigurationStore() // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Stores#configuration-store");
+                                        break;
+                                    default:
+                                        throw new ArgumentOutOfRangeException();
                                 }
 
-                                if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHeader())
+                                switch (ExecutionContext.Settings.GetMultitenancySettings().Strategy().AsEnum())
                                 {
-                                    methodChainStatement.AddChainStatement(
-                                        "WithHeaderStrategy(\"X-Tenant-Identifier\"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#header-strategy");
-                                }
-                                else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsHost())
-                                {
-                                    methodChainStatement.AddChainStatement(
-                                        "WithHostStrategy(); // default pattern is __tenant__.* (e.g. https://tenantidentifier.example.com). See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#host-strategy");
-                                }
-                                else if (ExecutionContext.Settings.GetMultitenancySettings().Strategy().IsClaim())
-                                {
-                                    methodChainStatement.AddChainStatement(
-                                        "WithClaimStrategy(); // default claim value with type __tenant__. See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#claim-strategy");
+                                    case MultitenancySettings.StrategyOptionsEnum.Header:
+                                        methodChainStatement.AddChainStatement(
+                                            "WithHeaderStrategy(\"X-Tenant-Identifier\"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#header-strategy");
+                                        break;
+                                    case MultitenancySettings.StrategyOptionsEnum.Claim:
+                                        methodChainStatement.AddChainStatement(
+                                            "WithClaimStrategy(); // default claim value with type __tenant__. See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#claim-strategy");
+                                        break;
+                                    case MultitenancySettings.StrategyOptionsEnum.Host:
+                                        methodChainStatement.AddChainStatement(
+                                            "WithHostStrategy(); // default pattern is __tenant__.* (e.g. https://tenantidentifier.example.com). See https://www.finbuckle.com/MultiTenant/Docs/v6.5.1/Strategies#host-strategy");
+                                        break;
+                                    default:
+                                        throw new ArgumentOutOfRangeException();
                                 }
                             })
                             .AddStatement("return services;")

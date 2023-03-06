@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="be674e3a-785b-4bd5-897e-2734fb30424b" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Swashbuckle</name>
+  <display>Swashbuckle</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</parentFolderId>
+  <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+  <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
