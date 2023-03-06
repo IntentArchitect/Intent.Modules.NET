@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
+using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggregateRoot;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -16,12 +17,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots;
 public class CreateAggregateRootCommandHandlerTests
 {
     [Theory]
-    [MemberData(nameof(GetValidAutoFixtures))]
-    public async Task Handle_WithValidCommand_AddsAggregateRootToRepository(IFixture fixture)
+    [MemberData(nameof(GetTestData))]
+    public async Task Handle_WithValidCommand_AddsAggregateRootToRepository(CreateAggregateRootCommand testCommand)
     {
         // Arrange
-        var command = fixture.Create<CreateAggregateRootCommand>();
-        var expectedAggregateRoot = CreateExpectedAggregateRoot(command);
+        var expectedAggregateRoot = CreateExpectedAggregateRoot(testCommand);
 
         var repository = Substitute.For<IAggregateRootRepository>();
         AggregateRoot addedAggregateRoot = null;
@@ -31,33 +31,26 @@ public class CreateAggregateRootCommandHandlerTests
         var sut = new CreateAggregateRootCommandHandler(repository);
 
         // Act
-        var result = await sut.Handle(command, CancellationToken.None);
+        var result = await sut.Handle(testCommand, CancellationToken.None);
 
         // Assert
         result.Should().Be(expectedAggregateRoot.Id);
-
-        expectedAggregateRoot.Should().BeEquivalentTo(addedAggregateRoot, options => options
-            .Excluding(x => x.Composite)
-            .Excluding(x => x.Composites)
-            .Excluding(x => x.Aggregate));
-        expectedAggregateRoot.Composite.Should().BeEquivalentTo(addedAggregateRoot.Composite, options => options
-            .Excluding(x => x.Composite)
-            .Excluding(x => x.Composites));
-        expectedAggregateRoot.Composites.Should().BeEquivalentTo(addedAggregateRoot.Composites);
+        
+        expectedAggregateRoot.Should().BeEquivalentTo(addedAggregateRoot);
     }
     
-    public static IEnumerable<object[]> GetValidAutoFixtures()
+    public static IEnumerable<object[]> GetTestData()
     {
-        var plainFixture = new Fixture();
-        yield return new object[] { plainFixture };
+        var fixture = new Fixture();
+        yield return new object[] { fixture.Create<CreateAggregateRootCommand>() };
 
-        var noCompositeFixture = new Fixture();
-        noCompositeFixture.Customize<CreateAggregateRootCommand>(comp => comp.Without(x => x.Composite));
-        yield return new object[] { noCompositeFixture };
+        fixture = new Fixture();
+        fixture.Customize<CreateAggregateRootCommand>(comp => comp.Without(x => x.Composite));
+        yield return new object[] { fixture.Create<CreateAggregateRootCommand>() };
         
-        var noCompositesFixture = new Fixture();
-        noCompositesFixture.Customize<CreateAggregateRootCommand>(comp => comp.Without(x => x.Composites));
-        yield return new object[] { noCompositesFixture };
+        fixture = new Fixture();
+        fixture.Customize<CreateAggregateRootCommand>(comp => comp.Without(x => x.Composites));
+        yield return new object[] { fixture.Create<CreateAggregateRootCommand>() };
     }
 
     private static AggregateRoot CreateExpectedAggregateRoot(CreateAggregateRootCommand command)
@@ -66,22 +59,61 @@ public class CreateAggregateRootCommandHandlerTests
         {
             Id = Guid.NewGuid(),
             AggregateAttr = command.AggregateAttr,
-            Composite = command.Composite == null
-                ? null
-                : new CompositeSingleA
-                {
-                    CompositeAttr = command.Composite.CompositeAttr,
-                    Composite = new CompositeSingleAA { CompositeAttr = command.Composite.Composite?.CompositeAttr },
-                    Composites = command.Composite.Composites?.Select(dto => new CompositeManyAA { CompositeAttr = dto.CompositeAttr }).ToList() ?? new List<CompositeManyAA>()
-                },
-            Composites = command.Composites?.Select(dto =>
-                new CompositeManyB
-                {
-                    CompositeAttr = dto.CompositeAttr,
-                    SomeDate = dto.SomeDate,
-                    Composite = dto.Composite == null ? null : new CompositeSingleBB { CompositeAttr = dto.Composite.CompositeAttr },
-                    Composites = dto.Composites?.Select(cdto => new CompositeManyBB { CompositeAttr = cdto.CompositeAttr }).ToList() ?? new List<CompositeManyBB>()
-                }).ToList() ?? new List<CompositeManyB>()
+            Composite = command.Composite == null ? null : CreateExpectedCompositeSingleA(command.Composite),
+            Composites = command.Composites?.Select(CreateExpectedCompositeManyB).ToList() ?? new List<CompositeManyB>()
+        };
+    }
+
+    private static CompositeSingleA CreateExpectedCompositeSingleA(CreateAggregateRootCompositeSingleADto dto)
+    {
+        return new CompositeSingleA
+        {
+            CompositeAttr = dto.CompositeAttr,
+            Composite = dto.Composite == null ? null : CreateExpectedCompositeSingleAA(dto),
+            Composites = dto.Composites?.Select(CreateExpectedCompositeManyAA).ToList() ?? new List<CompositeManyAA>()
+        };
+    }
+
+    private static CompositeManyAA CreateExpectedCompositeManyAA(CreateAggregateRootCompositeSingleACompositeManyAADto s)
+    {
+        return new CompositeManyAA
+        {
+            CompositeAttr = s.CompositeAttr
+        };
+    }
+
+    private static CompositeSingleAA CreateExpectedCompositeSingleAA(CreateAggregateRootCompositeSingleADto dto)
+    {
+        return new CompositeSingleAA
+        {
+            CompositeAttr = dto.Composite.CompositeAttr
+        };
+    }
+
+    private static CompositeManyB CreateExpectedCompositeManyB(CreateAggregateRootCompositeManyBDto dto)
+    {
+        return new CompositeManyB
+        {
+            CompositeAttr = dto.CompositeAttr,
+            SomeDate = dto.SomeDate,
+            Composite = dto.Composite == null ? null : CreateExpectedCompositeSinlgeBB(dto),
+            Composites = dto.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<CompositeManyBB>()
+        };
+    }
+
+    private static CompositeManyBB CreateExpectedCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto cdto)
+    {
+        return new CompositeManyBB
+        {
+            CompositeAttr = cdto.CompositeAttr
+        };
+    }
+
+    private static CompositeSingleBB CreateExpectedCompositeSinlgeBB(CreateAggregateRootCompositeManyBDto dto)
+    {
+        return new CompositeSingleBB
+        {
+            CompositeAttr = dto.Composite.CompositeAttr
         };
     }
 }

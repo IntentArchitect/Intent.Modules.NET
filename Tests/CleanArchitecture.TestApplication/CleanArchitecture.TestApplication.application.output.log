@@ -348,6 +348,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#008bb0b4-302c-4fb1-91da-db2c426a6703</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleACompositeManyAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#008bb0b4-302c-4fb1-91da-db2c426a6703</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeManyAADtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleACompositeManyAADtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4f3e2baa-ce89-46f1-b942-2b0e861eafad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#4f3e2baa-ce89-46f1-b942-2b0e861eafad</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/AggregateRootCompositeSingleACompositeSingleAADtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#19fd3bc2-bae3-436c-9c5b-eae9720fa0ba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/AggregateRoots/AggregateRootCompositeSingleADto.cs</ApplicationRelativeFilePath>

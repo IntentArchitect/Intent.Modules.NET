@@ -48,7 +48,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
                 CompositeAttr = dto.CompositeAttr,
                 SomeDate = dto.SomeDate,
                 Composite = dto.Composite != null ? CreateCompositeSingleBB(dto.Composite) : null,
-                Composites = dto.Composites.Select(CreateCompositeManyBB).ToList(),
+                Composites = dto.Composites?.Select(CreateCompositeManyBB).ToList() ?? new List<CompositeManyBB>(),
             };
         }
 
@@ -77,7 +77,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             {
                 CompositeAttr = dto.CompositeAttr,
                 Composite = dto.Composite != null ? CreateCompositeSingleAA(dto.Composite) : null,
-                Composites = dto.Composites.Select(CreateCompositeManyAA).ToList(),
+                Composites = dto.Composites?.Select(CreateCompositeManyAA).ToList() ?? new List<CompositeManyAA>(),
             };
         }
 
