@@ -121,6 +121,8 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
 
         dbContextTemplate.CSharpFile.AfterBuild(file =>
         {
+            file.AddUsing("System.Threading");
+            file.AddUsing("System.Threading.Tasks");
             file.AddUsing("Finbuckle.MultiTenant");
             file.AddUsing("Finbuckle.MultiTenant.EntityFrameworkCore");
             
