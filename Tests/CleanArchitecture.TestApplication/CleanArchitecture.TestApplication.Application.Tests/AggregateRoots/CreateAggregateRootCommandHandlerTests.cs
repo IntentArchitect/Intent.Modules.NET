@@ -58,7 +58,7 @@ public class CreateAggregateRootCommandHandlerTests
 
     }
 
-    public static AggregateRoot CreateExpectedAggregateRoot(CreateAggregateRootCommand dto)
+    private static AggregateRoot CreateExpectedAggregateRoot(CreateAggregateRootCommand dto)
     {
         return new AggregateRoot
         {

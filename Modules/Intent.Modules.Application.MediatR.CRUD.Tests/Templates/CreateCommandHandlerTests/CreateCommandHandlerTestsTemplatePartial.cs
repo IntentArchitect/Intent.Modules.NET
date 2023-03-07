@@ -112,7 +112,8 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             });
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)] 
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

@@ -54,7 +54,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 
         }
 
-        public static ImplicitKeyAggrRoot CreateExpectedImplicitKeyAggrRoot(CreateImplicitKeyAggrRootCommand dto)
+        private static ImplicitKeyAggrRoot CreateExpectedImplicitKeyAggrRoot(CreateImplicitKeyAggrRootCommand dto)
         {
             return new ImplicitKeyAggrRoot
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
@@ -35,7 +36,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.UpdateCommandH
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<CommandModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetCommandModels();
+            return _metadataManager.Services(application)
+                .GetCommandModels()
+                .Where(p => p.Name.Contains("update", StringComparison.OrdinalIgnoreCase)
+                            && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
+                .ToList();
         }
     }
 }

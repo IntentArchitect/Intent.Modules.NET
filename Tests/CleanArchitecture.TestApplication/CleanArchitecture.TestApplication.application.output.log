@@ -116,10 +116,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.DeleteCommandHandlerTests#8baf2bf2-e07c-4b8d-8d5b-9ecc5e6b01bb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/DeleteAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/DeleteAggregateRootLongCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.UpdateCommandHandlerTests#1b67371c-fcd7-4b17-b61a-c729dab74d78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/UpdateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/UpdateAggregateRootLongCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.CreateCommandHandlerTests#5fafef2d-e558-4060-ac43-7f09f1ec434a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/CreateAggregateRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.DeleteCommandHandlerTests#3d3444db-2f5e-4233-af74-d7d967bb9725</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/DeleteAggregateRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/DeleteAggregateRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.UpdateCommandHandlerTests#3a89f77c-28f9-41ab-91e3-bfcd99a1abf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/UpdateAggregateRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -144,6 +176,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.DeleteCommandHandlerTests#2a0a86d7-9dd9-4ae4-83bf-4f0608fbd052</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/DeleteImplicitKeyAggrRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/DeleteImplicitKeyAggrRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.UpdateCommandHandlerTests#154084b8-9495-4f13-80f5-a97a8f0ab694</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

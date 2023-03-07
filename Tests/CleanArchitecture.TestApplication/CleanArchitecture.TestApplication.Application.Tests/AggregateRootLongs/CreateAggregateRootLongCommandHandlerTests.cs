@@ -54,7 +54,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
         }
 
-        public static AggregateRootLong CreateExpectedAggregateRootLong(CreateAggregateRootLongCommand dto)
+        private static AggregateRootLong CreateExpectedAggregateRootLong(CreateAggregateRootLongCommand dto)
         {
             return new AggregateRootLong
             {

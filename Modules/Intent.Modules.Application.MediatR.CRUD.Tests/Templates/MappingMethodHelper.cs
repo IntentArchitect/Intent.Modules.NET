@@ -17,6 +17,7 @@ public static class MappingMethodHelper
     {
         builderClass.AddMethod(template.GetTypeName(domainModel.InternalElement), GetCreateMethodName(domainModel.InternalElement), method =>
         {
+            method.Private();
             method.Static();
             method.AddParameter(template.GetTypeName(commandModel.InternalElement), "dto");
             method.AddStatementBlock($"return new {template.GetTypeName(domainModel.InternalElement)}", block =>
@@ -31,6 +32,7 @@ public static class MappingMethodHelper
     {
         builderClass.AddMethod(template.GetTypeName(domainModel.InternalElement), GetCreateMethodName(domainModel.InternalElement), method =>
         {
+            method.Private();
             method.Static();
             method.AddParameter(template.GetTypeName(dtoModel.InternalElement), "dto");
             method.AddStatementBlock($"return new {template.GetTypeName(domainModel.InternalElement)}", block =>

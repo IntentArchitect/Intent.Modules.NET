@@ -35,7 +35,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.GetByIdQueryHa
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<QueryModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetQueryModels();
+            //return _metadataManager.Services(application).GetQueryModels();
+            return Enumerable.Empty<QueryModel>();
         }
     }
 }
