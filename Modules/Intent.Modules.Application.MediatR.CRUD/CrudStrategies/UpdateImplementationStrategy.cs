@@ -18,19 +18,14 @@ using JetBrains.Annotations;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
-    class UpdateImplementationStrategy : ICrudImplementationStrategy
+    public class UpdateImplementationStrategy : ICrudImplementationStrategy
     {
         private readonly CommandHandlerTemplate _template;
-        private readonly IApplication _application;
-        private readonly IMetadataManager _metadataManager;
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public UpdateImplementationStrategy(CommandHandlerTemplate template, IApplication application,
-            IMetadataManager metadataManager)
+        public UpdateImplementationStrategy(CommandHandlerTemplate template)
         {
             _template = template;
-            _application = application;
-            _metadataManager = metadataManager;
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
         }
 

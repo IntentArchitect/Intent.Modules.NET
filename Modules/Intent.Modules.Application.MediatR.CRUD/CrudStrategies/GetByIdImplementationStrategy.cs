@@ -16,20 +16,17 @@ using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterfa
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
-    class GetByIdImplementationStrategy : ICrudImplementationStrategy
+    public class GetByIdImplementationStrategy : ICrudImplementationStrategy
     {
         private readonly QueryHandlerTemplate _template;
         private readonly IApplication _application;
-        private readonly IMetadataManager _metadataManager;
 
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public GetByIdImplementationStrategy(QueryHandlerTemplate template, IApplication application,
-            IMetadataManager metadataManager)
+        public GetByIdImplementationStrategy(QueryHandlerTemplate template, IApplication application)
         {
             _template = template;
             _application = application;
-            _metadataManager = metadataManager;
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
         }
 
@@ -105,9 +102,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             
             var foundEntity = _template.Model.Mapping.Element.AsClassModel();
 
-            var dtoToReturn = _metadataManager.Services(_application).GetDTOModels().SingleOrDefault(x =>
+            var dtoToReturn = _application.MetadataManager.Services(_application).GetDTOModels().SingleOrDefault(x =>
                 x.Id == _template.Model.TypeReference.Element.Id && x.IsMapped &&
                 x.Mapping.ElementId == foundEntity.Id);
+            
             if (dtoToReturn == null)
             {
                 return NoMatch;

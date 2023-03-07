@@ -18,16 +18,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 public class GetAllPaginationImplementationStrategy : ICrudImplementationStrategy
 {
     private readonly QueryHandlerTemplate _template;
-    private readonly IApplication _application;
-    private readonly IMetadataManager _metadataManager;
     private readonly Lazy<StrategyData> _matchingElementDetails;
 
-    public GetAllPaginationImplementationStrategy(QueryHandlerTemplate template, IApplication application,
-        IMetadataManager metadataManager)
+    public GetAllPaginationImplementationStrategy(QueryHandlerTemplate template)
     {
         _template = template;
-        _application = application;
-        _metadataManager = metadataManager;
         _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
     }
 

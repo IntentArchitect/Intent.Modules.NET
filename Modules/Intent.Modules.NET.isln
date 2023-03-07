@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.11" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.12-pre.1" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -104,5 +104,6 @@
     <application id="858ff064-47cf-4765-be7f-75a121e9c8d6" name="Dapr.AspNetCore.Pubsub" relativePath="Intent.Modules.Dapr.AspNetCore.Pubsub/Intent.Modules.Dapr.AspNetCore.Pubsub.application.config" />
     <application id="1ab414a9-a3d6-45c6-b446-87bd6b656285" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr/Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr.application.config" />
     <application id="f6e6f600-dec7-4d45-905b-659a4513cb0a" name="Intent.Modules.Dapr.AspNetCore.StateManagement" relativePath="Intent.Modules.Dapr.AspNetCore.StateManagement/Intent.Modules.Dapr.AspNetCore.StateManagement.application.config" />
+    <application id="16a65f0b-0eb6-47d8-bbc7-6cd40e36fef8" name="Intent.Modules.Application.MediatR.CRUD.Tests" relativePath="Intent.Modules.Application.MediatR.CRUD.Tests/Intent.Modules.Application.MediatR.CRUD.Tests.application.config" />
   </applications>
 </solution>

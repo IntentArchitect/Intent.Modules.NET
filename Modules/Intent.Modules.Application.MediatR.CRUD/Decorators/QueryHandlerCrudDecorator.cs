@@ -37,9 +37,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             // DJVV: Maybe we should just get rid of the decorator and use a factory extension
             _implementationStrategy = new ICrudImplementationStrategy[]
             {
-                new GetAllImplementationStrategy(_template, _application, _application.MetadataManager),
-                new GetByIdImplementationStrategy(_template, _application, _application.MetadataManager),
-                new GetAllPaginationImplementationStrategy(_template, _application, _application.MetadataManager)
+                new GetAllImplementationStrategy(_template, _application),
+                new GetByIdImplementationStrategy(_template, _application),
+                new GetAllPaginationImplementationStrategy(_template)
             }.SingleOrDefault(x => x.IsMatch());
 
             if (_implementationStrategy != null)

@@ -14,20 +14,15 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
-    class DeleteImplementationStrategy : ICrudImplementationStrategy
+    public class DeleteImplementationStrategy : ICrudImplementationStrategy
     {
         private readonly CommandHandlerTemplate _template;
-        private readonly IApplication _application;
-        private readonly IMetadataManager _metadataManager;
 
         private readonly Lazy<StrategyData> _matchingElementDetails;
 
-        public DeleteImplementationStrategy(CommandHandlerTemplate template, IApplication application,
-            IMetadataManager metadataManager)
+        public DeleteImplementationStrategy(CommandHandlerTemplate template)
         {
             _template = template;
-            _application = application;
-            _metadataManager = metadataManager;
 
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
         }

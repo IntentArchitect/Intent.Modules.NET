@@ -32,7 +32,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
             var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
             foreach (var template in templates)
             {
-                var strategy = new UpdateImplementationStrategy(template, application, application.MetadataManager);
+                var strategy = new UpdateImplementationStrategy(template);
                 if (!strategy.IsMatch())
                 {
                     continue;
