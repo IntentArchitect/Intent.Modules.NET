@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -26,8 +27,8 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
-            AddTypeSource("Domain.Enum", "List<{0}>");
-            FulfillsRole("Application.Contract.Dto");
+            AddTypeSource(TemplateFulfillingRoles.Domain.Enum, "List<{0}>");
+            FulfillsRole(TemplateFulfillingRoles.Application.Contracts.Dto);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

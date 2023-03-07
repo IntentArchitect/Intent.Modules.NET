@@ -4,6 +4,7 @@
     {
         public static class Domain
         {
+            public const string Enum = "Domain.Enum";
             public const string UnitOfWork = "Domain.UnitOfWork";
             public const string ValueObject = "Domain.ValueObject";
             public static class Entity
@@ -25,6 +26,12 @@
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
             }
+
+            public static class Contracts
+            {
+                public const string Dto = "Application.Contract.Dto";
+            }
+            
             public static class Services
             {
                 public const string Controllers = "Intent.AspNetCore.Controllers.Controller";

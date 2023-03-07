@@ -36,16 +36,80 @@
       <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#78219607-0f06-476a-a711-333c0d02bbb5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CreateAggregateRootCommandHandlerTests/CreateAggregateRootCommandHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CreateAggregateRootCommandHandlerTests/CreateAggregateRootCommandHandlerTestsTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/CreateCommandHandlerTests/CreateCommandHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateCommandHandlerTests/CreateCommandHandlerTestsTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#78219607-0f06-476a-a711-333c0d02bbb5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CreateAggregateRootCommandHandlerTests/CreateAggregateRootCommandHandlerTestsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CreateAggregateRootCommandHandlerTests/CreateAggregateRootCommandHandlerTestsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/CreateCommandHandlerTests/CreateCommandHandlerTestsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateCommandHandlerTests/CreateCommandHandlerTestsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2f16e4a1-85d3-4456-bf91-6bb7f739c330</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DeleteCommandHandlerTests/DeleteCommandHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteCommandHandlerTests/DeleteCommandHandlerTestsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#2f16e4a1-85d3-4456-bf91-6bb7f739c330</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DeleteCommandHandlerTests/DeleteCommandHandlerTestsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DeleteCommandHandlerTests/DeleteCommandHandlerTestsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#04cae865-6888-485f-9e61-057f75b58913</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GetAllQueryHandlerTests/GetAllQueryHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GetAllQueryHandlerTests/GetAllQueryHandlerTestsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#04cae865-6888-485f-9e61-057f75b58913</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GetAllQueryHandlerTests/GetAllQueryHandlerTestsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GetAllQueryHandlerTests/GetAllQueryHandlerTestsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d2a7726f-23be-4c3e-9156-56bdb1270237</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GetByIdQueryHandlerTests/GetByIdQueryHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GetByIdQueryHandlerTests/GetByIdQueryHandlerTestsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#d2a7726f-23be-4c3e-9156-56bdb1270237</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GetByIdQueryHandlerTests/GetByIdQueryHandlerTestsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GetByIdQueryHandlerTests/GetByIdQueryHandlerTestsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2fea7bef-ccb5-4c7f-84f1-b67e28346d94</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RepositoryExtensions/RepositoryExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryExtensions/RepositoryExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2fea7bef-ccb5-4c7f-84f1-b67e28346d94</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/RepositoryExtensions/RepositoryExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryExtensions/RepositoryExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -54,6 +118,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#095d3b10-79be-458b-9e55-49dbcbd2cb21</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UpdateCommandHandlerTests/UpdateCommandHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateCommandHandlerTests/UpdateCommandHandlerTestsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#095d3b10-79be-458b-9e55-49dbcbd2cb21</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/UpdateCommandHandlerTests/UpdateCommandHandlerTestsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateCommandHandlerTests/UpdateCommandHandlerTestsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

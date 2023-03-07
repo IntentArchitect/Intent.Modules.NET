@@ -108,10 +108,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.CreateCommandHandlerTests#c4bffbae-7fe7-42ec-b824-c21f0a7c86e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/CreateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/CreateAggregateRootLongCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.CreateCommandHandlerTests#5fafef2d-e558-4060-ac43-7f09f1ec434a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/CreateAggregateRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#36da585a-bff5-4a4f-afb0-a7a6646a622b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CleanArchitecture.TestApplication.Application.Tests.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>066621d6-0a84-4fd7-93de-19ecc577cdde</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.RepositoryExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/Extensions/RepositoryExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.CreateCommandHandlerTests#f25e0a78-82b1-4574-b473-e36da1f13b3f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
