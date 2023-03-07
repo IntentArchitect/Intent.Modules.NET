@@ -49,7 +49,7 @@ public class DeleteAggregateRootCommandHandlerTests
         var repository = Substitute.For<IAggregateRootRepository>();
         var fixture = new Fixture();
         fixture.Register<DomainEvent>(() => null);
-        repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult<AggregateRoot>(default));
+        repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<AggregateRoot>(default));
         repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
 
         var sut = new DeleteAggregateRootCommandHandler(repository);

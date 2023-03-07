@@ -69,24 +69,25 @@ public class CreateAggregateRootCommandHandlerTests
         return new CompositeSingleA
         {
             CompositeAttr = dto.CompositeAttr,
-            Composite = dto.Composite == null ? null : CreateExpectedCompositeSingleAA(dto),
+            Composite = dto.Composite == null ? null : CreateExpectedCompositeSingleAA(dto.Composite),
             Composites = dto.Composites?.Select(CreateExpectedCompositeManyAA).ToList() ?? new List<CompositeManyAA>()
         };
     }
 
-    private static CompositeManyAA CreateExpectedCompositeManyAA(CreateAggregateRootCompositeSingleACompositeManyAADto s)
+    private static CompositeManyAA CreateExpectedCompositeManyAA(CreateAggregateRootCompositeSingleACompositeManyAADto dto)
     {
         return new CompositeManyAA
         {
-            CompositeAttr = s.CompositeAttr
+            CompositeAttr = dto.CompositeAttr
         };
     }
 
-    private static CompositeSingleAA CreateExpectedCompositeSingleAA(CreateAggregateRootCompositeSingleADto dto)
+    private static CompositeSingleAA CreateExpectedCompositeSingleAA(
+        CreateAggregateRootCompositeSingleACompositeSingleAADto dto)
     {
         return new CompositeSingleAA
         {
-            CompositeAttr = dto.Composite.CompositeAttr
+            CompositeAttr = dto.CompositeAttr
         };
     }
 
@@ -96,24 +97,24 @@ public class CreateAggregateRootCommandHandlerTests
         {
             CompositeAttr = dto.CompositeAttr,
             SomeDate = dto.SomeDate,
-            Composite = dto.Composite == null ? null : CreateExpectedCompositeSinlgeBB(dto),
+            Composite = dto.Composite == null ? null : CreateExpectedCompositeSinlgeBB(dto.Composite),
             Composites = dto.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<CompositeManyBB>()
         };
     }
 
-    private static CompositeManyBB CreateExpectedCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto cdto)
+    private static CompositeManyBB CreateExpectedCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto dto)
     {
         return new CompositeManyBB
         {
-            CompositeAttr = cdto.CompositeAttr
+            CompositeAttr = dto.CompositeAttr
         };
     }
 
-    private static CompositeSingleBB CreateExpectedCompositeSinlgeBB(CreateAggregateRootCompositeManyBDto dto)
+    private static CompositeSingleBB CreateExpectedCompositeSinlgeBB(CreateAggregateRootCompositeManyBCompositeSingleBBDto dto)
     {
         return new CompositeSingleBB
         {
-            CompositeAttr = dto.Composite.CompositeAttr
+            CompositeAttr = dto.CompositeAttr
         };
     }
 }
