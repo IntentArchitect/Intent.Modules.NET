@@ -68,9 +68,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.Contracts.Decorators
             switch (_template.GetHttpVerb(operationModel))
             {
                 case ControllerTemplate.HttpVerb.Get:
-                    return operationModel.ReturnType == null
-                        ? @"return NoContent();"
-                        : $@"return Ok({GetResultExpression(operationModel)});";
+                    if (operationModel.ReturnType == null)
+                    {
+                        return "return NoContent();";
+                    }
+
+                    var resultExpression = GetResultExpression(operationModel);
+
+                    if (operationModel.ReturnType.IsCollection)
+                    {
+                        return $"return Ok({resultExpression});";
+                    }
+
+                    return $@"return {resultExpression} != null ? Ok({resultExpression}) : NotFound();";
                 case ControllerTemplate.HttpVerb.Post:
                     return operationModel.ReturnType == null
                         ? @"return Created(string.Empty, null);"

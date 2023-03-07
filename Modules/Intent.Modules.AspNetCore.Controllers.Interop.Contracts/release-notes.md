@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Controllers will now return a 404 Not Found response for non-collection null results.
+
 ### Version 4.0.0
 
 - New: Upgraded Templates to use new Builder Pattern paradigm.

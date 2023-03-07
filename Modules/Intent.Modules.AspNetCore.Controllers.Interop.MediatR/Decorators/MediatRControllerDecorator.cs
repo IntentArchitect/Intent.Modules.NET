@@ -95,7 +95,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Interop.MediatR.Decorators
             switch (_template.GetHttpVerb(operationModel))
             {
                 case ControllerTemplate.HttpVerb.Get:
-                    return operationModel.ReturnType == null ? @"return NoContent();" : @"return Ok(result);";
+                    if (operationModel.ReturnType == null)
+                    {
+                        return "return NoContent();";
+                    }
+
+                    if (operationModel.ReturnType.IsCollection)
+                    {
+                        return "return Ok(result);";
+                    }
+
+                    return @"return result != null ? Ok(result) : NotFound();";
                 case ControllerTemplate.HttpVerb.Post:
                     var getByIdOperation = _template.Model.Operations.FirstOrDefault(x => (x.Name == "Get" || x.Name == $"Get{operationModel.Name.Replace("Create", "")}") && x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdOperation != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
