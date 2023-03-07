@@ -26,7 +26,7 @@ public class CreateAggregateRootCommandHandlerTests
         var repository = Substitute.For<IAggregateRootRepository>();
         AggregateRoot addedAggregateRoot = null;
         repository.When(x => x.Add(Arg.Any<AggregateRoot>())).Do(ci => addedAggregateRoot = ci.Arg<AggregateRoot>());
-        repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(ci => addedAggregateRoot.Id = expectedAggregateRoot.Id);
+        repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => addedAggregateRoot.Id = expectedAggregateRoot.Id);
 
         var sut = new CreateAggregateRootCommandHandler(repository);
 
@@ -35,7 +35,6 @@ public class CreateAggregateRootCommandHandlerTests
 
         // Assert
         result.Should().Be(expectedAggregateRoot.Id);
-        
         expectedAggregateRoot.Should().BeEquivalentTo(addedAggregateRoot);
     }
     

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,7 +22,6 @@ public class GetAggregateRootByIdQueryHandlerTests
 
     public GetAggregateRootByIdQueryHandlerTests()
     {
-        AssertionOptions.FormattingOptions.MaxLines = 500;
         var mapperConfiguration = new MapperConfiguration(config =>
         {
             config.AddMaps(typeof(GetAggregateRootByIdQueryHandler));
@@ -47,6 +47,27 @@ public class GetAggregateRootByIdQueryHandlerTests
 
         // Assert
         result.Should().BeEquivalentTo(expectedDto);
+    }
+    
+    [Fact]
+    public async Task Handle_WithInvalidIdQuery_ReturnsEmptyResult()
+    {
+        // Arrange
+        var query = new GetAggregateRootByIdQuery();
+        query.Id = Guid.NewGuid();
+        
+        var repository = Substitute.For<IAggregateRootRepository>();
+        var fixture = new Fixture();
+        fixture.Register<DomainEvent>(() => null);
+        repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<AggregateRoot>(default));
+
+        var sut = new GetAggregateRootByIdQueryHandler(repository, _mapper);
+        
+        // Act
+        var result = await sut.Handle(query, CancellationToken.None);
+        
+        // Assert
+        result.Should().Be(null);
     }
 
     public static IEnumerable<object[]> GetTestData()

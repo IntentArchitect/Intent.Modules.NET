@@ -21,7 +21,6 @@ public class GetAggregateRootsQueryHandlerTests
 
     public GetAggregateRootsQueryHandlerTests()
     {
-        AssertionOptions.FormattingOptions.MaxLines = 500;
         var mapperConfiguration = new MapperConfiguration(config =>
         {
             config.AddMaps(typeof(GetAggregateRootsQueryHandler));
@@ -34,7 +33,7 @@ public class GetAggregateRootsQueryHandlerTests
     public async Task Handle_WithValidQuery_RetrievesAggregateRoots(List<AggregateRoot> testEntities)
     {
         // Arrange
-        var expectedDtos = testEntities.Select(testEntity => CreateExpectedAggregateRootDto(testEntity)).ToArray();
+        var expectedDtos = testEntities.Select(CreateExpectedAggregateRootDto).ToArray();
         
         var query = new GetAggregateRootsQuery();
         var repository = Substitute.For<IAggregateRootRepository>();

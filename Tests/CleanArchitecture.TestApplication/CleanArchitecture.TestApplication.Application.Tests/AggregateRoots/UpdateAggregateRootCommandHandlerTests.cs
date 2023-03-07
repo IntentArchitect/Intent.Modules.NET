@@ -35,6 +35,26 @@ public class UpdateAggregateRootCommandHandlerTests
         expectedAggregateRoot.Should().BeEquivalentTo(existingEntity);
     }
     
+    [Fact]
+    public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
+    {
+        // Arrange
+        var fixture = new Fixture();
+        var testCommand = fixture.Create<UpdateAggregateRootCommand>();
+        
+        var repository = Substitute.For<IAggregateRootRepository>();
+        repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<AggregateRoot>(null));
+        
+        var sut = new UpdateAggregateRootCommandHandler(repository);
+
+        // Act
+        // Assert
+        await Assert.ThrowsAsync<NullReferenceException>(async () =>
+        {
+            await sut.Handle(testCommand, CancellationToken.None);
+        });
+    }
+    
     public static IEnumerable<object[]> GetTestData()
     {
         var fixture = new Fixture();
