@@ -69,7 +69,7 @@ public class GetAggregateRootsQueryHandlerTests
         {
             Id = entity.Id,
             AggregateAttr = entity.AggregateAttr,
-            Composites = entity.Composites.Select(CreateExpectedCompositeManyB).ToList(),
+            Composites = entity.Composites?.Select(CreateExpectedCompositeManyB).ToList() ?? new List<AggregateRootCompositeManyBDto>(),
             Composite = entity.Composite != null ? CreateExpectedCompositeSingleA(entity.Composite) : null,
             Aggregate = entity.Aggregate != null ? CreateExpectedAggregateSingleC(entity.Aggregate) : null,
         };
@@ -84,7 +84,7 @@ public class GetAggregateRootsQueryHandlerTests
             AggregateRootId = entity.AggregateRootId,
             Id = entity.Id,
             Composite = entity.Composite != null ? CreateExpectedCompositeSingleBB(entity.Composite) : null,
-            Composites = entity.Composites.Select(CreateExpectedCompositeManyBB).ToList(),
+            Composites = entity.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<AggregateRootCompositeManyBCompositeManyBBDto>(),
         };
     }
 
@@ -114,7 +114,7 @@ public class GetAggregateRootsQueryHandlerTests
             CompositeAttr = entity.CompositeAttr,
             Id = entity.Id,
             Composite = entity.Composite != null ? CreateExpectedCompositeSingleAA(entity.Composite) : null,
-            Composites = entity.Composites.Select(CreateExpectedCompositeManyAA).ToList(),
+            Composites = entity.Composites?.Select(CreateExpectedCompositeManyAA).ToList() ?? new List<AggregateRootCompositeSingleACompositeManyAADto>(),
         };
     }
 

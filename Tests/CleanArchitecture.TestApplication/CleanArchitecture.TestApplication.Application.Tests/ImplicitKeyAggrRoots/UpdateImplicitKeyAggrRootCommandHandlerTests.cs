@@ -21,7 +21,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
     public class UpdateImplicitKeyAggrRootCommandHandlerTests
     {
         [Theory]
-        [MemberData(nameof(GetTestData))]
+        [MemberData(nameof(GetValidTestData))]
         public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateImplicitKeyAggrRootCommand testCommand, ImplicitKeyAggrRoot existingEntity)
         {
             // Arrange
@@ -59,15 +59,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             });
         }
 
-        public static IEnumerable<object[]> GetTestData()
+        public static IEnumerable<object[]> GetValidTestData()
         {
             var fixture = new Fixture();
             var testCommand = fixture.Create<UpdateImplicitKeyAggrRootCommand>();
-            yield return new object[] { testCommand, CreateExpectedImplicitKeyAggrRoot(testCommand) };
-
-            fixture = new Fixture();
-            fixture.Customize<UpdateImplicitKeyAggrRootCommand>(comp => comp.Without(x => x.ImplicitKeyNestedCompositions));
-            testCommand = fixture.Create<UpdateImplicitKeyAggrRootCommand>();
             yield return new object[] { testCommand, CreateExpectedImplicitKeyAggrRoot(testCommand) };
         }
 
@@ -77,7 +72,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             {
 #warning No matching field found for Id
                 Attribute = dto.Attribute,
-                ImplicitKeyNestedCompositions = dto.ImplicitKeyNestedCompositions.Select(CreateExpectedImplicitKeyNestedComposition).ToList(),
+                ImplicitKeyNestedCompositions = dto.ImplicitKeyNestedCompositions?.Select(CreateExpectedImplicitKeyNestedComposition).ToList() ?? new List<ImplicitKeyNestedComposition>(),
             };
         }
 

@@ -60,7 +60,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 {
                     method.Async();
                     method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetTestData))");
+                    method.AddAttribute("MemberData(nameof(GetValidTestData))");
                     method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
                     method.AddParameter(GetTypeName(domainElement.InternalElement), "existingEntity");
                     method.AddStatements($@"
@@ -101,7 +101,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         }});");
                 });
 
-                priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
+                priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
                 {
                     method.Static();
                     method.AddStatements($@"
@@ -110,7 +110,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
                     
                     foreach (var property in Model.Properties
-                                 .Where(p => p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+                                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
                     {
                         method.AddStatement("");
                         method.AddStatements($@"
@@ -120,7 +120,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
                     }
                 });
-                
+
                 this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
             });
     }

@@ -21,7 +21,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots;
 public class UpdateAggregateRootCommandHandlerTests
 {
     [Theory]
-    [MemberData(nameof(GetTestData))]
+    [MemberData(nameof(GetValidTestData))]
     public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootCommand testCommand, AggregateRoot existingEntity)
     {
         // Arrange
@@ -59,15 +59,10 @@ public class UpdateAggregateRootCommandHandlerTests
         });
     }
 
-    public static IEnumerable<object[]> GetTestData()
+    public static IEnumerable<object[]> GetValidTestData()
     {
         var fixture = new Fixture();
         var testCommand = fixture.Create<UpdateAggregateRootCommand>();
-        yield return new object[] { testCommand, CreateExpectedAggregateRoot(testCommand) };
-
-        fixture = new Fixture();
-        fixture.Customize<UpdateAggregateRootCommand>(comp => comp.Without(x => x.Composites));
-        testCommand = fixture.Create<UpdateAggregateRootCommand>();
         yield return new object[] { testCommand, CreateExpectedAggregateRoot(testCommand) };
 
         fixture = new Fixture();
@@ -81,7 +76,7 @@ public class UpdateAggregateRootCommandHandlerTests
         return new AggregateRoot
         {
             AggregateAttr = dto.AggregateAttr,
-            Composites = dto.Composites.Select(CreateExpectedCompositeManyB).ToList(),
+            Composites = dto.Composites?.Select(CreateExpectedCompositeManyB).ToList() ?? new List<CompositeManyB>(),
             Composite = dto.Composite != null ? CreateExpectedCompositeSingleA(dto.Composite) : null,
 #warning Field not a composite association: Aggregate
         };
@@ -93,7 +88,7 @@ public class UpdateAggregateRootCommandHandlerTests
         {
             CompositeAttr = dto.CompositeAttr,
             Composite = dto.Composite != null ? CreateExpectedCompositeSingleAA(dto.Composite) : null,
-            Composites = dto.Composites.Select(CreateExpectedCompositeManyAA).ToList(),
+            Composites = dto.Composites?.Select(CreateExpectedCompositeManyAA).ToList() ?? new List<CompositeManyAA>(),
         };
     }
 
@@ -121,7 +116,7 @@ public class UpdateAggregateRootCommandHandlerTests
             CompositeAttr = dto.CompositeAttr,
             SomeDate = dto.SomeDate,
             AggregateRootId = dto.AggregateRootId,
-            Composites = dto.Composites.Select(CreateExpectedCompositeManyBB).ToList(),
+            Composites = dto.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<CompositeManyBB>(),
             Composite = dto.Composite != null ? CreateExpectedCompositeSingleBB(dto.Composite) : null,
         };
     }

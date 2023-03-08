@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
     public class CreateImplicitKeyAggrRootCommandHandlerTests
     {
         [Theory]
-        [MemberData(nameof(GetTestData))]
+        [MemberData(nameof(GetValidTestData))]
         public async Task Handle_WithValidCommand_AddsImplicitKeyAggrRootToRepository(CreateImplicitKeyAggrRootCommand testCommand)
         {
             // Arrange
@@ -43,10 +43,37 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             expectedImplicitKeyAggrRoot.Should().BeEquivalentTo(addedImplicitKeyAggrRoot);
         }
 
-        public static IEnumerable<object[]> GetTestData()
+        [Theory]
+        [MemberData(nameof(GetInvalidTestData))]
+        public async Task Handle_WithInvalidCommand_ThrowsException(CreateImplicitKeyAggrRootCommand testCommand)
+        {
+            // Arrange
+            var expectedImplicitKeyAggrRoot = CreateExpectedImplicitKeyAggrRoot(testCommand);
+
+            ImplicitKeyAggrRoot addedImplicitKeyAggrRoot = null;
+            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            repository.OnAdd(ent => addedImplicitKeyAggrRoot = ent);
+            repository.OnSave(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRoot.Id);
+
+            var sut = new CreateImplicitKeyAggrRootCommandHandler(repository);
+            // Act
+            // Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(
+                async () =>
+                {
+                    await sut.Handle(testCommand, CancellationToken.None);
+                });
+        }
+
+        public static IEnumerable<object[]> GetValidTestData()
         {
             var fixture = new Fixture();
             yield return new object[] { fixture.Create<CreateImplicitKeyAggrRootCommand>() };
+        }
+
+        public static IEnumerable<object[]> GetInvalidTestData()
+        {
+            Fixture fixture;
 
             fixture = new Fixture();
             fixture.Customize<CreateImplicitKeyAggrRootCommand>(comp => comp.Without(x => x.ImplicitKeyNestedCompositions));
@@ -58,7 +85,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             return new ImplicitKeyAggrRoot
             {
                 Attribute = dto.Attribute,
-                ImplicitKeyNestedCompositions = dto.ImplicitKeyNestedCompositions.Select(CreateExpectedImplicitKeyNestedComposition).ToList(),
+                ImplicitKeyNestedCompositions = dto.ImplicitKeyNestedCompositions?.Select(CreateExpectedImplicitKeyNestedComposition).ToList() ?? new List<ImplicitKeyNestedComposition>(),
             };
         }
 

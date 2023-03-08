@@ -69,7 +69,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             {
                 Id = entity.Id,
                 Attribute = entity.Attribute,
-                ImplicitKeyNestedCompositions = entity.ImplicitKeyNestedCompositions.Select(CreateExpectedImplicitKeyNestedComposition).ToList(),
+                ImplicitKeyNestedCompositions = entity.ImplicitKeyNestedCompositions?.Select(CreateExpectedImplicitKeyNestedComposition).ToList() ?? new List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>(),
             };
         }
 

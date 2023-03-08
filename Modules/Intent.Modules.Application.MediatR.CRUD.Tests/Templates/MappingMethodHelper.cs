@@ -92,20 +92,11 @@ public static class MappingMethodHelper
 
                     if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                     {
-                        if (field.TypeReference.IsNullable)
-                        {
-                            codeLines.Add(
-                                $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
-                        }
-                        else
-                        {
-                            codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetType.InternalElement, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}),");
-                        }
+                        codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
                     }
                     else
                     {
-                        codeLines.Add(
-                            $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetType.Name.ToPascalCase()}>()" : "")},");
+                        codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}?.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList() ?? new List<{targetType.Name.ToPascalCase()}>(),");
                     }
 
                     var @class = template.CSharpFile.Classes.First();
@@ -171,27 +162,18 @@ public static class MappingMethodHelper
                     var association = field.Mapping.Element.AsAssociationTargetEndModel();
                     var targetType = association.Element.AsClassModel();
                     var attributeName = association.Name.ToPascalCase();
+                    var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
 
                     if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                     {
-                        if (field.TypeReference.IsNullable)
-                        {
-                            codeLines.Add(
-                                $"{dtoVarExpr}{attributeName} = {entityVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{field.Name.ToPascalCase()}) : null,");
-                        }
-                        else
-                        {
-                            codeLines.Add($"{dtoVarExpr}{attributeName} = {GetCreateMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{field.Name.ToPascalCase()}),");
-                        }
+                        codeLines.Add($"{dtoVarExpr}{attributeName} = {entityVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{field.Name.ToPascalCase()}) : null,");
                     }
                     else
                     {
-                        codeLines.Add(
-                            $"{dtoVarExpr}{attributeName} = {entityVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetType.Name.ToPascalCase()}>()" : "")},");
+                        codeLines.Add($"{dtoVarExpr}{attributeName} = {entityVarName}.{field.Name.ToPascalCase()}?.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList() ?? new List<{fieldDtoModel.Name.ToPascalCase()}>(),");
                     }
 
                     var @class = template.CSharpFile.Classes.First();
-                    var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
                     @class.AddMethod(template.GetTypeName(fieldDtoModel.InternalElement),
                         GetCreateMethodName(targetType.InternalElement, attributeName),
                         method => method.Private().Static()

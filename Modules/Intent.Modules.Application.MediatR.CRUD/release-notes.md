@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Fixed: Added `null` checks on places previously not covered.
+
 ### Version 4.1.0
 
 - New: Now Commands, Queries and DTOs will include fields of mapped Entities' inheritance hierarchies.

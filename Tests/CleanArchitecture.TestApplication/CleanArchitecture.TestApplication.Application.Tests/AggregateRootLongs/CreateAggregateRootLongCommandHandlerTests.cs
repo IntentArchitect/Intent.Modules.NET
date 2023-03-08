@@ -22,7 +22,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
     public class CreateAggregateRootLongCommandHandlerTests
     {
         [Theory]
-        [MemberData(nameof(GetTestData))]
+        [MemberData(nameof(GetValidTestData))]
         public async Task Handle_WithValidCommand_AddsAggregateRootLongToRepository(CreateAggregateRootLongCommand testCommand)
         {
             // Arrange
@@ -43,7 +43,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             expectedAggregateRootLong.Should().BeEquivalentTo(addedAggregateRootLong);
         }
 
-        public static IEnumerable<object[]> GetTestData()
+        public static IEnumerable<object[]> GetValidTestData()
         {
             var fixture = new Fixture();
             yield return new object[] { fixture.Create<CreateAggregateRootLongCommand>() };

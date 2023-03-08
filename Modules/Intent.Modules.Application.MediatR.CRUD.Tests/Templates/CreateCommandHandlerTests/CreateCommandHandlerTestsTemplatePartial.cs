@@ -68,7 +68,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 {
                     method.Async();
                     method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetTestData))");
+                    method.AddAttribute("MemberData(nameof(GetValidTestData))");
                     method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
                     method.AddStatements($@"
         // Arrange
@@ -89,7 +89,35 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         expected{domainElementName}.Should().BeEquivalentTo(added{domainElementName});");
                 });
 
-                priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
+                if (HasInvalidDataOpportunity())
+                {
+                    priClass.AddMethod("Task", $"Handle_WithInvalidCommand_ThrowsException", method =>
+                    {
+                        method.Async();
+                        method.AddAttribute("Theory");
+                        method.AddAttribute("MemberData(nameof(GetInvalidTestData))");
+                        method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
+                        method.AddStatements($@"
+        // Arrange
+        var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
+
+        {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
+        repository.OnAdd(ent => added{domainElementName} = ent);
+        repository.OnSave(() => added{domainElementName}.Id = expected{domainElementName}.Id);
+
+        var sut = new {this.GetCommandHandlerName(Model)}(repository);");
+                        method.AddStatements(@"
+        // Act
+        // Assert");
+                        method.AddInvocationStatement($"await Assert.ThrowsAsync<ArgumentNullException>", stmt =>
+                            stmt.AddArgument(new CSharpLambdaBlock("async ()")
+                                    .AddStatement("await sut.Handle(testCommand, CancellationToken.None);"))
+                                .WithArgumentsOnNewLines());
+                    });
+                }
+
+                priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
                 {
                     method.Static();
                     method.AddStatements($@"
@@ -97,7 +125,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
 
                     foreach (var property in Model.Properties
-                                 .Where(p => p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+                                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
                     {
                         method.AddStatement("");
                         method.AddStatements($@"
@@ -107,8 +135,34 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     }
                 });
 
+                if (HasInvalidDataOpportunity())
+                {
+                    priClass.AddMethod("IEnumerable<object[]>", "GetInvalidTestData", method =>
+                    {
+                        method.Static();
+                        method.AddStatement($@"Fixture fixture;");
+
+                        foreach (var property in Model.Properties
+                                     .Where(p => !p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+                        {
+                            method.AddStatement("");
+                            method.AddStatements($@"
+        fixture = new Fixture();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
+        yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
+                        }
+                    });
+                }
+
                 this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
             });
+    }
+
+    private bool HasInvalidDataOpportunity()
+    {
+        return Model
+            .Properties
+            .Any(p => !p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false);
     }
 
     [IntentManaged(Mode.Fully)] 

@@ -166,8 +166,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         }
                         else
                         {
-                            codeLines.Add(
-                                $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetEntity.InternalElement, attributeName)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetEntity.Name.ToPascalCase()}>()" : "")},");
+                            codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetEntity.InternalElement, attributeName)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetEntity.Name.ToPascalCase()}>()" : "")},");
                         }
 
                         var @class = _template.CSharpFile.Classes.First();
