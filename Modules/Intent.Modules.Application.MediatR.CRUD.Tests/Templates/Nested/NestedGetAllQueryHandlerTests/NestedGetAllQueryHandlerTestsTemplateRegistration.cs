@@ -36,12 +36,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<QueryModel> GetModels(IApplication application)
         {
-            // return _metadataManager.Services(application)
-            //     .GetQueryModels()
-            //     .Where(p => p.Mapping == null && p.TypeReference.IsCollection && p.TypeReference.Element.IsDTOModel())
-            //     .Where(p => p.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == false)
-            //     .ToList();
-            return Enumerable.Empty<QueryModel>();
+            return _metadataManager.Services(application)
+                .GetQueryModels()
+                .Where(p => p.Mapping == null && p.TypeReference.IsCollection && p.TypeReference.Element.IsDTOModel())
+                .Where(p => p.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == false)
+                .ToList();
         }
     }
 }

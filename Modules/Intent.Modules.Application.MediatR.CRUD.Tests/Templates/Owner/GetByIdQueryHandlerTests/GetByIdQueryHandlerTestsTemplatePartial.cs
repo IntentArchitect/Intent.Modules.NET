@@ -58,6 +58,8 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 var dtoModel = Model.TypeReference.Element.AsDTOModel();
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
+                var domainElementIdName = domainElement.GetEntityIdAttribute().IdName;
+                var queryIdFieldName = Model.Properties.GetEntityIdField(domainElement).Name;
 
                 var priClass = file.Classes.First();
                 priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
@@ -80,14 +82,14 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         // Arrange
         var expectedDto = CreateExpected{dtoModel.Name.ToPascalCase()}(testEntity);
         
-        var query = new {this.GetQueryModelsName(Model)} {{ Id = testEntity.Id }};
+        var testQuery = new {this.GetQueryModelsName(Model)} {{ {queryIdFieldName} = testEntity.{domainElementIdName} }};
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
+        repository.FindByIdAsync(testQuery.{queryIdFieldName}, CancellationToken.None).Returns(Task.FromResult(testEntity));
 
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
 
         // Act
-        var result = await sut.Handle(query, CancellationToken.None);
+        var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
         result.Should().BeEquivalentTo(expectedDto);");

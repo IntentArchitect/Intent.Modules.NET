@@ -55,7 +55,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
-                var idFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
+                var commandIdFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{domainElementName}FromRepository", method =>
@@ -69,7 +69,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         var existing{domainElementName} = GetExisting{domainElementName}(testCommand);
-        repository.FindByIdAsync(testCommand.{idFieldName}).Returns(Task.FromResult(existing{domainElementName}));
+        repository.FindByIdAsync(testCommand.{commandIdFieldName}).Returns(Task.FromResult(existing{domainElementName}));
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
@@ -90,7 +90,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
 
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.{idFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(default));
+        repository.FindByIdAsync(testCommand.{commandIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(default));
         repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
@@ -113,7 +113,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     this.RegisterDomainEventBaseFixture(method);
 
                     method.AddStatements($@"
-        fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.With(x => x.{idFieldName}, testCommand.{idFieldName}));
+        fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.With(x => x.{commandIdFieldName}, testCommand.{commandIdFieldName}));
         var existing{domainElementName} = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
         return existing{domainElementName};");
                 });

@@ -41,14 +41,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             // Arrange
             var expectedDto = CreateExpectedAggregateRootLongDto(testEntity);
 
-            var query = new GetAggregateRootLongByIdQuery { Id = testEntity.Id };
+            var testQuery = new GetAggregateRootLongByIdQuery { Id = testEntity.Id };
             var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
+            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
 
             var sut = new GetAggregateRootLongByIdQueryHandler(repository, _mapper);
 
             // Act
-            var result = await sut.Handle(query, CancellationToken.None);
+            var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
             result.Should().BeEquivalentTo(expectedDto);

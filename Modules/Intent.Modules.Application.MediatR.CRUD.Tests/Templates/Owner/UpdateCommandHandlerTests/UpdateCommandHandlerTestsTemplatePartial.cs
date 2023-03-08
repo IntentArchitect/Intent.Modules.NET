@@ -55,7 +55,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
-                var idFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
+                var commandIdFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
                 priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
@@ -70,7 +70,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
         
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.{idFieldName}, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+        repository.FindByIdAsync(testCommand.{commandIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingEntity));
         
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
@@ -91,7 +91,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.{idFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(null));
+        repository.FindByIdAsync(testCommand.{commandIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(null));
         
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 

@@ -58,8 +58,8 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                 var nestedDomainElementIdName = nestedDomainElement.GetEntityIdAttribute().IdName;
                 var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
                 var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute().IdName;
-                var ownerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
-                var ownerIdFieldName = ownerIdField.Name;
+                var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
+                var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
                 var commandIdFieldName = Model.Properties.GetEntityIdField(nestedDomainElement).Name;
                 var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
 
@@ -76,10 +76,10 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
         var testCommand = new {GetTypeName(Model.InternalElement)}();
         testCommand.{commandIdFieldName} = owner.{nestedAssociationName}.First().{nestedDomainElementIdName};
-        testCommand.{ownerIdFieldName} = owner.{ownerDomainElementIdName};
+        testCommand.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
 
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testCommand.{ownerIdFieldName}).Returns(Task.FromResult(owner));
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}).Returns(Task.FromResult(owner));
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
@@ -100,7 +100,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
 
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testCommand.{ownerIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(ownerDomainElement.InternalElement)}>(default));
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(ownerDomainElement.InternalElement)}>(default));
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
@@ -123,10 +123,10 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements($@"
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
-        testCommand.{ownerIdFieldName} = owner.{ownerDomainElementIdName};
+        testCommand.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
 
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testCommand.{ownerIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(ownerDomainElement.InternalElement)}>(default));
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(ownerDomainElement.InternalElement)}>(default));
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 

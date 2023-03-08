@@ -63,8 +63,8 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 var nestedDomainElement = Model.Mapping.Element.AsClassModel();
                 var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
                 var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
-                var ownerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
-                var ownerIdFieldName = ownerIdField.Name.ToPascalCase();
+                var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
+                var nestedOwnerIdFieldName = nestedOwnerIdField.Name.ToPascalCase();
 
                 var priClass = file.Classes.First();
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{nestedDomainElementName}ToRepository", method =>
@@ -80,7 +80,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
 
         {GetTypeName(nestedDomainElement.InternalElement)} added{nestedDomainElementName} = null;
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testCommand.{ownerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
         ");
 
                     var nestedEntityIdName = nestedDomainElement.GetEntityIdAttribute().IdName;
@@ -115,7 +115,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements($@"
         var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
         var command = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        command.{ownerIdFieldName} = owner.{entityIdName};
+        command.{nestedOwnerIdFieldName} = owner.{entityIdName};
         yield return new object[] {{ owner, command }};");
 
                     foreach (var property in Model.Properties
@@ -130,7 +130,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                         method.AddStatements($@"
         owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
         command = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        command.{ownerIdFieldName} = owner.{entityIdName};
+        command.{nestedOwnerIdFieldName} = owner.{entityIdName};
         yield return new object[] {{ owner, command }};");
                     }
                 });

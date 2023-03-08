@@ -80,14 +80,14 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
         // Arrange
         var expectedDtos = testEntities.Select(CreateExpected{dtoModel.Name.ToPascalCase()}).ToArray();
         
-        var query = new Get{domainElementPluralName}Query();
+        var testQuery = new {GetTypeName(Model.InternalElement)}();
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
 
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
 
         // Act
-        var result = await sut.Handle(query, CancellationToken.None);
+        var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
         result.Should().BeEquivalentTo(expectedDtos);");

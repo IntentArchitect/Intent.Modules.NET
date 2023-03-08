@@ -41,14 +41,14 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             // Arrange
             var expectedDtos = testEntities.Select(CreateExpectedImplicitKeyAggrRootDto).ToArray();
 
-            var query = new GetImplicitKeyAggrRootsQuery();
+            var testQuery = new GetImplicitKeyAggrRootsQuery();
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
 
             var sut = new GetImplicitKeyAggrRootsQueryHandler(repository, _mapper);
 
             // Act
-            var result = await sut.Handle(query, CancellationToken.None);
+            var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
             result.Should().BeEquivalentTo(expectedDtos);
