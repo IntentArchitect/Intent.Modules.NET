@@ -18,9 +18,9 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.0.1" />
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.26" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.6" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Entities.Repositories.Api" version="4.0.1" />
     <dependency id="Intent.Metadata.RDBMS" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="3.3.10" />

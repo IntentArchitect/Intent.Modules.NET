@@ -46,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleBB CreateCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeSingleBB CreateCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
             return new CompositeSingleBB
             {
@@ -55,7 +55,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyBB CreateCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto dto)
+        private static CompositeManyBB CreateCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
             return new CompositeManyBB
             {

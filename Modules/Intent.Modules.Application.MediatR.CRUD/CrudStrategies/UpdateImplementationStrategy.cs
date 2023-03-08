@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public IEnumerable<CSharpStatement> GetImplementation()
         {
-            var foundEntity = _matchingElementDetails.Value.FoundEntity.InternalElement;
+            var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
             var idField = _matchingElementDetails.Value.IdField;
 
@@ -79,7 +79,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"if (element == null)");
                 codeLines.Add(new CSharpStatementBlock()
                     .AddStatement($@"throw new InvalidOperationException($""{{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, foundEntity)})}} of Id '{{request.{idField.Name.ToPascalCase()}}}' could not be found associated with {{nameof({_template.GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, nestedCompOwner)})}} of Id '{{request.{aggregateRootField.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}}}'"");"));
-                codeLines.AddRange(GetDTOPropertyAssignments("element", "request", foundEntity, _template.Model.Properties, true));
+                codeLines.AddRange(GetDTOPropertyAssignments(entityVarName: "element", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
 
                 codeLines.Add("return Unit.Value;");
 
@@ -87,7 +87,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
 
             codeLines.Add($"var existing{foundEntity.Name} = await {repository.FieldName}.FindByIdAsync(request.{idField.Name.ToPascalCase()}, cancellationToken);");
-            codeLines.AddRange(GetDTOPropertyAssignments($"existing{foundEntity.Name}", "request", foundEntity, _template.Model.Properties, true));
+            codeLines.AddRange(GetDTOPropertyAssignments(entityVarName: $"existing{foundEntity.Name}", dtoVarName: "request", domainModel: foundEntity, dtoFields: _template.Model.Properties, skipIdField: true));
             codeLines.Add($"return Unit.Value;");
 
             return codeLines;
@@ -124,7 +124,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return NoMatch;
         }
 
-        private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, IElement domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
+        private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, ClassModel domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
         {
             var codeLines = new CSharpStatementAggregator();
             foreach (var field in dtoFields)
@@ -135,12 +135,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 }
 
                 if (field.Mapping?.Element == null
-                    && domainModel.ChildElements.All(p => p.Name != field.Name))
+                    && domainModel.Attributes.All(p => p.Name != field.Name))
                 {
                     codeLines.Add($"#warning No matching field found for {field.Name}");
                     continue;
                 }
 
+                var entityVarExpr = !string.IsNullOrWhiteSpace(entityVarName) ? $"{entityVarName}." : string.Empty;
                 switch (field.Mapping?.Element?.SpecializationTypeId)
                 {
                     default:
@@ -149,14 +150,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                         break;
                     case null:
                     case AttributeModel.SpecializationTypeId:
-                        var attribute = field.Mapping?.Element
-                                        ?? domainModel.ChildElements.First(p => p.Name == field.Name);
-                        codeLines.Add($"{entityVarName}.{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()};");
+                        var attribute = field.Mapping?.Element?.AsAttributeModel()
+                                        ?? domainModel.Attributes.First(p => p.Name == field.Name);
+                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()};");
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
                         {
                             var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                            var targetEntityElement = (IElement)association.Element;
+                            var targetEntity = association.Element.AsClassModel();
                             var attributeName = association.Name.ToPascalCase();
 
                             if (association.Association.AssociationType == AssociationType.Aggregation)
@@ -170,33 +171,37 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 if (field.TypeReference.IsNullable)
                                 {
                                 _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarName}.{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
-                                    codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntityElement.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)})", s => s.Indent());
+                                    codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
+                                    codeLines.Add($"? ({entityVarExpr}{attributeName} ?? new {targetEntity.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity.InternalElement, attributeName)})", s => s.Indent());
                                     codeLines.Add($": null;", s => s.Indent());
                                 }
                                 else
                                 {
                                     _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarName}.{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
+                                    codeLines.Add($"{entityVarExpr}{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity.InternalElement, attributeName)});");
                                 }
                             }
                             else
                             {
                                 _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                var targetClass = targetEntityElement.AsClassModel();
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{entityVarName}.{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
+                                codeLines.Add($"{entityVarExpr}{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetEntity.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetEntity).Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity.InternalElement, attributeName)});");
                             }
 
                             var @class = _template.CSharpFile.Classes.First();
                             @class.AddMethod("void",
-                                GetUpdateMethodName(targetEntityElement, attributeName),
+                                GetUpdateMethodName(targetEntity.InternalElement, attributeName),
                                 method => method.Private()
                                     .Static()
-                                    .AddAttribute("IntentManaged(Mode.Fully)")
-                                    .AddParameter(_template.GetTypeName(targetEntityElement), "entity")
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                                    .AddParameter(_template.GetTypeName(targetEntity.InternalElement), "entity")
                                     .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                    .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntityElement, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), true)));
+                                    .AddStatements(GetDTOPropertyAssignments(
+                                        entityVarName: "entity", 
+                                        dtoVarName: "dto", 
+                                        domainModel: targetEntity, 
+                                        dtoFields: field.TypeReference.Element.AsDTOModel().Fields, 
+                                        skipIdField: true)));
                         }
                         break;
                 }

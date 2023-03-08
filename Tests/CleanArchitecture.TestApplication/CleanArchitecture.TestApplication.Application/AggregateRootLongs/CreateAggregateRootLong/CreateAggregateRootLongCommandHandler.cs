@@ -38,7 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Creat
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeOfAggrLong CreateCompositeOfAggrLong(CreateAggregateRootLongCompositeOfAggrLongDto dto)
+        private static CompositeOfAggrLong CreateCompositeOfAggrLong(CreateAggregateRootLongCompositeOfAggrLongDto dto)
         {
             return new CompositeOfAggrLong
             {

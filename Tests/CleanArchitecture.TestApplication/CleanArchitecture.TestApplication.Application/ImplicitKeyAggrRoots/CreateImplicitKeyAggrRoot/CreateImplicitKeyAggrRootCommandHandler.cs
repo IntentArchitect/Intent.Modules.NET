@@ -38,7 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Cre
         }
 
         [IntentManaged(Mode.Fully)]
-        private ImplicitKeyNestedComposition CreateImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
+        private static ImplicitKeyNestedComposition CreateImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
         {
             return new ImplicitKeyNestedComposition
             {

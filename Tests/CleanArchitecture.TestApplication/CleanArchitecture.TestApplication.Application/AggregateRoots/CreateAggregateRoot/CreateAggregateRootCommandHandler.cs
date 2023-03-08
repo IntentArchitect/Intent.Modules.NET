@@ -30,7 +30,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
             var newAggregateRoot = new AggregateRoot
             {
                 AggregateAttr = request.AggregateAttr,
-                Composites = request.Composites?.Select(CreateCompositeManyB).ToList() ?? new List<CompositeManyB>(),
+                Composites = request.Composites.Select(CreateCompositeManyB).ToList(),
                 Composite = request.Composite != null ? CreateCompositeSingleA(request.Composite) : null,
 #warning Field not a composite association: Aggregate
             };
@@ -41,19 +41,19 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyB CreateCompositeManyB(CreateAggregateRootCompositeManyBDto dto)
+        private static CompositeManyB CreateCompositeManyB(CreateAggregateRootCompositeManyBDto dto)
         {
             return new CompositeManyB
             {
                 CompositeAttr = dto.CompositeAttr,
                 SomeDate = dto.SomeDate,
                 Composite = dto.Composite != null ? CreateCompositeSingleBB(dto.Composite) : null,
-                Composites = dto.Composites?.Select(CreateCompositeManyBB).ToList() ?? new List<CompositeManyBB>(),
+                Composites = dto.Composites.Select(CreateCompositeManyBB).ToList(),
             };
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleBB CreateCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeSingleBB CreateCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
             return new CompositeSingleBB
             {
@@ -62,7 +62,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyBB CreateCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto dto)
+        private static CompositeManyBB CreateCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
             return new CompositeManyBB
             {
@@ -71,18 +71,18 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleA CreateCompositeSingleA(CreateAggregateRootCompositeSingleADto dto)
+        private static CompositeSingleA CreateCompositeSingleA(CreateAggregateRootCompositeSingleADto dto)
         {
             return new CompositeSingleA
             {
                 CompositeAttr = dto.CompositeAttr,
                 Composite = dto.Composite != null ? CreateCompositeSingleAA(dto.Composite) : null,
-                Composites = dto.Composites?.Select(CreateCompositeManyAA).ToList() ?? new List<CompositeManyAA>(),
+                Composites = dto.Composites.Select(CreateCompositeManyAA).ToList(),
             };
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeSingleAA CreateCompositeSingleAA(CreateAggregateRootCompositeSingleACompositeSingleAADto dto)
+        private static CompositeSingleAA CreateCompositeSingleAA(CreateAggregateRootCompositeSingleACompositeSingleAADto dto)
         {
             return new CompositeSingleAA
             {
@@ -91,7 +91,7 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAgg
         }
 
         [IntentManaged(Mode.Fully)]
-        private CompositeManyAA CreateCompositeManyAA(CreateAggregateRootCompositeSingleACompositeManyAADto dto)
+        private static CompositeManyAA CreateCompositeManyAA(CreateAggregateRootCompositeSingleACompositeManyAADto dto)
         {
             return new CompositeManyAA
             {
