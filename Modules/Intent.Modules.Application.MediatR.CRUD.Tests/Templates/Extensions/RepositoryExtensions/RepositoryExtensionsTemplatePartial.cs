@@ -23,13 +23,18 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.Rep
         public RepositoryExtensionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.NSubstitute);
+            AddNugetDependency(NugetPackages.AutoFixture);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"RepositoryExtensions")
                 .OnBuild(file =>
                 {
                     file.AddUsing("System");
+                    file.AddUsing("System.Linq.Expressions");
+                    file.AddUsing("System.Reflection");
                     file.AddUsing("System.Threading");
                     file.AddUsing("NSubstitute");
+                    file.AddUsing("AutoFixture");
 
                     var priClass = file.Classes.First();
                     priClass.Static();
@@ -52,6 +57,27 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.Rep
                         method.AddParameter($"{this.GetRepositoryInterfaceName()}<{TDomain}, {TPersistence}>", "repository", parm => parm.WithThisModifier());
                         method.AddParameter($"Action", "saveAction");
                         method.AddStatement($"repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());");
+                    });
+
+                    priClass.AddMethod("void", "AutoAssignId", method =>
+                    {
+                        method.Static();
+                        method.AddGenericParameter("TObj", out var TObj);
+                        method.AddGenericParameter("TId", out var TId);
+                        method.AddParameter(TObj, "obj", parm => parm.WithThisModifier());
+                        method.AddParameter($"Expression<Func<{TObj}, {TId}>>", "idSelector");
+                        method.AddStatements($@"
+            var fixture = new Fixture();
+            var id = fixture.Create<TId>();
+            var memberExpr = idSelector.Body as MemberExpression;");
+                        method.AddStatementBlock("if (memberExpr == null || memberExpr.Member is not PropertyInfo property)", block =>
+                        {
+                            block.AddStatement(@"throw new ArgumentException(""Expression must consist of a property only"", nameof(idSelector));");
+                        });
+                        method.AddStatementBlock("if (property.CanWrite)", block =>
+                        {
+                            block.AddStatement("property.SetValue(obj, id, null);");
+                        });
                     });
                 });
         }

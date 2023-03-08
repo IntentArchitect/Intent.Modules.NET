@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
@@ -52,8 +54,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
                     file.AddUsing("NSubstitute");
                     file.AddUsing("Xunit");
 
-                    var domainElement = Model.Mapping.Element.AsClassModel();
-                    var domainElementName = domainElement.Name.ToPascalCase();
+                    var dtoModel = Model.TypeReference.Element.AsDTOModel();
+                    var nestedDomainElement = Model.Mapping.Element.AsClassModel();
+                    var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
+                    var nestedDomainElementIdName = nestedDomainElement.GetEntityIdAttribute().IdName;
+                    var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
+                    var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute().IdName;
+                    var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
+                    var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
+                    var commandIdFieldName = Model.Properties.GetEntityIdField(nestedDomainElement).Name;
+                    var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
 
                     var priClass = file.Classes.First();
                     priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
@@ -62,13 +72,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
                         method.AddAttribute("Theory");
                         method.AddAttribute("MemberData(nameof(GetValidTestData))");
                         method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
-                        method.AddParameter(GetTypeName(domainElement.InternalElement), "existingEntity");
+                        method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "owner");
                         method.AddStatements($@"
         // Arrange
-        var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
+        var expectedNestedEntity = CreateExpected{nestedDomainElementName}(testCommand);
         
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
         
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
@@ -76,26 +86,54 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
         await sut.Handle(testCommand, CancellationToken.None);
         
         // Assert
-        expected{domainElementName}.Should().BeEquivalentTo(existingEntity);");
+        owner.{nestedAssociationName}.Should().Contain(p => p.{nestedDomainElementIdName} == testCommand.{commandIdFieldName}).Which.Should().BeEquivalentTo(expectedNestedEntity);");
                     });
 
+                    priClass.AddMethod("Task", $"Handle_WithInvalid{nestedOwnerIdFieldName}Command_ReturnsNotFound", method =>
+                    {
+                        method.Async();
+                        method.AddAttribute("Fact");
+                        method.AddStatements($@"
+        // Arrange
+        var fixture = new Fixture();");
+                        this.RegisterDomainEventBaseFixture(method);
+                        method.AddStatements($@"
+        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(ownerDomainElement.InternalElement)}>(null));
+        
+        var sut = new {this.GetCommandHandlerName(Model)}(repository);
+
+        // Act
+        // Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(async () =>
+        {{
+            await sut.Handle(testCommand, CancellationToken.None);
+        }});");
+                    });
+                    
                     priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
                     {
                         method.Async();
                         method.AddAttribute("Fact");
                         method.AddStatements($@"
         // Arrange
-        var fixture = new Fixture();
+        var fixture = new Fixture();");
+                        this.RegisterDomainEventBaseFixture(method);
+                        method.AddStatements($@"
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
+        testCommand.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
         
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(null));
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
         
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
         // Assert
-        await Assert.ThrowsAsync<NullReferenceException>(async () =>
+        await Assert.ThrowsAsync<InvalidOperationException>(async () =>
         {{
             await sut.Handle(testCommand, CancellationToken.None);
         }});");
@@ -104,24 +142,32 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
                     priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
                     {
                         method.Static();
+                        method.AddStatement($@"var fixture = new Fixture();");
+                        this.RegisterDomainEventBaseFixture(method);
                         method.AddStatements($@"
-        var fixture = new Fixture();
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
+        var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
+        testCommand.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
+        owner.{nestedAssociationName}.Add(CreateExpected{nestedDomainElementName}(testCommand));
+        yield return new object[] {{ testCommand, owner }};");
 
                         foreach (var property in Model.Properties
                                      .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
                         {
                             method.AddStatement("");
+                            method.AddStatement($@"fixture = new Fixture();");
+                            this.RegisterDomainEventBaseFixture(method);
                             method.AddStatements($@"
-        fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
         testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
+        owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
+        testCommand.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
+        owner.{nestedAssociationName}.Add(CreateExpected{nestedDomainElementName}(testCommand));
+        yield return new object[] {{ testCommand, owner }};");
                         }
                     });
 
-                    this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
+                    this.AddDtoToDomainMappingMethods(priClass, Model, nestedDomainElement, false);
                 });
         }
 

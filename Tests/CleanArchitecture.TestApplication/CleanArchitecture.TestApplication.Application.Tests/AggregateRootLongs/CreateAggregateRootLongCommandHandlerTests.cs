@@ -27,6 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
         {
             // Arrange
             var expectedAggregateRootLong = CreateExpectedAggregateRootLong(testCommand);
+            expectedAggregateRootLong.AutoAssignId(k => k.Id);
 
             AggregateRootLong addedAggregateRootLong = null;
             var repository = Substitute.For<IAggregateRootLongRepository>();
@@ -40,7 +41,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
             // Assert
             result.Should().Be(expectedAggregateRootLong.Id);
-            expectedAggregateRootLong.Should().BeEquivalentTo(addedAggregateRootLong);
+            addedAggregateRootLong.Should().BeEquivalentTo(expectedAggregateRootLong);
         }
 
         public static IEnumerable<object[]> GetValidTestData()

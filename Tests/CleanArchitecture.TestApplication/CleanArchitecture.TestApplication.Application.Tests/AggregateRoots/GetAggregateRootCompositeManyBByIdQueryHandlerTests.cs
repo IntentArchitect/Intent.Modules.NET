@@ -41,10 +41,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
             var owner = fixture.Create<AggregateRoot>();
-            var expectedNestedEntity = owner.Composites.First();
+            var expectedNestedEntityDto = CreateExpectedAggregateRootCompositeManyBDto(owner.Composites.First());
 
             var testQuery = new GetAggregateRootCompositeManyBByIdQuery();
-            testQuery.Id = expectedNestedEntity.Id;
+            testQuery.Id = expectedNestedEntityDto.Id;
             testQuery.AggregateRootId = owner.Id;
 
             var repository = Substitute.For<IAggregateRootRepository>();
@@ -56,7 +56,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().BeEquivalentTo(CreateExpectedAggregateRootCompositeManyBDto(expectedNestedEntity));
+            result.Should().BeEquivalentTo(expectedNestedEntityDto);
         }
 
         [Fact]

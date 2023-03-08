@@ -55,6 +55,41 @@ public static class ImplementationStrategyTemplatesExtensions
         }
     }
 
+    public record EntityNestedCompositionalIdAttribute(string IdName);
+    
+    public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner)
+    {
+        var explicitKeyField = GetExplicitForeignKeyNestedCompOwnerField(entity, owner);
+        if (explicitKeyField != null) return explicitKeyField;
+        return new EntityNestedCompositionalIdAttribute($"{owner.Name}Id");
+        
+        EntityNestedCompositionalIdAttribute GetExplicitForeignKeyNestedCompOwnerField(ClassModel entity, ClassModel owner)
+        {
+            var idField = entity.Attributes
+                .FirstOrDefault(attr =>
+                {
+                    if (!attr.HasForeignKey())
+                    {
+                        return false;
+                    }
+
+                    var fkAssociation = attr.GetForeignKey().Association()?.AsAssociationTargetEndModel();
+                    // Backward compatible lookup method
+                    if (fkAssociation == null)
+                    {
+                        return attr.Name.Contains(owner.Name, StringComparison.OrdinalIgnoreCase);
+                    }
+
+                    return owner.AssociationEnds().Any(p => p.Id == fkAssociation.Id);
+                });
+            if (idField == null)
+            {
+                return null;
+            }
+            return new EntityNestedCompositionalIdAttribute(idField.Name);
+        }
+    }
+
     public static DTOFieldModel GetEntityIdField(this IEnumerable<DTOFieldModel> properties, ClassModel entity)
     {
         var explicitKeyField = GetExplicitEntityIdField(properties, entity);

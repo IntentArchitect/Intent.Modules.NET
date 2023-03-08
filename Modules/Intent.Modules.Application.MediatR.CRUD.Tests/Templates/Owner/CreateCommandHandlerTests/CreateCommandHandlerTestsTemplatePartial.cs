@@ -63,6 +63,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
+                var entityIdName = domainElement.GetEntityIdAttribute().IdName;
 
                 var priClass = file.Classes.First();
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{domainElementName}ToRepository", method =>
@@ -74,11 +75,12 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements($@"
         // Arrange
         var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
+        expected{domainElementName}.AutoAssignId(k => k.{entityIdName});
 
         {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         repository.OnAdd(ent => added{domainElementName} = ent);
-        repository.OnSave(() => added{domainElementName}.Id = expected{domainElementName}.Id);
+        repository.OnSave(() => added{domainElementName}.{entityIdName} = expected{domainElementName}.{entityIdName});
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
@@ -86,16 +88,14 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var result = await sut.Handle(testCommand, CancellationToken.None);
 
         // Assert
-        result.Should().Be(expected{domainElementName}.Id);
-        expected{domainElementName}.Should().BeEquivalentTo(added{domainElementName});");
+        result.Should().Be(expected{domainElementName}.{entityIdName});
+        added{domainElementName}.Should().BeEquivalentTo(expected{domainElementName});");
                 });
 
                 if (HasInvalidDataOpportunity())
                 {
                     priClass.AddMethod("Task", $"Handle_WithInvalidCommand_ThrowsException", method =>
                     {
-                        var entityIdName = domainElement.GetEntityIdAttribute().IdName;
-
                         method.Async();
                         method.AddAttribute("Theory");
                         method.AddAttribute("MemberData(nameof(GetInvalidTestData))");

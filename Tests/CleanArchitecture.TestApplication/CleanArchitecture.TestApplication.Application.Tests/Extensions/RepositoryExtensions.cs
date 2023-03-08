@@ -1,5 +1,8 @@
 using System;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Threading;
+using AutoFixture;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using NSubstitute;
@@ -19,6 +22,21 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Extensions
         public static void OnSave<TDomain, TPersistence>(this IRepository<TDomain, TPersistence> repository, Action saveAction)
         {
             repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());
+        }
+
+        public static void AutoAssignId<TObj, TId>(this TObj obj, Expression<Func<TObj, TId>> idSelector)
+        {
+            var fixture = new Fixture();
+            var id = fixture.Create<TId>();
+            var memberExpr = idSelector.Body as MemberExpression;
+            if (memberExpr == null || memberExpr.Member is not PropertyInfo property)
+            {
+                throw new ArgumentException("Expression must consist of a property only", nameof(idSelector));
+            }
+            if (property.CanWrite)
+            {
+                property.SetValue(obj, id, null);
+            }
         }
     }
 }

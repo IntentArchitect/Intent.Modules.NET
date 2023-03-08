@@ -87,10 +87,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         this.RegisterDomainEventBaseFixture(method);
                         method.AddStatements($@"
         var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
-        var expectedNestedEntity = owner.{nestedAssociationName}.First();
+        var expectedNestedEntityDto = CreateExpected{dtoModel.Name.ToPascalCase()}(owner.{nestedAssociationName}.First());
         
         var testQuery = new {this.GetQueryModelsName(Model)}();
-        testQuery.{queryIdFieldName} = expectedNestedEntity.{nestedDomainElementIdName};
+        testQuery.{queryIdFieldName} = expectedNestedEntityDto.{nestedDomainElementIdName};
         testQuery.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
 
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
@@ -102,7 +102,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        result.Should().BeEquivalentTo(CreateExpected{dtoModel.Name.ToPascalCase()}(expectedNestedEntity));");
+        result.Should().BeEquivalentTo(expectedNestedEntityDto);");
                     });
 
                     priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>

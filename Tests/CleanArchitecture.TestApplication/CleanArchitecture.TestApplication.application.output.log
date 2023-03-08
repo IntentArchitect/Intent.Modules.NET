@@ -220,6 +220,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests#095c5ed0-1106-4475-9a90-33f5eaf115bb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/UpdateAggregateRootCompositeManyBCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeManyBCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#36da585a-bff5-4a4f-afb0-a7a6646a622b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/CleanArchitecture.TestApplication.Application.Tests.csproj</ApplicationRelativeFilePath>
@@ -304,6 +312,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests#04ffa1e6-f690-4726-88c1-dcc452d7ca78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

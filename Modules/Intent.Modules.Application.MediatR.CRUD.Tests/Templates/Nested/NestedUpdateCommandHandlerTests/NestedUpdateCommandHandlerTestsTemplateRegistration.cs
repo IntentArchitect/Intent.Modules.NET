@@ -36,12 +36,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<CommandModel> GetModels(IApplication application)
         {
-            // return _metadataManager.Services(application)
-            //     .GetCommandModels()
-            //     .Where(p => p.Name.Contains("update", StringComparison.OrdinalIgnoreCase)
-            //                 && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == false)
-            //     .ToList();
-            return Enumerable.Empty<CommandModel>();
+            return _metadataManager.Services(application)
+                .GetCommandModels()
+                .Where(p => p.Name.Contains("update", StringComparison.OrdinalIgnoreCase)
+                            && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == false)
+                .ToList();
         }
     }
 }

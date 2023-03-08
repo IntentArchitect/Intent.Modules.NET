@@ -27,6 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         {
             // Arrange
             var expectedImplicitKeyAggrRoot = CreateExpectedImplicitKeyAggrRoot(testCommand);
+            expectedImplicitKeyAggrRoot.AutoAssignId(k => k.Id);
 
             ImplicitKeyAggrRoot addedImplicitKeyAggrRoot = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
@@ -40,7 +41,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 
             // Assert
             result.Should().Be(expectedImplicitKeyAggrRoot.Id);
-            expectedImplicitKeyAggrRoot.Should().BeEquivalentTo(addedImplicitKeyAggrRoot);
+            addedImplicitKeyAggrRoot.Should().BeEquivalentTo(expectedImplicitKeyAggrRoot);
         }
 
         [Theory]

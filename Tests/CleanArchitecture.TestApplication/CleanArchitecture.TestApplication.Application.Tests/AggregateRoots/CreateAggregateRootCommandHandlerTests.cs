@@ -27,6 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             // Arrange
             var expectedAggregateRoot = CreateExpectedAggregateRoot(testCommand);
+            expectedAggregateRoot.AutoAssignId(k => k.Id);
 
             AggregateRoot addedAggregateRoot = null;
             var repository = Substitute.For<IAggregateRootRepository>();
@@ -40,7 +41,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Assert
             result.Should().Be(expectedAggregateRoot.Id);
-            expectedAggregateRoot.Should().BeEquivalentTo(addedAggregateRoot);
+            addedAggregateRoot.Should().BeEquivalentTo(expectedAggregateRoot);
         }
 
         [Theory]

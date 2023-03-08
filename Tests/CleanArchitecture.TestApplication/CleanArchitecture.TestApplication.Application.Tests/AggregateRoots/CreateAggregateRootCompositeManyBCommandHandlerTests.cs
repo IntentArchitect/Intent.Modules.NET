@@ -28,6 +28,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             // Arrange
             var expectedCompositeManyB = CreateExpectedCompositeManyB(testCommand);
+            expectedCompositeManyB.AutoAssignId(k => k.Id);
 
             CompositeManyB addedCompositeManyB = null;
             var repository = Substitute.For<IAggregateRootRepository>();
@@ -37,6 +38,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
                 {
                     addedCompositeManyB = owner.Composites.Single(p => p.Id == default);
                     addedCompositeManyB.Id = expectedCompositeManyB.Id;
+                    addedCompositeManyB.AggregateRootId = expectedCompositeManyB.AggregateRootId;
                 });
             var sut = new CreateAggregateRootCompositeManyBCommandHandler(repository);
 
@@ -45,7 +47,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Assert
             result.Should().Be(expectedCompositeManyB.Id);
-            expectedCompositeManyB.Should().BeEquivalentTo(addedCompositeManyB);
+            addedCompositeManyB.Should().BeEquivalentTo(expectedCompositeManyB);
         }
 
         public static IEnumerable<object[]> GetValidTestData()

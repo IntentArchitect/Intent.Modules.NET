@@ -27,6 +27,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         {
             // Arrange
             var expectedImplicitKeyNestedComposition = CreateExpectedImplicitKeyNestedComposition(testCommand);
+            expectedImplicitKeyNestedComposition.AutoAssignId(k => k.Id);
 
             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
@@ -36,6 +37,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
                 {
                     addedImplicitKeyNestedComposition = owner.ImplicitKeyNestedCompositions.Single(p => p.Id == default);
                     addedImplicitKeyNestedComposition.Id = expectedImplicitKeyNestedComposition.Id;
+                    addedImplicitKeyNestedComposition.ImplicitKeyAggrRootId = expectedImplicitKeyNestedComposition.ImplicitKeyAggrRootId;
                 });
             var sut = new CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
@@ -44,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 
             // Assert
             result.Should().Be(expectedImplicitKeyNestedComposition.Id);
-            expectedImplicitKeyNestedComposition.Should().BeEquivalentTo(addedImplicitKeyNestedComposition);
+            addedImplicitKeyNestedComposition.Should().BeEquivalentTo(expectedImplicitKeyNestedComposition);
         }
 
         public static IEnumerable<object[]> GetValidTestData()
@@ -61,7 +63,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
         {
             return new ImplicitKeyNestedComposition
             {
-#warning No matching field found for ImplicitKeyAggrRootId
+                ImplicitKeyAggrRootId = dto.ImplicitKeyAggrRootId,
                 Attribute = dto.Attribute,
             };
         }

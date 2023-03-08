@@ -41,10 +41,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
             var owner = fixture.Create<ImplicitKeyAggrRoot>();
-            var expectedNestedEntity = owner.ImplicitKeyNestedCompositions.First();
+            var expectedNestedEntityDto = CreateExpectedImplicitKeyAggrRootImplicitKeyNestedCompositionDto(owner.ImplicitKeyNestedCompositions.First());
 
             var testQuery = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery();
-            testQuery.Id = expectedNestedEntity.Id;
+            testQuery.Id = expectedNestedEntityDto.Id;
             testQuery.ImplicitKeyAggrRootId = owner.Id;
 
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
@@ -56,7 +56,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().BeEquivalentTo(CreateExpectedImplicitKeyAggrRootImplicitKeyNestedCompositionDto(expectedNestedEntity));
+            result.Should().BeEquivalentTo(expectedNestedEntityDto);
         }
 
         [Fact]
