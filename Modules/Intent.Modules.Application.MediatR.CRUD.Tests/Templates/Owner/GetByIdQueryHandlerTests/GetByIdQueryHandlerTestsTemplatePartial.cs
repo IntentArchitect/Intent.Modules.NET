@@ -19,12 +19,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetByIdQueryHandlerTests;
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQueryHandlerTests;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
 public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<QueryModel>, ICSharpFileBuilderTemplate
 {
-    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.AggregateRoot.GetByIdQueryHandlerTests";
+    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public GetByIdQueryHandlerTestsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
@@ -96,7 +96,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>
                 {
                     var idFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
-                    
+
                     method.Async();
                     method.AddAttribute("Fact");
                     method.AddStatements($@"

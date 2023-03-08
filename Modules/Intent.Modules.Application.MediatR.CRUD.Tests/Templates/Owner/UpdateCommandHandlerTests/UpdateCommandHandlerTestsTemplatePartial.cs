@@ -18,15 +18,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.DeleteCommandHandlerTests;
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.UpdateCommandHandlerTests;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate
+public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate
 {
-    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.AggregateRoot.DeleteCommandHandlerTests";
+    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public DeleteCommandHandlerTestsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
+    public UpdateCommandHandlerTestsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NugetPackages.AutoFixture);
         AddNugetDependency(NugetPackages.FluentAssertions);
@@ -58,26 +58,27 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 var idFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{domainElementName}FromRepository", method =>
+                priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
                 {
                     method.Async();
-                    method.AddAttribute("Fact");
+                    method.AddAttribute("Theory");
+                    method.AddAttribute("MemberData(nameof(GetValidTestData))");
+                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
+                    method.AddParameter(GetTypeName(domainElement.InternalElement), "existingEntity");
                     method.AddStatements($@"
         // Arrange
-        var fixture = new Fixture();
-        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-
+        var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
+        
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        var existing{domainElementName} = GetExisting{domainElementName}(testCommand);
-        repository.FindByIdAsync(testCommand.{idFieldName}).Returns(Task.FromResult(existing{domainElementName}));
-
+        repository.FindByIdAsync(testCommand.{idFieldName}, CancellationToken.None).Returns(Task.FromResult(existingEntity));
+        
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
         await sut.Handle(testCommand, CancellationToken.None);
-
+        
         // Assert
-        repository.Received(1).Remove(Arg.Is<{GetTypeName(domainElement.InternalElement)}>(p => p.Id == testCommand.Id));");
+        expected{domainElementName}.Should().BeEquivalentTo(existingEntity);");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
@@ -88,35 +89,41 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         // Arrange
         var fixture = new Fixture();
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-
+        
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testCommand.{idFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(default));
-        repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
-
+        repository.FindByIdAsync(testCommand.{idFieldName}, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(null));
+        
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
         // Assert
-        await Assert.ThrowsAsync<ArgumentNullException>(async () =>
+        await Assert.ThrowsAsync<NullReferenceException>(async () =>
         {{
             await sut.Handle(testCommand, CancellationToken.None);
         }});");
                 });
 
-                priClass.AddMethod(GetTypeName(domainElement.InternalElement), $"GetExisting{domainElementName}", method =>
+                priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
                 {
                     method.Static();
-                    method.Private();
-                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
-                    method.AddStatement($@"var fixture = new Fixture();");
-
-                    this.RegisterDomainEventBaseFixture(method);
-
                     method.AddStatements($@"
-        fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.With(x => x.{idFieldName}, testCommand.{idFieldName}));
-        var existing{domainElementName} = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
-        return existing{domainElementName};");
+        var fixture = new Fixture();
+        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
+
+                    foreach (var property in Model.Properties
+                                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+                    {
+                        method.AddStatement("");
+                        method.AddStatements($@"
+        fixture = new Fixture();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
+        testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
+                    }
                 });
+
+                this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
             });
     }
 

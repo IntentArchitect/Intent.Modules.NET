@@ -20,12 +20,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.CreateCommandHandlerTests;
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.CreateCommandHandlerTests;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
 public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate
 {
-    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.AggregateRoot.CreateCommandHandlerTests";
+    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public CreateCommandHandlerTestsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
@@ -95,7 +95,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     priClass.AddMethod("Task", $"Handle_WithInvalidCommand_ThrowsException", method =>
                     {
                         var entityIdName = domainElement.GetEntityIdAttribute().IdName;
-                        
+
                         method.Async();
                         method.AddAttribute("Theory");
                         method.AddAttribute("MemberData(nameof(GetInvalidTestData))");

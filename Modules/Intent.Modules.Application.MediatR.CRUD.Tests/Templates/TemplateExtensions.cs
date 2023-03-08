@@ -1,15 +1,15 @@
 using System.Collections.Generic;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.CreateCommandHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.DeleteCommandHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetAllQueryHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetByIdQueryHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.UpdateCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedCreateCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedDeleteCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetAllQueryHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetByIdQueryHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedUpdateCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.CreateCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.DeleteCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllQueryHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetByIdQueryHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.UpdateCommandHandlerTests;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 

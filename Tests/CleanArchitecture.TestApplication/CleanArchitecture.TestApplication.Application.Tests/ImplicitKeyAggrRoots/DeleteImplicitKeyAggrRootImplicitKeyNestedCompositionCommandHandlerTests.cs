@@ -85,54 +85,5 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
                 await sut.Handle(testCommand, CancellationToken.None);
             });
         }
-        // [Fact]
-        // public async Task Handle_WithValidCommand_DeletesImplicitKeyNestedCompositionFromRepository()
-        // {
-        //     // Arrange
-        //     var fixture = new Fixture();
-        //     var testCommand = fixture.Create<DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
-        //
-        //     var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-        //     var existingImplicitKeyNestedComposition = GetExistingImplicitKeyNestedComposition(testCommand);
-        //     repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingImplicitKeyNestedComposition));
-        //
-        //     var sut = new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
-        //
-        //     // Act
-        //     await sut.Handle(testCommand, CancellationToken.None);
-        //
-        //     // Assert
-        //     repository.Received(1).Remove(Arg.Is<ImplicitKeyNestedComposition>(p => p.Id == testCommand.Id));
-        // }
-        //
-        // [Fact]
-        // public async Task Handle_WithInvalidIdCommand_ReturnsNotFound()
-        // {
-        //     // Arrange
-        //     var fixture = new Fixture();
-        //     var testCommand = fixture.Create<DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
-        //
-        //     var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-        //     repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult<ImplicitKeyNestedComposition>(default));
-        //     repository.When(x => x.Remove(null)).Throw(new ArgumentNullException());
-        //
-        //     var sut = new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
-        //
-        //     // Act
-        //     // Assert
-        //     await Assert.ThrowsAsync<ArgumentNullException>(async () =>
-        //     {
-        //         await sut.Handle(testCommand, CancellationToken.None);
-        //     });
-        // }
-        //
-        // private static ImplicitKeyNestedComposition GetExistingImplicitKeyNestedComposition(DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand)
-        // {
-        //     var fixture = new Fixture();
-        //     fixture.Register<DomainEvent>(() => null);
-        //     fixture.Customize<ImplicitKeyNestedComposition>(comp => comp.With(x => x.Id, testCommand.Id));
-        //     var existingImplicitKeyNestedComposition = fixture.Create<ImplicitKeyNestedComposition>();
-        //     return existingImplicitKeyNestedComposition;
-        // }
     }
 }

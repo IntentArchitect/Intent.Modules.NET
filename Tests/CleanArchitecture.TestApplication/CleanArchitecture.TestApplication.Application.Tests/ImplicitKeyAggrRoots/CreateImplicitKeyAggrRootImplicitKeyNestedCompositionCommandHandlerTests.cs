@@ -65,41 +65,5 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
                 Attribute = dto.Attribute,
             };
         }
-        //         [Theory]
-        //         [MemberData(nameof(GetValidTestData))]
-        //         public async Task Handle_WithValidCommand_AddsImplicitKeyNestedCompositionToRepository(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand)
-        //         {
-        //             // Arrange
-        //             var expectedImplicitKeyNestedComposition = CreateExpectedImplicitKeyNestedComposition(testCommand);
-        //
-        //             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
-        //             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-        //             repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult());
-        //             repository.OnSave(() => addedImplicitKeyNestedComposition.Id = expectedImplicitKeyNestedComposition.Id);
-        //
-        //             var sut = new CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
-        //
-        //             // Act
-        //             var result = await sut.Handle(testCommand, CancellationToken.None);
-        //
-        //             // Assert
-        //             result.Should().Be(expectedImplicitKeyNestedComposition.Id);
-        //             expectedImplicitKeyNestedComposition.Should().BeEquivalentTo(addedImplicitKeyNestedComposition);
-        //         }
-        //
-        //         public static IEnumerable<object[]> GetValidTestData()
-        //         {
-        //             var fixture = new Fixture();
-        //             yield return new object[] { fixture.Create<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>() };
-        //         }
-        //
-        //         private static ImplicitKeyNestedComposition CreateExpectedImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand dto)
-        //         {
-        //             return new ImplicitKeyNestedComposition
-        //             {
-        // #warning No matching field found for ImplicitKeyAggrRootId
-        //                 Attribute = dto.Attribute,
-        //             };
-        //         }
     }
 }

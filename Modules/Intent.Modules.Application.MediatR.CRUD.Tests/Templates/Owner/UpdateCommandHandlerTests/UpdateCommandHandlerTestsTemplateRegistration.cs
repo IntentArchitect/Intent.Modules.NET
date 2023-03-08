@@ -14,32 +14,32 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetAllQueryHandlerTests
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.UpdateCommandHandlerTests
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class GetAllQueryHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<QueryModel>
+    public class UpdateCommandHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<CommandModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public GetAllQueryHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
+        public UpdateCommandHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => GetAllQueryHandlerTestsTemplate.TemplateId;
+        public override string TemplateId => UpdateCommandHandlerTestsTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
-            return new GetAllQueryHandlerTestsTemplate(outputTarget, model);
+            return new UpdateCommandHandlerTestsTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<QueryModel> GetModels(IApplication application)
+        public override IEnumerable<CommandModel> GetModels(IApplication application)
         {
             return _metadataManager.Services(application)
-                .GetQueryModels()
-                .Where(p => p.Mapping == null && p.TypeReference.IsCollection && p.TypeReference.Element.IsDTOModel())
-                .Where(p => p.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == true)
+                .GetCommandModels()
+                .Where(p => p.Name.Contains("update", StringComparison.OrdinalIgnoreCase)
+                            && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
                 .ToList();
         }
     }

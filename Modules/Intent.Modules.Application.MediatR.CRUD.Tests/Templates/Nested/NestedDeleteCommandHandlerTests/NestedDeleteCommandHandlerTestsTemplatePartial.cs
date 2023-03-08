@@ -111,7 +111,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
             await sut.Handle(testCommand, CancellationToken.None);
         }});");
                 });
-                
+
                 priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
                 {
                     method.Async();

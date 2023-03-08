@@ -14,23 +14,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.CreateCommandHandlerTests
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.DeleteCommandHandlerTests
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class CreateCommandHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<CommandModel>
+    public class DeleteCommandHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<CommandModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public CreateCommandHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
+        public DeleteCommandHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => CreateCommandHandlerTestsTemplate.TemplateId;
+        public override string TemplateId => DeleteCommandHandlerTestsTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
-            return new CreateCommandHandlerTestsTemplate(outputTarget, model);
+            return new DeleteCommandHandlerTestsTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
+                .Where(p => p.Name.Contains("delete", StringComparison.OrdinalIgnoreCase)
                             && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
                 .ToList();
         }

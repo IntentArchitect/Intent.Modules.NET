@@ -28,42 +28,42 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
         public NestedUpdateCommandHandlerTestsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AutoFixture);
-        AddNugetDependency(NugetPackages.FluentAssertions);
-        AddNugetDependency(NugetPackages.MicrosoftNetTestSdk);
-        AddNugetDependency(NugetPackages.NSubstitute);
-        AddNugetDependency(NugetPackages.Xunit);
-        AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
+            AddNugetDependency(NugetPackages.FluentAssertions);
+            AddNugetDependency(NugetPackages.MicrosoftNetTestSdk);
+            AddNugetDependency(NugetPackages.NSubstitute);
+            AddNugetDependency(NugetPackages.Xunit);
+            AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
 
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
-        AddTypeSource(CommandModelsTemplate.TemplateId);
-        AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
+            AddTypeSource(CommandModelsTemplate.TemplateId);
+            AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
 
-        CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-            .AddClass($"{Model.Name}HandlerTests")
-            .OnBuild(file =>
-            {
-                file.AddUsing("System");
-                file.AddUsing("System.Collections.Generic");
-                file.AddUsing("System.Linq");
-                file.AddUsing("System.Threading");
-                file.AddUsing("System.Threading.Tasks");
-                file.AddUsing("AutoFixture");
-                file.AddUsing("FluentAssertions");
-                file.AddUsing("NSubstitute");
-                file.AddUsing("Xunit");
-
-                var domainElement = Model.Mapping.Element.AsClassModel();
-                var domainElementName = domainElement.Name.ToPascalCase();
-
-                var priClass = file.Classes.First();
-                priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddClass($"{Model.Name}HandlerTests")
+                .OnBuild(file =>
                 {
-                    method.Async();
-                    method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetValidTestData))");
-                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
-                    method.AddParameter(GetTypeName(domainElement.InternalElement), "existingEntity");
-                    method.AddStatements($@"
+                    file.AddUsing("System");
+                    file.AddUsing("System.Collections.Generic");
+                    file.AddUsing("System.Linq");
+                    file.AddUsing("System.Threading");
+                    file.AddUsing("System.Threading.Tasks");
+                    file.AddUsing("AutoFixture");
+                    file.AddUsing("FluentAssertions");
+                    file.AddUsing("NSubstitute");
+                    file.AddUsing("Xunit");
+
+                    var domainElement = Model.Mapping.Element.AsClassModel();
+                    var domainElementName = domainElement.Name.ToPascalCase();
+
+                    var priClass = file.Classes.First();
+                    priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
+                    {
+                        method.Async();
+                        method.AddAttribute("Theory");
+                        method.AddAttribute("MemberData(nameof(GetValidTestData))");
+                        method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
+                        method.AddParameter(GetTypeName(domainElement.InternalElement), "existingEntity");
+                        method.AddStatements($@"
         // Arrange
         var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
         
@@ -77,13 +77,13 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
         
         // Assert
         expected{domainElementName}.Should().BeEquivalentTo(existingEntity);");
-                });
+                    });
 
-                priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
-                {
-                    method.Async();
-                    method.AddAttribute("Fact");
-                    method.AddStatements($@"
+                    priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
+                    {
+                        method.Async();
+                        method.AddAttribute("Fact");
+                        method.AddStatements($@"
         // Arrange
         var fixture = new Fixture();
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
@@ -99,30 +99,30 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
         {{
             await sut.Handle(testCommand, CancellationToken.None);
         }});");
-                });
+                    });
 
-                priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
-                {
-                    method.Static();
-                    method.AddStatements($@"
+                    priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
+                    {
+                        method.Static();
+                        method.AddStatements($@"
         var fixture = new Fixture();
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
 
-                    foreach (var property in Model.Properties
-                                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
-                    {
-                        method.AddStatement("");
-                        method.AddStatements($@"
+                        foreach (var property in Model.Properties
+                                     .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+                        {
+                            method.AddStatement("");
+                            method.AddStatements($@"
         fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
         testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
-                    }
-                });
+                        }
+                    });
 
-                this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
-            });
+                    this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
+                });
         }
 
         [IntentManaged(Mode.Fully)]

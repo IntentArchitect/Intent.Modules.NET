@@ -4,20 +4,21 @@ using CleanArchitecture.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using NSubstitute;
 
-[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.RepositoryExtensions", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Tests.Extensions;
-
-public static class RepositoryExtensions
+namespace CleanArchitecture.TestApplication.Application.Tests.Extensions
 {
-    public static void OnAdd<TDomain, TPersistence>(this IRepository<TDomain, TPersistence> repository, Action<TDomain> addAction)
+    public static class RepositoryExtensions
     {
-        repository.When(x => x.Add(Arg.Any<TDomain>())).Do(ci => addAction(ci.Arg<TDomain>()));
-    }
+        public static void OnAdd<TDomain, TPersistence>(this IRepository<TDomain, TPersistence> repository, Action<TDomain> addAction)
+        {
+            repository.When(x => x.Add(Arg.Any<TDomain>())).Do(ci => addAction(ci.Arg<TDomain>()));
+        }
 
-    public static void OnSave<TDomain, TPersistence>(this IRepository<TDomain, TPersistence> repository, Action saveAction)
-    {
-        repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());
+        public static void OnSave<TDomain, TPersistence>(this IRepository<TDomain, TPersistence> repository, Action saveAction)
+        {
+            repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());
+        }
     }
 }

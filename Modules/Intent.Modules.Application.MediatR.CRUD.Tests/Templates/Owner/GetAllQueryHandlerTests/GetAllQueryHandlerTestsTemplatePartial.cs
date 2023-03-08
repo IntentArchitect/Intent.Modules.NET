@@ -18,12 +18,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetAllQueryHandlerTests;
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.GetAllQueryHandlerTests;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
 public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryModel>, ICSharpFileBuilderTemplate
 {
-    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.AggregateRoot.GetAllQueryHandlerTests";
+    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public GetAllQueryHandlerTestsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
@@ -97,7 +97,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 {
                     method.Static();
                     method.AddStatements($@"var fixture = new Fixture();");
-                    
+
                     this.RegisterDomainEventBaseFixture(method, domainElement);
 
                     method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>().ToList() }};");

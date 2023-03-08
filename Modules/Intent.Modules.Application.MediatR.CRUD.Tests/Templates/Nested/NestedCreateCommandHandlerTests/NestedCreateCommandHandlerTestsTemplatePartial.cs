@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
@@ -14,7 +15,6 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -109,7 +109,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
 
                     method.Static();
                     method.AddStatements($@"var fixture = new Fixture();");
-                    
+
                     this.RegisterDomainEventBaseFixture(method);
 
                     method.AddStatements($@"
@@ -123,7 +123,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     {
                         method.AddStatement("");
                         method.AddStatements($@"fixture = new Fixture();");
-                        
+
                         this.RegisterDomainEventBaseFixture(method);
 
                         method.AddStatement($@"fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));");

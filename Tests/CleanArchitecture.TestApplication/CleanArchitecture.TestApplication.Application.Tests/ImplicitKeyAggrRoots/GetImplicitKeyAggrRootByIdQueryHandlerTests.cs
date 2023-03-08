@@ -16,7 +16,7 @@ using NSubstitute;
 using Xunit;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.GetByIdQueryHandlerTests", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests", Version = "1.0")]
 
 namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoots
 {
