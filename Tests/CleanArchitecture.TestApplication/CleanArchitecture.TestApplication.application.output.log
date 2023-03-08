@@ -188,6 +188,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetByIdQueryHandlerTests#ff740d69-6fa5-43c7-8dc9-f837016cde2d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/GetAggregateRootCompositeManyBByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/GetAggregateRootCompositeManyBByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetAllQueryHandlerTests#51e005b0-9b7e-4651-9cd8-32cfa379541a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/GetAggregateRootCompositeManyBSQueryHandlerTests.cs</ApplicationRelativeFilePath>
@@ -264,6 +272,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/GetImplicitKeyAggrRootByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/GetImplicitKeyAggrRootByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetByIdQueryHandlerTests#09d3f6cf-f99f-4e4a-bfd2-330976ebbf9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

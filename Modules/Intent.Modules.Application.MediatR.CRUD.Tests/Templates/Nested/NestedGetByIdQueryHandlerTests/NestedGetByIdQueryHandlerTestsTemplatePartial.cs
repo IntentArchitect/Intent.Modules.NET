@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
@@ -55,8 +56,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                     file.AddUsing("AutoMapper");
 
                     var dtoModel = Model.TypeReference.Element.AsDTOModel();
-                    var domainElement = Model.Mapping.Element.AsClassModel();
-                    var domainElementName = domainElement.Name.ToPascalCase();
+                    var nestedDomainElement = Model.Mapping.Element.AsClassModel();
+                    var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
+                    var nestedDomainElementIdName = nestedDomainElement.GetEntityIdAttribute().IdName;
+                    var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
+                    var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute().IdName;
+                    var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
+                    var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
+                    var queryIdFieldName = Model.Properties.GetEntityIdField(nestedDomainElement).Name;
+                    var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
 
                     var priClass = file.Classes.First();
                     priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
@@ -69,27 +77,32 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                     });
 
-                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{domainElementName}", method =>
+                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{nestedDomainElementName}", method =>
                     {
                         method.Async();
-                        method.AddAttribute("Theory");
-                        method.AddAttribute("MemberData(nameof(GetTestData))");
-                        method.AddParameter(GetTypeName(domainElement.InternalElement), "testEntity");
+                        method.AddAttribute("Fact");
                         method.AddStatements($@"
         // Arrange
-        var expectedDto = CreateExpected{dtoModel.Name.ToPascalCase()}(testEntity);
+        var fixture = new Fixture();");
+                        this.RegisterDomainEventBaseFixture(method);
+                        method.AddStatements($@"
+        var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
+        var expectedNestedEntity = owner.{nestedAssociationName}.First();
         
-        var query = new {this.GetQueryModelsName(Model)} {{ Id = testEntity.Id }};
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
+        var testQuery = new {this.GetQueryModelsName(Model)}();
+        testQuery.{queryIdFieldName} = expectedNestedEntity.{nestedDomainElementIdName};
+        testQuery.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
+
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
+        repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
 
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
 
         // Act
-        var result = await sut.Handle(query, CancellationToken.None);
+        var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        result.Should().BeEquivalentTo(expectedDto);");
+        result.Should().BeEquivalentTo(CreateExpected{dtoModel.Name.ToPascalCase()}(expectedNestedEntity));");
                     });
 
                     priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>
@@ -98,37 +111,26 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddAttribute("Fact");
                         method.AddStatements($@"
         // Arrange
-        var fixture = new Fixture();
-        var query = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        var fixture = new Fixture();");
+                        this.RegisterDomainEventBaseFixture(method);
+                        method.AddStatements($@"
+        fixture.Customize<{GetTypeName(ownerDomainElement.InternalElement)}>(comp => comp.With(p => p.{nestedAssociationName}, new List<{GetTypeName(nestedDomainElement.InternalElement)}>()));
+        var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
+        var testQuery = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(default));
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
+        repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
 
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
         
         // Act
-        var result = await sut.Handle(query, CancellationToken.None);
+        var result = await sut.Handle(testQuery, CancellationToken.None);
         
         // Assert
         result.Should().Be(null);");
                     });
 
-                    priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
-                    {
-                        method.Static();
-                        method.AddStatements($@"var fixture = new Fixture();");
-
-                        if (TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName))
-                        {
-                            method.AddStatements($@"
-        fixture.Register<{domainEventBaseName}>(() => null);
-        fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.Without(x => x.DomainEvents));");
-                        }
-
-                        method.AddStatement($@"yield return new object[] {{ fixture.Create<{GetTypeName(domainElement.InternalElement)}>() }};");
-                    });
-
-                    this.AddDomainToDtoMappingMethods(priClass, domainElement, dtoModel);
+                    this.AddDomainToDtoMappingMethods(priClass, nestedDomainElement, dtoModel);
                 });
         }
 
