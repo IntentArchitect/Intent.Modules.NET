@@ -58,9 +58,9 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="2ba218d1-f30f-4bad-befe-4a2911ab7ba8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.CreateCommandHandlerTests</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.CreateCommandHandlerTests</display>
+    <childElement id="363ec2e1-255c-473c-af81-d204dbe91d6f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.CreateCommandHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.CreateCommandHandlerTests</display>
       <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -72,9 +72,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a9524607-30ea-4843-bb8b-a177ac3b735a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.DeleteCommandHandlerTests</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.DeleteCommandHandlerTests</display>
+    <childElement id="62eadc40-87e8-4697-9985-184cd56d6494" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.DeleteCommandHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.DeleteCommandHandlerTests</display>
       <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -86,9 +86,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2daf0932-d404-48a9-8bc2-6688073bf251" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.GetAllQueryHandlerTests</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.GetAllQueryHandlerTests</display>
+    <childElement id="9fc5e022-d386-4288-b079-e2f61f3bd833" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.GetAllQueryHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.GetAllQueryHandlerTests</display>
       <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -100,9 +100,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="57189347-f571-4386-8448-122e6e5bbaf1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.GetByIdQueryHandlerTests</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.GetByIdQueryHandlerTests</display>
+    <childElement id="0ececdc7-b880-44ad-acf5-288cfa337d2c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.GetByIdQueryHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.GetByIdQueryHandlerTests</display>
       <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -114,9 +114,79 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="d2db0ba5-8f60-4bf1-aec7-c22deeef95a6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.UpdateCommandHandlerTests</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.UpdateCommandHandlerTests</display>
+    <childElement id="2e5ecf6a-e53b-4561-a7a7-9e3669da68c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.UpdateCommandHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.AggregateRoot.UpdateCommandHandlerTests</display>
+      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36da585a-bff5-4a4f-afb0-a7a6646a622b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d6dbb0dd-4630-43f5-b51c-2ab7e212bce9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Nested.NestedCreateCommandHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Nested.NestedCreateCommandHandlerTests</display>
+      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36da585a-bff5-4a4f-afb0-a7a6646a622b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ffcb35f8-1aa3-4f6f-a74b-de3f71b4630a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Nested.NestedDeleteCommandHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Nested.NestedDeleteCommandHandlerTests</display>
+      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36da585a-bff5-4a4f-afb0-a7a6646a622b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="28952148-7755-4acf-b5c5-8b9b3ee38aa8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetAllQueryHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetAllQueryHandlerTests</display>
+      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36da585a-bff5-4a4f-afb0-a7a6646a622b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="889e14b5-fcc8-4b65-add8-6db2fd69a716" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetByIdQueryHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetByIdQueryHandlerTests</display>
+      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36da585a-bff5-4a4f-afb0-a7a6646a622b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="81e2630b-d08e-49a7-83e5-7d3b222d7a85" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests</display>
       <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

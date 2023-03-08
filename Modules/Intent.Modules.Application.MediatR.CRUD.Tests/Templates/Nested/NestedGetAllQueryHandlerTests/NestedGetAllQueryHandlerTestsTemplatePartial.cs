@@ -18,17 +18,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.GetAllQueryHandlerTests;
-
-[IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryModel>, ICSharpFileBuilderTemplate
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetAllQueryHandlerTests
 {
-    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.GetAllQueryHandlerTests";
-
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public GetAllQueryHandlerTestsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public partial class NestedGetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryModel>, ICSharpFileBuilderTemplate
     {
-        AddNugetDependency(NugetPackages.AutoFixture);
+        public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetAllQueryHandlerTests";
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public NestedGetAllQueryHandlerTestsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
+        {
+            AddNugetDependency(NugetPackages.AutoFixture);
         AddNugetDependency(NugetPackages.FluentAssertions);
         AddNugetDependency(NugetPackages.MicrosoftNetTestSdk);
         AddNugetDependency(NugetPackages.NSubstitute);
@@ -39,7 +39,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
         AddTypeSource(QueryModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
         AddTypeSource("Intent.DomainEvents.DomainEventBase");
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .OnBuild(file =>
@@ -59,7 +59,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 var domainElement = dtoModel.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
                 var domainElementPluralName = domainElementName.Pluralize();
-                
+
                 var priClass = file.Classes.First();
                 priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
                 priClass.AddConstructor(ctor =>
@@ -93,12 +93,12 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
         // Assert
         result.Should().BeEquivalentTo(expectedDtos);");
                 });
-                
+
                 priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
                 {
                     method.Static();
                     method.AddStatements($@"var fixture = new Fixture();");
-                    
+
                     if (TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName))
                     {
                         method.AddStatements($@"
@@ -110,23 +110,24 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
 
                     method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>(0).ToList() }};");
                 });
-                
+
                 this.AddDomainToDtoMappingMethods(priClass, domainElement, dtoModel);
             });
-    }
+        }
 
-    [IntentManaged(Mode.Fully)] 
-    public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
-    [IntentManaged(Mode.Fully)]
-    protected override CSharpFileConfig DefineFileConfig()
-    {
-        return CSharpFile.GetConfig();
-    }
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
 
-    [IntentManaged(Mode.Fully)]
-    public override string TransformText()
-    {
-        return CSharpFile.ToString();
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
     }
 }

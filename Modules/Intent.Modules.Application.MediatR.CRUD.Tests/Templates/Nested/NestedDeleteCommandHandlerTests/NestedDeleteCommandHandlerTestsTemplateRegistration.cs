@@ -14,23 +14,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.UpdateCommandHandlerTests
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedDeleteCommandHandlerTests
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class UpdateCommandHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<CommandModel>
+    public class NestedDeleteCommandHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<CommandModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public UpdateCommandHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
+        public NestedDeleteCommandHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => UpdateCommandHandlerTestsTemplate.TemplateId;
+        public override string TemplateId => NestedDeleteCommandHandlerTestsTemplate.TemplateId;
 
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
-            return new UpdateCommandHandlerTestsTemplate(outputTarget, model);
+            return new NestedDeleteCommandHandlerTestsTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
@@ -38,8 +38,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.UpdateCommandH
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.Contains("update", StringComparison.OrdinalIgnoreCase)
-                            && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
+                .Where(p => p.Name.Contains("delete", StringComparison.OrdinalIgnoreCase)
+                            && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == false)
                 .ToList();
         }
     }

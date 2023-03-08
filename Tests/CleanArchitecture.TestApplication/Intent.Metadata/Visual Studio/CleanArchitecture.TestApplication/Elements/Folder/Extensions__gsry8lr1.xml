@@ -9,9 +9,9 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="dccea0b8-2045-4afa-bc5f-98ebed55ddf0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.MediatR.CRUD.Tests.RepositoryExtensions</name>
-      <display>Intent.Application.MediatR.CRUD.Tests.RepositoryExtensions</display>
+    <childElement id="514eb21a-3155-4ceb-b8aa-1dfc7583f98c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</display>
       <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

@@ -12,12 +12,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.RepositoryExtensions
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class RepositoryExtensionsTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.RepositoryExtensions";
+        public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RepositoryExtensionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

@@ -16,7 +16,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>0dc23fab-665f-4b97-b9c3-2c5ebc8a2f01</parentFolderId>
+  <parentFolderId>d16a2dbe-7f89-4bf2-ade6-03b280eb5172</parentFolderId>
   <packageId>0dc23fab-665f-4b97-b9c3-2c5ebc8a2f01</packageId>
   <packageName>Intent.Application.MediatR.CRUD.Tests</packageName>
   <stereotypes>

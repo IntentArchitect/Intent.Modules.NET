@@ -12,21 +12,13 @@ using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterfa
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
-static class ImplementationStrategyTemplatesExtensions
+public static class ImplementationStrategyTemplatesExtensions
 {
     public static string GetDomainEntityName(this ICSharpTemplate template, ClassModel domainModel)
     {
         var entityName = template
             .GetTypeName("Domain.Entity", domainModel, TemplateDiscoveryOptions.DoNotThrow);
         return entityName;
-    }
-
-    public static string GetEntityRepositoryInterfaceName(this ICSharpTemplate template, ClassModel domainModel)
-    {
-        var repo = template
-            .GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, domainModel,
-                TemplateDiscoveryOptions.DoNotThrow);
-        return repo;
     }
 
     public static string GetDtoName(this ICSharpTemplate template, DTOModel dtoModel)

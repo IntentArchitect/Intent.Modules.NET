@@ -18,15 +18,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.GetByIdQueryHandlerTests;
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetAllQueryHandlerTests;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<QueryModel>, ICSharpFileBuilderTemplate
+public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryModel>, ICSharpFileBuilderTemplate
 {
-    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.GetByIdQueryHandlerTests";
+    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.AggregateRoot.GetAllQueryHandlerTests";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public GetByIdQueryHandlerTestsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
+    public GetAllQueryHandlerTestsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
     {
         AddNugetDependency(NugetPackages.AutoFixture);
         AddNugetDependency(NugetPackages.FluentAssertions);
@@ -38,7 +38,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
         AddTypeSource(QueryModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
             .OnBuild(file =>
@@ -53,11 +53,12 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 file.AddUsing("NSubstitute");
                 file.AddUsing("Xunit");
                 file.AddUsing("AutoMapper");
-                
+
                 var dtoModel = Model.TypeReference.Element.AsDTOModel();
-                var domainElement = Model.Mapping.Element.AsClassModel();
+                var domainElement = dtoModel.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
-                
+                var domainElementPluralName = domainElementName.Pluralize();
+
                 var priClass = file.Classes.First();
                 priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
                 priClass.AddConstructor(ctor =>
@@ -69,19 +70,19 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                 });
 
-                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{domainElementName}", method =>
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{domainElementPluralName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetTestData))");
-                    method.AddParameter(GetTypeName(domainElement.InternalElement), "testEntity");
+                    method.AddParameter($"List<{GetTypeName(domainElement.InternalElement)}>", "testEntities");
                     method.AddStatements($@"
         // Arrange
-        var expectedDto = CreateExpected{dtoModel.Name.ToPascalCase()}(testEntity);
+        var expectedDtos = testEntities.Select(CreateExpected{dtoModel.Name.ToPascalCase()}).ToArray();
         
-        var query = new {this.GetQueryModelsName(Model)} {{ Id = testEntity.Id }};
+        var query = new Get{domainElementPluralName}Query();
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
+        repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
 
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
 
@@ -89,50 +90,26 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         var result = await sut.Handle(query, CancellationToken.None);
 
         // Assert
-        result.Should().BeEquivalentTo(expectedDto);");
+        result.Should().BeEquivalentTo(expectedDtos);");
                 });
 
-                priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>
-                {
-                    method.Async();
-                    method.AddAttribute("Fact");
-                    method.AddStatements($@"
-        // Arrange
-        var fixture = new Fixture();
-        var query = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<{GetTypeName(domainElement.InternalElement)}>(default));
-
-        var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
-        
-        // Act
-        var result = await sut.Handle(query, CancellationToken.None);
-        
-        // Assert
-        result.Should().Be(null);");
-                });
-                
                 priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
                 {
                     method.Static();
                     method.AddStatements($@"var fixture = new Fixture();");
                     
-                    if (TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName))
-                    {
-                        method.AddStatements($@"
-        fixture.Register<{domainEventBaseName}>(() => null);
-        fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.Without(x => x.DomainEvents));");
-                    }
+                    this.RegisterDomainEventBaseFixture(method, domainElement);
 
-                    method.AddStatement($@"yield return new object[] {{ fixture.Create<{GetTypeName(domainElement.InternalElement)}>() }};");
+                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>().ToList() }};");
+
+                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>(0).ToList() }};");
                 });
-                
+
                 this.AddDomainToDtoMappingMethods(priClass, domainElement, dtoModel);
             });
     }
 
-    [IntentManaged(Mode.Fully)] 
+    [IntentManaged(Mode.Fully)]
     public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]

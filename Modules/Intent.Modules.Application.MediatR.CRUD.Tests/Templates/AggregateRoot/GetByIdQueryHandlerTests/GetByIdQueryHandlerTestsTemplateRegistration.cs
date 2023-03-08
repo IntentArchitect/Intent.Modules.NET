@@ -14,31 +14,31 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.CreateCommandHandlerTests
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetByIdQueryHandlerTests
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class CreateCommandHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<CommandModel>
+    public class GetByIdQueryHandlerTestsTemplateRegistration : FilePerModelTemplateRegistration<QueryModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public CreateCommandHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
+        public GetByIdQueryHandlerTestsTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => CreateCommandHandlerTestsTemplate.TemplateId;
+        public override string TemplateId => GetByIdQueryHandlerTestsTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
-            return new CreateCommandHandlerTestsTemplate(outputTarget, model);
+            return new GetByIdQueryHandlerTestsTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<CommandModel> GetModels(IApplication application)
+        public override IEnumerable<QueryModel> GetModels(IApplication application)
         {
             return _metadataManager.Services(application)
-                .GetCommandModels()
-                .Where(p => p.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
+                .GetQueryModels()
+                .Where(p => p.Name.Contains("get", StringComparison.OrdinalIgnoreCase)
                             && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
                 .ToList();
         }

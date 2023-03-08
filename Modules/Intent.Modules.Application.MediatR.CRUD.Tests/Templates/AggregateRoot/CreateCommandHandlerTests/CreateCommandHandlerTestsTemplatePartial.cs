@@ -3,7 +3,8 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.RepositoryExtensions;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
@@ -19,12 +20,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.CreateCommandHandlerTests;
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.CreateCommandHandlerTests;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
 public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate
 {
-    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.CreateCommandHandlerTests";
+    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.AggregateRoot.CreateCommandHandlerTests";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public CreateCommandHandlerTestsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
@@ -93,6 +94,8 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 {
                     priClass.AddMethod("Task", $"Handle_WithInvalidCommand_ThrowsException", method =>
                     {
+                        var entityIdName = domainElement.GetEntityIdAttribute().IdName;
+                        
                         method.Async();
                         method.AddAttribute("Theory");
                         method.AddAttribute("MemberData(nameof(GetInvalidTestData))");
@@ -104,7 +107,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         repository.OnAdd(ent => added{domainElementName} = ent);
-        repository.OnSave(() => added{domainElementName}.Id = expected{domainElementName}.Id);
+        repository.OnSave(() => added{domainElementName}.{entityIdName} = expected{domainElementName}.{entityIdName});
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);");
                         method.AddStatements(@"
@@ -165,7 +168,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             .Any(p => !p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false);
     }
 
-    [IntentManaged(Mode.Fully)] 
+    [IntentManaged(Mode.Fully)]
     public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]

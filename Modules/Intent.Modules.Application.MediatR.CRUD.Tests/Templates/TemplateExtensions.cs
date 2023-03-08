@@ -1,10 +1,15 @@
 using System.Collections.Generic;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.CreateCommandHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.DeleteCommandHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.GetAllQueryHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.GetByIdQueryHandlerTests;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.RepositoryExtensions;
-using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.UpdateCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.CreateCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.DeleteCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetAllQueryHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.GetByIdQueryHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.AggregateRoot.UpdateCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedCreateCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedDeleteCommandHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetAllQueryHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetByIdQueryHandlerTests;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedUpdateCommandHandlerTests;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -54,6 +59,56 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates
         public static string GetGetByIdQueryHandlerTestsName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.QueryModel model)
         {
             return template.GetTypeName(GetByIdQueryHandlerTestsTemplate.TemplateId, model);
+        }
+
+        public static string GetNestedCreateCommandHandlerTestsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.CommandModel
+        {
+            return template.GetTypeName(NestedCreateCommandHandlerTestsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetNestedCreateCommandHandlerTestsName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
+        {
+            return template.GetTypeName(NestedCreateCommandHandlerTestsTemplate.TemplateId, model);
+        }
+
+        public static string GetNestedDeleteCommandHandlerTestsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.CommandModel
+        {
+            return template.GetTypeName(NestedDeleteCommandHandlerTestsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetNestedDeleteCommandHandlerTestsName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
+        {
+            return template.GetTypeName(NestedDeleteCommandHandlerTestsTemplate.TemplateId, model);
+        }
+
+        public static string GetNestedGetAllQueryHandlerTestsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel
+        {
+            return template.GetTypeName(NestedGetAllQueryHandlerTestsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetNestedGetAllQueryHandlerTestsName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.QueryModel model)
+        {
+            return template.GetTypeName(NestedGetAllQueryHandlerTestsTemplate.TemplateId, model);
+        }
+
+        public static string GetNestedGetByIdQueryHandlerTestsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel
+        {
+            return template.GetTypeName(NestedGetByIdQueryHandlerTestsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetNestedGetByIdQueryHandlerTestsName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.QueryModel model)
+        {
+            return template.GetTypeName(NestedGetByIdQueryHandlerTestsTemplate.TemplateId, model);
+        }
+
+        public static string GetNestedUpdateCommandHandlerTestsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.CommandModel
+        {
+            return template.GetTypeName(NestedUpdateCommandHandlerTestsTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetNestedUpdateCommandHandlerTestsName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
+        {
+            return template.GetTypeName(NestedUpdateCommandHandlerTestsTemplate.TemplateId, model);
         }
 
         public static string GetRepositoryExtensionsName<T>(this IntentTemplateBase<T> template)
