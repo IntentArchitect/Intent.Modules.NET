@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
@@ -35,8 +36,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.GetAllQueryHan
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<QueryModel> GetModels(IApplication application)
         {
-            //return _metadataManager.Services(application).GetQueryModels();
-            return Enumerable.Empty<QueryModel>();
+            return _metadataManager.Services(application)
+                .GetQueryModels()
+                .Where(p => p.Mapping == null && p.TypeReference.IsCollection && p.TypeReference.Element.IsDTOModel())
+                .Where(p => p.TypeReference.Element.AsDTOModel().Mapping?.Element?.AsClassModel()?.IsAggregateRoot() == true)
+                .ToList();
         }
     }
 }

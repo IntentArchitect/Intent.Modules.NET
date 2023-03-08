@@ -4,12 +4,14 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -36,6 +38,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
         AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
         AddTypeSource(QueryModelsTemplate.TemplateId);
         AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+        AddTypeSource("Intent.DomainEvents.DomainEventBase");
         
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}HandlerTests")
@@ -50,12 +53,65 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 file.AddUsing("FluentAssertions");
                 file.AddUsing("NSubstitute");
                 file.AddUsing("Xunit");
-                
-                var domainElement = Model.TypeReference.Element.AsDTOModel().Mapping.Element.AsClassModel();
+                file.AddUsing("AutoMapper");
+
+                var dtoModel = Model.TypeReference.Element.AsDTOModel();
+                var domainElement = dtoModel.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
+                var domainElementPluralName = domainElementName.Pluralize();
                 
                 var priClass = file.Classes.First();
+                priClass.AddField("IMapper", "_mapper", prop => prop.PrivateReadOnly());
+                priClass.AddConstructor(ctor =>
+                {
+                    ctor.AddStatement(new CSharpInvocationStatement("var mapperConfiguration = new MapperConfiguration")
+                        .AddArgument(new CSharpLambdaBlock("config")
+                            .AddStatement($"config.AddMaps(typeof({this.GetQueryHandlerName(Model)}));"))
+                        .WithArgumentsOnNewLines());
+                    ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
+                });
+
+                priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{domainElementPluralName}", method =>
+                {
+                    method.Async();
+                    method.AddAttribute("Theory");
+                    method.AddAttribute("MemberData(nameof(GetTestData))");
+                    method.AddParameter($"List<{GetTypeName(domainElement.InternalElement)}>", "testEntities");
+                    method.AddStatements($@"
+        // Arrange
+        var expectedDtos = testEntities.Select(CreateExpected{dtoModel.Name.ToPascalCase()}).ToArray();
+        
+        var query = new Get{domainElementPluralName}Query();
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
+        repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
+
+        var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
+
+        // Act
+        var result = await sut.Handle(query, CancellationToken.None);
+
+        // Assert
+        result.Should().BeEquivalentTo(expectedDtos);");
+                });
                 
+                priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
+                {
+                    method.Static();
+                    method.AddStatements($@"var fixture = new Fixture();");
+                    
+                    if (TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName))
+                    {
+                        method.AddStatements($@"
+        fixture.Register<{domainEventBaseName}>(() => null);
+        fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.Without(x => x.DomainEvents));");
+                    }
+
+                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>().ToList() }};");
+
+                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>(0).ToList() }};");
+                });
+                
+                this.AddDomainToDtoMappingMethods(priClass, domainElement, dtoModel);
             });
     }
 

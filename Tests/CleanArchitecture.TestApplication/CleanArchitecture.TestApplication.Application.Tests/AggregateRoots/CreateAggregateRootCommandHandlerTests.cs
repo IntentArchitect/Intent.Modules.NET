@@ -55,7 +55,6 @@ public class CreateAggregateRootCommandHandlerTests
         fixture = new Fixture();
         fixture.Customize<CreateAggregateRootCommand>(comp => comp.Without(x => x.Composite));
         yield return new object[] { fixture.Create<CreateAggregateRootCommand>() };
-
     }
 
     private static AggregateRoot CreateExpectedAggregateRoot(CreateAggregateRootCommand dto)

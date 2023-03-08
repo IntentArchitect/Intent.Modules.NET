@@ -22,35 +22,39 @@ public static class MappingMethodHelper
             method.AddParameter(template.GetTypeName(commandModel.InternalElement), "dto");
             method.AddStatementBlock($"return new {template.GetTypeName(domainModel.InternalElement)}", block =>
             {
-                block.AddStatements(GetDTOPropertyAssignments(template, "", "dto", domainModel.InternalElement, commandModel.Properties));
+                block.AddStatements(GetDtoToDomainPropertyAssignments(template, "", "dto", domainModel, commandModel.Properties));
                 block.WithSemicolon();
             });
         });
     }
 
-    public static void AddDtoToDomainMappingMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, DTOModel dtoModel, ClassModel domainModel)
+    public static void AddDomainToDtoMappingMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel)
     {
-        builderClass.AddMethod(template.GetTypeName(domainModel.InternalElement), GetCreateMethodName(domainModel.InternalElement), method =>
+        builderClass.AddMethod(template.GetTypeName(dtoModel.InternalElement), GetCreateMethodName(dtoModel.InternalElement), method =>
         {
             method.Private();
             method.Static();
-            method.AddParameter(template.GetTypeName(dtoModel.InternalElement), "dto");
-            method.AddStatementBlock($"return new {template.GetTypeName(domainModel.InternalElement)}", block =>
+            method.AddParameter(template.GetTypeName(domainModel.InternalElement), "entity");
+            method.AddStatementBlock($"return new {template.GetTypeName(dtoModel.InternalElement)}", block =>
             {
-                block.AddStatements(GetDTOPropertyAssignments(template, "", "dto", domainModel.InternalElement, dtoModel.Fields));
+                block.AddStatements(GetDomainToDtoPropertyAssignments(template, "", "entity", dtoModel, domainModel));
                 block.WithSemicolon();
             });
         });
     }
 
-    private static IEnumerable<CSharpStatement> GetDTOPropertyAssignments(ICSharpFileBuilderTemplate template, string entityVarName, string dtoVarName, IElement domainModel,
+    private static IEnumerable<CSharpStatement> GetDtoToDomainPropertyAssignments(
+        ICSharpFileBuilderTemplate template, 
+        string entityVarName, 
+        string dtoVarName, 
+        ClassModel domainModel,
         IList<DTOFieldModel> dtoFields)
     {
         var codeLines = new List<CSharpStatement>();
         foreach (var field in dtoFields)
         {
             if (field.Mapping?.Element == null
-                && domainModel.ChildElements.All(p => p.Name != field.Name))
+                && domainModel.Attributes.All(p => p.Name != field.Name))
             {
                 codeLines.Add($"#warning No matching field found for {field.Name}");
                 continue;
@@ -65,8 +69,8 @@ public static class MappingMethodHelper
                     break;
                 case null:
                 case AttributeModel.SpecializationTypeId:
-                    var attribute = field.Mapping?.Element
-                                    ?? domainModel.ChildElements.First(p => p.Name == field.Name);
+                    var attribute = field.Mapping?.Element?.AsAttributeModel()
+                                    ?? domainModel.Attributes.First(p => p.Name == field.Name);
                     if (!attribute.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
                     {
                         codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()},");
@@ -77,7 +81,7 @@ public static class MappingMethodHelper
                 case AssociationTargetEndModel.SpecializationTypeId:
                 {
                     var association = field.Mapping.Element.AsAssociationTargetEndModel();
-                    var targetType = association.Element as IElement;
+                    var targetType = association.Element.AsClassModel();
                     var attributeName = association.Name.ToPascalCase();
 
                     if (association.Association.AssociationType == AssociationType.Aggregation)
@@ -91,28 +95,115 @@ public static class MappingMethodHelper
                         if (field.TypeReference.IsNullable)
                         {
                             codeLines.Add(
-                                $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
+                                $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
                         }
                         else
                         {
-                            codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetType, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}),");
+                            codeLines.Add($"{entityVarExpr}{attributeName} = {GetCreateMethodName(targetType.InternalElement, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}),");
                         }
                     }
                     else
                     {
                         codeLines.Add(
-                            $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType, attributeName)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetType.Name.ToPascalCase()}>()" : "")},");
+                            $"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetType.Name.ToPascalCase()}>()" : "")},");
                     }
 
                     var @class = template.CSharpFile.Classes.First();
-                    @class.AddMethod(template.GetTypeName(targetType),
-                        GetCreateMethodName(targetType, attributeName),
+                    @class.AddMethod(template.GetTypeName(targetType.InternalElement),
+                        GetCreateMethodName(targetType.InternalElement, attributeName),
                         method => method.Private().Static()
                             .AddParameter(template.GetTypeName((IElement)field.TypeReference.Element), "dto")
                             .AddStatement($"return new {targetType.Name.ToPascalCase()}")
                             .AddStatement(new CSharpStatementBlock()
-                                .AddStatements(GetDTOPropertyAssignments(template, "", $"dto", targetType,
+                                .AddStatements(GetDtoToDomainPropertyAssignments(template, "", $"dto", targetType,
                                     ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList()))
+                                .WithSemicolon()));
+                }
+                    break;
+            }
+        }
+
+        return codeLines;
+    }
+    
+   private static IEnumerable<CSharpStatement> GetDomainToDtoPropertyAssignments(
+        ICSharpFileBuilderTemplate template, 
+        string dtoVarName, 
+        string entityVarName, 
+        DTOModel dtoModel,
+        ClassModel domainModel)
+    {
+        var codeLines = new List<CSharpStatement>();
+        foreach (var field in dtoModel.Fields)
+        {
+            var dtoVarExpr = !string.IsNullOrWhiteSpace(dtoVarName) ? $"{dtoVarName}." : string.Empty;
+            
+            // Implicit ID case check
+            if (field.Name.Equals("id", StringComparison.OrdinalIgnoreCase)
+                && field.Mapping == null)
+            {
+                codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.Id,");
+                continue;
+            }
+            
+            if (field.Mapping?.Element == null
+                && domainModel.Attributes.All(p => p.Name != field.Name))
+            {
+                codeLines.Add($"#warning No matching field found for {field.Name}");
+                continue;
+            }
+            
+            switch (field.Mapping?.Element?.SpecializationTypeId)
+            {
+                default:
+                    var mappedPropertyName = field.Mapping?.Element?.Name ?? "<null>";
+                    codeLines.Add($"#warning No matching type for Domain: {mappedPropertyName} and DTO: {field.Name}");
+                    break;
+                case null:
+                case AttributeModel.SpecializationTypeId:
+                    var attribute = field.Mapping?.Element?.AsAttributeModel()
+                                    ?? domainModel.Attributes.First(p => p.Name == field.Name);
+                    codeLines.Add($"{dtoVarExpr}{attribute.Name.ToPascalCase()} = {entityVarName}.{field.Name.ToPascalCase()},");
+
+                    break;
+                case AssociationTargetEndModel.SpecializationTypeId:
+                {
+                    var association = field.Mapping.Element.AsAssociationTargetEndModel();
+                    var targetType = association.Element.AsClassModel();
+                    var attributeName = association.Name.ToPascalCase();
+
+                    if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
+                    {
+                        if (field.TypeReference.IsNullable)
+                        {
+                            codeLines.Add(
+                                $"{dtoVarExpr}{attributeName} = {entityVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{field.Name.ToPascalCase()}) : null,");
+                        }
+                        else
+                        {
+                            codeLines.Add($"{dtoVarExpr}{attributeName} = {GetCreateMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{field.Name.ToPascalCase()}),");
+                        }
+                    }
+                    else
+                    {
+                        codeLines.Add(
+                            $"{dtoVarExpr}{attributeName} = {entityVarName}.{field.Name.ToPascalCase()}{(field.TypeReference.IsNullable ? "?" : "")}.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList(){(field.TypeReference.IsNullable ? $" ?? new List<{targetType.Name.ToPascalCase()}>()" : "")},");
+                    }
+
+                    var @class = template.CSharpFile.Classes.First();
+                    var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
+                    @class.AddMethod(template.GetTypeName(fieldDtoModel.InternalElement),
+                        GetCreateMethodName(targetType.InternalElement, attributeName),
+                        method => method.Private().Static()
+                            .AddParameter(targetType.Name.ToPascalCase(), "entity")
+                            .AddStatement($"return new {template.GetTypeName(fieldDtoModel.InternalElement)}")
+                            .AddStatement(new CSharpStatementBlock()
+                                .AddStatements(GetDomainToDtoPropertyAssignments(
+                                    template: template, 
+                                    dtoVarName: "", 
+                                    entityVarName: $"entity",
+                                    dtoModel: fieldDtoModel,
+                                    domainModel: targetType))
                                 .WithSemicolon()));
                 }
                     break;

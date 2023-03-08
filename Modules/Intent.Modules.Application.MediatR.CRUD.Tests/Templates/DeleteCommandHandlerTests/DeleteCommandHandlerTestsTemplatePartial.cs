@@ -107,9 +107,14 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.Static();
                     method.Private();
                     method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
+                    method.AddStatement($@"var fixture = new Fixture();");
+
+                    if (TryGetTypeName("Intent.DomainEvents.DomainEventBase", out var domainEventBaseName))
+                    {
+                        method.AddStatement($"fixture.Register<{domainEventBaseName}>(() => null);");
+                    }
+
                     method.AddStatements($@"
-        var fixture = new Fixture();
-        fixture.Register<{GetTypeName("Intent.DomainEvents.DomainEventBase")}>(() => null);
         fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.With(x => x.Id, testCommand.Id));
         var existing{domainElementName} = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
         return existing{domainElementName};");

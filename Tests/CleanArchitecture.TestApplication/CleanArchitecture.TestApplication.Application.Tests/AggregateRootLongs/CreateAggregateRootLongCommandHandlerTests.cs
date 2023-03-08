@@ -51,7 +51,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             fixture = new Fixture();
             fixture.Customize<CreateAggregateRootLongCommand>(comp => comp.Without(x => x.CompositeOfAggrLong));
             yield return new object[] { fixture.Create<CreateAggregateRootLongCommand>() };
-
         }
 
         private static AggregateRootLong CreateExpectedAggregateRootLong(CreateAggregateRootLongCommand dto)

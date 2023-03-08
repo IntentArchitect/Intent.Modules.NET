@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,8 +11,12 @@ using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using FluentAssertions;
+using Intent.RoslynWeaver.Attributes;
 using NSubstitute;
 using Xunit;
+
+[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.GetAllQueryHandlerTests", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots;
 
@@ -21,10 +26,11 @@ public class GetAggregateRootsQueryHandlerTests
 
     public GetAggregateRootsQueryHandlerTests()
     {
-        var mapperConfiguration = new MapperConfiguration(config =>
-        {
-            config.AddMaps(typeof(GetAggregateRootsQueryHandler));
-        });
+        var mapperConfiguration = new MapperConfiguration(
+            config =>
+            {
+                config.AddMaps(typeof(GetAggregateRootsQueryHandler));
+            });
         _mapper = mapperConfiguration.CreateMapper();
     }
 
@@ -34,7 +40,7 @@ public class GetAggregateRootsQueryHandlerTests
     {
         // Arrange
         var expectedDtos = testEntities.Select(CreateExpectedAggregateRootDto).ToArray();
-        
+
         var query = new GetAggregateRootsQuery();
         var repository = Substitute.For<IAggregateRootRepository>();
         repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
@@ -54,10 +60,6 @@ public class GetAggregateRootsQueryHandlerTests
         fixture.Register<DomainEvent>(() => null);
         fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
         yield return new object[] { fixture.CreateMany<AggregateRoot>().ToList() };
-        
-        fixture = new Fixture();
-        fixture.Register<DomainEvent>(() => null);
-        fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
         yield return new object[] { fixture.CreateMany<AggregateRoot>(0).ToList() };
     }
 
@@ -67,80 +69,80 @@ public class GetAggregateRootsQueryHandlerTests
         {
             Id = entity.Id,
             AggregateAttr = entity.AggregateAttr,
-            Aggregate = entity.Aggregate == null ? null : CreateExpectedAggregateRootAggregateSingleCDto(entity.Aggregate),
-            Composite = entity.Composite == null ? null : CreateExpectedAggregateRootCompositeSingleADto(entity.Composite),
-            Composites = entity.Composites?.Select(CreateExpectedAggregateRootCompositeManyBDto).ToList()
+            Composites = entity.Composites.Select(CreateExpectedCompositeManyB).ToList(),
+            Composite = entity.Composite != null ? CreateExpectedCompositeSingleA(entity.Composite) : null,
+            Aggregate = entity.Aggregate != null ? CreateExpectedAggregateSingleC(entity.Aggregate) : null,
         };
     }
 
-    private static AggregateRootCompositeManyBDto CreateExpectedAggregateRootCompositeManyBDto(CompositeManyB entity)
+    private static AggregateRootCompositeManyBDto CreateExpectedCompositeManyB(CompositeManyB entity)
     {
         return new AggregateRootCompositeManyBDto
         {
-            Id = entity.Id,
             CompositeAttr = entity.CompositeAttr,
             SomeDate = entity.SomeDate,
-            Composite = entity.Composite == null ? null : CreateExpectedAggregateRootCompositeManyBCompositeSingleBBDto(entity.Composite),
-            Composites = entity.Composites?.Select(CreateExpectedAggregateRootCompositeManyBCompositeManyBBDto).ToList(),
-            AggregateRootId = entity.AggregateRootId
+            AggregateRootId = entity.AggregateRootId,
+            Id = entity.Id,
+            Composite = entity.Composite != null ? CreateExpectedCompositeSingleBB(entity.Composite) : null,
+            Composites = entity.Composites.Select(CreateExpectedCompositeManyBB).ToList(),
         };
     }
 
-    private static AggregateRootCompositeManyBCompositeManyBBDto CreateExpectedAggregateRootCompositeManyBCompositeManyBBDto(CompositeManyBB entity)
+    private static AggregateRootCompositeManyBCompositeSingleBBDto CreateExpectedCompositeSingleBB(CompositeSingleBB entity)
+    {
+        return new AggregateRootCompositeManyBCompositeSingleBBDto
+        {
+            CompositeAttr = entity.CompositeAttr,
+            Id = entity.Id,
+        };
+    }
+
+    private static AggregateRootCompositeManyBCompositeManyBBDto CreateExpectedCompositeManyBB(CompositeManyBB entity)
     {
         return new AggregateRootCompositeManyBCompositeManyBBDto
         {
-            Id = entity.Id, 
-            CompositeAttr = entity.CompositeAttr, 
-            CompositeManyBId = entity.CompositeManyBId
+            CompositeAttr = entity.CompositeAttr,
+            CompositeManyBId = entity.CompositeManyBId,
+            Id = entity.Id,
         };
     }
 
-    private static AggregateRootCompositeManyBCompositeSingleBBDto CreateExpectedAggregateRootCompositeManyBCompositeSingleBBDto(CompositeSingleBB entity)
-    {
-        return new AggregateRootCompositeManyBCompositeSingleBBDto()
-        {
-            Id = entity.Id, 
-            CompositeAttr = entity.CompositeAttr
-        };
-    }
-
-    private static AggregateRootCompositeSingleADto CreateExpectedAggregateRootCompositeSingleADto(CompositeSingleA entity)
+    private static AggregateRootCompositeSingleADto CreateExpectedCompositeSingleA(CompositeSingleA entity)
     {
         return new AggregateRootCompositeSingleADto
         {
-            Id = entity.Id,
             CompositeAttr = entity.CompositeAttr,
-            Composite = entity.Composite == null ? null : CreateExpectedAggregateRootCompositeSingleACompositeSingleAADto(entity.Composite),
-            Composites = entity.Composites?.Select(CreateExpectedAggregateRootCompositeSingleACompositeManyAADto).ToList(),
+            Id = entity.Id,
+            Composite = entity.Composite != null ? CreateExpectedCompositeSingleAA(entity.Composite) : null,
+            Composites = entity.Composites.Select(CreateExpectedCompositeManyAA).ToList(),
         };
     }
 
-    private static AggregateRootCompositeSingleACompositeManyAADto CreateExpectedAggregateRootCompositeSingleACompositeManyAADto(CompositeManyAA cdto)
+    private static AggregateRootCompositeSingleACompositeSingleAADto CreateExpectedCompositeSingleAA(CompositeSingleAA entity)
+    {
+        return new AggregateRootCompositeSingleACompositeSingleAADto
+        {
+            CompositeAttr = entity.CompositeAttr,
+            Id = entity.Id,
+        };
+    }
+
+    private static AggregateRootCompositeSingleACompositeManyAADto CreateExpectedCompositeManyAA(CompositeManyAA entity)
     {
         return new AggregateRootCompositeSingleACompositeManyAADto
         {
-            Id = cdto.Id, 
-            CompositeAttr = cdto.CompositeAttr, 
-            CompositeSingleAId = cdto.CompositeSingleAId
+            CompositeAttr = entity.CompositeAttr,
+            CompositeSingleAId = entity.CompositeSingleAId,
+            Id = entity.Id,
         };
     }
 
-    private static AggregateRootCompositeSingleACompositeSingleAADto CreateExpectedAggregateRootCompositeSingleACompositeSingleAADto(CompositeSingleAA entity)
-    {
-        return new AggregateRootCompositeSingleACompositeSingleAADto()
-        {
-            Id = entity.Id, 
-            CompositeAttr = entity.CompositeAttr
-        };
-    }
-
-    private static AggregateRootAggregateSingleCDto CreateExpectedAggregateRootAggregateSingleCDto(AggregateSingleC entity)
+    private static AggregateRootAggregateSingleCDto CreateExpectedAggregateSingleC(AggregateSingleC entity)
     {
         return new AggregateRootAggregateSingleCDto
         {
+            AggregationAttr = entity.AggregationAttr,
             Id = entity.Id,
-            AggregationAttr = entity.AggregationAttr
         };
     }
 }

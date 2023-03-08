@@ -124,6 +124,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.GetByIdQueryHandlerTests#1dad5f92-5186-43d7-86b3-aaac844a16f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/GetAggregateRootLongByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.GetAllQueryHandlerTests#76ddff4c-5831-4712-84d2-125e03fda9e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/GetAggregateRootLongsQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.UpdateCommandHandlerTests#1b67371c-fcd7-4b17-b61a-c729dab74d78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/UpdateAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -144,6 +160,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/DeleteAggregateRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/DeleteAggregateRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.GetByIdQueryHandlerTests#fdb4c6fc-b7d1-46f3-ab31-76167f193139</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/GetAggregateRootByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/GetAggregateRootByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.GetAllQueryHandlerTests#64c75571-c2bf-4443-aa3f-260cdd334084</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/GetAggregateRootsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/GetAggregateRootsQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -184,6 +216,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/DeleteImplicitKeyAggrRootCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/DeleteImplicitKeyAggrRootCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.GetByIdQueryHandlerTests#ca4b1acb-c361-4407-a3c5-1398e1413e00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/GetImplicitKeyAggrRootByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/GetImplicitKeyAggrRootByIdQueryHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>36da585a-bff5-4a4f-afb0-a7a6646a622b</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.GetAllQueryHandlerTests#a5cd32f4-3ab1-42e7-aebe-69e108760f12</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/GetImplicitKeyAggrRootsQueryHandlerTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/GetImplicitKeyAggrRootsQueryHandlerTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -95,16 +95,15 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddStatements($@"
         var fixture = new Fixture();
         yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
-                    method.AddStatement("");
 
                     foreach (var property in Model.Properties
                                  .Where(p => p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
                     {
+                        method.AddStatement("");
                         method.AddStatements($@"
         fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
         yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
-                        method.AddStatement("");
                     }
                 });
 

@@ -108,17 +108,16 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var fixture = new Fixture();
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
-                    method.AddStatement("");
                     
                     foreach (var property in Model.Properties
                                  .Where(p => p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
                     {
+                        method.AddStatement("");
                         method.AddStatements($@"
         fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
         testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
-                        method.AddStatement("");
                     }
                 });
                 

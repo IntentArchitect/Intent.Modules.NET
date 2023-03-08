@@ -69,7 +69,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             fixture.Customize<UpdateImplicitKeyAggrRootCommand>(comp => comp.Without(x => x.ImplicitKeyNestedCompositions));
             testCommand = fixture.Create<UpdateImplicitKeyAggrRootCommand>();
             yield return new object[] { testCommand, CreateExpectedImplicitKeyAggrRoot(testCommand) };
-
         }
 
         private static ImplicitKeyAggrRoot CreateExpectedImplicitKeyAggrRoot(UpdateImplicitKeyAggrRootCommand dto)
