@@ -16,70 +16,70 @@ using Intent.Templates;
 
 namespace Intent.Modules.CosmosDb.Templates.Integration.UnitOfWorkBehaviour
 {
-	[IntentManaged(Mode.Fully, Body = Mode.Merge)]
-	partial class UnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
-	{
-		public const string TemplateId = "Intent.CosmosDb.Integration.UnitOfWorkBehaviour";
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    partial class UnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    {
+        public const string TemplateId = "Intent.CosmosDb.Integration.UnitOfWorkBehaviour";
 
-		[IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-		public UnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
-		{
-			CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-				.AddUsing("System.Collections.Generic")
-				.AddUsing("System.Linq")
-				.AddUsing("System.Threading")
-				.AddUsing("System.Threading.Tasks")
-				.AddUsing("System.Transactions")
-				.AddUsing("MediatR")
-				.AddUsing("Intent.Modules.CosmosDb.Infrastructure.CosmosDb")
-				.AddClass($"CosmosDbUnitOfWorkBehaviour")
-				.OnBuild(file =>
-				{
-					var @class = file.Classes.First();
-					@class.AddGenericParameter("TRequest", out var TRequest)
-						.AddGenericParameter("TResponse", out var TResponse);
-					@class.ImplementsInterface($"IPipelineBehavior<{TRequest}, {TResponse}>");
-					@class.AddGenericTypeConstraint(TRequest, type => type
-						.AddType($"IRequest<{TResponse}>")
-						.AddType(GetTypeName("Application.Command.Interface")));
-					@class.AddConstructor(ctor =>
-						ctor.AddParameter(GetTypeName("CosmosDbApplicationCosmosDbContext"), "dbContext", param => param.IntroduceReadonlyField()));
-					@class.AddMethod($"Task<{TResponse}>", "Handle", method =>
-					{
-						method.Async();
-						method.AddParameter(TRequest, "request")
-							.AddParameter("CancellationToken", "cancellationToken")
-							.AddParameter($"RequestHandlerDelegate<{TResponse}>", "next");
-						method.AddStatement($"var response = await next();")
-							.AddStatement($"await _dbContext.SaveChangesAsync(cancellationToken);")
-							.AddStatement($"return response;");
-					});
-				});
-		}
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public UnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        {
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System.Transactions")
+                .AddUsing("MediatR")
+                .AddUsing("Intent.Modules.CosmosDb.Infrastructure.CosmosDb")
+                .AddClass($"CosmosDbUnitOfWorkBehaviour")
+                .OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    @class.AddGenericParameter("TRequest", out var TRequest)
+                        .AddGenericParameter("TResponse", out var TResponse);
+                    @class.ImplementsInterface($"IPipelineBehavior<{TRequest}, {TResponse}>");
+                    @class.AddGenericTypeConstraint(TRequest, type => type
+                        .AddType($"IRequest<{TResponse}>")
+                        .AddType(GetTypeName("Application.Command.Interface")));
+                    @class.AddConstructor(ctor =>
+                        ctor.AddParameter(GetTypeName("ApplicationCosmosDbContext"), "dbContext", param => param.IntroduceReadonlyField()));
+                    @class.AddMethod($"Task<{TResponse}>", "Handle", method =>
+                    {
+                        method.Async();
+                        method.AddParameter(TRequest, "request")
+                            .AddParameter("CancellationToken", "cancellationToken")
+                            .AddParameter($"RequestHandlerDelegate<{TResponse}>", "next");
+                        method.AddStatement($"var response = await next();")
+                            .AddStatement($"await _dbContext.SaveChangesAsync(cancellationToken);")
+                            .AddStatement($"return response;");
+                    });
+                });
+        }
 
-		public override void BeforeTemplateExecution()
-		{
-			ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
-				.ForInterface("typeof(IPipelineBehavior<,>)")
-				.WithPriority(4)
-				.ForConcern("Application")
-				.RequiresUsingNamespaces("MediatR")
-				.HasDependency(this));
-		}
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
+                .ForInterface("typeof(IPipelineBehavior<,>)")
+                .WithPriority(4)
+                .ForConcern("Application")
+                .RequiresUsingNamespaces("MediatR")
+                .HasDependency(this));
+        }
 
-		[IntentManaged(Mode.Fully)]
-		public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
-		[IntentManaged(Mode.Fully)]
-		protected override CSharpFileConfig DefineFileConfig()
-		{
-			return CSharpFile.GetConfig();
-		}
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
 
-		[IntentManaged(Mode.Fully)]
-		public override string TransformText()
-		{
-			return CSharpFile.ToString();
-		}
-	}
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
+    }
 }

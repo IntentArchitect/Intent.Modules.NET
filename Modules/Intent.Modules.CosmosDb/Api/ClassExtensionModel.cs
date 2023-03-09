@@ -9,15 +9,15 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel", Version = "1.0")]
 
-namespace Intent.Modules.CosmosDb.Api
+namespace Intent.CosmosDb.Api
 {
-	[IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-	public class ClassExtensionModel : ClassModel
-	{
-		[IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-		public ClassExtensionModel(IElement element) : base(element)
-		{
-		}
+    [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
+    public class ClassExtensionModel : ClassModel
+    {
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public ClassExtensionModel(IElement element) : base(element)
+        {
+        }
 
-	}
+    }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.CosmosDb;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -7,7 +8,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.CosmosDb.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates;
-using Intent.Modules.CosmosDb.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -33,9 +33,9 @@ namespace Intent.Modules.CosmosDb.Repositories.Templates.CosmosRepositoryBase
                 .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-				.AddUsing("Microsoft.Azure.Cosmos")
-				.AddUsing("Intent.Modules.CosmosDb.Repository")
-				.AddClass($"CosmosRepositoryBase", @class =>
+                .AddUsing("Microsoft.Azure.Cosmos")
+                .AddUsing("Intent.Modules.CosmosDb.Repository")
+                .AddClass($"CosmosRepositoryBase", @class =>
                 {
                     @class.Abstract();
                     @class.AddGenericParameter("TDomain", out var tDomain)
@@ -54,104 +54,104 @@ namespace Intent.Modules.CosmosDb.Repositories.Templates.CosmosRepositoryBase
 
                     @class.AddProperty(this.GetUnitOfWorkInterfaceName(), "UnitOfWork", prop => prop.ReadOnly());
 
-					@class.AddMethod("Task", "Add", method =>
-					{
-						method.Virtual();
-						method.AddParameter(tDomain, "entity");
-						method.AddStatement($@"
+                    @class.AddMethod("Task", "Add", method =>
+                    {
+                        method.Virtual();
+                        method.AddParameter(tDomain, "entity");
+                        method.AddStatement($@"
                             var container = Context.GetContainer<{tPersistence}>();
                             var response = await container.CreateItemAsync(({tPersistence})entity);
                             if (response.StatusCode != HttpStatusCode.Created)
                                 throw new Exception($""Failed to insert document. StatusCode={{response.StatusCode}}"");
                         ");
-					});
+                    });
 
-					@class.AddMethod("void", "Remove", method =>
+                    @class.AddMethod("void", "Remove", method =>
                     {
                         method.Abstract();
                         method.AddParameter(tDomain, "entity");
                     });
-					@class.AddMethod($"Task<{tDomain}>", "Update", method =>
-					{
-						method.Virtual();
-						method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "predicate")
-							.AddParameter(tDomain, "entity");
-						method.AddStatement($@"var id = ((dynamic)entity).Id.ToString();
+                    @class.AddMethod($"Task<{tDomain}>", "Update", method =>
+                    {
+                        method.Virtual();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "predicate")
+                            .AddParameter(tDomain, "entity");
+                        method.AddStatement($@"var id = ((dynamic)entity).Id.ToString();
                             var existing = await GetAsync(id);
                             if(existing == null)
                                 throw new KeyNotFoundException($""Could not find {tDomain} with ID {{id}}"");
                             var result = await Context.ReplaceItemAsync<{tPersistence}>(id, ({tPersistence})entity);
                             return ({tDomain})result.Resource;");
-					});
+                    });
 
 
-					@class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
-					{
-						method.Virtual();
-						method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-							.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-						method.AddStatement($"return Context.GetContainer<{tPersistence}>().GetItemLinqQueryable<{tPersistence}>().Where(filterExpression).ToFeedIterator().ReadNextAsync(cancellationToken).ContinueWith(task => task.Result.FirstOrDefault()).Unwrap();");
-					});
+                    @class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                    {
+                        method.Virtual();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"return Context.GetContainer<{tPersistence}>().GetItemLinqQueryable<{tPersistence}>().Where(filterExpression).ToFeedIterator().ReadNextAsync(cancellationToken).ContinueWith(task => task.Result.FirstOrDefault()).Unwrap();");
+                    });
 
-					@class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
-					{
-						method.Virtual();
-						method.Async();
-						method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-							.AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
-							.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                    @class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-						method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
-							.AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
-							.AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
-								.AddStatement("query = query.Where(filterExpression);"))
-							.AddStatement(new CSharpStatementBlock("if (linq != null)")
-								.AddStatement($"query = linq(query);"))
-							.AddStatement("return await query.FirstOrDefaultAsync(cancellationToken);");
-					});
+                        method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
+                            .AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
+                            .AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
+                                .AddStatement("query = query.Where(filterExpression);"))
+                            .AddStatement(new CSharpStatementBlock("if (linq != null)")
+                                .AddStatement($"query = linq(query);"))
+                            .AddStatement("return await query.FirstOrDefaultAsync(cancellationToken);");
+                    });
 
-					@class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
-					{
-						method.Virtual();
-						method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-						method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
-							.AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
-							.AddStatement($"return await query.ToListAsync(cancellationToken);");
-					});
+                        method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
+                            .AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
+                            .AddStatement($"return await query.ToListAsync(cancellationToken);");
+                    });
 
-					@class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
-					{
-						method.Virtual();
-						method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-							.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-						method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
-							.AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
-							.AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
-								.AddStatement("query = query.Where(filterExpression);"))
-							.AddStatement($"return await query.ToListAsync(cancellationToken);");
-					});
+                        method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
+                            .AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
+                            .AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
+                                .AddStatement("query = query.Where(filterExpression);"))
+                            .AddStatement($"return await query.ToListAsync(cancellationToken);");
+                    });
 
-					@class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
-					{
-						method.Virtual();
-						method.Async();
-						method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-							.AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
-							.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-						method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
-							.AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
-							.AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
-								.AddStatement("query = query.Where(filterExpression);"))
-							.AddStatement(new CSharpStatementBlock("if (linq != null)")
-								.AddStatement($"query = linq(query);"))
-							.AddStatement($"var results = await query.ToListAsync(cancellationToken);")
-							.AddStatement($"return results.Select(x => ({tDomain})x).ToList();");
-					});
+                        method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
+                            .AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
+                            .AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
+                                .AddStatement("query = query.Where(filterExpression);"))
+                            .AddStatement(new CSharpStatementBlock("if (linq != null)")
+                                .AddStatement($"query = linq(query);"))
+                            .AddStatement($"var results = await query.ToListAsync(cancellationToken);")
+                            .AddStatement($"return results.Select(x => ({tDomain})x).ToList();");
+                    });
 
-					@class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
                         method.Virtual();
                         method.AddParameter("int", "pageNo")
@@ -168,25 +168,25 @@ namespace Intent.Modules.CosmosDb.Repositories.Templates.CosmosRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"return FindAllAsync(filterExpression, pageNo, pageSize, null, cancellationToken);");
                     });
-					@class.AddMethod($"async Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
-					{
-						method.Virtual();
-						method.Async();
-						method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
-							.AddParameter("int", "pageNo")
-							.AddParameter("int", "pageSize")
-							.AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
-							.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                    @class.AddMethod($"async Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method.Virtual();
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-						method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
-							.AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
-							.AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
-								.AddStatement("query = query.Where(filterExpression);"))
-							.AddStatement(new CSharpStatementBlock("if (linq != null)")
-								.AddStatement($"query = linq(query);"))
-							.AddStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
-					});
-				});
+                        method.AddStatement($"var container = Context.CosmosDatabase.GetContainer(\"{tPersistence}\");")
+                            .AddStatement($"var query = container.GetItemLinqQueryable<{tPersistence}>();")
+                            .AddStatement(new CSharpStatementBlock("if (filterExpression != null)")
+                                .AddStatement("query = query.Where(filterExpression);"))
+                            .AddStatement(new CSharpStatementBlock("if (linq != null)")
+                                .AddStatement($"query = linq(query);"))
+                            .AddStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync(query, pageNo, pageSize, cancellationToken);");
+                    });
+                });
         }
 
         [IntentManaged(Mode.Fully)]

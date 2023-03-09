@@ -10,6 +10,7 @@
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
+    <RootNamespace>Intent.CosmosDb.Repositories</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

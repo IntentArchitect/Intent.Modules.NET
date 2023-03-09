@@ -26,7 +26,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#67f81f34-af38-4245-9c8e-1816e3012cce</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#ab2d8076-f373-4144-8475-dfb0490a3bd0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/CosmosDBDiagramModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDBDiagramModel.cs</ProjectRelativeFilePath>
@@ -34,14 +34,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a9c2ccf-b71e-44a6-a6bc-1fd6b486059f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageModel#9d80acf2-6f29-4688-955b-6c17f94042ff</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageModel#65a81352-87cc-49c1-bc1b-de4da18b825c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/CosmosDbDomainPackageModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosDbDomainPackageModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
+      <ProjectId>a189c125-4c35-4410-b839-278991ce59d1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataPackageExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ApiMetadataPackageExtensions.cs</ApplicationRelativeFilePath>
@@ -49,7 +49,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
+      <ProjectId>a189c125-4c35-4410-b839-278991ce59d1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ApiMetadataProviderExtensions.cs</ApplicationRelativeFilePath>
@@ -81,7 +81,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
+      <ProjectId>a189c125-4c35-4410-b839-278991ce59d1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.CosmosDb.imodspec</ApplicationRelativeFilePath>
@@ -89,8 +89,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</CorrelationId>
+      <ProjectId>a189c125-4c35-4410-b839-278991ce59d1</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a189c125-4c35-4410-b839-278991ce59d1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.CosmosDb.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.CosmosDb.csproj</ProjectRelativeFilePath>
@@ -105,7 +105,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
+      <ProjectId>a189c125-4c35-4410-b839-278991ce59d1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>

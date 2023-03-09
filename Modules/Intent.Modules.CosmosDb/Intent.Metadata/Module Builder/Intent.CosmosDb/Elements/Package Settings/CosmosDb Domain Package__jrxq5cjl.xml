@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="9d80acf2-6f29-4688-955b-6c17f94042ff" type="Package Settings" typeId="89333f72-3960-4159-bf61-9c40d4b65088">
+<class id="65a81352-87cc-49c1-bc1b-de4da18b825c" type="Package Settings" typeId="89333f72-3960-4159-bf61-9c40d4b65088">
   <name>CosmosDb Domain Package</name>
   <display>CosmosDb Domain Package</display>
   <isAbstract>false</isAbstract>
@@ -30,7 +30,7 @@
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>9d80acf2-6f29-4688-955b-6c17f94042ff</parentFolderId>
+      <parentFolderId>65a81352-87cc-49c1-bc1b-de4da18b825c</parentFolderId>
       <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
       <packageName>Intent.CosmosDb</packageName>
       <stereotypes />
@@ -159,12 +159,12 @@
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="17fdf00a-040c-4e15-9572-0aa099b18c59">
-            <typeId>67f81f34-af38-4245-9c8e-1816e3012cce</typeId>
+            <typeId>ab2d8076-f373-4144-8475-dfb0490a3bd0</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.MongoDb</typePackageName>
+            <typePackageName>Intent.CosmosDb</typePackageName>
             <typePackageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</typePackageId>
             <stereotypes />
             <genericTypeParameters />

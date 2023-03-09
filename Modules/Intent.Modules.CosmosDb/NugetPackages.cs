@@ -1,6 +1,6 @@
 ﻿using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.CosmosDb;
+namespace Intent.CosmosDb;
 
 public static class NugetPackages
 {

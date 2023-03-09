@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDb</id>
-  <version>1.0.0-pre.6</version>
+  <version>1.0.0-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Core CosmosDb Database Provider using the CosmosDb.Data.UnitOfWork library.</summary>
   <description>Core CosmosDb Database Provider using the CosmosDb.Data.UnitOfWork library.</description>

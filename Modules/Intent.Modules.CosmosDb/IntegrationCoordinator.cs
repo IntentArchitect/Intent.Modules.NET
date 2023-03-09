@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Intent.Engine;
 
-namespace Intent.Modules.CosmosDb;
+namespace Intent.CosmosDb;
 
 // Just a simple way to coordinate what gets installed between different modules.
 public static class IntegrationCoordinator
