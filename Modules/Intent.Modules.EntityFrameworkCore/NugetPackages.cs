@@ -12,11 +12,22 @@ namespace Intent.Modules.EntityFrameworkCore
         public static NugetPackageInfo EntityFrameworkCoreDesign(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Design", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreTools(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Tools", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreSqlServer(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.SqlServer", GetVersion(outputTarget.GetProject()));
-        public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQL(IOutputTarget outputTarget) => new NugetPackageInfo("Npgsql.EntityFrameworkCore.PostgreSQL", GetVersion(outputTarget.GetProject()));
+        public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQL(IOutputTarget outputTarget) => new NugetPackageInfo("Npgsql.EntityFrameworkCore.PostgreSQL", GetPostgreSqlVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Cosmos", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.InMemory", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo EntityFrameworkCoreProxies(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.EntityFrameworkCore.Proxies", GetVersion(outputTarget.GetProject()));
         public static NugetPackageInfo MySqlEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo("Pomelo.EntityFrameworkCore.MySql", GetMySqlVersion(outputTarget.GetProject()));
+
+        private static string GetPostgreSqlVersion(ICSharpProject project)
+        {
+            return project switch
+            {
+                _ when project.IsNetApp(5) => "5.0.2",
+                _ when project.IsNetApp(6) => "6.0.4",
+                _ when project.IsNetApp(7) => "7.0.1",
+                _ => throw new Exception("Not supported version of .NET Core") 
+            };
+        }
 
         private static string GetMySqlVersion(ICSharpProject project)
         {
