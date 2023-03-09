@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="65a28881-3d38-46e8-83dd-2e69e60ffff0" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CosmosRepoFactoryExtension</name>
+  <display>CosmosRepoFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6b0339b1-f588-45b6-bce4-7dafbc54edaf</parentFolderId>
+  <packageId>6b0339b1-f588-45b6-bce4-7dafbc54edaf</packageId>
+  <packageName>Intent.CosmosDb.Repositories</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

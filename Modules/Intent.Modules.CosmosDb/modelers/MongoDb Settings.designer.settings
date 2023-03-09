@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>232b1576-74b7-45e1-bc24-2ddc42529d5d</id>
+  <name>MongoDb Settings</name>
+  <designerReferences />
+  <packageSettings>
+    <packageSetting type="Mongo Domain Package" typeId="9d80acf2-6f29-4688-955b-6c17f94042ff">
+      <sortChildren>by-type-then-by-name</sortChildren>
+      <icon type="UrlImagePath" source="data:image/png;base64,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" />
+      <requiredPackages />
+      <creationOptions>
+        <option type="element">
+          <specializationType>Type-Definition</specializationType>
+          <specializationTypeId>d4e577cd-ad05-4180-9a2e-fff4ddea0e1e</specializationTypeId>
+          <text>New Type</text>
+          <shortcut>ctrl + shift + t</shortcut>
+          <defaultName>NewTypeDefinition</defaultName>
+          <icon type="UrlImagePath" source="./img/icons/uml/DataType_256x.png" />
+          <allowMultiple>true</allowMultiple>
+        </option>
+        <option type="element">
+          <specializationType>Enum</specializationType>
+          <specializationTypeId>85fba0e9-9161-4c85-a603-a229ef312beb</specializationTypeId>
+          <text>New Enum</text>
+          <shortcut>ctrl + shift + e</shortcut>
+          <defaultName>NewEnum</defaultName>
+          <icon type="UrlImagePath" source="./img/icons/uml/Enumeration_256x.png" />
+          <allowMultiple>true</allowMultiple>
+        </option>
+        <option type="element">
+          <specializationType>Comment</specializationType>
+          <specializationTypeId>c4c0c77f-720b-4e91-9c48-b58d2164d30a</specializationTypeId>
+          <text>New Comment</text>
+          <shortcut>ctrl + shift + o</shortcut>
+          <defaultName>NewComment</defaultName>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAMAAADWZboaAAABSlBMVEUAAAD//wD/gAD/mTP/zAD/gCv/qivmsxr/gDPmvxr/gDPnthj/hjHpvBb/iTHtthL/iS7quBX/hyvquhX/gzDrvBTuuRf6iCvquhX6hTDtuxfquBX7hi7quRXruRf8hi7suxf8hC38hC3suxbruhb9hi/9hi3suhX9hS3quxfruRbruhb7hC3quhf7hS/ruhb7hi3ruRXsuhf8hS/ruhb8hS38hC7quRb4lyT8hC7suhb3mCf2mST0nSTquRb8hS76iivruhf9hS7ruhbruxb7hS77hS77hi7ruhb8hS/ruhbusBr8hS78hS7ruhb8hS7ruhbruhbtsxn8hC77hS3ruhb8hS7ruhb8hS7tthjruhfruhb8hS7ruhbruhb8hS7ruhb8hS7ruhb8hS7ruhbwy1Dx0GDx0GHz1nP346L8hS7++/D++/H///+gFZfLAAAAZHRSTlMAAQIFBQYGCgoUFBUVFxocHCQkJSUmLC8wMDg9PT5NTk9PW15nZ3Z3d3uAgYGIiI2Nj5GUl5igoba3uL/AwcbGyczMztjY2dnb297f4eLj4+Tl5+fo6err6+zu9fn7/Pz9/f7+TQPISAAAAAFiS0dEbbsGAK0AAAFSSURBVEjH5ddHU8JQFIbhDxR7771ih4i9i72LvRdQgiXq/9+6IIHkEGbOPeMiM75LJs+Cb5F7A3iiQG9Iow3TBjr8ubJ132C1UUdlza3B7KSC0BmDXYTQCz49IjTJp3FCDYX+GfV3Boes5s2WaUtrj7m0cVNndbhLaeWZzuzuktBJnd0KoTE+PSc0wacJQnWFPEXfP+29qdDvH3tfKjT1YS/l/Zn+bGH3uR3yJc/C7nM76HGehd3ndtAp8X+9rpLSnWZIqKaFugOAZGHr9SlYmFLOwnF3yqkvKaYYdFCF19ozELHTUz49AHyzNjrNp+MAChaytPqGK2PlAFASzZ6OLXs8uV6bfr5sO3umFvWMhdNlHrsyfwiPWqdnsD1zP2twu+RZ8r5J+X5oyoc2COlTF4T0tR9SOgIpnYCUzvmkdLFQeHnXV4ul9/6tUvEnQz283y9zvWoo9YIzZQAAAABJRU5ErkJggg==" />
+          <allowMultiple>true</allowMultiple>
+        </option>
+        <option type="element">
+          <specializationType>MongoDB Diagram</specializationType>
+          <specializationTypeId>67f81f34-af38-4245-9c8e-1816e3012cce</specializationTypeId>
+          <text>New Diagram</text>
+          <defaultName>New Diagram</defaultName>
+          <icon type="UrlImagePath" source="./img/icons/uml/View_256x.png" />
+          <allowMultiple>true</allowMultiple>
+        </option>
+        <option order="0" type="element">
+          <specializationType>Folder</specializationType>
+          <specializationTypeId>4d95d53a-8855-4f35-aa82-e312643f5c5f</specializationTypeId>
+          <text>New Folder</text>
+          <shortcut>ctrl + shift + f</shortcut>
+          <defaultName>NewFolder</defaultName>
+          <icon type="UrlImagePath" source="./img/icons/uml/Folder_02_256x.png" />
+          <allowMultiple>true</allowMultiple>
+        </option>
+        <option type="element">
+          <specializationType>Class</specializationType>
+          <specializationTypeId>04e12b51-ed12-42a3-9667-a6aa81bb6d10</specializationTypeId>
+          <text>New Class</text>
+          <shortcut>ctrl + shift + c</shortcut>
+          <defaultName>NewClass</defaultName>
+          <icon type="UrlImagePath" source="./img/icons/uml/Class_256x.png" />
+          <allowMultiple>true</allowMultiple>
+        </option>
+        <option type="stereotype-definition">
+          <specializationType>Stereotype-Definition</specializationType>
+          <specializationTypeId>Stereotype-Definition</specializationTypeId>
+          <text>New Stereotype-Definition</text>
+          <shortcut>ctrl + shift + s</shortcut>
+          <defaultName>NewStereotypeDefinition</defaultName>
+          <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+          <allowMultiple>true</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <typeOrder>
+        <type order="0">Folder</type>
+        <type order="1">Type-Definition</type>
+        <type order="2">Enum</type>
+        <type order="3">Comment</type>
+        <type order="4">MongoDB Diagram</type>
+        <type order="5">Class</type>
+        <type order="6">Stereotype-Definition</type>
+      </typeOrder>
+    </packageSetting>
+  </packageSettings>
+  <packageExtensions />
+  <elementSettings>
+    <elementSetting type="MongoDB Diagram" typeId="67f81f34-af38-4245-9c8e-1816e3012cce">
+      <icon type="UrlImagePath" source="./img/icons/uml/View_256x.png" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>true</allowRename>
+      <allowAbstract>false</allowAbstract>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <mappingSettings />
+      <diagramSettings>
+        <addNewElementsTo>Package</addNewElementsTo>
+        <creationOptions>
+          <option type="element">
+            <specializationType>Class</specializationType>
+            <specializationTypeId>04e12b51-ed12-42a3-9667-a6aa81bb6d10</specializationTypeId>
+            <text>New Class</text>
+            <shortcut>ctrl + shift + c</shortcut>
+            <defaultName>NewClass</defaultName>
+            <icon type="UrlImagePath" source="./img/icons/uml/Class_256x.png" />
+            <allowMultiple>true</allowMultiple>
+          </option>
+          <option type="element">
+            <specializationType>Comment</specializationType>
+            <specializationTypeId>c4c0c77f-720b-4e91-9c48-b58d2164d30a</specializationTypeId>
+            <text>New Comment</text>
+            <shortcut>ctrl + shift + o</shortcut>
+            <defaultName>NewComment</defaultName>
+            <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAMAAADWZboaAAABSlBMVEUAAAD//wD/gAD/mTP/zAD/gCv/qivmsxr/gDPmvxr/gDPnthj/hjHpvBb/iTHtthL/iS7quBX/hyvquhX/gzDrvBTuuRf6iCvquhX6hTDtuxfquBX7hi7quRXruRf8hi7suxf8hC38hC3suxbruhb9hi/9hi3suhX9hS3quxfruRbruhb7hC3quhf7hS/ruhb7hi3ruRXsuhf8hS/ruhb8hS38hC7quRb4lyT8hC7suhb3mCf2mST0nSTquRb8hS76iivruhf9hS7ruhbruxb7hS77hS77hi7ruhb8hS/ruhbusBr8hS78hS7ruhb8hS7ruhbruhbtsxn8hC77hS3ruhb8hS7ruhb8hS7tthjruhfruhb8hS7ruhbruhb8hS7ruhb8hS7ruhb8hS7ruhbwy1Dx0GDx0GHz1nP346L8hS7++/D++/H///+gFZfLAAAAZHRSTlMAAQIFBQYGCgoUFBUVFxocHCQkJSUmLC8wMDg9PT5NTk9PW15nZ3Z3d3uAgYGIiI2Nj5GUl5igoba3uL/AwcbGyczMztjY2dnb297f4eLj4+Tl5+fo6err6+zu9fn7/Pz9/f7+TQPISAAAAAFiS0dEbbsGAK0AAAFSSURBVEjH5ddHU8JQFIbhDxR7771ih4i9i72LvRdQgiXq/9+6IIHkEGbOPeMiM75LJs+Cb5F7A3iiQG9Iow3TBjr8ubJ132C1UUdlza3B7KSC0BmDXYTQCz49IjTJp3FCDYX+GfV3Boes5s2WaUtrj7m0cVNndbhLaeWZzuzuktBJnd0KoTE+PSc0wacJQnWFPEXfP+29qdDvH3tfKjT1YS/l/Zn+bGH3uR3yJc/C7nM76HGehd3ndtAp8X+9rpLSnWZIqKaFugOAZGHr9SlYmFLOwnF3yqkvKaYYdFCF19ozELHTUz49AHyzNjrNp+MAChaytPqGK2PlAFASzZ6OLXs8uV6bfr5sO3umFvWMhdNlHrsyfwiPWqdnsD1zP2twu+RZ8r5J+X5oyoc2COlTF4T0tR9SOgIpnYCUzvmkdLFQeHnXV4ul9/6tUvEnQz283y9zvWoo9YIzZQAAAABJRU5ErkJggg==" />
+            <allowMultiple>true</allowMultiple>
+          </option>
+        </creationOptions>
+        <scriptOptions />
+        <elementVisualSettings />
+        <associationVisualSettings />
+      </diagramSettings>
+      <childElementSettings />
+    </elementSetting>
+  </elementSettings>
+  <elementExtensions>
+    <elementExtension type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+if (!element.hasMetadata("id")) {
+    if (!element.hasStereotype(PrimaryKeyStereotypeId)) {
+        element.removeStereotype(PrimaryKeyStereotypeId);
+    }
+    return;
+}
+if (!element.hasStereotype(PrimaryKeyStereotypeId)) {
+    element.addStereotype(PrimaryKeyStereotypeId);
+}</script>
+        </macro>
+        <macro trigger="on-deleted">
+          <script>if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+if (!element.hasMetadata("id")) {
+    return;
+}
+const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+let idAttr = createElement("Attribute", "Id", element.getParent().id);
+idAttr.typeReference.setType(isAggregateRoot(element.getParent()) ? StringTypeId : GuidTypeId);
+idAttr.setOrder(0);
+idAttr.addMetadata("id", "true");
+idAttr.addStereotype(PrimaryKeyStereotypeId);
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+    <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>if (element.getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+let idAttr = createElement("Attribute", "Id", element.id);
+idAttr.typeReference.setType(isAggregateRoot(element) ? StringTypeId : GuidTypeId);
+idAttr.addMetadata("id", "true");
+idAttr.addStereotype(PrimaryKeyStereotypeId);
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+        <macro trigger="on-loaded">
+          <script>if (element.getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id"))[0];
+if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
+    return;
+}
+const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+let idAttr = pk || createElement("Attribute", "Id", element.id);
+idAttr.setOrder(0);
+idAttr.typeReference.setType(isAggregateRoot(element) ? StringTypeId : GuidTypeId);
+if (!idAttr.hasMetadata("id")) {
+    idAttr.addMetadata("id", "true");
+}
+if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
+    idAttr.addStereotype(PrimaryKeyStereotypeId);
+}
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions>
+    <associationExtension type="Association" typeId="eaf9ed4e-0b61-4ac1-ba88-09f912c12087">
+      <sourceEndExtension>
+        <typeReferenceExtension>
+          <isRequired>true</isRequired>
+          <targetTypes />
+          <allowIsNavigable>inherit</allowIsNavigable>
+          <allowIsNullable>inherit</allowIsNullable>
+          <allowIsCollection>inherit</allowIsCollection>
+        </typeReferenceExtension>
+      </sourceEndExtension>
+      <targetEndExtension>
+        <typeReferenceExtension>
+          <isRequired>true</isRequired>
+          <targetTypes />
+          <allowIsNavigable>inherit</allowIsNavigable>
+          <allowIsNullable>inherit</allowIsNullable>
+          <allowIsCollection>inherit</allowIsCollection>
+        </typeReferenceExtension>
+      </targetEndExtension>
+      <macros>
+        <macro trigger="on-changed">
+          <script>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+let targetClass = association.typeReference.getType();
+if (!isAggregateRoot(targetClass)) {
+    targetClass.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id")).forEach(x =&gt; x.typeReference.setType(GuidTypeId));
+}
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+        <macro trigger="on-created">
+          <script>if (!association) {
+    return;
+}
+let sourceEnd = association.getOtherEnd().typeReference;
+if (sourceEnd.getType().getPackage().specialization !== "Mongo Domain Package") {
+    return;
+}
+//let targetEnd = association.typeReference;
+sourceEnd.setIsCollection(false);
+sourceEnd.setIsNullable(false);
+//targetEnd.setIsCollection(false);
+//targetEnd.setIsNullable(false);</script>
+        </macro>
+        <macro trigger="on-deleted">
+          <script>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+let targetClass = association.typeReference.getType();
+if (isAggregateRoot(targetClass)) {
+    targetClass.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id")).forEach(x =&gt; x.typeReference.setType(StringTypeId));
+}
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}</script>
+        </macro>
+      </macros>
+    </associationExtension>
+  </associationExtensions>
+</settings>

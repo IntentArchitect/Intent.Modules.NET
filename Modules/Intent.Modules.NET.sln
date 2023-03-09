@@ -201,7 +201,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore", "Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj", "{66E8A974-5617-4DD2-8D46-A35BF0587A20}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.StateManagement", "Intent.Modules.Dapr.AspNetCore.StateManagement\Intent.Modules.Dapr.AspNetCore.StateManagement.csproj", "{99BACB3D-E9BD-4F8E-8646-59F298895049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.StateManagement", "Intent.Modules.Dapr.AspNetCore.StateManagement\Intent.Modules.Dapr.AspNetCore.StateManagement.csproj", "{99BACB3D-E9BD-4F8E-8646-59F298895049}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDb", "Intent.Modules.CosmosDb\Intent.Modules.CosmosDb.csproj", "{B8F365F3-F49D-46BF-9800-F3B5C5DB0F3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDb.Repositories", "Intent.Modules.CosmosDb.Repositories\Intent.Modules.CosmosDb.Repositories.csproj", "{230D865B-0CDB-42F3-A598-E1FD86757CCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -581,6 +585,14 @@ Global
 		{99BACB3D-E9BD-4F8E-8646-59F298895049}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BACB3D-E9BD-4F8E-8646-59F298895049}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BACB3D-E9BD-4F8E-8646-59F298895049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F365F3-F49D-46BF-9800-F3B5C5DB0F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F365F3-F49D-46BF-9800-F3B5C5DB0F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F365F3-F49D-46BF-9800-F3B5C5DB0F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F365F3-F49D-46BF-9800-F3B5C5DB0F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230D865B-0CDB-42F3-A598-E1FD86757CCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230D865B-0CDB-42F3-A598-E1FD86757CCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230D865B-0CDB-42F3-A598-E1FD86757CCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230D865B-0CDB-42F3-A598-E1FD86757CCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -680,6 +692,8 @@ Global
 		{8857D329-9CB0-449A-9C01-94EB3DFB73E0} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{66E8A974-5617-4DD2-8D46-A35BF0587A20} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{99BACB3D-E9BD-4F8E-8646-59F298895049} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{B8F365F3-F49D-46BF-9800-F3B5C5DB0F3C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{230D865B-0CDB-42F3-A598-E1FD86757CCA} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

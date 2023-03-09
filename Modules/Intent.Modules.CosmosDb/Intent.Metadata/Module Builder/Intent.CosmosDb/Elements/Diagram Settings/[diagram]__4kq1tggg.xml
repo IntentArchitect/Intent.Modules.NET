@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9db52442-df73-4c73-aee9-1d8e2c068940" type="Diagram Settings" typeId="67d711dd-3918-4b28-b2a0-4d845884e17a">
+  <name>[diagram]</name>
+  <display>[diagram]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>67f81f34-af38-4245-9c8e-1816e3012cce</parentFolderId>
+  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+  <packageName>Intent.CosmosDb</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5cd85b88-0844-4aac-b37a-21c3915d1acd" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9db52442-df73-4c73-aee9-1d8e2c068940</parentFolderId>
+      <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+      <packageName>Intent.CosmosDb</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="37c30058-2935-4741-8824-52529eb8d30d" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>New Class</name>
+          <display>New Class: Class</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6048b9db-1b56-4a9f-9081-282ae2950997">
+            <typeId>04e12b51-ed12-42a3-9667-a6aa81bb6d10</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Modelers.Domain</typePackageName>
+            <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5cd85b88-0844-4aac-b37a-21c3915d1acd</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.CosmosDb</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f4250b35-559d-4c0b-91ee-c3d7aa239814" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" value="ctrl + shift + c" isActive="true" />
+                <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
+                <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" isActive="true" />
+                <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
+                <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
+                <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3fa9c97c-0589-4ca6-8416-d12f6aa6e853" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>New Comment</name>
+          <display>New Comment: Comment</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cd72f999-19e6-4628-b9ba-a7c5c8f259c8">
+            <typeId>c4c0c77f-720b-4e91-9c48-b58d2164d30a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Modelers.Domain</typePackageName>
+            <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5cd85b88-0844-4aac-b37a-21c3915d1acd</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.CosmosDb</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="f4250b35-559d-4c0b-91ee-c3d7aa239814" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" value="ctrl + shift + o" isActive="true" />
+                <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
+                <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" value="" isActive="true" />
+                <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
+                <property name="8e092aa6-7d1a-4a06-af82-903e7642cef6" display="Allow Multiple" value="true" isActive="true" />
+                <property name="719e9dff-2b8d-407d-912d-fac99a158721" display="Api Model Name" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -104,5 +104,7 @@
     <application id="858ff064-47cf-4765-be7f-75a121e9c8d6" name="Dapr.AspNetCore.Pubsub" relativePath="Intent.Modules.Dapr.AspNetCore.Pubsub/Intent.Modules.Dapr.AspNetCore.Pubsub.application.config" />
     <application id="1ab414a9-a3d6-45c6-b446-87bd6b656285" name="Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr" relativePath="Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr/Intent.ApplicationTemplates.NET.Metadata.AspNetCore.CleanArchitecture.Dapr.application.config" />
     <application id="f6e6f600-dec7-4d45-905b-659a4513cb0a" name="Intent.Modules.Dapr.AspNetCore.StateManagement" relativePath="Intent.Modules.Dapr.AspNetCore.StateManagement/Intent.Modules.Dapr.AspNetCore.StateManagement.application.config" />
+    <application id="eb99bda8-0fd4-49fa-b38b-b011140a2206" name="CosmosDb" relativePath="Intent.Modules.CosmosDb/Intent.Modules.CosmosDb.application.config" />
+    <application id="2a8e70fe-52da-4f2c-b142-d857072cfa86" name="CosmosDb.Repositories" relativePath="Intent.Modules.CosmosDb.Repositories/Intent.Modules.CosmosDb.Repositories.application.config" />
   </applications>
 </solution>

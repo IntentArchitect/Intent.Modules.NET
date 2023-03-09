@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.CosmosDb</id>
+  <version>1.0.0-pre.6</version>
+  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <summary>Core CosmosDb Database Provider using the CosmosDb.Data.UnitOfWork library.</summary>
+  <description>Core CosmosDb Database Provider using the CosmosDb.Data.UnitOfWork library.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAv9JREFUOE+VVE1ME0EYfTP7V9oCC4VIiUjREEI0BoJcjAnVGI23PasJNUa9SdWYoDGGxMSfg9J4kht6IxxcY0w8mFiDF/FgMYI1YqgChYDQhVJg2+6OmZZWeoPvstmZ973vfTPvG4Kt0OaYD5sw9CZiFNZ28yVFojgLgsDQvWRwNwQFLMkpYegBEADA1YRg4nlR2c3xNgjUwMPWGE/S5pifAI2MQSUEkZde8oGv5xRpcablCAAODulPoxEKu9shCkFKoHKMxWzD11HzrbmzhlBKsltKfAASMHG8tDUgpvdPxJwKeV8mCqpDECDQfL2sbcO0bByuE9YmE9aJ6Vstn7dEhEEw+J9oiqn6QFR1iuxLhSypbklAmShAonlI2ma4f8oFf5OMeNKyTw7Fa2euH1zW4kwHEC4ScbB4ezykymKPqkiokEW4JRGyQOCSCY75KM61K3DL+ZR7YWPoZ2dDLximQNBUQuS88z1W7ZAaqx0SVFlCpSLCKQq40CngqC/XYzG4ql6ivubnqteTYJHo7Dy7/MyZHIguZvF4ZANLKYpqhwyFUgS7KJprSmri0i8Kc49rDCb8/IZLbu2FO9nIS36MZfBkJAOuzCFQNNcSnO+g8DiBdUZwI0YxTwWUu5Wqgk0KRPzag4+wMux1U5GTpdIMV1+ZYCzf0nrGQspJ4DxSCXPTwuib6em1uy37thsyAIagXk/aLg7/Huw/XdVd2Ox9u4Hogg0iUQj7y+BodmE+ksBkZAnLZuYaHhzi3ssF0WZZHwh8ej0JVPZ+rXp3Ze9ii0cU5pI2AnoSyoFyVLSWY3M5jZlPf7E4v4HVTGbMTKX9CLUX55JoM6wNFGEw9BOK8EJsrW49kQ55Glx1bo8C408KCxOrSMymcoZMZawVUzJ96Gs3NO69rSHPn1GerA8At7xhZe34j9FFOjdhnLHSrCI/Iuy3adshbGQGC0q0OAvr9cRfnLUSg+zghyuBAu7oLgBjsBEoNccOSLZDtDiLlPhol/lFOH+CdC/JPS//AHCfOlQeukkaAAAAAElFTkSuQmCC</iconUrl>
+  <tags>mongo mongodb unitofwork</tags>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <templates>
+    <template id="Intent.CosmosDb.ApplicationCosmosDbContext" externalReference="06cc8b50-827a-4336-97f6-cebf3bac43a8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.DbContext.CosmosDb</role>
+      <location>Persistence</location>
+    </template>
+    <template id="Intent.CosmosDb.CosmosDbUnitOfWorkInterface" externalReference="97a9caeb-8167-47f9-a31d-0e8f8c99d5c8">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Domain.UnitOfWork.CosmosDb</role>
+      <location>Common/Interfaces</location>
+    </template>
+    <template id="Intent.CosmosDb.Integration.UnitOfWorkBehaviour" externalReference="6dfc5b92-bbbc-4a2b-8441-75ffbb49e718">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common</role>
+      <location>Common/Behaviours</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.CosmosDb.DependencyInjectionFactoryExtension" externalReference="d9b9b16c-50cd-4c7e-a2e0-a92a3446befc" />
+    <factoryExtension id="Intent.CosmosDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
+    <factoryExtension id="Intent.CosmosDb.UnitOfWorkIntegrationFactoryExtension" externalReference="5c398472-f84b-48a1-8cb1-20a55d15804a" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.4.1-pre.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.3.10" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Domain" src="modelers/CosmosDb Settings.designer.settings" externalReference="232b1576-74b7-45e1-bc24-2ddc42529d5d" />
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.CosmosDb/Intent.CosmosDb.pkg.config" externalReference="3f385f6e-90c2-4071-bde2-7d8943252fd5" />
+  </metadata>
+</package>

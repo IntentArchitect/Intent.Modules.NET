@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.CosmosDb.Repositories</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
+  <summary>Repository pattern for CosmosDb provider.</summary>
+  <description>Repository pattern for CosmosDb provider.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAv9JREFUOE+VVE1ME0EYfTP7V9oCC4VIiUjREEI0BoJcjAnVGI23PasJNUa9SdWYoDGGxMSfg9J4kht6IxxcY0w8mFiDF/FgMYI1YqgChYDQhVJg2+6OmZZWeoPvstmZ973vfTPvG4Kt0OaYD5sw9CZiFNZ28yVFojgLgsDQvWRwNwQFLMkpYegBEADA1YRg4nlR2c3xNgjUwMPWGE/S5pifAI2MQSUEkZde8oGv5xRpcablCAAODulPoxEKu9shCkFKoHKMxWzD11HzrbmzhlBKsltKfAASMHG8tDUgpvdPxJwKeV8mCqpDECDQfL2sbcO0bByuE9YmE9aJ6Vstn7dEhEEw+J9oiqn6QFR1iuxLhSypbklAmShAonlI2ma4f8oFf5OMeNKyTw7Fa2euH1zW4kwHEC4ScbB4ezykymKPqkiokEW4JRGyQOCSCY75KM61K3DL+ZR7YWPoZ2dDLximQNBUQuS88z1W7ZAaqx0SVFlCpSLCKQq40CngqC/XYzG4ql6ivubnqteTYJHo7Dy7/MyZHIguZvF4ZANLKYpqhwyFUgS7KJprSmri0i8Kc49rDCb8/IZLbu2FO9nIS36MZfBkJAOuzCFQNNcSnO+g8DiBdUZwI0YxTwWUu5Wqgk0KRPzag4+wMux1U5GTpdIMV1+ZYCzf0nrGQspJ4DxSCXPTwuib6em1uy37thsyAIagXk/aLg7/Huw/XdVd2Ox9u4Hogg0iUQj7y+BodmE+ksBkZAnLZuYaHhzi3ssF0WZZHwh8ej0JVPZ+rXp3Ze9ii0cU5pI2AnoSyoFyVLSWY3M5jZlPf7E4v4HVTGbMTKX9CLUX55JoM6wNFGEw9BOK8EJsrW49kQ55Glx1bo8C408KCxOrSMymcoZMZawVUzJ96Gs3NO69rSHPn1GerA8At7xhZe34j9FFOjdhnLHSrCI/Iuy3adshbGQGC0q0OAvr9cRfnLUSg+zghyuBAu7oLgBjsBEoNccOSLZDtDiLlPhol/lFOH+CdC/JPS//AHCfOlQeukkaAAAAAElFTkSuQmCC</iconUrl>
+  <tags>repository mongo</tags>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <templates>
+    <template id="Intent.CosmosDb.Repositories.CosmosRepositoryBase" externalReference="78babbf0-6214-4f6b-a1a5-d3382afe42a3">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation.CosmosDb</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.CosmosDb.Repositories.PagedList" externalReference="e8b00b82-2337-49a6-aeab-96e85201732a">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation.PagedList</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.CosmosDb.Repositories.Repository" externalReference="6e39f618-35c1-42e0-b3db-191b71f8c50c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation.CosmosDb</role>
+      <location>Repositories</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.CosmosDb.Repositories.CosmosRepoFactoryExtension" externalReference="65a28881-3d38-46e8-83dd-2e69e60ffff0" />
+    <factoryExtension id="Intent.CosmosDb.Repositories.PagedListFactoryExtension" externalReference="6dbad6b7-e298-4176-bdba-e2970f5e1dc2" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Entities.Repositories.Api" version="4.0.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.3.10" />
+    <dependency id="Intent.MongoDb" version="1.0.0-pre.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata />
+</package>
