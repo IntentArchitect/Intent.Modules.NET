@@ -3,8 +3,8 @@
   <id>Intent.CosmosDb</id>
   <version>1.0.0-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
-  <summary>Core CosmosDb Database Provider using the CosmosDb.Data.UnitOfWork library.</summary>
-  <description>Core CosmosDb Database Provider using the CosmosDb.Data.UnitOfWork library.</description>
+  <summary>Core CosmosDb Database Provider using the Microsoft.Azure.Cosmos library.</summary>
+  <description>Core CosmosDb Database Provider using the Microsoft.Azure.Cosmos library.</description>
   <authors>Intent Architect</authors>
   <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAv9JREFUOE+VVE1ME0EYfTP7V9oCC4VIiUjREEI0BoJcjAnVGI23PasJNUa9SdWYoDGGxMSfg9J4kht6IxxcY0w8mFiDF/FgMYI1YqgChYDQhVJg2+6OmZZWeoPvstmZ973vfTPvG4Kt0OaYD5sw9CZiFNZ28yVFojgLgsDQvWRwNwQFLMkpYegBEADA1YRg4nlR2c3xNgjUwMPWGE/S5pifAI2MQSUEkZde8oGv5xRpcablCAAODulPoxEKu9shCkFKoHKMxWzD11HzrbmzhlBKsltKfAASMHG8tDUgpvdPxJwKeV8mCqpDECDQfL2sbcO0bByuE9YmE9aJ6Vstn7dEhEEw+J9oiqn6QFR1iuxLhSypbklAmShAonlI2ma4f8oFf5OMeNKyTw7Fa2euH1zW4kwHEC4ScbB4ezykymKPqkiokEW4JRGyQOCSCY75KM61K3DL+ZR7YWPoZ2dDLximQNBUQuS88z1W7ZAaqx0SVFlCpSLCKQq40CngqC/XYzG4ql6ivubnqteTYJHo7Dy7/MyZHIguZvF4ZANLKYpqhwyFUgS7KJprSmri0i8Kc49rDCb8/IZLbu2FO9nIS36MZfBkJAOuzCFQNNcSnO+g8DiBdUZwI0YxTwWUu5Wqgk0KRPzag4+wMux1U5GTpdIMV1+ZYCzf0nrGQspJ4DxSCXPTwuib6em1uy37thsyAIagXk/aLg7/Huw/XdVd2Ox9u4Hogg0iUQj7y+BodmE+ksBkZAnLZuYaHhzi3ssF0WZZHwh8ej0JVPZ+rXp3Ze9ii0cU5pI2AnoSyoFyVLSWY3M5jZlPf7E4v4HVTGbMTKX9CLUX55JoM6wNFGEw9BOK8EJsrW49kQ55Glx1bo8C408KCxOrSMymcoZMZawVUzJ96Gs3NO69rSHPn1GerA8At7xhZe34j9FFOjdhnLHSrCI/Iuy3adshbGQGC0q0OAvr9cRfnLUSg+zghyuBAu7oLgBjsBEoNccOSLZDtDiLlPhol/lFOH+CdC/JPS//AHCfOlQeukkaAAAAAElFTkSuQmCC</iconUrl>
   <tags>cosmosdb unitofwork</tags>

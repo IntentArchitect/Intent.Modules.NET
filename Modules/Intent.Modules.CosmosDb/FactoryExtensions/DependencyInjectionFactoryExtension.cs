@@ -52,7 +52,10 @@ namespace Intent.Modules.CosmosDb.FactoryExtensions
                         stmt => stmt.AddMetadata("application-cosmosdb-context", true));
             });
 
-            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("CosmosDbConnection", $"https://localhost:8081", string.Empty));
+			dependencyInjection.AddUsing("System");
+			dependencyInjection.AddUsing("Microsoft.Azure.Cosmos");
+
+			application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("CosmosDbConnection", $"https://localhost:8081", string.Empty));
 
             application.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("AddCosmosDbUnitOfWork")

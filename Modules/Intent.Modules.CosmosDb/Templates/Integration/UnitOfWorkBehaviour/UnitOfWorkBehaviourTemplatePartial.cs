@@ -43,7 +43,7 @@ namespace Intent.Modules.CosmosDb.Templates.Integration.UnitOfWorkBehaviour
                         .AddType($"IRequest<{TResponse}>")
                         .AddType(GetTypeName("Application.Command.Interface")));
                     @class.AddConstructor(ctor =>
-                        ctor.AddParameter(GetTypeName("ApplicationCosmosDbContext"), "dbContext", param => param.IntroduceReadonlyField()));
+                        ctor.AddParameter(this.GetApplicationCosmosDbContextName(), "dbContext", param => param.IntroduceReadonlyField()));
                     @class.AddMethod($"Task<{TResponse}>", "Handle", method =>
                     {
                         method.Async();
