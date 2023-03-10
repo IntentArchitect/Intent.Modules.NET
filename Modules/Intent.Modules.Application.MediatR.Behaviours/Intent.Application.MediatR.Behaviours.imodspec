@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.Behaviours</id>
-  <version>4.0.1</version>
+  <version>4.1.0-pre.0</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>Additional MediatR middleware pipeline behaviours</summary>
   <description>Additional MediatR middleware pipeline behaviours</description>
@@ -17,7 +17,23 @@
       <role>Application.Common</role>
       <location>Common/Behaviours</location>
     </template>
+    <template id="Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour" externalReference="328d6820-461a-4a00-9eed-b784842d91e0">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common</role>
+      <location>Common/Behaviours</location>
+    </template>
     <template id="Intent.Application.MediatR.Behaviours.LoggingBehaviour" externalReference="68ec10f6-35bb-4b18-9845-d5ef91513cff">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Common</role>
+      <location>Common/Behaviours</location>
+    </template>
+    <template id="Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour" externalReference="6afdbc46-649f-4ed1-887b-eb61698526d6">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -53,10 +69,10 @@
   <dependencies>
     <dependency id="Intent.Application.Identity" version="3.3.6" />
     <dependency id="Intent.Application.MediatR" version="4.0.0" />
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.24" />
-    <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.25" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

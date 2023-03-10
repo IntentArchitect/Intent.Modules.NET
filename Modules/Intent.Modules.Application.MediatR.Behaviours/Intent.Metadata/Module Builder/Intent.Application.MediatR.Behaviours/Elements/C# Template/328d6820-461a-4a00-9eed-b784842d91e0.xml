@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="6dfc5b92-bbbc-4a2b-8441-75ffbb49e718" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>UnitOfWorkBehaviour</name>
-  <display>UnitOfWorkBehaviour: Custom</display>
+<class id="328d6820-461a-4a00-9eed-b784842d91e0" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>EventBusPublishBehaviour</name>
+  <display>EventBusPublishBehaviour: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="43c182e2-330f-41b1-a49a-dae6f678667a">
-    <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
+  <typeReference id="c7a8da02-34bc-4f0c-881b-318a54dca8c5">
+    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -16,16 +16,16 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>dc7b70b6-b2f5-48eb-a8f2-49391d765222</parentFolderId>
-  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
-  <packageName>Intent.MongoDb</packageName>
+  <parentFolderId>d99a3c92-ab23-404c-922d-e7c06a68bc9c</parentFolderId>
+  <packageId>d99a3c92-ab23-404c-922d-e7c06a68bc9c</packageId>
+  <packageName>Intent.Application.MediatR.Behaviours</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
-        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="C# File Builder" isActive="true" />
+        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="T4 Template" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">

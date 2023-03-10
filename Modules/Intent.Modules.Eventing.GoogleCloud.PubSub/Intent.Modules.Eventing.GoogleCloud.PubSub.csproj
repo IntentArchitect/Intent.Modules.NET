@@ -133,11 +133,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Interop\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\EventingTemplates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -234,10 +229,6 @@
       <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\MediatRTemplates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Interop\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
     </None>

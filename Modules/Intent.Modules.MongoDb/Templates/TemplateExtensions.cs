@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
 using Intent.Modules.MongoDb.Templates.BsonClassMap;
-using Intent.Modules.MongoDb.Templates.Integration.UnitOfWorkBehaviour;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 
@@ -32,11 +31,6 @@ namespace Intent.Modules.MongoDb.Templates
         public static string GetMongoDbUnitOfWorkInterfaceName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId);
-        }
-
-        public static string GetUnitOfWorkBehaviourName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(UnitOfWorkBehaviourTemplate.TemplateId);
         }
 
     }

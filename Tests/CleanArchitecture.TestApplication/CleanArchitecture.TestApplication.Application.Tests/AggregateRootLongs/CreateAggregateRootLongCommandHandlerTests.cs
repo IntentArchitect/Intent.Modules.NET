@@ -41,6 +41,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
             // Assert
             result.Should().Be(expectedAggregateRootLong.Id);
+            
             addedAggregateRootLong.Should().BeEquivalentTo(expectedAggregateRootLong);
         }
 

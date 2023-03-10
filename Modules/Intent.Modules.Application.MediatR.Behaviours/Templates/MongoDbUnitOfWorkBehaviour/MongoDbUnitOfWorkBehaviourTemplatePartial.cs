@@ -7,29 +7,28 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.MongoDb.Templates.Integration.UnitOfWorkBehaviour
+namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MongoDbUnitOfWorkBehaviour
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class UnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class MongoDbUnitOfWorkBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.MongoDb.Integration.UnitOfWorkBehaviour";
+        public const string TemplateId = "Intent.Application.MediatR.Behaviours.MongoDbUnitOfWorkBehaviour";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public UnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public MongoDbUnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Transactions")
                 .AddUsing("MediatR")
-                .AddClass($"MongoUnitOfWorkBehaviour")
+                .AddClass($"MongoDbUnitOfWorkBehaviour")
                 .OnBuild(file =>
                 {
                     var @class = file.Classes.First();
@@ -40,7 +39,7 @@ namespace Intent.Modules.MongoDb.Templates.Integration.UnitOfWorkBehaviour
                         .AddType($"IRequest<{TResponse}>")
                         .AddType(GetTypeName("Application.Command.Interface")));
                     @class.AddConstructor(ctor =>
-                        ctor.AddParameter(GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId), "dataSource", param => param.IntroduceReadonlyField()));
+                        ctor.AddParameter(GetTypeName(TemplateFulfillingRoles.Domain.MongoDbUnitOfWork), "dataSource", param => param.IntroduceReadonlyField()));
                     @class.AddMethod($"Task<{TResponse}>", "Handle", method =>
                     {
                         method.Async();
@@ -54,8 +53,18 @@ namespace Intent.Modules.MongoDb.Templates.Integration.UnitOfWorkBehaviour
                 });
         }
 
+        public override bool CanRunTemplate()
+        {
+            return ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>("Domain.UnitOfWork.MongoDb") != null;
+        }
+
         public override void BeforeTemplateExecution()
         {
+            if (!CanRunTemplate())
+            {
+                return;
+            }
+            
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(4)

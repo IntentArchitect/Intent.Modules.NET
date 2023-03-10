@@ -114,14 +114,6 @@
       <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManagerInterface</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.Interop.MessageBusPublishBehaviour" externalReference="ef412af9-f31f-4d44-861f-5f32ac6f5d49">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Common.EventBusPublishBehaviour</role>
-      <location>Common/Behaviours</location>
-    </template>
     <template id="Intent.Eventing.GoogleCloud.PubSub.MessageTemplates.GenericMessage" externalReference="86daca52-fa7a-456c-a692-7ddd1fe2970c">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

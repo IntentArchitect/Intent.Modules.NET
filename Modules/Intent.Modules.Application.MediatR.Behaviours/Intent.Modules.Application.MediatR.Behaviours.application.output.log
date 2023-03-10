@@ -19,7 +19,7 @@
     <FileLog>
       <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#8de7db33-7d69-403f-ad45-3b3d753705f2</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.Behaviours.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.Behaviours.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -66,6 +66,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#328d6820-461a-4a00-9eed-b784842d91e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/EventBusPublishBehaviour/EventBusPublishBehaviourTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventBusPublishBehaviour/EventBusPublishBehaviourTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#328d6820-461a-4a00-9eed-b784842d91e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/EventBusPublishBehaviour/EventBusPublishBehaviourTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventBusPublishBehaviour/EventBusPublishBehaviourTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#328d6820-461a-4a00-9eed-b784842d91e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/EventBusPublishBehaviour/EventBusPublishBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventBusPublishBehaviour/EventBusPublishBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#328d6820-461a-4a00-9eed-b784842d91e0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/EventBusPublishBehaviour/EventBusPublishBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventBusPublishBehaviour/EventBusPublishBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#68ec10f6-35bb-4b18-9845-d5ef91513cff</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/LoggingBehaviour/LoggingBehaviourTemplate.cs</ApplicationRelativeFilePath>
@@ -94,6 +126,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/LoggingBehaviour/LoggingBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>LoggingBehaviour/LoggingBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6afdbc46-649f-4ed1-887b-eb61698526d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#6afdbc46-649f-4ed1-887b-eb61698526d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbUnitOfWorkBehaviour/MongoDbUnitOfWorkBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

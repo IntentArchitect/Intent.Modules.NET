@@ -7,7 +7,6 @@
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
-<#@ import namespace="Intent.Modules.Eventing.Contracts.Templates" #>
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;

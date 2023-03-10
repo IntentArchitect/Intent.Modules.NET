@@ -22,23 +22,23 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public UnitOfWorkBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            
+
         }
 
         public override bool CanRunTemplate()
         {
             var hasUnitOfWorkInterface =
                 ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Domain.UnitOfWork) != null ||
-                ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Application.Common.DbContextInterface) != null; 
+                ExecutionContext.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Application.Common.DbContextInterface) != null;
             var hasUnitOfWorkConcrete = ExecutionContext.FindTemplateInstance<IClassProvider>("Infrastructure.Data.DbContext") != null;
             return hasUnitOfWorkInterface && hasUnitOfWorkConcrete;
         }
 
         private string GetUnitOfWorkTypeName()
         {
-            var result = TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkTypeName) || 
+            var result = TryGetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, out var unitOfWorkTypeName) ||
                 TryGetTypeName(TemplateFulfillingRoles.Application.Common.DbContextInterface, out unitOfWorkTypeName);
-            
+
             return unitOfWorkTypeName;
         }
 
