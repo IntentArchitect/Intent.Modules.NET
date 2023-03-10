@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a8b4e010-c671-4ec3-991a-1af06278768c" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ServiceContractControllerInstaller</name>
+  <display>ServiceContractControllerInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0cf7d067-b3ab-49e5-acc2-57aa5ed679c6</parentFolderId>
+  <packageId>0cf7d067-b3ab-49e5-acc2-57aa5ed679c6</packageId>
+  <packageName>Intent.AspNetCore.Controllers.Dispatch.ServiceContract</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

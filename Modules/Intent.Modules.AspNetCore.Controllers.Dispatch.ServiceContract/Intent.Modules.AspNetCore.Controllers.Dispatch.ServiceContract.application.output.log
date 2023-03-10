@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>78c253bf-6722-4fe4-bdbf-4c5b1621e503</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#4685f5d1-f6a9-4abb-b5f9-77f4f39f2418</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>68bf8509-7086-4a6d-9070-431029df885b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#a8b4e010-c671-4ec3-991a-1af06278768c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/ServiceContractControllerInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceContractControllerInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99e1b9d5-0149-4ce6-90a9-de13b21590cf</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.AspNetCore.Controllers.Dispatch.ServiceContract.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AspNetCore.Controllers.Dispatch.ServiceContract.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99e1b9d5-0149-4ce6-90a9-de13b21590cf</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#99e1b9d5-0149-4ce6-90a9-de13b21590cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99e1b9d5-0149-4ce6-90a9-de13b21590cf</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

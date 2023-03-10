@@ -105,5 +105,7 @@
     <application id="f6e6f600-dec7-4d45-905b-659a4513cb0a" name="Intent.Modules.Dapr.AspNetCore.StateManagement" relativePath="Intent.Modules.Dapr.AspNetCore.StateManagement/Intent.Modules.Dapr.AspNetCore.StateManagement.application.config" />
     <application id="16a65f0b-0eb6-47d8-bbc7-6cd40e36fef8" name="Intent.Modules.Application.MediatR.CRUD.Tests" relativePath="Intent.Modules.Application.MediatR.CRUD.Tests/Intent.Modules.Application.MediatR.CRUD.Tests.application.config" />
     <application id="de28b886-9c62-4c47-a529-5263e41f591c" name="Intent.Application.NET.Metadata.Tests" relativePath="Intent.Application.NET.Metadata.Tests/Intent.Application.NET.Metadata.Tests.application.config" />
+    <application id="03e0114e-4f03-474f-a16e-57fa1d247007" name="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR/Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.application.config" />
+    <application id="78c253bf-6722-4fe4-bdbf-4c5b1621e503" name="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract" relativePath="Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract/Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.application.config" />
   </applications>
 </solution>

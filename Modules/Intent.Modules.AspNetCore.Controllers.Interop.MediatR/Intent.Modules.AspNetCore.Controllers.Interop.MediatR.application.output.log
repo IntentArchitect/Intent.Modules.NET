@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>af0e9715-bdb6-4ba4-abc0-754cfb434d05</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#b80436bc-a20c-4d72-bde2-efb3c28ab0dd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/MediatRControllerDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRControllerDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>af0e9715-bdb6-4ba4-abc0-754cfb434d05</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#b80436bc-a20c-4d72-bde2-efb3c28ab0dd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/MediatRControllerDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRControllerDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>7fc198b5-33e0-44e5-a158-354dcdf367e9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

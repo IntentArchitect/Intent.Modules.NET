@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>be3eac19-f025-4237-bf60-f728d0163cee</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e2aa353d-4b74-44d4-9653-9af826561d2d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ContractDispatchDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ContractDispatchDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>be3eac19-f025-4237-bf60-f728d0163cee</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#e2aa353d-4b74-44d4-9653-9af826561d2d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ContractDispatchDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ContractDispatchDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>20fbe779-ac7d-42eb-aeb3-eb066eadd55f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

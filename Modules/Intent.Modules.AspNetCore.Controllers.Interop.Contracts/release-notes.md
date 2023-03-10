@@ -1,6 +1,6 @@
 ### Version 4.0.1
 
-- Controllers will now return a 404 Not Found response for non-collection null results.
+- Update: Please install Intent.AspNetCore.Controllers.Dispatch.ServiceContract as this module is no longer in use. It can be safely removed.
 
 ### Version 4.0.0
 

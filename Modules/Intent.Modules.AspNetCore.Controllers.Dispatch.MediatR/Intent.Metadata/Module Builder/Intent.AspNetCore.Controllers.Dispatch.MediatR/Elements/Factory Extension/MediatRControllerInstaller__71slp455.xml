@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c6524b03-7bf4-4601-83e5-4c021ff882cc" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MediatRControllerInstaller</name>
+  <display>MediatRControllerInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c150a471-8907-4bc4-8be8-f63c8a782e69</parentFolderId>
+  <packageId>c150a471-8907-4bc4-8be8-f63c8a782e69</packageId>
+  <packageName>Intent.AspNetCore.Controllers.Dispatch.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
