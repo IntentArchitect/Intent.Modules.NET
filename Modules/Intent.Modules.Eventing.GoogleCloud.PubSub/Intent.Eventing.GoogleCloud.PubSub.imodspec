@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.GoogleCloud.PubSub</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</summary>
   <description>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</description>
@@ -34,7 +34,7 @@
       <role>Distribution.Controller.PubSub</role>
       <location>Controllers</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GenericIntegrationEventHandlerImplementation" externalReference="ea8b62de-1ea3-4a52-9cd7-efef904a0ee9">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GenericIntegrationEventHandlerImplementation" externalReference="ea8b62de-1ea3-4a52-9cd7-efef904a0ee9">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -42,7 +42,7 @@
       <role>Application.Eventing.EventHandler</role>
       <location>IntegrationEventHandlers</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleCloudResourceManager" externalReference="da83a346-0deb-4aeb-9895-f1e708baf57f">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleCloudResourceManager" externalReference="da83a346-0deb-4aeb-9895-f1e708baf57f">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -50,7 +50,7 @@
       <role>Infrastructure.Eventing.GoogleCloudPubSub.ResourceManager</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleEventBusSubscriptionManager" externalReference="3ecfa9f3-92e1-41e0-983b-19bed2f3a204">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleEventBusSubscriptionManager" externalReference="3ecfa9f3-92e1-41e0-983b-19bed2f3a204">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -58,7 +58,7 @@
       <role>Infrastructure.Eventing.GoogleCloudPubSub.SubscriptionManager</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleEventBusTopicEventManager" externalReference="153eca58-a64d-4a5a-b030-69dc92a79063">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleEventBusTopicEventManager" externalReference="153eca58-a64d-4a5a-b030-69dc92a79063">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -66,7 +66,7 @@
       <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManager</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GooglePubSubEventBus" externalReference="7870870d-bb92-4f24-82db-c65a7c2a32e7">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GooglePubSubEventBus" externalReference="7870870d-bb92-4f24-82db-c65a7c2a32e7">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -74,7 +74,7 @@
       <role>Infrastructure.Eventing.GoogleCloudPubSub.EventBus</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.GoogleSubscriberBackgroundService" externalReference="68bcbb5e-4b2b-4a23-9e9b-7d918307d368">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleSubscriberBackgroundService" externalReference="68bcbb5e-4b2b-4a23-9e9b-7d918307d368">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -82,7 +82,7 @@
       <role>Infrastructure.Eventing.GoogleBackgroundService</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.ImplementationTemplates.IntegrationEventHandlerImplementation" externalReference="e86f35cd-0d5c-4b30-b2a6-a72169b733aa">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.IntegrationEventHandlerImplementation" externalReference="e86f35cd-0d5c-4b30-b2a6-a72169b733aa">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -114,7 +114,7 @@
       <role>Infrastructure.Eventing.GoogleCloudPubSub.TopicEventManagerInterface</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.GoogleCloud.PubSub.MediatRTemplates.MessageBusPublishBehaviour" externalReference="ef412af9-f31f-4d44-861f-5f32ac6f5d49">
+    <template id="Intent.Eventing.GoogleCloud.PubSub.Interop.MessageBusPublishBehaviour" externalReference="ef412af9-f31f-4d44-861f-5f32ac6f5d49">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -133,11 +133,6 @@
   </templates>
   <decorators></decorators>
   <interoperability>
-    <detect id="Intent.EntityFrameworkCore">
-      <install>
-        <package id="Intent.Eventing.GoogleCloud.PubSub.EntityFrameworkCore" version="1.0.0-pre.1" />
-      </install>
-    </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
         <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.1" />
@@ -151,6 +146,8 @@
   </interoperability>
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.GoogleCloud.PubSub.ControllerMessageBusPublishInstaller" externalReference="440e048b-07ef-4db4-be1f-3da1e6ef2866" />
+    <factoryExtension id="Intent.Eventing.GoogleCloud.PubSub.EntityFrameworkUnitOfWorkInstaller" externalReference="ee68357d-0e2f-4164-b4e0-4092210a7981" />
+    <factoryExtension id="Intent.Eventing.GoogleCloud.PubSub.MongoDbUnitOfWorkInstaller" externalReference="0309d20b-3dea-4c75-b92a-f2127523ebe5" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

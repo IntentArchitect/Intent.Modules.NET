@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Version>1.0.0-pre.1</Version>
+    <Version>1.0.0-pre.3</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2023</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -133,6 +133,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\Interop\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventingTemplates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GoogleCloudResourceManagerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventingTemplates\GoogleEventBusSubscriptionManager\GoogleEventBusSubscriptionManagerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GoogleEventBusSubscriptionManagerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventingTemplates\GoogleEventBusTopicEventManager\GoogleEventBusTopicEventManagerTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GoogleEventBusTopicEventManagerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\EventingTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GooglePubSubEventBusTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -211,6 +236,26 @@
     <None Update="Templates\MediatRTemplates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Interop\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventingTemplates\GoogleCloudResourceManager\GoogleCloudResourceManagerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GoogleCloudResourceManagerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventingTemplates\GoogleEventBusSubscriptionManager\GoogleEventBusSubscriptionManagerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GoogleEventBusSubscriptionManagerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventingTemplates\GoogleEventBusTopicEventManager\GoogleEventBusTopicEventManagerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GoogleEventBusTopicEventManagerTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\EventingTemplates\GooglePubSubEventBus\GooglePubSubEventBusTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GooglePubSubEventBusTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

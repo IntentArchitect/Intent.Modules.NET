@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="440e048b-07ef-4db4-be1f-3da1e6ef2866" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>ControllerMessageBusPublishInstaller</name>
-  <display>ControllerMessageBusPublishInstaller</display>
+<class id="0309d20b-3dea-4c75-b92a-f2127523ebe5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MongoDbUnitOfWorkInstaller</name>
+  <display>MongoDbUnitOfWorkInstaller</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

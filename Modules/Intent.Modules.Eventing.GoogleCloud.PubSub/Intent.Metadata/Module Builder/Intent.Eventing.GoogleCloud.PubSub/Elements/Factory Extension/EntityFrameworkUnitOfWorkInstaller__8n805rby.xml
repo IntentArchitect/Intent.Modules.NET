@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="440e048b-07ef-4db4-be1f-3da1e6ef2866" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>ControllerMessageBusPublishInstaller</name>
-  <display>ControllerMessageBusPublishInstaller</display>
+<class id="ee68357d-0e2f-4164-b4e0-4092210a7981" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EntityFrameworkUnitOfWorkInstaller</name>
+  <display>EntityFrameworkUnitOfWorkInstaller</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="440e048b-07ef-4db4-be1f-3da1e6ef2866" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>ControllerMessageBusPublishInstaller</name>
-  <display>ControllerMessageBusPublishInstaller</display>
+<class id="56821c91-eedd-41cd-94f3-458283cf7911" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Interop</name>
+  <display>Interop</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>56821c91-eedd-41cd-94f3-458283cf7911</parentFolderId>
+  <parentFolderId>31d9c488-d921-432b-8217-cddd5e6ed979</parentFolderId>
   <packageId>31d9c488-d921-432b-8217-cddd5e6ed979</packageId>
   <packageName>Intent.Eventing.GoogleCloud.PubSub</packageName>
   <stereotypes />

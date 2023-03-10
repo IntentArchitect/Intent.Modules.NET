@@ -16,9 +16,4 @@ public static class IntegrationCoordinator
     {
         return application.InstalledModules.Any(p => p.ModuleId == "Intent.Application.MediatR.Behaviours");
     }
-
-    public static bool ShouldInstallGoogleCloudPubSubIntegration(IApplication application)
-    {
-        return application.InstalledModules.Any(p => p.ModuleId == "Intent.Eventing.GoogleCloud.PubSub");
-    }
 }

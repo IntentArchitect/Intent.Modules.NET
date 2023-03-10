@@ -36,6 +36,11 @@
             {
                 public const string Controllers = "Intent.AspNetCore.Controllers.Controller";
             }
+            
+            public static class Eventing
+            {
+                public const string EventBusInterface = "Application.Eventing.EventBusInterface";
+            }
         }
 
         public static class Infrastructure

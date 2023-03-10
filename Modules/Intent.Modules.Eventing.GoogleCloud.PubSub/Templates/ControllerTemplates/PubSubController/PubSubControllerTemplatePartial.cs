@@ -5,6 +5,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -118,7 +120,17 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplat
                         nested.AddProperty("string", "Email", prop => prop.AddAttribute(@"JsonProperty(""email"")"));
                         nested.AddProperty("string", "EmailVerified", prop => prop.AddAttribute(@"JsonProperty(""email_verified"")"));
                     });
-                });
+                })
+                .AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var ctor = @class.Constructors.First();
+                    ctor.AddParameter(GetTypeName(TemplateFulfillingRoles.Application.Eventing.EventBusInterface), "eventBus",
+                        p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+
+                    var requestHandlerMethod = @class.FindMethod("RequestHandler");
+                    requestHandlerMethod.Statements.Last().InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
+                }, order: -100);
         }
 
         [IntentManaged(Mode.Fully)]

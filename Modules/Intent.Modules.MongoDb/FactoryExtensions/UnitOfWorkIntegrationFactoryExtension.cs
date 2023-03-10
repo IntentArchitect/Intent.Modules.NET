@@ -28,54 +28,6 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             InstallMongoDbUnitOfWorkForStandardIntegration(application);
-            InstallMongoDbUnitOfWorkForGoogleCloudPubSubBackgroundServiceIntegration(application);
-            InstallMongoDbUnitOfWorkForGoogleCloudPubSubWebhookIntegration(application);
-        }
-
-        private void InstallMongoDbUnitOfWorkForGoogleCloudPubSubWebhookIntegration(IApplication application)
-        {
-            if (!IntegrationCoordinator.ShouldInstallGoogleCloudPubSubIntegration(application))
-            {
-                return;
-            }
-
-            var controllerTemplates =
-                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.Controller.PubSub"));
-            foreach (var template in controllerTemplates)
-            {
-                template.CSharpFile.AfterBuild(file =>
-                {
-                    var @class = file.Classes.First();
-                    var method = @class.FindMethod("RequestHandler");
-                    method.Statements.First()
-                        .InsertAbove($"var mongoDbUnitOfWork = _serviceProvider.GetService<{GetAppDbContext(template)}>();");
-                    method.Statements.Last()
-                        .InsertBelow($"await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
-                }, -120);
-            }
-        }
-
-        private void InstallMongoDbUnitOfWorkForGoogleCloudPubSubBackgroundServiceIntegration(IApplication application)
-        {
-            if (!IntegrationCoordinator.ShouldInstallGoogleCloudPubSubIntegration(application))
-            {
-                return;
-            }
-
-            var controllerTemplates =
-                application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.Eventing.GoogleBackgroundService"));
-            foreach (var template in controllerTemplates)
-            {
-                template.CSharpFile.AfterBuild(file =>
-                {
-                    var @class = file.Classes.First();
-                    var method = @class.FindMethod("RequestHandler");
-                    method.FindStatement(p => p.HasMetadata("create-scope"))
-                        .InsertBelow($"var mongoDbUnitOfWork = scope.ServiceProvider.GetService<{GetAppDbContext(template)}>();");
-                    method.FindStatement(p => p.HasMetadata("return"))
-                        .InsertAbove($"await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
-                }, -120);
-            }
         }
 
         private void InstallMongoDbUnitOfWorkForStandardIntegration(IApplication application)
@@ -106,11 +58,6 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     }
                 }, -150);
             }
-        }
-
-        private string GetAppDbContext(ICSharpFileBuilderTemplate template)
-        {
-            return template.GetTypeName(ApplicationMongoDbContextTemplate.TemplateId);
         }
     }
 }
