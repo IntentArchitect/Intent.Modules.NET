@@ -31,6 +31,11 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.MongoDbUnitOfW
                 .AddClass($"MongoDbUnitOfWorkBehaviour")
                 .OnBuild(file =>
                 {
+                    if (!CanRunTemplate())
+                    {
+                        return;
+                    }
+                    
                     var @class = file.Classes.First();
                     @class.AddGenericParameter("TRequest", out var TRequest)
                         .AddGenericParameter("TResponse", out var TResponse);
