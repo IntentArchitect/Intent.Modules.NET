@@ -9,6 +9,7 @@ using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -60,11 +61,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         if (operationModel.ReturnType != null)
                         {
                             method.AddStatement($"var result = default({template.GetTypeName(operationModel)});");
-                            method.AddStatement($@"result = await _appService.{operationModel.Name.ToPascalCase()}({template.GetArguments(operationModel.Parameters)});");
+                            method.AddStatement($@"result = await _appService.{operationModel.Name.ToPascalCase()}({template.GetArguments(operationModel.Parameters)});",
+                                stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
                         else
                         {
-                            method.AddStatement($@"await _appService.{operationModel.Name.ToPascalCase()}({template.GetArguments(operationModel.Parameters)});");
+                            method.AddStatement($@"await _appService.{operationModel.Name.ToPascalCase()}({template.GetArguments(operationModel.Parameters)});",
+                                stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
                         method.AddStatement(GetReturnStatement(template, operationModel));
                     }
@@ -90,19 +93,28 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
                 foreach (var method in @class.Methods)
                 {
-                    if (method.TryGetMetadata<OperationModel>("model", out var operation) &&
-                        operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET())
+                    if (!method.TryGetMetadata<OperationModel>("model", out var operation) ||
+                        !(operation.HasHttpSettings() && !operation.GetHttpSettings().Verb().IsGET()))
                     {
-                        template.AddUsing("System.Transactions");
-                        method.Statements.FirstOrDefault(x => x.ToString().Contains("await "))?
-                            .InsertAbove($@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))
-            {{")
-                            .Indent()
-                            .InsertBelow("await _unitOfWork.SaveChangesAsync(cancellationToken);", s => s
-                                .InsertBelow("transaction.Complete();", s => s
-                                    .InsertBelow("}", s => s.Outdent())));
+                        continue;
                     }
+                    
+                    template.AddUsing("System.Transactions");
+
+                    var dispatchStmt = method.FindStatement(stmt => stmt.HasMetadata("service-contract-dispatch"));
+                    if (dispatchStmt == null)
+                    {
+                        continue;
+                    }
+
+                    var transactionScopeStmt = new CSharpStatementBlock($@"using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))")
+                        .AddStatement("await _unitOfWork.SaveChangesAsync(cancellationToken);")
+                        .AddStatement("transaction.Complete();");
+                    transactionScopeStmt.AddMetadata("transaction-scope", true);
+                    dispatchStmt.InsertAbove(transactionScopeStmt);
+                    dispatchStmt.Remove();
+                    transactionScopeStmt.InsertStatement(0, dispatchStmt);
                 }
             }, order: 1);
         }
@@ -124,7 +136,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 foreach (var method in @class.Methods)
                 {
                     method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("return "))?
-                        .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
+                        .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
                 }
             }, order: -100);
         }

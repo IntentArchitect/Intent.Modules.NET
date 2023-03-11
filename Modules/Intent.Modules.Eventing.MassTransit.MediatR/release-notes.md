@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Update: This module is no longer in use. It can be safely removed.
+
 ### Version 4.0.1
 
 - Update: Updates due to underlying code changes.

@@ -9,22 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>f24d10fa-7364-4760-9c7b-6ab5df61df27</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#82b93f1e-8d9e-488f-9a88-e5f22af468a4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/PublisherDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f24d10fa-7364-4760-9c7b-6ab5df61df27</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#82b93f1e-8d9e-488f-9a88-e5f22af468a4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/PublisherDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>4f560be4-f3a7-4162-8c16-5166dcddb079</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

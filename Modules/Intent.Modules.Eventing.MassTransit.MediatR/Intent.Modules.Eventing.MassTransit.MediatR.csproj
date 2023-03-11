@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,13 +7,13 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.16" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.25" />
+    <PackageReference Include="Intent.Modules.Eventing.MassTransit" Version="4.0.1" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0-pre.0" />
-    <PackageReference Include="Intent.Modules.Eventing.MassTransit" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>

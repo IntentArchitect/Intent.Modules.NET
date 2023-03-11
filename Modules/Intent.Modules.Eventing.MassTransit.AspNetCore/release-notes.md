@@ -1,6 +1,6 @@
 ### Version 4.0.2
 
-- Fixed: Publishing will also target readonly operations.
+- Update: This module is no longer in use. It can be safely removed.
 
 ### Version 4.0.1
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
   <version>4.0.4-pre.0</version>
@@ -45,6 +45,7 @@
   <decorators />
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.MassTransit.DefaultOutboxPatternConfigurator" externalReference="1c617d6b-f121-4cb3-a91e-c87968c0a47d" />
+    <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropInstaller" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
