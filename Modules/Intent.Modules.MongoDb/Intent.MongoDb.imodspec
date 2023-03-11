@@ -39,7 +39,6 @@
   <factoryExtensions>
     <factoryExtension id="Intent.MongoDb.DependencyInjectionFactoryExtension" externalReference="d9b9b16c-50cd-4c7e-a2e0-a92a3446befc" />
     <factoryExtension id="Intent.MongoDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
-    <factoryExtension id="Intent.MongoDb.UnitOfWorkIntegrationFactoryExtension" externalReference="5c398472-f84b-48a1-8cb1-20a55d15804a" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

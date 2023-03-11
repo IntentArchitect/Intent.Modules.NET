@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
@@ -35,6 +36,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             {
                 InstallContractDispatch(template);
                 InstallTransactionWithUnitOfWork(template, application);
+                InstallMessageBus(template, application);
+                InstallMongoDbUnitOfWork(template, application);
             }
         }
 
@@ -71,7 +74,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
         
         private void InstallTransactionWithUnitOfWork(ControllerTemplate template, IApplication application)
         {
-            if (!ShouldInstallUnitOfWork(application))
+            if (!InteropCoordinator.ShouldInstallUnitOfWork(application))
             {
                 return;
             }
@@ -103,14 +106,52 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 }
             }, order: 1);
         }
-
-        private bool ShouldInstallUnitOfWork(IApplication application)
+        
+        private static void InstallMessageBus(ControllerTemplate template, IApplication application)
         {
-            var hasUnitOfWorkInterface =
-                application.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Domain.UnitOfWork) != null ||
-                application.FindTemplateInstance<IClassProvider>(TemplateFulfillingRoles.Application.Common.DbContextInterface) != null;
-            var hasUnitOfWorkConcrete = application.FindTemplateInstance<IClassProvider>("Infrastructure.Data.DbContext") != null;
-            return hasUnitOfWorkInterface && hasUnitOfWorkConcrete;
+            if (!InteropCoordinator.ShouldInstallMessageBus(application))
+            {
+                return;
+            }
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var ctor = @class.Constructors.First();
+                ctor.AddParameter(template.GetTypeName(TemplateFulfillingRoles.Application.Eventing.EventBusInterface), "eventBus",
+                    p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+
+                foreach (var method in @class.Methods)
+                {
+                    method.Statements.LastOrDefault(x => x.ToString().Trim().StartsWith("return "))?
+                        .InsertAbove("await _eventBus.FlushAllAsync(cancellationToken);");
+                }
+            }, order: -100);
+        }
+        
+        private void InstallMongoDbUnitOfWork(ControllerTemplate template, IApplication application)
+        {
+            if (!InteropCoordinator.ShouldInstallMongoDbUnitOfWork(application))
+            {
+                return;
+            }
+
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var ctor = @class.Constructors.First();
+                ctor.AddParameter(template.GetTypeName("Domain.UnitOfWork.MongoDb"), "mongoDbUnitOfWork", p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+
+                foreach (var method in @class.Methods)
+                {
+                    if (method.TryGetMetadata<IHasStereotypes>("model", out var operation) &&
+                        operation.HasStereotype("Http Settings") && operation.GetStereotype("Http Settings").GetProperty<string>("Verb") != "GET")
+                    {
+                        method.Statements.LastOrDefault(x => x.ToString().Contains("return "))
+                            ?.InsertAbove($"await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
+                    }
+                }
+            }, -150);
         }
 
         private string GetReturnStatement(ControllerTemplate template, OperationModel operationModel)

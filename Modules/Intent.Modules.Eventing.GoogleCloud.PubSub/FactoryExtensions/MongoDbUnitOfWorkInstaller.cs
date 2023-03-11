@@ -31,7 +31,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.FactoryExtensions
 
         private void InstallGoogleCloudPubSubWebhookInterop(IApplication application)
         {
-            if (!InteropCoordinator.ShouldInstallMongoDbInterop(application))
+            if (!InteropCoordinator.ShouldInstallMongoDbUnitOfWork(application))
             {
                 return;
             }
@@ -54,7 +54,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.FactoryExtensions
 
         private void InstallGoogleCloudPubSubBackgroundServiceInterop(IApplication application)
         {
-            if (!InteropCoordinator.ShouldInstallMongoDbInterop(application))
+            if (!InteropCoordinator.ShouldInstallMongoDbUnitOfWork(application))
             {
                 return;
             }

@@ -137,7 +137,6 @@
     </detect>
   </interoperability>
   <factoryExtensions>
-    <factoryExtension id="Intent.Eventing.GoogleCloud.PubSub.ControllerMessageBusPublishInstaller" externalReference="440e048b-07ef-4db4-be1f-3da1e6ef2866" />
     <factoryExtension id="Intent.Eventing.GoogleCloud.PubSub.EntityFrameworkUnitOfWorkInstaller" externalReference="ee68357d-0e2f-4164-b4e0-4092210a7981" />
     <factoryExtension id="Intent.Eventing.GoogleCloud.PubSub.MongoDbUnitOfWorkInstaller" externalReference="0309d20b-3dea-4c75-b92a-f2127523ebe5" />
   </factoryExtensions>

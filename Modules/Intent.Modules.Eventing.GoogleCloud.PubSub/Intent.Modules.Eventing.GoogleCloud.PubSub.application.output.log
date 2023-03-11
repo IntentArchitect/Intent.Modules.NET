@@ -26,14 +26,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2bfe3dfc-f849-4505-a948-85966d0f746f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#440e048b-07ef-4db4-be1f-3da1e6ef2866</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/ControllerMessageBusPublishInstaller.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ControllerMessageBusPublishInstaller.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2bfe3dfc-f849-4505-a948-85966d0f746f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#ee68357d-0e2f-4164-b4e0-4092210a7981</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EntityFrameworkUnitOfWorkInstaller.cs</ApplicationRelativeFilePath>
