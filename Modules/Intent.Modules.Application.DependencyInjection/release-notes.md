@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+- New: Upgraded Templates to use new Builder Pattern paradigm.
+
 ### Version 3.3.10
 
 - Fixed: Didn't take "requires namespaces" into account and logic from Infrastructure around Container registration has been aligned. 
