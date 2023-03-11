@@ -45,7 +45,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             template.CSharpFile.AfterBuild(file =>
             {
                 var priClass = file.Classes.First();
-                var method = priClass.FindMethod("AddInfrastructure");
+                var method = priClass.FindMethod("AddApplication");
                 var statementToMove = method.FindStatement(stmt => stmt.GetText("").Contains("EventBusPublishBehaviour"));
                 if (statementToMove == null)
                 {

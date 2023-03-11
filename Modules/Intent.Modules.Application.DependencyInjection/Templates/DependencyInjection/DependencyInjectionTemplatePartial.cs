@@ -30,10 +30,14 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
             .AddClass($"DependencyInjection")
             .OnBuild(file =>
             {
+                file.AddUsing("System.Reflection");
+                file.AddUsing("Microsoft.Extensions.DependencyInjection");
+                
                 var priClass = file.Classes.First();
                 priClass.Static();
                 priClass.AddMethod("IServiceCollection", "AddApplication", method =>
                 {
+                    method.Static();
                     method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
                 });
             })
