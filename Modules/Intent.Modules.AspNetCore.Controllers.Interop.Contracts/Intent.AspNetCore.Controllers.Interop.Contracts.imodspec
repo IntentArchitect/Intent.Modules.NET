@@ -13,6 +13,13 @@
     <dependency id="Intent.Common" version="3.3.5" />
     <dependency id="Intent.Common.Types" version="3.3.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.AspNetCore.Controllers">
+      <install>
+        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="4.1.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
