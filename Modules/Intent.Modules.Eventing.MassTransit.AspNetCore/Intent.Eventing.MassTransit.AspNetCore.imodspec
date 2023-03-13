@@ -18,7 +18,7 @@
     <dependency id="Intent.AspNetCore.Controllers" version="4.0.0" />
     <dependency id="Intent.Common" version="3.3.16" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Eventing.MassTransit" version="4.0.1" />
+    <dependency id="Intent.Eventing.MassTransit" version="4.0.3-pre.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
