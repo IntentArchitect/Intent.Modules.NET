@@ -64,7 +64,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<ImplicitKeyAggrRootDto>> Get([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootByIdQuery { Id = id }, cancellationToken);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>> GetImplicitKeyNestedComposition([FromRoute] Guid implicitKeyAggrRootId, [FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new GetImplicitKeyAggrRootImplicitKeyNestedCompositionByIdQuery { ImplicitKeyAggrRootId = implicitKeyAggrRootId, Id = id }, cancellationToken);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>

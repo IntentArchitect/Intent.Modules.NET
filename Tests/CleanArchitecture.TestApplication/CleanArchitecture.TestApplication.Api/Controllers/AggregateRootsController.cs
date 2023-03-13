@@ -64,7 +64,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<AggregateRootDto>> Get([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new GetAggregateRootByIdQuery { Id = id }, cancellationToken);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<AggregateRootCompositeManyBDto>> GetCompositeManyB([FromRoute] Guid aggregateRootId, [FromRoute] Guid id, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new GetAggregateRootCompositeManyBByIdQuery { AggregateRootId = aggregateRootId, Id = id }, cancellationToken);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.CRUD.Eventing</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Wires up the auto CRUD Event Publishing for the Standard Service Implementation.</summary>
   <description>Wires up the auto CRUD Event Publishing for the Standard Service Implementation.</description>
@@ -14,9 +14,9 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.ServiceImplementations.Conventions.CRUD" version="4.1.0-pre.0" />
+    <dependency id="Intent.Application.ServiceImplementations.Conventions.CRUD" version="4.1.0" />
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.0.0" />
   </dependencies>

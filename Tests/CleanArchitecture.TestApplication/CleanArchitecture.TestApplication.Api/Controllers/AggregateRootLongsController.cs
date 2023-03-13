@@ -59,7 +59,7 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         public async Task<ActionResult<AggregateRootLongDto>> Get([FromRoute] long id, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new GetAggregateRootLongByIdQuery { Id = id }, cancellationToken);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Base functionality to enable Dapr for ASP.NET projects.</summary>
   <description>Base functionality to enable Dapr for ASP.NET projects.</description>
@@ -31,8 +31,8 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.19-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.5" />
+    <dependency id="Intent.Common" version="3.3.19" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>

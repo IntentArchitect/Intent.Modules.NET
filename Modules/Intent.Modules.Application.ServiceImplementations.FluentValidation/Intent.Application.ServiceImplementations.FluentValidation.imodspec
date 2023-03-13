@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.FluentValidation</id>
-  <version>4.0.2-pre.1</version>
+  <version>4.0.2</version>
   <supportedClientVersions>[3.4.0-pre.0 ,4.0.0)</supportedClientVersions>
   <summary>Integrates Fluent Validation for the Standard ASP.NET Core pattern</summary>
   <description>Integrates Fluent Validation for the Standard ASP.NET Core pattern</description>
@@ -32,7 +32,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.FluentValidation" version="3.4.1-pre.0" />
+    <dependency id="Intent.Application.FluentValidation" version="3.4.1" />
     <dependency id="Intent.Common" version="3.3.16" />
     <dependency id="Intent.Common.CSharp" version="3.3.27" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
