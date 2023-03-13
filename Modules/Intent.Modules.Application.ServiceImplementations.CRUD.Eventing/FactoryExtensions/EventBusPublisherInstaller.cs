@@ -59,7 +59,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
 
                 AddMessageExtensionsUsings(application, file, messageModel);
                 var lastStatement = method.FindStatement(p => p.GetText(string.Empty).Contains("return"));
-                var line = $"_eventBus.Publish(new{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());";
+                var line = $"_eventBus.Publish(new{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());";
                 if (lastStatement != null)
                 {
                     lastStatement.InsertAbove(line);
@@ -81,7 +81,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                 }
 
                 AddMessageExtensionsUsings(application, file, messageModel);
-                method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());");
+                method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
                 hasAtLeastOneMatch = true;
             }
             else if (deleteStrategy.IsMatch(operation))
@@ -95,7 +95,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
 
                 AddMessageExtensionsUsings(application, file, messageModel);
                 var lastStatement = method.FindStatement(p => p.GetText(string.Empty).Contains("return"));
-                var line = $"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());";
+                var line = $"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());";
                 if (lastStatement != null)
                 {
                     lastStatement.InsertAbove(line);
@@ -117,7 +117,7 @@ public class EventBusPublisherInstaller : FactoryExtensionBase
                 }
 
                 AddMessageExtensionsUsings(application, file, messageModel);
-                method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase()}());");
+                method.AddStatement($"_eventBus.Publish(existing{domainModel.Name.ToPascalCase()}.MapTo{messageModel.Name.ToPascalCase().Replace("Event", "")}Event());");
                 hasAtLeastOneMatch = true;
             }
         }
