@@ -78,7 +78,8 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                             continue;
                         }
                         statementToMove.Remove();
-                        
+                        method.FindStatement(p => p.HasMetadata("service-contract-dispatch"))
+                            ?.InsertBelow(statementToMove);
                     }
                 }, 1000);
             }
