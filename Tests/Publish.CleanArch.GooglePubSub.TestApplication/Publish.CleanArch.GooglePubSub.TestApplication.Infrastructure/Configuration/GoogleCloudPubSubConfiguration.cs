@@ -24,7 +24,6 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure.Configur
 
         public static IServiceCollection AddSubscribers(this IServiceCollection services)
         {
-            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "publish.clean-arch.google-pub-sub.test-application-test-app", "test-app"));
             return services;
         }
 

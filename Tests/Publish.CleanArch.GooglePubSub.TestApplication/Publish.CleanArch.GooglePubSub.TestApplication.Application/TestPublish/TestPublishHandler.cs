@@ -1,8 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
@@ -12,15 +14,19 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Application.TestPublish
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestPublishHandler : IRequestHandler<TestPublish>
     {
-        [IntentManaged(Mode.Ignore)]
-        public TestPublishHandler()
+        private readonly IEventBus _eventBus;
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Ignore)]
+        public TestPublishHandler(IEventBus eventBus)
         {
+            _eventBus = eventBus;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<Unit> Handle(TestPublish request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            _eventBus.Publish(new EventStartedEvent() { Message = request.Message });
+            return Unit.Value;
         }
     }
 }

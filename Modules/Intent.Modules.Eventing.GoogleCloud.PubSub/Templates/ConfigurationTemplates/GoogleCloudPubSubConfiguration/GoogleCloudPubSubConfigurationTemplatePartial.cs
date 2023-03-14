@@ -54,7 +54,7 @@ return services;");
                     {
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", parm => parm.WithThisModifier());
-                        method.AddStatements(Model.Select(packageModel =>
+                        method.AddStatements(Model.Where(HasConsumingMessage).Select(packageModel =>
                             $@"services.AddHostedService(provider => new {this.GetGoogleSubscriberBackgroundServiceName()}(provider, ""{Helper.GetSubscriptionId(OutputTarget.ApplicationName(), packageModel)}"", ""{packageModel.GetGoogleCloudSettings().TopicId()}""));"));
                         method.AddStatement($@"return services;");
                     });
@@ -95,6 +95,11 @@ services.AddTransient<{this.GetEventBusSubscriptionManagerInterfaceName()}>(prov
                         method.AddStatement("return services;");
                     });
                 });
+        }
+
+        private bool HasConsumingMessage(EventingPackageModel packageModel)
+        {
+            return packageModel.Messages.Any(message => message.ConsumingApplications().Any());
         }
 
         public override void BeforeTemplateExecution()

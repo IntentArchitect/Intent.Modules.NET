@@ -24,7 +24,6 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Configu
 
         public static IServiceCollection AddSubscribers(this IServiceCollection services)
         {
-            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "publish.asp-net-core.google-pub-sub.test-application-test-app", "test-app"));
             return services;
         }
 
