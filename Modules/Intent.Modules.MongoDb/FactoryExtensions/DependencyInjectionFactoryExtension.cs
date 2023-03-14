@@ -52,7 +52,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         stmt => stmt.AddMetadata("application-mongodb-context", true));
             });
 
-            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name}", string.Empty));
+            application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name.Replace(".", "_")}", string.Empty));
 
             application.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("AddMongoDbUnitOfWork")

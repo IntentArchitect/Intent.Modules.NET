@@ -24,7 +24,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Configu
 
         public static IServiceCollection AddSubscribers(this IServiceCollection services)
         {
-            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "publish.asp-net-core.google-pub-sub.test-application-publish-aspnetcore-googlepubsub-testapplication", "publish-aspnetcore-googlepubsub-testapplication"));
+            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "publish.asp-net-core.google-pub-sub.test-application-test-app", "test-app"));
             return services;
         }
 
@@ -43,7 +43,7 @@ namespace Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.Configu
 
         private static void RegisterTopicEvents(GoogleEventBusTopicEventManager topicEventManager)
         {
-            topicEventManager.RegisterTopicEvent<EventStartedEvent>("publish-aspnetcore-googlepubsub-testapplication");
+            topicEventManager.RegisterTopicEvent<EventStartedEvent>("test-app");
         }
 
         public static IServiceCollection RegisterEventHandlers(this IServiceCollection services)

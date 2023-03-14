@@ -7,6 +7,7 @@ using Google.Cloud.PubSub.V1;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Subscribe.GooglePubSub.TestApplication.Application.Common.Eventing;
 using Subscribe.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 using Subscribe.GooglePubSub.TestApplication.Infrastructure.Persistence;
@@ -22,12 +23,14 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Eventing
         private readonly string _subscriptionId;
         private readonly string _topicId;
         private SubscriberClient _subscriberClient;
+        private readonly ILogger<GoogleSubscriberBackgroundService> _logger;
 
         public GoogleSubscriberBackgroundService(IServiceProvider serviceProvider, string subscriptionId, string topicId)
         {
             _serviceProvider = serviceProvider;
             _subscriptionId = subscriptionId;
             _topicId = topicId;
+            _logger = serviceProvider.GetService<ILogger<GoogleSubscriberBackgroundService>>();
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken)
@@ -53,20 +56,28 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Eventing
 
         private async Task<SubscriberClient.Reply> RequestHandler(PubsubMessage message, CancellationToken cancellationToken)
         {
-            using var scope = _serviceProvider.CreateScope();
-            var eventBus = scope.ServiceProvider.GetService<IEventBus>();
-            var mongoDbUnitOfWork = scope.ServiceProvider.GetService<ApplicationMongoDbContext>();
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            try
             {
-                var unitOfWork = scope.ServiceProvider.GetService<IUnitOfWork>();
-                var subscriptionManager = scope.ServiceProvider.GetService<IEventBusSubscriptionManager>();
-                await subscriptionManager.DispatchAsync(scope.ServiceProvider, message, cancellationToken);
-                await unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using var scope = _serviceProvider.CreateScope();
+                var eventBus = scope.ServiceProvider.GetService<IEventBus>();
+                var mongoDbUnitOfWork = scope.ServiceProvider.GetService<ApplicationMongoDbContext>();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    var unitOfWork = scope.ServiceProvider.GetService<IUnitOfWork>();
+                    var subscriptionManager = scope.ServiceProvider.GetService<IEventBusSubscriptionManager>();
+                    await subscriptionManager.DispatchAsync(scope.ServiceProvider, message, cancellationToken);
+                    await unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+                await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
+                await eventBus.FlushAllAsync(cancellationToken);
+                return SubscriberClient.Reply.Ack;
             }
-            await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
-            await eventBus.FlushAllAsync(cancellationToken);
-            return SubscriberClient.Reply.Ack;
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "Error processing Pubsub Message.");
+                throw;
+            }
         }
 
         public override async Task StopAsync(CancellationToken cancellationToken)

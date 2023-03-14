@@ -67,9 +67,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.FactoryExtensions
                 {
                     var @class = file.Classes.First();
                     var method = @class.FindMethod("RequestHandler");
-                    method.FindStatement(p => p.HasMetadata("create-scope"))
+                    var tryBlock = (CSharpStatementBlock)method.Statements.First();
+                    tryBlock.FindStatement(p => p.HasMetadata("create-scope"))
                         .InsertBelow($"var mongoDbUnitOfWork = scope.ServiceProvider.GetService<{GetAppDbContext(template)}>();");
-                    method.FindStatement(p => p.HasMetadata("return"))
+                    tryBlock.FindStatement(p => p.HasMetadata("return"))
                         .InsertAbove($"await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);");
                 }, -120);
             }

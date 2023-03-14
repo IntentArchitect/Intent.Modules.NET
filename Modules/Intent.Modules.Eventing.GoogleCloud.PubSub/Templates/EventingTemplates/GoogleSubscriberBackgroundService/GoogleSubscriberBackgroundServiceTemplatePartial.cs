@@ -26,6 +26,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.EventingTemplates
         {
             AddNugetDependency(NugetPackages.GoogleCloudPubSubV1);
             AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingAbstractions(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsLoggingAbstractions(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -35,6 +36,7 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.EventingTemplates
                 .AddUsing("Google.Cloud.PubSub.V1")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
+                .AddUsing("Microsoft.Extensions.Logging")
                 .AddClass($"GoogleSubscriberBackgroundService")
                 .OnBuild(file =>
                 {
@@ -43,8 +45,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.EventingTemplates
                     priClass.AddConstructor(ctor => ctor
                         .AddParameter("IServiceProvider", "serviceProvider", parm => parm.IntroduceReadonlyField())
                         .AddParameter("string", "subscriptionId", parm => parm.IntroduceReadonlyField())
-                        .AddParameter("string", "topicId", parm => parm.IntroduceReadonlyField()));
+                        .AddParameter("string", "topicId", parm => parm.IntroduceReadonlyField())
+                        .AddStatement($"_logger = serviceProvider.GetService<ILogger<{priClass.Name}>>();"));
                     priClass.AddField("SubscriberClient", "_subscriberClient");
+                    priClass.AddField($"ILogger<{priClass.Name}>", "_logger", field => field.PrivateReadOnly());
 
                     priClass.AddMethod("Task", "StartAsync", method =>
                     {
@@ -73,10 +77,18 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.EventingTemplates
                         method.Private().Async();
                         method.AddParameter("PubsubMessage", "message")
                             .AddParameter("CancellationToken", "cancellationToken");
-                        method.AddStatement($"using var scope = _serviceProvider.CreateScope();", stmt => stmt.AddMetadata("create-scope", true))
-                            .AddStatement($"var subscriptionManager = scope.ServiceProvider.GetService<{this.GetEventBusSubscriptionManagerInterfaceName()}>();")
-                            .AddStatement($"await subscriptionManager.DispatchAsync(scope.ServiceProvider, message, cancellationToken);")
-                            .AddStatement($"return SubscriberClient.Reply.Ack;", stmt => stmt.AddMetadata("return", true));
+                        method.AddStatementBlock("try", tryBlock =>
+                        {
+                            tryBlock.AddStatement($"using var scope = _serviceProvider.CreateScope();", stmt => stmt.AddMetadata("create-scope", true))
+                                .AddStatement($"var subscriptionManager = scope.ServiceProvider.GetService<{this.GetEventBusSubscriptionManagerInterfaceName()}>();")
+                                .AddStatement($"await subscriptionManager.DispatchAsync(scope.ServiceProvider, message, cancellationToken);")
+                                .AddStatement($"return SubscriberClient.Reply.Ack;", stmt => stmt.AddMetadata("return", true)); 
+                        });
+                        method.AddStatementBlock("catch (Exception exception)", catchBlock =>
+                        {
+                            catchBlock.AddStatement(@"_logger.LogError(exception, ""Error processing Pubsub Message."");");
+                            catchBlock.AddStatement("throw;");
+                        });
                     });
 
                     priClass.AddMethod("Task", "StopAsync", method =>
@@ -91,9 +103,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.EventingTemplates
                 {
                     var priClass = file.Classes.First();
                     var method = priClass.FindMethod("RequestHandler");
-                    method.FindStatement(p => p.HasMetadata("create-scope"))
+                    var tryBlock = (CSharpStatementBlock)method.Statements.First();
+                    tryBlock.FindStatement(p => p.HasMetadata("create-scope"))
                         .InsertBelow($"var eventBus = scope.ServiceProvider.GetService<{this.GetEventBusInterfaceName()}>();");
-                    method.FindStatement(p => p.HasMetadata("return"))
+                    tryBlock.FindStatement(p => p.HasMetadata("return"))
                         .InsertAbove($"await eventBus.FlushAllAsync(cancellationToken);");
                 }, 200);
         }

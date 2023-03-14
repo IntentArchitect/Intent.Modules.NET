@@ -63,9 +63,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.FactoryExtensions
                 {
                     var priClass = file.Classes.First();
                     var method = priClass.FindMethod("RequestHandler");
-                    var body = method.Statements.Where(p => !p.HasMetadata("create-scope") && !p.HasMetadata("return")).ToList();
-                    body.ForEach(x => method.Statements.Remove(x));
-                    method.InsertStatement(1,
+                    var tryBlock = (CSharpStatementBlock)method.Statements.First();
+                    var body = tryBlock.Statements.Where(p => !p.HasMetadata("create-scope") && !p.HasMetadata("return")).ToList();
+                    body.ForEach(x => tryBlock.Statements.Remove(x));
+                    tryBlock.InsertStatement(1,
                         new CSharpStatementBlock(
                                 $"using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled))")
                             .AddStatement($"var unitOfWork = scope.ServiceProvider.GetService<{GetUnitOfWorkName(template)}>();")

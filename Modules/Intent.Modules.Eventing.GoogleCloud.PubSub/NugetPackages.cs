@@ -10,6 +10,7 @@ public static class NugetPackages
     public static INugetPackageInfo GoogleCloudPubSubV1 = new NugetPackageInfo("Google.Cloud.PubSub.V1", "3.3.0");
     public static INugetPackageInfo MicrosoftExtensionsHostingAbstractions(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Hosting.Abstractions", GetDotNetSupportedVersion(outputTarget.GetProject()));
     public static INugetPackageInfo MicrosoftExtensionsOptionsConfigurationExtensions(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Options.ConfigurationExtensions", GetDotNetSupportedVersion(outputTarget.GetProject()));
+    public static INugetPackageInfo MicrosoftExtensionsLoggingAbstractions(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Logging.Abstractions", GetDotNetSupportedVersion(outputTarget.GetProject()));
 
     private static string GetDotNetSupportedVersion(ICSharpProject project)
     {
