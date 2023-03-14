@@ -123,8 +123,8 @@
       </childElements>
     </childElement>
     <childElement id="d5df4992-a8a2-40ff-8371-bbc916007943" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>MongoDB</name>
-      <display>MongoDB</display>
+      <name>MongoDB (Preview)</name>
+      <display>MongoDB (Preview)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -173,8 +173,8 @@
       </childElements>
     </childElement>
     <childElement id="52e742fe-d3f9-42cd-91d0-bb43d2279e52" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>MongoDB Repositories</name>
-      <display>MongoDB Repositories</display>
+      <name>MongoDB Repositories (Preview)</name>
+      <display>MongoDB Repositories (Preview)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
