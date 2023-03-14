@@ -43,7 +43,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             var result = default(string);
             result = await _appService.GetValue();
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>

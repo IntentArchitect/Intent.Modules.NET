@@ -77,7 +77,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(InvoiceDTO);
             result = await _appService.FindById(id);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(InvoiceDTO);
             result = await _appService.QueryParamOp(param1, param2);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -302,7 +302,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(Guid);
             result = await _appService.GetWrappedPrimitiveGuid();
-            return Ok(new JsonResponse<Guid>(result));
+            return new JsonResponse<Guid>(result) != null ? Ok(new JsonResponse<Guid>(result)) : NotFound();
         }
 
         /// <summary>
@@ -321,7 +321,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(string);
             result = await _appService.GetWrappedPrimitiveString();
-            return Ok(new JsonResponse<string>(result));
+            return new JsonResponse<string>(result) != null ? Ok(new JsonResponse<string>(result)) : NotFound();
         }
 
         /// <summary>
@@ -340,7 +340,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(int);
             result = await _appService.GetWrappedPrimitiveInt();
-            return Ok(new JsonResponse<int>(result));
+            return new JsonResponse<int>(result) != null ? Ok(new JsonResponse<int>(result)) : NotFound();
         }
 
         /// <summary>
@@ -359,7 +359,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(Guid);
             result = await _appService.GetPrimitiveGuid();
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -378,7 +378,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(string);
             result = await _appService.GetPrimitiveString();
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(int);
             result = await _appService.GetPrimitiveInt();
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
@@ -433,7 +433,7 @@ namespace Integration.HttpClients.TestApplication.Api.Controllers
         {
             var result = default(InvoiceDTO);
             result = await _appService.GetInvoiceOpWithReturnTypeWrapped();
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
     }
 }

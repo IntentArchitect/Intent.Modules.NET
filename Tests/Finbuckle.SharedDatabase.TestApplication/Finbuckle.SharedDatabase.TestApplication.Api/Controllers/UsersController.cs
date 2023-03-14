@@ -69,7 +69,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api.Controllers
         {
             var result = default(UserDto);
             result = await _appService.FindById(id);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>

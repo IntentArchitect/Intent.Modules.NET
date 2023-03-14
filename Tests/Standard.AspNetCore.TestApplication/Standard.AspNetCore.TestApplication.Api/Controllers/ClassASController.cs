@@ -67,7 +67,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             var result = default(ClassADTO);
             result = await _appService.FindById(id);
-            return Ok(result);
+            return result != null ? Ok(result) : NotFound();
         }
 
         /// <summary>
