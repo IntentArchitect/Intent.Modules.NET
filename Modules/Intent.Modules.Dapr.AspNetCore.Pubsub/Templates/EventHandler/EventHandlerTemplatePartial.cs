@@ -24,8 +24,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
             AddNugetDependency(NuGetPackages.MediatR);
 
             CSharpFile = new CSharpFile(
-                    this.GetNamespace(additionalFolders: Model.GetMessageFolderName()),
-                    this.GetFolderPath(additionalFolders: Model.GetMessageFolderName()))
+                    @namespace: this.GetNamespace(),
+                    relativeLocation: this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")

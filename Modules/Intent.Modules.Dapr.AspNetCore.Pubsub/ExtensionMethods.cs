@@ -1,15 +1,12 @@
-﻿using Intent.Engine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modelers.Eventing.Api;
-using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Dapr.AspNetCore.Pubsub
 {
     internal static class ExtensionMethods
     {
-        public static string GetMessageFolderName(this MessageModel model) => model.Name.RemoveSuffix("Event", "Message");
-
         public static IEnumerable<MessageModel> GetSubscribedToMessageModels(this IMetadataManager metadataManager, IApplication application)
         {
             return metadataManager.Eventing(application).GetApplicationModels()
