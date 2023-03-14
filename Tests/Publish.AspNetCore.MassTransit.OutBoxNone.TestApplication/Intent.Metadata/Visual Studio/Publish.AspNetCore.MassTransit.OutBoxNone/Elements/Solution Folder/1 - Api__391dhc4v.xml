@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7518a12f-55a9-40d6-85d0-157680bce6db" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>f2a117ac-89a8-44c5-b8c1-f5568d9438cb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>494434ee-0027-47c0-8b22-6852f9e3fc7c</parentFolderId>
+  <packageId>494434ee-0027-47c0-8b22-6852f9e3fc7c</packageId>
+  <packageName>Publish.AspNetCore.MassTransit.OutBoxNone</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

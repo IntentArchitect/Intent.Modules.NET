@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4e44b12b-4f8f-4f9b-95de-7e3f38877d76">
+  <sourceEnd id="3614e903-f670-45db-8c5f-6bbdacd10317" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.AspNetCore.GooglePubSub.TestApplication</name>
+    <display>publisher: Publish.AspNetCore.GooglePubSub.TestApplication</display>
+    <order>0</order>
+    <typeReference id="6ad3d76c-a00c-43f3-80df-6ff0ff0ed9e0">
+      <typeId>1f976478-c078-443c-a5d8-a34245eb190f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>8964af03-b878-4b3c-8f46-7305f70f0315</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4e44b12b-4f8f-4f9b-95de-7e3f38877d76" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EventStarted</name>
+    <display>publish: EventStarted</display>
+    <order>0</order>
+    <typeReference id="34de4fb7-8a62-4b6b-b042-d69ec87f4d59">
+      <typeId>8a89cea6-2202-4576-96c2-5c0383bda33a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>8964af03-b878-4b3c-8f46-7305f70f0315</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

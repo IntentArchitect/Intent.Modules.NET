@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dc631219-115e-450b-9a8b-93f7f85a8503" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>IntegrationEventHandlers</name>
+  <display>IntegrationEventHandlers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>57f5155c-92a5-440c-ace0-483a10177b91</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="36076d56-723e-4cb4-8bc6-730bbddae39b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GenericIntegrationEventHandlerImplementation</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GenericIntegrationEventHandlerImplementation</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dc631219-115e-450b-9a8b-93f7f85a8503</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c1d6da2b-4463-43e6-a7db-21ad46d98242" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.IntegrationEventHandlerImplementation</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.IntegrationEventHandlerImplementation</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dc631219-115e-450b-9a8b-93f7f85a8503</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{C7310ECC-A198-4C63-A9B5-431A227283FA}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Publish.AspNetCore.GooglePubSub.TestApplication.Api", "Publish.AspNetCore.GooglePubSub.TestApplication.Api\Publish.AspNetCore.GooglePubSub.TestApplication.Api.csproj", "{337C3686-A154-44F1-A2B0-463F06A1A984}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{2B72CA22-E4C5-4A08-8033-1142EB35F687}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.GooglePubSub.TestApplication.Application", "Publish.AspNetCore.GooglePubSub.TestApplication.Application\Publish.AspNetCore.GooglePubSub.TestApplication.Application.csproj", "{8A3C21D9-D10B-42DF-A214-5F61A537DA63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{986618D1-5DE1-4DA5-BA79-2E7BACFDC2EB}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.GooglePubSub.TestApplication.Domain", "Publish.AspNetCore.GooglePubSub.TestApplication.Domain\Publish.AspNetCore.GooglePubSub.TestApplication.Domain.csproj", "{F938568C-0F07-4324-ABE2-FDB853EBE5E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{10283A74-95E9-4380-9C71-21D8B327963E}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure", "Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure\Publish.AspNetCore.GooglePubSub.TestApplication.Infrastructure.csproj", "{F141B5D2-314F-4712-A3BF-A5A4AA927169}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{337C3686-A154-44F1-A2B0-463F06A1A984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337C3686-A154-44F1-A2B0-463F06A1A984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337C3686-A154-44F1-A2B0-463F06A1A984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337C3686-A154-44F1-A2B0-463F06A1A984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3C21D9-D10B-42DF-A214-5F61A537DA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3C21D9-D10B-42DF-A214-5F61A537DA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3C21D9-D10B-42DF-A214-5F61A537DA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3C21D9-D10B-42DF-A214-5F61A537DA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F938568C-0F07-4324-ABE2-FDB853EBE5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F938568C-0F07-4324-ABE2-FDB853EBE5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F938568C-0F07-4324-ABE2-FDB853EBE5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F938568C-0F07-4324-ABE2-FDB853EBE5E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F141B5D2-314F-4712-A3BF-A5A4AA927169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F141B5D2-314F-4712-A3BF-A5A4AA927169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F141B5D2-314F-4712-A3BF-A5A4AA927169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F141B5D2-314F-4712-A3BF-A5A4AA927169}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{337C3686-A154-44F1-A2B0-463F06A1A984} = {C7310ECC-A198-4C63-A9B5-431A227283FA}
+		{8A3C21D9-D10B-42DF-A214-5F61A537DA63} = {2B72CA22-E4C5-4A08-8033-1142EB35F687}
+		{F938568C-0F07-4324-ABE2-FDB853EBE5E0} = {986618D1-5DE1-4DA5-BA79-2E7BACFDC2EB}
+		{F141B5D2-314F-4712-A3BF-A5A4AA927169} = {10283A74-95E9-4380-9C71-21D8B327963E}
+	EndGlobalSection
+EndGlobal

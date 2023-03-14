@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{2D35B6A6-5A83-4B10-9063-6AFF14E264B4}"
+EndProject
+Project("{FFD54A85-9362-48AC-B646-C93AB9AC63D2}") = "Publish.CleanArch.GooglePubSub.TestApplication.Api", "Publish.CleanArch.GooglePubSub.TestApplication.Api\Publish.CleanArch.GooglePubSub.TestApplication.Api.csproj", "{DA5F0669-B518-4FDA-A417-260033D06CE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{BDC98B64-6840-4058-87EB-CD26C7AD9CE7}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArch.GooglePubSub.TestApplication.Application", "Publish.CleanArch.GooglePubSub.TestApplication.Application\Publish.CleanArch.GooglePubSub.TestApplication.Application.csproj", "{57F5155C-92A5-440C-ACE0-483A10177B91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{2141ED17-8DD1-48BB-A8F2-D0A6212D1FBC}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArch.GooglePubSub.TestApplication.Domain", "Publish.CleanArch.GooglePubSub.TestApplication.Domain\Publish.CleanArch.GooglePubSub.TestApplication.Domain.csproj", "{3CEC5754-1B2E-49FC-AE2F-EE0F87E89F02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{8AF03BA7-196F-45F3-965E-7379CE5A2962}"
+EndProject
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure", "Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure\Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure.csproj", "{2471C514-29CA-4812-968F-62327E8039CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA5F0669-B518-4FDA-A417-260033D06CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA5F0669-B518-4FDA-A417-260033D06CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA5F0669-B518-4FDA-A417-260033D06CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA5F0669-B518-4FDA-A417-260033D06CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F5155C-92A5-440C-ACE0-483A10177B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F5155C-92A5-440C-ACE0-483A10177B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F5155C-92A5-440C-ACE0-483A10177B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F5155C-92A5-440C-ACE0-483A10177B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CEC5754-1B2E-49FC-AE2F-EE0F87E89F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEC5754-1B2E-49FC-AE2F-EE0F87E89F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEC5754-1B2E-49FC-AE2F-EE0F87E89F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEC5754-1B2E-49FC-AE2F-EE0F87E89F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2471C514-29CA-4812-968F-62327E8039CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2471C514-29CA-4812-968F-62327E8039CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2471C514-29CA-4812-968F-62327E8039CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2471C514-29CA-4812-968F-62327E8039CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA5F0669-B518-4FDA-A417-260033D06CE8} = {2D35B6A6-5A83-4B10-9063-6AFF14E264B4}
+		{57F5155C-92A5-440C-ACE0-483A10177B91} = {BDC98B64-6840-4058-87EB-CD26C7AD9CE7}
+		{3CEC5754-1B2E-49FC-AE2F-EE0F87E89F02} = {2141ED17-8DD1-48BB-A8F2-D0A6212D1FBC}
+		{2471C514-29CA-4812-968F-62327E8039CB} = {8AF03BA7-196F-45F3-965E-7379CE5A2962}
+	EndGlobalSection
+EndGlobal

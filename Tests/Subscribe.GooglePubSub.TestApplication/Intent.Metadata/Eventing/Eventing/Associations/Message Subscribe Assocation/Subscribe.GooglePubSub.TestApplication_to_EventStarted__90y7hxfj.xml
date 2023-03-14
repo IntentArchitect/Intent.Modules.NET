@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="529fa982-c298-4b7a-b1c5-b41de59b6ce5">
+  <sourceEnd id="c40efbcb-9f8d-421d-a82f-1c8f452fb39d" type="Message Subscribe Assocation Source End" typeId="18780798-1ea8-462b-b4f9-b8605ad11636">
+    <name>Subscribe.GooglePubSub.TestApplication</name>
+    <display>subscriber: Subscribe.GooglePubSub.TestApplication</display>
+    <order>0</order>
+    <typeReference id="2bf77f52-4d1b-4975-b91e-226bb1e4751f">
+      <typeId>32f2452e-dbd5-4a73-979b-140f95a28980</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>58a8a1b0-b1d9-49ac-9af2-a8cffb9f5900</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="529fa982-c298-4b7a-b1c5-b41de59b6ce5" type="Message Subscribe Assocation Target End" typeId="21c3df1c-5140-4f65-9814-a68e1a577768">
+    <name>EventStarted</name>
+    <display>subscribe: EventStarted</display>
+    <order>0</order>
+    <typeReference id="7f8d0630-d6f1-4b80-8497-7f5f1cc12cef">
+      <typeId>e3524709-b0b4-40f7-a20f-4279cfefb00e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>58a8a1b0-b1d9-49ac-9af2-a8cffb9f5900</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Subscribe Assocation</associationType>
+  <associationTypeId>50e0bed1-1387-4d67-8f66-1194763296b1</associationTypeId>
+  <stereotypes />
+</association>

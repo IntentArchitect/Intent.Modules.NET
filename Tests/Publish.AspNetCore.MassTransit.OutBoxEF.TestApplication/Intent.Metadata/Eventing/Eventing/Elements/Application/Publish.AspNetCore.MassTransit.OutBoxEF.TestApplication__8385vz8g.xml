@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dfd54675-5785-44b3-99d7-f0765359ce2c" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</name>
+  <display>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2bd22222-aa3e-428c-8884-5c1c45602b44</parentFolderId>
+  <packageId>2bd22222-aa3e-428c-8884-5c1c45602b44</packageId>
+  <packageName>Eventing</packageName>
+  <diagram>
+    <targetPackageId>2bd22222-aa3e-428c-8884-5c1c45602b44</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

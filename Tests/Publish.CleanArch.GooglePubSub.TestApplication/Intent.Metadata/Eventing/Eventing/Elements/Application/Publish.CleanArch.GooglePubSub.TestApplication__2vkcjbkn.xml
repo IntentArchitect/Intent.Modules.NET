@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="79d35529-5d6e-471f-bd29-80e4ff33b85b" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>Publish.CleanArch.GooglePubSub.TestApplication</name>
+  <display>Publish.CleanArch.GooglePubSub.TestApplication</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>75d3fa3f-9323-416e-97fc-b4fdca737429</parentFolderId>
+  <packageId>75d3fa3f-9323-416e-97fc-b4fdca737429</packageId>
+  <packageName>Eventing</packageName>
+  <diagram>
+    <targetPackageId>75d3fa3f-9323-416e-97fc-b4fdca737429</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

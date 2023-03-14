@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2471c514-29ca-4812-968f-62327e8039cb</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="20e853f6-9799-4e0c-b5ed-f8df10efb3d0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleCloudResourceManager</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleCloudResourceManager</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5fa0f2af-ba67-4dea-ada8-3f06f3751a17" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleEventBusSubscriptionManager</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleEventBusSubscriptionManager</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7c570c9e-e1c3-4778-9fd2-9c0028555f48" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleEventBusTopicEventManager</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleEventBusTopicEventManager</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="dfd66235-4b34-4f4b-b43f-61a4a26935dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GooglePubSubEventBus</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GooglePubSubEventBus</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="be37d28d-c97e-42ff-9e93-13d00ed7403b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleSubscriberBackgroundService</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleSubscriberBackgroundService</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4fe4a241-aece-4bbf-8789-3d64b9bf5ba5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.CloudResourceManagerInterface</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.CloudResourceManagerInterface</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="47f203f4-7f93-4676-bc6a-583d98346f7b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.EventBusSubscriptionManagerInterface</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.EventBusSubscriptionManagerInterface</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="141f44e7-22ee-43b8-846f-f346b0949e73" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.EventBusTopicEventManagerInterface</name>
+      <display>Intent.Eventing.GoogleCloud.PubSub.InterfaceTemplates.EventBusTopicEventManagerInterface</display>
+      <externalReference>Intent.Eventing.GoogleCloud.PubSub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b99fc4f7-8e6b-4ef8-94ff-93cf0dae0563</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

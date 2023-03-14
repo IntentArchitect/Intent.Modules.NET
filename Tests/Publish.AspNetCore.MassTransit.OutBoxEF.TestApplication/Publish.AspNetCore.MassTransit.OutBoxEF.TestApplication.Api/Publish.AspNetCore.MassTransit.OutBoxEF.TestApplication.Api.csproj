@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.csproj" />
+    <ProjectReference Include="..\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure.csproj" />
+    <ProjectReference Include="..\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain\Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>

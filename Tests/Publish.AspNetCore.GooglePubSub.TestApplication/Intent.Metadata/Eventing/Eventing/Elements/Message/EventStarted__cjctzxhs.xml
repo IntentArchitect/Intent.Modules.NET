@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8a89cea6-2202-4576-96c2-5c0383bda33a" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>EventStarted</name>
+  <display>EventStarted</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8964af03-b878-4b3c-8f46-7305f70f0315</parentFolderId>
+  <packageId>8964af03-b878-4b3c-8f46-7305f70f0315</packageId>
+  <packageName>Eventing</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a5f90f8b-85b9-43af-8016-a5fc93829cd2" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Message</name>
+      <display>Message: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2232482e-85e8-4cce-8272-a38a56291d66">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8a89cea6-2202-4576-96c2-5c0383bda33a</parentFolderId>
+      <packageId>8964af03-b878-4b3c-8f46-7305f70f0315</packageId>
+      <packageName>Eventing</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
