@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Eventing;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Logging;
 using Subscribe.MassTransit.TestApplication.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,15 +14,18 @@ namespace Subscribe.MassTransit.TestApplication.Application.IntegrationEventHand
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class EventStartedEventHandler : IIntegrationEventHandler<EventStartedEvent>
     {
+        private readonly ILogger<EventStartedEventHandler> _logger;
+
         [IntentManaged(Mode.Ignore)]
-        public EventStartedEventHandler()
+        public EventStartedEventHandler(ILogger<EventStartedEventHandler> logger)
         {
+            _logger = logger;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task HandleAsync(EventStartedEvent message, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation($"Event Started - {message.Message}");
         }
     }
 }

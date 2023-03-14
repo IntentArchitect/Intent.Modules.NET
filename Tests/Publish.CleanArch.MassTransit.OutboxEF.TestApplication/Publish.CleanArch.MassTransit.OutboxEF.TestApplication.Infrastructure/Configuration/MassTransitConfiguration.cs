@@ -20,8 +20,14 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Infrastructure.
 
                 AddConsumers(x);
 
-                x.UsingInMemory((context, cfg) =>
+                x.UsingRabbitMq((context, cfg) =>
                 {
+                    cfg.Host(configuration["RabbitMq:Host"], configuration["RabbitMq:VirtualHost"], h =>
+                    {
+                        h.Username(configuration["RabbitMq:Username"]);
+                        h.Password(configuration["RabbitMq:Password"]);
+                    });
+
                     cfg.ConfigureEndpoints(context);
                 });
 

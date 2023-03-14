@@ -27,6 +27,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2e5d8763-8039-4969-99f5-224d6a01e9ae</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#2fce8625-8314-4697-93eb-3bbdc095cdc4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api/Controllers/PublishController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PublishController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1b3f4f36-d6a6-469a-89bd-be009988eb9f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -264,6 +272,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#582017a3-780e-4747-a9e9-6f79938feca7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/TestPublish/TestPublishCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestPublish/TestPublishCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#582017a3-780e-4747-a9e9-6f79938feca7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/TestPublish/TestPublishCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestPublish/TestPublishCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#582017a3-780e-4747-a9e9-6f79938feca7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/TestPublish/TestPublishCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestPublish/TestPublishCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

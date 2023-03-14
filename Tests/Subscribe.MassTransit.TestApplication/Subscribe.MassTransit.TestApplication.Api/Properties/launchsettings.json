@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:58529/",
+      "applicationUrl": "http://localhost:58629/",
       "sslPort": 44321
     }
   },
@@ -11,8 +11,8 @@
     "Subscribe.MassTransit.TestApplication.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:58529/;https://localhost:44321/",
-      "launchUrl": "http://localhost:58529/swagger",
+      "applicationUrl": "http://localhost:58629/;https://localhost:44321/",
+      "launchUrl": "http://localhost:58629/swagger",
       "publishAllPorts": false,
       "useSSL": false,
       "environmentVariables": {
@@ -22,7 +22,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:58529/swagger",
+      "launchUrl": "http://localhost:58629/swagger",
       "publishAllPorts": false,
       "useSSL": false,
       "environmentVariables": {

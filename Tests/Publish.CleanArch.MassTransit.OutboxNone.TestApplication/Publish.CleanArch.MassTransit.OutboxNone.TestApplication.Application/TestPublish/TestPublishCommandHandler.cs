@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 using Eventing;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
-using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Eventing;
+using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
 
-namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.TestPublish
+namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.TestPublish
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestPublishCommandHandler : IRequestHandler<TestPublishCommand>

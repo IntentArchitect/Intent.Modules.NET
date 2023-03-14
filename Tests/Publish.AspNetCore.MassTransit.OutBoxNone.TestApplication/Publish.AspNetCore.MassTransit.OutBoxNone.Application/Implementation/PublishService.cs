@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Eventing;
 using Intent.RoslynWeaver.Attributes;
+using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Eventing;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,15 +14,18 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class PublishService : IPublishService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public PublishService()
+        private readonly IEventBus _eventBus;
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore, Signature = Mode.Ignore)]
+        public PublishService(IEventBus eventBus)
         {
+            _eventBus = eventBus;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task TestPublish(string message)
         {
-            throw new NotImplementedException("Write your implementation for this service here...");
+            _eventBus.Publish(new EventStartedEvent() { Message = message });
         }
 
         public void Dispose()
