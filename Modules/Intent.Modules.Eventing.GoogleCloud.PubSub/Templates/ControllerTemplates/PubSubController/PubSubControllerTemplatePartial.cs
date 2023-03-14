@@ -29,8 +29,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub.Templates.ControllerTemplat
                 {
                     file.AddUsing("System");
                     file.AddUsing("System.Collections.Generic");
+                    file.AddUsing("System.Threading");
                     file.AddUsing("System.Threading.Tasks");
                     file.AddUsing("Google.Apis.Auth");
+                    file.AddUsing("Google.Protobuf");
                     file.AddUsing("Google.Cloud.PubSub.V1");
                     file.AddUsing("Microsoft.AspNetCore.Mvc");
                     file.AddUsing("Microsoft.Extensions.Options");

@@ -8,9 +8,10 @@ namespace Intent.Modules.Eventing.GoogleCloud.PubSub;
 public static class NugetPackages
 {
     public static INugetPackageInfo GoogleCloudPubSubV1 = new NugetPackageInfo("Google.Cloud.PubSub.V1", "3.3.0");
-    public static INugetPackageInfo MicrosoftExtensionsHostingAbstractions(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Hosting.Abstractions", GetExtensionsHostingAbstractionsVersion(outputTarget.GetProject()));
+    public static INugetPackageInfo MicrosoftExtensionsHostingAbstractions(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Hosting.Abstractions", GetDotNetSupportedVersion(outputTarget.GetProject()));
+    public static INugetPackageInfo MicrosoftExtensionsOptionsConfigurationExtensions(IOutputTarget outputTarget) => new NugetPackageInfo("Microsoft.Extensions.Options.ConfigurationExtensions", GetDotNetSupportedVersion(outputTarget.GetProject()));
 
-    private static string GetExtensionsHostingAbstractionsVersion(ICSharpProject project)
+    private static string GetDotNetSupportedVersion(ICSharpProject project)
     {
         return project switch
         {
