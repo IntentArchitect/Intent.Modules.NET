@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5a582f2a-7824-4e95-a094-21c395d2b613">
+  <sourceEnd id="a324d129-6178-4b49-a95c-8a9245ad4757" type="Message Subscribe Assocation Source End" typeId="18780798-1ea8-462b-b4f9-b8605ad11636">
+    <name>Subscribe.MassTransit.TestApplication</name>
+    <display>subscriber: Subscribe.MassTransit.TestApplication</display>
+    <order>0</order>
+    <typeReference id="595139dc-8d63-463d-b4c8-7eb6341bae9f">
+      <typeId>99921978-6b52-49b8-9382-42230b96dd53</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>534ca8dc-8fc9-47cd-bc07-916fe43e68ea</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5a582f2a-7824-4e95-a094-21c395d2b613" type="Message Subscribe Assocation Target End" typeId="21c3df1c-5140-4f65-9814-a68e1a577768">
+    <name>EventStarted</name>
+    <display>subscribe: EventStarted</display>
+    <order>0</order>
+    <typeReference id="b6acce54-90bb-41fd-a8fc-d78c6f0eefe1">
+      <typeId>21e8725a-7d4a-43dc-ae58-a3248cce709f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>534ca8dc-8fc9-47cd-bc07-916fe43e68ea</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Subscribe Assocation</associationType>
+  <associationTypeId>50e0bed1-1387-4d67-8f66-1194763296b1</associationTypeId>
+  <stereotypes />
+</association>

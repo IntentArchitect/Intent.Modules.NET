@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Subscribe.GooglePubSub.TestApplication.Application.Common.Eventing;
 using Subscribe.GooglePubSub.TestApplication.Domain.Common.Interfaces;
+using Subscribe.GooglePubSub.TestApplication.Infrastructure.Persistence;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.GoogleCloud.PubSub.EventingTemplates.GoogleSubscriberBackgroundService", Version = "1.0")]
@@ -54,6 +55,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Eventing
         {
             using var scope = _serviceProvider.CreateScope();
             var eventBus = scope.ServiceProvider.GetService<IEventBus>();
+            var mongoDbUnitOfWork = scope.ServiceProvider.GetService<ApplicationMongoDbContext>();
             using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 var unitOfWork = scope.ServiceProvider.GetService<IUnitOfWork>();
@@ -62,6 +64,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Eventing
                 await unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
+            await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             await eventBus.FlushAllAsync(cancellationToken);
             return SubscriberClient.Reply.Ack;
         }

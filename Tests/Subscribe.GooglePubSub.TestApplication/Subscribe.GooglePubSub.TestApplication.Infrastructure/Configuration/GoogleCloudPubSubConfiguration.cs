@@ -24,7 +24,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Configuration
 
         public static IServiceCollection AddSubscribers(this IServiceCollection services)
         {
-            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "subscribe.google-pub-sub.test-application-subscribe-googlepubsub-testapplication", "subscribe-googlepubsub-testapplication"));
+            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "subscribe.google-pub-sub.test-application-test-app", "test-app"));
             return services;
         }
 
@@ -43,7 +43,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Configuration
 
         private static void RegisterTopicEvents(GoogleEventBusTopicEventManager topicEventManager)
         {
-            topicEventManager.RegisterTopicEvent<EventStartedEvent>("subscribe-googlepubsub-testapplication");
+            topicEventManager.RegisterTopicEvent<EventStartedEvent>("test-app");
         }
 
         public static IServiceCollection RegisterEventHandlers(this IServiceCollection services)

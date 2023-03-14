@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using Subscribe.GooglePubSub.TestApplication.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -61,6 +63,15 @@ namespace Subscribe.GooglePubSub.TestApplication.Infrastructure.Repositories
                 .Skip(skip)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
+            return new PagedList<T>(count, pageNo, pageSize, results);
+        }
+
+        public static async Task<IPagedResult<T>> CreateAsync(IMongoQueryable<T> source, int pageNo, int pageSize, CancellationToken cancellationToken = default)
+        {
+            var count = await source.CountAsync(cancellationToken);
+            var skip = ((pageNo - 1) * pageSize);
+            IAsyncCursorSource<T> cursorSource = source.Skip(skip).Take(pageSize);
+            var results = await cursorSource.ToListAsync(cancellationToken);
             return new PagedList<T>(count, pageNo, pageSize, results);
         }
     }

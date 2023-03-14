@@ -25,5 +25,6 @@
     <application id="5ffa2a75-821a-41f2-8232-af7df2460b0b" name="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication" relativePath="Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication/Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.application.config" />
     <application id="71eac626-755a-4c5d-89f1-e66511d4df64" name="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication" relativePath="Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication/Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.application.config" />
     <application id="a0ff54fb-ecb8-4dfd-9389-f476f4047fc5" name="Subscribe.GooglePubSub.TestApplication" relativePath="Subscribe.GooglePubSub.TestApplication/Subscribe.GooglePubSub.TestApplication.application.config" />
+    <application id="baf5adf5-2d56-4174-b786-fdfd481e7d69" name="Subscribe.MassTransit.TestApplication" relativePath="Subscribe.MassTransit.TestApplication/Subscribe.MassTransit.TestApplication.application.config" />
   </applications>
 </solution>

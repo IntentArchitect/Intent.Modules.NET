@@ -15,6 +15,7 @@ using Subscribe.GooglePubSub.TestApplication.Application.Common.Eventing;
 using Subscribe.GooglePubSub.TestApplication.Domain.Common.Interfaces;
 using Subscribe.GooglePubSub.TestApplication.Infrastructure.Configuration;
 using Subscribe.GooglePubSub.TestApplication.Infrastructure.Eventing;
+using Subscribe.GooglePubSub.TestApplication.Infrastructure.Persistence;
 using ProtoTimestamp = Google.Protobuf.WellKnownTypes.Timestamp;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -75,6 +76,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Api.Controllers
 
         private async Task RequestHandler(PubsubMessage message, CancellationToken cancellationToken)
         {
+            var mongoDbUnitOfWork = _serviceProvider.GetService<ApplicationMongoDbContext>();
             using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 var unitOfWork = _serviceProvider.GetService<IUnitOfWork>();
@@ -82,6 +84,7 @@ namespace Subscribe.GooglePubSub.TestApplication.Api.Controllers
                 await unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
+            await mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);
             await _eventBus.FlushAllAsync(cancellationToken);
         }
 

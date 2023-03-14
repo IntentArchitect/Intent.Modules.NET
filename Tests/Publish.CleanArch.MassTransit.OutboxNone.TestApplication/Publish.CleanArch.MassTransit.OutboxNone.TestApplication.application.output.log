@@ -251,6 +251,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#dd88c18d-9dda-404e-970c-b3df4985885e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/EventStartedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventStartedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#48f82faa-76ce-4e02-b346-66d8841391e7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

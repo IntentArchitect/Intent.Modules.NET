@@ -51,5 +51,47 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="44f16465-32b5-414f-8029-d58360d58177" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.Repositories.MongoRepositoryBase</name>
+      <display>Intent.MongoDb.Repositories.MongoRepositoryBase</display>
+      <externalReference>Intent.MongoDb.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b239378-b062-4eee-b284-02e444431393</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="cbf9a0fb-2f3f-441e-8c6f-850151d771df" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.Repositories.PagedList</name>
+      <display>Intent.MongoDb.Repositories.PagedList</display>
+      <externalReference>Intent.MongoDb.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b239378-b062-4eee-b284-02e444431393</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a7003af3-f566-4541-96fe-01273c53466d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.Repositories.Repository</name>
+      <display>Intent.MongoDb.Repositories.Repository</display>
+      <externalReference>Intent.MongoDb.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b239378-b062-4eee-b284-02e444431393</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

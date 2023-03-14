@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b0bfdf5a-feac-4de8-96ed-e839e35dbc8e">
+  <sourceEnd id="3812a813-1995-4b81-8e3c-0c8f620f0a08" type="Message Publish Assocation Source End" typeId="282eea12-2b98-4f0f-a28c-50c05b953c8e">
+    <name>Publish.CleanArch.MassTransit.OutboxNone.TestApplication</name>
+    <display>publisher: Publish.CleanArch.MassTransit.OutboxNone.TestApplication</display>
+    <order>0</order>
+    <typeReference id="274ff09b-62d9-4f6c-a4c9-27e5b43cfe21">
+      <typeId>8bfab671-ead7-40af-9bdb-4d0bcf7c650e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>fd1f64fb-8826-463a-afce-e1e4f5f9ba1b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b0bfdf5a-feac-4de8-96ed-e839e35dbc8e" type="Message Publish Assocation Target End" typeId="6be8d569-70b9-4451-bd1b-7b654499503e">
+    <name>EventStarted</name>
+    <display>publish: EventStarted</display>
+    <order>0</order>
+    <typeReference id="73ab4cf4-f8ca-48f5-96ec-eea3f5c17e5d">
+      <typeId>dd88c18d-9dda-404e-970c-b3df4985885e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Eventing</typePackageName>
+      <typePackageId>fd1f64fb-8826-463a-afce-e1e4f5f9ba1b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Message Publish Assocation</associationType>
+  <associationTypeId>022d4c90-e1b6-4747-a15f-640c19503a8f</associationTypeId>
+  <stereotypes />
+</association>

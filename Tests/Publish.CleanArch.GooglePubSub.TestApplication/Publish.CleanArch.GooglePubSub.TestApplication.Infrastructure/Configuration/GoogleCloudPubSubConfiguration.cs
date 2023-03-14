@@ -24,7 +24,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure.Configur
 
         public static IServiceCollection AddSubscribers(this IServiceCollection services)
         {
-            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "publish.clean-arch.google-pub-sub.test-application-publish-cleanarch-googlepubsub-testapplication", "publish-cleanarch-googlepubsub-testapplication"));
+            services.AddHostedService(provider => new GoogleSubscriberBackgroundService(provider, "publish.clean-arch.google-pub-sub.test-application-test-app", "test-app"));
             return services;
         }
 
@@ -43,7 +43,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Infrastructure.Configur
 
         private static void RegisterTopicEvents(GoogleEventBusTopicEventManager topicEventManager)
         {
-            topicEventManager.RegisterTopicEvent<EventStartedEvent>("publish-cleanarch-googlepubsub-testapplication");
+            topicEventManager.RegisterTopicEvent<EventStartedEvent>("test-app");
         }
 
         public static IServiceCollection RegisterEventHandlers(this IServiceCollection services)

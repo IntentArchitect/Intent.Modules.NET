@@ -188,6 +188,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>3d8bf733-34dc-4cbf-9cee-fe0f45dfa906</ProjectId>
+      <CorrelationId>Intent.MongoDb.MongoDbUnitOfWorkInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Domain/Common/Interfaces/IMongoDbUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMongoDbUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3d8bf733-34dc-4cbf-9cee-fe0f45dfa906</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
@@ -324,10 +332,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>8e2d23dd-fcbd-4ecf-ae5a-90ad089bdd43</ProjectId>
+      <CorrelationId>Intent.MongoDb.ApplicationMongoDbContext</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Infrastructure/Persistence/ApplicationMongoDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationMongoDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8e2d23dd-fcbd-4ecf-ae5a-90ad089bdd43</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8b239378-b062-4eee-b284-02e444431393</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.MongoRepositoryBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.GooglePubSub.TestApplication.Infrastructure/Repositories/MongoRepositoryBase.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoRepositoryBase.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
