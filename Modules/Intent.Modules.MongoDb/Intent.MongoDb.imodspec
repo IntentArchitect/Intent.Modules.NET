@@ -40,7 +40,23 @@
     <factoryExtension id="Intent.MongoDb.DependencyInjectionFactoryExtension" externalReference="d9b9b16c-50cd-4c7e-a2e0-a92a3446befc" />
     <factoryExtension id="Intent.MongoDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="d5581fe8-7385-4bb6-88dc-8940e20ec1d4" title="MongoDB" externalReference="d5581fe8-7385-4bb6-88dc-8940e20ec1d4">
+      <settings>
+        <setting id="8bcf2b5c-cd35-47d6-8705-7e8e83494083" title="Id Type" type="select">
+          <isRequired>true</isRequired>
+          <hint>The default ID type to apply to newly created classes.</hint>
+          <defaultValue>object-id</defaultValue>
+          <options>
+            <option value="object-id" description="Object ID" />
+            <option value="guid" description="GUID" />
+            <option value="int" description="Integer" />
+            <option value="long" description="Long" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />

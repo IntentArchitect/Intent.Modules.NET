@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c4a9b571-a88a-43ec-9626-4244446ae542">
+  <sourceEnd id="9e94a93d-44bb-4a9c-b42a-eb3d7fbfbeb0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>User</name>
+    <display>User: User</display>
+    <order>0</order>
+    <typeReference id="e7dd3a6e-fda9-48b2-86a9-687cccfdb0e8">
+      <typeId>455ad017-be0c-4139-a476-911332a590bc</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c4a9b571-a88a-43ec-9626-4244446ae542" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Roles</name>
+    <display>Roles: Role[*]</display>
+    <order>2</order>
+    <typeReference id="dbedbda6-c7f5-4c56-b4cc-7a4c6decca39">
+      <typeId>04893536-e6e9-4988-aaa1-440d5f2472fb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1360c923-890d-440e-a5e9-3616266cd42a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Behaviours</name>
+  <display>Behaviours</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b45790a6-b28f-414b-a250-885ae4b543d1</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

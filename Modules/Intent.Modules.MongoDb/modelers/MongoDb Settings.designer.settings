@@ -82,6 +82,52 @@
         <type order="5">Class</type>
         <type order="6">Stereotype-Definition</type>
       </typeOrder>
+      <macros>
+        <macro trigger="on-loaded">
+          <script>if (element.specialization !== "Mongo Domain Package") {
+    return;
+}
+let classes = lookupTypesOf("Class").filter(x =&gt; x.getPackage().id === element.id);
+for (let classElement of classes) {
+    const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+    let pk = classElement.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id"))[0];
+    if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
+        return;
+    }
+    const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    let idAttr = pk || createElement("Attribute", "Id", classElement.id);
+    idAttr.setOrder(0);
+    idAttr.typeReference.setType(isAggregateRoot(classElement) ? getDefaultIdType() : GuidTypeId);
+    if (!idAttr.hasMetadata("id")) {
+        idAttr.addMetadata("id", "true");
+    }
+    if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
+        idAttr.addStereotype(PrimaryKeyStereotypeId);
+    }
+}
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+function getDefaultIdType() {
+    const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const IntTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const LongTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    const MongoSettingId = "d5581fe8-7385-4bb6-88dc-8940e20ec1d4";
+    switch (application.getSettings(MongoSettingId)?.getField("Id Type")?.value) {
+        default:
+            return StringTypeId;
+        case "guid":
+            return GuidTypeId;
+        case "int":
+            return IntTypeId;
+        case "long":
+            return LongTypeId;
+    }
+}</script>
+        </macro>
+      </macros>
     </packageSetting>
   </packageSettings>
   <packageExtensions />
@@ -155,17 +201,33 @@ if (!element.hasStereotype(PrimaryKeyStereotypeId)) {
 if (!element.hasMetadata("id")) {
     return;
 }
-const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
 const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
 let idAttr = createElement("Attribute", "Id", element.getParent().id);
-idAttr.typeReference.setType(isAggregateRoot(element.getParent()) ? StringTypeId : GuidTypeId);
+idAttr.typeReference.setType(isAggregateRoot(element.getParent()) ? getDefaultIdType() : GuidTypeId);
 idAttr.setOrder(0);
 idAttr.addMetadata("id", "true");
 idAttr.addStereotype(PrimaryKeyStereotypeId);
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+function getDefaultIdType() {
+    const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const IntTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const LongTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    const MongoSettingId = "d5581fe8-7385-4bb6-88dc-8940e20ec1d4";
+    switch (application.getSettings(MongoSettingId)?.getField("Id Type")?.value) {
+        default:
+            return StringTypeId;
+        case "guid":
+            return GuidTypeId;
+        case "int":
+            return IntTypeId;
+        case "long":
+            return LongTypeId;
+    }
 }</script>
         </macro>
       </macros>
@@ -177,41 +239,32 @@ function isAggregateRoot(element) {
           <script>if (element.getPackage().specialization !== "Mongo Domain Package") {
     return;
 }
-const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
 const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
 let idAttr = createElement("Attribute", "Id", element.id);
-idAttr.typeReference.setType(isAggregateRoot(element) ? StringTypeId : GuidTypeId);
+idAttr.typeReference.setType(isAggregateRoot(element) ? getDefaultIdType() : GuidTypeId);
 idAttr.addMetadata("id", "true");
 idAttr.addStereotype(PrimaryKeyStereotypeId);
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}</script>
-        </macro>
-        <macro trigger="on-loaded">
-          <script>if (element.getPackage().specialization !== "Mongo Domain Package") {
-    return;
 }
-const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id"))[0];
-if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
-    return;
-}
-const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
-const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
-let idAttr = pk || createElement("Attribute", "Id", element.id);
-idAttr.setOrder(0);
-idAttr.typeReference.setType(isAggregateRoot(element) ? StringTypeId : GuidTypeId);
-if (!idAttr.hasMetadata("id")) {
-    idAttr.addMetadata("id", "true");
-}
-if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
-    idAttr.addStereotype(PrimaryKeyStereotypeId);
-}
-function isAggregateRoot(element) {
-    return !element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+function getDefaultIdType() {
+    const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const IntTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const LongTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    const MongoSettingId = "d5581fe8-7385-4bb6-88dc-8940e20ec1d4";
+    switch (application.getSettings(MongoSettingId)?.getField("Id Type")?.value) {
+        default:
+            return StringTypeId;
+        case "guid":
+            return GuidTypeId;
+        case "int":
+            return IntTypeId;
+        case "long":
+            return LongTypeId;
+    }
 }</script>
         </macro>
       </macros>
@@ -240,9 +293,8 @@ function isAggregateRoot(element) {
       </targetEndExtension>
       <macros>
         <macro trigger="on-changed">
-          <script>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+          <script>let targetClass = association.typeReference.getType();
 const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
-let targetClass = association.typeReference.getType();
 if (!isAggregateRoot(targetClass)) {
     targetClass.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id")).forEach(x =&gt; x.typeReference.setType(GuidTypeId));
 }
@@ -266,15 +318,30 @@ sourceEnd.setIsNullable(false);
 //targetEnd.setIsNullable(false);</script>
         </macro>
         <macro trigger="on-deleted">
-          <script>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
-const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
-let targetClass = association.typeReference.getType();
+          <script>let targetClass = association.typeReference.getType();
 if (isAggregateRoot(targetClass)) {
-    targetClass.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id")).forEach(x =&gt; x.typeReference.setType(StringTypeId));
+    targetClass.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id")).forEach(x =&gt; x.typeReference.setType(getDefaultIdType()));
 }
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+function getDefaultIdType() {
+    const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const IntTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const LongTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    const MongoSettingId = "d5581fe8-7385-4bb6-88dc-8940e20ec1d4";
+    switch (application.getSettings(MongoSettingId)?.getField("Id Type")?.value) {
+        default:
+            return StringTypeId;
+        case "guid":
+            return GuidTypeId;
+        case "int":
+            return IntTypeId;
+        case "long":
+            return LongTypeId;
+    }
 }</script>
         </macro>
       </macros>
