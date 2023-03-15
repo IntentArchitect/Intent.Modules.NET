@@ -22,7 +22,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.Event
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class EventTemplate : CSharpTemplateBase<Intent.Modelers.Eventing.Api.MessageModel>
     {
@@ -34,77 +34,77 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.Event
         {
             this.Write("[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventInterfaceName()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        public const string PubsubName = ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(PubsubName()));
             
             #line default
             #line hidden
             this.Write(";\r\n        public const string TopicName = ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TopicName()));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\n");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
  foreach (var property in Model.Properties) { 
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(property)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Name.ToPascalCase()));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n\r\n");
             
-            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
  }
             
             #line default
             #line hidden
             this.Write("        string ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventInterfaceName()));
             
             #line default
             #line hidden
             this.Write(".PubsubName => PubsubName;\r\n\r\n        string ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.PubSub\Templates\Event\EventTemplate.tt"
+            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Pubsub\Templates\Event\EventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventInterfaceName()));
             
             #line default

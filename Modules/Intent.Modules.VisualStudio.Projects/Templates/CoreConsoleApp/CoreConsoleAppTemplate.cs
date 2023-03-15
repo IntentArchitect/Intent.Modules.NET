@@ -32,11 +32,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreConsoleApp
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\n");
             this.Write("<Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n  <PropertyGroup>\r\n    <OutputType>Exe</Outp" +
                     "utType>\r\n    <TargetFramework>");
             
-            #line 13 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreConsoleApp\CoreConsoleAppTemplate.tt"
+            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreConsoleApp\CoreConsoleAppTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(";", Model.TargetFrameworkVersion())));
             
             #line default

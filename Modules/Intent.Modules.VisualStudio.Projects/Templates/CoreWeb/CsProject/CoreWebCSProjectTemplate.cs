@@ -35,18 +35,17 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
         {
             this.Write(" \r\n");
             this.Write(" \r\n");
-            this.Write("\n");
             this.Write("<Project Sdk=\"Microsoft.NET.Sdk.Web\">\r\n\r\n  <PropertyGroup>\r\n    <TargetFramework>" +
                     "");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
+            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Project.TargetFramework()));
             
             #line default
             #line hidden
             this.Write("</TargetFramework>\r\n  </PropertyGroup>\r\n\r\n");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
   if (Project.IsNetCore2App()) { 
             
             #line default
@@ -62,7 +61,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.CsProject
 
 ");
             
-            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
+            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.VisualStudio.Projects\Templates\CoreWeb\CsProject\CoreWebCSProjectTemplate.tt"
   } 
             
             #line default

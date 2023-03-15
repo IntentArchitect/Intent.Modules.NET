@@ -33,25 +33,24 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\n");
             this.Write("using AutoMapper;\r\nusing System;\r\nusing System.Linq;\r\nusing System.Reflection;\r\n\r" +
                     "\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
+            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
+            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : Profile\r\n    {\r\n        public  ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
+            #line 22 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -67,7 +66,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
                 .Where(t => t.GetInterfaces().Any(i => 
                     i.IsGenericType && i.GetGenericTypeDefinition() == typeof(");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
+            #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.AutoMapper\Templates\MappingProfile\MappingProfileTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(MapFromInterfaceTemplate.TemplateId)));
             
             #line default
