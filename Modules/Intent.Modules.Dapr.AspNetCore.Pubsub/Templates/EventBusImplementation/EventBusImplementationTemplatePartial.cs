@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventInterface;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -39,7 +40,10 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventBusImplementation
                     .AddMethod("void", "Publish", method => method
                         .AddGenericParameter("T")
                         .AddParameter("T", "@event")
-                        .AddGenericTypeConstraint("T", constraint => constraint.AddType(this.GetEventInterfaceName()))
+                        .AddGenericTypeConstraint("T", constraint => constraint
+                            .AddType("class")
+                            .AddType(this.GetEventInterfaceName())
+                        )
                         .AddStatement("_events.Enqueue(@event);")
                     )
                     .AddMethod("Task", "FlushAllAsync", method => method

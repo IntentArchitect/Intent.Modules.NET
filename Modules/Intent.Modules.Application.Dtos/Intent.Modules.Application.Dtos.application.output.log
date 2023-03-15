@@ -50,6 +50,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>46c19c5b-e077-4034-8500-9ea314fc27d7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#01ec660f-aff6-4b87-b5be-942eccb1799a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ContractEnumModel/ContractEnumModelTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContractEnumModel/ContractEnumModelTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>46c19c5b-e077-4034-8500-9ea314fc27d7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#01ec660f-aff6-4b87-b5be-942eccb1799a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ContractEnumModel/ContractEnumModelTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContractEnumModel/ContractEnumModelTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>46c19c5b-e077-4034-8500-9ea314fc27d7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#01ec660f-aff6-4b87-b5be-942eccb1799a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ContractEnumModel/ContractEnumModelTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ContractEnumModel/ContractEnumModelTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>46c19c5b-e077-4034-8500-9ea314fc27d7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#b0eb283a-13f0-4d72-8000-917fa9550574</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DtoModel/DtoModelDecorator.cs</ApplicationRelativeFilePath>

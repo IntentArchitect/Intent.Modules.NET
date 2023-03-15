@@ -1,17 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
-using Intent.Entities.Api;
-using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
-using Intent.Modules.Entities.Templates.DomainEntityState;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -38,23 +30,6 @@ namespace Intent.Modules.Entities.Templates.DomainEnum
                 className: $"{Model.Name.ToPascalCase()}",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
-        }
-
-        private string GetEnumAttributes()
-        {
-            return Model.HasFlags() ? $@"[{UseType("System.Flags")}]
-        " : string.Empty;
-        }
-
-        private static string GetEnumLiterals(IEnumerable<EnumLiteralModel> literals)
-        {
-            return string.Join(@",
-            ", literals.Select(GetEnumLiteral));
-        }
-
-        private static string GetEnumLiteral(EnumLiteralModel literal)
-        {
-            return $"{literal.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper)}{(string.IsNullOrWhiteSpace(literal.Value) ? "" : $" = {literal.Value}")}";
         }
     }
 }

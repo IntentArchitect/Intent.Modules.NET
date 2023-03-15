@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -31,6 +32,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             AddTypeSource(TemplateFulfillingRoles.Domain.Enum, "List<{0}>");
             FulfillsRole(TemplateFulfillingRoles.Application.Contracts.Dto);
+            AddTypeSource(ContractEnumModelTemplate.TemplateId, "List<{0}>");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

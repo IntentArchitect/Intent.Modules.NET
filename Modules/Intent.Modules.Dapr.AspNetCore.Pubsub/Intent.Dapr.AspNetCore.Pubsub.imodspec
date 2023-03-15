@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore.Pubsub</id>
-  <version>1.0.1-pre.1</version>
+  <version>1.0.1-pre.2</version>
   <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
   <summary>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</summary>
   <description>Generates event handlers utilizing MediatR and provides a lightweight unit-of-work based abstraction for publishing events for Dapr's "publish and subscribe" building block.</description>
@@ -17,14 +17,6 @@
       <role>Distribution.WebApi</role>
       <location>Controllers</location>
     </template>
-    <template id="Intent.Dapr.AspNetCore.Pubsub.Event" externalReference="3ee32e9f-14f8-4b1a-b073-f5aab5418a83">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Event</role>
-      <location>IntegrationEvents</location>
-    </template>
     <template id="Intent.Dapr.AspNetCore.Pubsub.EventBusImplementation" externalReference="140811e5-8849-456a-a8d3-aa1b92ef9b01">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -32,22 +24,6 @@
       </config>
       <role>Application.Eventing.EventBusImplementation</role>
       <location>Common/Eventing</location>
-    </template>
-    <template id="Intent.Dapr.AspNetCore.Pubsub.EventBusInterface" externalReference="246068c9-19c0-4f51-8a7e-1d98beb4b3c0">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventBusInterface</role>
-      <location>Common/Eventing</location>
-    </template>
-    <template id="Intent.Dapr.AspNetCore.Pubsub.EventBusPublishBehaviour" externalReference="cd117e63-dce2-4b28-8d02-b4299cfe85fd">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Common</role>
-      <location>Common/Behaviours</location>
     </template>
     <template id="Intent.Dapr.AspNetCore.Pubsub.EventHandler" externalReference="4211c97c-c4e6-4f2f-9adf-e2d8f7814549">
       <config>
@@ -67,15 +43,18 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Dapr.AspNetCore.Pubsub.DaprEventingFactoryExtension" externalReference="b27245c4-1e73-423c-bca5-5897e32ae959" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.3.7" />
     <dependency id="Intent.Common" version="3.3.19" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28" />
+    <dependency id="Intent.Common.CSharp" version="3.3.29-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Dapr.AspNetCore" version="1.0.0" />
-    <dependency id="Intent.Modelers.Eventing" version="4.0.1" />
+    <dependency id="Intent.Eventing.Contracts" version="4.0.1-pre.0" />
+    <dependency id="Intent.Modelers.Eventing" version="4.0.2-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>

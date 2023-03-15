@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>3.3.9</Version>
+    <Version>3.3.10-pre.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -23,6 +23,10 @@
       <LastGenOutput>DtoModelTemplate.cs</LastGenOutput>
       <Generator>TextTemplatingFilePreprocessor</Generator>
     </None>
+    <None Update="Templates\EnumModel\EnumModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EnumModelTemplate.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +43,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DtoModelTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\EnumModel\EnumModelTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EnumModelTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
 
 </Project>

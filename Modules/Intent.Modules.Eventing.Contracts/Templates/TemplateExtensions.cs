@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
@@ -16,6 +18,26 @@ namespace Intent.Modules.Eventing.Contracts.Templates
         public static string GetEventBusInterfaceName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(EventBusInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetIntegrationEventDtoName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Eventing.Api.EventingDTOModel
+        {
+            return template.GetTypeName(IntegrationEventDtoTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventDtoName(this IntentTemplateBase template, Intent.Modelers.Eventing.Api.EventingDTOModel model)
+        {
+            return template.GetTypeName(IntegrationEventDtoTemplate.TemplateId, model);
+        }
+
+        public static string GetIntegrationEventEnumName<T>(this IntentTemplateBase<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
+        {
+            return template.GetTypeName(IntegrationEventEnumTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetIntegrationEventEnumName(this IntentTemplateBase template, Intent.Modules.Common.Types.Api.EnumModel model)
+        {
+            return template.GetTypeName(IntegrationEventEnumTemplate.TemplateId, model);
         }
 
         public static string GetIntegrationEventHandlerInterfaceName<T>(this IntentTemplateBase<T> template)

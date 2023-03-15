@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Contracts.Clients</id>
-  <version>3.3.10-pre.0</version>
+  <version>3.3.10-pre.1</version>
   <supportedClientVersions>[3.3.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Creates generic client application service contracts.</summary>
   <description>Creates generic client application service contracts.</description>
@@ -15,6 +15,14 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Application.Contracts.Clients.Dto</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.Contracts.Clients.EnumContract" externalReference="8c81dc9b-7e19-45eb-a160-d442d344c435">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contracts.Clients.Enum</role>
       <location></location>
     </template>
     <template id="Intent.Application.Contracts.Clients.ServiceContract" externalReference="698aee1a-f01b-434f-8cf7-6acf45153f4e">
@@ -33,8 +41,9 @@
     <dependency id="Intent.Common" version="3.3.11" />
     <dependency id="Intent.Common.CSharp" version="3.3.18" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Modelers.ServiceProxies" version="3.3.6" />
     <dependency id="Intent.Metadata.WebApi" version="3.3.9" />
+    <dependency id="Intent.Modelers.ServiceProxies" version="3.3.6" />
+    <dependency id="Intent.Modelers.Types.ServiceProxies" version="3.3.7-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>

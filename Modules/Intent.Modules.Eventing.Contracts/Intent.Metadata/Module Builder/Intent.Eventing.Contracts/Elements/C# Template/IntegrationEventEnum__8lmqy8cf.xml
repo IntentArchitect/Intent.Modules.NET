@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="cd117e63-dce2-4b28-8d02-b4299cfe85fd" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>EventBusPublishBehaviour</name>
-  <display>EventBusPublishBehaviour: Single File</display>
+<class id="fba9737c-17d5-4d00-8d1d-14c0b1ad32a0" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>IntegrationEventEnum</name>
+  <display>IntegrationEventEnum: File Per Model</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="509e79ef-acb6-4ff5-88c6-ee5c95f50cea">
-    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
+  <typeReference id="06b656a4-56bd-4114-907c-08a755833429">
+    <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -16,16 +16,16 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</parentFolderId>
-  <packageId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</packageId>
-  <packageName>Intent.Dapr.AspNetCore.Pubsub</packageName>
+  <parentFolderId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</parentFolderId>
+  <packageId>bb2cc56b-8ccb-4f2e-bdf8-c019af951209</packageId>
+  <packageName>Intent.Eventing.Contracts</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
-        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="C# File Builder" isActive="true" />
+        <property name="3b9e1f1b-e253-4c04-89aa-30fef0a9bfa8" display="Templating Method" value="String Interpolation" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">
@@ -34,11 +34,11 @@
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
         <property name="a9de6cf5-6d4f-4ae1-aa60-5ca85e458709" display="Source" value="Lookup Type" isActive="true" />
-        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
-        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
+        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="822e4254-9ced-4dd1-ad56-500b861f7e4d" isActive="true" />
+        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="85fba0e9-9161-4c85-a603-a229ef312beb" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Common" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Common/Behaviours" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Eventing.Enum" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="IntegrationEvents" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

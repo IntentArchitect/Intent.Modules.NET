@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
+using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -20,6 +21,16 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates
         public static string GetDtoContractName(this IntentTemplateBase template, Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyDTOModel model)
         {
             return template.GetTypeName(DtoContractTemplate.TemplateId, model);
+        }
+
+        public static string GetEnumContractName<T>(this IntentTemplateBase<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
+        {
+            return template.GetTypeName(EnumContractTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetEnumContractName(this IntentTemplateBase template, Intent.Modules.Common.Types.Api.EnumModel model)
+        {
+            return template.GetTypeName(EnumContractTemplate.TemplateId, model);
         }
 
         public static string GetServiceContractName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Types.ServiceProxies.Api.ServiceProxyModel

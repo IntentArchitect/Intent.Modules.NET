@@ -34,22 +34,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#c05c51e0-a3d4-4a0b-8c66-2855263c672f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusInterface/EventBusInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusInterface/EventBusInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#c05c51e0-a3d4-4a0b-8c66-2855263c672f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusInterface/EventBusInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusInterface/EventBusInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c05c51e0-a3d4-4a0b-8c66-2855263c672f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EventBusInterface/EventBusInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -66,18 +50,42 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#bb18f0ef-9468-4367-8400-b9b76fe520ba</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#dbd1b803-bd6e-4336-89ef-2901e3e70331</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplate.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventDto/IntegrationEventDtoTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventDto/IntegrationEventDtoTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#bb18f0ef-9468-4367-8400-b9b76fe520ba</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#dbd1b803-bd6e-4336-89ef-2901e3e70331</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplate.tt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventDto/IntegrationEventDtoTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventDto/IntegrationEventDtoTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#fba9737c-17d5-4d00-8d1d-14c0b1ad32a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventEnum/IntegrationEventEnumTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventEnum/IntegrationEventEnumTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fba9737c-17d5-4d00-8d1d-14c0b1ad32a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventEnum/IntegrationEventEnumTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventEnum/IntegrationEventEnumTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#fba9737c-17d5-4d00-8d1d-14c0b1ad32a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/IntegrationEventEnum/IntegrationEventEnumTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationEventEnum/IntegrationEventEnumTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -94,22 +102,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventHandlerInterface/IntegrationEventHandlerInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#daa7500d-9c30-44e3-a59f-d189721a292e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/IntegrationEventMessage/IntegrationEventMessageTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationEventMessage/IntegrationEventMessageTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#daa7500d-9c30-44e3-a59f-d189721a292e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/IntegrationEventMessage/IntegrationEventMessageTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationEventMessage/IntegrationEventMessageTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

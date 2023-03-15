@@ -1,6 +1,7 @@
 ### Version 3.3.10
 
 - Generated DTOs now respect the `Serialization Settings` stereotype.
+- Used Enums will now also be generated.
 
 ### Version 3.3.8
 

@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -32,7 +33,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                 .AddUsing("MediatR")
                 .IntentManagedFully()
                 .AddClass($"{Model.Name.RemoveSuffix("Event", "Message")}EventHandler", @class => @class
-                    .ImplementsInterface($"IRequestHandler<{this.GetEventName()}>")
+                    .ImplementsInterface($"IRequestHandler<{this.GetIntegrationEventMessageName()}>")
                     .AddAttribute("[IntentManaged(Mode.Merge, Body = Mode.Fully)]")
                     .AddConstructor(constructor => constructor
                         .AddAttribute("[IntentManaged(Mode.Ignore)]")
@@ -40,7 +41,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                     .AddMethod("Task<Unit>", "Handle", method => method
                         .Async()
                         .AddAttribute("[IntentManaged(Mode.Fully, Body = Mode.Ignore)]")
-                        .AddParameter(this.GetEventName(), "@event")
+                        .AddParameter(this.GetIntegrationEventMessageName(), "@event")
                         .AddParameter("CancellationToken", "cancellationToken")
                         .AddStatement("throw new NotImplementedException();")
                     )

@@ -13,23 +13,41 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.Contracts.Templates.EventBusInterface
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class EventBusInterfaceTemplate : CSharpTemplateBase<object>
+    public partial class EventBusInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.Contracts.EventBusInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EventBusInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddInterface("IEventBus", @interface => @interface
+                    .AddMethod("void", "Publish", m => m
+                        .AddGenericParameter("T")
+                        .AddParameter("T", "message")
+                        .AddGenericTypeConstraint("T", c => c.AddType("class"))
+                    )
+                    .AddMethod("Task", "FlushAllAsync", m => m
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                    )
+                );
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"IEventBus",
-                @namespace: $"{this.GetNamespace()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+            return CSharpFile.GetConfig();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b27245c4-1e73-423c-bca5-5897e32ae959" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DaprEventingFactoryExtension</name>
+  <display>DaprEventingFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</parentFolderId>
+  <packageId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</packageId>
+  <packageName>Intent.Dapr.AspNetCore.Pubsub</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

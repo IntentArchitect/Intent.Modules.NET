@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -13,7 +14,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class IntegrationEventMessageTemplate : CSharpTemplateBase<MessageModel>
+    public partial class IntegrationEventMessageTemplate : CSharpTemplateBase<MessageModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Eventing.Contracts.IntegrationEventMessage";
 
@@ -22,15 +23,32 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
         {
             AddTypeSource(TemplateId);
             AddTypeSource("Domain.Enum");
+            CSharpFile = new CSharpFile(
+                    @namespace: Model.InternalElement.Package.Name.ToPascalCase(),
+                    relativeLocation: this.GetFolderPath())
+                .AddRecord($"{Model.Name.RemoveSuffix("Event")}Event", record =>
+                {
+                    foreach (var property in Model.Properties)
+                    {
+                        record.AddProperty(GetTypeName(property.TypeReference), property.Name.ToPascalCase(), p => p
+                            .Init());
+                    }
+                });
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                className: $"{Model.Name.RemoveSuffix("Event")}Event",
-                @namespace: $"{Model.InternalElement.Package.Name.ToPascalCase()}",
-                relativeLocation: $"{this.GetFolderPath()}");
+            return CSharpFile.GetConfig();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
     }
 }

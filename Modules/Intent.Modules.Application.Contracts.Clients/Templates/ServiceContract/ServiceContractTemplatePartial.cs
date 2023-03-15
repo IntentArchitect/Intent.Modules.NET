@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
+using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
@@ -25,6 +26,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServiceContractTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(EnumContractTemplate.TemplateId, "List<{0}>");
             AddTypeSource(DtoContractTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
         }
@@ -57,7 +59,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
 
             return $"Task<{GetTypeName(o.ReturnType)}>";
         }
-        
+
         private string GetOperationName(OperationModel operation)
         {
             return $"{operation.Name.ToPascalCase().RemoveSuffix("Async")}Async";

@@ -5,6 +5,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -28,6 +29,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
             AddTypeSource(TemplateId, "List<{0}>");
             AddTypeSource("Domain.Enum", "List<{0}>");
+            AddTypeSource(EnumContractTemplate.TemplateId, "List<{0}>");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

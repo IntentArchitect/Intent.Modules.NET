@@ -17,6 +17,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>57a6baba-6de0-4d3d-810b-f3429bc8b6df</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b27245c4-1e73-423c-bca5-5897e32ae959</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DaprEventingFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprEventingFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8857d329-9cb0-449a-9c01-94eb3dfb73e0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -58,38 +66,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#3ee32e9f-14f8-4b1a-b073-f5aab5418a83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Event/EventTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Event/EventTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#3ee32e9f-14f8-4b1a-b073-f5aab5418a83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Event/EventTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Event/EventTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3ee32e9f-14f8-4b1a-b073-f5aab5418a83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Event/EventTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Event/EventTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3ee32e9f-14f8-4b1a-b073-f5aab5418a83</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Event/EventTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Event/EventTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#140811e5-8849-456a-a8d3-aa1b92ef9b01</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EventBusImplementation/EventBusImplementationTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -102,38 +78,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EventBusImplementation/EventBusImplementationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EventBusImplementation/EventBusImplementationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#246068c9-19c0-4f51-8a7e-1d98beb4b3c0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusInterface/EventBusInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusInterface/EventBusInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#246068c9-19c0-4f51-8a7e-1d98beb4b3c0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusInterface/EventBusInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusInterface/EventBusInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cd117e63-dce2-4b28-8d02-b4299cfe85fd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusPublishBehaviour/EventBusPublishBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour/EventBusPublishBehaviourTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>778dd7fb-92f9-4ed9-aa2b-970b60cc8d8b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#cd117e63-dce2-4b28-8d02-b4299cfe85fd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/EventBusPublishBehaviour/EventBusPublishBehaviourTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EventBusPublishBehaviour/EventBusPublishBehaviourTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

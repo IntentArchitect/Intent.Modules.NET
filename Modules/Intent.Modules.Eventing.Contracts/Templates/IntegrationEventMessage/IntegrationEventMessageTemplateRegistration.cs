@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -34,7 +35,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<MessageModel> GetModels(IApplication application)
         {
-            return _metadataManager.Eventing(application).GetMessageModels();
+            return _metadataManager.GetSubscribedToMessageModels(application).Union(_metadataManager.GetPublishedMessageModels(application));
         }
     }
 }

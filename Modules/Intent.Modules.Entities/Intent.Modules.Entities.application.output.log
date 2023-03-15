@@ -170,18 +170,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEnum/DomainEnumTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainEnum/DomainEnumTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4a8d0a0a-d9fd-4d93-b3f6-eff19dd6c732</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DomainEnum/DomainEnumTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEnum/DomainEnumTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

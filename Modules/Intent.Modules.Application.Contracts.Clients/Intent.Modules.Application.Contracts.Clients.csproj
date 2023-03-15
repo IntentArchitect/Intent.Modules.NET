@@ -10,6 +10,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.18" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.9" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="3.3.5" />
+    <PackageReference Include="Intent.Modules.Modelers.Types.ServiceProxies" Version="3.3.7-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -49,5 +50,7 @@
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
 
 </Project>
