@@ -1,3 +1,7 @@
+### Version 3.3.10
+
+- Generated DTOs now respect the `Serialization Settings` stereotype.
+
 ### Version 3.3.8
 
 - Fixed: Operation name suffix "Async" added.

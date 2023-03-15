@@ -124,7 +124,13 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
             
             #line default
             #line hidden
-            this.Write("        public ");
+            
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\DtoContract\DtoContractTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetAttributes(field)));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        public ");
             
             #line 31 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Contracts.Clients\Templates\DtoContract\DtoContractTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetTypeName(field.TypeReference)));

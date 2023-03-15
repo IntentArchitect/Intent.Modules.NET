@@ -27,7 +27,7 @@ namespace <#= Namespace #>
 <#
     foreach (var field in Model.Fields)
     {
-#>
+#><#= GetAttributes(field) #>
         public <#= GetTypeName(field.TypeReference) #> <#= field.Name.ToPascalCase() #> { get; set; }
 <#
     }
