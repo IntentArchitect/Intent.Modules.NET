@@ -73,7 +73,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
 
             if (typeReference.IsCollection)
             {
-                property.WithInitialValue($"new {UseType("System.Collections.Generic.List")}<{GetTypeName((IElement)typeReference.Element)}>()");
+                property.WithInitialValue($"new {GetTypeName(typeReference, UseType("System.Collections.Generic.List<{0}>"))}()");
             }
         });
     }
