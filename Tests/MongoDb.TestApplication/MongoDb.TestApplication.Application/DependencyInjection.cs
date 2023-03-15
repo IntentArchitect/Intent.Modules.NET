@@ -18,7 +18,10 @@ namespace MongoDb.TestApplication.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IIdGuidsService, IdGuidsService>();
+            services.AddTransient<IIdIntsService, IdIntsService>();
+            services.AddTransient<IIdLongsService, IdLongsService>();
+            services.AddTransient<IIdObjectIdsService, IdObjectIdsService>();
             services.AddTransient<IValidationService, ValidationService>();
             return services;
         }

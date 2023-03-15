@@ -33,7 +33,10 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetService<ApplicationMongoDbContext>());
             services.AddTransient<IMongoDbContext>(provider => provider.GetService<ApplicationMongoDbContext>());
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IIdGuidRepository, IdGuidRepository>();
+            services.AddTransient<IIdIntRepository, IdIntRepository>();
+            services.AddTransient<IIdLongRepository, IdLongRepository>();
+            services.AddTransient<IIdObjectIdRepository, IdObjectIdRepository>();
             services.AddMongoDbUnitOfWork();
             services.AddMongoDbUnitOfWork<ApplicationMongoDbContext>();
             return services;

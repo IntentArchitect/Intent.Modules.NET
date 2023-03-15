@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -54,28 +55,35 @@ namespace Intent.Modules.MongoDb.Templates.BsonClassMap
 
         private CSharpStatement GetIdRegistrationStatements()
         {
-            switch (ExecutionContext.Settings.GetMongoDB().IdType().AsEnum())
+            var pk = Model.GetExplicitPrimaryKey().Single();
+
+            if (pk.Type.Element.IsStringType())
             {
-                case MongoDB.IdTypeOptionsEnum.ObjectId:
-                    return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
-                        .AddChainStatement("SetIdGenerator(StringObjectIdGenerator.Instance)")
-                        .AddChainStatement("SetSerializer(new StringSerializer(BsonType.ObjectId))");
-                case MongoDB.IdTypeOptionsEnum.Guid:
-                    return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
-                        .AddChainStatement("SetIdGenerator(GuidGenerator.Instance)");
-                case MongoDB.IdTypeOptionsEnum.Int:
-                    AddNugetDependency(NugetPackages.MongoDBDataGenerators);
-                    AddUsing("MongoDB.Generators");
-                    return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
-                        .AddChainStatement($"SetIdGenerator(Int32IdGenerator<{GetTypeName(Model.InternalElement)}>.Instance)");
-                case MongoDB.IdTypeOptionsEnum.Long:
-                    AddNugetDependency(NugetPackages.MongoDBDataGenerators);
-                    AddUsing("MongoDB.Generators");
-                    return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
-                        .AddChainStatement($"SetIdGenerator(Int64IdGenerator<{GetTypeName(Model.InternalElement)}>.Instance)");
-                default:
-                    throw new ArgumentOutOfRangeException();
+                return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
+                    .AddChainStatement("SetIdGenerator(StringObjectIdGenerator.Instance)")
+                    .AddChainStatement("SetSerializer(new StringSerializer(BsonType.ObjectId))");
             }
+            if (pk.Type.Element.IsGuidType())
+            {
+                return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
+                    .AddChainStatement("SetIdGenerator(GuidGenerator.Instance)");
+            }
+            if (pk.Type.Element.IsIntType())
+            {
+                AddNugetDependency(NugetPackages.MongoDBDataGenerators);
+                AddUsing("MongoDB.Generators");
+                return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
+                    .AddChainStatement($"SetIdGenerator(Int32IdGenerator<{GetTypeName(Model.InternalElement)}>.Instance)");
+            }
+            if (pk.Type.Element.IsLongType())
+            {
+                AddNugetDependency(NugetPackages.MongoDBDataGenerators);
+                AddUsing("MongoDB.Generators");
+                return new CSharpMethodChainStatement("build.MapIdProperty(c => c.Id)")
+                    .AddChainStatement($"SetIdGenerator(Int64IdGenerator<{GetTypeName(Model.InternalElement)}>.Instance)");
+            }
+
+            throw new InvalidOperationException($"Given Type [{pk.Type.Element.Name}] is not valid for an Id for Element {Model.Name} [{Model.Id}].");
         }
 
         [IntentManaged(Mode.Fully)]
