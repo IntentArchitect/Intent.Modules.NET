@@ -11,6 +11,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
     public interface IIntegrationEventHandler<TMessage>
         where TMessage : class
     {
+
         Task HandleAsync(TMessage message, CancellationToken cancellationToken = default);
     }
 }
