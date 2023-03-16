@@ -46,6 +46,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.MassTransit.DefaultOutboxPatternConfigurator" externalReference="1c617d6b-f121-4cb3-a91e-c87968c0a47d" />
     <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropInstaller" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
+    <factoryExtension id="Intent.Eventing.MassTransit.IntegrationEventMessageEnhancer" externalReference="75840da1-9946-4375-845b-78aad753a902" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
@@ -101,11 +102,11 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.3.16" />
-    <dependency id="Intent.Common.CSharp" version="3.3.25" />
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.29-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Eventing.Contracts" version="4.0.0" />
-    <dependency id="Intent.Modelers.Eventing" version="4.0.1" />
+    <dependency id="Intent.Eventing.Contracts" version="4.0.1-pre.0" />
+    <dependency id="Intent.Modelers.Eventing" version="4.0.2-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>

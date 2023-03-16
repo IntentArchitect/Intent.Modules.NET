@@ -1,3 +1,7 @@
+### Version 4.0.4
+
+- Update: Event Messages will now contain Correlation Ids which may be optionally set.
+
 ### Version 4.0.1
 
 - Update: Extracted Interfaces into separate Contracts module.
