@@ -27,7 +27,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistra
         [IntentManaged(Mode.Ignore)]
         protected override ITemplate CreateTemplate(IOutputTarget outputTarget, string fileFullPath, string fileRelativePath, OverwriteBehaviour defaultOverwriteBehaviour)
         {
-            fileRelativePath = $"../dapr/components/{fileRelativePath}";
+            fileRelativePath = $"dapr/components/{fileRelativePath}";
 
             return base.CreateTemplate(outputTarget, fileFullPath, fileRelativePath, defaultOverwriteBehaviour);
         }
