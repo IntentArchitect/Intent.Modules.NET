@@ -16,7 +16,7 @@
   <interoperability>
     <detect id="Intent.AspNetCore.Controllers">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContracts" version="4.1.0-pre.0" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract" version="4.1.0-pre.0" />
       </install>
     </detect>
   </interoperability>
