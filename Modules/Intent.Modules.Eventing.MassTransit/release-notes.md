@@ -1,3 +1,8 @@
+### Version 4.0.4
+
+- New: Interoperability with Open Telemetry Module.
+- Update: Event Messages will now contain Correlation Ids which may be optionally set.
+
 ### Version 4.0.1
 
 - Update: Extracted Interfaces into separate Contracts module.

@@ -181,6 +181,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassModel model)
         {
+            if (model.HasView())
+            {
+                yield return $@"builder.ToView(""{model.GetView()?.Name() ?? model.Name.Pluralize()}""{(!string.IsNullOrWhiteSpace(model.GetView()?.Schema()) ? @$", ""{model.GetView().Schema()}""" : "")});";
+            }
             if (model.IsAggregateRoot())
             {
                 if (model.HasTable() && (model.ParentClass != null || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))

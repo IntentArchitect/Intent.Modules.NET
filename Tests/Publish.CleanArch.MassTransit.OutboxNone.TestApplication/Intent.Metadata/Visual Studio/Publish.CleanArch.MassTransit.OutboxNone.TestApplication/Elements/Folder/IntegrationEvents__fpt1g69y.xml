@@ -37,5 +37,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="2cb9cc07-1f4c-4379-bfe6-2d6def2c700d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventDto</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventDto</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="69b7fcdc-0464-4881-981d-dd60db1cef19" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventEnum</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventEnum</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

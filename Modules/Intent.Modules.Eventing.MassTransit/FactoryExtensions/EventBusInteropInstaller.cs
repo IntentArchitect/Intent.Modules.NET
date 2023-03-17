@@ -63,7 +63,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
             {
                 return;
             }
-            
+
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Application.Services.Controllers));
             foreach (var template in templates)
             {

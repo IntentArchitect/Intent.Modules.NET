@@ -103,6 +103,5 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
                 Attribute = dto.Attribute,
             };
         }
-
     }
 }

@@ -124,6 +124,20 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="ffada03d-a549-433f-9401-bfabcc4d6520" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.Dtos.ContractEnumModel</name>
+          <display>Intent.Application.Dtos.ContractEnumModel</display>
+          <externalReference>Intent.Application.Dtos</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cc2e2cf1-e802-4326-8c36-dfbe725411af</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>
