@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             ImplicitKeyAggrRoot addedImplicitKeyAggrRoot = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.OnAdd(ent => addedImplicitKeyAggrRoot = ent);
-            repository.OnSave(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRoot.Id);
+            repository.OnSaveChanges(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRoot.Id);
 
             var sut = new CreateImplicitKeyAggrRootCommandHandler(repository);
 
@@ -54,7 +54,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             ImplicitKeyAggrRoot addedImplicitKeyAggrRoot = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.OnAdd(ent => addedImplicitKeyAggrRoot = ent);
-            repository.OnSave(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRoot.Id);
+            repository.OnSaveChanges(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRoot.Id);
 
             var sut = new CreateImplicitKeyAggrRootCommandHandler(repository);
             // Act

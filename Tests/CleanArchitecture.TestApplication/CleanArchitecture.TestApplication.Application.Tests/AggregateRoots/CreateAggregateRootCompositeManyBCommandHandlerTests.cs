@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             CompositeManyB addedCompositeManyB = null;
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(owner));
-            repository.OnSave(
+            repository.OnSaveChanges(
                 () =>
                 {
                     addedCompositeManyB = owner.Composites.Single(p => p.Id == default);

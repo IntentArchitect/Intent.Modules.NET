@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             AggregateRootLong addedAggregateRootLong = null;
             var repository = Substitute.For<IAggregateRootLongRepository>();
             repository.OnAdd(ent => addedAggregateRootLong = ent);
-            repository.OnSave(() => addedAggregateRootLong.Id = expectedAggregateRootLong.Id);
+            repository.OnSaveChanges(() => addedAggregateRootLong.Id = expectedAggregateRootLong.Id);
 
             var sut = new CreateAggregateRootLongCommandHandler(repository);
 

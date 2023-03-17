@@ -19,7 +19,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.Extensions
             repository.When(x => x.Add(Arg.Any<TDomain>())).Do(ci => addAction(ci.Arg<TDomain>()));
         }
 
-        public static void OnSave<TDomain, TPersistence>(this IRepository<TDomain, TPersistence> repository, Action saveAction)
+        public static void OnSaveChanges<TDomain, TPersistence>(this IRepository<TDomain, TPersistence> repository, Action saveAction)
         {
             repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());
         }

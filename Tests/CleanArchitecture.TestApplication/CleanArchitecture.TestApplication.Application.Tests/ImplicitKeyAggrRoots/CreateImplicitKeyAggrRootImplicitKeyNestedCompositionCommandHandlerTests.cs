@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(owner));
-            repository.OnSave(
+            repository.OnSaveChanges(
                 () =>
                 {
                     addedImplicitKeyNestedComposition = owner.ImplicitKeyNestedCompositions.Single(p => p.Id == default);
