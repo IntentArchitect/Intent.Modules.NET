@@ -76,7 +76,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                 var telemTranceStmt = (CSharpInvocationStatement)telemConfigStmt.FindStatement(stmt => stmt.HasMetadata("telemetry-tracing"));
                 var traceChain = (CSharpMethodChainStatement)((CSharpLambdaBlock)telemTranceStmt.Statements.First()).Statements.First();
 
-                if (ExecutionContext.Settings.GetOpenTelemetry().HttpInstrumentation())
+                if (ExecutionContext.Settings.GetOpenTelemetry().HTTPInstrumentation())
                 {
                     AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp);
                     traceChain.AddChainStatement("AddHttpClientInstrumentation()");
@@ -109,7 +109,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             .ToRegister("AddTelemetryConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
             .ForConcern("Infrastructure")
             .HasDependency(this));
-        
+
         switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
         {
             case Settings.OpenTelemetry.ExportOptionsEnum.ApplicationInsights:

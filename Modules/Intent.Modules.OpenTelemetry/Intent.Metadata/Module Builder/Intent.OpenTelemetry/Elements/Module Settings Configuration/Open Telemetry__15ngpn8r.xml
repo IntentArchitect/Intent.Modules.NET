@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Http Instrumentation</name>
-      <display>Http Instrumentation</display>
+      <name>HTTP Instrumentation</name>
+      <display>HTTP Instrumentation</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

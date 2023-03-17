@@ -39,7 +39,7 @@ namespace Intent.Modules.OpenTelemetry.Settings
             return _groupSettings.GetSetting(settingId);
         }
 
-        public bool HttpInstrumentation() => bool.TryParse(_groupSettings.GetSetting("d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01")?.Value.ToPascalCase(), out var result) && result;
+        public bool HTTPInstrumentation() => bool.TryParse(_groupSettings.GetSetting("d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01")?.Value.ToPascalCase(), out var result) && result;
 
         public bool SQLInstrumentation() => bool.TryParse(_groupSettings.GetSetting("14d18546-83cd-46b6-8d0e-c9d098ece8e0")?.Value.ToPascalCase(), out var result) && result;
         public ExportOptions Export() => new ExportOptions(_groupSettings.GetSetting("ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e")?.Value);
