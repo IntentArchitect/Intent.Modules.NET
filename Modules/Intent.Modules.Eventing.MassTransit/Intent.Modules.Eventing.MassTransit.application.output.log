@@ -28,8 +28,8 @@
       <ProjectId>7b285d4f-92ca-4fcd-81d1-dd793eb0e36d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#75840da1-9946-4375-845b-78aad753a902</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/IntegrationEventMessageEnhancer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationEventMessageEnhancer.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/TelemetryConfigurator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TelemetryConfigurator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

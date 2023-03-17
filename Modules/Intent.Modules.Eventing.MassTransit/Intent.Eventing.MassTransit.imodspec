@@ -46,7 +46,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.MassTransit.DefaultOutboxPatternConfigurator" externalReference="1c617d6b-f121-4cb3-a91e-c87968c0a47d" />
     <factoryExtension id="Intent.Eventing.MassTransit.EventBusInteropInstaller" externalReference="ef3ae01c-196b-4529-95d2-cb9d5375b3e2" />
-    <factoryExtension id="Intent.Eventing.MassTransit.IntegrationEventMessageEnhancer" externalReference="75840da1-9946-4375-845b-78aad753a902" />
+    <factoryExtension id="Intent.Eventing.MassTransit.TelemetryConfigurator" externalReference="75840da1-9946-4375-845b-78aad753a902" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore">
