@@ -34,7 +34,7 @@ public class TelemetryConfigurator : FactoryExtensionBase
 
     private void UpdateOpenTelemetryConfiguration(IApplication application)
     { 
-        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Infrastructure.DependencyInjection.OpenTelemetry"));
+        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.OpenTelemetry"));
         if (template == null)
         {
             return;

@@ -107,7 +107,6 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
     {
         ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
             .ToRegister("AddTelemetryConfiguration", ServiceConfigurationRequest.ParameterType.Configuration)
-            .ForConcern("Infrastructure")
             .HasDependency(this));
 
         switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())

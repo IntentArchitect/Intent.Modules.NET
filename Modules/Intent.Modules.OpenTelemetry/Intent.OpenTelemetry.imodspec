@@ -14,7 +14,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Infrastructure.DependencyInjection.OpenTelemetry</role>
+      <role>Distribution.OpenTelemetry</role>
       <location>Configuration</location>
     </template>
   </templates>
