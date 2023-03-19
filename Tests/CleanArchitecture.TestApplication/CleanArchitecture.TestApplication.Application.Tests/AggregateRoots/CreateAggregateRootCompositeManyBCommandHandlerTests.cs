@@ -22,13 +22,22 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 {
     public class CreateAggregateRootCompositeManyBCommandHandlerTests
     {
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var testCommand = CreateTestCommand();
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            var owner = fixture.Create<AggregateRoot>();
+            testCommand.AggregateRootId = owner.Id;
+            yield return new object[] { owner, testCommand };
+        }
+        
         [Theory]
-        [MemberData(nameof(GetValidTestData))]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_AddsCompositeManyBToRepository(AggregateRoot owner, CreateAggregateRootCompositeManyBCommand testCommand)
         {
             // Arrange
-            var expectedCompositeManyB = CreateExpectedCompositeManyB(testCommand);
-            expectedCompositeManyB.AutoAssignId(k => k.Id);
+            var expectedAggregateRootId = Guid.NewGuid();
 
             CompositeManyB addedCompositeManyB = null;
             var repository = Substitute.For<IAggregateRootRepository>();
@@ -37,8 +46,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
                 () =>
                 {
                     addedCompositeManyB = owner.Composites.Single(p => p.Id == default);
-                    addedCompositeManyB.Id = expectedCompositeManyB.Id;
-                    addedCompositeManyB.AggregateRootId = expectedCompositeManyB.AggregateRootId;
+                    addedCompositeManyB.Id = expectedAggregateRootId;
+                    addedCompositeManyB.AggregateRootId = testCommand.AggregateRootId;
                 });
             var sut = new CreateAggregateRootCompositeManyBCommandHandler(repository);
 
@@ -46,54 +55,38 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            result.Should().Be(expectedCompositeManyB.Id);
-            addedCompositeManyB.Should().BeEquivalentTo(expectedCompositeManyB);
+            result.Should().Be(expectedAggregateRootId);
+            AggregateRootAssertions.AssertEquivalent(testCommand, addedCompositeManyB);
         }
 
-        public static IEnumerable<object[]> GetValidTestData()
+        private static CreateAggregateRootCompositeManyBCommand CreateTestCommand()
         {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            var owner = fixture.Create<AggregateRoot>();
-            var command = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-            command.AggregateRootId = owner.Id;
-            yield return new object[] { owner, command };
-
-            fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.Without(x => x.Composite));
-            owner = fixture.Create<AggregateRoot>();
-            command = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-            command.AggregateRootId = owner.Id;
-            yield return new object[] { owner, command };
-        }
-
-        private static CompositeManyB CreateExpectedCompositeManyB(CreateAggregateRootCompositeManyBCommand dto)
-        {
-            return new CompositeManyB
+            var testCommand = new CreateAggregateRootCompositeManyBCommand()
             {
-                AggregateRootId = dto.AggregateRootId,
-                CompositeAttr = dto.CompositeAttr,
-                SomeDate = dto.SomeDate,
-                Composite = dto.Composite != null ? CreateExpectedCompositeSingleBB(dto.Composite) : null,
-                Composites = dto.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<CompositeManyBB>(),
+                AggregateRootId = new Guid("17A8B8FD-651E-4274-A38F-D18BAD6A9072"),
+                CompositeAttr = "Test 8E36FE61-E856-4693-B1B2-FD15C84E489D",
+                SomeDate = DateTime.Now,
+                Composite = new CreateAggregateRootCompositeManyBCompositeSingleBBDto
+                {
+                    CompositeAttr = "Test 26F92331-01AA-4AD8-97C2-D9CEB2311118"
+                },
+                Composites = new List<CreateAggregateRootCompositeManyBCompositeManyBBDto>
+                {
+                    new()
+                    {
+                        CompositeAttr = "Test 67484EA2-FC76-49C9-B017-1A1523FDDC48"
+                    },
+                    new()
+                    {
+                        CompositeAttr = "Test 6FE6063EE-83AF-4A74-B193-DF209DBE61F6"
+                    },
+                    new()
+                    {
+                        CompositeAttr = "Test EA133B76-B8BD-4681-A286-7D67DDC0DE16"
+                    }
+                }
             };
-        }
-
-        private static CompositeSingleBB CreateExpectedCompositeSingleBB(CreateAggregateRootCompositeManyBCompositeSingleBBDto dto)
-        {
-            return new CompositeSingleBB
-            {
-                CompositeAttr = dto.CompositeAttr,
-            };
-        }
-
-        private static CompositeManyBB CreateExpectedCompositeManyBB(CreateAggregateRootCompositeManyBCompositeManyBBDto dto)
-        {
-            return new CompositeManyBB
-            {
-                CompositeAttr = dto.CompositeAttr,
-            };
+            return testCommand;
         }
     }
 }

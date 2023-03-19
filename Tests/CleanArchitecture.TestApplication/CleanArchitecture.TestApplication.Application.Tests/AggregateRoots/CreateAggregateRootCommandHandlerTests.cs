@@ -58,7 +58,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             addedAggregateRoot.Should().BeEquivalentTo(testCommand, c => c
                 .Excluding(x => x.Aggregate));
 
-            AssertEquivalent(testCommand, addedAggregateRoot);
+            AggregateRootAssertions.AssertEquivalent(testCommand, addedAggregateRoot);
         }
         
         public static IEnumerable<object[]> GetFailingResultTestData()
@@ -105,56 +105,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         private ValidationBehaviour<CreateAggregateRootCommand, Guid> GetValidationBehaviour()
         {
             return new ValidationBehaviour<CreateAggregateRootCommand, Guid>(new[] { new CreateAggregateRootCommandValidator() });
-        }
-
-        private void AssertEquivalent(CreateAggregateRootCommand expectedDto, AggregateRoot actualEntity)
-        {
-            actualEntity.Should().NotBeNull();
-            actualEntity.AggregateAttr.Should().Be(expectedDto.AggregateAttr);
-            actualEntity.Composite.Should().NotBeNull();
-            actualEntity.Composite.CompositeAttr.Should().Be(expectedDto.Composite.CompositeAttr);
-            actualEntity.Composite.Composite.Should().NotBeNull();
-            actualEntity.Composite.Composite.CompositeAttr.Should().Be(expectedDto.Composite.Composite.CompositeAttr);
-
-            AssertEquivalent(expectedDto.Composites, actualEntity.Composites);
-            AssertEquivalent(expectedDto.Composite.Composites, actualEntity.Composite.Composites);
-        }
-
-        private void AssertEquivalent(
-            IEnumerable<CreateAggregateRootCompositeManyBDto> expectedDtos, IEnumerable<CompositeManyB> actualEntities)
-        {
-            actualEntities.Should().HaveSameCount(actualEntities);
-            for (int i = 0; i < expectedDtos.Count(); i++)
-            {
-                var dto = expectedDtos.ElementAt(i);
-                var entity = actualEntities.ElementAt(i);
-                entity.CompositeAttr.Should().Be(dto.CompositeAttr);
-                entity.Composite.CompositeAttr.Should().Be(dto.Composite.CompositeAttr);
-                AssertEquivalent(entity.Composites, dto.Composites);
-            }
-        }
-
-        private void AssertEquivalent(IEnumerable<CompositeManyBB> expectedDtos, IEnumerable<CreateAggregateRootCompositeManyBCompositeManyBBDto> actualEntities)
-        {
-            actualEntities.Should().HaveSameCount(actualEntities);
-            for (int i = 0; i < expectedDtos.Count(); i++)
-            {
-                var dto = expectedDtos.ElementAt(i);
-                var entity = actualEntities.ElementAt(i);
-                entity.CompositeAttr.Should().Be(dto.CompositeAttr);
-            }
-        }
-
-        private void AssertEquivalent(
-            IEnumerable<CreateAggregateRootCompositeSingleACompositeManyAADto> expectedDtos, IEnumerable<CompositeManyAA> actualEntities)
-        {
-            actualEntities.Should().HaveSameCount(actualEntities);
-            for (int i = 0; i < expectedDtos.Count(); i++)
-            {
-                var dto = expectedDtos.ElementAt(i);
-                var entity = actualEntities.ElementAt(i);
-                entity.CompositeAttr.Should().Be(dto.CompositeAttr);
-            }
         }
 
         private static CreateAggregateRootCommand CreateTestCommand()
