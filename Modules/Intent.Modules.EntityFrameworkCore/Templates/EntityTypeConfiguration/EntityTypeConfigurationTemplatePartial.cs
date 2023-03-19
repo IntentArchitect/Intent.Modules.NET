@@ -198,11 +198,52 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
             else if (model.HasTable() && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))
             {
-                yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name.Pluralize()}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema()}""" : "")});";
+                yield return ToTableStatement(model);
             }
             else if (model.IsAggregateRoot() && IsInheriting(model) && ParentConfigurationExists(model))
             {
+                if (model.Triggers.Any())
+                {
+                    yield return ToTableStatement(model);
+                }
+
                 yield return $@"builder.HasBaseType<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, model.ParentClass)}>();";
+            }
+            else if (model.Triggers.Any())
+            {
+                yield return ToTableStatement(model);
+            }
+
+            static CSharpStatement ToTableStatement(ClassExtensionModel model)
+            {
+                var statement = new CSharpInvocationStatement("builder.ToTable");
+                if (!string.IsNullOrWhiteSpace(model.GetTable()?.Name()) ||
+                    !string.IsNullOrWhiteSpace(model.GetTable()?.Schema()))
+                {
+                    statement.AddArgument($"\"{model.GetTable()?.Name() ?? model.Name.Pluralize()}\"");
+                }
+
+                if (!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()))
+                {
+                    statement.AddArgument($"\"{model.GetTable().Schema()}\"");
+                }
+
+                if (model.Triggers.Count == 1)
+                {
+                    statement.AddArgument($"tb => tb.HasTrigger(\"{model.Triggers[0].Name}\")");
+                }
+                else if (model.Triggers.Count > 1)
+                {
+                    var lambda = new CSharpLambdaBlock("tb");
+                    foreach (var trigger in model.Triggers)
+                    {
+                        lambda.AddStatement($"tb.HasTrigger(\"{trigger.Name}\");");
+                    }
+
+                    statement.AddArgument(lambda);
+                }
+
+                return statement;
             }
         }
 
