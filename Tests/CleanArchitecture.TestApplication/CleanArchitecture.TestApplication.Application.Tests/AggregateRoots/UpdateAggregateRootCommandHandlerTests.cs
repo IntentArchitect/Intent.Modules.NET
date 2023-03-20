@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggregateRoot;
+using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using FluentAssertions;
@@ -20,13 +21,30 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 {
     public class UpdateAggregateRootCommandHandlerTests
     {
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            var existingEntity = fixture.Create<AggregateRoot>();
+            fixture.Customize<UpdateAggregateRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
+            var testCommand = fixture.Create<UpdateAggregateRootCommand>();
+            yield return new object[] { testCommand, existingEntity };
+
+            fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            existingEntity = fixture.Create<AggregateRoot>();
+            fixture.Customize<UpdateAggregateRootCommand>(comp => comp
+                .Without(x => x.Composite)
+                .With(x => x.Id, existingEntity.Id));
+            testCommand = fixture.Create<UpdateAggregateRootCommand>();
+            yield return new object[] { testCommand, existingEntity };
+        }
+        
         [Theory]
-        [MemberData(nameof(GetValidTestData))]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootCommand testCommand, AggregateRoot existingEntity)
         {
             // Arrange
-            var expectedAggregateRoot = CreateExpectedAggregateRoot(testCommand);
-
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
 
@@ -36,7 +54,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            expectedAggregateRoot.Should().BeEquivalentTo(existingEntity);
+            AggregateRootAssertions.AssertEquivalent(testCommand, existingEntity);
         }
 
         [Fact]
@@ -52,90 +70,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var sut = new UpdateAggregateRootCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+            
             // Assert
-            await Assert.ThrowsAsync<NullReferenceException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
-        }
-
-        public static IEnumerable<object[]> GetValidTestData()
-        {
-            var fixture = new Fixture();
-            var testCommand = fixture.Create<UpdateAggregateRootCommand>();
-            yield return new object[] { testCommand, CreateExpectedAggregateRoot(testCommand) };
-
-            fixture = new Fixture();
-            fixture.Customize<UpdateAggregateRootCommand>(comp => comp.Without(x => x.Composite));
-            testCommand = fixture.Create<UpdateAggregateRootCommand>();
-            yield return new object[] { testCommand, CreateExpectedAggregateRoot(testCommand) };
-        }
-
-        private static AggregateRoot CreateExpectedAggregateRoot(UpdateAggregateRootCommand dto)
-        {
-            return new AggregateRoot
-            {
-                AggregateAttr = dto.AggregateAttr,
-                Composites = dto.Composites?.Select(CreateExpectedCompositeManyB).ToList() ?? new List<CompositeManyB>(),
-                Composite = dto.Composite != null ? CreateExpectedCompositeSingleA(dto.Composite) : null,
-#warning Field not a composite association: Aggregate
-            };
-        }
-
-        private static CompositeManyB CreateExpectedCompositeManyB(UpdateAggregateRootCompositeManyBDto dto)
-        {
-            return new CompositeManyB
-            {
-                CompositeAttr = dto.CompositeAttr,
-                SomeDate = dto.SomeDate,
-                AggregateRootId = dto.AggregateRootId,
-                Composites = dto.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<CompositeManyBB>(),
-                Composite = dto.Composite != null ? CreateExpectedCompositeSingleBB(dto.Composite) : null,
-            };
-        }
-
-        private static CompositeManyBB CreateExpectedCompositeManyBB(UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
-        {
-            return new CompositeManyBB
-            {
-                CompositeAttr = dto.CompositeAttr,
-                CompositeManyBId = dto.CompositeManyBId,
-            };
-        }
-
-        private static CompositeSingleBB CreateExpectedCompositeSingleBB(UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
-        {
-            return new CompositeSingleBB
-            {
-                CompositeAttr = dto.CompositeAttr,
-            };
-        }
-
-        private static CompositeSingleA CreateExpectedCompositeSingleA(UpdateAggregateRootCompositeSingleADto dto)
-        {
-            return new CompositeSingleA
-            {
-                CompositeAttr = dto.CompositeAttr,
-                Composite = dto.Composite != null ? CreateExpectedCompositeSingleAA(dto.Composite) : null,
-                Composites = dto.Composites?.Select(CreateExpectedCompositeManyAA).ToList() ?? new List<CompositeManyAA>(),
-            };
-        }
-
-        private static CompositeSingleAA CreateExpectedCompositeSingleAA(UpdateAggregateRootCompositeSingleACompositeSingleAADto dto)
-        {
-            return new CompositeSingleAA
-            {
-                CompositeAttr = dto.CompositeAttr,
-            };
-        }
-
-        private static CompositeManyAA CreateExpectedCompositeManyAA(UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
-        {
-            return new CompositeManyAA
-            {
-                CompositeAttr = dto.CompositeAttr,
-                CompositeSingleAId = dto.CompositeSingleAId,
-            };
+            await act.Should().ThrowAsync<NullReferenceException>();
         }
     }
 }

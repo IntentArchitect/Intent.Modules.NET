@@ -21,15 +21,39 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 {
     public class UpdateAggregateRootCompositeManyBCommandHandlerTests
     {
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            var existingOwnerEntity = fixture.Create<AggregateRoot>();
+            var existingEntity = fixture.Create<CompositeManyB>();
+            existingOwnerEntity.Composites.Add(existingEntity);
+            fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp 
+                .With(x => x.Id, existingEntity.Id)
+                .With(x => x.AggregateRootId, existingOwnerEntity.Id));
+            var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
+            yield return new object[] { testCommand, existingOwnerEntity, existingEntity };
+
+            fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            existingOwnerEntity = fixture.Create<AggregateRoot>();
+            existingEntity = fixture.Create<CompositeManyB>();
+            existingOwnerEntity.Composites.Add(existingEntity);
+            fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp
+                .With(x => x.Id, existingEntity.Id)
+                .With(x => x.AggregateRootId, existingOwnerEntity.Id)
+                .Without(x => x.Composite));
+            testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
+            yield return new object[] { testCommand, existingOwnerEntity, existingEntity };
+        }
+        
         [Theory]
-        [MemberData(nameof(GetValidTestData))]
-        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootCompositeManyBCommand testCommand, AggregateRoot owner)
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootCompositeManyBCommand testCommand, AggregateRoot existingOwnerEntity, CompositeManyB existingEntity)
         {
             // Arrange
-            var expectedNestedEntity = CreateExpectedCompositeManyB(testCommand);
-
             var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(owner));
+            repository.FindByIdAsync(testCommand.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
             var sut = new UpdateAggregateRootCompositeManyBCommandHandler(repository);
 
@@ -37,7 +61,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            owner.Composites.Should().Contain(p => p.Id == testCommand.Id).Which.Should().BeEquivalentTo(expectedNestedEntity);
+            AggregateRootAssertions.AssertEquivalent(testCommand, existingEntity);
         }
 
         [Fact]
@@ -54,11 +78,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var sut = new UpdateAggregateRootCompositeManyBCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+            
             // Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
+            await act.Should().ThrowAsync<InvalidOperationException>();
         }
 
         [Fact]
@@ -77,63 +100,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var sut = new UpdateAggregateRootCompositeManyBCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+            
             // Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
-        }
-
-        public static IEnumerable<object[]> GetValidTestData()
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
-            var owner = fixture.Create<AggregateRoot>();
-            testCommand.AggregateRootId = owner.Id;
-            owner.Composites.Add(CreateExpectedCompositeManyB(testCommand));
-            yield return new object[] { testCommand, owner };
-
-            fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp.Without(x => x.Composite));
-            testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
-            owner = fixture.Create<AggregateRoot>();
-            testCommand.AggregateRootId = owner.Id;
-            owner.Composites.Add(CreateExpectedCompositeManyB(testCommand));
-            yield return new object[] { testCommand, owner };
-        }
-
-        private static CompositeManyB CreateExpectedCompositeManyB(UpdateAggregateRootCompositeManyBCommand dto)
-        {
-            return new CompositeManyB
-            {
-                AggregateRootId = dto.AggregateRootId,
-                Id = dto.Id,
-                CompositeAttr = dto.CompositeAttr,
-                SomeDate = dto.SomeDate,
-                Composite = dto.Composite != null ? CreateExpectedCompositeSingleBB(dto.Composite) : null,
-                Composites = dto.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<CompositeManyBB>(),
-            };
-        }
-
-        private static CompositeSingleBB CreateExpectedCompositeSingleBB(UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
-        {
-            return new CompositeSingleBB
-            {
-                CompositeAttr = dto.CompositeAttr,
-                Id = dto.Id,
-            };
-        }
-
-        private static CompositeManyBB CreateExpectedCompositeManyBB(UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
-        {
-            return new CompositeManyBB
-            {
-                CompositeAttr = dto.CompositeAttr,
-                CompositeManyBId = dto.CompositeManyBId,
-                Id = dto.Id,
-            };
+            await act.Should().ThrowAsync<InvalidOperationException>();
         }
     }
 }

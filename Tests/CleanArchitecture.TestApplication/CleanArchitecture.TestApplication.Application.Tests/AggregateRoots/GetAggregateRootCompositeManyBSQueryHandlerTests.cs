@@ -33,27 +33,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
-
-        [Theory]
-        [MemberData(nameof(GetTestData))]
-        public async Task Handle_WithValidQuery_RetrievesCompositeManyBs(AggregateRoot owner)
-        {
-            // Arrange
-            var testQuery = new GetAggregateRootCompositeManyBSQuery();
-            testQuery.AggregateRootId = owner.Id;
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(owner));
-
-            var sut = new GetAggregateRootCompositeManyBSQueryHandler(repository, _mapper);
-
-            // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
-
-            // Assert
-            result.Should().BeEquivalentTo(owner.Composites.Select(CreateExpectedAggregateRootCompositeManyBDto));
-        }
-
-        public static IEnumerable<object[]> GetTestData()
+        
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
@@ -65,36 +46,23 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             yield return new object[] { fixture.Create<AggregateRoot>() };
         }
 
-        private static AggregateRootCompositeManyBDto CreateExpectedAggregateRootCompositeManyBDto(CompositeManyB entity)
+        [Theory]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidQuery_RetrievesCompositeManyBs(AggregateRoot existingOwnerEntity)
         {
-            return new AggregateRootCompositeManyBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                SomeDate = entity.SomeDate,
-                AggregateRootId = entity.AggregateRootId,
-                Id = entity.Id,
-                Composite = entity.Composite != null ? CreateExpectedCompositeSingleBB(entity.Composite) : null,
-                Composites = entity.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<AggregateRootCompositeManyBCompositeManyBBDto>(),
-            };
-        }
+            // Arrange
+            var testQuery = new GetAggregateRootCompositeManyBSQuery();
+            testQuery.AggregateRootId = existingOwnerEntity.Id;
+            var repository = Substitute.For<IAggregateRootRepository>();
+            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
-        private static AggregateRootCompositeManyBCompositeSingleBBDto CreateExpectedCompositeSingleBB(CompositeSingleBB entity)
-        {
-            return new AggregateRootCompositeManyBCompositeSingleBBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                Id = entity.Id,
-            };
-        }
+            var sut = new GetAggregateRootCompositeManyBSQueryHandler(repository, _mapper);
 
-        private static AggregateRootCompositeManyBCompositeManyBBDto CreateExpectedCompositeManyBB(CompositeManyBB entity)
-        {
-            return new AggregateRootCompositeManyBCompositeManyBBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                CompositeManyBId = entity.CompositeManyBId,
-                Id = entity.Id,
-            };
+            // Act
+            var result = await sut.Handle(testQuery, CancellationToken.None);
+
+            // Assert
+            AggregateRootAssertions.AssertEquivalent(existingOwnerEntity.Composites, result);
         }
     }
 }
