@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.AggregateRoots;
 using CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggregateRootCompositeManyBById;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
@@ -33,22 +32,28 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
-
-        [Fact]
-        public async Task Handle_WithValidQuery_RetrievesCompositeManyB()
+        
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
-            // Arrange
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
-            var owner = fixture.Create<AggregateRoot>();
-            var expectedNestedEntityDto = CreateExpectedAggregateRootCompositeManyBDto(owner.Composites.First());
+            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
+            var existingOwnerEntity = fixture.Create<AggregateRoot>();
+            var expectedEntity = existingOwnerEntity.Composites.First();
+            fixture.Customize<GetAggregateRootCompositeManyBByIdQuery>(comp => comp 
+                .With(x => x.Id, expectedEntity.Id)
+                .With(x => x.AggregateRootId, existingOwnerEntity.Id));
+            var testQuery = fixture.Create<GetAggregateRootCompositeManyBByIdQuery>();
+            yield return new object[] { testQuery, existingOwnerEntity, expectedEntity };
+        }
 
-            var testQuery = new GetAggregateRootCompositeManyBByIdQuery();
-            testQuery.Id = expectedNestedEntityDto.Id;
-            testQuery.AggregateRootId = owner.Id;
-
+        [Theory]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidQuery_RetrievesCompositeManyB(GetAggregateRootCompositeManyBByIdQuery testQuery, AggregateRoot existingOwnerEntity, CompositeManyB expectedEntity)
+        {
+            // Arrange
             var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(owner));
+            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
             var sut = new GetAggregateRootCompositeManyBByIdQueryHandler(repository, _mapper);
 
@@ -56,7 +61,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().BeEquivalentTo(expectedNestedEntityDto);
+            AggregateRootAssertions.AssertEquivalent(expectedEntity, result);
         }
 
         [Fact]
@@ -79,38 +84,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Assert
             result.Should().Be(null);
-        }
-
-        private static AggregateRootCompositeManyBDto CreateExpectedAggregateRootCompositeManyBDto(CompositeManyB entity)
-        {
-            return new AggregateRootCompositeManyBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                SomeDate = entity.SomeDate,
-                AggregateRootId = entity.AggregateRootId,
-                Id = entity.Id,
-                Composite = entity.Composite != null ? CreateExpectedCompositeSingleBB(entity.Composite) : null,
-                Composites = entity.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<AggregateRootCompositeManyBCompositeManyBBDto>(),
-            };
-        }
-
-        private static AggregateRootCompositeManyBCompositeSingleBBDto CreateExpectedCompositeSingleBB(CompositeSingleBB entity)
-        {
-            return new AggregateRootCompositeManyBCompositeSingleBBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                Id = entity.Id,
-            };
-        }
-
-        private static AggregateRootCompositeManyBCompositeManyBBDto CreateExpectedCompositeManyBB(CompositeManyBB entity)
-        {
-            return new AggregateRootCompositeManyBCompositeManyBBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                CompositeManyBId = entity.CompositeManyBId,
-                Id = entity.Id,
-            };
         }
     }
 }

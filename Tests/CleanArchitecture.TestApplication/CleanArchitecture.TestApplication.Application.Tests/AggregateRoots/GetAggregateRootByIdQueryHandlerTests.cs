@@ -33,17 +33,25 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
+        
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
+            var existingEntity = fixture.Create<AggregateRoot>();
+            fixture.Customize<GetAggregateRootByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            var testQuery = fixture.Create<GetAggregateRootByIdQuery>();
+            yield return new object[] { testQuery, existingEntity };
+        }
 
         [Theory]
-        [MemberData(nameof(GetTestData))]
-        public async Task Handle_WithValidQuery_RetrievesAggregateRoot(AggregateRoot testEntity)
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidQuery_RetrievesAggregateRoot(GetAggregateRootByIdQuery testQuery, AggregateRoot existingEntity)
         {
             // Arrange
-            var expectedDto = CreateExpectedAggregateRootDto(testEntity);
-
-            var testQuery = new GetAggregateRootByIdQuery { Id = testEntity.Id };
             var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
+            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
 
             var sut = new GetAggregateRootByIdQueryHandler(repository, _mapper);
 
@@ -51,7 +59,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().BeEquivalentTo(expectedDto);
+            AggregateRootAssertions.AssertEquivalent(existingEntity, result);
         }
 
         [Fact]
@@ -71,97 +79,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Assert
             result.Should().Be(null);
-        }
-
-        public static IEnumerable<object[]> GetTestData()
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
-            yield return new object[] { fixture.Create<AggregateRoot>() };
-        }
-
-        private static AggregateRootDto CreateExpectedAggregateRootDto(AggregateRoot entity)
-        {
-            return new AggregateRootDto
-            {
-                Id = entity.Id,
-                AggregateAttr = entity.AggregateAttr,
-                Composites = entity.Composites?.Select(CreateExpectedCompositeManyB).ToList() ?? new List<AggregateRootCompositeManyBDto>(),
-                Composite = entity.Composite != null ? CreateExpectedCompositeSingleA(entity.Composite) : null,
-                Aggregate = entity.Aggregate != null ? CreateExpectedAggregateSingleC(entity.Aggregate) : null,
-            };
-        }
-
-        private static AggregateRootCompositeManyBDto CreateExpectedCompositeManyB(CompositeManyB entity)
-        {
-            return new AggregateRootCompositeManyBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                SomeDate = entity.SomeDate,
-                AggregateRootId = entity.AggregateRootId,
-                Id = entity.Id,
-                Composite = entity.Composite != null ? CreateExpectedCompositeSingleBB(entity.Composite) : null,
-                Composites = entity.Composites?.Select(CreateExpectedCompositeManyBB).ToList() ?? new List<AggregateRootCompositeManyBCompositeManyBBDto>(),
-            };
-        }
-
-        private static AggregateRootCompositeManyBCompositeSingleBBDto CreateExpectedCompositeSingleBB(CompositeSingleBB entity)
-        {
-            return new AggregateRootCompositeManyBCompositeSingleBBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                Id = entity.Id,
-            };
-        }
-
-        private static AggregateRootCompositeManyBCompositeManyBBDto CreateExpectedCompositeManyBB(CompositeManyBB entity)
-        {
-            return new AggregateRootCompositeManyBCompositeManyBBDto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                CompositeManyBId = entity.CompositeManyBId,
-                Id = entity.Id,
-            };
-        }
-
-        private static AggregateRootCompositeSingleADto CreateExpectedCompositeSingleA(CompositeSingleA entity)
-        {
-            return new AggregateRootCompositeSingleADto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                Id = entity.Id,
-                Composite = entity.Composite != null ? CreateExpectedCompositeSingleAA(entity.Composite) : null,
-                Composites = entity.Composites?.Select(CreateExpectedCompositeManyAA).ToList() ?? new List<AggregateRootCompositeSingleACompositeManyAADto>(),
-            };
-        }
-
-        private static AggregateRootCompositeSingleACompositeSingleAADto CreateExpectedCompositeSingleAA(CompositeSingleAA entity)
-        {
-            return new AggregateRootCompositeSingleACompositeSingleAADto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                Id = entity.Id,
-            };
-        }
-
-        private static AggregateRootCompositeSingleACompositeManyAADto CreateExpectedCompositeManyAA(CompositeManyAA entity)
-        {
-            return new AggregateRootCompositeSingleACompositeManyAADto
-            {
-                CompositeAttr = entity.CompositeAttr,
-                CompositeSingleAId = entity.CompositeSingleAId,
-                Id = entity.Id,
-            };
-        }
-
-        private static AggregateRootAggregateSingleCDto CreateExpectedAggregateSingleC(AggregateSingleC entity)
-        {
-            return new AggregateRootAggregateSingleCDto
-            {
-                AggregationAttr = entity.AggregationAttr,
-                Id = entity.Id,
-            };
         }
     }
 }

@@ -20,16 +20,23 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 {
     public class DeleteAggregateRootCommandHandlerTests
     {
-        [Fact]
-        public async Task Handle_WithValidCommand_DeletesAggregateRootFromRepository()
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            var existingEntity = fixture.Create<AggregateRoot>();
+            fixture.Customize<DeleteAggregateRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
+            var testCommand = fixture.Create<DeleteAggregateRootCommand>();
+            yield return new object[] { testCommand, existingEntity };
+        }
+        
+        [Theory]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidCommand_DeletesAggregateRootFromRepository(DeleteAggregateRootCommand testCommand, AggregateRoot existingEntity)
         {
             // Arrange
-            var fixture = new Fixture();
-            var testCommand = fixture.Create<DeleteAggregateRootCommand>();
-
             var repository = Substitute.For<IAggregateRootRepository>();
-            var existingAggregateRoot = GetExistingAggregateRoot(testCommand);
-            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingAggregateRoot));
+            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingEntity));
 
             var sut = new DeleteAggregateRootCommandHandler(repository);
 
@@ -54,20 +61,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var sut = new DeleteAggregateRootCommandHandler(repository);
 
             // Act
-            // Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
-        }
+            
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
-        private static AggregateRoot GetExistingAggregateRoot(DeleteAggregateRootCommand testCommand)
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRoot>(comp => comp.With(x => x.Id, testCommand.Id));
-            var existingAggregateRoot = fixture.Create<AggregateRoot>();
-            return existingAggregateRoot;
+            // Assert
+            await act.Should().ThrowAsync<ArgumentNullException>();
         }
     }
 }
