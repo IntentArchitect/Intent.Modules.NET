@@ -234,6 +234,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 }
                 else if (model.Triggers.Count > 1)
                 {
+                    statement.WithArgumentsOnNewLines();
+
                     var lambda = new CSharpLambdaBlock("tb");
                     foreach (var trigger in model.Triggers)
                     {
