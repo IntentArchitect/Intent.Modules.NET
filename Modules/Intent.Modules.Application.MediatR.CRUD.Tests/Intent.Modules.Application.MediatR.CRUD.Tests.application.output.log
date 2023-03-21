@@ -34,6 +34,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f2c561b2-c5b6-4214-b695-2608e0468d25</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Assertions/AssertionClass/AssertionClassTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Assertions/AssertionClass/AssertionClassTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f2c561b2-c5b6-4214-b695-2608e0468d25</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Assertions/AssertionClass/AssertionClassTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Assertions/AssertionClass/AssertionClassTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2fea7bef-ccb5-4c7f-84f1-b67e28346d94</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Extensions/RepositoryExtensions/RepositoryExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>

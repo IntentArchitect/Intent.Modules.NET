@@ -112,7 +112,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
             await sut.Handle(testCommand, CancellationToken.None);
         }});");
                     });
-                    
+
                     priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
                     {
                         method.Async();

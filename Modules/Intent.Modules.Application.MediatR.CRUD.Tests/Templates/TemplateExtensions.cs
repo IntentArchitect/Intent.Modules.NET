@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedCreateCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedDeleteCommandHandlerTests;
@@ -21,6 +22,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetAssertionClassName<T>(this IntentTemplateBase<T> template)
+where T : Intent.Modelers.Domain.Api.ClassModel
+        {
+            return template.GetTypeName(AssertionClassTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetAssertionClassName(this IntentTemplateBase template, Intent.Modelers.Domain.Api.ClassModel model)
+        {
+            return template.GetTypeName(AssertionClassTemplate.TemplateId, model);
+        }
         public static string GetCreateCommandHandlerTestsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.CommandModel
         {
             return template.GetTypeName(CreateCommandHandlerTestsTemplate.TemplateId, template.Model);

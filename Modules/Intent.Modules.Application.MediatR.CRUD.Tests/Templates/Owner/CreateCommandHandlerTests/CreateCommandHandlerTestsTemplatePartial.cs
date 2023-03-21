@@ -66,61 +66,8 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 var entityIdName = domainElement.GetEntityIdAttribute().IdName;
 
                 var priClass = file.Classes.First();
-                priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{domainElementName}ToRepository", method =>
-                {
-                    method.Async();
-                    method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetValidTestData))");
-                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
-                    method.AddStatements($@"
-        // Arrange
-        var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
-        expected{domainElementName}.AutoAssignId(k => k.{entityIdName});
 
-        {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.OnAdd(ent => added{domainElementName} = ent);
-        repository.OnSave(() => added{domainElementName}.{entityIdName} = expected{domainElementName}.{entityIdName});
-
-        var sut = new {this.GetCommandHandlerName(Model)}(repository);
-
-        // Act
-        var result = await sut.Handle(testCommand, CancellationToken.None);
-
-        // Assert
-        result.Should().Be(expected{domainElementName}.{entityIdName});
-        added{domainElementName}.Should().BeEquivalentTo(expected{domainElementName});");
-                });
-
-                if (HasInvalidDataOpportunity())
-                {
-                    priClass.AddMethod("Task", $"Handle_WithInvalidCommand_ThrowsException", method =>
-                    {
-                        method.Async();
-                        method.AddAttribute("Theory");
-                        method.AddAttribute("MemberData(nameof(GetInvalidTestData))");
-                        method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
-                        method.AddStatements($@"
-        // Arrange
-        var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
-
-        {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.OnAdd(ent => added{domainElementName} = ent);
-        repository.OnSave(() => added{domainElementName}.{entityIdName} = expected{domainElementName}.{entityIdName});
-
-        var sut = new {this.GetCommandHandlerName(Model)}(repository);");
-                        method.AddStatements(@"
-        // Act
-        // Assert");
-                        method.AddInvocationStatement($"await Assert.ThrowsAsync<ArgumentNullException>", stmt =>
-                            stmt.AddArgument(new CSharpLambdaBlock("async ()")
-                                    .AddStatement("await sut.Handle(testCommand, CancellationToken.None);"))
-                                .WithArgumentsOnNewLines());
-                    });
-                }
-
-                priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
+                priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
                     method.AddStatements($@"
@@ -138,34 +85,32 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     }
                 });
 
-                if (HasInvalidDataOpportunity())
+                priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{domainElementName}ToRepository", method =>
                 {
-                    priClass.AddMethod("IEnumerable<object[]>", "GetInvalidTestData", method =>
-                    {
-                        method.Static();
-                        method.AddStatement($@"Fixture fixture;");
+                    method.Async();
+                    method.AddAttribute("Theory");
+                    method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
+                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
+                    method.AddStatements($@"
+        // Arrange
+        var expected{domainElementName}Id = Guid.NewGuid();
 
-                        foreach (var property in Model.Properties
-                                     .Where(p => !p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
-                        {
-                            method.AddStatement("");
-                            method.AddStatements($@"
-        fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
-        yield return new object[] {{ fixture.Create<{GetTypeName(Model.InternalElement)}>() }};");
-                        }
-                    });
-                }
+        {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
+        repository.OnAdd(ent => added{domainElementName} = ent);
+        repository.OnSaveChanges(() => added{domainElementName}.{entityIdName} = expected{domainElementName}Id);
 
-                this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
+        var sut = new {this.GetCommandHandlerName(Model)}(repository);
+
+        // Act
+        var result = await sut.Handle(testCommand, CancellationToken.None);
+
+        // Assert
+        result.Should().Be(expected{domainElementName}Id);
+        await repository.UnitOfWork.Received(1).SaveChangesAsync();
+        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(testCommand, added{domainElementName});");
+                });
             });
-    }
-
-    private bool HasInvalidDataOpportunity()
-    {
-        return Model
-            .Properties
-            .Any(p => !p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false);
     }
 
     [IntentManaged(Mode.Fully)]

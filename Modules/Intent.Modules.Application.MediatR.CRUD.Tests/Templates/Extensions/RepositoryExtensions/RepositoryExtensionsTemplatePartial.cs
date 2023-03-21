@@ -12,90 +12,67 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions
+namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
+
+[IntentManaged(Mode.Fully, Body = Mode.Merge)]
+public partial class RepositoryExtensionsTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class RepositoryExtensionsTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions";
+
+    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    public RepositoryExtensionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        public const string TemplateId = "Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions";
+        AddNugetDependency(NugetPackages.NSubstitute);
+        AddNugetDependency(NugetPackages.AutoFixture);
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public RepositoryExtensionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
-        {
-            AddNugetDependency(NugetPackages.NSubstitute);
-            AddNugetDependency(NugetPackages.AutoFixture);
+        CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            .AddClass($"RepositoryExtensions")
+            .OnBuild(file =>
+            {
+                file.AddUsing("System");
+                file.AddUsing("System.Linq.Expressions");
+                file.AddUsing("System.Reflection");
+                file.AddUsing("System.Threading");
+                file.AddUsing("NSubstitute");
+                file.AddUsing("AutoFixture");
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"RepositoryExtensions")
-                .OnBuild(file =>
+                var priClass = file.Classes.First();
+                priClass.Static();
+
+                priClass.AddMethod("void", "OnAdd", method =>
                 {
-                    file.AddUsing("System");
-                    file.AddUsing("System.Linq.Expressions");
-                    file.AddUsing("System.Reflection");
-                    file.AddUsing("System.Threading");
-                    file.AddUsing("NSubstitute");
-                    file.AddUsing("AutoFixture");
-
-                    var priClass = file.Classes.First();
-                    priClass.Static();
-
-                    priClass.AddMethod("void", "OnAdd", method =>
-                    {
-                        method.Static();
-                        method.AddGenericParameter("TDomain", out var TDomain);
-                        method.AddGenericParameter("TPersistence", out var TPersistence);
-                        method.AddParameter($"{this.GetRepositoryInterfaceName()}<{TDomain}, {TPersistence}>", "repository", parm => parm.WithThisModifier());
-                        method.AddParameter($"Action<{TDomain}>", "addAction");
-                        method.AddStatement($"repository.When(x => x.Add(Arg.Any<{TDomain}>())).Do(ci => addAction(ci.Arg<{TDomain}>()));");
-                    });
-
-                    priClass.AddMethod("void", "OnSave", method =>
-                    {
-                        method.Static();
-                        method.AddGenericParameter("TDomain", out var TDomain);
-                        method.AddGenericParameter("TPersistence", out var TPersistence);
-                        method.AddParameter($"{this.GetRepositoryInterfaceName()}<{TDomain}, {TPersistence}>", "repository", parm => parm.WithThisModifier());
-                        method.AddParameter($"Action", "saveAction");
-                        method.AddStatement($"repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());");
-                    });
-
-                    priClass.AddMethod("void", "AutoAssignId", method =>
-                    {
-                        method.Static();
-                        method.AddGenericParameter("TObj", out var TObj);
-                        method.AddGenericParameter("TId", out var TId);
-                        method.AddParameter(TObj, "obj", parm => parm.WithThisModifier());
-                        method.AddParameter($"Expression<Func<{TObj}, {TId}>>", "idSelector");
-                        method.AddStatements($@"
-            var fixture = new Fixture();
-            var id = fixture.Create<TId>();
-            var memberExpr = idSelector.Body as MemberExpression;");
-                        method.AddStatementBlock("if (memberExpr == null || memberExpr.Member is not PropertyInfo property)", block =>
-                        {
-                            block.AddStatement(@"throw new ArgumentException(""Expression must consist of a property only"", nameof(idSelector));");
-                        });
-                        method.AddStatementBlock("if (property.CanWrite)", block =>
-                        {
-                            block.AddStatement("property.SetValue(obj, id, null);");
-                        });
-                    });
+                    method.Static();
+                    method.AddGenericParameter("TDomain", out var TDomain);
+                    method.AddGenericParameter("TPersistence", out var TPersistence);
+                    method.AddParameter($"{this.GetRepositoryInterfaceName()}<{TDomain}, {TPersistence}>", "repository", parm => parm.WithThisModifier());
+                    method.AddParameter($"Action<{TDomain}>", "addAction");
+                    method.AddStatement($"repository.When(x => x.Add(Arg.Any<{TDomain}>())).Do(ci => addAction(ci.Arg<{TDomain}>()));");
                 });
-        }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+                priClass.AddMethod("void", "OnSaveChanges", method =>
+                {
+                    method.Static();
+                    method.AddGenericParameter("TDomain", out var TDomain);
+                    method.AddGenericParameter("TPersistence", out var TPersistence);
+                    method.AddParameter($"{this.GetRepositoryInterfaceName()}<{TDomain}, {TPersistence}>", "repository", parm => parm.WithThisModifier());
+                    method.AddParameter($"Action", "saveAction");
+                    method.AddStatement($"repository.UnitOfWork.When(async x => await x.SaveChangesAsync(CancellationToken.None)).Do(_ => saveAction());");
+                });
+            });
+    }
 
-        [IntentManaged(Mode.Fully)]
-        protected override CSharpFileConfig DefineFileConfig()
-        {
-            return CSharpFile.GetConfig();
-        }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
-        public override string TransformText()
-        {
-            return CSharpFile.ToString();
-        }
+    [IntentManaged(Mode.Fully)]
+    protected override CSharpFileConfig DefineFileConfig()
+    {
+        return CSharpFile.GetConfig();
+    }
 
+    [IntentManaged(Mode.Fully)]
+    public override string TransformText()
+    {
+        return CSharpFile.ToString();
     }
 }

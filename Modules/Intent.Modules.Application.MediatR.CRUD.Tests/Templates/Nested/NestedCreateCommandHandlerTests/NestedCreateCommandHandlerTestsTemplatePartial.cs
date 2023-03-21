@@ -71,7 +71,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{nestedDomainElementName}ToRepository", method =>
                 {
                     var nestedEntityIdName = nestedDomainElement.GetEntityIdAttribute().IdName;
-                    
+
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetValidTestData))");
@@ -86,7 +86,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
         repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
         ");
-                    
+
                     var associationPropertyName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs);
                     method.AddInvocationStatement("repository.OnSave", stmt => stmt
                         .AddArgument(new CSharpLambdaBlock("()")

@@ -52,8 +52,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             // Assert
             result.Should().Be(expectedAggregateRootId);
             await repository.UnitOfWork.Received(1).SaveChangesAsync();
-            addedAggregateRoot.Should().BeEquivalentTo(testCommand, c => c
-                .Excluding(x => x.Aggregate));
 
             AggregateRootAssertions.AssertEquivalent(testCommand, addedAggregateRoot);
         }

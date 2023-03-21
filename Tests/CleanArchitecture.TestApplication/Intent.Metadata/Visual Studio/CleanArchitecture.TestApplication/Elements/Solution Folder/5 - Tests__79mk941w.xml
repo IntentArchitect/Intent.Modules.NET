@@ -210,6 +210,20 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="f330d626-1f90-4d16-801c-3e93d1db9f22" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass</name>
+          <display>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass</display>
+          <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>
