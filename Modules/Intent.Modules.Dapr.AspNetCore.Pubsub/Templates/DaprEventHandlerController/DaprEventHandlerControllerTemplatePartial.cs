@@ -44,7 +44,6 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                 .AddClass("DaprEventHandlerController", @class =>
                 {
                     @class
-                        .AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]")
                         .AddAttribute("[Route(\"api/v1/[controller]/[action]\")]")
                         .AddAttribute("[ApiController]")
                         .WithBaseType("ControllerBase")
