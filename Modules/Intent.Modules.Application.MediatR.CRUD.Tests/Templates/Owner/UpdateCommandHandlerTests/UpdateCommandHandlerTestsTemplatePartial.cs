@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
@@ -55,20 +56,47 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
+                var domainElementIdName = domainElement.GetEntityIdAttribute(ExecutionContext).IdName;
                 var commandIdFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
+                
+                priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
+                {
+                    method.Static();
+                    method.AddStatements($@"
+        var fixture = new Fixture();");
+                    this.RegisterDomainEventBaseFixture(method, domainElement);
+                    method.AddStatements($@"
+        var existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{commandIdFieldName}, existingEntity.{domainElementIdName}));
+        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, existingEntity }};");
+
+                    foreach (var property in Model.Properties
+                                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
+                    {
+                        method.AddStatement("");
+                        method.AddStatements($@"
+        var fixture = new Fixture();");
+                        this.RegisterDomainEventBaseFixture(method, domainElement);
+                        method.AddStatements($@"
+        var existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{commandIdFieldName}, existingEntity.{domainElementIdName}));
+        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, existingEntity }};");
+                    }
+                });
+                
                 priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetValidTestData))");
+                    method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
                     method.AddParameter(GetTypeName(domainElement.InternalElement), "existingEntity");
                     method.AddStatements($@"
         // Arrange
-        var expected{domainElementName} = CreateExpected{domainElementName}(testCommand);
-        
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         repository.FindByIdAsync(testCommand.{commandIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingEntity));
         
@@ -78,7 +106,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         await sut.Handle(testCommand, CancellationToken.None);
         
         // Assert
-        expected{domainElementName}.Should().BeEquivalentTo(existingEntity);");
+        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(testCommand, existingEntity);");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
@@ -96,35 +124,34 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
+        var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+
         // Assert
-        await Assert.ThrowsAsync<NullReferenceException>(async () =>
-        {{
-            await sut.Handle(testCommand, CancellationToken.None);
-        }});");
+        await act.Should().ThrowAsync<NullReferenceException>();");
                 });
+            })
+            .OnBuild(file =>
+            {
+                AddAssertionMethods();
+            }, 2);
+    }
+    
+    private void AddAssertionMethods()
+    {
+        if (Model?.Mapping?.Element?.IsClassModel() != true)
+        {
+            return;
+        }
 
-                priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
-                {
-                    method.Static();
-                    method.AddStatements($@"
-        var fixture = new Fixture();
-        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
+        var domainModel = Model.Mapping.Element.AsClassModel();
+        var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
+        if (template == null)
+        {
+            return;
+        }
 
-                    foreach (var property in Model.Properties
-                                 .Where(p => p.TypeReference.IsNullable && p.Mapping?.Element?.AsAssociationEndModel()?.Element?.AsClassModel()?.IsAggregateRoot() == false))
-                    {
-                        method.AddStatement("");
-                        method.AddStatements($@"
-        fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}));
-        testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, CreateExpected{domainElementName}(testCommand) }};");
-                    }
-                });
-
-                this.AddAssertionMappingMethods(priClass, Model, domainElement);
-            });
+        template.AddAssertionMappingMethods(template.CSharpFile.Classes.First(), Model, domainModel);
     }
 
     [IntentManaged(Mode.Fully)]

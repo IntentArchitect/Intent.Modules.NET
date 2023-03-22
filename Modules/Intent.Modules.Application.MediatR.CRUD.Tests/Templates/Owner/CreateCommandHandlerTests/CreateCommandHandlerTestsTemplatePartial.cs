@@ -115,7 +115,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             .OnBuild(file =>
             {
                 AddAssertionMethods();
-            });
+            }, 1);
     }
 
     private void AddAssertionMethods()
