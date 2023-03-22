@@ -57,9 +57,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
                     var dtoModel = Model.TypeReference.Element.AsDTOModel();
                     var nestedDomainElement = Model.Mapping.Element.AsClassModel();
                     var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
-                    var nestedDomainElementIdName = nestedDomainElement.GetEntityIdAttribute().IdName;
+                    var nestedDomainElementIdName = nestedDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
                     var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
-                    var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute().IdName;
+                    var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
                     var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
                     var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
                     var commandIdFieldName = Model.Properties.GetEntityIdField(nestedDomainElement).Name;

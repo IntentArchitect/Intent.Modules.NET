@@ -76,7 +76,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
                 var association = nestedCompOwner.GetNestedCompositeAssociation(foundEntity);
                 codeLines.Add("");
-                codeLines.Add($@"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute().IdName} == request.{idField.Name.ToPascalCase()});");
+                codeLines.Add($@"var element = aggregateRoot.{association.Name.ToCSharpIdentifier(CapitalizationBehaviour.AsIs)}.FirstOrDefault(p => p.{_matchingElementDetails.Value.FoundEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == request.{idField.Name.ToPascalCase()});");
                 codeLines.Add($@"return element == null ? null : element.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);");
                 
 

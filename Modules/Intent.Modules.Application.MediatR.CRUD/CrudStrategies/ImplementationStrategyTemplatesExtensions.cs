@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Metadata.RDBMS.Settings;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 
@@ -41,27 +45,27 @@ public static class ImplementationStrategyTemplatesExtensions
         return aggregateRootAssociation?.Class;
     }
 
-    public record EntityIdAttribute(string IdName);
+    public record EntityIdAttribute(string IdName, string Type);
 
-    public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity)
+    public static EntityIdAttribute GetEntityIdAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)
     {
         var explicitKeyField = GetExplicitEntityIdField(entity);
         if (explicitKeyField != null) return explicitKeyField;
-        return new EntityIdAttribute("Id");
+        return new EntityIdAttribute("Id", GetDefaultSurrogateKeyType(executionContext));
 
         EntityIdAttribute GetExplicitEntityIdField(ClassModel entity)
         {
-            return entity.Attributes.Where(p => p.HasPrimaryKey()).Select(s => new EntityIdAttribute(s.Name)).FirstOrDefault();
+            return entity.Attributes.Where(p => p.HasPrimaryKey()).Select(s => new EntityIdAttribute(s.Name, GetKeyTypeName(s.Type))).FirstOrDefault();
         }
     }
 
-    public record EntityNestedCompositionalIdAttribute(string IdName);
+    public record EntityNestedCompositionalIdAttribute(string IdName, string Type);
     
-    public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner)
+    public static EntityNestedCompositionalIdAttribute GetNestedCompositionalOwnerIdAttribute(this ClassModel entity, ClassModel owner, ISoftwareFactoryExecutionContext executionContext)
     {
         var explicitKeyField = GetExplicitForeignKeyNestedCompOwnerField(entity, owner);
         if (explicitKeyField != null) return explicitKeyField;
-        return new EntityNestedCompositionalIdAttribute($"{owner.Name}Id");
+        return new EntityNestedCompositionalIdAttribute($"{owner.Name}Id", GetDefaultSurrogateKeyType(executionContext));
         
         EntityNestedCompositionalIdAttribute GetExplicitForeignKeyNestedCompOwnerField(ClassModel entity, ClassModel owner)
         {
@@ -86,7 +90,7 @@ public static class ImplementationStrategyTemplatesExtensions
             {
                 return null;
             }
-            return new EntityNestedCompositionalIdAttribute(idField.Name);
+            return new EntityNestedCompositionalIdAttribute(idField.Name, GetKeyTypeName(idField.Type));
         }
     }
 
@@ -167,5 +171,32 @@ public static class ImplementationStrategyTemplatesExtensions
     public static AssociationEndModel GetNestedCompositeAssociation(this ClassModel owner, ClassModel nestedCompositionEntity)
     {
         return owner.AssociatedClasses.FirstOrDefault(p => p.Class == nestedCompositionEntity);
+    }
+
+    private static string GetKeyTypeName(ITypeReference typeReference)
+    {
+        return typeReference switch
+        {
+            _ when typeReference.HasIntType() => "int",
+            _ when typeReference.HasLongType() => "long",
+            _ when typeReference.HasGuidType() => "System.Guid",
+            _ => typeReference.Element.Name
+        };
+    }
+    
+    private static string GetDefaultSurrogateKeyType(ISoftwareFactoryExecutionContext executionContext)
+    {
+        var settingType = executionContext.Settings.GetDatabaseSettings()?.KeyType().Value ?? "guid";
+        switch (settingType)
+        {
+            case "guid":
+                return "System.Guid";
+            case "int":
+                return "int";
+            case "long":
+                return "long";
+            default:
+                return settingType;
+        }
     }
 }

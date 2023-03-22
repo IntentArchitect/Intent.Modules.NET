@@ -48,7 +48,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.IdField.Name.ToPascalCase()}, existing{strategyData.FoundEntity.Name});");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.IdField.Name.ToPascalCase()}, existing{strategyData.FoundEntity.Name});");
                 }, 100);
             }
         }

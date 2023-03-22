@@ -60,7 +60,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                     var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
                     var nestedDomainElementPluralName = nestedDomainElementName.Pluralize();
                     var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
-                    var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute().IdName;
+                    var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
                     var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
                     var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
                     var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();

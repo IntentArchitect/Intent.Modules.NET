@@ -37,7 +37,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public async Task Handle_WithValidCommand_AddsAggregateRootToRepository(CreateAggregateRootCommand testCommand)
         {
             // Arrange
-            var expectedAggregateRootId = Guid.NewGuid();
+            var expectedAggregateRootId = new Fixture().Create<Guid>();
             
             AggregateRoot addedAggregateRoot = null;
             var repository = Substitute.For<IAggregateRootRepository>();

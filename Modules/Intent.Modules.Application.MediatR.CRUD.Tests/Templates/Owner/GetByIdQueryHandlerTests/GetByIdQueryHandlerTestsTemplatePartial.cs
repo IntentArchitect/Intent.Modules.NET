@@ -58,7 +58,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 var dtoModel = Model.TypeReference.Element.AsDTOModel();
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
-                var domainElementIdName = domainElement.GetEntityIdAttribute().IdName;
+                var domainElementIdName = domainElement.GetEntityIdAttribute(ExecutionContext).IdName;
                 var queryIdFieldName = Model.Properties.GetEntityIdField(domainElement).Name;
 
                 var priClass = file.Classes.First();

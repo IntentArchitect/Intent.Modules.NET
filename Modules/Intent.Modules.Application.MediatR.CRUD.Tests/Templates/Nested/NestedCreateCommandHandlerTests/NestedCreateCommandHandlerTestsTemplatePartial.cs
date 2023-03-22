@@ -65,12 +65,12 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
                 var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
                 var nestedOwnerIdFieldName = nestedOwnerIdField.Name.ToPascalCase();
-                var nestedOwnerIdAttrName = nestedDomainElement.GetNestedCompositionalOwnerIdAttribute(ownerDomainElement).IdName;
+                var nestedOwnerIdAttrName = nestedDomainElement.GetNestedCompositionalOwnerIdAttribute(ownerDomainElement, ExecutionContext).IdName;
 
                 var priClass = file.Classes.First();
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{nestedDomainElementName}ToRepository", method =>
                 {
-                    var nestedEntityIdName = nestedDomainElement.GetEntityIdAttribute().IdName;
+                    var nestedEntityIdName = nestedDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
 
                     method.Async();
                     method.AddAttribute("Theory");
@@ -109,7 +109,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
 
                 priClass.AddMethod("IEnumerable<object[]>", "GetValidTestData", method =>
                 {
-                    var entityIdName = ownerDomainElement.GetEntityIdAttribute().IdName;
+                    var entityIdName = ownerDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
 
                     method.Static();
                     method.AddStatements($@"var fixture = new Fixture();");

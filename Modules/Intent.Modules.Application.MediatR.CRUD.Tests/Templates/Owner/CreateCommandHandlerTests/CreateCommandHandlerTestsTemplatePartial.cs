@@ -63,7 +63,7 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
 
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
-                var entityIdName = domainElement.GetEntityIdAttribute().IdName;
+                var domainIdAttr = domainElement.GetEntityIdAttribute(ExecutionContext);
 
                 var priClass = file.Classes.First();
 
@@ -93,12 +93,12 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
                     method.AddStatements($@"
         // Arrange
-        var expected{domainElementName}Id = Guid.NewGuid();
+        var expected{domainElementName}Id = new Fixture().Create<{domainIdAttr.Type}>();
 
         {GetTypeName(domainElement.InternalElement)} added{domainElementName} = null;
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         repository.OnAdd(ent => added{domainElementName} = ent);
-        repository.OnSaveChanges(() => added{domainElementName}.{entityIdName} = expected{domainElementName}Id);
+        repository.OnSaveChanges(() => added{domainElementName}.{domainIdAttr.IdName} = expected{domainElementName}Id);
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
