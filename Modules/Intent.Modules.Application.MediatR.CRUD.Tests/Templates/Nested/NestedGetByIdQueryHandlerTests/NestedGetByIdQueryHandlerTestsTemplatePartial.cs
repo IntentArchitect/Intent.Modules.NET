@@ -113,7 +113,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(expectedEntity, result);");
+        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(existingEntity, result);");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>

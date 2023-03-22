@@ -80,7 +80,6 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     this.RegisterDomainEventBaseFixture(method, domainElement);
                     
                     method.AddStatements($@"
-            fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.Without(x => x.DomainEvents));
             var existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
             fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(p => p.Id, existingEntity.Id));
             var testQuery = fixture.Create<{GetTypeName(Model.InternalElement)}>();
@@ -97,7 +96,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                     method.AddStatements($@"
         // Arrange
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
-        repository.FindByIdAsync(testQuery.{queryIdFieldName}, CancellationToken.None).Returns(Task.FromResult(testEntity));
+        repository.FindByIdAsync(testQuery.{queryIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingEntity));
 
         var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
 

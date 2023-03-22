@@ -78,12 +78,12 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     {
                         method.AddStatement("");
                         method.AddStatements($@"
-        var fixture = new Fixture();");
+        fixture = new Fixture();");
                         this.RegisterDomainEventBaseFixture(method, domainElement);
                         method.AddStatements($@"
-        var existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
+        existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.Without(x => x.{property.Name}).With(x => x.{commandIdFieldName}, existingEntity.{domainElementIdName}));
-        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, existingEntity }};");
                     }
                 });

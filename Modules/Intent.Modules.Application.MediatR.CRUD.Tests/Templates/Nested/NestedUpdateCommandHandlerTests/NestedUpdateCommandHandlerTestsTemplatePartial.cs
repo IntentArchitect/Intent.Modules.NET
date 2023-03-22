@@ -89,13 +89,13 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.Async();
                     method.AddAttribute("Theory");
                     method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
-                    method.AddParameter(GetTypeName(Model.InternalElement), "testQuery");
+                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
                     method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "existingOwnerEntity");
                     method.AddParameter(GetTypeName(nestedDomainElement.InternalElement), "existingEntity");
                     method.AddStatements($@"
         // Arrange
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
         
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 

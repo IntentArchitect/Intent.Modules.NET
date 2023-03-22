@@ -90,8 +90,6 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                     method.AddParameter($"List<{GetTypeName(domainElement.InternalElement)}>", "testEntities");
                     method.AddStatements($@"
         // Arrange
-        var expectedDtos = testEntities.Select(CreateExpected{dtoModel.Name.ToPascalCase()}).ToArray();
-        
         var testQuery = new {GetTypeName(Model.InternalElement)}();
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));

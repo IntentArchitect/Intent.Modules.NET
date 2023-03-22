@@ -2,10 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,10 +24,16 @@ public partial class AssertionClassTemplate : CSharpTemplateBase<ClassModel>, IC
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public AssertionClassTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
     {
-        CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
+        AddTypeSource(CommandModelsTemplate.TemplateId);
+        AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+        
+        CSharpFile = new CSharpFile(this.GetNamespace(model.Name.Pluralize()), this.GetFolderPath(model.Name.Pluralize()))
             .AddClass($"{model.Name.ToPascalCase()}Assertions")
             .OnBuild(file =>
             {
+                file.AddUsing("FluentAssertions");
+                
                 var priClass = file.Classes.First();
                 priClass.Static();
             });
