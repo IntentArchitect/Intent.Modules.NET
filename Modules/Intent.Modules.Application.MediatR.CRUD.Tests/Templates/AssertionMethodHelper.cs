@@ -112,10 +112,18 @@ public static class AssertionMethodHelper
                     codeLines.Add($"AssertEquivalent({expectedDtoVarName}.{field.Name.ToPascalCase()}, {actualEntityVarName}.{attributeName});");
 
                     var @class = template.CSharpFile.Classes.First();
+
+                    var dtoParamType = template.GetTypeName(field.TypeReference);
+                    var entityParamType = template.GetTypeName(field.Mapping.Element.TypeReference);
+                    if (@class.FindMethod(stmt => stmt.Parameters.First().Type == dtoParamType && stmt.Parameters.Last().Type == entityParamType) != null)
+                    {
+                        continue;
+                    }
+
                     @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
                         method => method.Static()
-                            .AddParameter(template.GetTypeName((IElement)field.TypeReference.Element), "expectedDto")
-                            .AddParameter(template.GetTypeName(targetType.InternalElement), "actualEntity")
+                            .AddParameter(dtoParamType, "expectedDto")
+                            .AddParameter(entityParamType, "actualEntity")
                             .AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", targetType, fieldDtoModel.Fields, skipIdFields)));
                 }
                     break;
@@ -188,10 +196,18 @@ public static class AssertionMethodHelper
                     codeLines.Add($"AssertEquivalent({expectedEntityVarName}.{attributeName}, {actualDtoVarName}.{field.Name.ToPascalCase()});");
                     
                     var @class = template.CSharpFile.Classes.First();
+                    
+                    var dtoParamType = template.GetTypeName(field.TypeReference);
+                    var entityParamType = template.GetTypeName(field.Mapping.Element.TypeReference);
+                    if (@class.FindMethod(stmt => stmt.Parameters.First().Type == dtoParamType && stmt.Parameters.Last().Type == entityParamType) != null)
+                    {
+                        continue;
+                    }
+                    
                     @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
                         method => method.Static()
-                            .AddParameter(template.GetTypeName((IElement)field.TypeReference.Element), "actualDto")
-                            .AddParameter(template.GetTypeName(targetType.InternalElement), "expectedEntity")
+                            .AddParameter(dtoParamType, "actualDto")
+                            .AddParameter(entityParamType, "expectedEntity")
                             .AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", fieldDtoModel, targetType)));
                 }
                     break;

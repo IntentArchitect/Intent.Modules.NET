@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -24,9 +25,9 @@ public partial class AssertionClassTemplate : CSharpTemplateBase<ClassModel>, IC
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public AssertionClassTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
     {
-        AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
         AddTypeSource(CommandModelsTemplate.TemplateId);
-        AddTypeSource(TemplateFulfillingRoles.Application.Contracts.Dto);
+        AddTypeSource(CSharpTypeSource.Create(ExecutionContext, TemplateFulfillingRoles.Application.Contracts.Dto, "IEnumerable<{0}>"));
+        AddTypeSource(CSharpTypeSource.Create(ExecutionContext, TemplateFulfillingRoles.Domain.Entity.Primary, "IEnumerable<{0}>"));
         
         CSharpFile = new CSharpFile(this.GetNamespace(model.Name.Pluralize()), this.GetFolderPath(model.Name.Pluralize()))
             .AddClass($"{model.Name.ToPascalCase()}Assertions")
