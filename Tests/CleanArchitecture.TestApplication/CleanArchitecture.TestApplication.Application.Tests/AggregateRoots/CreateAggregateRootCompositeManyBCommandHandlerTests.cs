@@ -56,6 +56,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Assert
             result.Should().Be(expectedAggregateRootId);
+            await repository.UnitOfWork.Received(1).SaveChangesAsync();
             AggregateRootAssertions.AssertEquivalent(testCommand, addedCompositeManyB);
         }
     }
