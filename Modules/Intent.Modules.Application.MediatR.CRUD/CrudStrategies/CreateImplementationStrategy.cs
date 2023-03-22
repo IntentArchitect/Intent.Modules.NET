@@ -138,7 +138,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()},");
+                        var toListExpression = field.TypeReference.IsCollection
+                            ? field.TypeReference.IsNullable ? "?.ToList()" : ".ToList()"
+                            : string.Empty;
+                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}{toListExpression},");
 
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
