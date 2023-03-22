@@ -111,7 +111,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddStatement($"yield return new object[] {{ fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>() }};");
                     });
 
-                    this.AddDomainToDtoMappingMethods(priClass, nestedDomainElement, dtoModel);
+                    //this.AddDomainToDtoMappingMethods(priClass, nestedDomainElement, dtoModel);
                 });
         }
 

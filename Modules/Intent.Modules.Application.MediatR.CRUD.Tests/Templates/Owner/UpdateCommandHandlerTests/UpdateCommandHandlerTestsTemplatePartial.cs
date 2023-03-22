@@ -151,7 +151,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
             return;
         }
 
-        template.AddAssertionMappingMethods(template.CSharpFile.Classes.First(), Model, domainModel);
+        template.AddAssertionMethods(template.CSharpFile.Classes.First(), Model, domainModel);
     }
 
     [IntentManaged(Mode.Fully)]

@@ -14,7 +14,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
 public static class AssertionMethodHelper
 {
-    public static void AddAssertionMappingMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
+    public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
     {
         builderClass.AddMethod("void", GetAssertionMethodName(domainModel.InternalElement), method =>
         {
@@ -25,18 +25,14 @@ public static class AssertionMethodHelper
         });
     }
 
-    public static void AddDomainToDtoMappingMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel)
+    public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel)
     {
-        builderClass.AddMethod(template.GetTypeName(dtoModel.InternalElement), GetAssertionMethodName(dtoModel.InternalElement), method =>
+        builderClass.AddMethod("void", GetAssertionMethodName(domainModel.InternalElement), method =>
         {
-            method.Private();
             method.Static();
-            method.AddParameter(template.GetTypeName(domainModel.InternalElement), "entity");
-            method.AddStatementBlock($"return new {template.GetTypeName(dtoModel.InternalElement)}", block =>
-            {
-                block.AddStatements(GetDomainToDtoPropertyAssignments(template, "", "entity", dtoModel, domainModel));
-                block.WithSemicolon();
-            });
+            method.AddParameter(template.GetTypeName(dtoModel.InternalElement), "actualDto");
+            method.AddParameter(template.GetTypeName(domainModel.InternalElement), "expectedEntity");
+            method.AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", dtoModel, domainModel));
         });
     }
 
@@ -50,14 +46,14 @@ public static class AssertionMethodHelper
     {
         var codeLines = new List<CSharpStatement>();
 
-        codeLines.Add(new CSharpStatementBlock("if (expectedDto == null)")
-            .AddStatements(@"
-            actualEntity.Should().BeNull();
+        codeLines.Add(new CSharpStatementBlock($"if ({expectedDtoVarName} == null)")
+            .AddStatements($@"
+            {actualEntityVarName}.Should().BeNull();
             return;"));
         
         codeLines.Add(string.Empty);
         
-        codeLines.Add("actualEntity.Should().NotBeNull();");
+        codeLines.Add($"{actualEntityVarName}.Should().NotBeNull();");
         
         foreach (var field in dtoFields)
         {
@@ -131,21 +127,29 @@ public static class AssertionMethodHelper
     
    private static IEnumerable<CSharpStatement> GetDomainToDtoPropertyAssignments(
         ICSharpFileBuilderTemplate template, 
-        string dtoVarName, 
-        string entityVarName, 
+        string actualDtoVarName, 
+        string expectedEntityVarName, 
         DTOModel dtoModel,
         ClassModel domainModel)
     {
         var codeLines = new List<CSharpStatement>();
+        
+        codeLines.Add(new CSharpStatementBlock($"if ({expectedEntityVarName} == null)")
+            .AddStatements($@"
+            {actualDtoVarName}.Should().BeNull();
+            return;"));
+        
+        codeLines.Add(string.Empty);
+        
+        codeLines.Add($"{actualDtoVarName}.Should().NotBeNull();");
+        
         foreach (var field in dtoModel.Fields)
         {
-            var dtoVarExpr = !string.IsNullOrWhiteSpace(dtoVarName) ? $"{dtoVarName}." : string.Empty;
-            
             // Implicit ID case check
             if (field.Mapping?.Element == null &&
                 field.Name.Equals("id", StringComparison.OrdinalIgnoreCase))
             {
-                codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.Id,");
+                codeLines.Add($"{actualDtoVarName}.{field.Name.ToPascalCase()}.Should().Be({expectedEntityVarName}.Id);");
                 continue;
             }
             
@@ -155,7 +159,7 @@ public static class AssertionMethodHelper
                 (ownerEntity = domainModel.GetNestedCompositionalOwner()) != null &&
                 field.Name.Equals($"{ownerEntity.Name}id", StringComparison.OrdinalIgnoreCase))
             {
-                codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{ownerEntity.Name}Id,");
+                codeLines.Add($"{actualDtoVarName}.{field.Name.ToPascalCase()}.Should().Be({expectedEntityVarName}.{ownerEntity.Name}Id);");
                 continue;
             }
             
@@ -171,7 +175,7 @@ public static class AssertionMethodHelper
                 case AttributeModel.SpecializationTypeId:
                     var attribute = field.Mapping?.Element?.AsAttributeModel()
                                     ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                    codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{attribute.Name.ToPascalCase()},");
+                    codeLines.Add($"{actualDtoVarName}.{field.Name.ToPascalCase()}.Should().Be({expectedEntityVarName}.{attribute.Name.ToPascalCase()});");
 
                     break;
                 case AssociationTargetEndModel.SpecializationTypeId:
@@ -181,29 +185,14 @@ public static class AssertionMethodHelper
                     var attributeName = association.Name.ToPascalCase();
                     var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
 
-                    if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
-                    {
-                        codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{attributeName} != null ? {GetAssertionMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{attributeName}) : null,");
-                    }
-                    else
-                    {
-                        codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{attributeName}?.Select({GetAssertionMethodName(targetType.InternalElement, attributeName)}).ToList() ?? new List<{fieldDtoModel.Name.ToPascalCase()}>(),");
-                    }
-
+                    codeLines.Add($"AssertEquivalent({expectedEntityVarName}.{attributeName}, {actualDtoVarName}.{field.Name.ToPascalCase()});");
+                    
                     var @class = template.CSharpFile.Classes.First();
-                    @class.AddMethod(template.GetTypeName(fieldDtoModel.InternalElement),
-                        GetAssertionMethodName(targetType.InternalElement, attributeName),
-                        method => method.Private().Static()
-                            .AddParameter(targetType.Name.ToPascalCase(), "entity")
-                            .AddStatement($"return new {template.GetTypeName(fieldDtoModel.InternalElement)}")
-                            .AddStatement(new CSharpStatementBlock()
-                                .AddStatements(GetDomainToDtoPropertyAssignments(
-                                    template: template, 
-                                    dtoVarName: "", 
-                                    entityVarName: $"entity",
-                                    dtoModel: fieldDtoModel,
-                                    domainModel: targetType))
-                                .WithSemicolon()));
+                    @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                        method => method.Static()
+                            .AddParameter(template.GetTypeName((IElement)field.TypeReference.Element), "actualDto")
+                            .AddParameter(template.GetTypeName(targetType.InternalElement), "expectedEntity")
+                            .AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", fieldDtoModel, targetType)));
                 }
                     break;
             }

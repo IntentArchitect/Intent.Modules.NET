@@ -130,7 +130,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
         result.Should().Be(null);");
                     });
 
-                    this.AddDomainToDtoMappingMethods(priClass, nestedDomainElement, dtoModel);
+                    //this.AddDomainToDtoMappingMethods(priClass, nestedDomainElement, dtoModel);
                 });
         }
 

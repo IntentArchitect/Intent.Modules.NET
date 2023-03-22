@@ -69,12 +69,24 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                         .WithArgumentsOnNewLines());
                     ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                 });
+                
+                priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
+                {
+                    method.Static();
+                    method.AddStatements($@"var fixture = new Fixture();");
+
+                    this.RegisterDomainEventBaseFixture(method, domainElement);
+
+                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>().ToList() }};");
+
+                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>(0).ToList() }};");
+                });
 
                 priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{domainElementPluralName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetTestData))");
+                    method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
                     method.AddParameter($"List<{GetTypeName(domainElement.InternalElement)}>", "testEntities");
                     method.AddStatements($@"
         // Arrange
@@ -90,22 +102,8 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        result.Should().BeEquivalentTo(expectedDtos);");
+        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(testEntities, result);");
                 });
-
-                priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
-                {
-                    method.Static();
-                    method.AddStatements($@"var fixture = new Fixture();");
-
-                    this.RegisterDomainEventBaseFixture(method, domainElement);
-
-                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>().ToList() }};");
-
-                    method.AddStatement($@"yield return new object[] {{ fixture.CreateMany<{GetTypeName(domainElement.InternalElement)}>(0).ToList() }};");
-                });
-
-                this.AddDomainToDtoMappingMethods(priClass, domainElement, dtoModel);
             });
     }
 

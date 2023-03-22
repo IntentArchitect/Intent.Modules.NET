@@ -5,6 +5,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
@@ -54,8 +55,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 file.AddUsing("NSubstitute");
                 file.AddUsing("Xunit");
                 file.AddUsing("AutoMapper");
-
-                var dtoModel = Model.TypeReference.Element.AsDTOModel();
+                
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
                 var domainElementIdName = domainElement.GetEntityIdAttribute(ExecutionContext).IdName;
@@ -71,18 +71,31 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                         .WithArgumentsOnNewLines());
                     ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                 });
+                
+                priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
+                {
+                    method.Static();
+                    method.AddStatements($@"var fixture = new Fixture();");
+
+                    this.RegisterDomainEventBaseFixture(method, domainElement);
+                    
+                    method.AddStatements($@"
+            fixture.Customize<{GetTypeName(domainElement.InternalElement)}>(comp => comp.Without(x => x.DomainEvents));
+            var existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
+            fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(p => p.Id, existingEntity.Id));
+            var testQuery = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+            yield return new object[] {{ testQuery, existingEntity }};");
+                });
 
                 priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{domainElementName}", method =>
                 {
                     method.Async();
                     method.AddAttribute("Theory");
-                    method.AddAttribute("MemberData(nameof(GetTestData))");
-                    method.AddParameter(GetTypeName(domainElement.InternalElement), "testEntity");
+                    method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
+                    method.AddParameter(GetTypeName(Model.InternalElement), "testQuery");
+                    method.AddParameter(GetTypeName(domainElement.InternalElement), "existingEntity");
                     method.AddStatements($@"
         // Arrange
-        var expectedDto = CreateExpected{dtoModel.Name.ToPascalCase()}(testEntity);
-        
-        var testQuery = new {this.GetQueryModelsName(Model)} {{ {queryIdFieldName} = testEntity.{domainElementIdName} }};
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(domainElement)}>();
         repository.FindByIdAsync(testQuery.{queryIdFieldName}, CancellationToken.None).Returns(Task.FromResult(testEntity));
 
@@ -92,7 +105,8 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        result.Should().BeEquivalentTo(expectedDto);");
+        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(existingEntity, result);
+        ");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>
@@ -117,19 +131,30 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         // Assert
         result.Should().Be(null);");
                 });
-
-                priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
-                {
-                    method.Static();
-                    method.AddStatements($@"var fixture = new Fixture();");
-
-                    this.RegisterDomainEventBaseFixture(method, domainElement);
-
-                    method.AddStatement($@"yield return new object[] {{ fixture.Create<{GetTypeName(domainElement.InternalElement)}>() }};");
-                });
-
-                this.AddDomainToDtoMappingMethods(priClass, domainElement, dtoModel);
-            });
+            })
+            .OnBuild(file =>
+            {
+                AddAssertionMethods();
+            }, 3);
+    }
+    
+    private void AddAssertionMethods()
+    {
+        if (Model?.Mapping?.Element?.IsClassModel() != true)
+        {
+            return;
+        }
+        
+        var dtoModel = Model.TypeReference.Element.AsDTOModel();
+        var domainModel = Model.Mapping.Element.AsClassModel();
+        var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
+        if (template == null)
+        {
+            return;
+        }
+        
+        template.AddAssertionMethods(template.CSharpFile.Classes.First(), domainModel, dtoModel);
     }
 
     [IntentManaged(Mode.Fully)]
