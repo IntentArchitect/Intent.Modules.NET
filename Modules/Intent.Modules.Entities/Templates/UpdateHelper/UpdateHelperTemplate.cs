@@ -47,27 +47,45 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        public static TOriginal UpdateObject<TChanged, TOriginal>(\r\n    " +
-                    "        this TOriginal baseElement,\r\n            TChanged changedElement,\r\n     " +
-                    "       Action<TOriginal, TChanged> assignmentAction)\r\n        {\r\n            if " +
-                    "(baseElement == null)\r\n            {\r\n                return baseElement;\r\n     " +
-                    "       }\r\n\r\n            assignmentAction(baseElement, changedElement);\r\n        " +
-                    "    return baseElement;\r\n        }\r\n        \r\n        public static void UpdateC" +
-                    "ollection<TChanged, TOriginal>(\r\n            this ICollection<TOriginal> baseCol" +
-                    "lection, \r\n            ICollection<TChanged> changedCollection,\r\n            Fun" +
-                    "c<TOriginal, TChanged, bool> equalityCheck,\r\n            Action<TOriginal, TChan" +
-                    "ged> assignmentAction)\r\n            where TOriginal: class, new()\r\n        {\r\n  " +
-                    "          if (changedCollection == null)\r\n            {\r\n                return;" +
-                    "\r\n            }\r\n            \r\n            var result = baseCollection.CompareCo" +
-                    "llections(changedCollection, equalityCheck);\r\n            foreach (var elementTo" +
-                    "Add in result.ToAdd)\r\n            {\r\n                var newEntity = new TOrigin" +
-                    "al();\r\n                assignmentAction(newEntity, elementToAdd);\r\n             " +
-                    "   \r\n                baseCollection.Add(newEntity);\r\n            }\r\n            " +
-                    "\r\n            foreach (var elementToRemove in result.ToRemove)\r\n            {\r\n " +
-                    "               baseCollection.Remove(elementToRemove);\r\n            }\r\n         " +
-                    "   \r\n            foreach (var elementToEdit in result.PossibleEdits)\r\n          " +
-                    "  {\r\n                assignmentAction(elementToEdit.Original, elementToEdit.Chan" +
-                    "ged);\r\n            }\r\n        }\r\n    }\r\n}");
+            this.Write(@"
+    {
+        public static ICollection<TOriginal> CreateOrUpdateCollection<TChanged, TOriginal>(
+            ICollection<TOriginal> baseCollection,
+            ICollection<TChanged> changedCollection,
+            Func<TOriginal, TChanged, bool> equalityCheck,
+            Func<TOriginal, TChanged, TOriginal> assignmentAction)
+            where TOriginal : class, new()
+        {
+            if (changedCollection == null)
+            {
+                return null;
+            }
+
+            baseCollection ??= new List<TOriginal>()!;
+
+            var result = baseCollection.CompareCollections(changedCollection, equalityCheck);
+            foreach (var elementToAdd in result.ToAdd)
+            {
+                var newEntity = new TOriginal();
+                assignmentAction(newEntity, elementToAdd);
+
+                baseCollection.Add(newEntity);
+            }
+
+            foreach (var elementToRemove in result.ToRemove)
+            {
+                baseCollection.Remove(elementToRemove);
+            }
+
+            foreach (var elementToEdit in result.PossibleEdits)
+            {
+                assignmentAction(elementToEdit.Original, elementToEdit.Changed);
+            }
+
+            return baseCollection;
+        }
+    }
+}");
             return this.GenerationEnvironment.ToString();
         }
     }

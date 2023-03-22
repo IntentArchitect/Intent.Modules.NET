@@ -170,53 +170,49 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                                 break;
                             }
 
+                            var property = $"{entityVarExpr}{attributeName}";
+                            var updateMethodName = $"CreateOrUpdate{targetEntity.InternalElement.Name.ToPascalCase()}";
+
                             if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                             {
-                                if (field.TypeReference.IsNullable)
-                                {
-                                    _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
-                                    codeLines.Add($"? ({entityVarExpr}{attributeName} ?? new {targetEntity.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity.InternalElement, attributeName)})", s => s.Indent());
-                                    codeLines.Add($": null;", s => s.Indent());
-                                }
-                                else
-                                {
-                                    _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarExpr}{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity.InternalElement, attributeName)});");
-                                }
+                                codeLines.Add($"{property} = {updateMethodName}({property}, {dtoVarName}.{field.Name.ToPascalCase()});");
                             }
                             else
                             {
-                                _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{entityVarExpr}{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetEntity.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetEntity).Name.ToPascalCase()}, {GetUpdateMethodName(targetEntity.InternalElement, attributeName)});");
+                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetEntity.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetEntity).Name.ToPascalCase()}, {updateMethodName});");
                             }
 
+                            var entityTypeName = _template.GetTypeName(targetEntity.InternalElement);
                             var @class = _template.CSharpFile.Classes.First();
-                            @class.AddMethod("void",
-                                GetUpdateMethodName(targetEntity.InternalElement, attributeName),
-                                method => method.Private()
-                                    .Static()
-                                    .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                    .AddParameter(_template.GetTypeName(targetEntity.InternalElement), "entity")
-                                    .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                    .AddStatements(GetDTOPropertyAssignments(
-                                        entityVarName: "entity", 
-                                        dtoVarName: "dto", 
-                                        domainModel: targetEntity, 
-                                        dtoFields: field.TypeReference.Element.AsDTOModel().Fields, 
-                                        skipIdField: true)));
+                            @class.AddMethod(entityTypeName,
+                                updateMethodName,
+                                method =>
+                                {
+                                    method.Private()
+                                        .Static()
+                                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                                        .AddParameter(entityTypeName, "entity")
+                                        .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element),
+                                            "dto")
+                                        .AddStatementBlock("if (dto == null)", s => s
+                                            .AddStatement("return null;")
+                                        )
+                                        .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
+                                        .AddStatements(GetDTOPropertyAssignments(
+                                            entityVarName: "entity",
+                                            dtoVarName: "dto",
+                                            domainModel: targetEntity,
+                                            dtoFields: field.TypeReference.Element.AsDTOModel().Fields,
+                                            skipIdField: true))
+                                        .AddStatement("return entity;", s => s.SeparatedFromPrevious());
+                                });
                         }
                         break;
                 }
             }
 
             return codeLines.ToList();
-        }
-
-        private string GetUpdateMethodName(IElement classModel, [CanBeNull] string attibuteName)
-        {
-            return $"Update{classModel.Name.ToPascalCase()}";
         }
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);

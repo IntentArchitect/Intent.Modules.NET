@@ -35,7 +35,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             {
                 return false;
             }
-            
+
             if (!operationModel.Parameters.Any(p => p.Name.Contains("id", StringComparison.OrdinalIgnoreCase)))
             {
                 return false;
@@ -72,7 +72,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateFulfillingRoles.Domain.ValueObject);
             _template.AddUsing("System.Linq");
-            
+
             var (dtoModel, domainModel) = operationModel.GetUpdateModelPair();
             var domainType = _template.TryGetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, domainModel, out var result)
                 ? result
@@ -83,12 +83,12 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var repositoryFieldName = $"{domainTypeCamelCased}Repository";
             var idField = dtoModel.Fields.GetEntityIdField(domainModel);
             var dtoParam = operationModel.Parameters.First(p => !p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase));
-            
+
             var codeLines = new CSharpStatementAggregator();
             codeLines.Add(
                 $"var existing{domainTypePascalCased} = await {repositoryFieldName.ToPrivateMemberName()}.FindByIdAsync({operationModel.Parameters.First(p => p.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase)).Name});");
             codeLines.AddRange(GetDTOPropertyAssignments($"existing{domainTypePascalCased}", dtoParam.Name, domainModel.InternalElement, dtoModel.Fields, true));
-            
+
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.Name.Equals(operationModel.Name, StringComparison.OrdinalIgnoreCase));
             var attr = method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault();
@@ -107,7 +107,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 ctor.AddParameter(repositoryTypeName, repositoryFieldName, parm => parm.IntroduceReadonlyField());
             }
         }
-        
+
         private IList<CSharpStatement> GetDTOPropertyAssignments(string entityVarName, string dtoVarName, IElement domainModel, IList<DTOFieldModel> dtoFields, bool skipIdField)
         {
             var codeLines = new CSharpStatementAggregator();
@@ -154,49 +154,48 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                                 break;
                             }
 
+                            var property = $"{entityVarName}{attributeName}";
+                            var updateMethodName = $"CreateOrUpdate{targetEntityElement.Name.ToPascalCase()}";
+
                             if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                             {
-                                if (field.TypeReference.IsNullable)
-                                {
-                                _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarName}.{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null");
-                                    codeLines.Add($"? ({entityVarName}.{attributeName} ?? new {targetEntityElement.Name.ToPascalCase()}()).UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)})", s => s.Indent());
-                                    codeLines.Add($": null;", s => s.Indent());
-                                }
-                                else
-                                {
-                                    _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
-                                    codeLines.Add($"{entityVarName}.{attributeName}.UpdateObject({dtoVarName}.{field.Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
-                                }
+                                codeLines.Add($"{property} = {updateMethodName}({property}, {dtoVarName}.{field.Name.ToPascalCase()});");
                             }
                             else
                             {
-                                _template.AddUsing(_template.GetTemplate<IClassProvider>("Domain.Common.UpdateHelper").Namespace);
                                 var targetClass = targetEntityElement.AsClassModel();
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{entityVarName}.{attributeName}{(field.TypeReference.IsNullable ? "?" : "")}.UpdateCollection({dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name.ToPascalCase()}, {GetUpdateMethodName(targetEntityElement, attributeName)});");
+                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetClass.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetClass).Name.ToPascalCase()}, {updateMethodName});");
                             }
 
+                            var entityTypeName = _template.GetTypeName(targetEntityElement);
                             var @class = _template.CSharpFile.Classes.First();
-                            @class.AddMethod("void",
-                                GetUpdateMethodName(targetEntityElement, attributeName),
-                                method => method.Private()
-                                    .Static()
-                                    .AddAttribute(CSharpIntentManagedAttribute.Fully())
-                                    .AddParameter(_template.GetTypeName(targetEntityElement), "entity")
-                                    .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                                    .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntityElement, ((IElement)field.TypeReference.Element).ChildElements.Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(), true)));
+                            @class.AddMethod(entityTypeName,
+                                updateMethodName,
+                                method =>
+                                {
+                                    method.Private()
+                                        .Static()
+                                        .AddAttribute(CSharpIntentManagedAttribute.Fully())
+                                        .AddParameter(entityTypeName, "entity")
+                                        .AddParameter(_template.GetTypeName((IElement)field.TypeReference.Element),
+                                            "dto")
+                                        .AddStatementBlock("if (dto == null)", s => s
+                                            .AddStatement("return null;")
+                                        )
+                                        .AddStatement($"entity ??= new {entityTypeName}();", s => s.SeparatedFromPrevious())
+                                        .AddStatements(GetDTOPropertyAssignments("entity", "dto", targetEntityElement,
+                                            ((IElement)field.TypeReference.Element).ChildElements
+                                            .Where(x => x.IsDTOFieldModel()).Select(x => x.AsDTOFieldModel()).ToList(),
+                                            true))
+                                        .AddStatement("return entity;", s => s.SeparatedFromPrevious());
+                                });
                         }
                         break;
                 }
             }
 
             return codeLines.ToList();
-        }
-
-        private string GetUpdateMethodName(IElement classModel, [CanBeNull] string attibuteName)
-        {
-            return $"Update{classModel.Name.ToPascalCase()}";
         }
     }
 }

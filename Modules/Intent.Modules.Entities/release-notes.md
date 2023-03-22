@@ -1,5 +1,6 @@
 ﻿### Version 4.0.4
 
+- Fixed: `UpdateHelper` would not correctly handle sources with null values.
 - Fixed: Domain Entity collection property initializers would not have generic type arguments included.
 
 ### Version 4.0.3

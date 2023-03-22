@@ -1,5 +1,6 @@
 ### Version 4.1.2
 
+- Fixed: Implementations for update operations would not properly handle associations where the existing or target value was null.
 - Fixed: Create CRUD script will refer (in nested compositional cases) to the nested compositional owner's Id Type when implicit key types are defined.
 - Fixed: Projecting to the Domain Entity will ensure that collections of primitive types will also work.
 
