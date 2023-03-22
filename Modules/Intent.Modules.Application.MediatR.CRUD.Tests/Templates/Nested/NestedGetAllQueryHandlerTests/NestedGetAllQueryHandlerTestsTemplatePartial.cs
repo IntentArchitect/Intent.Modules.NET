@@ -109,7 +109,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(existingOwnerEntity.{nestedAssociationName}, result);
+        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(result, existingOwnerEntity.{nestedAssociationName});
         ");
                     });
                 })
@@ -121,13 +121,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
         
         private void AddAssertionMethods()
         {
-            if (Model?.Mapping?.Element?.IsClassModel() != true)
+            var dtoModel = Model.TypeReference.Element.AsDTOModel();
+            
+            if (dtoModel?.Mapping?.Element?.IsClassModel() != true)
             {
                 return;
             }
-
-            var dtoModel = Model.TypeReference.Element.AsDTOModel();
-            var nestedDomainElement = Model.Mapping.Element.AsClassModel();
+            
+            var nestedDomainElement = dtoModel.Mapping.Element.AsClassModel();
             var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
             var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
                 TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, ownerDomainElement));
@@ -136,7 +137,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                 return;
             }
 
-            template.AddAssertionMethods(template.CSharpFile.Classes.First(), nestedDomainElement, dtoModel);
+            template.AddAssertionMethods(template.CSharpFile.Classes.First(), nestedDomainElement, dtoModel, true);
         }
 
         [IntentManaged(Mode.Fully)]

@@ -4,6 +4,8 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
@@ -100,9 +102,33 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(testEntities, result);");
+        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(result, testEntities);");
                 });
-            });
+            })
+            .OnBuild(file =>
+            {
+                AddAssertionMethods();
+            }, 3);
+    }
+    
+    private void AddAssertionMethods()
+    {
+        var dtoModel = Model.TypeReference.Element.AsDTOModel();
+        
+        if (dtoModel?.Mapping?.Element?.IsClassModel() != true)
+        {
+            return;
+        }
+        
+        var domainElement = dtoModel.Mapping.Element.AsClassModel();
+        var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainElement));
+        if (template == null)
+        {
+            return;
+        }
+
+        template.AddAssertionMethods(template.CSharpFile.Classes.First(), domainElement, dtoModel, true);
     }
 
     [IntentManaged(Mode.Fully)]

@@ -113,7 +113,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(existingEntity, result);");
+        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(result, existingEntity);");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdQuery_ReturnsEmptyResult", method =>
@@ -164,7 +164,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
             return;
         }
 
-        template.AddAssertionMethods(template.CSharpFile.Classes.First(), nestedDomainElement, dtoModel);
+        template.AddAssertionMethods(template.CSharpFile.Classes.First(), nestedDomainElement, dtoModel, false);
     }
 
     [IntentManaged(Mode.Fully)]

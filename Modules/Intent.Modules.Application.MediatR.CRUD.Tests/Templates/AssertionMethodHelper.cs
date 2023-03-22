@@ -25,13 +25,16 @@ public static class AssertionMethodHelper
         });
     }
 
-    public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel)
+    public static void AddAssertionMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel, bool hasCollection)
     {
         builderClass.AddMethod("void", GetAssertionMethodName(domainModel.InternalElement), method =>
         {
             method.Static();
-            method.AddParameter(template.GetTypeName(dtoModel.InternalElement), "actualDto");
-            method.AddParameter(template.GetTypeName(domainModel.InternalElement), "expectedEntity");
+
+            var dtoModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(dtoModel.InternalElement)}>" : template.GetTypeName(dtoModel.InternalElement);
+            var domainModelTypeName = hasCollection ? $"IEnumerable<{template.GetTypeName(domainModel.InternalElement)}>" : template.GetTypeName(domainModel.InternalElement);
+            method.AddParameter(dtoModelTypeName, "actualDto");
+            method.AddParameter(domainModelTypeName, "expectedEntity");
             method.AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", dtoModel, domainModel));
         });
     }
@@ -97,7 +100,6 @@ public static class AssertionMethodHelper
                     break;
                 case AssociationTargetEndModel.SpecializationTypeId:
                 {
-                    
                     var association = field.Mapping.Element.AsAssociationTargetEndModel();
                     if (association.Association.AssociationType == AssociationType.Aggregation)
                     {
@@ -120,11 +122,33 @@ public static class AssertionMethodHelper
                         continue;
                     }
 
-                    @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
-                        method => method.Static()
-                            .AddParameter(dtoParamType, "expectedDto")
-                            .AddParameter(entityParamType, "actualEntity")
-                            .AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", targetType, fieldDtoModel.Fields, skipIdFields)));
+                    if (field.TypeReference.IsCollection)
+                    {
+                        @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                            method => method.Static()
+                                .AddParameter(dtoParamType, "expectedDtos")
+                                .AddParameter(entityParamType, "actualEntities")
+                                .AddStatementBlock($"if (expectedDtos == null)", block => block
+                                    .AddStatements($@"
+            actualEntities.Should().BeNullOrEmpty();
+            return;"))
+                                .AddStatement(string.Empty)
+                                .AddStatement("actualEntities.Should().HaveSameCount(actualEntities);")
+                                .AddStatementBlock("for (int i = 0; i < expectedDtos.Count(); i++)", block => block
+                                    .AddStatements($@"
+            var dto = expectedDtos.ElementAt(i);
+            var entity = actualEntities.ElementAt(i);")
+                                    .AddStatements(GetDtoToDomainPropertyAssignments(template, "entity", "dto", targetType, fieldDtoModel.Fields, skipIdFields)))
+                        );
+                    }
+                    else
+                    {
+                        @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                            method => method.Static()
+                                .AddParameter(dtoParamType, "expectedDto")
+                                .AddParameter(entityParamType, "actualEntity")
+                                .AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", targetType, fieldDtoModel.Fields, skipIdFields)));
+                    }
                 }
                     break;
             }
@@ -193,7 +217,7 @@ public static class AssertionMethodHelper
                     var attributeName = association.Name.ToPascalCase();
                     var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
 
-                    codeLines.Add($"AssertEquivalent({expectedEntityVarName}.{attributeName}, {actualDtoVarName}.{field.Name.ToPascalCase()});");
+                    codeLines.Add($"AssertEquivalent({actualDtoVarName}.{field.Name.ToPascalCase()}, {expectedEntityVarName}.{attributeName});");
                     
                     var @class = template.CSharpFile.Classes.First();
                     
@@ -204,11 +228,33 @@ public static class AssertionMethodHelper
                         continue;
                     }
                     
-                    @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
-                        method => method.Static()
-                            .AddParameter(dtoParamType, "actualDto")
-                            .AddParameter(entityParamType, "expectedEntity")
-                            .AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", fieldDtoModel, targetType)));
+                    if (field.TypeReference.IsCollection)
+                    {
+                        @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                            method => method.Static()
+                                .AddParameter(dtoParamType, "actualDtos")
+                                .AddParameter(entityParamType, "expectedEntities")
+                                .AddStatementBlock($"if (expectedEntities == null)", block => block
+                                    .AddStatements($@"
+            actualDtos.Should().BeNullOrEmpty();
+            return;"))
+                                .AddStatement(string.Empty)
+                                .AddStatement("actualDtos.Should().HaveSameCount(actualDtos);")
+                                .AddStatementBlock("for (int i = 0; i < expectedEntities.Count(); i++)", block => block
+                                    .AddStatements($@"
+            var entity = expectedEntities.ElementAt(i);
+            var dto = actualDtos.ElementAt(i);")
+                                    .AddStatements(GetDomainToDtoPropertyAssignments(template, "dto", "entity", fieldDtoModel, targetType)))
+                        );
+                    }
+                    else
+                    {
+                        @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                            method => method.Static()
+                                .AddParameter(dtoParamType, "actualDto")
+                                .AddParameter(entityParamType, "expectedEntity")
+                                .AddStatements(GetDomainToDtoPropertyAssignments(template, "actualDto", "expectedEntity", fieldDtoModel, targetType)));
+                    }
                 }
                     break;
             }

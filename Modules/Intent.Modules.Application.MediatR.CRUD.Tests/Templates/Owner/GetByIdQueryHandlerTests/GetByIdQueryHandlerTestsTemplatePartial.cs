@@ -104,7 +104,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         var result = await sut.Handle(testQuery, CancellationToken.None);
 
         // Assert
-        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(existingEntity, result);
+        {this.GetAssertionClassName(domainElement)}.AssertEquivalent(result, existingEntity);
         ");
                 });
 
@@ -153,7 +153,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
             return;
         }
         
-        template.AddAssertionMethods(template.CSharpFile.Classes.First(), domainModel, dtoModel);
+        template.AddAssertionMethods(template.CSharpFile.Classes.First(), domainModel, dtoModel, false);
     }
 
     [IntentManaged(Mode.Fully)]

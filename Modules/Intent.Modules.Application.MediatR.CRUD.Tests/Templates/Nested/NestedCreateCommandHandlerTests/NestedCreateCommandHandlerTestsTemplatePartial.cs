@@ -138,7 +138,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
         // Assert
         result.Should().Be(expected{nestedDomainElementIdAttr.IdName});
         await repository.UnitOfWork.Received(1).SaveChangesAsync();
-        AggregateRootAssertions.AssertEquivalent(testCommand, added{nestedDomainElementName});");
+        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(testCommand, added{nestedDomainElementName});");
                 });
             })
             .OnBuild(file =>

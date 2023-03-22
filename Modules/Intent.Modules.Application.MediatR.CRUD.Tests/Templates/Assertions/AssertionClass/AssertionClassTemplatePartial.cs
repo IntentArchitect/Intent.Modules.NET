@@ -34,6 +34,7 @@ public partial class AssertionClassTemplate : CSharpTemplateBase<ClassModel>, IC
             .OnBuild(file =>
             {
                 file.AddUsing("FluentAssertions");
+                file.AddUsing("System.Collections.Generic");
                 
                 var priClass = file.Classes.First();
                 priClass.Static();
