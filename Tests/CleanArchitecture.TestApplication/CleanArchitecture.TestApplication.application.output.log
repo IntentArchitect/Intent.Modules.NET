@@ -67,6 +67,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#da35a419-2430-4610-9376-302b06102ad9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Controllers/VariantTypesClassesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClassesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1419,6 +1427,142 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ffbbdd7b-0953-481f-8bc4-bb954cca84b4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/CreateVariantTypesClass/CreateVariantTypesClassCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/CreateVariantTypesClass/CreateVariantTypesClassCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ffbbdd7b-0953-481f-8bc4-bb954cca84b4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/CreateVariantTypesClass/CreateVariantTypesClassCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/CreateVariantTypesClass/CreateVariantTypesClassCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ffbbdd7b-0953-481f-8bc4-bb954cca84b4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/CreateVariantTypesClass/CreateVariantTypesClassCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/CreateVariantTypesClass/CreateVariantTypesClassCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5a1c15d2-feb7-4f28-8eb9-3df7027de11d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/DeleteVariantTypesClass/DeleteVariantTypesClassCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/DeleteVariantTypesClass/DeleteVariantTypesClassCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5a1c15d2-feb7-4f28-8eb9-3df7027de11d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/DeleteVariantTypesClass/DeleteVariantTypesClassCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/DeleteVariantTypesClass/DeleteVariantTypesClassCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5a1c15d2-feb7-4f28-8eb9-3df7027de11d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/DeleteVariantTypesClass/DeleteVariantTypesClassCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/DeleteVariantTypesClass/DeleteVariantTypesClassCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2c6dccb7-5dfd-4b7a-a6ca-b0b380c23f3c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/GetVariantTypesClassById/GetVariantTypesClassByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/GetVariantTypesClassById/GetVariantTypesClassByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2c6dccb7-5dfd-4b7a-a6ca-b0b380c23f3c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/GetVariantTypesClassById/GetVariantTypesClassByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/GetVariantTypesClassById/GetVariantTypesClassByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2c6dccb7-5dfd-4b7a-a6ca-b0b380c23f3c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/GetVariantTypesClassById/GetVariantTypesClassByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/GetVariantTypesClassById/GetVariantTypesClassByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#61590b0e-062b-484d-ab3a-033a74e8acd9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/GetVariantTypesClasses/GetVariantTypesClassesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/GetVariantTypesClasses/GetVariantTypesClassesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#61590b0e-062b-484d-ab3a-033a74e8acd9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/GetVariantTypesClasses/GetVariantTypesClassesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/GetVariantTypesClasses/GetVariantTypesClassesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#61590b0e-062b-484d-ab3a-033a74e8acd9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/GetVariantTypesClasses/GetVariantTypesClassesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/GetVariantTypesClasses/GetVariantTypesClassesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bb22508a-8aaa-4e75-b92f-ede0551eecc9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/UpdateVariantTypesClass/UpdateVariantTypesClassCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/UpdateVariantTypesClass/UpdateVariantTypesClassCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bb22508a-8aaa-4e75-b92f-ede0551eecc9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/UpdateVariantTypesClass/UpdateVariantTypesClassCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/UpdateVariantTypesClass/UpdateVariantTypesClassCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#bb22508a-8aaa-4e75-b92f-ede0551eecc9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/UpdateVariantTypesClass/UpdateVariantTypesClassCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/UpdateVariantTypesClass/UpdateVariantTypesClassCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#dceda51d-71da-4505-bc98-70f75f391683</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/VariantTypesClassDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/VariantTypesClassDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>200c87e3-90dc-414e-bb27-53f91deca874</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#dceda51d-71da-4505-bc98-70f75f391683</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application/VariantTypesClasses/VariantTypesClassDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/VariantTypesClassDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d2ff75b0-39f3-4cad-b440-26c5b416e00a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#d2ff75b0-39f3-4cad-b440-26c5b416e00a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1563,6 +1707,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#20e6125b-f0a3-4237-be02-05d89b029292</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Entities/VariantTypesClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#872ef1b0-8331-41c5-a76f-42269498b2eb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1608,6 +1760,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#20e6125b-f0a3-4237-be02-05d89b029292</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Domain/Repositories/IVariantTypesClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IVariantTypesClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1699,6 +1859,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#20e6125b-f0a3-4237-be02-05d89b029292</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Persistence/Configurations/VariantTypesClassConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClassConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b8081169-c4eb-4e42-82a2-42fb33a9b4d6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1752,6 +1920,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#20e6125b-f0a3-4237-be02-05d89b029292</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Infrastructure/Repositories/VariantTypesClassRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClassRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

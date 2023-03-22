@@ -70,7 +70,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.Virtual();
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "predicate")
                             .AddParameter(tDomain, "entity");
-                        method.AddStatement($"return base.UpdateOne(predicate, (TPersistence)entity, null);");
+                        method.AddStatement($"return base.ReplaceOne(predicate, (TPersistence)entity);");
                     });
 
                     @class.AddMethod($"Task<{tDomain}>", "FindAsync", method =>

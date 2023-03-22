@@ -19,6 +19,7 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using ClassExtensionModel = Intent.Metadata.RDBMS.Api.ClassExtensionModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -115,11 +116,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     return;
                 }
 
+                var classModel = element.AsClassModel();
                 var @class = entityTemplate.CSharpFile.Classes.First();
+
                 foreach (var property in @class.GetAllProperties())
                 {
                     if (property.TryGetMetadata("non-persistent", out bool nonPersistent) && nonPersistent &&
-                        (isOwned || !ParentConfigurationExists(element.AsClassModel())))
+                        (isOwned || !IsInheriting(classModel) || !ParentConfigurationExists(classModel)))
                     {
                         method.AddStatement($"builder.Ignore(e => e.{property.Name});");
                     }
@@ -161,11 +164,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (targetType.IsClassModel())
             {
+                var classModel = new ClassExtensionModel(targetType);
+
                 if (!ForCosmosDb())
                 {
-                    statements.AddRange(GetTableMapping(targetType.AsClassModel()));
+                    statements.AddRange(GetTableMapping(classModel));
                 }
-                statements.AddRange(GetKeyMappings(targetType.AsClassModel()));
+
+                statements.AddRange(GetKeyMappings(classModel));
             }
 
             statements.AddRange(GetAttributes(targetType)
@@ -179,26 +185,67 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             return statements.Where(x => x != null).ToList();
         }
 
-        private IEnumerable<CSharpStatement> GetTableMapping(ClassModel model)
+        private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)
         {
+            if (model.HasView() && model.HasTable())
+            {
+                throw new Exception($"Class \"{model.Name}\" [{model.Id}] has both a \"Table\" and \"View\" stereotype applied to it.");
+            }
+
             if (model.HasView())
             {
                 yield return $@"builder.ToView(""{model.GetView()?.Name() ?? model.Name.Pluralize()}""{(!string.IsNullOrWhiteSpace(model.GetView()?.Schema()) ? @$", ""{model.GetView().Schema()}""" : "")});";
             }
-            if (model.IsAggregateRoot())
+            else if (model.HasTable() && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))
             {
-                if (model.HasTable() && (model.ParentClass != null || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))
-                {
-                    yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name.Pluralize()}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema()}""" : "")});";
-                }
-                else if (ParentConfigurationExists(model))
-                {
-                    yield return $@"builder.HasBaseType<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, model.ParentClass)}>();";
-                }
+                yield return ToTableStatement(model);
             }
-            else if (model.HasTable() && (model.ParentClass != null || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.GetTable().Schema())))
+            else if (model.IsAggregateRoot() && IsInheriting(model) && ParentConfigurationExists(model))
             {
-                yield return $@"builder.ToTable(""{model.GetTable()?.Name() ?? model.Name.Pluralize()}""{(!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()) ? @$", ""{model.GetTable().Schema()}""" : "")});";
+                if (model.Triggers.Any())
+                {
+                    yield return ToTableStatement(model);
+                }
+
+                yield return $@"builder.HasBaseType<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, model.ParentClass)}>();";
+            }
+            else if (model.Triggers.Any())
+            {
+                yield return ToTableStatement(model);
+            }
+
+            static CSharpStatement ToTableStatement(ClassExtensionModel model)
+            {
+                var statement = new CSharpInvocationStatement("builder.ToTable");
+                if (!string.IsNullOrWhiteSpace(model.GetTable()?.Name()) ||
+                    !string.IsNullOrWhiteSpace(model.GetTable()?.Schema()))
+                {
+                    statement.AddArgument($"\"{model.GetTable()?.Name() ?? model.Name.Pluralize()}\"");
+                }
+
+                if (!string.IsNullOrWhiteSpace(model.GetTable()?.Schema()))
+                {
+                    statement.AddArgument($"\"{model.GetTable().Schema()}\"");
+                }
+
+                if (model.Triggers.Count == 1)
+                {
+                    statement.AddArgument($"tb => tb.HasTrigger(\"{model.Triggers[0].Name}\")");
+                }
+                else if (model.Triggers.Count > 1)
+                {
+                    statement.WithArgumentsOnNewLines();
+
+                    var lambda = new CSharpLambdaBlock("tb");
+                    foreach (var trigger in model.Triggers)
+                    {
+                        lambda.AddStatement($"tb.HasTrigger(\"{trigger.Name}\");");
+                    }
+
+                    statement.AddArgument(lambda);
+                }
+
+                return statement;
             }
         }
 
@@ -216,7 +263,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 yield return $@"builder.ToContainer(""{containerName}"");";
             }
-            else if (ParentConfigurationExists(model))
+            else if (IsInheriting(model) && ParentConfigurationExists(model))
             {
                 yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
             }
@@ -420,7 +467,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         public IEnumerable<CSharpStatement> GetKeyMappings(ClassModel model)
         {
-            if (model.ParentClass != null && ParentConfigurationExists(model))
+            if (IsInheriting(model) && ParentConfigurationExists(model))
             {
                 yield break;
             }
@@ -525,10 +572,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
         }
 
-        private bool ParentConfigurationExists(ClassModel model)
-        {
-            return model.ParentClass != null && TryGetTemplate<EntityTypeConfigurationTemplate>(Id, model.ParentClass?.Id, out _);
-        }
+        private bool ParentConfigurationExists(ClassModel model) => TryGetTemplate<EntityTypeConfigurationTemplate>(Id, model.ParentClass?.Id, out _);
+
+        private static bool IsInheriting(ClassModel model) => model?.ParentClass != null;
 
         private bool IsOwned(ICanBeReferencedType type)
         {
@@ -539,7 +585,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var attributes = new List<AttributeModel>();
             var @class = model.AsClassModel();
-            if (@class?.ParentClass != null && !ParentConfigurationExists(@class))
+            if (IsInheriting(@class) && !ParentConfigurationExists(@class))
             {
                 attributes.AddRange(GetAttributes(@class.ParentClass.InternalElement));
             }
@@ -555,7 +601,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             var associations = new List<AssociationEndModel>();
             var @class = model.AsClassModel();
-            if (@class?.ParentClass != null && !ParentConfigurationExists(@class))
+            if (IsInheriting(@class) && !ParentConfigurationExists(@class))
             {
                 associations.AddRange(GetAssociations(@class.ParentClass.InternalElement));
             }

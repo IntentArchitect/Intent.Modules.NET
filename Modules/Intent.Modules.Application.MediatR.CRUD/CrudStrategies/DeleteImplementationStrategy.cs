@@ -32,6 +32,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             return _matchingElementDetails.Value.IsMatch;
         }
+        
+        internal StrategyData GetStrategyData() => _matchingElementDetails.Value;
 
         public void ApplyStrategy()
         {
@@ -126,7 +128,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null, null);
 
-        private class StrategyData
+        internal class StrategyData
         {
             public StrategyData(bool isMatch, ClassModel foundEntity, DTOFieldModel idField, RequiredService repository)
             {

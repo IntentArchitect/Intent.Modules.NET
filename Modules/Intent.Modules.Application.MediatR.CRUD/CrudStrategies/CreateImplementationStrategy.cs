@@ -38,6 +38,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         {
             return _matchingElementDetails.Value.IsMatch;
         }
+        
+        internal StrategyData GetStrategyData() => _matchingElementDetails.Value;
 
         public void ApplyStrategy()
         {
@@ -138,7 +140,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                     case AttributeModel.SpecializationTypeId:
                         var attribute = field.Mapping?.Element?.AsAttributeModel()
                                         ?? domainModel.Attributes.First(p => p.Name == field.Name);
-                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()},");
+                        var toListExpression = field.TypeReference.IsCollection
+                            ? field.TypeReference.IsNullable ? "?.ToList()" : ".ToList()"
+                            : string.Empty;
+                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()}{toListExpression},");
 
                         break;
                     case AssociationTargetEndModel.SpecializationTypeId:
@@ -226,7 +231,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         private static readonly StrategyData NoMatch = new StrategyData(false, null, null);
 
-        private class StrategyData
+        internal class StrategyData
         {
             public StrategyData(bool isMatch, ClassModel foundEntity, RequiredService repository)
             {

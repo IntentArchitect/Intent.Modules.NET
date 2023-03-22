@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
@@ -29,11 +30,97 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                 return;
             }
 
+            InstallOnUpdateAggregateCommandHandlers(application);
+            InstallOnNestedCompositeCreateCommandHandlers(application);
+            InstallOnNestedCompositeDeleteCommandHandlers(application);
+            InstallOnNestedCompositeUpdateCommandHandlers(application);
+        }
+
+        private void InstallOnNestedCompositeCreateCommandHandlers(IApplication application)
+        {
+            var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
+            foreach (var template in templates)
+            {
+                var strategy = new CreateImplementationStrategy(template);
+                if (!strategy.IsMatch() || strategy.GetStrategyData().FoundEntity.IsAggregateRoot())
+                {
+                    continue;
+                }
+
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    var method = priClass.FindMethod("Handle");
+                    var strategyData = strategy.GetStrategyData();
+                    if (strategyData.FoundEntity.InternalElement.Package.SpecializationType != "Mongo Domain Package")
+                    {
+                        return;
+                    }
+                    method.Statements.Last()
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner()).IdName.ToPascalCase()}, aggregateRoot);");
+                }, 100);
+            }
+        }
+        
+        private void InstallOnNestedCompositeDeleteCommandHandlers(IApplication application)
+        {
+            var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
+            foreach (var template in templates)
+            {
+                var strategy = new DeleteImplementationStrategy(template);
+                if (!strategy.IsMatch() || strategy.GetStrategyData().FoundEntity.IsAggregateRoot())
+                {
+                    continue;
+                }
+
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    var method = priClass.FindMethod("Handle");
+                    var strategyData = strategy.GetStrategyData();
+                    if (strategyData.FoundEntity.InternalElement.Package.SpecializationType != "Mongo Domain Package")
+                    {
+                        return;
+                    }
+                    method.Statements.Last()
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner()).IdName.ToPascalCase()}, aggregateRoot);");
+                }, 100);
+            }
+        }
+        
+        private void InstallOnNestedCompositeUpdateCommandHandlers(IApplication application)
+        {
             var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
             foreach (var template in templates)
             {
                 var strategy = new UpdateImplementationStrategy(template);
-                if (!strategy.IsMatch())
+                if (!strategy.IsMatch() || strategy.GetStrategyData().FoundEntity.IsAggregateRoot())
+                {
+                    continue;
+                }
+
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    var priClass = file.Classes.First();
+                    var method = priClass.FindMethod("Handle");
+                    var strategyData = strategy.GetStrategyData();
+                    if (strategyData.FoundEntity.InternalElement.Package.SpecializationType != "Mongo Domain Package")
+                    {
+                        return;
+                    }
+                    method.Statements.Last()
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner()).IdName.ToPascalCase()}, aggregateRoot);");
+                }, 100);
+            }
+        }
+
+        private void InstallOnUpdateAggregateCommandHandlers(IApplication application)
+        {
+            var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
+            foreach (var template in templates)
+            {
+                var strategy = new UpdateImplementationStrategy(template);
+                if (!strategy.IsMatch() || !strategy.GetStrategyData().FoundEntity.IsAggregateRoot())
                 {
                     continue;
                 }

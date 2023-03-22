@@ -1,3 +1,8 @@
+### Version 4.1.2
+
+- Fixed: Create CRUD script will refer (in nested compositional cases) to the nested compositional owner's Id Type when implicit key types are defined.
+- Fixed: Projecting to the Domain Entity will ensure that collections of primitive types will also work.
+
 ### Version 4.1.1
 
 - Fixed: Added `null` checks on places previously not covered.
@@ -12,7 +17,7 @@
 - Fixed: Generated CRUD handling code now properly detects Primary Key Ids.
 - Fixed: Requests with incoming `null` values on Collection Properties will no longer throw NullReferenceExceptions.
 - New: Using the new Association property on Foreign Key stereotype to identify the correct Attribute on an Entity.
-
+[release-notes.md](release-notes.md)
 ### Version 4.0.3
 
 - Update: Dependency version updates.

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="61590b0e-062b-484d-ab3a-033a74e8acd9" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetVariantTypesClassesQuery</name>
+  <display>GetVariantTypesClassesQuery: VariantTypesClassDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="bf80d692-102e-4f64-8650-07645e208d5c">
+    <typeId>dceda51d-71da-4505-bc98-70f75f391683</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+    <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>f24d8514-ac3d-4919-b090-0954d73410d7</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="VariantTypesClasses" />
+  </metadata>
+  <childElements />
+</class>

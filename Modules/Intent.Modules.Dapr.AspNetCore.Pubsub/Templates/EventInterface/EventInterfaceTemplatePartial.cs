@@ -24,6 +24,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventInterface
                 .AddUsing("MediatR")
                 .AddInterface("IEvent", @class => @class
                     .ExtendsInterface("IRequest")
+                    .ExtendsInterface(GetTypeName("Application.Command.Interface"))
                     .AddProperty("string", "PubsubName", p => p.WithoutSetter())
                     .AddProperty("string", "TopicName", p => p.WithoutSetter())
                 );

@@ -34,7 +34,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                 .IntentManagedFully()
                 .AddClass($"{Model.Name.RemoveSuffix("Event", "Message")}EventHandler", @class => @class
                     .ImplementsInterface($"IRequestHandler<{this.GetIntegrationEventMessageName()}>")
-                    .AddAttribute("[IntentManaged(Mode.Merge, Body = Mode.Fully)]")
+                    .AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]")
                     .AddConstructor(constructor => constructor
                         .AddAttribute("[IntentManaged(Mode.Ignore)]")
                     )
