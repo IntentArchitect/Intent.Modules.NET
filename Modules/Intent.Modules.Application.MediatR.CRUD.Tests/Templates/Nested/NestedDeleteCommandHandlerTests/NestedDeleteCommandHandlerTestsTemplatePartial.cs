@@ -64,22 +64,33 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                 var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
+                
+                priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
+                {
+                    method.Static();
+                    method.AddStatements($@"
+        var fixture = new Fixture();");
+                    this.RegisterDomainEventBaseFixture(method, ownerDomainElement);
+                    method.AddStatements($@"
+        var existingOwnerEntity = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp
+            .With(x => x.{commandIdFieldName}, existingOwnerEntity.{nestedAssociationName}.First().Id)
+            .With(x => x.{nestedOwnerIdFieldName}, existingOwnerEntity.{ownerDomainElementIdName}));
+        var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, existingOwnerEntity }};");
+                });
+                
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{nestedDomainElementName}FromRepository", method =>
                 {
                     method.Async();
-                    method.AddAttribute("Fact");
+                    method.AddAttribute("Theory");
+                    method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
+                    method.AddParameter(GetTypeName(Model.InternalElement), "testCommand");
+                    method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "existingOwnerEntity");
                     method.AddStatements($@"
-        // Arrange
-        var fixture = new Fixture();");
-                    this.RegisterDomainEventBaseFixture(method);
-                    method.AddStatements($@"
-        var owner = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
-        var testCommand = new {GetTypeName(Model.InternalElement)}();
-        testCommand.{commandIdFieldName} = owner.{nestedAssociationName}.First().{nestedDomainElementIdName};
-        testCommand.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
-
+        // Arrange        
         var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}).Returns(Task.FromResult(owner));
+        repository.FindByIdAsync(testCommand.{nestedOwnerIdFieldName}).Returns(Task.FromResult(existingOwnerEntity));
 
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
@@ -87,7 +98,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         await sut.Handle(testCommand, CancellationToken.None);
 
         // Assert
-        owner.{nestedAssociationName}.Should().NotContain(p => p.{nestedDomainElementIdName} == testCommand.{commandIdFieldName});");
+        existingOwnerEntity.{nestedAssociationName}.Should().NotContain(p => p.{nestedDomainElementIdName} == testCommand.{commandIdFieldName});");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidOwnerIdCommand_ReturnsNotFound", method =>
@@ -105,11 +116,10 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
+        var act = async () => await sut.Handle(testCommand, CancellationToken.None); 
+        
         // Assert
-        await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-        {{
-            await sut.Handle(testCommand, CancellationToken.None);
-        }});");
+        await act.Should().ThrowAsync<InvalidOperationException>();");
                 });
 
                 priClass.AddMethod("Task", "Handle_WithInvalidIdCommand_ReturnsNotFound", method =>
@@ -131,11 +141,10 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         var sut = new {this.GetCommandHandlerName(Model)}(repository);
 
         // Act
+        var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+        
         // Assert
-        await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-        {{
-            await sut.Handle(testCommand, CancellationToken.None);
-        }});");
+        await act.Should().ThrowAsync<InvalidOperationException>();");
                 });
             });
     }

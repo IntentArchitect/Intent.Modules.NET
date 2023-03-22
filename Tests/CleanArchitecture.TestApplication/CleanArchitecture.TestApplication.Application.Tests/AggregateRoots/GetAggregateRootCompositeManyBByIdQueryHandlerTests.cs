@@ -71,11 +71,11 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
             fixture.Customize<AggregateRoot>(comp => comp.With(p => p.Composites, new List<CompositeManyB>()));
-            var owner = fixture.Create<AggregateRoot>();
+            var existingOwnerEntity = fixture.Create<AggregateRoot>();
             var testQuery = fixture.Create<GetAggregateRootCompositeManyBByIdQuery>();
 
             var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(owner));
+            repository.FindByIdAsync(testQuery.AggregateRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
             var sut = new GetAggregateRootCompositeManyBByIdQueryHandler(repository, _mapper);
 

@@ -5,6 +5,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryModels;
 using Intent.Modules.Common;
@@ -75,30 +76,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                             .WithArgumentsOnNewLines());
                         ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                     });
-
-                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{nestedDomainElementPluralName}", method =>
-                    {
-                        method.Async();
-                        method.AddAttribute("Theory");
-                        method.AddAttribute("MemberData(nameof(GetTestData))");
-                        method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "owner");
-                        method.AddStatements($@"
-        // Arrange
-        var testQuery = new {GetTypeName(Model.InternalElement)}();
-        testQuery.{nestedOwnerIdFieldName} = owner.{ownerDomainElementIdName};
-        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
-        repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(owner));
-
-        var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
-
-        // Act
-        var result = await sut.Handle(testQuery, CancellationToken.None);
-
-        // Assert
-        result.Should().BeEquivalentTo(owner.{nestedAssociationName}.Select(CreateExpected{dtoModel.InternalElement.Name.ToPascalCase()}));");
-                    });
-
-                    priClass.AddMethod("IEnumerable<object[]>", "GetTestData", method =>
+                    
+                    priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                     {
                         method.Static();
                         method.AddStatements($@"var fixture = new Fixture();");
@@ -111,8 +90,53 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                         method.AddStatement($"yield return new object[] {{ fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>() }};");
                     });
 
-                    //this.AddDomainToDtoMappingMethods(priClass, nestedDomainElement, dtoModel);
-                });
+                    priClass.AddMethod("Task", $"Handle_WithValidQuery_Retrieves{nestedDomainElementPluralName}", method =>
+                    {
+                        method.Async();
+                        method.AddAttribute("Theory");
+                        method.AddAttribute("MemberData(nameof(GetSuccessfulResultTestData))");
+                        method.AddParameter(GetTypeName(ownerDomainElement.InternalElement), "existingOwnerEntity");
+                        method.AddStatements($@"
+        // Arrange
+        var testQuery = new {GetTypeName(Model.InternalElement)}();
+        testQuery.{nestedOwnerIdFieldName} = existingOwnerEntity.{ownerDomainElementIdName};
+        var repository = Substitute.For<{this.GetEntityRepositoryInterfaceName(ownerDomainElement)}>();
+        repository.FindByIdAsync(testQuery.{nestedOwnerIdFieldName}, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
+
+        var sut = new {this.GetQueryHandlerName(Model)}(repository, _mapper);
+
+        // Act
+        var result = await sut.Handle(testQuery, CancellationToken.None);
+
+        // Assert
+        {this.GetAssertionClassName(ownerDomainElement)}.AssertEquivalent(existingOwnerEntity.{nestedAssociationName}, result);
+        ");
+                    });
+                })
+                .OnBuild(file =>
+                {
+                    AddAssertionMethods();
+                }, 5);
+        }
+        
+        private void AddAssertionMethods()
+        {
+            if (Model?.Mapping?.Element?.IsClassModel() != true)
+            {
+                return;
+            }
+
+            var dtoModel = Model.TypeReference.Element.AsDTOModel();
+            var nestedDomainElement = Model.Mapping.Element.AsClassModel();
+            var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
+            var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+                TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, ownerDomainElement));
+            if (template == null)
+            {
+                return;
+            }
+
+            template.AddAssertionMethods(template.CSharpFile.Classes.First(), nestedDomainElement, dtoModel);
         }
 
         [IntentManaged(Mode.Fully)]
