@@ -102,10 +102,6 @@ function createCqrsResultTypeDto(entity, entityFolder) {
             nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
         }
     }
-    // if (entityPkDescr.specialization == globals.PKSpecialization.Implicit) {
-    //     let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
-    //     idField.typeReference.setType(entityPkDescr.typeId);
-    // }
     addPrimaryKeysCqrs(dto, null, entityPkDescr);
     let attributesWithMapPaths = getAttributesWithMapPath(entity);
     for (var keyName of Object.keys(attributesWithMapPaths)) {
@@ -614,7 +610,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     }
     return {
         name: getDomainAttributeNameFormat(`${nestedCompOwner.getName()}Id`),
-        typeId: getSurrogateKeyType(),
+        typeId: Object.values(getPrimaryKeysWithMapPath(nestedCompOwner))[0].typeId,
         id: null,
         specialization: globals.FKSpecialization.Implicit
     };
@@ -1570,10 +1566,6 @@ function createCqrsResultTypeDto(entity, entityFolder) {
             nestedCompOwnerIdDtoField.typeReference.setType(nestedCompOwnerFkDescr.typeId);
         }
     }
-    // if (entityPkDescr.specialization == globals.PKSpecialization.Implicit) {
-    //     let idField = createElement("DTO-Field", getFieldFormat(entityPkDescr.name), dto.id);
-    //     idField.typeReference.setType(entityPkDescr.typeId);
-    // }
     addPrimaryKeysCqrs(dto, null, entityPkDescr);
     let attributesWithMapPaths = getAttributesWithMapPath(entity);
     for (var keyName of Object.keys(attributesWithMapPaths)) {
@@ -2082,7 +2074,7 @@ function getNestedCompositionalOwnerForeignKeyDescriptor(entity, nestedCompOwner
     }
     return {
         name: getDomainAttributeNameFormat(`${nestedCompOwner.getName()}Id`),
-        typeId: getSurrogateKeyType(),
+        typeId: Object.values(getPrimaryKeysWithMapPath(nestedCompOwner))[0].typeId,
         id: null,
         specialization: globals.FKSpecialization.Implicit
     };
