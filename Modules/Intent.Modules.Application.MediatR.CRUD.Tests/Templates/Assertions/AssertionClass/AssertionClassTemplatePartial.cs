@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -22,7 +23,12 @@ public partial class AssertionClassTemplate : CSharpTemplateBase<ClassModel>, IC
     public AssertionClassTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
     {
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-            .AddClass($"{model.Name.ToPascalCase()}Assertions");
+            .AddClass($"{model.Name.ToPascalCase()}Assertions")
+            .OnBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                priClass.Static();
+            });
     }
 
     [IntentManaged(Mode.Fully)]

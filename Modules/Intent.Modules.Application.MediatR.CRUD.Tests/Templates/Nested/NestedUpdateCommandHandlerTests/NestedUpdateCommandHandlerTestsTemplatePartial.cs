@@ -167,7 +167,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
                         }
                     });
 
-                    this.AddDtoToDomainMappingMethods(priClass, Model, nestedDomainElement, false);
+                    this.AddAssertionMappingMethods(priClass, Model, nestedDomainElement, false);
                 });
         }
 

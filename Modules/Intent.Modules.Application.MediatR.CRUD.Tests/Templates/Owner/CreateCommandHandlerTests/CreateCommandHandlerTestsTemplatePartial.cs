@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -110,7 +111,29 @@ public partial class CreateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         await repository.UnitOfWork.Received(1).SaveChangesAsync();
         {this.GetAssertionClassName(domainElement)}.AssertEquivalent(testCommand, added{domainElementName});");
                 });
+            })
+            .OnBuild(file =>
+            {
+                AddAssertionMethods();
             });
+    }
+
+    private void AddAssertionMethods()
+    {
+        if (Model?.Mapping?.Element?.IsClassModel() != true)
+        {
+            return;
+        }
+
+        var domainModel = Model.Mapping.Element.AsClassModel();
+        var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
+            TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainModel));
+        if (template == null)
+        {
+            return;
+        }
+
+        template.AddAssertionMappingMethods(template.CSharpFile.Classes.First(), Model, domainModel);
     }
 
     [IntentManaged(Mode.Fully)]

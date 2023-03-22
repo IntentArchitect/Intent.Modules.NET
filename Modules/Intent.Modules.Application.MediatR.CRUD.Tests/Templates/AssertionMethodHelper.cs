@@ -12,26 +12,22 @@ using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates;
 
-public static class MappingMethodHelper
+public static class AssertionMethodHelper
 {
-    public static void AddDtoToDomainMappingMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
+    public static void AddAssertionMappingMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, CommandModel commandModel, ClassModel domainModel, bool skipIdFields = true)
     {
-        builderClass.AddMethod(template.GetTypeName(domainModel.InternalElement), GetCreateMethodName(domainModel.InternalElement), method =>
+        builderClass.AddMethod("void", GetAssertionMethodName(domainModel.InternalElement), method =>
         {
-            method.Private();
             method.Static();
-            method.AddParameter(template.GetTypeName(commandModel.InternalElement), "dto");
-            method.AddStatementBlock($"return new {template.GetTypeName(domainModel.InternalElement)}", block =>
-            {
-                block.AddStatements(GetDtoToDomainPropertyAssignments(template, "", "dto", domainModel, commandModel.Properties, skipIdFields));
-                block.WithSemicolon();
-            });
+            method.AddParameter(template.GetTypeName(commandModel.InternalElement), "expectedDto");
+            method.AddParameter(template.GetTypeName(domainModel.InternalElement), "actualEntity");
+            method.AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", domainModel, commandModel.Properties, skipIdFields));
         });
     }
 
     public static void AddDomainToDtoMappingMethods(this ICSharpFileBuilderTemplate template, CSharpClass builderClass, ClassModel domainModel, DTOModel dtoModel)
     {
-        builderClass.AddMethod(template.GetTypeName(dtoModel.InternalElement), GetCreateMethodName(dtoModel.InternalElement), method =>
+        builderClass.AddMethod(template.GetTypeName(dtoModel.InternalElement), GetAssertionMethodName(dtoModel.InternalElement), method =>
         {
             method.Private();
             method.Static();
@@ -46,23 +42,31 @@ public static class MappingMethodHelper
 
     private static IEnumerable<CSharpStatement> GetDtoToDomainPropertyAssignments(
         ICSharpFileBuilderTemplate template, 
-        string entityVarName, 
-        string dtoVarName, 
+        string actualEntityVarName, 
+        string expectedDtoVarName, 
         ClassModel domainModel,
         IList<DTOFieldModel> dtoFields,
         bool skipIdFields)
     {
         var codeLines = new List<CSharpStatement>();
+
+        codeLines.Add(new CSharpStatementBlock("if (expectedDto == null)")
+            .AddStatements(@"
+            actualEntity.Should().BeNull();
+            return;"));
+        
+        codeLines.Add(string.Empty);
+        
+        codeLines.Add("actualEntity.Should().NotBeNull();");
+        
         foreach (var field in dtoFields)
         {
-            var entityVarExpr = !string.IsNullOrWhiteSpace(entityVarName) ? $"{entityVarName}." : string.Empty;
-            
             // Implicit ID case check
             if (!skipIdFields &&
                 field.Mapping?.Element == null &&
                 field.Name.Equals("id", StringComparison.OrdinalIgnoreCase))
             {
-                codeLines.Add($"{entityVarExpr}Id = {dtoVarName}.{field.Name.ToPascalCase()},");
+                codeLines.Add($"{actualEntityVarName}.Id.Should().Be({expectedDtoVarName}.{field.Name.ToPascalCase()});");
                 continue;
             }
 
@@ -72,7 +76,7 @@ public static class MappingMethodHelper
                 (ownerEntity = domainModel.GetNestedCompositionalOwner()) != null &&
                 field.Name.Equals($"{ownerEntity.Name}id", StringComparison.OrdinalIgnoreCase))
             {
-                codeLines.Add($"{entityVarExpr}{ownerEntity.Name}Id = {dtoVarName}.{field.Name.ToPascalCase()},");
+                codeLines.Add($"{actualEntityVarName}.Id.Should().Be({expectedDtoVarName}.{field.Name.ToPascalCase()});");
                 continue;
             }
 
@@ -90,7 +94,7 @@ public static class MappingMethodHelper
                                     ?? domainModel.Attributes.First(p => p.Name == field.Name);
                     if (!skipIdFields || !attribute.Name.Equals("Id", StringComparison.OrdinalIgnoreCase))
                     {
-                        codeLines.Add($"{entityVarExpr}{attribute.Name.ToPascalCase()} = {dtoVarName}.{field.Name.ToPascalCase()},");
+                        codeLines.Add($"{actualEntityVarName}.{attribute.Name.ToPascalCase()}.Should().Be({expectedDtoVarName}.{field.Name.ToPascalCase()});");
                         break;
                     }
 
@@ -109,24 +113,14 @@ public static class MappingMethodHelper
                     var attributeName = association.Name.ToPascalCase();
                     var fieldDtoModel = field.TypeReference.Element.AsDTOModel();
 
-                    if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
-                    {
-                        codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({dtoVarName}.{field.Name.ToPascalCase()}) : null,");
-                    }
-                    else
-                    {
-                        codeLines.Add($"{entityVarExpr}{attributeName} = {dtoVarName}.{field.Name.ToPascalCase()}?.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList() ?? new List<{targetType.Name.ToPascalCase()}>(),");
-                    }
+                    codeLines.Add($"AssertEquivalent({expectedDtoVarName}.{field.Name.ToPascalCase()}, {actualEntityVarName}.{attributeName});");
 
                     var @class = template.CSharpFile.Classes.First();
-                    @class.AddMethod(template.GetTypeName(targetType.InternalElement),
-                        GetCreateMethodName(targetType.InternalElement, attributeName),
-                        method => method.Private().Static()
-                            .AddParameter(template.GetTypeName((IElement)field.TypeReference.Element), "dto")
-                            .AddStatement($"return new {targetType.Name.ToPascalCase()}")
-                            .AddStatement(new CSharpStatementBlock()
-                                .AddStatements(GetDtoToDomainPropertyAssignments(template, "", $"dto", targetType, fieldDtoModel.Fields, skipIdFields))
-                                .WithSemicolon()));
+                    @class.AddMethod("void", GetAssertionMethodName(targetType.InternalElement, attributeName),
+                        method => method.Static()
+                            .AddParameter(template.GetTypeName((IElement)field.TypeReference.Element), "expectedDto")
+                            .AddParameter(template.GetTypeName(targetType.InternalElement), "actualEntity")
+                            .AddStatements(GetDtoToDomainPropertyAssignments(template, "actualEntity", "expectedDto", targetType, fieldDtoModel.Fields, skipIdFields)));
                 }
                     break;
             }
@@ -189,16 +183,16 @@ public static class MappingMethodHelper
 
                     if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)
                     {
-                        codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{attributeName} != null ? {GetCreateMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{attributeName}) : null,");
+                        codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{attributeName} != null ? {GetAssertionMethodName(targetType.InternalElement, attributeName)}({entityVarName}.{attributeName}) : null,");
                     }
                     else
                     {
-                        codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{attributeName}?.Select({GetCreateMethodName(targetType.InternalElement, attributeName)}).ToList() ?? new List<{fieldDtoModel.Name.ToPascalCase()}>(),");
+                        codeLines.Add($"{dtoVarExpr}{field.Name.ToPascalCase()} = {entityVarName}.{attributeName}?.Select({GetAssertionMethodName(targetType.InternalElement, attributeName)}).ToList() ?? new List<{fieldDtoModel.Name.ToPascalCase()}>(),");
                     }
 
                     var @class = template.CSharpFile.Classes.First();
                     @class.AddMethod(template.GetTypeName(fieldDtoModel.InternalElement),
-                        GetCreateMethodName(targetType.InternalElement, attributeName),
+                        GetAssertionMethodName(targetType.InternalElement, attributeName),
                         method => method.Private().Static()
                             .AddParameter(targetType.Name.ToPascalCase(), "entity")
                             .AddStatement($"return new {template.GetTypeName(fieldDtoModel.InternalElement)}")
@@ -218,8 +212,8 @@ public static class MappingMethodHelper
         return codeLines;
     }
 
-    private static string GetCreateMethodName(IElement targetType, string attributeName = "")
+    private static string GetAssertionMethodName(IElement targetType, string attributeName = "")
     {
-        return $"CreateExpected{targetType.Name.ToPascalCase()}";
+        return $"AssertEquivalent";
     }
 }

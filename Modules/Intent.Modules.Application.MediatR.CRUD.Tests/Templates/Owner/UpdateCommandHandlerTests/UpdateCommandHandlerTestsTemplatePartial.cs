@@ -123,7 +123,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                     }
                 });
 
-                this.AddDtoToDomainMappingMethods(priClass, Model, domainElement);
+                this.AddAssertionMappingMethods(priClass, Model, domainElement);
             });
     }
 

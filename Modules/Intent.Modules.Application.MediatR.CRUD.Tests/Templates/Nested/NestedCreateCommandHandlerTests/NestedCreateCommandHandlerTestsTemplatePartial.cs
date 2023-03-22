@@ -139,7 +139,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                     }
                 });
 
-                this.AddDtoToDomainMappingMethods(priClass, Model, nestedDomainElement);
+                this.AddAssertionMappingMethods(priClass, Model, nestedDomainElement);
             });
     }
 
