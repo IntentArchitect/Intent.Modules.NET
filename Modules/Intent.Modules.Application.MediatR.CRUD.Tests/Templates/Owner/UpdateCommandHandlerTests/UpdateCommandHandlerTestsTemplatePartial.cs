@@ -60,7 +60,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 var commandIdFieldName = Model.Properties.GetEntityIdField(domainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
-                
+
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
@@ -87,7 +87,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         yield return new object[] {{ testCommand, existingEntity }};");
                     }
                 });
-                
+
                 priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
                 {
                     method.Async();
@@ -135,7 +135,7 @@ public partial class UpdateCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
                 AddAssertionMethods();
             }, 2);
     }
-    
+
     private void AddAssertionMethods()
     {
         if (Model?.Mapping?.Element?.IsClassModel() != true)

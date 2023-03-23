@@ -71,7 +71,7 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                         .WithArgumentsOnNewLines());
                     ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                 });
-                
+
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
@@ -110,16 +110,16 @@ public partial class GetAllQueryHandlerTestsTemplate : CSharpTemplateBase<QueryM
                 AddAssertionMethods();
             }, 3);
     }
-    
+
     private void AddAssertionMethods()
     {
         var dtoModel = Model.TypeReference.Element.AsDTOModel();
-        
+
         if (dtoModel?.Mapping?.Element?.IsClassModel() != true)
         {
             return;
         }
-        
+
         var domainElement = dtoModel.Mapping.Element.AsClassModel();
         var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
             TemplateDependency.OnModel(AssertionClassTemplate.TemplateId, domainElement));

@@ -55,7 +55,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 file.AddUsing("NSubstitute");
                 file.AddUsing("Xunit");
                 file.AddUsing("AutoMapper");
-                
+
                 var domainElement = Model.Mapping.Element.AsClassModel();
                 var domainElementName = domainElement.Name.ToPascalCase();
                 var domainElementIdName = domainElement.GetEntityIdAttribute(ExecutionContext).IdName;
@@ -71,14 +71,14 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                         .WithArgumentsOnNewLines());
                     ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                 });
-                
+
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
                     method.AddStatements($@"var fixture = new Fixture();");
 
                     this.RegisterDomainEventBaseFixture(method, domainElement);
-                    
+
                     method.AddStatements($@"
             var existingEntity = fixture.Create<{GetTypeName(domainElement.InternalElement)}>();
             fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(p => p.Id, existingEntity.Id));
@@ -136,14 +136,14 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
                 AddAssertionMethods();
             }, 3);
     }
-    
+
     private void AddAssertionMethods()
     {
         if (Model?.Mapping?.Element?.IsClassModel() != true)
         {
             return;
         }
-        
+
         var dtoModel = Model.TypeReference.Element.AsDTOModel();
         var domainModel = Model.Mapping.Element.AsClassModel();
         var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(
@@ -152,7 +152,7 @@ public partial class GetByIdQueryHandlerTestsTemplate : CSharpTemplateBase<Query
         {
             return;
         }
-        
+
         template.AddAssertionMethods(template.CSharpFile.Classes.First(), domainModel, dtoModel, false);
     }
 

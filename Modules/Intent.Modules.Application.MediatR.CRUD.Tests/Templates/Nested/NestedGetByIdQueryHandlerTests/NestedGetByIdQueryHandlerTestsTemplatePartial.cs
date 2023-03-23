@@ -146,7 +146,7 @@ public partial class NestedGetByIdQueryHandlerTestsTemplate : CSharpTemplateBase
                 AddAssertionMethods();
             }, 5);
     }
-    
+
     private void AddAssertionMethods()
     {
         if (Model?.Mapping?.Element?.IsClassModel() != true)

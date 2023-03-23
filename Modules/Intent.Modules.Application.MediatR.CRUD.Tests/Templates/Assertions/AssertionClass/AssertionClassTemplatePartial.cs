@@ -28,7 +28,7 @@ public partial class AssertionClassTemplate : CSharpTemplateBase<ClassModel>, IC
         AddTypeSource(CommandModelsTemplate.TemplateId);
         AddTypeSource(CSharpTypeSource.Create(ExecutionContext, TemplateFulfillingRoles.Application.Contracts.Dto, "IEnumerable<{0}>"));
         AddTypeSource(CSharpTypeSource.Create(ExecutionContext, TemplateFulfillingRoles.Domain.Entity.Primary, "IEnumerable<{0}>"));
-        
+
         CSharpFile = new CSharpFile(this.GetNamespace(model.Name.Pluralize()), this.GetFolderPath(model.Name.Pluralize()))
             .AddClass($"{model.Name.ToPascalCase()}Assertions")
             .OnBuild(file =>
@@ -36,7 +36,7 @@ public partial class AssertionClassTemplate : CSharpTemplateBase<ClassModel>, IC
                 file.AddUsing("FluentAssertions");
                 file.AddUsing("System.Collections.Generic");
                 file.AddUsing("System.Linq");
-                
+
                 var priClass = file.Classes.First();
                 priClass.Static();
             });

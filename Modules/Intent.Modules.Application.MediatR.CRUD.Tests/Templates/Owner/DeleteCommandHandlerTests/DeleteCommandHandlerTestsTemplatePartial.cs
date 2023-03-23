@@ -72,7 +72,7 @@ public partial class DeleteCommandHandlerTestsTemplate : CSharpTemplateBase<Comm
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, existingEntity }};");
                 });
-                
+
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{domainElementName}FromRepository", method =>
                 {
                     method.Async();

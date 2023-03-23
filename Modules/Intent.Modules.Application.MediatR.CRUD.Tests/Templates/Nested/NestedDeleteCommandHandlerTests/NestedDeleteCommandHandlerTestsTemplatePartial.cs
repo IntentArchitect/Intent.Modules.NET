@@ -64,7 +64,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
                 var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
-                
+
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
@@ -79,7 +79,7 @@ public partial class NestedDeleteCommandHandlerTestsTemplate : CSharpTemplateBas
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, existingOwnerEntity }};");
                 });
-                
+
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Deletes{nestedDomainElementName}FromRepository", method =>
                 {
                     method.Async();

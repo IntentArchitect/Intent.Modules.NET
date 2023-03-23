@@ -66,7 +66,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                 var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
 
                 var priClass = file.Classes.First();
-                
+
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     method.Static();
@@ -83,7 +83,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
         var testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, existingOwnerEntity, expectedEntity }};");
                 });
-                
+
                 priClass.AddMethod("Task", "Handle_WithValidCommand_UpdatesExistingEntity", method =>
                 {
                     method.Async();
@@ -159,7 +159,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                 AddAssertionMethods();
             }, 6);
     }
-    
+
     private void AddAssertionMethods()
     {
         if (Model?.Mapping?.Element?.IsClassModel() != true)

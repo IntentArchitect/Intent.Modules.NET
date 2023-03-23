@@ -76,7 +76,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                             .WithArgumentsOnNewLines());
                         ctor.AddStatement("_mapper = mapperConfiguration.CreateMapper();");
                     });
-                    
+
                     priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                     {
                         method.Static();
@@ -118,16 +118,16 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedG
                     AddAssertionMethods();
                 }, 5);
         }
-        
+
         private void AddAssertionMethods()
         {
             var dtoModel = Model.TypeReference.Element.AsDTOModel();
-            
+
             if (dtoModel?.Mapping?.Element?.IsClassModel() != true)
             {
                 return;
             }
-            
+
             var nestedDomainElement = dtoModel.Mapping.Element.AsClassModel();
             var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
             var template = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(

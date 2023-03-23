@@ -69,7 +69,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 var nestedDomainElementIdAttr = nestedDomainElement.GetNestedCompositionalOwnerIdAttribute(ownerDomainElement, ExecutionContext);
 
                 var priClass = file.Classes.First();
-                
+
                 priClass.AddMethod("IEnumerable<object[]>", "GetSuccessfulResultTestData", method =>
                 {
                     var entityIdName = ownerDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
@@ -101,7 +101,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
         yield return new object[] {{ command, existingOwnerEntity }};");
                     }
                 });
-                
+
                 priClass.AddMethod("Task", $"Handle_WithValidCommand_Adds{nestedDomainElementName}ToRepository", method =>
                 {
                     var nestedEntityIdName = nestedDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
@@ -146,7 +146,7 @@ public partial class NestedCreateCommandHandlerTestsTemplate : CSharpTemplateBas
                 AddAssertionMethods();
             }, 4);
     }
-    
+
     private void AddAssertionMethods()
     {
         if (Model?.Mapping?.Element?.IsClassModel() != true)
