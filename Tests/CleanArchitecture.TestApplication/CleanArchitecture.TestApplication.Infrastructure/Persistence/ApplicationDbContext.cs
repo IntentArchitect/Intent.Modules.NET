@@ -31,7 +31,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
         public DbSet<ImplicitKeyAggrRoot> ImplicitKeyAggrRoots { get; set; }
-        public DbSet<VariantTypesClass> VariantTypesClasses { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -52,7 +51,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
             modelBuilder.ApplyConfiguration(new ImplicitKeyAggrRootConfiguration());
-            modelBuilder.ApplyConfiguration(new VariantTypesClassConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

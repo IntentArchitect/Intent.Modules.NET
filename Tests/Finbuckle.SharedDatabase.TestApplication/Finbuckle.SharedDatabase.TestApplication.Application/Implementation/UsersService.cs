@@ -62,7 +62,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
             var existingUser = await _userRepository.FindByIdAsync(id);
             existingUser.Email = dto.Email;
             existingUser.Username = dto.Username;
-            existingUser.Roles.UpdateCollection(dto.Roles, (e, d) => e.Id == d.Id, UpdateRole);
+            existingUserRoles = UpdateHelper.CreateOrUpdateCollection(existingUserRoles, dto.Roles, (e, d) => e.Id == d.Id, CreateOrUpdateRole);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -87,10 +87,18 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateRole(Role entity, UpdateUserRoleDto dto)
+        private static Role CreateOrUpdateRole(Role entity, UpdateUserRoleDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new Role();
             entity.Name = dto.Name;
             entity.UserId = dto.UserId;
+
+            return entity;
         }
     }
 }

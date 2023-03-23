@@ -72,12 +72,15 @@
           <addedByDefault>true</addedByDefault>
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
-          <properties />
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="0834bc19-600f-4da5-884e-2fc4997fe214" isActive="true" />
+          </properties>
         </stereotype>
       </stereotypes>
       <metadata>
         <entry key="association" value="0834bc19-600f-4da5-884e-2fc4997fe214" />
         <entry key="is-managed-key" value="true" />
+        <entry key="fk-original-name" value="ClassAId" />
       </metadata>
       <childElements />
     </childElement>

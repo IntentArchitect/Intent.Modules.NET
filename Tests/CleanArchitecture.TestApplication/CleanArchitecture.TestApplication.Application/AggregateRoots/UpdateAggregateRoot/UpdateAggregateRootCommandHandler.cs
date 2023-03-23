@@ -29,60 +29,102 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
         {
             var existingAggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.Id, cancellationToken);
             existingAggregateRoot.AggregateAttr = request.AggregateAttr;
-            existingAggregateRoot.Composites.UpdateCollection(request.Composites, (e, d) => e.Id == d.Id, UpdateCompositeManyB);
-            existingAggregateRoot.Composite = request.Composite != null
-                ? (existingAggregateRoot.Composite ?? new CompositeSingleA()).UpdateObject(request.Composite, UpdateCompositeSingleA)
-                : null;
+            existingAggregateRoot.Composites = UpdateHelper.CreateOrUpdateCollection(existingAggregateRoot.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyB);
+            existingAggregateRoot.Composite = CreateOrUpdateCompositeSingleA(existingAggregateRoot.Composite, request.Composite);
 #warning Field not a composite association: Aggregate
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeManyB(CompositeManyB entity, UpdateAggregateRootCompositeManyBDto dto)
+        private static CompositeManyB CreateOrUpdateCompositeManyB(CompositeManyB entity, UpdateAggregateRootCompositeManyBDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeManyB();
             entity.CompositeAttr = dto.CompositeAttr;
             entity.SomeDate = dto.SomeDate;
             entity.AggregateRootId = dto.AggregateRootId;
-            entity.Composites.UpdateCollection(dto.Composites, (e, d) => e.Id == d.Id, UpdateCompositeManyBB);
-            entity.Composite = dto.Composite != null
-                ? (entity.Composite ?? new CompositeSingleBB()).UpdateObject(dto.Composite, UpdateCompositeSingleBB)
-                : null;
+            entity.Composites = UpdateHelper.CreateOrUpdateCollection(entity.Composites, dto.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyBB);
+            entity.Composite = CreateOrUpdateCompositeSingleBB(entity.Composite, dto.Composite);
+
+            return entity;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeManyBB CreateOrUpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
-            entity.CompositeAttr = dto.CompositeAttr;
-        }
+            if (dto == null)
+            {
+                return null;
+            }
 
-        [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
-        {
+            entity ??= new CompositeManyBB();
             entity.CompositeAttr = dto.CompositeAttr;
             entity.CompositeManyBId = dto.CompositeManyBId;
+
+            return entity;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeSingleA(CompositeSingleA entity, UpdateAggregateRootCompositeSingleADto dto)
+        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeSingleBB();
             entity.CompositeAttr = dto.CompositeAttr;
-            entity.Composite = dto.Composite != null
-                ? (entity.Composite ?? new CompositeSingleAA()).UpdateObject(dto.Composite, UpdateCompositeSingleAA)
-                : null;
-            entity.Composites.UpdateCollection(dto.Composites, (e, d) => e.Id == d.Id, UpdateCompositeManyAA);
+
+            return entity;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeSingleAA(CompositeSingleAA entity, UpdateAggregateRootCompositeSingleACompositeSingleAADto dto)
+        private static CompositeSingleA CreateOrUpdateCompositeSingleA(CompositeSingleA entity, UpdateAggregateRootCompositeSingleADto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeSingleA();
             entity.CompositeAttr = dto.CompositeAttr;
+            entity.Composite = CreateOrUpdateCompositeSingleAA(entity.Composite, dto.Composite);
+            entity.Composites = UpdateHelper.CreateOrUpdateCollection(entity.Composites, dto.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyAA);
+
+            return entity;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeManyAA(CompositeManyAA entity, UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
+        private static CompositeSingleAA CreateOrUpdateCompositeSingleAA(CompositeSingleAA entity, UpdateAggregateRootCompositeSingleACompositeSingleAADto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeSingleAA();
+            entity.CompositeAttr = dto.CompositeAttr;
+
+            return entity;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static CompositeManyAA CreateOrUpdateCompositeManyAA(CompositeManyAA entity, UpdateAggregateRootCompositeSingleACompositeManyAADto dto)
+        {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeManyAA();
             entity.CompositeAttr = dto.CompositeAttr;
             entity.CompositeSingleAId = dto.CompositeSingleAId;
+
+            return entity;
         }
     }
 }
