@@ -87,7 +87,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     }
                     method.AddStatements($@"
         // Act
-        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(expectedId));
+        var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult({(isCommand ? "expectedId" : "Unit.Value")}));
 
         // Assert
         result.Should().Be({(isCommand ? "expectedId" : "Unit.Value")});");
@@ -144,8 +144,9 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         bool first = true;
         foreach (var property in Model.Properties)
         {
-            if (Types.Get(property.TypeReference).IsPrimitive && !property.TypeReference.IsNullable)
+            if (!Types.Get(property.TypeReference).IsPrimitive && !property.TypeReference.IsNullable)
             {
+                if (!first) { method.AddStatement(string.Empty); }
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
@@ -156,6 +157,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
             if (property.GetValidations()?.NotEmpty() == true)
             {
+                if (!first) { method.AddStatement(string.Empty); }
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => default));
@@ -164,15 +166,83 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 first = false;
             }
 
-            if (property.GetValidations()?.MaxLength() != null)
+            if (property.GetValidations().MinLength() != null && property.GetValidations().MaxLength() != null)
             {
+                if (!first) { method.AddStatement(string.Empty); }
+
+                var minLen = property.GetValidations().MinLength().Value;
+                var maxLen = property.GetValidations().MaxLength().Value;
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{(Enumerable.Range(0, property.GetValidations().MaxLength().Value + 1).Aggregate(new StringBuilder(), (s, i) => s.Append(i % 10)))}""));
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{(Enumerable.Range(0, maxLen + 1).Aggregate(new StringBuilder(), (s, i) => s.Append(i % 10)))}""));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
-        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be {property.GetValidations().MaxLength().Value} characters or fewer"" }};");
+        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be between {minLen} and {maxLen} characters"" }};");
+                
+                first = false;
+                
+                method.AddStatement(string.Empty);
+                method.AddStatements($@"
+        fixture = new Fixture();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{(Enumerable.Range(0, minLen - 1).Aggregate(new StringBuilder(), (s, i) => s.Append(i % 10)))}""));
+        testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be between {minLen} and {maxLen} characters"" }};");
+            }
+            else if (property.GetValidations()?.MaxLength() != null)
+            {
+                if (!first) { method.AddStatement(string.Empty); }
+
+                var maxLen = property.GetValidations().MaxLength().Value;
+                method.AddStatements($@"
+        {(first ? "var " : "")}fixture = new Fixture();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{(Enumerable.Range(0, maxLen + 1).Aggregate(new StringBuilder(), (s, i) => s.Append(i % 10)))}""));
+        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be {maxLen} characters or fewer"" }};");
                 first = false;
             }
+            else if (property.GetValidations()?.MinLength() != null)
+            {
+                if (!first) { method.AddStatement(string.Empty); }
+
+                var minLen = property.GetValidations().MinLength().Value;
+                method.AddStatements($@"
+        {(first ? "var " : "")}fixture = new Fixture();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{(Enumerable.Range(0, minLen - 1).Aggregate(new StringBuilder(), (s, i) => s.Append(i % 10)))}""));
+        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be at least {minLen} characters"" }};");
+                first = false;
+            }
+            
+            if (property.GetValidations()?.MaxLength() == null && property.InternalElement.IsMapped)
+            {
+                var attribute = property.InternalElement?.MappedElement?.Element?.AsAttributeModel();
+                if (attribute != null && attribute.HasStereotype("Text Constraints") &&
+                    attribute.GetStereotypeProperty<int?>("Text Constraints", "MaxLength") > 0)
+                {
+                    if (!first) { method.AddStatement(string.Empty); }
+
+                    var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
+                    method.AddStatements($@"
+        {(first ? "var " : "")}fixture = new Fixture();
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{(Enumerable.Range(0, maxLen + 1).Aggregate(new StringBuilder(), (s, i) => s.Append(i % 10)))}""));
+        {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
+        yield return new object[] {{ testCommand, ""{property.Name}"", ""must be {maxLen} characters or fewer"" }};");
+                    first = false;
+                }
+            }
+
+            // if (property.GetValidations().Min() != null && property.GetValidations().Max() != null &&
+            //     int.TryParse(property.GetValidations().Min(), out var min) && int.TryParse(property.GetValidations().Max(), out var max))
+            // {
+            //     
+            // }
+            // else if (!string.IsNullOrWhiteSpace(property.GetValidations().Min()))
+            // {
+            //     
+            // }
+            // else if (!string.IsNullOrWhiteSpace(property.GetValidations().Max()))
+            // {
+            //     
+            // }
         }
     }
 
