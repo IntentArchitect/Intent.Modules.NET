@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
@@ -180,7 +181,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                             else
                             {
                                 var targetDto = field.TypeReference.Element.AsDTOModel();
-                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetEntity.GetEntityIdAttribute().IdName} == d.{targetDto.Fields.GetEntityIdField(targetEntity).Name.ToPascalCase()}, {updateMethodName});");
+                                codeLines.Add($"{property} = {_template.GetTypeName("Domain.Common.UpdateHelper")}.CreateOrUpdateCollection({property}, {dtoVarName}.{field.Name.ToPascalCase()}, (e, d) => e.{targetEntity.GetEntityIdAttribute(_template.ExecutionContext).IdName} == d.{targetDto.Fields.GetEntityIdField(targetEntity).Name.ToPascalCase()}, {updateMethodName});");
                             }
 
                             var entityTypeName = _template.GetTypeName(targetEntity.InternalElement);
