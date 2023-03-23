@@ -37,8 +37,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.FluentValidati
         public override IEnumerable<CommandModel> GetModels(IApplication application)
         {
             return _metadataManager.Services(application).GetCommandModels()
-                .Where(p => p.Name.Contains("create", StringComparison.OrdinalIgnoreCase) ||
-                            p.Name.Contains("update", StringComparison.OrdinalIgnoreCase))
+                .Where(p => p.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase) ||
+                            p.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
     }
