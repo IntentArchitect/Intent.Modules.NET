@@ -132,6 +132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#c4bffbae-7fe7-42ec-b824-c21f0a7c86e4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/CreateAggregateRootLongCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/CreateAggregateRootLongCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#8baf2bf2-e07c-4b8d-8d5b-9ecc5e6b01bb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/DeleteAggregateRootLongCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -164,6 +172,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#1b67371c-fcd7-4b17-b61a-c729dab74d78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRootLongs/UpdateAggregateRootLongCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRootLongs/UpdateAggregateRootLongCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#d4caf10c-064e-41ff-9202-7ba1c44d40c4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/AggregateRootAssertions.cs</ApplicationRelativeFilePath>
@@ -180,10 +196,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#5fafef2d-e558-4060-ac43-7f09f1ec434a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/CreateAggregateRootCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedCreateCommandHandlerTests#7e32c772-8408-4429-8af2-820f832d584f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/CreateAggregateRootCompositeManyBCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeManyBCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#7e32c772-8408-4429-8af2-820f832d584f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/CreateAggregateRootCompositeManyBCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/CreateAggregateRootCompositeManyBCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -244,10 +276,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#3a89f77c-28f9-41ab-91e3-bfcd99a1abf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/UpdateAggregateRootCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests#095c5ed0-1106-4475-9a90-33f5eaf115bb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/UpdateAggregateRootCompositeManyBCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeManyBCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#095c5ed0-1106-4475-9a90-33f5eaf115bb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/AggregateRoots/UpdateAggregateRootCompositeManyBCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoots/UpdateAggregateRootCompositeManyBCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -284,10 +332,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#f25e0a78-82b1-4574-b473-e36da1f13b3f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedCreateCommandHandlerTests#83b9d479-8ce1-4a29-be85-fa4b7680b6ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#83b9d479-8ce1-4a29-be85-fa4b7680b6ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -356,6 +420,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#154084b8-9495-4f13-80f5-a97a8f0ab694</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests#04ffa1e6-f690-4726-88c1-dcc452d7ca78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -364,10 +436,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#04ffa1e6-f690-4726-88c1-dcc452d7ca78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ImplicitKeyAggrRoots/UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandValidatorTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#ffbbdd7b-0953-481f-8bc4-bb954cca84b4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/VariantTypesClasses/CreateVariantTypesClassCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>VariantTypesClasses/CreateVariantTypesClassCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#ffbbdd7b-0953-481f-8bc4-bb954cca84b4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/VariantTypesClasses/CreateVariantTypesClassCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/CreateVariantTypesClassCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -400,6 +488,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/VariantTypesClasses/UpdateVariantTypesClassCommandHandlerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>VariantTypesClasses/UpdateVariantTypesClassCommandHandlerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#bb22508a-8aaa-4e75-b92f-ede0551eecc9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Application.Tests/VariantTypesClasses/UpdateVariantTypesClassCommandValidatorTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>VariantTypesClasses/UpdateVariantTypesClassCommandValidatorTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

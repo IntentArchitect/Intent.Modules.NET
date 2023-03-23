@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
@@ -7,8 +8,13 @@ using CleanArchitecture.TestApplication.Application.AggregateRoots.CreateAggrega
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using FluentAssertions;
 using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using NSubstitute;
 using Xunit;
+
+[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots;
 
@@ -18,18 +24,17 @@ public class CreateAggregateRootCompositeManyBCommandValidatorTests
     {
         var fixture = new Fixture();
         var testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-        testCommand.CompositeAttr = testCommand.CompositeAttr.Substring(0, 20);
+        testCommand.CompositeAttr = "01234567890123456789";
         yield return new object[] { testCommand };
     }
-    
+
     [Theory]
     [MemberData(nameof(GetSuccessfulResultTestData))]
     public async Task Validate_WithValidCommand_PassesValidation(CreateAggregateRootCompositeManyBCommand testCommand)
     {
         // Arrange
         var validator = GetValidationBehaviour();
-        var expectedId = Guid.NewGuid();
-
+        var expectedId = new Fixture().Create<System.Guid>();
         // Act
         var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(expectedId));
 
@@ -42,36 +47,36 @@ public class CreateAggregateRootCompositeManyBCommandValidatorTests
         var fixture = new Fixture();
         fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.With(x => x.CompositeAttr, () => default));
         var testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-        yield return new object[] { testCommand, "CompositeAttr" };
-        
+        yield return new object[] { testCommand, "CompositeAttr", "not be empty" };
+
+        fixture = new Fixture();
+        fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.With(x => x.CompositeAttr, () => "012345678901234567890"));
         testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-        testCommand.CompositeAttr = "012345678901234567891";
-        yield return new object[] { testCommand, "CompositeAttr" };
+        yield return new object[] { testCommand, "CompositeAttr", "must be 20 characters or fewer" };
 
         fixture = new Fixture();
         fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.With(x => x.Composites, () => default));
         testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-        yield return new object[] { testCommand, "Composites" };
+        yield return new object[] { testCommand, "Composites", "not be empty" };
     }
 
     [Theory]
     [MemberData(nameof(GetFailedResultTestData))]
-    public async Task Validate_WithInvalidCommand_FailsValidation(CreateAggregateRootCompositeManyBCommand testCommand, string propertyName)
+    public async Task Validate_WithInvalidCommand_FailsValidation(CreateAggregateRootCompositeManyBCommand testCommand, string expectedPropertyName, string expectedPhrase)
     {
         // Arrange
         var validator = GetValidationBehaviour();
-        var expectedId = Guid.NewGuid();
-
+        var expectedId = new Fixture().Create<System.Guid>();
         // Act
         var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(expectedId));
 
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
-            .Which.Errors.Should().Contain(x => x.PropertyName == propertyName);
+        .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
     }
-    
-    private ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, Guid> GetValidationBehaviour()
+
+    private ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, System.Guid> GetValidationBehaviour()
     {
-        return new ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, Guid>(new[] { new CreateAggregateRootCompositeManyBCommandValidator() });
+        return new ValidationBehaviour<CreateAggregateRootCompositeManyBCommand, System.Guid>(new[] { new CreateAggregateRootCompositeManyBCommandValidator() });
     }
 }

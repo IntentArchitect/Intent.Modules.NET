@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
@@ -7,8 +8,13 @@ using CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAggrega
 using CleanArchitecture.TestApplication.Application.Common.Behaviours;
 using FluentAssertions;
 using FluentValidation;
+using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using NSubstitute;
 using Xunit;
+
+[assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
 namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots;
 
@@ -18,18 +24,16 @@ public class UpdateAggregateRootCommandValidatorTests
     {
         var fixture = new Fixture();
         var testCommand = fixture.Create<UpdateAggregateRootCommand>();
-        testCommand.AggregateAttr = testCommand.AggregateAttr.Substring(0, 20);
+        testCommand.AggregateAttr = "01234567890123456789";
         yield return new object[] { testCommand };
     }
-    
+
     [Theory]
     [MemberData(nameof(GetSuccessfulResultTestData))]
     public async Task Validate_WithValidCommand_PassesValidation(UpdateAggregateRootCommand testCommand)
     {
         // Arrange
         var validator = GetValidationBehaviour();
-        var expectedId = Guid.NewGuid();
-
         // Act
         var result = await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
 
@@ -43,9 +47,10 @@ public class UpdateAggregateRootCommandValidatorTests
         fixture.Customize<UpdateAggregateRootCommand>(comp => comp.With(x => x.AggregateAttr, () => default));
         var testCommand = fixture.Create<UpdateAggregateRootCommand>();
         yield return new object[] { testCommand, "AggregateAttr", "not be empty" };
-        
+
+        fixture = new Fixture();
+        fixture.Customize<UpdateAggregateRootCommand>(comp => comp.With(x => x.AggregateAttr, () => "012345678901234567890"));
         testCommand = fixture.Create<UpdateAggregateRootCommand>();
-        testCommand.AggregateAttr = "012345678901234567891";
         yield return new object[] { testCommand, "AggregateAttr", "must be 20 characters or fewer" };
 
         fixture = new Fixture();
@@ -60,16 +65,14 @@ public class UpdateAggregateRootCommandValidatorTests
     {
         // Arrange
         var validator = GetValidationBehaviour();
-        var expectedId = Guid.NewGuid();
-
         // Act
         var act = async () => await validator.Handle(testCommand, CancellationToken.None, () => Task.FromResult(Unit.Value));
 
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
-            .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
+        .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
     }
-    
+
     private ValidationBehaviour<UpdateAggregateRootCommand, Unit> GetValidationBehaviour()
     {
         return new ValidationBehaviour<UpdateAggregateRootCommand, Unit>(new[] { new UpdateAggregateRootCommandValidator() });
