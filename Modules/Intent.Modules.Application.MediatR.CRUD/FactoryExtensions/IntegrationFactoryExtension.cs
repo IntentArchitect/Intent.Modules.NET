@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner()).IdName.ToPascalCase()}, aggregateRoot);");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner(), template.ExecutionContext).IdName.ToPascalCase()}, aggregateRoot);");
                 }, 100);
             }
         }
@@ -83,7 +83,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner()).IdName.ToPascalCase()}, aggregateRoot);");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner(), template.ExecutionContext).IdName.ToPascalCase()}, aggregateRoot);");
                 }, 100);
             }
         }
@@ -109,7 +109,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner()).IdName.ToPascalCase()}, aggregateRoot);");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner(), template.ExecutionContext).IdName.ToPascalCase()}, aggregateRoot);");
                 }, 100);
             }
         }
@@ -135,7 +135,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute().IdName} == request.{strategyData.IdField.Name.ToPascalCase()}, existing{strategyData.FoundEntity.Name});");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.IdField.Name.ToPascalCase()}, existing{strategyData.FoundEntity.Name});");
                 }, 100);
             }
         }

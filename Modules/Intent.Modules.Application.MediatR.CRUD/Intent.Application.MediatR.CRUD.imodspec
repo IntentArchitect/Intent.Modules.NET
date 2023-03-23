@@ -17,7 +17,7 @@
     <factoryExtension id="Intent.Application.MediatR.CRUD.IntegrationFactoryExtension" externalReference="6c06fe9e-d240-49c9-b664-cca3bbabad1a" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.0.1" />
+    <dependency id="Intent.Application.MediatR" version="4.0.2-pre.0" />
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />

@@ -8,5 +8,20 @@
   <parentFolderId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</parentFolderId>
   <stereotypes />
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="420278bb-b783-4278-9fea-85843ac555e0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</name>
+      <display>Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions</display>
+      <externalReference>Intent.Application.MediatR.CRUD.Tests</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>13593b0a-b508-414b-a2ed-b30db193b119</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

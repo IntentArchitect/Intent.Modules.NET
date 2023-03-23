@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Application.MediatR.CRUD.Tests</id>
+  <version>1.0.0-pre.1</version>
+  <supportedClientVersions>[3.2.0,4.0.0)</supportedClientVersions>
+  <summary>Generates unit tests for CRUD Command, Query handlers and Fluent Validation validators.</summary>
+  <description>Generates unit tests for CRUD Command, Query handlers and Fluent Validation validators.</description>
+  <authors>Intent Architect</authors>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAC2xJREFUeF7tnHlw1dUVx7/n/t5KNoJJQMMuCFqCotlEIcUNdOqujGK1BrUsYhIsOI6gRi22Ulk1MFTchXbAUst0FBUF0agJEcpqIQVZRCGEFwgkedvvns59YZHwkrf8Xh6t87v/ZCa559xzP7/zu/ecc+8vBLMZIkCGpE1hmAANOoEJ0ARokIBBcdMDTYAGCRgUNz3QBGiQgEHxs+KBzEwvrUea3+/NgN8nDM3BYpUWi63mkUGoJSI2pCsK4bgDLF3FlpRE/VqS+kMg6gpmYwCJJMB7CeKVugbLytJh5I+CQ9QicQc480t3H7LQxwT0AGIWyDMYu4XG1xRlO3ZETSMKwbgDnFXpeZKAZ6OwNaQIMaYW59mnhewYww5xBzi70lsG8PgYzuGkKgKVFefaJrSH7tZ0xh3g3ErPPZLwFhjG1r4WM2JACoF7i7Pti3/WAF+sqk/TdNsrAG4his3zY2aAaJkuPGMmZSfX/qwBqsnNXXM0Xdq1XzNZ7iZwjpEJM2itgFzkE/ZFk7IprvCU3bFxgSgJzKhouk8j8WaU4gExneVvfpfnfMuIDiOyJkAj9EwPNEjPBGgCNNdAcxMx8BaYu7ABeEq0NYAqvraK5hjLL1Wo0vpAZhjTIg4UBJybSOiZImDVgAMNjJ2HJTytFKlMgC0AOi1AQXcLEmzNXqe8b8tBHdWu4G5oAmwBsJOTMKyHdto7u/uIxDf7JVTK27KZAIN4oALotDYnSboEttZKbHfJoAuhCTDIGpiZROiRImARgKsJ2ObSzTUwmPu0tQs7NEATQKMPkOYuHDwMMePAdooDI1FrroFmPTASfzm976xK9zgCzWtLgwqsHRaCTzJ8+pk9GTx+Yq5jfvRWGJM8awXVeRsPp3rd9o8Akd3aFNITCAPTRQCgSul21klU150ezjD0dVZ2Xjchjw4ZQxGd9FkB+MIXnGS1ep4XRGMAWIOZrgLqwV012E+PqbHxQEuI5GPIhZpseLwo/5z66DBELxV3gHPfZ7s/zTNWMD0FQqdgpiujsjIE+qQKtDy4O+YFPt3tP/11ZtQx07Oayzq/6AbyRI8jcsm4A5y91n8TpD4PhMzWzFVGZZ8r0D3lzKNjtx9YtVtHo69FcMi8j4mKJubal0WOIXqJuAKcWeXJIp0/JqLOoUzuf47AhWkCahP5aatrYqzeowcNrhl8UCN9eFFOwvpQ+mP19zgBZJpefqS33epczsBF4RjvtBDyMgVSHRSAqAoJHglU7NNR29h6asLgbTbN/quHL8UOxOG6W1wAzvissZvm0GaAcCsASzgAVR8FsUcKIdEGeHVg71GG8sA2G0MH4T145KMlQ5x7wh0r2n7tDvBPGzjB6vE9A/BYAAnRGKo2kmClrDZ0NULyfJ/T/vTki6khmjHDlWl3gLMrvGNAPEs5VLhGxahfExFNLs6xlcVIX1A17QawlFmkrvVfJ1lfTkRBY732nJjSzczqIOCWzN32FSNHUpA8xrgF7QKwtJRFynD3UNLE6wB6GjfTgAbCHpay8EiuY3Vp4DpwbFu7AJyz1jMATC8zeAgQ23uAUUxfMqicJE8oybdvjEK+TZGYA1xQxSlu6f0zA7epHVf4/Oj25UZkbInr1WXUDDgfewcPhLRYALUzC1rqJuvYx7PpSCwhxhTg3Per7Zze/UlmTAkYyYyuX2/G1U+8DFtDUyztDqnLl+DAJ9MmYO/lWery5XFzeLp2yP5ULNO9mAGcW812rvONlcwvEjXHel02bMdVU+cj4UCYhZKOCaCOTnCjF3Adaz5VN9AaMlLx6XPjsH9Q/2YtrE5J+bGOGfZ5hb3IbUD1SdGYAFyyhLV93d2jSNAMgNKV9rR/78KQ518L/AzZNAHK7wO6biAoLRHc4AFX7AD/cz3g8YUUb6tDbf8eWDPlQRzqp76qUAy5lllMqm+0LorFNyUxATj7a9+VJKS699xP3VZOqKnDFdPfRPcv1oPaOhE6PnMa0BVi4g1At3NO3Zn1+CDLVoI/+JchgCwIe68chC8m34eGzp3UdRGWjGoi8VBJrnWNIeWxuB84u6qpO6T2NsBDlTHWJg8uXfgeshZ/AFKHuqGaRQONzIMoLDijJ3/vgixc0LoGde6p1jf1kNoYi4XApruHY91Dt8LXwdGsj2gVSL+/JNtYumfIA5tv3NvnEuHugE1S4qJ3P0Fu2RJYmsIsy9ksEPcPBd2ZdyaoRg/0m2ee+ftkJ9AzDXxeKshhBY40AntdwK5awB88XvY7bFg7/k5sGXktFNDA68xyiebxTygamnQw1HNu7e9RAyzbwoneY57pIIwhUMCivu+X4/KZ78BeH0H6KQh0/SUQ468BbKfXGbhyB+SUJafb3ikRuPEScL8ugPP4BRqVKLsaQOt2AR9ubtUbPUkJ+GryvageMfiETgmiV4R+9LFoq9lRAVQfDCZ38D4mCE+cKBBkVmxGwXMLkVDjivxhZiSDikdA5PQ+FXLU1EOW/g2o3n9Kn1rAxl4F9OmMMwqFqpfyvhWbQJ9sbdUGtQ6uLh2DHy678ESfRinwhwTYXhiTTRHvWBEDVDluUpX3Vo3xEoBzwUDqrn0YMu01dN5YHTm8ExLJTojrLwZdmAm5/zD4gw3Anlq1bZ5sPLAbUKiSmzbakSbQnI+Autbfgv0XX4DPp4zG4R7nBTYtAvaTxCOuPNuySNO9iAHOrvLmQfJCAAPUNJyueuTPXoTzP6oIrIHt2fiufCCvd9tDuH2gv1YAG1ovBao1cMfwfHxdcg+aUpOa9TE2QqPflmTbKiKZQ0QA56x392UvvQ1CYMUXuo78mYvR/71V0Hzt/5kuFw4FBnZte37qJuayKlDlzjb76TYLvr3talQU3wWpNR/9MaNC0/ieSD6ZDRtg2aqaRJ8zeTkJ+qWK9dRol776Dwx6fTlUvhuPxjcNAoadXLuCD6mymHfKQd/+GNIk3WrB+gduwfrRN53oq75Z/MzacPTGh4dlHAupIOw4kJnmfOMZw5JeVJuGiu/OX1mBK154A7Zj8ctxObMTUHwtAnd/W2v76kAvrwTc4e0H3sQO+PyJ0fhuWDZYXQcDGiTzpEdz7QvCOVMJywP/WOVKsXOHhQJ0OzMofetODP39q+j0n73hPKTY9hmeBS7odyqE+an2Q8dASyuBbT/ZucMY3dWnG9ZMfQAHL+odyFSY8K7QbQ8W5VPIg/qwAM6ocF+gEani6GDh15G1eAWy5y+FCCfTCGMCEXWxW4HsXmC1mWSmNoczytu27weVVwd+RtqU560ddwc2jboe0qKpUKqcdFlYnO8IGVaEBVAVSFniDRAus3i8yJ73LrL+siJSO2PXX71qKohOcgAqEznqBhrczSCj/L8dm0aNQNW4O+C3B4LzKiIUFufYN4cyOiyAs77intA8bxCoQIUq/f++GoNnvhO3zSPUJIz+XVotKJ90L7bdXHA8zaPVrOuFEy93hiwlhQVQ1fpkneclgEYD0JK/P4CceUvR87N1//cQFbxdBZcF8uT6rhnqWehS8mv1TT8WlQ7rFbJmGBZApXVOpXuEZFpE6kIQM5L31SCzcis67voBwh+fMMaop7WUV+X+ul7n4YecX6A+Mz2QRjLDReBRJXmOD8MZL2yAC6rY2iS9TwGYekKxep01r4IX5cITjoXt2oegAuoT1Rk1FBOe6UC2aeHmxWEDVMpVHtyxwvsME8YTIUW9zu06v/gp15lxRBDKinJsT0fyL6QiAqjmE/BE8lwFHbcDoi/AyUTBL0nGb/7RjcQMH0D1DGwnlsucmv3TcD3v5FsY3dBA6arvHCmOLl0sVpEk/XS8MBettrMjJyzs9fvkUS3N8WNR3+guZkbsgWdnqv+7o5oADT4bE6AJ0CABg+KmB5oADRIwKG56oAnQIAGD4qYHGgT4X8V+co1i2AR8AAAAAElFTkSuQmCC</iconUrl>
+  <tags>c# tests unit-test crud mediatr</tags>
+  <templates>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass" externalReference="f2c561b2-c5b6-4214-b695-2608e0468d25">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.Assertion</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Extensions.RepositoryExtensions" externalReference="2fea7bef-ccb5-4c7f-84f1-b67e28346d94">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.RepositoryExtensions</role>
+      <location>Extensions</location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest" externalReference="08dcfc9d-0cf5-4204-952d-ab7fe65a1f74">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.FluentValidation</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Nested.NestedCreateCommandHandlerTests" externalReference="3e43f532-fb03-4d89-9709-a594c04dbc4f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.NestedCreateCommandHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Nested.NestedDeleteCommandHandlerTests" externalReference="1985b6c1-b3e1-42c6-b000-32e05b2479d1">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.NestedDeleteCommandHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetAllQueryHandlerTests" externalReference="b45e9986-4a9c-4390-96a9-a9b3ae034b67">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.NestedGetAllQueryHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Nested.NestedGetByIdQueryHandlerTests" externalReference="ad52607a-7ee6-40f7-abb2-ff206e0e0276">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.NestedGetByIdQueryHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Nested.NestedUpdateCommandHandlerTests" externalReference="ad98f616-664e-413c-bd84-397797c4ab80">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.NestedUpdateCommandHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests" externalReference="78219607-0f06-476a-a711-333c0d02bbb5">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.CreateCommandHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests" externalReference="2f16e4a1-85d3-4456-bf91-6bb7f739c330">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.DeleteCommandHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests" externalReference="04cae865-6888-485f-9e61-057f75b58913">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.GetAllQueryHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests" externalReference="d2a7726f-23be-4c3e-9156-56bdb1270237">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.GetByIdQueryHandler</role>
+      <location></location>
+    </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.Owner.UpdateCommandHandlerTests" externalReference="095d3b10-79be-458b-9e55-49dbcbd2cb21">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.UpdateCommandHandler</role>
+      <location></location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions></factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Application.MediatR.CRUD" version="4.1.2-pre.3" />
+    <dependency id="Intent.Application.MediatR.FluentValidation" version="4.0.2" />
+    <dependency id="Intent.Common" version="3.3.18" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.6" />
+    <dependency id="Intent.Common.Types" version="3.3.7" />
+    <dependency id="Intent.Modelers.Domain" version="3.3.10" />
+    <dependency id="Intent.Modelers.Services" version="3.3.8-pre.0" />
+    <dependency id="Intent.Modelers.Services.CQRS" version="3.3.6" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <moduleSettingsExtensions />
+  <metadata />
+</package>

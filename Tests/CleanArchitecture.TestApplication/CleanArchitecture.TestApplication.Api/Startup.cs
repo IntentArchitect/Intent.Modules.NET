@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Configuration;
 using CleanArchitecture.TestApplication.Application;
+using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
