@@ -57,12 +57,11 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
 
                 var dtoModel = Model.TypeReference.Element.AsDTOModel();
                 var nestedDomainElement = Model.Mapping.Element.AsClassModel();
-                var nestedDomainElementName = nestedDomainElement.Name.ToPascalCase();
-                var nestedDomainElementIdName = nestedDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
                 var ownerDomainElement = nestedDomainElement.GetNestedCompositionalOwner();
                 var ownerDomainElementIdName = ownerDomainElement.GetEntityIdAttribute(ExecutionContext).IdName;
                 var nestedOwnerIdField = Model.Properties.GetNestedCompositionalOwnerIdField(ownerDomainElement);
                 var nestedOwnerIdFieldName = nestedOwnerIdField.Name;
+                var nestedOwnerIdAttrName = nestedDomainElement.GetNestedCompositionalOwnerIdAttribute(ownerDomainElement, ExecutionContext).IdName;
                 var commandIdFieldName = Model.Properties.GetEntityIdField(nestedDomainElement).Name;
                 var nestedAssociationName = ownerDomainElement.GetNestedCompositeAssociation(nestedDomainElement).Name.ToCSharpIdentifier();
 
@@ -77,6 +76,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
                     method.AddStatements($@"
         var existingOwnerEntity = fixture.Create<{GetTypeName(ownerDomainElement.InternalElement)}>();
         var expectedEntity = existingOwnerEntity.{nestedAssociationName}.First();
+        expectedEntity.{nestedOwnerIdAttrName} = existingOwnerEntity.{ownerDomainElementIdName};
         fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp
             .With(x => x.{commandIdFieldName}, expectedEntity.Id)
             .With(x => x.{nestedOwnerIdFieldName}, existingOwnerEntity.{ownerDomainElementIdName}));
@@ -177,7 +177,7 @@ public partial class NestedUpdateCommandHandlerTestsTemplate : CSharpTemplateBas
             return;
         }
 
-        template.AddAssertionMethods(template.CSharpFile.Classes.First(), Model, nestedDomainElement, false);
+        template.AddAssertionMethods(template.CSharpFile.Classes.First(), Model, nestedDomainElement);
     }
 
     [IntentManaged(Mode.Fully)]
