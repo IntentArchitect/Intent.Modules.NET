@@ -98,8 +98,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private StrategyData GetMatchingElementDetails()
         {
             var commandNameLowercase = _template.Model.Name.ToLower();
-            if ((commandNameLowercase.Contains("update") ||
-                 commandNameLowercase.Contains("edit"))
+            if ((commandNameLowercase.StartsWith("update") ||
+                 commandNameLowercase.StartsWith("edit"))
                 && _template.Model.Mapping?.Element.IsClassModel() == true)
             {
                 var foundEntity = _template.Model.Mapping.Element.AsClassModel();

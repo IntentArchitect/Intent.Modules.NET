@@ -98,8 +98,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private StrategyData GetMatchingElementDetails()
         {
             var commandNameLowercase = _template.Model.Name.ToLower();
-            if ((!commandNameLowercase.Contains("delete") &&
-                 !commandNameLowercase.Contains("remove"))
+            if ((!commandNameLowercase.StartsWith("delete") &&
+                 !commandNameLowercase.StartsWith("remove"))
                 || _template.Model.Mapping?.Element.IsClassModel() != true)
             {
                 return NoMatch;

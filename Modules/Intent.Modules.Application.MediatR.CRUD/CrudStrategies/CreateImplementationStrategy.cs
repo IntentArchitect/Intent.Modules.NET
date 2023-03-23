@@ -202,9 +202,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
         private StrategyData GetMatchingElementDetails()
         {
             var commandNameLowercase = _template.Model.Name.ToLower();
-            if ((commandNameLowercase.Contains("create") ||
-                 commandNameLowercase.Contains("add") ||
-                 commandNameLowercase.Contains("new"))
+            if ((commandNameLowercase.StartsWith("create") ||
+                 commandNameLowercase.StartsWith("add") ||
+                 commandNameLowercase.StartsWith("new"))
                 && _template.Model.Mapping?.Element.IsClassModel() == true)
             {
                 var foundEntity = _template.Model.Mapping.Element.AsClassModel();
