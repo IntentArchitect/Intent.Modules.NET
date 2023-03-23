@@ -145,15 +145,15 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         {
             if (property.GetValidations().MinLength() != null && property.GetValidations().MaxLength() != null)
             {
-                method.AddStatement($@"testCommand.{property.Name} = ""{GetStringWithLen(property.GetValidations().MinLength().Value)}"";");
+                method.AddStatement($@"testCommand.{property.Name} = $""{GetStringWithLen(property.GetValidations().MinLength().Value)}"";");
             }
             else if (property.GetValidations()?.MaxLength() != null)
             {
-                method.AddStatement($@"testCommand.{property.Name} = ""{GetStringWithLen(property.GetValidations().MaxLength().Value)}"";");
+                method.AddStatement($@"testCommand.{property.Name} = $""{GetStringWithLen(property.GetValidations().MaxLength().Value)}"";");
             }
             else if (property.GetValidations()?.MinLength() != null)
             {
-                method.AddStatement($@"testCommand.{property.Name} = ""{GetStringWithLen(property.GetValidations().MinLength().Value)}"";");
+                method.AddStatement($@"testCommand.{property.Name} = $""{GetStringWithLen(property.GetValidations().MinLength().Value)}"";");
             }
 
             if (property.GetValidations()?.MaxLength() == null && property.InternalElement.IsMapped)
@@ -204,7 +204,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 var maxLen = property.GetValidations().MaxLength().Value;
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{GetStringWithLen(maxLen + 1)}""));
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(maxLen + 1)}""));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, ""{property.Name}"", ""must be between {minLen} and {maxLen} characters"" }};");
 
@@ -213,7 +213,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 method.AddStatement(string.Empty);
                 method.AddStatements($@"
         fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{GetStringWithLen(minLen - 1)}""));
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(minLen - 1)}""));
         testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, ""{property.Name}"", ""must be between {minLen} and {maxLen} characters"" }};");
             }
@@ -224,7 +224,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 var maxLen = property.GetValidations().MaxLength().Value;
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{GetStringWithLen(maxLen + 1)}""));
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(maxLen + 1)}""));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, ""{property.Name}"", ""must be {maxLen} characters or fewer"" }};");
                 first = false;
@@ -236,7 +236,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                 var minLen = property.GetValidations().MinLength().Value;
                 method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{GetStringWithLen(minLen - 1)}""));
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(minLen - 1)}""));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, ""{property.Name}"", ""must be at least {minLen} characters"" }};");
                 first = false;
@@ -253,7 +253,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                     var maxLen = attribute.GetStereotypeProperty<int>("Text Constraints", "MaxLength");
                     method.AddStatements($@"
         {(first ? "var " : "")}fixture = new Fixture();
-        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => ""{GetStringWithLen(maxLen + 1)}""));
+        fixture.Customize<{GetTypeName(Model.InternalElement)}>(comp => comp.With(x => x.{property.Name}, () => $""{GetStringWithLen(maxLen + 1)}""));
         {(first ? "var " : "")}testCommand = fixture.Create<{GetTypeName(Model.InternalElement)}>();
         yield return new object[] {{ testCommand, ""{property.Name}"", ""must be {maxLen} characters or fewer"" }};");
                     first = false;
@@ -264,7 +264,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
     private static string GetStringWithLen(int length)
     {
-        return Enumerable.Range(0, length).Aggregate(new StringBuilder(), (s, i) => s.Append(i % 10)).ToString();
+        return $@"{{string.Join(string.Empty, fixture.CreateMany<char>({length}))}}";
     }
 
     [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
