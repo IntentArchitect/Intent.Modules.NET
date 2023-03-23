@@ -76,6 +76,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
         public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
+        public DbSet<StandaloneDerived> StandaloneDeriveds { get; set; }
         public DbSet<WeirdClass> WeirdClasses { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
@@ -125,6 +126,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             modelBuilder.ApplyConfiguration(new Poly_ConcreteAConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_ConcreteBConfiguration());
             modelBuilder.ApplyConfiguration(new Poly_SecondLevelConfiguration());
+            modelBuilder.ApplyConfiguration(new StandaloneDerivedConfiguration());
             modelBuilder.ApplyConfiguration(new WeirdClassConfiguration());
         }
 
