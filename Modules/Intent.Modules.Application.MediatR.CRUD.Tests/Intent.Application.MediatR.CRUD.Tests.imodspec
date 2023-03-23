@@ -24,6 +24,14 @@
       <role>Application.Test.RepositoryExtensions</role>
       <location>Extensions</location>
     </template>
+    <template id="Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest" externalReference="08dcfc9d-0cf5-4204-952d-ab7fe65a1f74">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Test.FluentValidation</role>
+      <location></location>
+    </template>
     <template id="Intent.Application.MediatR.CRUD.Tests.Nested.NestedCreateCommandHandlerTests" externalReference="3e43f532-fb03-4d89-9709-a594c04dbc4f">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -110,6 +118,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.MediatR.CRUD" version="4.1.2-pre.3" />
+    <dependency id="Intent.Application.MediatR.FluentValidation" version="4.0.2" />
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.6" />
     <dependency id="Intent.Common.Types" version="3.3.7" />

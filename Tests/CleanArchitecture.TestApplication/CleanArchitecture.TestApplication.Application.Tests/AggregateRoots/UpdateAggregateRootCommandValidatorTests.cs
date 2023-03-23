@@ -42,21 +42,21 @@ public class UpdateAggregateRootCommandValidatorTests
         var fixture = new Fixture();
         fixture.Customize<UpdateAggregateRootCommand>(comp => comp.With(x => x.AggregateAttr, () => default));
         var testCommand = fixture.Create<UpdateAggregateRootCommand>();
-        yield return new object[] { testCommand, "AggregateAttr" };
+        yield return new object[] { testCommand, "AggregateAttr", "not be empty" };
         
         testCommand = fixture.Create<UpdateAggregateRootCommand>();
         testCommand.AggregateAttr = "012345678901234567891";
-        yield return new object[] { testCommand, "AggregateAttr" };
+        yield return new object[] { testCommand, "AggregateAttr", "must be 20 characters or fewer" };
 
         fixture = new Fixture();
         fixture.Customize<UpdateAggregateRootCommand>(comp => comp.With(x => x.Composites, () => default));
         testCommand = fixture.Create<UpdateAggregateRootCommand>();
-        yield return new object[] { testCommand, "Composites" };
+        yield return new object[] { testCommand, "Composites", "not be empty" };
     }
 
     [Theory]
     [MemberData(nameof(GetFailedResultTestData))]
-    public async Task Validate_WithInvalidCommand_FailsValidation(UpdateAggregateRootCommand testCommand, string propertyName)
+    public async Task Validate_WithInvalidCommand_FailsValidation(UpdateAggregateRootCommand testCommand, string expectedPropertyName, string expectedPhrase)
     {
         // Arrange
         var validator = GetValidationBehaviour();
@@ -67,7 +67,7 @@ public class UpdateAggregateRootCommandValidatorTests
 
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
-            .Which.Errors.Should().Contain(x => x.PropertyName == propertyName);
+            .Which.Errors.Should().Contain(x => x.PropertyName == expectedPropertyName && x.ErrorMessage.Contains(expectedPhrase));
     }
     
     private ValidationBehaviour<UpdateAggregateRootCommand, Unit> GetValidationBehaviour()

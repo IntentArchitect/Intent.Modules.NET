@@ -66,6 +66,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#08dcfc9d-0cf5-4204-952d-ab7fe65a1f74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FluentValidation/FluentValidationTest/FluentValidationTestTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidation/FluentValidationTest/FluentValidationTestTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#08dcfc9d-0cf5-4204-952d-ab7fe65a1f74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/FluentValidation/FluentValidationTest/FluentValidationTestTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FluentValidation/FluentValidationTest/FluentValidationTestTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31cbda05-7f2d-447a-94dc-0fa47507bcea</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3e43f532-fb03-4d89-9709-a594c04dbc4f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Nested/NestedCreateCommandHandlerTests/NestedCreateCommandHandlerTestsTemplatePartial.cs</ApplicationRelativeFilePath>

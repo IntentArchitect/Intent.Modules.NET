@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Assertions.AssertionClass;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Extensions.RepositoryExtensions;
+using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.FluentValidation.FluentValidationTest;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedCreateCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedDeleteCommandHandlerTests;
 using Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedGetAllQueryHandlerTests;
@@ -50,6 +51,16 @@ where T : Intent.Modelers.Domain.Api.ClassModel
         public static string GetDeleteCommandHandlerTestsName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
         {
             return template.GetTypeName(DeleteCommandHandlerTestsTemplate.TemplateId, model);
+        }
+
+        public static string GetFluentValidationTestName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.CommandModel
+        {
+            return template.GetTypeName(FluentValidationTestTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetFluentValidationTestName(this IntentTemplateBase template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
+        {
+            return template.GetTypeName(FluentValidationTestTemplate.TemplateId, model);
         }
 
         public static string GetGetAllQueryHandlerTestsName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel
