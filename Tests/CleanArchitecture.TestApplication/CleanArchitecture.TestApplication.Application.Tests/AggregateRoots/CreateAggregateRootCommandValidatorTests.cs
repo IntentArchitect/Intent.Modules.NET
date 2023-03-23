@@ -24,7 +24,7 @@ public class CreateAggregateRootCommandValidatorTests
     {
         var fixture = new Fixture();
         var testCommand = fixture.Create<CreateAggregateRootCommand>();
-        testCommand.AggregateAttr = "01234567890123456789";
+        testCommand.AggregateAttr = $"{string.Join(string.Empty, fixture.CreateMany<char>(20))}";
         yield return new object[] { testCommand };
     }
 
@@ -50,7 +50,7 @@ public class CreateAggregateRootCommandValidatorTests
         yield return new object[] { testCommand, "AggregateAttr", "not be empty" };
 
         fixture = new Fixture();
-        fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.AggregateAttr, () => "012345678901234567890"));
+        fixture.Customize<CreateAggregateRootCommand>(comp => comp.With(x => x.AggregateAttr, () => $"{string.Join(string.Empty, fixture.CreateMany<char>(21))}"));
         testCommand = fixture.Create<CreateAggregateRootCommand>();
         yield return new object[] { testCommand, "AggregateAttr", "must be 20 characters or fewer" };
 
