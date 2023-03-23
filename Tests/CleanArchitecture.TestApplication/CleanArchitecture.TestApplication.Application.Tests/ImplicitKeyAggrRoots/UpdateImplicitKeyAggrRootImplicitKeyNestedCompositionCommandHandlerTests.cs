@@ -20,15 +20,27 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 {
     public class UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests
     {
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
+            var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
+            var expectedEntity = existingOwnerEntity.ImplicitKeyNestedCompositions.First();
+            expectedEntity.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
+            fixture.Customize<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>(comp => comp
+            .With(x => x.Id, expectedEntity.Id)
+            .With(x => x.ImplicitKeyAggrRootId, existingOwnerEntity.Id));
+            var testCommand = fixture.Create<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
+            yield return new object[] { testCommand, existingOwnerEntity, expectedEntity };
+        }
         [Theory]
-        [MemberData(nameof(GetValidTestData))]
-        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand, ImplicitKeyAggrRoot owner)
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand, ImplicitKeyAggrRoot existingOwnerEntity, ImplicitKeyNestedComposition existingEntity)
         {
             // Arrange
-            var expectedNestedEntity = CreateExpectedImplicitKeyNestedComposition(testCommand);
-
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(owner));
+            repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
 
             var sut = new UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
@@ -36,7 +48,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            owner.ImplicitKeyNestedCompositions.Should().Contain(p => p.Id == testCommand.Id).Which.Should().BeEquivalentTo(expectedNestedEntity);
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(testCommand, existingEntity);
         }
 
         [Fact]
@@ -53,11 +65,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var sut = new UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+
             // Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
+            await act.Should().ThrowAsync<InvalidOperationException>();
         }
 
         [Fact]
@@ -76,32 +87,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var sut = new UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+
             // Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
-        }
-
-        public static IEnumerable<object[]> GetValidTestData()
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            var testCommand = fixture.Create<UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
-            var owner = fixture.Create<ImplicitKeyAggrRoot>();
-            testCommand.ImplicitKeyAggrRootId = owner.Id;
-            owner.ImplicitKeyNestedCompositions.Add(CreateExpectedImplicitKeyNestedComposition(testCommand));
-            yield return new object[] { testCommand, owner };
-        }
-
-        private static ImplicitKeyNestedComposition CreateExpectedImplicitKeyNestedComposition(UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand dto)
-        {
-            return new ImplicitKeyNestedComposition
-            {
-                ImplicitKeyAggrRootId = dto.ImplicitKeyAggrRootId,
-                Id = dto.Id,
-                Attribute = dto.Attribute,
-            };
+            await act.Should().ThrowAsync<InvalidOperationException>();
         }
     }
 }

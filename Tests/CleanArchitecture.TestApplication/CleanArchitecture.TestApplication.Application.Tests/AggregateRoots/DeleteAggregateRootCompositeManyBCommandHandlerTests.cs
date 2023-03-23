@@ -24,14 +24,15 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
             fixture.Customize<DeleteAggregateRootCompositeManyBCommand>(comp => comp
-                .With(x => x.Id, existingOwnerEntity.Composites.First().Id)
-                .With(x => x.AggregateRootId, existingOwnerEntity.Id));
+            .With(x => x.Id, existingOwnerEntity.Composites.First().Id)
+            .With(x => x.AggregateRootId, existingOwnerEntity.Id));
             var testCommand = fixture.Create<DeleteAggregateRootCompositeManyBCommand>();
             yield return new object[] { testCommand, existingOwnerEntity };
         }
-        
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_DeletesCompositeManyBFromRepository(DeleteAggregateRootCompositeManyBCommand testCommand, AggregateRoot existingOwnerEntity)
@@ -62,8 +63,8 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var sut = new DeleteAggregateRootCompositeManyBCommandHandler(repository);
 
             // Act
-            var act = async () => await sut.Handle(testCommand, CancellationToken.None); 
-            
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+
             // Assert
             await act.Should().ThrowAsync<InvalidOperationException>();
         }
@@ -85,7 +86,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
-            
+
             // Assert
             await act.Should().ThrowAsync<InvalidOperationException>();
         }

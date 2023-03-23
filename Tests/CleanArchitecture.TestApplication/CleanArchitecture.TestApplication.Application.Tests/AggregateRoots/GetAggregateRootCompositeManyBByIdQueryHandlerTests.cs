@@ -32,7 +32,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
-        
+
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
@@ -40,16 +40,16 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
             var expectedEntity = existingOwnerEntity.Composites.First();
-            fixture.Customize<GetAggregateRootCompositeManyBByIdQuery>(comp => comp 
-                .With(x => x.Id, expectedEntity.Id)
-                .With(x => x.AggregateRootId, existingOwnerEntity.Id));
-            var testQuery = fixture.Create<GetAggregateRootCompositeManyBByIdQuery>();
-            yield return new object[] { testQuery, existingOwnerEntity, expectedEntity };
+            fixture.Customize<GetAggregateRootCompositeManyBByIdQuery>(comp => comp
+            .With(x => x.Id, expectedEntity.Id)
+            .With(x => x.AggregateRootId, existingOwnerEntity.Id));
+            var testCommand = fixture.Create<GetAggregateRootCompositeManyBByIdQuery>();
+            yield return new object[] { testCommand, existingOwnerEntity, expectedEntity };
         }
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesCompositeManyB(GetAggregateRootCompositeManyBByIdQuery testQuery, AggregateRoot existingOwnerEntity, CompositeManyB expectedEntity)
+        public async Task Handle_WithValidQuery_RetrievesCompositeManyB(GetAggregateRootCompositeManyBByIdQuery testQuery, AggregateRoot existingOwnerEntity, CompositeManyB existingEntity)
         {
             // Arrange
             var repository = Substitute.For<IAggregateRootRepository>();
@@ -61,7 +61,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateRootAssertions.AssertEquivalent(expectedEntity, result);
+            AggregateRootAssertions.AssertEquivalent(result, existingEntity);
         }
 
         [Fact]

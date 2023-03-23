@@ -21,23 +21,31 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 {
     public class CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests
     {
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
+            var command = fixture.Create<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
+            command.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
+            yield return new object[] { command, existingOwnerEntity };
+        }
         [Theory]
-        [MemberData(nameof(GetValidTestData))]
-        public async Task Handle_WithValidCommand_AddsImplicitKeyNestedCompositionToRepository(ImplicitKeyAggrRoot owner, CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand)
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidCommand_AddsImplicitKeyNestedCompositionToRepository(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand, ImplicitKeyAggrRoot existingOwnerEntity)
         {
             // Arrange
-            var expectedImplicitKeyNestedComposition = CreateExpectedImplicitKeyNestedComposition(testCommand);
-            expectedImplicitKeyNestedComposition.AutoAssignId(k => k.Id);
+            var expectedImplicitKeyAggrRootId = new Fixture().Create<System.Guid>();
 
             ImplicitKeyNestedComposition addedImplicitKeyNestedComposition = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(owner));
+            repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
             repository.OnSaveChanges(
                 () =>
                 {
-                    addedImplicitKeyNestedComposition = owner.ImplicitKeyNestedCompositions.Single(p => p.Id == default);
-                    addedImplicitKeyNestedComposition.Id = expectedImplicitKeyNestedComposition.Id;
-                    addedImplicitKeyNestedComposition.ImplicitKeyAggrRootId = expectedImplicitKeyNestedComposition.ImplicitKeyAggrRootId;
+                    addedImplicitKeyNestedComposition = existingOwnerEntity.ImplicitKeyNestedCompositions.Single(p => p.Id == default);
+                    addedImplicitKeyNestedComposition.Id = expectedImplicitKeyAggrRootId;
+                    addedImplicitKeyNestedComposition.ImplicitKeyAggrRootId = testCommand.ImplicitKeyAggrRootId;
                 });
             var sut = new CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
@@ -45,27 +53,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            result.Should().Be(expectedImplicitKeyNestedComposition.Id);
-            addedImplicitKeyNestedComposition.Should().BeEquivalentTo(expectedImplicitKeyNestedComposition);
-        }
-
-        public static IEnumerable<object[]> GetValidTestData()
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            var owner = fixture.Create<ImplicitKeyAggrRoot>();
-            var command = fixture.Create<CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
-            command.ImplicitKeyAggrRootId = owner.Id;
-            yield return new object[] { owner, command };
-        }
-
-        private static ImplicitKeyNestedComposition CreateExpectedImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionCommand dto)
-        {
-            return new ImplicitKeyNestedComposition
-            {
-                ImplicitKeyAggrRootId = dto.ImplicitKeyAggrRootId,
-                Attribute = dto.Attribute,
-            };
+            result.Should().Be(expectedImplicitKeyAggrRootId);
+            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(testCommand, addedImplicitKeyNestedComposition);
         }
     }
 }

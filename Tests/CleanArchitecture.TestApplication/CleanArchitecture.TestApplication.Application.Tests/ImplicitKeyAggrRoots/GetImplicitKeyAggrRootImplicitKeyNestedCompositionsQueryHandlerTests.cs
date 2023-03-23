@@ -34,26 +34,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             _mapper = mapperConfiguration.CreateMapper();
         }
 
-        [Theory]
-        [MemberData(nameof(GetTestData))]
-        public async Task Handle_WithValidQuery_RetrievesImplicitKeyNestedCompositions(ImplicitKeyAggrRoot owner)
-        {
-            // Arrange
-            var testQuery = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery();
-            testQuery.ImplicitKeyAggrRootId = owner.Id;
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testQuery.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(owner));
-
-            var sut = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQueryHandler(repository, _mapper);
-
-            // Act
-            var result = await sut.Handle(testQuery, CancellationToken.None);
-
-            // Assert
-            result.Should().BeEquivalentTo(owner.ImplicitKeyNestedCompositions.Select(CreateExpectedImplicitKeyAggrRootImplicitKeyNestedCompositionDto));
-        }
-
-        public static IEnumerable<object[]> GetTestData()
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
@@ -65,13 +46,23 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             yield return new object[] { fixture.Create<ImplicitKeyAggrRoot>() };
         }
 
-        private static ImplicitKeyAggrRootImplicitKeyNestedCompositionDto CreateExpectedImplicitKeyAggrRootImplicitKeyNestedCompositionDto(ImplicitKeyNestedComposition entity)
+        [Theory]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidQuery_RetrievesImplicitKeyNestedCompositions(ImplicitKeyAggrRoot existingOwnerEntity)
         {
-            return new ImplicitKeyAggrRootImplicitKeyNestedCompositionDto
-            {
-                Attribute = entity.Attribute,
-                Id = entity.Id,
-            };
+            // Arrange
+            var testQuery = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQuery();
+            testQuery.ImplicitKeyAggrRootId = existingOwnerEntity.Id;
+            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
+            repository.FindByIdAsync(testQuery.ImplicitKeyAggrRootId, CancellationToken.None).Returns(Task.FromResult(existingOwnerEntity));
+
+            var sut = new GetImplicitKeyAggrRootImplicitKeyNestedCompositionsQueryHandler(repository, _mapper);
+
+            // Act
+            var result = await sut.Handle(testQuery, CancellationToken.None);
+
+            // Assert
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(result, existingOwnerEntity.ImplicitKeyNestedCompositions);
         }
     }
 }

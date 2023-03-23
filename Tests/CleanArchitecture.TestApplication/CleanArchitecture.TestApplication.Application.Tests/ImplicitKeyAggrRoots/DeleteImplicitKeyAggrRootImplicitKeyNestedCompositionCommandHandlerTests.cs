@@ -20,19 +20,25 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 {
     public class DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandlerTests
     {
-        [Fact]
-        public async Task Handle_WithValidCommand_DeletesImplicitKeyNestedCompositionFromRepository()
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
-            // Arrange
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
-            var owner = fixture.Create<ImplicitKeyAggrRoot>();
-            var testCommand = new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand();
-            testCommand.Id = owner.ImplicitKeyNestedCompositions.First().Id;
-            testCommand.ImplicitKeyAggrRootId = owner.Id;
-
+            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
+            var existingOwnerEntity = fixture.Create<ImplicitKeyAggrRoot>();
+            fixture.Customize<DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>(comp => comp
+            .With(x => x.Id, existingOwnerEntity.ImplicitKeyNestedCompositions.First().Id)
+            .With(x => x.ImplicitKeyAggrRootId, existingOwnerEntity.Id));
+            var testCommand = fixture.Create<DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand>();
+            yield return new object[] { testCommand, existingOwnerEntity };
+        }
+        [Theory]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidCommand_DeletesImplicitKeyNestedCompositionFromRepository(DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand testCommand, ImplicitKeyAggrRoot existingOwnerEntity)
+        {
+            // Arrange
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId).Returns(Task.FromResult(owner));
+            repository.FindByIdAsync(testCommand.ImplicitKeyAggrRootId).Returns(Task.FromResult(existingOwnerEntity));
 
             var sut = new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
@@ -40,7 +46,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            owner.ImplicitKeyNestedCompositions.Should().NotContain(p => p.Id == testCommand.Id);
+            existingOwnerEntity.ImplicitKeyNestedCompositions.Should().NotContain(p => p.Id == testCommand.Id);
         }
 
         [Fact]
@@ -56,11 +62,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var sut = new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+
             // Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
+            await act.Should().ThrowAsync<InvalidOperationException>();
         }
 
         [Fact]
@@ -79,11 +84,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var sut = new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+
             // Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
+            await act.Should().ThrowAsync<InvalidOperationException>();
         }
     }
 }

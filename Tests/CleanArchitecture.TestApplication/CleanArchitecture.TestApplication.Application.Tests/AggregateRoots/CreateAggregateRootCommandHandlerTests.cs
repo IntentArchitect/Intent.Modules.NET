@@ -28,17 +28,20 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
-            var testCommand = fixture.Create<CreateAggregateRootCommand>();
-            yield return new object[] { testCommand };
+            yield return new object[] { fixture.Create<CreateAggregateRootCommand>() };
+
+            fixture = new Fixture();
+            fixture.Customize<CreateAggregateRootCommand>(comp => comp.Without(x => x.Composite));
+            yield return new object[] { fixture.Create<CreateAggregateRootCommand>() };
         }
-        
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_AddsAggregateRootToRepository(CreateAggregateRootCommand testCommand)
         {
             // Arrange
-            var expectedAggregateRootId = new Fixture().Create<Guid>();
-            
+            var expectedAggregateRootId = new Fixture().Create<System.Guid>();
+
             AggregateRoot addedAggregateRoot = null;
             var repository = Substitute.For<IAggregateRootRepository>();
             repository.OnAdd(ent => addedAggregateRoot = ent);
@@ -48,11 +51,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Act
             var result = await sut.Handle(testCommand, CancellationToken.None);
-            
+
             // Assert
             result.Should().Be(expectedAggregateRootId);
             await repository.UnitOfWork.Received(1).SaveChangesAsync();
-
             AggregateRootAssertions.AssertEquivalent(testCommand, addedAggregateRoot);
         }
     }

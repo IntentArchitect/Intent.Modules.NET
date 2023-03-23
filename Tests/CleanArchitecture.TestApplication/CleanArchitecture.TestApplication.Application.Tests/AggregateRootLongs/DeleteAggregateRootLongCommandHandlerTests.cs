@@ -20,16 +20,23 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 {
     public class DeleteAggregateRootLongCommandHandlerTests
     {
-        [Fact]
-        public async Task Handle_WithValidCommand_DeletesAggregateRootLongFromRepository()
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
+            var existingEntity = fixture.Create<AggregateRootLong>();
+            fixture.Customize<DeleteAggregateRootLongCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
+            var testCommand = fixture.Create<DeleteAggregateRootLongCommand>();
+            yield return new object[] { testCommand, existingEntity };
+        }
+        [Theory]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidCommand_DeletesAggregateRootLongFromRepository(DeleteAggregateRootLongCommand testCommand, AggregateRootLong existingEntity)
         {
             // Arrange
-            var fixture = new Fixture();
-            var testCommand = fixture.Create<DeleteAggregateRootLongCommand>();
-
             var repository = Substitute.For<IAggregateRootLongRepository>();
-            var existingAggregateRootLong = GetExistingAggregateRootLong(testCommand);
-            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingAggregateRootLong));
+            repository.FindByIdAsync(testCommand.Id).Returns(Task.FromResult(existingEntity));
 
             var sut = new DeleteAggregateRootLongCommandHandler(repository);
 
@@ -54,20 +61,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             var sut = new DeleteAggregateRootLongCommandHandler(repository);
 
             // Act
-            // Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
-        }
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
-        private static AggregateRootLong GetExistingAggregateRootLong(DeleteAggregateRootLongCommand testCommand)
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRootLong>(comp => comp.With(x => x.Id, testCommand.Id));
-            var existingAggregateRootLong = fixture.Create<AggregateRootLong>();
-            return existingAggregateRootLong;
+            // Assert
+            await act.Should().ThrowAsync<ArgumentNullException>();
         }
     }
 }

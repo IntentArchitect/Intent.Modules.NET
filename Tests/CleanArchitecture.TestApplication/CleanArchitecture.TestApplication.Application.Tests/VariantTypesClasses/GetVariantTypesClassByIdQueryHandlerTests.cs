@@ -5,8 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.AggregateRoots;
-using CleanArchitecture.TestApplication.Application.AggregateRoots.GetAggregateRootById;
+using CleanArchitecture.TestApplication.Application.VariantTypesClasses.GetVariantTypesClassById;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -18,18 +17,18 @@ using Xunit;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Owner.GetByIdQueryHandlerTests", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
+namespace CleanArchitecture.TestApplication.Application.Tests.VariantTypesClasses
 {
-    public class GetAggregateRootByIdQueryHandlerTests
+    public class GetVariantTypesClassByIdQueryHandlerTests
     {
         private readonly IMapper _mapper;
 
-        public GetAggregateRootByIdQueryHandlerTests()
+        public GetVariantTypesClassByIdQueryHandlerTests()
         {
             var mapperConfiguration = new MapperConfiguration(
                 config =>
                 {
-                    config.AddMaps(typeof(GetAggregateRootByIdQueryHandler));
+                    config.AddMaps(typeof(GetVariantTypesClassByIdQueryHandler));
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
@@ -38,28 +37,28 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
-            var existingEntity = fixture.Create<AggregateRoot>();
-            fixture.Customize<GetAggregateRootByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
-            var testQuery = fixture.Create<GetAggregateRootByIdQuery>();
+            fixture.Customize<VariantTypesClass>(comp => comp.Without(x => x.DomainEvents));
+            var existingEntity = fixture.Create<VariantTypesClass>();
+            fixture.Customize<GetVariantTypesClassByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            var testQuery = fixture.Create<GetVariantTypesClassByIdQuery>();
             yield return new object[] { testQuery, existingEntity };
         }
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesAggregateRoot(GetAggregateRootByIdQuery testQuery, AggregateRoot existingEntity)
+        public async Task Handle_WithValidQuery_RetrievesVariantTypesClass(GetVariantTypesClassByIdQuery testQuery, VariantTypesClass existingEntity)
         {
             // Arrange
-            var repository = Substitute.For<IAggregateRootRepository>();
+            var repository = Substitute.For<IVariantTypesClassRepository>();
             repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
 
-            var sut = new GetAggregateRootByIdQueryHandler(repository, _mapper);
+            var sut = new GetVariantTypesClassByIdQueryHandler(repository, _mapper);
 
             // Act
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateRootAssertions.AssertEquivalent(result, existingEntity);
+            VariantTypesClassAssertions.AssertEquivalent(result, existingEntity);
         }
 
         [Fact]
@@ -67,12 +66,12 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             // Arrange
             var fixture = new Fixture();
-            var query = fixture.Create<GetAggregateRootByIdQuery>();
+            var query = fixture.Create<GetVariantTypesClassByIdQuery>();
 
-            var repository = Substitute.For<IAggregateRootRepository>();
-            repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<AggregateRoot>(default));
+            var repository = Substitute.For<IVariantTypesClassRepository>();
+            repository.FindByIdAsync(query.Id, CancellationToken.None).Returns(Task.FromResult<VariantTypesClass>(default));
 
-            var sut = new GetAggregateRootByIdQueryHandler(repository, _mapper);
+            var sut = new GetVariantTypesClassByIdQueryHandler(repository, _mapper);
 
             // Act
             var result = await sut.Handle(query, CancellationToken.None);

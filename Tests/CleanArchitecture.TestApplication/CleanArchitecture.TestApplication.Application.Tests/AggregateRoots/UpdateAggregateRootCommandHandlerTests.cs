@@ -25,6 +25,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
             var existingEntity = fixture.Create<AggregateRoot>();
             fixture.Customize<UpdateAggregateRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<UpdateAggregateRootCommand>();
@@ -32,14 +33,13 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
             existingEntity = fixture.Create<AggregateRoot>();
-            fixture.Customize<UpdateAggregateRootCommand>(comp => comp
-                .Without(x => x.Composite)
-                .With(x => x.Id, existingEntity.Id));
+            fixture.Customize<UpdateAggregateRootCommand>(comp => comp.Without(x => x.Composite).With(x => x.Id, existingEntity.Id));
             testCommand = fixture.Create<UpdateAggregateRootCommand>();
             yield return new object[] { testCommand, existingEntity };
         }
-        
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootCommand testCommand, AggregateRoot existingEntity)
@@ -71,7 +71,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
-            
+
             // Assert
             await act.Should().ThrowAsync<NullReferenceException>();
         }

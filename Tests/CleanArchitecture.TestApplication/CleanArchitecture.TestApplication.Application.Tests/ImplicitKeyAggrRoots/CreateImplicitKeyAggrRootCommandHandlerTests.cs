@@ -21,18 +21,22 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 {
     public class CreateImplicitKeyAggrRootCommandHandlerTests
     {
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            yield return new object[] { fixture.Create<CreateImplicitKeyAggrRootCommand>() };
+        }
         [Theory]
-        [MemberData(nameof(GetValidTestData))]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_AddsImplicitKeyAggrRootToRepository(CreateImplicitKeyAggrRootCommand testCommand)
         {
             // Arrange
-            var expectedImplicitKeyAggrRoot = CreateExpectedImplicitKeyAggrRoot(testCommand);
-            expectedImplicitKeyAggrRoot.AutoAssignId(k => k.Id);
+            var expectedImplicitKeyAggrRootId = new Fixture().Create<System.Guid>();
 
             ImplicitKeyAggrRoot addedImplicitKeyAggrRoot = null;
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.OnAdd(ent => addedImplicitKeyAggrRoot = ent);
-            repository.OnSaveChanges(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRoot.Id);
+            repository.OnSaveChanges(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRootId);
 
             var sut = new CreateImplicitKeyAggrRootCommandHandler(repository);
 
@@ -40,62 +44,9 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var result = await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            result.Should().Be(expectedImplicitKeyAggrRoot.Id);
-            addedImplicitKeyAggrRoot.Should().BeEquivalentTo(expectedImplicitKeyAggrRoot);
-        }
-
-        [Theory]
-        [MemberData(nameof(GetInvalidTestData))]
-        public async Task Handle_WithInvalidCommand_ThrowsException(CreateImplicitKeyAggrRootCommand testCommand)
-        {
-            // Arrange
-            var expectedImplicitKeyAggrRoot = CreateExpectedImplicitKeyAggrRoot(testCommand);
-
-            ImplicitKeyAggrRoot addedImplicitKeyAggrRoot = null;
-            var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.OnAdd(ent => addedImplicitKeyAggrRoot = ent);
-            repository.OnSaveChanges(() => addedImplicitKeyAggrRoot.Id = expectedImplicitKeyAggrRoot.Id);
-
-            var sut = new CreateImplicitKeyAggrRootCommandHandler(repository);
-            // Act
-            // Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(
-                async () =>
-                {
-                    await sut.Handle(testCommand, CancellationToken.None);
-                });
-        }
-
-        public static IEnumerable<object[]> GetValidTestData()
-        {
-            var fixture = new Fixture();
-            yield return new object[] { fixture.Create<CreateImplicitKeyAggrRootCommand>() };
-        }
-
-        public static IEnumerable<object[]> GetInvalidTestData()
-        {
-            Fixture fixture;
-
-            fixture = new Fixture();
-            fixture.Customize<CreateImplicitKeyAggrRootCommand>(comp => comp.Without(x => x.ImplicitKeyNestedCompositions));
-            yield return new object[] { fixture.Create<CreateImplicitKeyAggrRootCommand>() };
-        }
-
-        private static ImplicitKeyAggrRoot CreateExpectedImplicitKeyAggrRoot(CreateImplicitKeyAggrRootCommand dto)
-        {
-            return new ImplicitKeyAggrRoot
-            {
-                Attribute = dto.Attribute,
-                ImplicitKeyNestedCompositions = dto.ImplicitKeyNestedCompositions?.Select(CreateExpectedImplicitKeyNestedComposition).ToList() ?? new List<ImplicitKeyNestedComposition>(),
-            };
-        }
-
-        private static ImplicitKeyNestedComposition CreateExpectedImplicitKeyNestedComposition(CreateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
-        {
-            return new ImplicitKeyNestedComposition
-            {
-                Attribute = dto.Attribute,
-            };
+            result.Should().Be(expectedImplicitKeyAggrRootId);
+            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(testCommand, addedImplicitKeyAggrRoot);
         }
     }
 }

@@ -5,8 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using AutoMapper;
-using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
-using CleanArchitecture.TestApplication.Application.AggregateRootLongs.GetAggregateRootLongs;
+using CleanArchitecture.TestApplication.Application.VariantTypesClasses.GetVariantTypesClasses;
 using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
@@ -18,18 +17,18 @@ using Xunit;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CRUD.Tests.Owner.GetAllQueryHandlerTests", Version = "1.0")]
 
-namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
+namespace CleanArchitecture.TestApplication.Application.Tests.VariantTypesClasses
 {
-    public class GetAggregateRootLongsQueryHandlerTests
+    public class GetVariantTypesClassesQueryHandlerTests
     {
         private readonly IMapper _mapper;
 
-        public GetAggregateRootLongsQueryHandlerTests()
+        public GetVariantTypesClassesQueryHandlerTests()
         {
             var mapperConfiguration = new MapperConfiguration(
                 config =>
                 {
-                    config.AddMaps(typeof(GetAggregateRootLongsQueryHandler));
+                    config.AddMaps(typeof(GetVariantTypesClassesQueryHandler));
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
@@ -38,27 +37,27 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
-            yield return new object[] { fixture.CreateMany<AggregateRootLong>().ToList() };
-            yield return new object[] { fixture.CreateMany<AggregateRootLong>(0).ToList() };
+            fixture.Customize<VariantTypesClass>(comp => comp.Without(x => x.DomainEvents));
+            yield return new object[] { fixture.CreateMany<VariantTypesClass>().ToList() };
+            yield return new object[] { fixture.CreateMany<VariantTypesClass>(0).ToList() };
         }
 
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
-        public async Task Handle_WithValidQuery_RetrievesAggregateRootLongs(List<AggregateRootLong> testEntities)
+        public async Task Handle_WithValidQuery_RetrievesVariantTypesClasses(List<VariantTypesClass> testEntities)
         {
             // Arrange
-            var testQuery = new GetAggregateRootLongsQuery();
-            var repository = Substitute.For<IAggregateRootLongRepository>();
+            var testQuery = new GetVariantTypesClassesQuery();
+            var repository = Substitute.For<IVariantTypesClassRepository>();
             repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
 
-            var sut = new GetAggregateRootLongsQueryHandler(repository, _mapper);
+            var sut = new GetVariantTypesClassesQueryHandler(repository, _mapper);
 
             // Act
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateRootLongAssertions.AssertEquivalent(result, testEntities);
+            VariantTypesClassAssertions.AssertEquivalent(result, testEntities);
         }
     }
 }

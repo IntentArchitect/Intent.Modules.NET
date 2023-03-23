@@ -27,17 +27,25 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
-            fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.With(p => p.AggregateRootId, existingOwnerEntity.Id));
-            var testCommand = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
-            yield return new object[] { testCommand, existingOwnerEntity };
+            var command = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
+            command.AggregateRootId = existingOwnerEntity.Id;
+            yield return new object[] { command, existingOwnerEntity };
+
+            fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<CreateAggregateRootCompositeManyBCommand>(comp => comp.Without(x => x.Composite));
+            existingOwnerEntity = fixture.Create<AggregateRoot>();
+            command = fixture.Create<CreateAggregateRootCompositeManyBCommand>();
+            command.AggregateRootId = existingOwnerEntity.Id;
+            yield return new object[] { command, existingOwnerEntity };
         }
-        
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_AddsCompositeManyBToRepository(CreateAggregateRootCompositeManyBCommand testCommand, AggregateRoot existingOwnerEntity)
         {
             // Arrange
-            var expectedAggregateRootId = Guid.NewGuid();
+            var expectedAggregateRootId = new Fixture().Create<System.Guid>();
 
             CompositeManyB addedCompositeManyB = null;
             var repository = Substitute.For<IAggregateRootRepository>();

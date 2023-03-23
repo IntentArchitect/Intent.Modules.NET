@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs;
 using CleanArchitecture.TestApplication.Application.AggregateRootLongs.UpdateAggregateRootLong;
+using CleanArchitecture.TestApplication.Domain.Common;
 using CleanArchitecture.TestApplication.Domain.Entities;
 using CleanArchitecture.TestApplication.Domain.Repositories;
 using FluentAssertions;
@@ -20,13 +21,29 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 {
     public class UpdateAggregateRootLongCommandHandlerTests
     {
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
+            var existingEntity = fixture.Create<AggregateRootLong>();
+            fixture.Customize<UpdateAggregateRootLongCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
+            var testCommand = fixture.Create<UpdateAggregateRootLongCommand>();
+            yield return new object[] { testCommand, existingEntity };
+
+            fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
+            existingEntity = fixture.Create<AggregateRootLong>();
+            fixture.Customize<UpdateAggregateRootLongCommand>(comp => comp.Without(x => x.CompositeOfAggrLong).With(x => x.Id, existingEntity.Id));
+            testCommand = fixture.Create<UpdateAggregateRootLongCommand>();
+            yield return new object[] { testCommand, existingEntity };
+        }
         [Theory]
-        [MemberData(nameof(GetValidTestData))]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootLongCommand testCommand, AggregateRootLong existingEntity)
         {
             // Arrange
-            var expectedAggregateRootLong = CreateExpectedAggregateRootLong(testCommand);
-
             var repository = Substitute.For<IAggregateRootLongRepository>();
             repository.FindByIdAsync(testCommand.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
 
@@ -36,7 +53,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert
-            expectedAggregateRootLong.Should().BeEquivalentTo(existingEntity);
+            AggregateRootLongAssertions.AssertEquivalent(testCommand, existingEntity);
         }
 
         [Fact]
@@ -52,40 +69,10 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             var sut = new UpdateAggregateRootLongCommandHandler(repository);
 
             // Act
+            var act = async () => await sut.Handle(testCommand, CancellationToken.None);
+
             // Assert
-            await Assert.ThrowsAsync<NullReferenceException>(async () =>
-            {
-                await sut.Handle(testCommand, CancellationToken.None);
-            });
-        }
-
-        public static IEnumerable<object[]> GetValidTestData()
-        {
-            var fixture = new Fixture();
-            var testCommand = fixture.Create<UpdateAggregateRootLongCommand>();
-            yield return new object[] { testCommand, CreateExpectedAggregateRootLong(testCommand) };
-
-            fixture = new Fixture();
-            fixture.Customize<UpdateAggregateRootLongCommand>(comp => comp.Without(x => x.CompositeOfAggrLong));
-            testCommand = fixture.Create<UpdateAggregateRootLongCommand>();
-            yield return new object[] { testCommand, CreateExpectedAggregateRootLong(testCommand) };
-        }
-
-        private static AggregateRootLong CreateExpectedAggregateRootLong(UpdateAggregateRootLongCommand dto)
-        {
-            return new AggregateRootLong
-            {
-                Attribute = dto.Attribute,
-                CompositeOfAggrLong = dto.CompositeOfAggrLong != null ? CreateExpectedCompositeOfAggrLong(dto.CompositeOfAggrLong) : null,
-            };
-        }
-
-        private static CompositeOfAggrLong CreateExpectedCompositeOfAggrLong(UpdateAggregateRootLongCompositeOfAggrLongDto dto)
-        {
-            return new CompositeOfAggrLong
-            {
-                Attribute = dto.Attribute,
-            };
+            await act.Should().ThrowAsync<NullReferenceException>();
         }
     }
 }

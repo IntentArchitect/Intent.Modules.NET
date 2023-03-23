@@ -34,13 +34,20 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             _mapper = mapperConfiguration.CreateMapper();
         }
 
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
+            yield return new object[] { fixture.CreateMany<ImplicitKeyAggrRoot>().ToList() };
+            yield return new object[] { fixture.CreateMany<ImplicitKeyAggrRoot>(0).ToList() };
+        }
+
         [Theory]
-        [MemberData(nameof(GetTestData))]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidQuery_RetrievesImplicitKeyAggrRoots(List<ImplicitKeyAggrRoot> testEntities)
         {
             // Arrange
-            var expectedDtos = testEntities.Select(CreateExpectedImplicitKeyAggrRootDto).ToArray();
-
             var testQuery = new GetImplicitKeyAggrRootsQuery();
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
             repository.FindAllAsync(CancellationToken.None).Returns(Task.FromResult(testEntities));
@@ -51,35 +58,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().BeEquivalentTo(expectedDtos);
-        }
-
-        public static IEnumerable<object[]> GetTestData()
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
-            yield return new object[] { fixture.CreateMany<ImplicitKeyAggrRoot>().ToList() };
-            yield return new object[] { fixture.CreateMany<ImplicitKeyAggrRoot>(0).ToList() };
-        }
-
-        private static ImplicitKeyAggrRootDto CreateExpectedImplicitKeyAggrRootDto(ImplicitKeyAggrRoot entity)
-        {
-            return new ImplicitKeyAggrRootDto
-            {
-                Id = entity.Id,
-                Attribute = entity.Attribute,
-                ImplicitKeyNestedCompositions = entity.ImplicitKeyNestedCompositions?.Select(CreateExpectedImplicitKeyNestedComposition).ToList() ?? new List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>(),
-            };
-        }
-
-        private static ImplicitKeyAggrRootImplicitKeyNestedCompositionDto CreateExpectedImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity)
-        {
-            return new ImplicitKeyAggrRootImplicitKeyNestedCompositionDto
-            {
-                Attribute = entity.Attribute,
-                Id = entity.Id,
-            };
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(result, testEntities);
         }
     }
 }

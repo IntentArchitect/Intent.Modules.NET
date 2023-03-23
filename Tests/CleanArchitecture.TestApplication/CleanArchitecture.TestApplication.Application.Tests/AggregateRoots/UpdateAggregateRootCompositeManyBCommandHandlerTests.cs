@@ -25,28 +25,17 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
             var existingOwnerEntity = fixture.Create<AggregateRoot>();
-            var existingEntity = fixture.Create<CompositeManyB>();
-            existingOwnerEntity.Composites.Add(existingEntity);
-            fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp 
-                .With(x => x.Id, existingEntity.Id)
-                .With(x => x.AggregateRootId, existingOwnerEntity.Id));
-            var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
-            yield return new object[] { testCommand, existingOwnerEntity, existingEntity };
-
-            fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            existingOwnerEntity = fixture.Create<AggregateRoot>();
-            existingEntity = fixture.Create<CompositeManyB>();
-            existingOwnerEntity.Composites.Add(existingEntity);
+            var expectedEntity = existingOwnerEntity.Composites.First();
+            expectedEntity.AggregateRootId = existingOwnerEntity.Id;
             fixture.Customize<UpdateAggregateRootCompositeManyBCommand>(comp => comp
-                .With(x => x.Id, existingEntity.Id)
-                .With(x => x.AggregateRootId, existingOwnerEntity.Id)
-                .Without(x => x.Composite));
-            testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
-            yield return new object[] { testCommand, existingOwnerEntity, existingEntity };
+            .With(x => x.Id, expectedEntity.Id)
+            .With(x => x.AggregateRootId, existingOwnerEntity.Id));
+            var testCommand = fixture.Create<UpdateAggregateRootCompositeManyBCommand>();
+            yield return new object[] { testCommand, existingOwnerEntity, expectedEntity };
         }
-        
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_UpdatesExistingEntity(UpdateAggregateRootCompositeManyBCommand testCommand, AggregateRoot existingOwnerEntity, CompositeManyB existingEntity)
@@ -79,7 +68,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
-            
+
             // Assert
             await act.Should().ThrowAsync<InvalidOperationException>();
         }
@@ -101,7 +90,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
 
             // Act
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
-            
+
             // Assert
             await act.Should().ThrowAsync<InvalidOperationException>();
         }

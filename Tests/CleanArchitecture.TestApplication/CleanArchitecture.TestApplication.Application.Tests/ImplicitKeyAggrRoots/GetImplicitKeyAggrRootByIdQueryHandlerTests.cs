@@ -34,16 +34,24 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             _mapper = mapperConfiguration.CreateMapper();
         }
 
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
+            var existingEntity = fixture.Create<ImplicitKeyAggrRoot>();
+            fixture.Customize<GetImplicitKeyAggrRootByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            var testQuery = fixture.Create<GetImplicitKeyAggrRootByIdQuery>();
+            yield return new object[] { testQuery, existingEntity };
+        }
+
         [Theory]
-        [MemberData(nameof(GetTestData))]
-        public async Task Handle_WithValidQuery_RetrievesImplicitKeyAggrRoot(ImplicitKeyAggrRoot testEntity)
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidQuery_RetrievesImplicitKeyAggrRoot(GetImplicitKeyAggrRootByIdQuery testQuery, ImplicitKeyAggrRoot existingEntity)
         {
             // Arrange
-            var expectedDto = CreateExpectedImplicitKeyAggrRootDto(testEntity);
-
-            var testQuery = new GetImplicitKeyAggrRootByIdQuery { Id = testEntity.Id };
             var repository = Substitute.For<IImplicitKeyAggrRootRepository>();
-            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
+            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
 
             var sut = new GetImplicitKeyAggrRootByIdQueryHandler(repository, _mapper);
 
@@ -51,7 +59,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().BeEquivalentTo(expectedDto);
+            ImplicitKeyAggrRootAssertions.AssertEquivalent(result, existingEntity);
         }
 
         [Fact]
@@ -71,33 +79,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.ImplicitKeyAggrRoo
 
             // Assert
             result.Should().Be(null);
-        }
-
-        public static IEnumerable<object[]> GetTestData()
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<ImplicitKeyAggrRoot>(comp => comp.Without(x => x.DomainEvents));
-            yield return new object[] { fixture.Create<ImplicitKeyAggrRoot>() };
-        }
-
-        private static ImplicitKeyAggrRootDto CreateExpectedImplicitKeyAggrRootDto(ImplicitKeyAggrRoot entity)
-        {
-            return new ImplicitKeyAggrRootDto
-            {
-                Id = entity.Id,
-                Attribute = entity.Attribute,
-                ImplicitKeyNestedCompositions = entity.ImplicitKeyNestedCompositions?.Select(CreateExpectedImplicitKeyNestedComposition).ToList() ?? new List<ImplicitKeyAggrRootImplicitKeyNestedCompositionDto>(),
-            };
-        }
-
-        private static ImplicitKeyAggrRootImplicitKeyNestedCompositionDto CreateExpectedImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity)
-        {
-            return new ImplicitKeyAggrRootImplicitKeyNestedCompositionDto
-            {
-                Attribute = entity.Attribute,
-                Id = entity.Id,
-            };
         }
     }
 }

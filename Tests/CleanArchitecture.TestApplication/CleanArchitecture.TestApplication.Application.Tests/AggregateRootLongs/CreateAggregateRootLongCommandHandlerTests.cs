@@ -21,30 +21,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 {
     public class CreateAggregateRootLongCommandHandlerTests
     {
-        [Theory]
-        [MemberData(nameof(GetValidTestData))]
-        public async Task Handle_WithValidCommand_AddsAggregateRootLongToRepository(CreateAggregateRootLongCommand testCommand)
-        {
-            // Arrange
-            var expectedAggregateRootLong = CreateExpectedAggregateRootLong(testCommand);
-            expectedAggregateRootLong.AutoAssignId(k => k.Id);
-
-            AggregateRootLong addedAggregateRootLong = null;
-            var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.OnAdd(ent => addedAggregateRootLong = ent);
-            repository.OnSaveChanges(() => addedAggregateRootLong.Id = expectedAggregateRootLong.Id);
-
-            var sut = new CreateAggregateRootLongCommandHandler(repository);
-
-            // Act
-            var result = await sut.Handle(testCommand, CancellationToken.None);
-
-            // Assert
-            result.Should().Be(expectedAggregateRootLong.Id);
-            addedAggregateRootLong.Should().BeEquivalentTo(expectedAggregateRootLong);
-        }
-
-        public static IEnumerable<object[]> GetValidTestData()
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
             yield return new object[] { fixture.Create<CreateAggregateRootLongCommand>() };
@@ -53,22 +30,27 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             fixture.Customize<CreateAggregateRootLongCommand>(comp => comp.Without(x => x.CompositeOfAggrLong));
             yield return new object[] { fixture.Create<CreateAggregateRootLongCommand>() };
         }
-
-        private static AggregateRootLong CreateExpectedAggregateRootLong(CreateAggregateRootLongCommand dto)
+        [Theory]
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidCommand_AddsAggregateRootLongToRepository(CreateAggregateRootLongCommand testCommand)
         {
-            return new AggregateRootLong
-            {
-                Attribute = dto.Attribute,
-                CompositeOfAggrLong = dto.CompositeOfAggrLong != null ? CreateExpectedCompositeOfAggrLong(dto.CompositeOfAggrLong) : null,
-            };
-        }
+            // Arrange
+            var expectedAggregateRootLongId = new Fixture().Create<long>();
 
-        private static CompositeOfAggrLong CreateExpectedCompositeOfAggrLong(CreateAggregateRootLongCompositeOfAggrLongDto dto)
-        {
-            return new CompositeOfAggrLong
-            {
-                Attribute = dto.Attribute,
-            };
+            AggregateRootLong addedAggregateRootLong = null;
+            var repository = Substitute.For<IAggregateRootLongRepository>();
+            repository.OnAdd(ent => addedAggregateRootLong = ent);
+            repository.OnSaveChanges(() => addedAggregateRootLong.Id = expectedAggregateRootLongId);
+
+            var sut = new CreateAggregateRootLongCommandHandler(repository);
+
+            // Act
+            var result = await sut.Handle(testCommand, CancellationToken.None);
+
+            // Assert
+            result.Should().Be(expectedAggregateRootLongId);
+            await repository.UnitOfWork.Received(1).SaveChangesAsync();
+            AggregateRootLongAssertions.AssertEquivalent(testCommand, addedAggregateRootLong);
         }
     }
 }

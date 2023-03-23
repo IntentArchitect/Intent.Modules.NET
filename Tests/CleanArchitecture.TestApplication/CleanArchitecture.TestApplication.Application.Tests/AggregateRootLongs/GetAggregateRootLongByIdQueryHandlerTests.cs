@@ -34,16 +34,24 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             _mapper = mapperConfiguration.CreateMapper();
         }
 
+        public static IEnumerable<object[]> GetSuccessfulResultTestData()
+        {
+            var fixture = new Fixture();
+            fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
+            var existingEntity = fixture.Create<AggregateRootLong>();
+            fixture.Customize<GetAggregateRootLongByIdQuery>(comp => comp.With(p => p.Id, existingEntity.Id));
+            var testQuery = fixture.Create<GetAggregateRootLongByIdQuery>();
+            yield return new object[] { testQuery, existingEntity };
+        }
+
         [Theory]
-        [MemberData(nameof(GetTestData))]
-        public async Task Handle_WithValidQuery_RetrievesAggregateRootLong(AggregateRootLong testEntity)
+        [MemberData(nameof(GetSuccessfulResultTestData))]
+        public async Task Handle_WithValidQuery_RetrievesAggregateRootLong(GetAggregateRootLongByIdQuery testQuery, AggregateRootLong existingEntity)
         {
             // Arrange
-            var expectedDto = CreateExpectedAggregateRootLongDto(testEntity);
-
-            var testQuery = new GetAggregateRootLongByIdQuery { Id = testEntity.Id };
             var repository = Substitute.For<IAggregateRootLongRepository>();
-            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(testEntity));
+            repository.FindByIdAsync(testQuery.Id, CancellationToken.None).Returns(Task.FromResult(existingEntity));
 
             var sut = new GetAggregateRootLongByIdQueryHandler(repository, _mapper);
 
@@ -51,7 +59,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            result.Should().BeEquivalentTo(expectedDto);
+            AggregateRootLongAssertions.AssertEquivalent(result, existingEntity);
         }
 
         [Fact]
@@ -71,33 +79,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRootLongs
 
             // Assert
             result.Should().Be(null);
-        }
-
-        public static IEnumerable<object[]> GetTestData()
-        {
-            var fixture = new Fixture();
-            fixture.Register<DomainEvent>(() => null);
-            fixture.Customize<AggregateRootLong>(comp => comp.Without(x => x.DomainEvents));
-            yield return new object[] { fixture.Create<AggregateRootLong>() };
-        }
-
-        private static AggregateRootLongDto CreateExpectedAggregateRootLongDto(AggregateRootLong entity)
-        {
-            return new AggregateRootLongDto
-            {
-                Id = entity.Id,
-                Attribute = entity.Attribute,
-                CompositeOfAggrLong = entity.CompositeOfAggrLong != null ? CreateExpectedCompositeOfAggrLong(entity.CompositeOfAggrLong) : null,
-            };
-        }
-
-        private static AggregateRootLongCompositeOfAggrLongDto CreateExpectedCompositeOfAggrLong(CompositeOfAggrLong entity)
-        {
-            return new AggregateRootLongCompositeOfAggrLongDto
-            {
-                Attribute = entity.Attribute,
-                Id = entity.Id,
-            };
         }
     }
 }

@@ -24,12 +24,13 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
         {
             var fixture = new Fixture();
             fixture.Register<DomainEvent>(() => null);
+            fixture.Customize<AggregateRoot>(comp => comp.Without(x => x.DomainEvents));
             var existingEntity = fixture.Create<AggregateRoot>();
             fixture.Customize<DeleteAggregateRootCommand>(comp => comp.With(x => x.Id, existingEntity.Id));
             var testCommand = fixture.Create<DeleteAggregateRootCommand>();
             yield return new object[] { testCommand, existingEntity };
         }
-        
+
         [Theory]
         [MemberData(nameof(GetSuccessfulResultTestData))]
         public async Task Handle_WithValidCommand_DeletesAggregateRootFromRepository(DeleteAggregateRootCommand testCommand, AggregateRoot existingEntity)
@@ -61,7 +62,6 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var sut = new DeleteAggregateRootCommandHandler(repository);
 
             // Act
-            
             var act = async () => await sut.Handle(testCommand, CancellationToken.None);
 
             // Assert

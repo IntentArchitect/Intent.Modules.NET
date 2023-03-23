@@ -33,7 +33,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
                 });
             _mapper = mapperConfiguration.CreateMapper();
         }
-        
+
         public static IEnumerable<object[]> GetSuccessfulResultTestData()
         {
             var fixture = new Fixture();
@@ -58,7 +58,7 @@ namespace CleanArchitecture.TestApplication.Application.Tests.AggregateRoots
             var result = await sut.Handle(testQuery, CancellationToken.None);
 
             // Assert
-            AggregateRootAssertions.AssertEquivalent(testEntities, result);
+            AggregateRootAssertions.AssertEquivalent(result, testEntities);
         }
     }
 }
