@@ -26,9 +26,8 @@ namespace MongoDb.TestApplication.Infrastructure
             services.AddScoped<ApplicationMongoDbContext>(
                 provider =>
                 {
-                    var connectionString = configuration.GetConnectionString("MongoDbConnection");
-                    var url = MongoDB.Driver.MongoUrl.Create(connectionString);
-                    return new ApplicationMongoDbContext(connectionString, url.DatabaseName);
+                    var connection = MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection"));
+                    return new ApplicationMongoDbContext(connection);
                 });
             services.AddScoped<IUnitOfWork>(provider => provider.GetService<ApplicationDbContext>());
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetService<ApplicationMongoDbContext>());

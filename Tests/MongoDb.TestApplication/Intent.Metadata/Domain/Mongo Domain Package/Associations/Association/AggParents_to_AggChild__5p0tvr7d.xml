@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="71f32852-6dd3-4437-81a2-02c83334dea3">
+  <sourceEnd id="59b39f11-5f3d-403c-94f5-0ced469a18c0" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggParents</name>
+    <display>AggParents: AggParent[*]</display>
+    <order>1</order>
+    <typeReference id="a826afa5-91c8-4cd0-b652-deac5d6b4de6">
+      <typeId>f19f4e06-3e06-49bc-93be-97505b519b67</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="71f32852-6dd3-4437-81a2-02c83334dea3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>AggChild</name>
+    <display>AggChild: AggChild</display>
+    <order>1</order>
+    <typeReference id="e9edb3ba-f7f4-4e59-b505-b3347b5e79a1">
+      <typeId>e51b8d3a-ca29-415b-810a-c095c614493f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

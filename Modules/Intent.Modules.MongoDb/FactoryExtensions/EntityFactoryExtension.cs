@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -40,13 +42,31 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     continue;
                 }
 
-                LogAggregateRelationshipsAsError(templateModel);
+                //LogAggregateRelationshipsAsError(templateModel);
 
                 template.CSharpFile.OnBuild(file =>
                 {
                     file.AddUsing("System");
                     var @class = file.Classes.First();
                     var model = @class.GetMetadata<ClassModel>("model");
+
+                    var toChangeNavigationProperies = GetNavigableAggregateAssociations(model);
+
+                    foreach (var navigation in toChangeNavigationProperies)
+                    {
+                        var property = @class.GetAllProperties().FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
+                        @class.Properties.Remove(property);
+
+                        var key = navigation.Class.GetExplicitPrimaryKey().Single();
+
+                        var typeName = template.GetTypeName(key.Type);
+                        if (navigation.IsCollection)
+                            typeName += "[]";
+                        else if (navigation.IsNullable)
+                            typeName += "?";
+
+                        @class.AddProperty(typeName, $"{property.Name}{(navigation.IsCollection ? "Ids" : "Id")}", c => c.AddMetadata("model", navigation));
+                    }
 
                     var pks = model.GetExplicitPrimaryKey();
                     if (!pks.Any())
@@ -77,6 +97,22 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
             }
         }
 
+        private bool HasNavigationProperty(ClassModel model, AssociationEndModel association)
+        {
+            return (association.Association.SourceEnd.Element.Id == model.Id && association.Association.TargetEnd.IsNavigable) ||
+                (association.Association.TargetEnd.Element.Id == model.Id && association.Association.SourceEnd.IsNavigable);
+        }
+
+        private IEnumerable<AssociationEndModel> GetNavigableAggregateAssociations(ClassModel model)
+        {
+            return model
+                .AssociationEnds()
+                .Where(x => HasNavigationProperty(model, x) &&
+                            (x.Association.SourceEnd.IsCollection || x.Association.SourceEnd.IsNullable))
+                .ToArray();
+        }
+
+        /*
         private void LogAggregateRelationshipsAsError(ClassModel model)
         {
             var notSupportedAssociations = model
@@ -90,6 +126,6 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 var targetClass = association.Class;
                 Logging.Log.Failure($"Association not supported between {sourceClass.Name} and {targetClass.Name}. Ensure the source end is set to not be Is Nullable and not Is Collection.");
             }
-        }
+        }*/
     }
 }

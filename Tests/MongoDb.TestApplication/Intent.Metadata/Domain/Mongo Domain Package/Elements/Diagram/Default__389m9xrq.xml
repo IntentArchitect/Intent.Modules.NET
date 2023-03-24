@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d84a492f-e4b2-499f-9050-8d259f331b1f" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default</name>
+  <display>Default</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>20d3524b-3585-421e-b7d9-289ba1aff441</parentFolderId>
+  <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
+  <packageName>Mongo Domain Package</packageName>
+  <diagram>
+    <targetPackageId>8944490e-7138-4da9-a654-55d50e151168</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
