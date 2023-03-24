@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.EmptyVisualStudioSolution</id>
-  <version>3.3.11-pre.0</version>
+  <version>3.3.11-pre.1</version>
   <supportedClientVersions>[3.3.0-pre.0, 4.0.0)</supportedClientVersions>
   <displayName>Empty Visual Studio Solution</displayName>
   <shortDescription>Empty Visual Studio Solution for creating customized project structures.</shortDescription>
