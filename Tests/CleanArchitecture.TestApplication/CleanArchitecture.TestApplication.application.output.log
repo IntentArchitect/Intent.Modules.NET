@@ -92,7 +92,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0eef0293-5e42-4ce1-89bb-142d4c0f0c66</ProjectId>
-      <CorrelationId>Intent.Security.JWT.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>

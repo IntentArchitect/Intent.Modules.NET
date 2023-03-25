@@ -4,7 +4,6 @@ using System.Text;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.AspNetCore.Templates.Startup;
-using Intent.Modules.Security.JWT.Events;
 using Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings;
 using Intent.RoslynWeaver.Attributes;
 
@@ -23,7 +22,7 @@ namespace Intent.Modules.Security.JWT.Decorators
         private readonly AppSettingsTemplate _template;
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
-        private bool _stsIsSelfHostedInThisApplication;
+
         private string _stsPort = "{sts_port}";
 
         [IntentManaged(Mode.Merge)]
@@ -31,10 +30,6 @@ namespace Intent.Modules.Security.JWT.Decorators
         {
             _template = template;
             _application = application;
-            application.EventDispatcher.Subscribe<OverrideBearerTokenConfigurationEvent>(evt =>
-            {
-                _stsIsSelfHostedInThisApplication = true;
-            });
             _application.EventDispatcher.Subscribe<SecureTokenServiceHostedEvent>(Handle); // This is just temporary. Need to store these settings in a solution-wide accessible space for each app.
         }
 
@@ -45,8 +40,6 @@ namespace Intent.Modules.Security.JWT.Decorators
 
         public override void UpdateSettings(AppSettingsEditor appSettings)
         {
-            //if (_stsIsSelfHostedInThisApplication) { return; }
-
             if (((string)appSettings.GetProperty("Security.Bearer")?["Authority"])?.Contains("{sts_port}") == true && _stsPort != "{sts_port}")
             {
                 appSettings.GetProperty("Security.Bearer")["Authority"] = $"https://localhost:{_stsPort}";

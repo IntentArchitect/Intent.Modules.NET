@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using CleanArchitecture.TestApplication.Api.Services;
-using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -21,7 +18,6 @@ namespace CleanArchitecture.TestApplication.Api.Configuration
         public static IServiceCollection ConfigureJWTSecurity(this IServiceCollection services, IConfiguration configuration)
         {
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
-            services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddHttpContextAccessor();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

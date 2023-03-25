@@ -35,7 +35,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.AspNetCore.Identity.AccountController.ConfigureJwtAuthentication" externalReference="b369949a-03ff-4cb6-a99b-b7c3ba692613" />
+    <factoryExtension id="Intent.AspNetCore.Identity.AccountController.ApplicationSecurityConfigurationFactoryExtension" externalReference="b369949a-03ff-4cb6-a99b-b7c3ba692613" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

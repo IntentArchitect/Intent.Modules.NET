@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Configuration;
+using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Infrastructure;
@@ -38,6 +39,7 @@ namespace CleanArchitecture.TestApplication.Api
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
+            services.AddTransient<ICurrentUserService, CurrentUserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

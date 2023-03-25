@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5631733b-f3fd-46ec-b22e-0abaf76c29c8" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CurrentUserServiceFactoryExtension</name>
+  <display>CurrentUserServiceFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dc5bde69-a694-4347-9683-d746710568e7</parentFolderId>
+  <packageId>dc5bde69-a694-4347-9683-d746710568e7</packageId>
+  <packageName>Intent.Security.JWT</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

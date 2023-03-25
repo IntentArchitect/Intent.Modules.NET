@@ -25,19 +25,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#ea59acfd-4fa7-4419-8714-a9355fd5a9b3</CorrelationId>
+      <ProjectId>6790ab5e-5149-439a-aac5-54af2bf41898</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b42df490-198c-4c3f-aeca-83bbf9f87ab8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/StartupDefaultJWTDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StartupDefaultJWTDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfigurationFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>ff8fdfc6-3d80-4105-a147-f3851e4d28eb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#ea59acfd-4fa7-4419-8714-a9355fd5a9b3</CorrelationId>
+      <ProjectId>6790ab5e-5149-439a-aac5-54af2bf41898</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5631733b-f3fd-46ec-b22e-0abaf76c29c8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/StartupDefaultJWTDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StartupDefaultJWTDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/CurrentUserServiceFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserServiceFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -62,62 +62,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#55927007-83ce-479c-9a07-970a940dcb72</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#55927007-83ce-479c-9a07-970a940dcb72</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationJWTAuthentication/ConfigurationJWTAuthenticationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fefdfb74-adf1-4844-843a-ca2b2c71b7e9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ef1db0dc-9abe-4d1d-b221-7f32136244a7</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

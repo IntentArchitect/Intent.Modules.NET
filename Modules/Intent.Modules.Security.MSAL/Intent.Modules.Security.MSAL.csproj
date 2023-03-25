@@ -1,52 +1,33 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
-	<ItemGroup>
-		<Compile Update="Templates\CurrentUserService\CurrentUserServiceTemplate.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>CurrentUserServiceTemplate.tt</DependentUpon>
-		</Compile>
-		<Compile Update="Templates\ConfigurationMSALAuthentication\ConfigurationMSALAuthenticationTemplate.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>ConfigurationMSALAuthenticationTemplate.tt</DependentUpon>
-		</Compile>
-	</ItemGroup>
+  <ItemGroup></ItemGroup>
 
-	<ItemGroup>
-		<None Update="Templates\CurrentUserService\CurrentUserServiceTemplate.tt">
-			<Generator>TextTemplatingFilePreprocessor</Generator>
-			<LastGenOutput>CurrentUserServiceTemplate.cs</LastGenOutput>
-		</None>
-		<None Update="Templates\ConfigurationMSALAuthentication\ConfigurationMSALAuthenticationTemplate.tt">
-			<Generator>TextTemplatingFilePreprocessor</Generator>
-			<LastGenOutput>ConfigurationMSALAuthenticationTemplate.cs</LastGenOutput>
-		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.0" />
-		<PackageReference Include="Intent.Modules.Common" Version="3.3.16" />
-		<PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.24" />
-		<PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.3.18" />
-		<PackageReference Include="Intent.Packager" Version="3.4.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
-		<PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.3.3" />
-	</ItemGroup>
+  <ItemGroup></ItemGroup>
 
   <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0-pre.0" />
+    <PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28" />
+    <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.3.18" />
+    <PackageReference Include="Intent.Packager" Version="3.4.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.0.1" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>
