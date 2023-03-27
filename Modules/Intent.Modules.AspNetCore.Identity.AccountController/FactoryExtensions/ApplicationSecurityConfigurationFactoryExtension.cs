@@ -21,28 +21,35 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("JwtConfiguration"));
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Security.Configuration"));
+            if (template == null)
+            {
+                return;
+            }
 
-            var @class = template?.CSharpFile.Classes.SingleOrDefault(x => x.Name == "JWTAuthenticationConfiguration");
-            var method = @class?.Methods.SingleOrDefault(x => x.Name == "ConfigureJWTSecurity");
-            var statement = method?.Statements.SingleOrDefault(x => x.ToString().Contains("services.AddAuthentication(")) as CSharpMethodChainStatement;
-            var chainStatement = statement?.Statements.SingleOrDefault(x => x.ToString().StartsWith("AddJwtBearer("));
+            template.CSharpFile.AfterBuild(file =>
+            {
+                var priClass = file.Classes.First();
+                var authStatement = priClass.FindMethod("ConfigureApplicationSecurity")
+                    .FindStatement(stmt => stmt.HasMetadata("add-authorization")) as CSharpMethodChainStatement;
+                var chainStatement = authStatement?.Statements.SingleOrDefault(x => x.ToString().StartsWith("AddJwtBearer("));
 
-            chainStatement?.Replace(@"AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidIssuer = configuration.GetSection(""JwtToken:Issuer"").Get<string>(),
-                        ValidateAudience = true,
-                        ValidAudience = configuration.GetSection(""JwtToken:Audience"").Get<string>(),
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))
-                    };
-                    options.SaveToken = true;
-                })");
+                chainStatement?.Replace(new CSharpInvocationStatement("AddJwtBearer")
+                    .AddArgument("JwtBearerDefaults.AuthenticationScheme")
+                    .AddArgument(new CSharpLambdaBlock("options")
+                        .AddStatement(new CSharpStatementBlock("options.TokenValidationParameters = new TokenValidationParameters")
+                            .AddStatements($@"
+            ValidateIssuer = true,
+			ValidIssuer = configuration.GetSection(""JwtToken:Issuer"").Get<string>(),
+			ValidateAudience = true,
+			ValidAudience = configuration.GetSection(""JwtToken:Audience"").Get<string>(),
+			ValidateIssuerSigningKey = true,
+			IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))"))
+                        .AddStatement("options.SaveToken = true;"))
+                    .WithArgumentsOnNewLines());
+            }, 5);
         }
     }
 }

@@ -33,6 +33,7 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
         }
 
         template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer);
+        template.AddNugetDependency(NugetPackages.IdentityModel);
         template.CSharpFile.AfterBuild(file =>
         {
             file.AddUsing("System")
@@ -58,8 +59,8 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
 
                     options.TokenValidationParameters.RoleClaimType = ""role"";
                     options.SaveToken = true;"))
-                        .WithArgumentsOnNewLines()))
-                .AddStatement("services.AddAuthorization(ConfigureAuthorization);")
+                        .WithArgumentsOnNewLines()).WithoutSemicolon())
+                .AddMethodChainStatement("services.AddAuthorization(ConfigureAuthorization)", stmt => stmt.AddMetadata("add-authorization", true))
                 .AddStatement("return services;", s => s.SeparatedFromPrevious());
 
             priClass.AddMethod("void", "ConfigureAuthorization", method => method

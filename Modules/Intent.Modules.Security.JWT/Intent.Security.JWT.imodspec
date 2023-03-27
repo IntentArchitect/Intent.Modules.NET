@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
   <version>4.1.0-pre.0</version>
@@ -19,8 +19,8 @@
   <dependencies>
     <dependency id="Intent.Application.Identity" version="3.4.0-pre.0" />
     <dependency id="Intent.AspNetCore" version="4.0.0" />
-    <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28" />
+    <dependency id="Intent.Common" version="3.3.19" />
+    <dependency id="Intent.Common.CSharp" version="3.3.29" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.18" />

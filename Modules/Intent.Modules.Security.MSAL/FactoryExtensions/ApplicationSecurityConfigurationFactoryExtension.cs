@@ -46,17 +46,18 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                 var priClass = file.Classes.First();
                 var configMethod = priClass.FindMethod("ConfigureApplicationSecurity");
                 configMethod.Statements.Clear();
-                configMethod.AddStatement("services.AddHttpContextAccessor();");
                 configMethod.AddStatement("JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();");
-                configMethod.AddMethodChainStatement("services")
-                    .AddMethodChainStatement("AddAuthentication(JwtBearerDefaults.AuthenticationScheme)")
-                    .AddMethodChainStatement(@"AddMicrosoftIdentityWebApi(configuration.GetSection(""AzureAd""))");
+                configMethod.AddStatement("services.AddHttpContextAccessor();");
+                configMethod.AddMethodChainStatement("services", stmt => stmt
+                    .AddChainStatement("AddAuthentication(JwtBearerDefaults.AuthenticationScheme)")
+                    .AddChainStatement(@"AddMicrosoftIdentityWebApi(configuration.GetSection(""AzureAd""))"));
                 configMethod.AddInvocationStatement("services.Configure<OpenIdConnectOptions>", block => block
                     .AddArgument("OpenIdConnectDefaults.AuthenticationScheme")
                     .AddArgument(new CSharpLambdaBlock("options")
                         .AddStatement(@"options.TokenValidationParameters.RoleClaimType = ""roles"";")
-                        .AddStatement(@"options.TokenValidationParameters.NameClaimType = ""name"";")));
-                configMethod.AddStatement("services.AddAuthorization(ConfigureAuthorization);");
+                        .AddStatement(@"options.TokenValidationParameters.NameClaimType = ""name"";"))
+                    .WithArgumentsOnNewLines());
+                configMethod.AddMethodChainStatement("services.AddAuthorization(ConfigureAuthorization)", stmt => stmt.AddMetadata("add-authorization", true));
                 configMethod.AddStatement("return services;", s => s.SeparatedFromPrevious());
 
                 priClass.AddMethod("void", "ConfigureAuthorization", method => method

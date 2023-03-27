@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d7d11133-231f-45d8-ba28-978a88dcad75" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Validation</name>
+  <display>Validation</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6dd6f310-14de-4810-9542-1a9933739af0</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5caaeace-9270-46e0-9ca9-5adc630679fa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</name>
+      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationService</display>
+      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7d11133-231f-45d8-ba28-978a88dcad75</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3dfa09a9-aecc-4bb8-b359-e000a501ade5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</name>
+      <display>Intent.Application.ServiceImplementations.FluentValidation.ValidationServiceInterface</display>
+      <externalReference>Intent.Application.ServiceImplementations.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d7d11133-231f-45d8-ba28-978a88dcad75</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
