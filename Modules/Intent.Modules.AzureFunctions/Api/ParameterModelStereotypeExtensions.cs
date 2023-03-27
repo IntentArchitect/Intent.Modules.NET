@@ -54,6 +54,11 @@ namespace Intent.AzureFunctions.Api
                 return new SourceOptions(_stereotype.GetProperty<string>("Source"));
             }
 
+            public string HeaderName()
+            {
+                return _stereotype.GetProperty<string>("Header Name");
+            }
+
             public class SourceOptions
             {
                 public readonly string Value;
@@ -69,10 +74,14 @@ namespace Intent.AzureFunctions.Api
                     {
                         case "Default":
                             return SourceOptionsEnum.Default;
-                        case "From Query":
-                            return SourceOptionsEnum.FromQuery;
                         case "From Body":
                             return SourceOptionsEnum.FromBody;
+                        case "From Form":
+                            return SourceOptionsEnum.FromForm;
+                        case "From Header":
+                            return SourceOptionsEnum.FromHeader;
+                        case "From Query":
+                            return SourceOptionsEnum.FromQuery;
                         case "From Route":
                             return SourceOptionsEnum.FromRoute;
                         default:
@@ -92,6 +101,14 @@ namespace Intent.AzureFunctions.Api
                 {
                     return Value == "From Body";
                 }
+                public bool IsFromForm()
+                {
+                    return Value == "From Form";
+                }
+                public bool IsFromHeader()
+                {
+                    return Value == "From Header";
+                }
                 public bool IsFromRoute()
                 {
                     return Value == "From Route";
@@ -103,6 +120,8 @@ namespace Intent.AzureFunctions.Api
                 Default,
                 FromQuery,
                 FromBody,
+                FromForm,
+                FromHeader,
                 FromRoute
             }
         }
