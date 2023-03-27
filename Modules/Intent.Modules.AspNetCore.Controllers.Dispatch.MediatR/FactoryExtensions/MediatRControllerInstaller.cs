@@ -54,8 +54,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
 
                     foreach (var method in @class.Methods)
                     {
-                        if (method.TryGetMetadata<OperationModel>("model", out var model) &&
-                            model.HasMapToCommandMapping() || model.HasMapToQueryMapping())
+                        if (method.TryGetMetadata<IControllerOperationModel>("model", out var model))
                         {
                             method.AddStatements(GetValidations(model));
                             method.AddStatement(GetDispatchViaMediatorStatement(template, model), s => s.SeparatedFromPrevious());
@@ -65,17 +64,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
                 });
             }
         }
-        
-        private IEnumerable<string> GetValidations(OperationModel operationModel)
+
+        private IEnumerable<string> GetValidations(IControllerOperationModel operationModel)
         {
             var validations = new List<string>();
             var payloadParameter = GetPayloadParameter(operationModel);
-            if (payloadParameter != null && operationModel.InternalElement.IsMapped)
+            if (payloadParameter != null)
             {
                 foreach (var mappedParameter in GetMappedParameters(operationModel))
                 {
                     validations.Add($@"
-            if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.InternalElement.MappedElement.Element.Name.ToPascalCase()})
+            if ({mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.MappedPayloadProperty.Name.ToPascalCase()})
             {{
                 return BadRequest();
             }}
@@ -86,21 +85,21 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
             return validations;
         }
 
-        private CSharpStatement GetDispatchViaMediatorStatement(ControllerTemplate template, OperationModel operationModel)
+        private CSharpStatement GetDispatchViaMediatorStatement(ControllerTemplate template, IControllerOperationModel operationModel)
         {
             var payload = GetPayloadParameter(operationModel)?.Name
-                ?? (operationModel.InternalElement.IsMapped ? GetMappedPayload(template, operationModel) : "UNKNOWN");
+                ?? GetMappedPayload(template, operationModel);
 
             return operationModel.ReturnType != null
                 ? $"var result = await _mediator.Send({payload}, cancellationToken);"
                 : $@"await _mediator.Send({payload}, cancellationToken);";
         }
 
-        private CSharpStatement GetReturnStatement(ControllerTemplate template, OperationModel operationModel)
+        private CSharpStatement GetReturnStatement(ControllerTemplate template, IControllerOperationModel operationModel)
         {
-            switch (template.GetHttpVerb(operationModel))
+            switch (operationModel.Verb)
             {
-                case ControllerTemplate.HttpVerb.Get:
+                case HttpVerb.Get:
                     if (operationModel.ReturnType == null)
                     {
                         return "return NoContent();";
@@ -112,44 +111,51 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.FactoryExtensio
                     }
 
                     return @"return result != null ? Ok(result) : NotFound();";
-                case ControllerTemplate.HttpVerb.Post:
-                    var getByIdOperation = template.Model.Operations.FirstOrDefault(x => (x.Name == "Get" || x.Name == $"Get{operationModel.Name.Replace("Create", "")}") && x.Parameters.FirstOrDefault()?.Name == "id");
+                case HttpVerb.Post:
+                    var getByIdOperation = template.Model.Operations.FirstOrDefault(x => x.Verb == HttpVerb.Get &&
+                        x.ReturnType != null &&
+                        !x.ReturnType.IsCollection &&
+                        x.Parameters.Count() == 1 &&
+                        x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdOperation != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
                     {
-                        return @"return CreatedAtAction(nameof(Get), new { id = result }, new { Id = result });";
+                        return $@"return CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, new {{ Id = result }});";
                     }
                     return operationModel.ReturnType == null ? @"return Created(string.Empty, null);" : @"return Created(string.Empty, result);";
-                case ControllerTemplate.HttpVerb.Put:
-                case ControllerTemplate.HttpVerb.Patch:
+                case HttpVerb.Put:
+                case HttpVerb.Patch:
                     return operationModel.ReturnType == null ? @"return NoContent();" : @"return Ok(result);";
-                case ControllerTemplate.HttpVerb.Delete:
+                case HttpVerb.Delete:
                     return operationModel.ReturnType == null ? @"return Ok();" : @"return Ok(result);";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private static ParameterModel GetPayloadParameter(OperationModel operationModel)
+        private static IControllerParameterModel GetPayloadParameter(IControllerOperationModel operation)
         {
-            return operationModel.Parameters.SingleOrDefault(x =>
-                x.Type.Element.SpecializationTypeId == CommandModel.SpecializationTypeId ||
-                x.Type.Element.SpecializationTypeId == QueryModel.SpecializationTypeId);
+            return operation.Parameters.SingleOrDefault(x =>
+                x.TypeReference.Element.SpecializationTypeId == CommandModel.SpecializationTypeId ||
+                x.TypeReference.Element.SpecializationTypeId == QueryModel.SpecializationTypeId);
         }
 
-        private string GetMappedPayload(ControllerTemplate template, OperationModel operationModel)
+        private string GetMappedPayload(ControllerTemplate template, IControllerOperationModel operation)
         {
-            var mappedElement = operationModel.InternalElement.MappedElement;
-            if (GetMappedParameters(operationModel).Any())
+            var requestType = operation.InternalElement.IsCommandModel() || operation.InternalElement.IsQueryModel()
+                ? operation.InternalElement.AsTypeReference()
+                : operation.InternalElement.MappedElement;
+
+            if (GetMappedParameters(operation).Any())
             {
-                return $"new {template.GetTypeName(mappedElement)} {{ {string.Join(", ", GetMappedParameters(operationModel).Select(x => x.InternalElement.MappedElement.Element.Name.ToPascalCase() + " = " + x.Name))} }}";
+                return $"new {template.GetTypeName(requestType)} {{ {string.Join(", ", GetMappedParameters(operation).Select(x => x.MappedPayloadProperty.Name.ToPascalCase() + " = " + x.Name))} }}";
             }
 
-            return $"new {template.GetTypeName(mappedElement)}()";
+            return $"new {template.GetTypeName(requestType)}()";
         }
 
-        private IList<ParameterModel> GetMappedParameters(OperationModel operationModel)
+        private IList<IControllerParameterModel> GetMappedParameters(IControllerOperationModel operationModel)
         {
-            return operationModel.Parameters.Where(x => x.InternalElement.IsMapped).ToList();
+            return operationModel.Parameters.Where(x => x.MappedPayloadProperty != null).ToList();
         }
     }
 }
