@@ -20,6 +20,7 @@ namespace Application.Identity.MSAL.TestApplication.Api.Configuration
     {
         public static IServiceCollection ConfigureApplicationSecurity(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             services.AddHttpContextAccessor();
 

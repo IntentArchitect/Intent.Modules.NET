@@ -20,10 +20,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.Security.JWT.ConfigurationJWTAuthentication</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Configuration/JWTAuthenticationConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JWTAuthenticationConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

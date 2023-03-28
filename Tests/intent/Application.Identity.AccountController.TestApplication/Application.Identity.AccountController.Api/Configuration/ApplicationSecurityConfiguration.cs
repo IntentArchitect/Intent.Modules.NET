@@ -18,6 +18,7 @@ namespace Application.Identity.AccountController.Api.Configuration
     {
         public static IServiceCollection ConfigureApplicationSecurity(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddHttpContextAccessor();
 

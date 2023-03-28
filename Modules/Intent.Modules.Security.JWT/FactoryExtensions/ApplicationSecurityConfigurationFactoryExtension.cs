@@ -46,7 +46,7 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
             var priClass = file.Classes.First();
 
             var configMethod = priClass.FindMethod("ConfigureApplicationSecurity");
-            configMethod.Statements.Clear();
+            configMethod.FindStatement(stmt => stmt.GetText("").Contains("return services")).Remove();
             configMethod.AddStatement("JwtSecurityTokenHandler.DefaultMapInboundClaims = false;")
                 .AddStatement("services.AddHttpContextAccessor();")
                 .AddStatement(new CSharpMethodChainStatement("services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)")

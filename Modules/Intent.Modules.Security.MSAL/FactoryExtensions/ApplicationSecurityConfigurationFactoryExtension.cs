@@ -50,7 +50,7 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
 
                 var priClass = file.Classes.First();
                 var configMethod = priClass.FindMethod("ConfigureApplicationSecurity");
-                configMethod.Statements.Clear();
+                configMethod.FindStatement(stmt => stmt.GetText("").Contains("return services")).Remove();
                 configMethod.AddStatement("JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();");
                 configMethod.AddStatement("services.AddHttpContextAccessor();");
                 configMethod.AddMethodChainStatement("services", stmt => stmt

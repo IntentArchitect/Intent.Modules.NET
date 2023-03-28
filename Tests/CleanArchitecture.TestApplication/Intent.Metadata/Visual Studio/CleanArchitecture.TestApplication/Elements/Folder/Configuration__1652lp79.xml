@@ -37,20 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="393236e4-07f0-4eeb-99d7-955159971398" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Security.JWT.ConfigurationJWTAuthentication</name>
-      <display>Intent.Security.JWT.ConfigurationJWTAuthentication</display>
-      <externalReference>Intent.Security.JWT</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="bce90fab-cf98-4689-a585-668c8f94515a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
       <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>

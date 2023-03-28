@@ -13,27 +13,23 @@ namespace CleanArchitecture.TestApplication.Api.Services
 {
     public class CurrentUserService : ICurrentUserService
     {
-        private readonly ClaimsPrincipal _claimsPrincipal;
-        private readonly IAuthorizationService _authorizationService;
 
-        public CurrentUserService(IHttpContextAccessor httpContextAccessor, IAuthorizationService authorizationService)
+        public CurrentUserService()
         {
-            _claimsPrincipal = httpContextAccessor?.HttpContext?.User;
-            _authorizationService = authorizationService;
         }
 
-        public string UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
+        public string UserId { get; set; }
 
-        public string UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
+        public string UserName { get; set; }
 
         public async Task<bool> AuthorizeAsync(string policy)
         {
-            return (await _authorizationService.AuthorizeAsync(_claimsPrincipal, policy)).Succeeded;
+            return await Task.FromResult(true);
         }
 
         public async Task<bool> IsInRoleAsync(string role)
         {
-            return await Task.FromResult(_claimsPrincipal?.IsInRole(role) ?? false);
+            return await Task.FromResult(true);
         }
     }
 }
