@@ -1,4 +1,8 @@
-﻿### Version 4.0.1
+﻿### Version 4.1.0
+
+- Update: Incorporated changes based on changes made in `Intent.Application.Identity`.
+
+### Version 4.0.1
 
 - `AspNetCoreIdentityConfigurationTemplate` now uses the `CSharpFileBuilder` templating method.
 

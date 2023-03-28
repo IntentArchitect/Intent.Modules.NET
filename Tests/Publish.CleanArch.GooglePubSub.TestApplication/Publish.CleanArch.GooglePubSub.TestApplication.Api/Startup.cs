@@ -34,7 +34,7 @@ namespace Publish.CleanArch.GooglePubSub.TestApplication.Api
         {
             services.AddControllers();
             services.AddOptions();
-            services.ConfigureJWTSecurity(Configuration);
+            services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
