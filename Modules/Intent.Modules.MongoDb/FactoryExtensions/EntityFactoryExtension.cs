@@ -50,8 +50,14 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     var @class = file.Classes.First();
                     var model = @class.GetMetadata<ClassModel>("model");
 
-                    var toChangeNavigationProperies = GetNavigableAggregateAssociations(model);
+                    var domainEvents = @class.GetAllProperties().FirstOrDefault(x => x.Name == "DomainEvents");
+                    if (domainEvents != null)
+                    {
+                        file.AddUsing("System.ComponentModel.DataAnnotations.Schema");
+                        domainEvents.Attributes.Add(new CSharpAttribute("NotMapped"));
+                    }
 
+                    var toChangeNavigationProperies = GetNavigableAggregateAssociations(model);
                     foreach (var navigation in toChangeNavigationProperies)
                     {
                         var property = @class.GetAllProperties().FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);

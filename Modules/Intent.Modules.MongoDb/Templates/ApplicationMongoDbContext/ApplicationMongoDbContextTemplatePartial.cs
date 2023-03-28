@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -32,8 +34,10 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("MongoFramework")
                 .AddUsing("MongoFramework.Infrastructure.Mapping")
-                .AddClass($"ApplicationMongoDbContext", @class =>
+                .AddClass($"ApplicationMongoDbContext")
+                .OnBuild(file => 
                 {
+                    var @class = file.Classes.First();
                     @class.WithBaseType("MongoDbContext");
                     @class.ImplementsInterface(GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId));
                     @class.AddConstructor(ctor =>
@@ -62,6 +66,24 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                         method.AddStatement("base.OnConfigureMapping(mappingBuilder);");
                     });
 
+                    @class.AddMethod("Task<int>", $"{GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId)}.SaveChangesAsync", method =>
+                    {
+                        method.WithoutAccessModifier().Async().AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement("await SaveChangesAsync(cancellationToken);");
+                        method.AddStatement("return default;");
+                    });
+
+                    var originalUnitOfWorkInterfaceName = this.GetTypeName(TemplateFulfillingRoles.Domain.UnitOfWork, TemplateDiscoveryOptions.DoNotThrow);
+                    if (!string.IsNullOrEmpty(originalUnitOfWorkInterfaceName))
+                    {
+                        @class.AddMethod("Task<int>", $"{originalUnitOfWorkInterfaceName}.SaveChangesAsync", method =>
+                        {
+                            method.WithoutAccessModifier().Async().AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                            method.AddStatement("await SaveChangesAsync(cancellationToken);");
+                            method.AddStatement("return default;");
+                        });
+                    }
+
                     @class.AddMethod("void", "Dispose", method =>
                     {
                         method.Protected().Override().AddParameter("bool", "disposing");
@@ -77,12 +99,14 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
 
             if (pk.Type.Element.IsStringType())
             {
-                result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.ObjectIdKeyGenerator))");
+                result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))");
             }
             else if (pk.Type.Element.IsGuidType())
             {
                 result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator))");
             }
+#warning need to add ObjectId
+            //result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.ObjectIdKeyGenerator))");
 #warning what do we need here
             else if (pk.Type.Element.IsIntType())
             {
@@ -96,6 +120,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             {
                 throw new InvalidOperationException($"Given Type [{pk.Type.Element.Name}] is not valid for an Id for Element {aggregate.Name} [{aggregate.Id}].");
             }
+
             return result;
         }
 

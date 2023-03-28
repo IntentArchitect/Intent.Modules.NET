@@ -22,7 +22,7 @@
   <targetEnd id="b4d7dda8-a82b-48dc-8315-a36fae396492" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>A5</name>
     <display>A5: A5</display>
-    <order>1</order>
+    <order>2</order>
     <typeReference id="ab9dfbc4-bf2c-4c5a-9770-b2eb1ecc4600">
       <typeId>ffcc27ef-1daf-4372-b34c-e4c6609510d6</typeId>
       <isNavigable>true</isNavigable>
