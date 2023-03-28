@@ -3,16 +3,16 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:62021/",
-      "sslPort": 44390
+      "applicationUrl": "http://localhost:65325/",
+      "sslPort": 44311
     }
   },
   "profiles": {
     "Application.Identity.AccountController.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:62021/;https://localhost:44390/",
-      "launchUrl": "http://localhost:62021/swagger",
+      "applicationUrl": "http://localhost:65325/;https://localhost:44311/",
+      "launchUrl": "http://localhost:65325/swagger",
       "publishAllPorts": false,
       "useSSL": false,
       "environmentVariables": {
@@ -22,7 +22,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:62021/swagger",
+      "launchUrl": "http://localhost:65325/swagger",
       "publishAllPorts": false,
       "useSSL": false,
       "environmentVariables": {

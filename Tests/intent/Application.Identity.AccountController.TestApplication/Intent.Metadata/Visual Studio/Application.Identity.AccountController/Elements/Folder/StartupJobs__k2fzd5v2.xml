@@ -4,7 +4,7 @@
   <display>StartupJobs</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>4</order>
+  <order>5</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>30871ca4-075f-4584-9d9f-61d4affafb04</parentFolderId>

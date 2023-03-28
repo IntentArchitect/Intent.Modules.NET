@@ -20,8 +20,8 @@ namespace Application.Identity.MSAL.TestApplication.Api.Configuration
     {
         public static IServiceCollection ConfigureApplicationSecurity(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddHttpContextAccessor();
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            services.AddHttpContextAccessor();
 
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

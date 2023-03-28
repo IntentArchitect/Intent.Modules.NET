@@ -59,7 +59,9 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
 
                     options.TokenValidationParameters.RoleClaimType = ""role"";
                     options.SaveToken = true;"))
-                        .WithArgumentsOnNewLines()).WithoutSemicolon())
+                        .WithArgumentsOnNewLines())
+                    .WithoutSemicolon()
+                    .AddMetadata("add-authentication", true))
                 .AddMethodChainStatement("services.AddAuthorization(ConfigureAuthorization)", stmt => stmt.AddMetadata("add-authorization", true))
                 .AddStatement("return services;", s => s.SeparatedFromPrevious());
 
@@ -70,7 +72,7 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
                 .AddStatement("//Configure policies and other authorization options here. For example:")
                 .AddStatement("//options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"role\", \"employee\"));")
                 .AddStatement("//options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"role\", \"admin\"));"));
-        });
+        }, 1);
 
     }
 }

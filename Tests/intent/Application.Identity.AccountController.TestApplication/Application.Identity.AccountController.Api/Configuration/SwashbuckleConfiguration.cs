@@ -28,6 +28,14 @@ namespace Application.Identity.AccountController.Api.Configuration
                             Title = "Application.Identity.AccountController.TestApplication API",
                         });
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
+                    options.AddSecurityDefinition("ApiToken", new OpenApiSecurityScheme()
+                    {
+                        Name = "Authorization",
+                        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+                        In = ParameterLocation.Header,
+                        Type = SecuritySchemeType.ApiKey,
+                        Scheme = "Bearer",
+                    });
                 });
             return services;
         }
@@ -52,6 +60,8 @@ namespace Application.Identity.AccountController.Api.Configuration
                     options.DocExpansion(DocExpansion.List);
                     options.ShowExtensions();
                     options.EnableFilter(string.Empty);
+                    options.OAuthScopeSeparator(" ");
+                    options.OAuthScopeSeparator(" ");
                 });
         }
     }

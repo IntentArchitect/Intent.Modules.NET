@@ -33,7 +33,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
             {
                 var priClass = file.Classes.First();
                 var authStatement = priClass.FindMethod("ConfigureApplicationSecurity")
-                    .FindStatement(stmt => stmt.HasMetadata("add-authorization")) as CSharpMethodChainStatement;
+                    .FindStatement(stmt => stmt.HasMetadata("add-authentication")) as CSharpMethodChainStatement;
                 var chainStatement = authStatement?.Statements.SingleOrDefault(x => x.ToString().StartsWith("AddJwtBearer("));
 
                 chainStatement?.Replace(new CSharpInvocationStatement("AddJwtBearer")
@@ -46,10 +46,11 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
 			ValidateAudience = true,
 			ValidAudience = configuration.GetSection(""JwtToken:Audience"").Get<string>(),
 			ValidateIssuerSigningKey = true,
-			IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))"))
+			IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!))")
+                            .WithSemicolon())
                         .AddStatement("options.SaveToken = true;"))
                     .WithArgumentsOnNewLines());
-            }, 5);
+            }, 2);
         }
     }
 }

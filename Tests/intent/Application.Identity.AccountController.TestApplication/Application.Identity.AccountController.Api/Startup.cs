@@ -35,6 +35,7 @@ namespace Application.Identity.AccountController.Api
         {
             services.AddControllers();
             services.ConfigureIdentity();
+            services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
@@ -52,6 +53,7 @@ namespace Application.Identity.AccountController.Api
             app.UseSerilogRequestLogging();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
