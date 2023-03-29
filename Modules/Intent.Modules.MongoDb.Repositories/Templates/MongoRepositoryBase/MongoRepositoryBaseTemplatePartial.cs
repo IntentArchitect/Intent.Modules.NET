@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.MongoDb.Repositories.Templates.PagedList;
 using Intent.Modules.MongoDb.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -134,7 +135,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(x => true);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -150,7 +151,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(filterExpression);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -167,7 +168,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {this.GetTypeName(TemplateFulfillingRoles.Repository.PagedList)}<{tDomain}>.CreateAsync")
+                            .AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}>.CreateAsync")
                                 .AddArgument("query")
                                 .AddArgument("pageNo")
                                 .AddArgument("pageSize")
@@ -245,6 +246,8 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                     });
                 });
         }
+
+        public string PagedResultName => GetTypeName(PagedListTemplate.TemplateId);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

@@ -36,7 +36,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
         {
             UpdateRepositoryInterfaceTemplate(application);
         }
-        
+
         private static void UpdateRepositoryInterfaceTemplate(IApplication application)
         {
             var repositoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(EntityRepositoryInterfaceTemplate.TemplateId));

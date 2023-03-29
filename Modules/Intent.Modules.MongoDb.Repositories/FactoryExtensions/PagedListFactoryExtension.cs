@@ -6,6 +6,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -23,12 +24,15 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+#warning remove
+            /*
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateFulfillingRoles.Repository.PagedList)).ToArray();
             if (!templates.Any())
             {
                 return;
             }
             var template = templates.Single(); // Registration should guarantee one template instance
+
             template.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("MongoDB.Driver");
@@ -50,7 +54,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
                     method.AddStatement("var results = await cursorSource.ToListAsync(cancellationToken);");
                     method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
                 });
-            });
+            });*/
         }
     }
 }

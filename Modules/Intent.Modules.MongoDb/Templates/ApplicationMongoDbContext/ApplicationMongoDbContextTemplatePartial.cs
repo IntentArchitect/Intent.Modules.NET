@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -35,7 +37,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                 .AddUsing("MongoFramework")
                 .AddUsing("MongoFramework.Infrastructure.Mapping")
                 .AddClass($"ApplicationMongoDbContext")
-                .OnBuild(file => 
+                .OnBuild(file =>
                 {
                     var @class = file.Classes.First();
                     @class.WithBaseType("MongoDbContext");
@@ -53,18 +55,6 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                     {
                         @class.AddProperty($"MongoDbSet<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>", aggregate.Name.Pluralize().ToPascalCase());
                     }
-
-                    @class.AddMethod("void", "OnConfigureMapping", method =>
-                    {
-                        method.Protected().Override().AddParameter("MappingBuilder", "mappingBuilder");
-
-                        foreach (var aggregate in Model)
-                        {
-                            method.AddStatement(GetEntityRegistrationStatements(aggregate));
-                        }
-
-                        method.AddStatement("base.OnConfigureMapping(mappingBuilder);");
-                    });
 
                     @class.AddMethod("Task<int>", $"{GetTypeName(MongoDbUnitOfWorkInterfaceTemplate.TemplateId)}.SaveChangesAsync", method =>
                     {
@@ -89,11 +79,28 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
                         method.Protected().Override().AddParameter("bool", "disposing");
                         method.AddStatement("//we don't want to dispose the connection which the base class does");
                     });
+                })
+                .AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    @class.AddMethod("void", "OnConfigureMapping", method =>
+                    {
+                        method.Protected().Override().AddParameter("MappingBuilder", "mappingBuilder");
+
+                        foreach (var aggregate in Model)
+                        {
+                            method.AddStatement(GetEntityRegistrationStatements(aggregate));
+                        }
+
+                        method.AddStatement("base.OnConfigureMapping(mappingBuilder);");
+                    });
+
                 });
         }
 
         private CSharpStatement GetEntityRegistrationStatements(ClassModel aggregate)
         {
+
             var result = new CSharpMethodChainStatement($"mappingBuilder.Entity<{GetTypeName(TemplateFulfillingRoles.Domain.Entity.Primary, aggregate)}>()");
             var pk = aggregate.GetExplicitPrimaryKey().Single();
 
@@ -105,7 +112,6 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             {
                 result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator))");
             }
-#warning need to add ObjectId
             //result.AddChainStatement($"HasKey(e => e.{pk.Name.ToPascalCase()}, d => d.HasKeyGenerator(EntityKeyGenerators.ObjectIdKeyGenerator))");
 #warning what do we need here
             else if (pk.Type.Element.IsIntType())
@@ -119,6 +125,20 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             else
             {
                 throw new InvalidOperationException($"Given Type [{pk.Type.Element.Name}] is not valid for an Id for Element {aggregate.Name} [{aggregate.Id}].");
+            }
+
+            CSharpClass? entityClass = null;
+            if ((TryGetTemplate("Domain.Entity.State", aggregate, out ICSharpFileBuilderTemplate entityTemplate) ||
+                 TryGetTemplate("Domain.Entity", aggregate, out entityTemplate)))
+            {
+                entityClass = entityTemplate.CSharpFile.Classes.First();
+                foreach (var property in entityClass.GetAllProperties())
+                {
+                    if (property.TryGetMetadata("non-persistent", out bool nonPersistent))
+                    {
+                        result.AddChainStatement($"Ignore(e => e.{property.Name})");
+                    }
+                }
             }
 
             return result;

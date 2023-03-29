@@ -42,27 +42,20 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     continue;
                 }
 
-                //LogAggregateRelationshipsAsError(templateModel);
-
                 template.CSharpFile.OnBuild(file =>
                 {
                     file.AddUsing("System");
                     var @class = file.Classes.First();
                     var model = @class.GetMetadata<ClassModel>("model");
 
-                    var domainEvents = @class.GetAllProperties().FirstOrDefault(x => x.Name == "DomainEvents");
-                    if (domainEvents != null)
-                    {
-                        file.AddUsing("System.ComponentModel.DataAnnotations.Schema");
-                        domainEvents.Attributes.Add(new CSharpAttribute("NotMapped"));
-                    }
-
                     var toChangeNavigationProperies = GetNavigableAggregateAssociations(model);
                     foreach (var navigation in toChangeNavigationProperies)
                     {
+                        //Remove the "Entity" Properties
                         var property = @class.GetAllProperties().FirstOrDefault(x => x.GetMetadata<IMetadataModel>("model").Id == navigation.Id);
                         @class.Properties.Remove(property);
 
+                        /*
                         var key = navigation.Class.GetExplicitPrimaryKey().Single();
 
                         var typeName = template.GetTypeName(key.Type);
@@ -71,7 +64,8 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                         else if (navigation.IsNullable)
                             typeName += "?";
 
-                        @class.AddProperty(typeName, $"{property.Name}{(navigation.IsCollection ? "Ids" : "Id")}", c => c.AddMetadata("model", navigation));
+                        @class.AddProperty(typeName, $"{property.Name}{(navigation.IsCollection ? "Ids" : "Id")}", c => c.AddMetadata("model", navigation))
+                        */
                     }
 
                     var pks = model.GetExplicitPrimaryKey();
