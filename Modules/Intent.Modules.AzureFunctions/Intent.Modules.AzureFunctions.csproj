@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt">
+	  <None Update="Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AzureFunctionClassTemplate.cs</LastGenOutput>
     </None>
@@ -65,7 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\AzureFunctionClass\AzureFunctionClassTemplate.cs">
+	  <Compile Update="Templates\AzureFunctionClass\AzureFunctionClassTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AzureFunctionClassTemplate.tt</DependentUpon>

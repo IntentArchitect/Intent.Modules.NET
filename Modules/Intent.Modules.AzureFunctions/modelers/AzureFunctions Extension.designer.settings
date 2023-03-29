@@ -190,6 +190,7 @@
         <macro trigger="on-changed">
           <script>element.getChildren().forEach(x =&gt; {
     x.setName(toCamelCase(x.getName()));
+    x.notifyChanged();
 });</script>
         </macro>
         <macro trigger="on-name-changed">

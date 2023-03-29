@@ -32,7 +32,7 @@
         return "[From Query]";
     }
     
-    return null;
+    return "[From Query]";
 }
 return `[${properties["Source"].value}]`;</displayFunction>
   <displayAsAnnotation>true</displayAsAnnotation>
