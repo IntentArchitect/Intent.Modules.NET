@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner(), template.ExecutionContext).IdName.ToPascalCase()}, aggregateRoot);");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(aggregateRoot);");
                 }, 100);
             }
         }
@@ -83,7 +83,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner(), template.ExecutionContext).IdName.ToPascalCase()}, aggregateRoot);");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update( aggregateRoot);");
                 }, 100);
             }
         }
@@ -109,7 +109,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                         return;
                     }
                     method.Statements.Last()
-                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(p => p.{strategyData.FoundEntity.GetEntityIdAttribute(template.ExecutionContext).IdName} == request.{strategyData.FoundEntity.GetNestedCompositionalOwnerIdAttribute(strategyData.FoundEntity.GetNestedCompositionalOwner(), template.ExecutionContext).IdName.ToPascalCase()}, aggregateRoot);");
+                        .InsertAbove($"{strategyData.Repository.FieldName}.Update(aggregateRoot);");
                 }, 100);
             }
         }
