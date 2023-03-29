@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AzureFunctions</id>
-  <version>4.0.7</version>
-  <supportedClientVersions>[3.3.0,4.0.0)</supportedClientVersions>
+  <version>4.0.8</version>
+  <supportedClientVersions>[3.3.0,5.0.0)</supportedClientVersions>
   <displayName>Azure Functions</displayName>
   <shortDescription>Create Azure Functions for the Azure Cloud with a clean separation of concerns using .NET.</shortDescription>
   <priority>1000</priority>
