@@ -1,3 +1,7 @@
+### Version 4.1.3
+
+- Fixed: `Create CRUD Service` no longer adds the DeleteCommand as part of operation signature.
+
 ### Version 4.1.2
 
 - Fixed: Implementations for update operations would not properly handle associations where the existing or target value was null.

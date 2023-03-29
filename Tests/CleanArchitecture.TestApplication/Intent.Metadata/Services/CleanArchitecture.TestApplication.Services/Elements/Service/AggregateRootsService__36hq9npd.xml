@@ -352,7 +352,7 @@
     </childElement>
     <childElement id="1d7a6ba4-322a-46ab-a51f-a6235a2b4f54" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Delete</name>
-      <display>Delete(id: guid, command: DeleteAggregateRootCommand): void</display>
+      <display>Delete(id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -415,40 +415,6 @@
               <target id="f6d666a0-7089-482e-9558-cf5d7e5207c6" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>1d7a6ba4-322a-46ab-a51f-a6235a2b4f54</parentFolderId>
-          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
-          <packageName>CleanArchitecture.TestApplication.Services</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
-              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
-              <properties>
-                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
-                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="34b6d791-0870-443e-ae7e-5e73a5876dc2" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
-          <name>command</name>
-          <display>in : command: DeleteAggregateRootCommand</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="93da47c9-edd7-4440-9f88-435660b05425">
-            <typeId>3d3444db-2f5e-4233-af74-d7d967bb9725</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
-            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
           <parentFolderId>1d7a6ba4-322a-46ab-a51f-a6235a2b4f54</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>
@@ -965,7 +931,7 @@
     </childElement>
     <childElement id="f2ecc6d0-e7cf-401a-a9cf-37250c6d5379" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>DeleteCompositeManyB</name>
-      <display>DeleteCompositeManyB(aggregateRootId: guid, id: guid, command: DeleteAggregateRootCompositeManyBCommand): void</display>
+      <display>DeleteCompositeManyB(aggregateRootId: guid, id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -1069,40 +1035,6 @@
               <target id="f795c38d-f44c-49cd-bf4b-0e140323c1e3" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>f2ecc6d0-e7cf-401a-a9cf-37250c6d5379</parentFolderId>
-          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
-          <packageName>CleanArchitecture.TestApplication.Services</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
-              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
-              <properties>
-                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
-                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="98e2c385-7f69-4d78-acb1-55967c099e5e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
-          <name>command</name>
-          <display>in : command: DeleteAggregateRootCompositeManyBCommand</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="c7defc65-5685-471a-b641-730881a5cdaa">
-            <typeId>70b86d61-b601-4e58-a89f-39689143238d</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
-            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
           <parentFolderId>f2ecc6d0-e7cf-401a-a9cf-37250c6d5379</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>

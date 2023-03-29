@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="76ddff4c-5831-4712-84d2-125e03fda9e4" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+<class id="b6c38348-e150-4d08-a171-7e7392655ee8" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
   <name>GetAggregateRootLongsQuery</name>
   <display>GetAggregateRootLongsQuery: AggregateRootLongDto[*]</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="e1b0bec6-dbd4-42ae-9174-4b41ce384641">
-    <typeId>3e069dd6-fee4-4a96-8e80-f4c9040f8b99</typeId>
+  <typeReference id="9f09c61a-2525-405c-a7d1-2a211f2e2251">
+    <typeId>77692819-d0dc-420d-ad69-32e56b21de8d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>true</isCollection>
@@ -16,7 +16,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>e7829d7d-4886-41fe-a14d-ccce068c6984</parentFolderId>
+  <parentFolderId>319ebd03-bdb7-46a1-99ee-5d2a5bd0e410</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.TestApplication.Services</packageName>
   <stereotypes />

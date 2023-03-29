@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e27db9a7-ebb5-467b-ba4c-2fa1abac8262" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+<class id="da642a88-43fe-4bfa-9f92-ed39a41de53e" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
   <name>AggregateRootLongsService</name>
   <display>AggregateRootLongsService</display>
   <isAbstract>false</isAbstract>
@@ -21,13 +21,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="17508e97-f0f7-46b3-9743-7838ba88f34d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="96603cd6-bd1a-43a4-a51c-58007e2f4e64" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Post</name>
       <display>Post(command: CreateAggregateRootLongCommand): long</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="5c048b24-b873-4d4e-87ea-4fb00a469b40">
+      <typeReference id="f9d0f1d3-e91b-4487-a7cd-f7008115e390">
         <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -45,10 +45,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c4bffbae-7fe7-42ec-b824-c21f0a7c86e4" name="CreateAggregateRootLongCommand" type="element" specialization="Command" />
+          <target id="cc7186ab-1267-40a7-94f1-d3612d5abc90" name="CreateAggregateRootLongCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e27db9a7-ebb5-467b-ba4c-2fa1abac8262</parentFolderId>
+      <parentFolderId>da642a88-43fe-4bfa-9f92-ed39a41de53e</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
@@ -65,13 +65,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bfd58882-f539-4694-b81d-c48f7f901734" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="cd548242-0b06-43a8-9dd9-9aa2be3e4473" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: CreateAggregateRootLongCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="b4225586-dde4-4c25-ae34-0eb7b643b632">
-            <typeId>c4bffbae-7fe7-42ec-b824-c21f0a7c86e4</typeId>
+          <typeReference id="41585a2f-d294-4f81-9169-8c8eff9348a1">
+            <typeId>cc7186ab-1267-40a7-94f1-d3612d5abc90</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -82,7 +82,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>17508e97-f0f7-46b3-9743-7838ba88f34d</parentFolderId>
+          <parentFolderId>96603cd6-bd1a-43a4-a51c-58007e2f4e64</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>
           <stereotypes>
@@ -101,14 +101,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="f9d20499-55ce-4c6d-9a78-2373961fdf26" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="af4b469b-d9ea-4ca2-be53-3f9ce1d58289" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Get</name>
       <display>Get(id: long): AggregateRootLongDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="7d255a54-b140-4cae-86eb-53bf14397f94">
-        <typeId>3e069dd6-fee4-4a96-8e80-f4c9040f8b99</typeId>
+      <typeReference id="72cb6464-eb46-4bcf-ae3c-7c363ca99912">
+        <typeId>77692819-d0dc-420d-ad69-32e56b21de8d</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -125,10 +125,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1dad5f92-5186-43d7-86b3-aaac844a16f9" name="GetAggregateRootLongByIdQuery" type="element" specialization="Query" />
+          <target id="59b99d24-9469-4daf-b4a9-c2abfc6593db" name="GetAggregateRootLongByIdQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e27db9a7-ebb5-467b-ba4c-2fa1abac8262</parentFolderId>
+      <parentFolderId>da642a88-43fe-4bfa-9f92-ed39a41de53e</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
@@ -145,12 +145,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a931b6b4-09cb-4d60-89dd-9a58d6179b96" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="17d5f5d0-8a58-40a3-b7d7-1d090ad1238e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: long</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="b97de8a8-de7f-4202-8013-743d3b5e0d58">
+          <typeReference id="5af9dccf-c861-4b99-ae6e-997fa1fc35d4">
             <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -166,10 +166,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="f14726c0-2228-44ca-a7a8-503a6d194ae1" name="Id" type="element" specialization="DTO-Field" />
+              <target id="feecd1b5-e8db-4c42-8693-1c92e097945e" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>f9d20499-55ce-4c6d-9a78-2373961fdf26</parentFolderId>
+          <parentFolderId>af4b469b-d9ea-4ca2-be53-3f9ce1d58289</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>
           <stereotypes>
@@ -188,13 +188,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="df571507-955e-499a-abbe-c27861f02306" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="3341ee11-e353-4c8b-afe3-e2d12a6a4184" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>GetAll</name>
       <display>GetAll(): AggregateRootLongDto[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="e9377de9-22b3-4934-bb1d-2373e8bd0a11">
-        <typeId>3e069dd6-fee4-4a96-8e80-f4c9040f8b99</typeId>
+      <typeReference id="4155cae6-063c-4037-9929-1140f08da059">
+        <typeId>77692819-d0dc-420d-ad69-32e56b21de8d</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
@@ -211,10 +211,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="76ddff4c-5831-4712-84d2-125e03fda9e4" name="GetAggregateRootLongsQuery" type="element" specialization="Query" />
+          <target id="b6c38348-e150-4d08-a171-7e7392655ee8" name="GetAggregateRootLongsQuery" type="element" specialization="Query" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e27db9a7-ebb5-467b-ba4c-2fa1abac8262</parentFolderId>
+      <parentFolderId>da642a88-43fe-4bfa-9f92-ed39a41de53e</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
@@ -232,13 +232,13 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="9fe5dc3b-50ca-46c0-ad4f-ceb4bf4a11ca" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="cf06fa70-0a80-48a5-9b16-1edbfcf1de40" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Put</name>
       <display>Put(id: long, command: UpdateAggregateRootLongCommand): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="997118f3-07d5-47b3-b1c8-1ff8ec600b3e">
+      <typeReference id="1ca7a334-c80a-48bb-bed0-604f866f80ab">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -253,10 +253,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1b67371c-fcd7-4b17-b61a-c729dab74d78" name="UpdateAggregateRootLongCommand" type="element" specialization="Command" />
+          <target id="1ce12daa-edbb-417d-aa8c-53ff8f9aee13" name="UpdateAggregateRootLongCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e27db9a7-ebb5-467b-ba4c-2fa1abac8262</parentFolderId>
+      <parentFolderId>da642a88-43fe-4bfa-9f92-ed39a41de53e</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
@@ -273,12 +273,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="13aa843a-e923-4b1b-baca-b36da8749037" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="08e37641-7377-4b3f-b5f2-7242532aeaf1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: long</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="c267afc5-ae09-45a2-8e76-4543c5359fad">
+          <typeReference id="428b7b87-8d68-4cec-b76e-112590512a99">
             <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -294,10 +294,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="842b3bd6-738a-4644-a121-5d66d181ee9c" name="Id" type="element" specialization="DTO-Field" />
+              <target id="27c0b68a-91a3-4cd3-813f-91022a83fe50" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>9fe5dc3b-50ca-46c0-ad4f-ceb4bf4a11ca</parentFolderId>
+          <parentFolderId>cf06fa70-0a80-48a5-9b16-1edbfcf1de40</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>
           <stereotypes>
@@ -314,13 +314,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cd04bfda-ea2c-4d6a-8eed-4eed021af906" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="6eff63ed-2aa2-41fa-b9d0-37dec0196f66" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>command</name>
           <display>in : command: UpdateAggregateRootLongCommand</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="8ad51911-fa19-4522-ae23-a77350a0ffe9">
-            <typeId>1b67371c-fcd7-4b17-b61a-c729dab74d78</typeId>
+          <typeReference id="0d3e091e-56fb-4292-bf87-3fefb2d0c0e2">
+            <typeId>1ce12daa-edbb-417d-aa8c-53ff8f9aee13</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -331,7 +331,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>9fe5dc3b-50ca-46c0-ad4f-ceb4bf4a11ca</parentFolderId>
+          <parentFolderId>cf06fa70-0a80-48a5-9b16-1edbfcf1de40</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>
           <stereotypes>
@@ -350,13 +350,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="bd51471d-4aa7-4f25-b65f-f64c2cc94d95" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+    <childElement id="ba04424b-01a4-4e1d-ab60-b831dbad2a79" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Delete</name>
-      <display>Delete(id: long, command: DeleteAggregateRootLongCommand): void</display>
+      <display>Delete(id: long): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="7486fda5-d786-457f-b72d-aa611f4ce43a">
+      <typeReference id="210334bc-25a4-42a7-8270-737b88e00775">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -371,10 +371,10 @@
         <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="8baf2bf2-e07c-4b8d-8d5b-9ecc5e6b01bb" name="DeleteAggregateRootLongCommand" type="element" specialization="Command" />
+          <target id="df13ac54-b772-48bf-aa21-0ed6011477fc" name="DeleteAggregateRootLongCommand" type="element" specialization="Command" />
         </mappedPath>
       </mappedClass>
-      <parentFolderId>e27db9a7-ebb5-467b-ba4c-2fa1abac8262</parentFolderId>
+      <parentFolderId>da642a88-43fe-4bfa-9f92-ed39a41de53e</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.TestApplication.Services</packageName>
       <stereotypes>
@@ -391,12 +391,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="91d159a6-3bc7-4fcb-aad2-1dd43b2f6f2a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="b423997c-f079-4a02-8c50-24a67962e1d0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: long</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="21da3be7-83fe-4fbd-8edc-623fcf5c1dfe">
+          <typeReference id="47b0fa72-7878-4963-ba8d-859adbb6f5ca">
             <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -412,44 +412,10 @@
             <mappingSettingsId>e4e36072-a2ce-42d3-93c5-0b496d79ef43</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="d2e7d44c-6b8a-4873-ad62-354b596cff61" name="Id" type="element" specialization="DTO-Field" />
+              <target id="27f21506-800e-4198-a0f6-0bc6d4d5b3c2" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>bd51471d-4aa7-4f25-b65f-f64c2cc94d95</parentFolderId>
-          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
-          <packageName>CleanArchitecture.TestApplication.Services</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
-              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
-              <properties>
-                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
-                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="473dfd0e-543e-4bf0-92f1-824f063a7c2e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
-          <name>command</name>
-          <display>in : command: DeleteAggregateRootLongCommand</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="593f78f1-baeb-411e-8861-b82299f7dc94">
-            <typeId>8baf2bf2-e07c-4b8d-8d5b-9ecc5e6b01bb</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
-            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>bd51471d-4aa7-4f25-b65f-f64c2cc94d95</parentFolderId>
+          <parentFolderId>ba04424b-01a4-4e1d-ab60-b831dbad2a79</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>
           <stereotypes>

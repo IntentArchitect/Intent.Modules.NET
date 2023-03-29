@@ -101,14 +101,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete([FromRoute] long id, [FromQuery] DeleteAggregateRootLongCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> Delete([FromRoute] long id, CancellationToken cancellationToken)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            await _mediator.Send(command, cancellationToken);
+            await _mediator.Send(new DeleteAggregateRootLongCommand { Id = id }, cancellationToken);
             return Ok();
         }
     }

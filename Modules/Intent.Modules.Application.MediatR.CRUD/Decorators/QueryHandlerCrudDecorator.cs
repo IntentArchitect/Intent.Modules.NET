@@ -40,7 +40,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
                 new GetByIdImplementationStrategy(_template, _application),
                 new GetAllPaginationImplementationStrategy(_template)
             };
-            
+
             var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
             if (matchedStrategies.Length == 1)
             {
