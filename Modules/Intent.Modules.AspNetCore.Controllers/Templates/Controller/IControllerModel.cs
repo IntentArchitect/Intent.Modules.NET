@@ -65,33 +65,6 @@ public enum HttpVerb
     Put,
     Patch,
     Delete,
-
-    // ReSharper disable InconsistentNaming
-    /// <summary>
-    /// Obsolete. Use <see cref="Get"/> instead.
-    /// </summary>
-    [Obsolete(WillBeRemovedIn.Version4)] GET = 0,
-
-    /// <summary>
-    /// Obsolete. Use <see cref="Post"/> instead.
-    /// </summary>
-    [Obsolete(WillBeRemovedIn.Version4)] POST = 1,
-
-    /// <summary>
-    /// Obsolete. Use <see cref="Put"/> instead.
-    /// </summary>
-    [Obsolete(WillBeRemovedIn.Version4)] PUT = 2,
-
-    /// <summary>
-    /// Obsolete. Use <see cref="Patch"/> instead.
-    /// </summary>
-    [Obsolete(WillBeRemovedIn.Version4)] PATCH = 3,
-
-    /// <summary>
-    /// Obsolete. Use <see cref="Delete"/> instead.
-    /// </summary>
-    [Obsolete(WillBeRemovedIn.Version4)] DELETE = 4
-    // ReSharper restore InconsistentNaming
 }
 
 public enum MediaTypeOptions

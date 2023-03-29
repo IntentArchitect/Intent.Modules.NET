@@ -30,7 +30,7 @@ public class MediatRControllerModel : IControllerModel
                 requiresAuthorization: false,
                 allowAnonymous: false,
                 authorizationModel: new AuthorizationModel(),
-                parameters: command.Properties.Where(x => x.HasParameterSettings() || command.GetHttpSettings().Route().Contains($"{{{x.Name.ToCamelCase()}}}"))
+                parameters: command.Properties.Where(x => x.HasParameterSettings() || command.GetHttpSettings().Route()?.Contains($"{{{x.Name.ToCamelCase()}}}") == true)
                     .Select(x => new ControllerParameterModel(
                         id: x.Id,
                         name: x.Name.ToCamelCase(),
@@ -46,7 +46,7 @@ public class MediatRControllerModel : IControllerModel
                             source: SourceOptionsEnum.FromBody,
                             headerName: null,
                             mappedPayloadProperty: null)
-                    }.Where(x => command.Properties.Count > command.Properties.Count(p => p.HasParameterSettings() || command.GetHttpSettings().Route().Contains($"{{{p.Name.ToCamelCase()}}}"))))
+                    }.Where(x => command.Properties.Count > command.Properties.Count(p => p.HasParameterSettings() || command.GetHttpSettings().Route()?.Contains($"{{{p.Name.ToCamelCase()}}}") == true)))
                     .ToList()
             )).Concat(queries
                 .Select(query => new ControllerOperationModel(
