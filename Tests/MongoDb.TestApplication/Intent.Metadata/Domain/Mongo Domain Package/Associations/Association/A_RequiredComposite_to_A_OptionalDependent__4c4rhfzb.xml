@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2c1a153f-4c7e-4232-bfbb-b30ecae87e09">
+  <sourceEnd id="a7f543db-c375-4d3e-8c15-7c7c98071602" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>A_RequiredComposite</name>
+    <display>A_RequiredComposite: A_RequiredComposite</display>
+    <order>0</order>
+    <typeReference id="9fd4fd79-0e21-4f94-8e73-fc70ac5c6616">
+      <typeId>ca234e9b-c7c1-4b6e-b7fa-414325812901</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2c1a153f-4c7e-4232-bfbb-b30ecae87e09" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>A_OptionalDependent</name>
+    <display>A_OptionalDependent: A_OptionalDependent?</display>
+    <order>2</order>
+    <typeReference id="53e3ab06-370b-440a-8e67-4cb1d167c9fa">
+      <typeId>c6c095da-6d75-4bc1-86be-e656107b2b1f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

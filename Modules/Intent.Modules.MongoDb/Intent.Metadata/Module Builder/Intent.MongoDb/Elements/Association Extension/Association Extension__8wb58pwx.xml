@@ -79,5 +79,119 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="691d5593-12f3-472a-9202-638e3aaf8340" type="Association Event Settings" typeId="1bdee938-8569-4fbf-84b4-8522d2cbee32">
+      <name>NewAssociationEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84298280-29cc-4d20-80e7-33b169128436</parentFolderId>
+      <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+      <packageName>Intent.MongoDb</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="cd9a0eef-2907-4c48-823a-dfb86899370b" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
+          <name>On Changed</name>
+          <display>On Changed: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9040c473-be79-43a3-b0d3-149c9f178de0">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>691d5593-12f3-472a-9202-638e3aaf8340</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="let targetClass = association.typeReference.getType();&#xD;&#xA;let existingIds = targetClass.getChildren(&quot;Attribute&quot;).filter(p =&gt; p.hasMetadata(&quot;id-managed&quot;));&#xD;&#xA;if (isAggregateRoot(targetClass) &amp;&amp; existingIds.length === 0) {&#xD;&#xA;    const PrimaryKeyStereotypeId = &quot;b99aac21-9ca4-467f-a3a6-046255a9eed6&quot;;&#xD;&#xA;    let idAttr = createElement(&quot;Attribute&quot;, &quot;Id&quot;, targetClass.id);&#xD;&#xA;    idAttr.typeReference.setType(getDefaultIdType());&#xD;&#xA;    idAttr.addMetadata(&quot;id-managed&quot;, &quot;true&quot;);&#xD;&#xA;    idAttr.addStereotype(PrimaryKeyStereotypeId);&#xD;&#xA;    idAttr.setOrder(0);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;existingIds.forEach(x =&gt; x.delete());&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return !element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;function getDefaultIdType() {&#xD;&#xA;    const StringTypeId = &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot;;&#xD;&#xA;    const GuidTypeId = &quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;;&#xD;&#xA;    const IntTypeId = &quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;;&#xD;&#xA;    const LongTypeId = &quot;33013006-E404-48C2-AC46-24EF5A5774FD&quot;;&#xD;&#xA;    const MongoSettingId = &quot;d5581fe8-7385-4bb6-88dc-8940e20ec1d4&quot;;&#xD;&#xA;    switch (application.getSettings(MongoSettingId)?.getField(&quot;Id Type&quot;)?.value) {&#xD;&#xA;        default:&#xD;&#xA;            return StringTypeId;&#xD;&#xA;        case &quot;guid&quot;:&#xD;&#xA;            return GuidTypeId;&#xD;&#xA;        case &quot;int&quot;:&#xD;&#xA;            return IntTypeId;&#xD;&#xA;        case &quot;long&quot;:&#xD;&#xA;            return LongTypeId;&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="68a2d17f-1713-4d71-8103-cf635381eb32" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
+          <name>On Created</name>
+          <display>On Created: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d60be785-b743-4c23-833a-df8206405f96">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>691d5593-12f3-472a-9202-638e3aaf8340</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="if (!association) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;let sourceEnd = association.getOtherEnd().typeReference;&#xD;&#xA;if (sourceEnd.getType().getPackage().specialization !== &quot;Mongo Domain Package&quot;) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;sourceEnd.setIsCollection(false);&#xD;&#xA;sourceEnd.setIsNullable(false);" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7208d920-66a2-44ab-902b-91e9ed16c9bd" type="Association Event Handler" typeId="f9b3e6fd-3c51-4ed9-b214-cb7f5fc1cf7c">
+          <name>On Deleted</name>
+          <display>On Deleted: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c99eb016-314e-4617-ae22-a5bfdacfe95f">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>691d5593-12f3-472a-9202-638e3aaf8340</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1f88f1ac-b96a-4ae7-9047-883c2fa3b3df" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="d418d372-ae82-4852-81b1-20b78a26eb6c" display="Script" value="let targetClass = association.typeReference.getType();&#xD;&#xA;let existingIds = targetClass.getChildren(&quot;Attribute&quot;).filter(p =&gt; p.hasMetadata(&quot;id-managed&quot;));&#xD;&#xA;if (isAggregateRoot(targetClass) &amp;&amp; existingIds.length === 0) {&#xD;&#xA;    const PrimaryKeyStereotypeId = &quot;b99aac21-9ca4-467f-a3a6-046255a9eed6&quot;;&#xD;&#xA;    let idAttr = createElement(&quot;Attribute&quot;, &quot;Id&quot;, targetClass.id);&#xD;&#xA;    idAttr.typeReference.setType(getDefaultIdType());&#xD;&#xA;    idAttr.addMetadata(&quot;id-managed&quot;, &quot;true&quot;);&#xD;&#xA;    idAttr.addStereotype(PrimaryKeyStereotypeId);&#xD;&#xA;    idAttr.setOrder(0);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;existingIds.forEach(x =&gt; x.delete());&#xD;&#xA;function isAggregateRoot(element) {&#xD;&#xA;    return !element.getAssociations(&quot;Association&quot;)&#xD;&#xA;        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);&#xD;&#xA;}&#xD;&#xA;function getDefaultIdType() {&#xD;&#xA;    const StringTypeId = &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot;;&#xD;&#xA;    const GuidTypeId = &quot;6b649125-18ea-48fd-a6ba-0bfff0d8f488&quot;;&#xD;&#xA;    const IntTypeId = &quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;;&#xD;&#xA;    const LongTypeId = &quot;33013006-E404-48C2-AC46-24EF5A5774FD&quot;;&#xD;&#xA;    const MongoSettingId = &quot;d5581fe8-7385-4bb6-88dc-8940e20ec1d4&quot;;&#xD;&#xA;    switch (application.getSettings(MongoSettingId)?.getField(&quot;Id Type&quot;)?.value) {&#xD;&#xA;        default:&#xD;&#xA;            return StringTypeId;&#xD;&#xA;        case &quot;guid&quot;:&#xD;&#xA;            return GuidTypeId;&#xD;&#xA;        case &quot;int&quot;:&#xD;&#xA;            return IntTypeId;&#xD;&#xA;        case &quot;long&quot;:&#xD;&#xA;            return LongTypeId;&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

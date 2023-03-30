@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b6072412-f2a3-44aa-9b00-04a5a32a6e71">
+  <sourceEnd id="fe642f4d-a116-4c78-a34e-21fdf846a5c8" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>B_OptionalAggregate</name>
+    <display>B_OptionalAggregate: B_OptionalAggregate?</display>
+    <order>0</order>
+    <typeReference id="a9c7a844-d9e3-4dd5-a5e5-a309deb3c628">
+      <typeId>9a3fa555-12fd-4b67-937e-bf35226bab57</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b6072412-f2a3-44aa-9b00-04a5a32a6e71" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>B_OptionalDependent</name>
+    <display>B_OptionalDependent: B_OptionalDependent?</display>
+    <sort-children>by-type-then-by-name</sort-children>
+    <order>2</order>
+    <typeReference id="38050f5d-d549-4eb9-84a7-aa8d1d665fa5">
+      <typeId>33c7e3f9-0c88-4a1a-a6a9-bce6baa0a6cf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Mongo Domain Package</typePackageName>
+      <typePackageId>8944490e-7138-4da9-a654-55d50e151168</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements>
+      <childElement id="b7f21255-154d-4e33-92c7-56ff5bc9278c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+        <name>Id</name>
+        <display>Id: string</display>
+        <isAbstract>false</isAbstract>
+        <genericTypes />
+        <typeReference id="aa41a51e-efc3-431f-b646-cdf44b2533cb">
+          <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <typePackageName>Intent.Common.Types</typePackageName>
+          <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          <stereotypes />
+          <genericTypeParameters />
+        </typeReference>
+        <isMapped>false</isMapped>
+        <parentFolderId>b6072412-f2a3-44aa-9b00-04a5a32a6e71</parentFolderId>
+        <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
+        <packageName>Mongo Domain Package</packageName>
+        <stereotypes>
+          <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+            <addedByDefault>true</addedByDefault>
+            <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+            <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+            <properties>
+              <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            </properties>
+          </stereotype>
+        </stereotypes>
+        <metadata>
+          <entry key="id-managed" value="true" />
+        </metadata>
+        <childElements />
+      </childElement>
+    </childElements>
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

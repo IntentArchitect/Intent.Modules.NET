@@ -1,6 +1,7 @@
+using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -9,7 +10,6 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Microsoft.Win32;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -39,7 +39,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
         {
 #warning FulFullsRole
             if (application.FindTemplateInstance<IClassProvider>(TemplateDependency.OnTemplate(DomainEventServiceInterfaceTemplateId)) == null)
-                    return;
+                return;
 
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(ApplicationMongoDbContextTemplate.TemplateId));
             if (template == null)
