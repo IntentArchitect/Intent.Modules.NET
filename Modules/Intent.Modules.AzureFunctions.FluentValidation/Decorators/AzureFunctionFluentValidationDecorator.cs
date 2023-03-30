@@ -40,15 +40,27 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
                 ? _template.GetTypeName(_template.Model.GetRequestDtoParameter().TypeReference)
                 : null;
 
+            if (_requestDtoTypeName == null || _template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            {
+                return;
+            }
+
             _template.CSharpFile.OnBuild(file =>
             {
+                file.AddUsing("FluentValidation");
                 var @class = file.Classes.Single();
                 @class.Constructors.First().AddParameter(_template.GetValidationServiceInterfaceName(), "validator", param =>
                     {
                         param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
                     });
-                @class.FindMethod("Run").FindStatement(x => x.GetText(string.Empty).Contains("await _appService"))
-                    .InsertAbove($"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+
+                var runMethod = @class.FindMethod("Run");
+                runMethod.FindStatement<CSharpTryBlock>(x => true)
+                    .InsertStatement(0, $"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);")
+                    .InsertBelow(new CSharpCatchBlock("ValidationException", "exception")
+                        .AddStatement("return new BadRequestObjectResult(exception.Errors);"));
+                //runMethod.FindStatement(x => x.GetText(string.Empty).Contains("await _appService"))
+                //    .InsertAbove($"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
             });
         }
 
