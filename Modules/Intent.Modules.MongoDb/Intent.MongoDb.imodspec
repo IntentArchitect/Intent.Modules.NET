@@ -58,6 +58,13 @@
       </settings>
     </group>
   </moduleSettings>
+  <interoperability>
+    <detect id="">
+      <install>
+        <package id=""  />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28-pre.3" />

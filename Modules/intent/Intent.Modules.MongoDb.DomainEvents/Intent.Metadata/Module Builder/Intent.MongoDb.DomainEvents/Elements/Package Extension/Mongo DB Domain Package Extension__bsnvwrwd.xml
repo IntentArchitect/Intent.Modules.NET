@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="ab038ddd-5d82-40b7-bc1f-ea054b8738f6" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
-  <name>Folder Extension</name>
-  <display>Folder Extension: Folder</display>
+<class id="7e22359c-9e55-4098-922a-e2c8cac14f50" type="Package Extension" typeId="ab4152df-3add-4a08-81b6-0fefc7cbb204">
+  <name>Mongo DB Domain Package Extension</name>
+  <display>Mongo DB Domain Package Extension: Mongo Domain Package</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-manually</sort-children>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
-  <typeReference id="e125d746-518e-41c3-993c-30a0eea05f35">
-    <typeId>4d95d53a-8855-4f35-aa82-e312643f5c5f</typeId>
+  <typeReference id="7e406949-2790-449a-88e3-16adef40f6c3">
+    <typeId>9d80acf2-6f29-4688-955b-6c17f94042ff</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Common.Types</typePackageName>
-    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <typePackageName>Intent.MongoDb</typePackageName>
+    <typePackageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
@@ -20,52 +20,28 @@
   <parentFolderId>ad50fcba-9166-4ec6-964f-db57dd276687</parentFolderId>
   <packageId>adae5774-361e-40b0-b28e-6148c299d893</packageId>
   <packageName>Intent.MongoDb.DomainEvents</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
-      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
-      <properties>
-        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
-        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
-        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
-        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
-        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
-        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
-        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
-      </properties>
-    </stereotype>
-    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
-      <addedByDefault>true</addedByDefault>
-      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
-      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
-      <properties>
-        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
-        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="8103cd44-68ce-48d2-a9f4-95928ec7bcca" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+    <childElement id="b73585f7-4531-4972-9fc1-e026b663f50e" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>ab038ddd-5d82-40b7-bc1f-ea054b8738f6</parentFolderId>
+      <parentFolderId>7e22359c-9e55-4098-922a-e2c8cac14f50</parentFolderId>
       <packageId>adae5774-361e-40b0-b28e-6148c299d893</packageId>
       <packageName>Intent.MongoDb.DomainEvents</packageName>
       <stereotypes />
       <metadata />
       <childElements>
-        <childElement id="eae37e7f-81f0-4b70-9fa5-c4d7d5937064" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+        <childElement id="6689a7f4-f1f6-4dc7-b6d0-8a070a3e9cab" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
           <name>New Domain Event</name>
           <display>New Domain Event: Domain Event</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="8698929f-ef24-4490-b5f5-1ded0d1c3597">
+          <typeReference id="84b68a38-b91c-4e18-bc84-83995698e04b">
             <typeId>0814e459-fb9b-47db-b7eb-32ce30397e8a</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -77,7 +53,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>8103cd44-68ce-48d2-a9f4-95928ec7bcca</parentFolderId>
+          <parentFolderId>b73585f7-4531-4972-9fc1-e026b663f50e</parentFolderId>
           <packageId>adae5774-361e-40b0-b28e-6148c299d893</packageId>
           <packageName>Intent.MongoDb.DomainEvents</packageName>
           <stereotypes>

@@ -25,6 +25,6 @@
   </files>
   <moduleSettingsExtensions />
   <metadata>
-    <install src="modelers/Domain Events Settings.designer.settings" externalReference="ad50fcba-9166-4ec6-964f-db57dd276687" />
+    <install src="modelers/Mongo DB Domain Events Settings.designer.settings" externalReference="ad50fcba-9166-4ec6-964f-db57dd276687" target="Domain" />
   </metadata>
 </package>

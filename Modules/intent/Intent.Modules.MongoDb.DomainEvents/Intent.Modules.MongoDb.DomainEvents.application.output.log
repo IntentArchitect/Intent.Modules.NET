@@ -6,24 +6,16 @@
       <ProjectId>765f5842-f630-4ab1-8e0c-2ee3899e4881</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#c803c8b3-0e82-4072-bc5f-ca2b157809a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.DomainEvents/Api/DiagramExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiagramExtensionModel.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.DomainEvents/Api/MongoDBDiagramExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDBDiagramExtensionModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>765f5842-f630-4ab1-8e0c-2ee3899e4881</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#7e22359c-9e55-4098-922a-e2c8cac14f50</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.DomainEvents/Api/DomainPackageExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainPackageExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>765f5842-f630-4ab1-8e0c-2ee3899e4881</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#ab038ddd-5d82-40b7-bc1f-ea054b8738f6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.DomainEvents/Api/FolderExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FolderExtensionModel.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.DomainEvents/Api/MongoDBDomainPackageExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDBDomainPackageExtensionModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -46,8 +38,8 @@
       <ProjectId>23b8abea-809b-4aa9-9e36-77535af78da2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.DesignerSettings#ad50fcba-9166-4ec6-964f-db57dd276687</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.DomainEvents/modelers/Domain Events Settings.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Domain Events Settings.designer.settings</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>../../Intent.Modules.MongoDb.DomainEvents/modelers/Mongo DB Domain Events Settings.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Mongo DB Domain Events Settings.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

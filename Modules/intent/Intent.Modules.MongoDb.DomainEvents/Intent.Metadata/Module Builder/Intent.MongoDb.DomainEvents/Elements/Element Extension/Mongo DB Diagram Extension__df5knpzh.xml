@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="c803c8b3-0e82-4072-bc5f-ca2b157809a9" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
-  <name>Diagram Extension</name>
-  <display>Diagram Extension: MongoDB Diagram</display>
+  <name>Mongo DB Diagram Extension</name>
+  <display>Mongo DB Diagram Extension: MongoDB Diagram</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

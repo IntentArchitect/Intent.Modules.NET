@@ -13,10 +13,10 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.MongoDb.DomainEvents.Api
 {
     [IntentManaged(Mode.Merge)]
-    public class DomainPackageExtensionModel : MongoDomainPackageModel
+    public class MongoDBDomainPackageExtensionModel : MongoDomainPackageModel
     {
         [IntentManaged(Mode.Ignore)]
-        public DomainPackageExtensionModel(IPackage package) : base(package)
+        public MongoDBDomainPackageExtensionModel(IPackage package) : base(package)
         {
         }
 

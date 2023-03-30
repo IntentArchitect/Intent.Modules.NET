@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
-using Intent.Modules.Common.Types.Api;
+using Intent.MongoDb.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -13,17 +12,12 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.MongoDb.DomainEvents.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class FolderExtensionModel : FolderModel
+    public class MongoDBDiagramExtensionModel : MongoDBDiagramModel
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public FolderExtensionModel(IElement element) : base(element)
+        public MongoDBDiagramExtensionModel(IElement element) : base(element)
         {
         }
-
-        public IList<DomainEventModel> DomainEvents => _element.ChildElements
-            .GetElementsOfType(DomainEventModel.SpecializationTypeId)
-            .Select(x => new DomainEventModel(x))
-            .ToList();
 
     }
 }
