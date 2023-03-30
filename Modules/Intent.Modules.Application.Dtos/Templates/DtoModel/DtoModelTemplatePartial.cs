@@ -57,13 +57,14 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             {
                                 method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
                             }
-                            method.AddStatement($"return new {base.GetTypeName(this)}");
-                            method.AddStatement( "{");
-                            foreach (var field in Model.Fields)
+                            method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}", block => 
                             {
-                                method.AddStatement($"    {field.Name.ToPascalCase()} = {(field.Name.ToCamelCase(reservedWordEscape: true))},");
-                            }
-                            method.AddStatement( "};");
+                                foreach (var field in Model.Fields)
+                                {
+                                    block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToCamelCase(reservedWordEscape: true));
+                                }
+                                block.WithSemicolon();
+                            });
                         });
                     }
 
@@ -72,6 +73,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                         @class.AddProperty(base.GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
                         {
                             property.WithComments(field.GetXmlDocLines());
+                            property.AddMetadata("model", field);
                             AddPropertyAttributes(property, field);
                         });
                     }
@@ -133,6 +135,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
         private void ConfigureClass(CSharpClass @class)
         {
+            @class.AddMetadata("model", Model);
             if (Model.IsAbstract)
             {
                 @class.Abstract();

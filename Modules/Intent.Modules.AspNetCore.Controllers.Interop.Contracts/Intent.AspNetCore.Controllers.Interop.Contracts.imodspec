@@ -10,7 +10,7 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <templates />
   <dependencies>
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.6" />
+    <dependency id="Intent.Common.CSharp" version="3.3.29" />
 	<dependency id="Intent.Common" version="3.3.19-pre.0" />
 	<dependency id="Intent.Application.Contracts" version="4.0.2-pre.0" />
   </dependencies>

@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.3.19-pre.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.28-pre.6" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.29" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="3.3.10" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
       <PrivateAssets>all</PrivateAssets>

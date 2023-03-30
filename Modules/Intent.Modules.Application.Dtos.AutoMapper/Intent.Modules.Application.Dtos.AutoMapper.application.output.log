@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2339fb67-49da-48cc-b264-dbe6c20d1e4a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#26e93d7b-2b58-435d-8401-c67cfe06c30a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/AutoMapperDtoFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AutoMapperDtoFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9e1b7e0f-7918-41d9-8c52-0a020a279cab</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
