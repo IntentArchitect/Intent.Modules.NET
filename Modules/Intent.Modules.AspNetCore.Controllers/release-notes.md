@@ -1,7 +1,8 @@
 ### Version 4.0.2
 
 - Fixed: Errors thrown when applying `application/json` to the Return Type Mediatype the Http Settings of an operation.
-- Explicity adds `application/json` mediatype explicitly to the controller operation OpenAPI metadata attributes.
+- Explicity adds `application/json` mediatype to the controller operation's OpenAPI metadata attributes where specified in the Http Settings.
+- Adds `[Produces("Application/json")]` when explicitly specified in the Http Settings.
 
 ### Version 4.0.1
 

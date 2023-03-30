@@ -212,6 +212,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 				operation.ReturnType != null)
             {
                 responseMediaType = @", ""application/json""";
+                attributes.Add(@"[Produces(""application/json"")]");
                 if (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType())
                 {
                     apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
