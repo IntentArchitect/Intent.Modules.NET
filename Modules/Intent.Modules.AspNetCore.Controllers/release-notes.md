@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Switched to abstract model type IControllerModel for ControllerTemplate, allowing support for Controllers being created from different sources.
+
 ### Version 4.0.2
 
 - Fixed: Errors thrown when applying `application/json` to the Return Type Mediatype the Http Settings of an operation.
