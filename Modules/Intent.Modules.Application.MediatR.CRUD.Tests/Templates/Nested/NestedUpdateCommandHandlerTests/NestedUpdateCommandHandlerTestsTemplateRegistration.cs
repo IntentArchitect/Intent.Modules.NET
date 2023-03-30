@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedU
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.Contains("update", StringComparison.OrdinalIgnoreCase)
+                .Where(p => p.Name.StartsWith("update", StringComparison.OrdinalIgnoreCase)
                             && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == false)
                 .ToList();
         }

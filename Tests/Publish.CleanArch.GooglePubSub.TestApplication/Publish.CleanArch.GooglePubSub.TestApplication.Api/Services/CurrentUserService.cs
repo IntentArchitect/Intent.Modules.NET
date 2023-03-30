@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Publish.CleanArch.GooglePubSub.TestApplication.Application.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Security.JWT.CurrentUserService", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.Identity.CurrentUserService", Version = "1.0")]
 
 namespace Publish.CleanArch.GooglePubSub.TestApplication.Api.Services
 {

@@ -12,5 +12,6 @@ namespace Intent.Modules.Security.MSAL
         public static readonly NugetPackageInfo MicrosoftIdentityWeb = new NugetPackageInfo("Microsoft.Identity.Web", "1.16.0");
         public static readonly NugetPackageInfo MicrosoftIdentityWebMicrosoftGraph = new NugetPackageInfo("Microsoft.Identity.Web.MicrosoftGraph", "1.16.0");
         public static readonly NugetPackageInfo MicrosoftIdentityWebUI = new NugetPackageInfo("Microsoft.Identity.Web.UI", "1.16.0");
+        public static readonly NugetPackageInfo IdentityModel = new NugetPackageInfo("IdentityModel", "6.0.0");
     }
 }

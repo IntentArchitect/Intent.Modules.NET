@@ -34,7 +34,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.ConfigureJWTSecurity(Configuration);
+            services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

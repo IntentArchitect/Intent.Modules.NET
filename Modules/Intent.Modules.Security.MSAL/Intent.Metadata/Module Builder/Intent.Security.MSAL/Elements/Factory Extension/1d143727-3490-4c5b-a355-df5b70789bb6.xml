@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1d143727-3490-4c5b-a355-df5b70789bb6" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CurrentUserServiceFactoryExtension</name>
+  <display>CurrentUserServiceFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>70332e9d-3459-4c78-a43c-11642f89fca2</parentFolderId>
+  <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+  <packageName>Intent.Security.MSAL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

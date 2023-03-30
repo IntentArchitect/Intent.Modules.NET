@@ -40,24 +40,38 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRoots.UpdateAgg
             element.AggregateRootId = request.AggregateRootId;
             element.CompositeAttr = request.CompositeAttr;
             element.SomeDate = request.SomeDate;
-            element.Composite = request.Composite != null
-                ? (element.Composite ?? new CompositeSingleBB()).UpdateObject(request.Composite, UpdateCompositeSingleBB)
-                : null;
-            element.Composites.UpdateCollection(request.Composites, (e, d) => e.Id == d.Id, UpdateCompositeManyBB);
+            element.Composite = CreateOrUpdateCompositeSingleBB(element.Composite, request.Composite);
+            element.Composites = UpdateHelper.CreateOrUpdateCollection(element.Composites, request.Composites, (e, d) => e.Id == d.Id, CreateOrUpdateCompositeManyBB);
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
+        private static CompositeSingleBB CreateOrUpdateCompositeSingleBB(CompositeSingleBB entity, UpdateAggregateRootCompositeManyBCompositeSingleBBDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeSingleBB();
             entity.CompositeAttr = dto.CompositeAttr;
+
+            return entity;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
+        private static CompositeManyBB CreateOrUpdateCompositeManyBB(CompositeManyBB entity, UpdateAggregateRootCompositeManyBCompositeManyBBDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeManyBB();
             entity.CompositeAttr = dto.CompositeAttr;
             entity.CompositeManyBId = dto.CompositeManyBId;
+
+            return entity;
         }
     }
 }

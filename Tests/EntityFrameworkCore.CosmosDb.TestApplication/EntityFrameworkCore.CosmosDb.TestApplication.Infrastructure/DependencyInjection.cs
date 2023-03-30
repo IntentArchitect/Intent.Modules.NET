@@ -70,6 +70,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure
             services.AddTransient<IPoly_ConcreteARepository, Poly_ConcreteARepository>();
             services.AddTransient<IPoly_ConcreteBRepository, Poly_ConcreteBRepository>();
             services.AddTransient<IPoly_SecondLevelRepository, Poly_SecondLevelRepository>();
+            services.AddTransient<IStandaloneDerivedRepository, StandaloneDerivedRepository>();
             services.AddTransient<IWeirdClassRepository, WeirdClassRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;

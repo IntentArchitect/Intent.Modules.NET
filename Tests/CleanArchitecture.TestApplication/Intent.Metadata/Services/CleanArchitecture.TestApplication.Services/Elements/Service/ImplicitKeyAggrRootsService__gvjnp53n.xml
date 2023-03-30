@@ -352,7 +352,7 @@
     </childElement>
     <childElement id="26aef106-253b-452b-95c7-d3fe2fef3d98" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Delete</name>
-      <display>Delete(id: guid, command: DeleteImplicitKeyAggrRootCommand): void</display>
+      <display>Delete(id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -415,40 +415,6 @@
               <target id="69067c9c-03c9-401d-9117-424237bfb4a1" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>26aef106-253b-452b-95c7-d3fe2fef3d98</parentFolderId>
-          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
-          <packageName>CleanArchitecture.TestApplication.Services</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
-              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
-              <properties>
-                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
-                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e9d7b837-9801-43c6-9be3-e4d05409d150" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
-          <name>command</name>
-          <display>in : command: DeleteImplicitKeyAggrRootCommand</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="9632edc2-e64a-4922-bb28-6e0e220e08ea">
-            <typeId>2a0a86d7-9dd9-4ae4-83bf-4f0608fbd052</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
-            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
           <parentFolderId>26aef106-253b-452b-95c7-d3fe2fef3d98</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>
@@ -965,7 +931,7 @@
     </childElement>
     <childElement id="7a40e645-9727-47b9-a93a-a1800423e8be" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>DeleteImplicitKeyNestedComposition</name>
-      <display>DeleteImplicitKeyNestedComposition(implicitKeyAggrRootId: guid, id: guid, command: DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand): void</display>
+      <display>DeleteImplicitKeyNestedComposition(implicitKeyAggrRootId: guid, id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -1069,40 +1035,6 @@
               <target id="5ffe6336-a6aa-4b8c-853f-a3fb54dee22e" name="Id" type="element" specialization="DTO-Field" />
             </mappedPath>
           </mappedClass>
-          <parentFolderId>7a40e645-9727-47b9-a93a-a1800423e8be</parentFolderId>
-          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
-          <packageName>CleanArchitecture.TestApplication.Services</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
-              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
-              <properties>
-                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
-                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8efd37a9-db3e-4506-9220-26c3861f43de" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
-          <name>command</name>
-          <display>in : command: DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="48a685b9-ebf9-40e9-8fd6-81a69eb40ada">
-            <typeId>8ae62317-9e1b-4965-917c-c5f9289fe55c</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
-            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
           <parentFolderId>7a40e645-9727-47b9-a93a-a1800423e8be</parentFolderId>
           <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
           <packageName>CleanArchitecture.TestApplication.Services</packageName>

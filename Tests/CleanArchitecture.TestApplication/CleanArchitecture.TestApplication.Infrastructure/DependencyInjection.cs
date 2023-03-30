@@ -28,7 +28,6 @@ namespace CleanArchitecture.TestApplication.Infrastructure
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
             services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
             services.AddTransient<IImplicitKeyAggrRootRepository, ImplicitKeyAggrRootRepository>();
-            services.AddTransient<IVariantTypesClassRepository, VariantTypesClassRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }

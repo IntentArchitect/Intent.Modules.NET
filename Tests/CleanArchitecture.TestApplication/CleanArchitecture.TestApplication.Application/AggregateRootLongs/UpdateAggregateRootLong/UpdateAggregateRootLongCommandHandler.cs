@@ -29,16 +29,22 @@ namespace CleanArchitecture.TestApplication.Application.AggregateRootLongs.Updat
         {
             var existingAggregateRootLong = await _aggregateRootLongRepository.FindByIdAsync(request.Id, cancellationToken);
             existingAggregateRootLong.Attribute = request.Attribute;
-            existingAggregateRootLong.CompositeOfAggrLong = request.CompositeOfAggrLong != null
-                ? (existingAggregateRootLong.CompositeOfAggrLong ?? new CompositeOfAggrLong()).UpdateObject(request.CompositeOfAggrLong, UpdateCompositeOfAggrLong)
-                : null;
+            existingAggregateRootLong.CompositeOfAggrLong = CreateOrUpdateCompositeOfAggrLong(existingAggregateRootLong.CompositeOfAggrLong, request.CompositeOfAggrLong);
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateAggregateRootLongCompositeOfAggrLongDto dto)
+        private static CompositeOfAggrLong CreateOrUpdateCompositeOfAggrLong(CompositeOfAggrLong entity, UpdateAggregateRootLongCompositeOfAggrLongDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new CompositeOfAggrLong();
             entity.Attribute = dto.Attribute;
+
+            return entity;
         }
     }
 }

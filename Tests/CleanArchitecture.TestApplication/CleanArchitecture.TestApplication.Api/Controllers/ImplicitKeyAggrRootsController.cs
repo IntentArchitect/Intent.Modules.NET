@@ -106,14 +106,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete([FromRoute] Guid id, [FromQuery] DeleteImplicitKeyAggrRootCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            await _mediator.Send(command, cancellationToken);
+            await _mediator.Send(new DeleteImplicitKeyAggrRootCommand { Id = id }, cancellationToken);
             return Ok();
         }
 
@@ -197,18 +192,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteImplicitKeyNestedComposition([FromRoute] Guid implicitKeyAggrRootId, [FromRoute] Guid id, [FromQuery] DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteImplicitKeyNestedComposition([FromRoute] Guid implicitKeyAggrRootId, [FromRoute] Guid id, CancellationToken cancellationToken)
         {
-            if (implicitKeyAggrRootId != command.ImplicitKeyAggrRootId)
-            {
-                return BadRequest();
-            }
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            await _mediator.Send(command, cancellationToken);
+            await _mediator.Send(new DeleteImplicitKeyAggrRootImplicitKeyNestedCompositionCommand { ImplicitKeyAggrRootId = implicitKeyAggrRootId, Id = id }, cancellationToken);
             return Ok();
         }
     }

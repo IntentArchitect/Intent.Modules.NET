@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Owner.DeleteCo
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.Contains("delete", StringComparison.OrdinalIgnoreCase)
+                .Where(p => p.Name.StartsWith("delete", StringComparison.OrdinalIgnoreCase)
                             && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == true)
                 .ToList();
         }

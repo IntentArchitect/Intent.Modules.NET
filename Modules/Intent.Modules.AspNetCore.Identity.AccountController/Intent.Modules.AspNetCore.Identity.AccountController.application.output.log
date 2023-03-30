@@ -12,8 +12,8 @@
       <ProjectId>38fb3267-e318-4914-8504-3fb65d8c1198</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b369949a-03ff-4cb6-a99b-b7c3ba692613</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/ConfigureJwtAuthentication.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigureJwtAuthentication.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfigurationFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

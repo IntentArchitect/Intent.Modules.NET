@@ -154,7 +154,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                                 break;
                             }
 
-                            var property = $"{entityVarName}{attributeName}";
+                            var property = $"{entityVarName}.{attributeName}";
                             var updateMethodName = $"CreateOrUpdate{targetEntityElement.Name.ToPascalCase()}";
 
                             if (association.Multiplicity is Multiplicity.One or Multiplicity.ZeroToOne)

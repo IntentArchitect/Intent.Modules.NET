@@ -37,7 +37,7 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
 
         public virtual object Update(Expression<Func<TPersistence, bool>> predicate, TDomain entity)
         {
-            return base.UpdateOne(predicate, (TPersistence)entity, null);
+            return base.ReplaceOne(predicate, (TPersistence)entity);
         }
 
         public virtual Task<TDomain> FindAsync(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default)

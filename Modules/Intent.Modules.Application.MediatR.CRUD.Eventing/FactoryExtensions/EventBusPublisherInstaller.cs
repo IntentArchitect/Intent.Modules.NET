@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.Contracts.DomainMapping.Api;
@@ -134,9 +135,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
         {
             return name.ToLower() switch
             {
-                var x when x.Contains("create") || x.Contains("new") || x.Contains("add") => "create",
-                var x when x.Contains("update") || x.Contains("edit") => "update",
-                var x when x.Contains("delete") || x.Contains("remove") => "delete",
+                var x when x.StartsWith("create", StringComparison.OrdinalIgnoreCase) || x.StartsWith("new", StringComparison.OrdinalIgnoreCase) || x.StartsWith("add", StringComparison.OrdinalIgnoreCase) => "create",
+                var x when x.StartsWith("update", StringComparison.OrdinalIgnoreCase) || x.StartsWith("edit", StringComparison.OrdinalIgnoreCase) => "update",
+                var x when x.StartsWith("delete", StringComparison.OrdinalIgnoreCase) || x.StartsWith("remove", StringComparison.OrdinalIgnoreCase) => "delete",
                 _ => null
             };
         }

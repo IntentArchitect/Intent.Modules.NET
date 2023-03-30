@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -27,7 +28,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         private readonly CommandHandlerTemplate _template;
         [IntentManaged(Mode.Fully)]
         private readonly IApplication _application;
-        private readonly ICrudImplementationStrategy _implementationStrategy;
 
         [IntentManaged(Mode.Merge)]
         public CommandHandlerCrudDecorator(CommandHandlerTemplate template, IApplication application)
@@ -35,20 +35,22 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             _template = template;
             _application = application;
 
-            // DJVV: Maybe we should just get rid of the decorator and use a factory extension
-            _implementationStrategy = new ICrudImplementationStrategy[]
+            var strategies = new ICrudImplementationStrategy[]
             {
-                new CreateImplementationStrategy(_template),
-                new UpdateImplementationStrategy(_template),
-                new DeleteImplementationStrategy(_template),
-            }.SingleOrDefault(x => x.IsMatch());
+                new CreateImplementationStrategy(template),
+                new UpdateImplementationStrategy(template),
+                new DeleteImplementationStrategy(template)
+            };
 
-            if (_implementationStrategy != null)
+            var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
+            if (matchedStrategies.Length == 1)
             {
-                _template.CSharpFile.OnBuild(file =>
-                {
-                    _implementationStrategy.ApplyStrategy();
-                });
+                template.CSharpFile.AfterBuild(file => matchedStrategies[0].ApplyStrategy());
+            }
+            else if (matchedStrategies.Length > 1)
+            {
+                Logging.Log.Warning($@"Multiple CRUD implementation strategies were found that can implement this Command [{template.Model.Name}]");
+                Logging.Log.Debug($@"Strategies: {string.Join(", ", matchedStrategies.Select(s => s.GetType().Name))}");
             }
         }
     }
