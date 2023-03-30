@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>4.0.4-pre.0</version>
+  <version>4.0.4</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -54,16 +54,6 @@
         <package id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="4.0.1" />
       </install>
     </detect>
-    <detect id="Intent.AspNetCore.Controllers.Dispatch.ServiceContract">
-      <install>
-        <package id="Intent.Eventing.MassTransit.AspNetCore" version="4.0.2" />
-      </install>
-    </detect>
-    <detect id="Intent.Application.MediatR.Behaviours">
-      <install>
-        <package id="Intent.Eventing.MassTransit.MediatR" version="4.0.1" />
-      </install>
-    </detect>
     <detect id="Intent.Application.MediatR.CRUD">
       <install>
         <package id="Intent.Application.MediatR.CRUD.Eventing" version="4.0.1" />
@@ -103,10 +93,10 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.29-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.3.29" />
     <dependency id="Intent.Common.Types" version="3.3.6" />
-    <dependency id="Intent.Eventing.Contracts" version="4.0.1-pre.0" />
-    <dependency id="Intent.Modelers.Eventing" version="4.0.2-pre.0" />
+    <dependency id="Intent.Eventing.Contracts" version="4.0.1" />
+    <dependency id="Intent.Modelers.Eventing" version="4.0.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.7" />
   </dependencies>
   <files>

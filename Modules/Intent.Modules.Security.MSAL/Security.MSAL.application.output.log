@@ -5,55 +5,23 @@
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#7f2aecb9-82ea-4c22-8551-a3344f1f6c39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.MSAL.sln</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>fd6fed84-237d-49e4-90ed-5db6f57f0385</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#d0554257-b886-402e-aa3c-9efb59301c27</CorrelationId>
+      <ProjectId>2a360b32-9c5c-40f6-8036-c6210ab9ab98</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#e4ebe5e3-cefd-439a-9b30-3388686d3c7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConfigurationMSALAuthenticationDefaultDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationMSALAuthenticationDefaultDecorator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfigurationFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>fd6fed84-237d-49e4-90ed-5db6f57f0385</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#d0554257-b886-402e-aa3c-9efb59301c27</CorrelationId>
+      <ProjectId>2a360b32-9c5c-40f6-8036-c6210ab9ab98</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1d143727-3490-4c5b-a355-df5b70789bb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConfigurationMSALAuthenticationDefaultDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationMSALAuthenticationDefaultDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fd6fed84-237d-49e4-90ed-5db6f57f0385</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#36fa751d-2e24-4b93-baf3-993c40791ce5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConfigurationSettingsMSALDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationSettingsMSALDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fd6fed84-237d-49e4-90ed-5db6f57f0385</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#36fa751d-2e24-4b93-baf3-993c40791ce5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ConfigurationSettingsMSALDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationSettingsMSALDecoratorRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fd6fed84-237d-49e4-90ed-5db6f57f0385</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2592e70e-036c-4fec-abaf-933aa9d49497</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/StartupDefaultMSALDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StartupDefaultMSALDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fd6fed84-237d-49e4-90ed-5db6f57f0385</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#2592e70e-036c-4fec-abaf-933aa9d49497</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/StartupDefaultMSALDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StartupDefaultMSALDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/CurrentUserServiceFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CurrentUserServiceFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -78,86 +46,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#1ee6fb0b-b80a-4432-83fb-d9ef6e1ca4ef</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#1ee6fb0b-b80a-4432-83fb-d9ef6e1ca4ef</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1ee6fb0b-b80a-4432-83fb-d9ef6e1ca4ef</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#1ee6fb0b-b80a-4432-83fb-d9ef6e1ca4ef</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationMSALAuthentication/ConfigurationMSALAuthenticationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#85d0d182-eddf-401b-baf8-93c3694a3172</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ConfigurationMSALAuthentication/MSALAuthenticationDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ConfigurationMSALAuthentication/MSALAuthenticationDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#965ef977-232e-474c-b4cd-6d44a5dc0aeb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#965ef977-232e-474c-b4cd-6d44a5dc0aeb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#965ef977-232e-474c-b4cd-6d44a5dc0aeb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#965ef977-232e-474c-b4cd-6d44a5dc0aeb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>593981c8-d943-47e3-9617-937cb9e04724</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

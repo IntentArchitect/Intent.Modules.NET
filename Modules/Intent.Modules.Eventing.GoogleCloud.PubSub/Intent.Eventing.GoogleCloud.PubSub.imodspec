@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.GoogleCloud.PubSub</id>
-  <version>1.0.0-pre.3</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[3.4.0-pre.0,4.0.0)</supportedClientVersions>
   <summary>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</summary>
   <description>Cloud Pub/Sub is a fully-managed real-time messaging service that allows you to send and receive messages between independent applications.</description>
@@ -132,7 +132,7 @@
     </detect>
     <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
       <install>
-        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.0-pre.0" />
+        <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.0" />
       </install>
     </detect>
   </interoperability>
@@ -143,10 +143,10 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.3.18" />
-    <dependency id="Intent.Common.CSharp" version="3.3.28-pre.5" />
+    <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />
     <dependency id="Intent.Eventing.Contracts" version="4.0.0" />
-    <dependency id="Intent.Modelers.Eventing" version="4.0.1-pre.0" />
+    <dependency id="Intent.Modelers.Eventing" version="4.0.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
   </dependencies>
   <files>

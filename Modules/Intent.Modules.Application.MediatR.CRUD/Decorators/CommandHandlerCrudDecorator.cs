@@ -34,14 +34,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
         {
             _template = template;
             _application = application;
-            
+
             var strategies = new ICrudImplementationStrategy[]
             {
                 new CreateImplementationStrategy(template),
                 new UpdateImplementationStrategy(template),
                 new DeleteImplementationStrategy(template)
             };
-            
+
             var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
             if (matchedStrategies.Length == 1)
             {

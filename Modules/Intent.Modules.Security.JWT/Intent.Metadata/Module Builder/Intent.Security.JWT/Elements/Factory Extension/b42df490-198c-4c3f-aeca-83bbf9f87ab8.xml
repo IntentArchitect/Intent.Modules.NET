@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b42df490-198c-4c3f-aeca-83bbf9f87ab8" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ApplicationSecurityConfigurationFactoryExtension</name>
+  <display>ApplicationSecurityConfigurationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dc5bde69-a694-4347-9683-d746710568e7</parentFolderId>
+  <packageId>dc5bde69-a694-4347-9683-d746710568e7</packageId>
+  <packageName>Intent.Security.JWT</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

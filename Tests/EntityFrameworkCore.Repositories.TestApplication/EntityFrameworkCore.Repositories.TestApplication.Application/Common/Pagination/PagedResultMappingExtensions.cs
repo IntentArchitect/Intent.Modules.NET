@@ -14,7 +14,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.Pa
         /// Maps a page of Domain elements into a page of DTO elements. See <see cref="IPagedResult{T}"/>. 
         /// </summary>
         /// <param name="pagedResult">A single page retrieved from a persistence store.</param>
-        /// <param name="mapFunc">
+        /// <param name="mapFunc"> 
         /// Provide a mapping function where a single Domain element is supplied to the function
         /// that returns a single DTO element. There are some convenient mapping extension methods
         /// available or alternatively you can instantiate a new DTO element.

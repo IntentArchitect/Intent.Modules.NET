@@ -61,7 +61,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                 }, 100);
             }
         }
-        
+
         private void InstallOnNestedCompositeDeleteCommandHandlers(IApplication application)
         {
             var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));
@@ -87,7 +87,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
                 }, 100);
             }
         }
-        
+
         private void InstallOnNestedCompositeUpdateCommandHandlers(IApplication application)
         {
             var templates = application.FindTemplateInstances<CommandHandlerTemplate>(TemplateDependency.OnTemplate("Application.Command.Handler"));

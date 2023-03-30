@@ -106,14 +106,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Delete([FromRoute] Guid id, [FromQuery] DeleteAggregateRootCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> Delete([FromRoute] Guid id, CancellationToken cancellationToken)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            await _mediator.Send(command, cancellationToken);
+            await _mediator.Send(new DeleteAggregateRootCommand { Id = id }, cancellationToken);
             return Ok();
         }
 
@@ -197,18 +192,9 @@ namespace CleanArchitecture.TestApplication.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteCompositeManyB([FromRoute] Guid aggregateRootId, [FromRoute] Guid id, [FromQuery] DeleteAggregateRootCompositeManyBCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult> DeleteCompositeManyB([FromRoute] Guid aggregateRootId, [FromRoute] Guid id, CancellationToken cancellationToken)
         {
-            if (aggregateRootId != command.AggregateRootId)
-            {
-                return BadRequest();
-            }
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            await _mediator.Send(command, cancellationToken);
+            await _mediator.Send(new DeleteAggregateRootCompositeManyBCommand { AggregateRootId = aggregateRootId, Id = id }, cancellationToken);
             return Ok();
         }
     }

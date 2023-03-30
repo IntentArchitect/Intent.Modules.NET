@@ -62,7 +62,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
             var existingUser = await _userRepository.FindByIdAsync(id);
             existingUser.Email = dto.Email;
             existingUser.Username = dto.Username;
-            existingUserRoles = UpdateHelper.CreateOrUpdateCollection(existingUserRoles, dto.Roles, (e, d) => e.Id == d.Id, CreateOrUpdateRole);
+            existingUser.Roles = UpdateHelper.CreateOrUpdateCollection(existingUser.Roles, dto.Roles, (e, d) => e.Id == d.Id, CreateOrUpdateRole);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
