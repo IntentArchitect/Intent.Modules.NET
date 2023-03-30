@@ -207,29 +207,33 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
+            var responseMediaType = "";
             if (operation.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson() &&
-				operation.ReturnType != null &&
-                (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType()))
+				operation.ReturnType != null)
             {
-                apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
+                responseMediaType = @", ""application/json""";
+                if (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType())
+                {
+                    apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
+                }
             }
 
             switch (GetHttpVerb(operation))
             {
                 case HttpVerb.Get:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK{responseMediaType})]");
                     break;
                 case HttpVerb.Post:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]");
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created{responseMediaType})]");
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
                     attributes.Add(operation.ReturnType != null
-                        ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
+                        ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK{responseMediaType})]"
                         : @"[ProducesResponseType(StatusCodes.Status204NoContent)]");
                     break;
                 case HttpVerb.Delete:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK{responseMediaType})]");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
