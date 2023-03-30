@@ -12,9 +12,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Dtos" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Common" Version="3.3.18" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.27" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.3.30-pre.0" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="3.3.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.3.8" />
     <PackageReference Include="Intent.Packager" Version="3.4.0">
@@ -26,10 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <None Update="Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AzureFunctionClassTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\Startup\StartupTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>StartupTemplate.cs</LastGenOutput>
@@ -65,11 +65,6 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <Compile Update="Templates\AzureFunctionClass\AzureFunctionClassTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AzureFunctionClassTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\Startup\StartupTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

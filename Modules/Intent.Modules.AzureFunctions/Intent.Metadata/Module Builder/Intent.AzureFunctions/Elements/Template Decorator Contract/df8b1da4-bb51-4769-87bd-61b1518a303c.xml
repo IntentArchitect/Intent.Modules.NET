@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="0a702535-5bc6-45fb-8f1a-07aebd4c8426" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
+<class id="df8b1da4-bb51-4769-87bd-61b1518a303c" type="Template Decorator Contract" typeId="ac1da322-377e-45cf-a2d9-d147a4d91457">
   <name>AzureFunctionClassDecorator</name>
   <display>AzureFunctionClassDecorator</display>
   <isAbstract>false</isAbstract>

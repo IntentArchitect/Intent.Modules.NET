@@ -6,7 +6,7 @@ namespace Intent.AzureFunctions.Api;
 
 public static class WebApiQueries
 {
-    public static ParameterModel GetRequestDtoParameter(this OperationModel operationModel)
+    public static ParameterModel GetRequestDtoParameter(this AzureFunctionModel operationModel)
     {
         var dtoParams = operationModel.Parameters
             .Where(IsParameterBody)

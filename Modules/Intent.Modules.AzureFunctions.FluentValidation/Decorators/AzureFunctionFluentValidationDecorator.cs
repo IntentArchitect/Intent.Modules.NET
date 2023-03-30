@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
@@ -6,6 +7,7 @@ using Intent.Modules.AzureFunctions.FluentValidation.Templates;
 using Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationServiceInterface;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -28,7 +30,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
         private readonly IApplication _application;
 
         private readonly string _requestDtoTypeName;
-        
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionFluentValidationDecorator(AzureFunctionClassTemplate template, IApplication application)
         {
@@ -37,8 +39,19 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
             _requestDtoTypeName = _template.Model.GetRequestDtoParameter() != null
                 ? _template.GetTypeName(_template.Model.GetRequestDtoParameter().TypeReference)
                 : null;
+
+            _template.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.Single();
+                @class.Constructors.First().AddParameter(_template.GetValidationServiceInterfaceName(), "validator", param =>
+                    {
+                        param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
+                    });
+                @class.FindMethod("Run").FindStatement(x => x.GetText(string.Empty).Contains("await _appService"))
+                    .InsertAbove($"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+            });
         }
-        
+
         public void BeforeTemplateExecution()
         {
             if (_requestDtoTypeName == null)

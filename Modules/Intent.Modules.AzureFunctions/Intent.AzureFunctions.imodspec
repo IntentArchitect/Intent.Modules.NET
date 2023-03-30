@@ -50,9 +50,7 @@
       <location></location>
     </template>
   </templates>
-  <decorators>
-    <decorator id="Intent.AzureFunctions.ReturnTypes.AzureFunctionClassResourceLocationDecorator" externalReference="83078c9f-7cfa-4edf-b7f3-566f71f8f6a7" />
-  </decorators>
+  <decorators />
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>

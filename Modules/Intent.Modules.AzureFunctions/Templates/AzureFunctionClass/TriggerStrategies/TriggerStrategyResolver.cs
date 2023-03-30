@@ -7,15 +7,15 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
 
 internal static class TriggerStrategyResolver
 {
-    public static IFunctionTriggerHandler GetFunctionTriggerHandler(AzureFunctionClassTemplate template, OperationModel model)
+    public static IFunctionTriggerHandler GetFunctionTriggerHandler(AzureFunctionClassTemplate template, AzureFunctionModel model)
     {
         switch (model.GetAzureFunction()?.Type()?.AsEnum())
         {
-            case OperationModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.HttpTrigger:
+            case AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.HttpTrigger:
                 return new HttpFunctionTriggerHandler(template, model);
-            case OperationModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.ServiceBusTrigger:
+            case AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.ServiceBusTrigger:
                 return new AzureServiceBusTriggerHandler(template, model);
-            case OperationModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.QueueTrigger:
+            case AzureFunctionModelStereotypeExtensions.AzureFunction.TypeOptionsEnum.QueueTrigger:
                 return new QueueTriggerHandler(template, model);
             case null:
             default:

@@ -42,14 +42,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#e030c97a-e066-40a7-8188-808c275df3cb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/OperationModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OperationModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e0a80250-cf98-4c0c-bfbc-76e47b5e93f5</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#e00928be-7fc4-47ff-9c7d-a06a19aa6ae0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/PackageExtensionModel.cs</ApplicationRelativeFilePath>
@@ -73,19 +65,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>b39c8ad2-7cb0-46da-ac57-ef88c268a200</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecorator#83078c9f-7cfa-4edf-b7f3-566f71f8f6a7</CorrelationId>
+      <ProjectId>82458406-7d23-41f5-81a0-2083c0b7668d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ReturnTypes/AzureFunctionClassResourceLocationDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReturnTypes/AzureFunctionClassResourceLocationDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b39c8ad2-7cb0-46da-ac57-ef88c268a200</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorRegistration#83078c9f-7cfa-4edf-b7f3-566f71f8f6a7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Decorators/ReturnTypes/AzureFunctionClassResourceLocationDecoratorRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReturnTypes/AzureFunctionClassResourceLocationDecoratorRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>ApiMetadataProviderExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiMetadataProviderExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -122,26 +106,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#0a702535-5bc6-45fb-8f1a-07aebd4c8426</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#df8b1da4-bb51-4769-87bd-61b1518a303c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AzureFunctionClass/AzureFunctionClassDecorator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctionClass/AzureFunctionClassDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AzureFunctionClass/AzureFunctionClassTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureFunctionClass/AzureFunctionClassTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AzureFunctionClass/AzureFunctionClassTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureFunctionClass/AzureFunctionClassTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -154,7 +122,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AzureFunctionClass/AzureFunctionClassTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctionClass/AzureFunctionClassTemplateRegistration.cs</ProjectRelativeFilePath>

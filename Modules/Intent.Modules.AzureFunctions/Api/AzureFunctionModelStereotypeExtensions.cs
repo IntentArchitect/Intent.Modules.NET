@@ -279,7 +279,92 @@ namespace Intent.AzureFunctions.Api
                 Default,
                 ApplicationJson
             }
-        }
 
+            [IntentManaged(Mode.Ignore)]
+            public HttpTriggerView GetHttpTriggerView()
+            {
+                if (!Type().IsHttpTrigger())
+                {
+                    return null;
+                }
+
+                return new HttpTriggerView(this.AuthorizationLevel(), this.Method(), this.Route());
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public QueueDetailView GetServiceBusTriggerView()
+            {
+                if (!Type().IsServiceBusTrigger())
+                {
+                    return null;
+                }
+
+                return new QueueDetailView(this.QueueName(), this.Connection());
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public QueueDetailView GetQueueTriggerView()
+            {
+                if (!Type().IsQueueTrigger())
+                {
+                    return null;
+                }
+
+                return new QueueDetailView(this.QueueName(), this.Connection());
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public class HttpTriggerView
+            {
+                private readonly AuthorizationLevelOptions _authorizationLevel;
+                private readonly MethodOptions _method;
+                private readonly string _route;
+
+                public HttpTriggerView(AuthorizationLevelOptions authorizationLevel, MethodOptions method, string route)
+                {
+                    _authorizationLevel = authorizationLevel;
+                    _method = method;
+                    _route = route;
+                }
+
+                public AuthorizationLevelOptions AuthorizationLevel()
+                {
+                    return _authorizationLevel;
+                }
+
+                public MethodOptions Method()
+                {
+                    return _method;
+                }
+
+                public string Route()
+                {
+                    return _route;
+                }
+            }
+
+            [IntentManaged(Mode.Ignore)]
+            public class QueueDetailView
+            {
+                private readonly string _queueName;
+                private readonly string _connection;
+
+                public QueueDetailView(string queueName, string connection)
+                {
+                    _queueName = queueName;
+                    _connection = connection;
+                }
+
+                public string QueueName()
+                {
+                    return _queueName;
+                }
+
+                public string Connection()
+                {
+                    return _connection;
+                }
+            }
+        }
     }
 }

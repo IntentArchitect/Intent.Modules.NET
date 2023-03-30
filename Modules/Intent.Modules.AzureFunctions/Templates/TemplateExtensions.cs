@@ -15,12 +15,12 @@ namespace Intent.Modules.AzureFunctions.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetAzureFunctionClassName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.Api.OperationModel
+        public static string GetAzureFunctionClassName<T>(this IntentTemplateBase<T> template) where T : Intent.AzureFunctions.Api.AzureFunctionModel
         {
             return template.GetTypeName(AzureFunctionClassTemplate.TemplateId, template.Model);
         }
 
-        public static string GetAzureFunctionClassName(this IntentTemplateBase template, Intent.Modelers.Services.Api.OperationModel model)
+        public static string GetAzureFunctionClassName(this IntentTemplateBase template, Intent.AzureFunctions.Api.AzureFunctionModel model)
         {
             return template.GetTypeName(AzureFunctionClassTemplate.TemplateId, model);
         }

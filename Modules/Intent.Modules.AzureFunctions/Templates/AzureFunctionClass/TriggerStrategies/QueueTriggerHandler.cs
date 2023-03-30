@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.VisualStudio;
 
@@ -10,53 +11,39 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
 internal class QueueTriggerHandler : IFunctionTriggerHandler
 {
     private readonly AzureFunctionClassTemplate _template;
-    private readonly OperationModel _operationModel;
+    private readonly AzureFunctionModel _azureFunctionModel;
 
-    public QueueTriggerHandler(AzureFunctionClassTemplate template, OperationModel operationModel)
+    public QueueTriggerHandler(AzureFunctionClassTemplate template, AzureFunctionModel azureFunctionModel)
     {
         _template = template;
-        _operationModel = operationModel;
+        _azureFunctionModel = azureFunctionModel;
     }
 
-    public IEnumerable<string> GetMethodParameterDefinitionList()
+    public void ApplyMethodParameters(CSharpClassMethod method)
     {
-        var paramList = new List<string>();
-        var serviceBusTriggerView = _operationModel.GetAzureFunction().GetQueueTriggerView();
-        var attrParamList = new List<string>();
-        attrParamList.Add($@"""{serviceBusTriggerView.QueueName()}""");
-        if (!string.IsNullOrEmpty(serviceBusTriggerView.Connection()))
-        {
-            attrParamList.Add($@"Connection = ""{serviceBusTriggerView.Connection()}""");
-        }
-        
-        paramList.Add(
-            $@"[QueueTrigger({string.Join(", ", attrParamList)})] {GetRequestType()} {GetRequestParameterName()}");
-
-        return paramList;
+        method.AddParameter(
+            type: _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference),
+            name: _azureFunctionModel.Parameters.Single().Name.ToParameterName(),
+            configure: param =>
+            {
+                param.AddAttribute("QueueTrigger", attr =>
+                {
+                    var serviceBusTriggerView = _azureFunctionModel.GetAzureFunction().GetQueueTriggerView();
+                    attr.AddArgument($@"""{serviceBusTriggerView.QueueName()}""");
+                    if (!string.IsNullOrEmpty(serviceBusTriggerView.Connection()))
+                    {
+                        attr.AddArgument($@"Connection = ""{serviceBusTriggerView.Connection()}""");
+                    }
+                });
+            });
     }
 
-    public IEnumerable<string> GetRunMethodEntryStatementList()
+    public void ApplyMethodStatements(CSharpClassMethod method)
     {
-        yield break;
     }
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
         yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsStorageQueues;
-    }
-
-    public IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()
-    {
-        yield break;
-    }
-    
-    private string GetRequestParameterName()
-    {
-        return _operationModel.Parameters.Single().Name.ToParameterName();
-    }
-
-    private string GetRequestType()
-    {
-        return _template.GetTypeName(_operationModel.Parameters.Single().TypeReference);
     }
 }

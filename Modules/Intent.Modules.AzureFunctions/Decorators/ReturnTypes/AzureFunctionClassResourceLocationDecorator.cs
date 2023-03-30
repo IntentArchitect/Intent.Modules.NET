@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AzureFunctions.Decorators.ReturnTypes
 {
     [IntentManaged(Mode.Merge)]
-    public class AzureFunctionClassResourceLocationDecorator : AzureFunctionClassDecorator
+    public class AzureFunctionClassResourceLocationDecorator
     {
         [IntentManaged(Mode.Fully)] public const string DecoratorId = "Intent.AzureFunctions.ReturnTypes.AzureFunctionClassResourceLocationDecorator";
 
@@ -24,7 +24,7 @@ namespace Intent.Modules.AzureFunctions.Decorators.ReturnTypes
             _application = application;
         }
 
-        public override IEnumerable<string> GetRunMethodExitStatementList()
+        public IEnumerable<string> GetRunMethodExitStatementList()
         {
             if (_template.Model.ReturnType == null
                 || (_template.Model.ReturnType.Element.Id != TypeDefinitionIds.ResourceLocationVoidTypeDefId

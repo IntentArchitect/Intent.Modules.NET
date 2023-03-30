@@ -5,6 +5,7 @@ using Intent.AzureFunctions.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -14,58 +15,57 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
 internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 {
     private readonly AzureFunctionClassTemplate _template;
-    private readonly OperationModel _operationModel;
+    private readonly AzureFunctionModel _azureFunctionModel;
 
-    public HttpFunctionTriggerHandler(AzureFunctionClassTemplate template, OperationModel operationModel)
+    public HttpFunctionTriggerHandler(AzureFunctionClassTemplate template, AzureFunctionModel azureFunctionModel)
     {
         _template = template;
-        _operationModel = operationModel;
+        _azureFunctionModel = azureFunctionModel;
     }
 
-    public IEnumerable<string> GetMethodParameterDefinitionList()
+    public void ApplyMethodParameters(CSharpClassMethod method)
     {
-        var paramList = new List<string>();
-
-        var httpTriggersView = _operationModel.GetAzureFunction().GetHttpTriggerView();
-        var method = @$"""{httpTriggersView.Method().Value.ToLower()}""";
-        var route = !string.IsNullOrWhiteSpace(httpTriggersView.Route())
-            ? $@"""{httpTriggersView.Route()}"""
-            : @"""""";
-        paramList.Add(
-            @$"[HttpTrigger(AuthorizationLevel.{httpTriggersView.AuthorizationLevel().Value}, {method}, Route = {route})] HttpRequest req");
-
-        foreach (var parameterModel in _operationModel.Parameters.Where(IsParameterRoute))
+        method.AddParameter("HttpRequest", "req", param =>
         {
-            paramList.Add($@"{_template.GetTypeName(parameterModel.Type)} {parameterModel.Name.ToParameterName()}");
-        }
-
-        return paramList;
-    }
-
-    public IEnumerable<string> GetRunMethodEntryStatementList()
-    {
-        var statementList = new List<string>();
-        
-        foreach (var param in GetQueryParams())
-        {
-            if(param.TypeReference.HasStringType())
+            param.AddAttribute("HttpTrigger", attr =>
             {
-                statementList.Add(
-                    $@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
-                continue;
+                var httpTriggersView = _azureFunctionModel.GetAzureFunction().GetHttpTriggerView();
+                var route = !string.IsNullOrWhiteSpace(httpTriggersView.Route())
+                    ? $@"""{httpTriggersView.Route()}"""
+                    : @"""""";
+                attr.AddArgument($"AuthorizationLevel.{httpTriggersView.AuthorizationLevel().Value}");
+                attr.AddArgument(@$"""{httpTriggersView.Method().Value.ToLower()}""");
+                attr.AddArgument($"Route = {route}");
+            });
+        });
+
+        foreach (var parameterModel in _azureFunctionModel.Parameters.Where(IsParameterRoute))
+        {
+            method.AddParameter(_template.GetTypeName(parameterModel.Type), parameterModel.Name.ToParameterName());
+        }
+    }
+
+    public void ApplyMethodStatements(CSharpClassMethod method)
+    {
+        method.AddStatementBlock("try", tryBlock =>
+        {
+            foreach (var param in GetQueryParams())
+            {
+                if (param.TypeReference.HasStringType())
+                {
+                    tryBlock.AddStatement($@"string {param.Name.ToParameterName()} = req.Query[""{param.Name.ToCamelCase()}""];");
+                    continue;
+                }
+
+                tryBlock.AddStatement($@"{_template.GetTypeName(param.Type)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.Type.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.Type).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.Type).Replace("?", string.Empty)}.TryParse(val, out parsed));");
             }
 
-            statementList.Add(
-                $@"{_template.GetTypeName(param.Type)} {param.Name.ToParameterName()} = {_template.GetAzureFunctionClassHelperName()}.{(param.Type.IsNullable ? "GetQueryParamNullable" : "GetQueryParam")}(""{param.Name.ToParameterName()}"", req.Query, (string val, out {_template.GetTypeName(param.Type).Replace("?", string.Empty)} parsed) => {_template.GetTypeName(param.Type).Replace("?", string.Empty)}.TryParse(val, out parsed));");
-        }
-
-        if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
-        {
-            statementList.Add($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-            statementList.Add($@"var {GetRequestDtoParameterName()} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
-        }
-
-        return statementList;
+            if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
+            {
+                tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
+                tryBlock.AddStatement($@"var {GetRequestDtoParameterName()} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
+            }
+        });
     }
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -73,15 +73,9 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         yield return NuGetPackages.MicrosoftExtensionsHttp;
     }
 
-    public IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()
-    {
-        yield return new ExceptionCatchBlock("FormatException exception")
-            .AddStatementLines("return new BadRequestObjectResult(new { Message = exception.Message });");
-    }
-
     private string GetRequestDtoParameterName()
     {
-        return _operationModel.GetRequestDtoParameter().Name.ToParameterName();
+        return _azureFunctionModel.GetRequestDtoParameter().Name.ToParameterName();
     }
 
     private static bool IsParameterRoute(ParameterModel parameterModel)
@@ -93,7 +87,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
     public string GetRequestDtoType()
     {
-        var dtoParameter = _operationModel.GetRequestDtoParameter();
+        var dtoParameter = _azureFunctionModel.GetRequestDtoParameter();
         return dtoParameter == null
             ? null
             : _template.GetDtoModelName(dtoParameter.TypeReference.Element.AsDTOModel());
@@ -101,7 +95,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
     private IEnumerable<ParameterModel> GetQueryParams()
     {
-        return _operationModel.Parameters
+        return _azureFunctionModel.Parameters
             .Where(p => p.GetParameterSetting()?.Source().IsFromQuery() == true);
     }
 }

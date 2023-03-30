@@ -44,6 +44,8 @@ namespace Intent.AzureFunctions.Api
 
         public ITypeReference TypeReference => _element.TypeReference;
 
+        public ITypeReference ReturnType => TypeReference?.Element != null ? TypeReference : null;
+
         public bool IsMapped => _element.IsMapped;
 
         public IElementMapping Mapping => _element.MappedElement;
