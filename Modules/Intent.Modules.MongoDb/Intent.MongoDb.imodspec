@@ -59,9 +59,9 @@
     </group>
   </moduleSettings>
   <interoperability>
-    <detect id="">
+    <detect id="Intent.Modelers.Domain.Events">
       <install>
-        <package id=""  />
+        <package id="Intent.MongoDb.DomainEvents" version="1.0.0-pre.0" />
       </install>
     </detect>
   </interoperability>
