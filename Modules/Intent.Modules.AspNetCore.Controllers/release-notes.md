@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Fixed: Errors thrown when applying `application/json` to the Return Type Mediatype the Http Settings of an operation.
+
 ### Version 4.0.1
 
 - Fixed: Applying unsecured to a service would have no effect, it would need to be applied to individual operations.
