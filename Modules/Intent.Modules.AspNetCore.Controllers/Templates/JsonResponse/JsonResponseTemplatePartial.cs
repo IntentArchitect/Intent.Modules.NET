@@ -33,14 +33,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse
                 relativeLocation: $"{this.GetFolderPath()}");
         }
 
+        private bool _isTemplateRequired = false;
+        public void NotifyTemplateIsRequired()
+        {
+            _isTemplateRequired = true;
+        }
+
         public override bool CanRunTemplate()
         {
-            return ExecutionContext
-                .MetadataManager
-                .Services(ExecutionContext.GetApplicationConfig().Id)
-                .GetServiceModels()
-                .SelectMany(s => s.Operations)
-                .Any(p => p.GetHttpSettings()?.ReturnTypeMediatype()?.IsApplicationJson() == true);
+            return _isTemplateRequired;
         }
     }
 }

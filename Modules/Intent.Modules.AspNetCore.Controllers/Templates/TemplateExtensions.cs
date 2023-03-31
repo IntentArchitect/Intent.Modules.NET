@@ -21,8 +21,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
             return template.GetTypeName(ControllerTemplate.TemplateId, model);
         }
 
+        [IntentManaged(Mode.Ignore)]
         public static string GetJsonResponseName<T>(this IntentTemplateBase<T> template)
         {
+            var jsonResponseTemplate = template.GetTemplate<JsonResponseTemplate>(JsonResponseTemplate.TemplateId);
+            jsonResponseTemplate.NotifyTemplateIsRequired(); // GCB - consider a way to track which templates resolve this one and can use that to determine if is required.
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
         }
 
