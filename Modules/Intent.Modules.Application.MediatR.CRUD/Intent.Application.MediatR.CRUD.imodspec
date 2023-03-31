@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD</id>
-  <version>4.1.2-pre.4</version>
+  <version>4.1.3</version>
   <supportedClientVersions>[3.4.0-pre.0, 4.0.0)</supportedClientVersions>
   <summary>CRUD conventions for Commands and Queries.</summary>
   <description>CRUD conventions for Commands and Queries.</description>
@@ -17,7 +17,7 @@
     <factoryExtension id="Intent.Application.MediatR.CRUD.IntegrationFactoryExtension" externalReference="6c06fe9e-d240-49c9-b664-cca3bbabad1a" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.0.2-pre.0" />
+    <dependency id="Intent.Application.MediatR" version="4.0.2" />
     <dependency id="Intent.Common" version="3.3.18" />
     <dependency id="Intent.Common.CSharp" version="3.3.28" />
     <dependency id="Intent.Common.Types" version="3.3.7" />

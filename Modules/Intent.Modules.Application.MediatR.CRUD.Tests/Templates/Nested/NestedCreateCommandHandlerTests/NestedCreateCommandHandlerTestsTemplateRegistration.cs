@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.Nested.NestedC
         {
             return _metadataManager.Services(application)
                 .GetCommandModels()
-                .Where(p => p.Name.Contains("create", StringComparison.OrdinalIgnoreCase)
+                .Where(p => p.Name.StartsWith("create", StringComparison.OrdinalIgnoreCase)
                             && p.Mapping?.Element.AsClassModel().IsAggregateRoot() == false)
                 .ToList();
         }

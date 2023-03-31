@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6be579f7-9de6-46a8-8c7c-65df62e21fd2" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>f2a117ac-89a8-44c5-b8c1-f5568d9438cb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</parentFolderId>
+  <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+  <packageName>Application.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

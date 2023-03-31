@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="294d4194-bd02-4e35-8801-c908ebe92e65" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>a84ef5e8-2d37-4ba8-a1a2-e412a3404665</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</parentFolderId>
+  <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+  <packageName>Application.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

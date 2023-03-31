@@ -29,14 +29,22 @@ namespace CleanArchitecture.TestApplication.Application.ImplicitKeyAggrRoots.Upd
         {
             var existingImplicitKeyAggrRoot = await _implicitKeyAggrRootRepository.FindByIdAsync(request.Id, cancellationToken);
             existingImplicitKeyAggrRoot.Attribute = request.Attribute;
-            existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions.UpdateCollection(request.ImplicitKeyNestedCompositions, (e, d) => e.Id == d.Id, UpdateImplicitKeyNestedComposition);
+            existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions = UpdateHelper.CreateOrUpdateCollection(existingImplicitKeyAggrRoot.ImplicitKeyNestedCompositions, request.ImplicitKeyNestedCompositions, (e, d) => e.Id == d.Id, CreateOrUpdateImplicitKeyNestedComposition);
             return Unit.Value;
         }
 
         [IntentManaged(Mode.Fully)]
-        private static void UpdateImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity, UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
+        private static ImplicitKeyNestedComposition CreateOrUpdateImplicitKeyNestedComposition(ImplicitKeyNestedComposition entity, UpdateImplicitKeyAggrRootImplicitKeyNestedCompositionDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
+            entity ??= new ImplicitKeyNestedComposition();
             entity.Attribute = dto.Attribute;
+
+            return entity;
         }
     }
 }

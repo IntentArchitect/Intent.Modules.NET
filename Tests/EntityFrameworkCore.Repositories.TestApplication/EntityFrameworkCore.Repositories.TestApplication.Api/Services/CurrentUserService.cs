@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Security.JWT.CurrentUserService", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Application.Identity.CurrentUserService", Version = "1.0")]
 
 namespace EntityFrameworkCore.Repositories.TestApplication.Api.Services
 {

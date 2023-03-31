@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.WebApi.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Settings;
-using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -21,12 +21,12 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public partial class ControllerTemplate : CSharpTemplateBase<IControllerModel, ControllerDecorator>, ICSharpFileBuilderTemplate
+    public partial class ControllerTemplate : CSharpTemplateBase<ServiceModel, ControllerDecorator>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public ControllerTemplate(IOutputTarget outputTarget, IControllerModel model) : base(TemplateId, outputTarget, model)
+        public ControllerTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource("Domain.Enum");
@@ -47,7 +47,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     {
                         @class.AddAttribute(attribute);
                     }
-                    foreach (var operation in Model.Operations)
+                    foreach (var operation in Model.Operations.Where(p => p.HasHttpSettings()))
                     {
                         @class.AddMethod($"Task<{GetReturnType(operation)}>", operation.Name.ToPascalCase(), method =>
                         {
@@ -92,33 +92,36 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return CSharpFile.ToString();
         }
 
-        //public HttpVerb GetHttpVerb(IControllerOperationModel operation)
-        //{
-        //    var verb = operation.GetHttpSettings().Verb();
+        public HttpVerb GetHttpVerb(OperationModel operation)
+        {
+            var verb = operation.GetHttpSettings().Verb();
 
-        //    return Enum.TryParse(verb.Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
-        //}
+            return Enum.TryParse(verb.Value, ignoreCase: true, out HttpVerb verbEnum) ? verbEnum : HttpVerb.Post;
+        }
 
         private IEnumerable<string> GetControllerAttributes()
         {
             var attributes = new List<string>();
             if (IsControllerSecured())
             {
-                attributes.Add(GetAuthorizationAttribute(Model.AuthorizationModel));
+                // We can extend this later (if desired) to have multiple Secure stereotypes create
+                // multiple Authorization Models.
+                var authModel = new AuthorizationModel();
+                GetDecorators().ToList().ForEach(x => x.UpdateServiceAuthorization(authModel, new ServiceSecureModel(Model, Model.GetSecured())));
+                attributes.Add(GetAuthorizationAttribute(authModel));
             }
-            else if (Model.AllowAnonymous)
+            else if (Model.HasUnsecured())
             {
                 attributes.Add("[AllowAnonymous]");
             }
 
-            if (Model.Route != null)
-            {
-                attributes.Add($@"[Route(""{Model.Route}"")]");
-            }
+            attributes.Add(
+                $@"[Route(""{(string.IsNullOrWhiteSpace(Model.GetHttpServiceSettings().Route()) ? "api/[controller]" : Model.GetHttpServiceSettings().Route())}"")]");
+            attributes.AddRange(GetDecorators().SelectMany(x => x.GetControllerAttributes()));
             return attributes;
         }
 
-        private IEnumerable<string> GetOperationComments(IControllerOperationModel operation)
+        private IEnumerable<string> GetOperationComments(OperationModel operation)
         {
             var lines = new List<string>
             {
@@ -133,10 +136,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             lines.Add("/// </summary>");
-            switch (operation.Verb)
+            switch (GetHttpVerb(operation))
             {
                 case HttpVerb.Get:
-                    lines.Add($"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
+                    lines.Add(
+                        $"/// <response code=\"200\">Returns the specified {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
                 case HttpVerb.Post:
                     lines.Add("/// <response code=\"201\">Successfully created.</response>");
@@ -163,40 +167,59 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 lines.Add("/// <response code=\"403\">Forbidden request.</response>");
             }
 
-            if (operation.Verb == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
+            if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
-                lines.Add($"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
+                lines.Add(
+                    $"/// <response code=\"404\">Can't find an {GetTypeName(operation.ReturnType).Replace("<", "&lt;").Replace(">", "&gt;")} with the parameters provided.</response>");
             }
 
             return lines;
         }
 
-        private IEnumerable<string> GetOperationAttributes(IControllerOperationModel operation)
+        private IEnumerable<string> GetOperationAttributes(OperationModel operation)
         {
-            var attributes = new List<string> { GetHttpVerbAndPath(operation) };
-            if (operation.RequiresAuthorization || operation.AllowAnonymous)
+            var attributes = new List<string>();
+            attributes.AddRange(GetDecorators().SelectMany(x => x.GetOperationAttributes(operation)));
+            attributes.Add(GetHttpVerbAndPath(operation));
+            if (operation.HasSecured() || operation.HasUnsecured())
             {
                 if ((!IsControllerSecured() && IsOperationSecured(operation)) ||
-                    operation.AuthorizationModel != null)
+                    !string.IsNullOrWhiteSpace(operation.GetSecured()?.Roles()))
                 {
-                    attributes.Add(GetAuthorizationAttribute(operation.AuthorizationModel));
+                    // We can extend this later (if desired) to have multiple Secure stereotypes create
+                    // multiple Authorization Models.
+                    // NOTE: GCB - the following is an anti-pattern imo @Dandre. Passing in an object to some method which results in mutations is
+                    // bad programming practice. It forces us to break encapsulation to determine what is in fact going on. I will replace this with a 
+                    // better approach at a later stage.
+                    // TODO: GCB - convert the auth system to use a generic role/policy based system that decouples it from WebApi module.
+                    var authModel = new AuthorizationModel();
+                    GetDecorators().ToList().ForEach(x =>
+                        x.UpdateOperationAuthorization(authModel,
+                            new OperationSecureModel(operation, operation.GetSecured())));
+                    attributes.Add(GetAuthorizationAttribute(authModel));
                 }
                 else if (IsControllerSecured() &&
                          !IsOperationSecured(operation) &&
-                         operation.AllowAnonymous)
+                         operation.HasUnsecured())
                 {
                     attributes.Add("[AllowAnonymous]");
                 }
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
-            if (operation.MediaType == MediaTypeOptions.ApplicationJson && 
-                (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType()))
+            if (operation.GetHttpSettings().ReturnTypeMediatype().IsApplicationJson() &&
+				operation.ReturnType != null)
             {
-                apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
+                // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
+                // https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/2320
+                attributes.Add($@"[Produces({UseType("System.Net.Mime.MediaTypeNames")}.Application.Json)]");
+                if (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType())
+                {
+                    apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
+                }
             }
 
-            switch (operation.Verb)
+            switch (GetHttpVerb(operation))
             {
                 case HttpVerb.Get:
                     attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
@@ -228,7 +251,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status403Forbidden)]");
             }
 
-            if (operation.Verb == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
+            if (GetHttpVerb(operation) == HttpVerb.Get && operation.ReturnType?.IsCollection == false)
             {
                 attributes.Add(@"[ProducesResponseType(StatusCodes.Status404NotFound)]");
             }
@@ -237,21 +260,26 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return attributes;
         }
 
-        private static string GetAuthorizationAttribute(IAuthorizationModel authorizationModel)
+        private static string GetAuthorizationAttribute(AuthorizationModel authorizationModel)
         {
+            if (authorizationModel == null)
+            {
+                throw new ArgumentNullException(nameof(authorizationModel));
+            }
+
             var fieldExpressions = new List<string>();
 
-            if (!string.IsNullOrWhiteSpace(authorizationModel?.RolesExpression))
+            if (!string.IsNullOrWhiteSpace(authorizationModel.RolesExpression))
             {
                 fieldExpressions.Add($"Roles = {authorizationModel.RolesExpression}");
             }
 
-            if (!string.IsNullOrWhiteSpace(authorizationModel?.Policy))
+            if (!string.IsNullOrWhiteSpace(authorizationModel.Policy))
             {
                 fieldExpressions.Add($"Policy = {authorizationModel.Policy}");
             }
 
-            if (!string.IsNullOrWhiteSpace(authorizationModel?.AuthenticationSchemesExpression))
+            if (!string.IsNullOrWhiteSpace(authorizationModel.AuthenticationSchemesExpression))
             {
                 fieldExpressions.Add($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
             }
@@ -268,77 +296,114 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             return ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
             {
-                APISettings.DefaultAPISecurityOptionsEnum.Secured => Model.RequiresAuthorization || !Model.AllowAnonymous,
-                APISettings.DefaultAPISecurityOptionsEnum.Unsecured => Model.RequiresAuthorization,
+                APISettings.DefaultAPISecurityOptionsEnum.Secured => Model.HasSecured() || !Model.HasUnsecured(),
+                APISettings.DefaultAPISecurityOptionsEnum.Unsecured => Model.HasSecured(),
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
 
-        private bool IsOperationSecured(IControllerOperationModel operation)
+        private bool IsOperationSecured(OperationModel operation)
         {
-            if (!operation.RequiresAuthorization && !operation.AllowAnonymous)
+            if (!operation.HasSecured() && !operation.HasUnsecured())
             {
                 return IsControllerSecured();
             }
 
             return IsControllerSecured()
-                ? operation.RequiresAuthorization || !operation.AllowAnonymous
-                : operation.RequiresAuthorization;
+                ? operation.HasSecured() || !operation.HasUnsecured()
+                : operation.HasSecured();
         }
 
-        private string GetHttpVerbAndPath(IControllerOperationModel o)
+        private string GetHttpVerbAndPath(OperationModel o)
         {
             return
-                $"[Http{o.Verb.ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]";
+                $"[Http{GetHttpVerb(o).ToString().ToLower().ToPascalCase()}{(GetPath(o) != null ? $"(\"{GetPath(o)}\")" : "")}]";
         }
 
-        private string GetReturnType(IControllerOperationModel operation)
+        private string GetReturnType(OperationModel operation)
         {
             return operation.ReturnType == null
                 ? "ActionResult"
                 : $"ActionResult<{GetTypeName(operation.TypeReference)}>";
         }
 
-        private static string GetPath(IControllerOperationModel operation)
+        private static string GetPath(OperationModel operation)
         {
-            var path = operation.Route;
+            var path = operation.GetHttpSettings().Route();
             return !string.IsNullOrWhiteSpace(path) ? path : null;
         }
 
-        private static string GetParameterBindingAttribute(IControllerOperationModel operation, IControllerParameterModel parameter)
+        private static string GetParameterBindingAttribute(OperationModel operation, ParameterModel parameter)
         {
-            if (parameter.Source == SourceOptionsEnum.Default)
+            if (parameter.GetParameterSettings().Source().IsDefault())
             {
-                if (parameter.TypeReference.Element.IsTypeDefinitionModel() &&
-                    operation.Route?.Contains($"{{{parameter.Name}}}") == true)
-                {
-                    return "[FromRoute]";
-                }
-
-                if ((operation.Verb == HttpVerb.Get || operation.Verb == HttpVerb.Delete) &&
+                if ((operation.GetHttpSettings().Verb().IsGET() || operation.GetHttpSettings().Verb().IsDELETE()) &&
                     !parameter.TypeReference.Element.IsTypeDefinitionModel())
                 {
                     return "[FromQuery]";
                 }
 
-                if ((operation.Verb == HttpVerb.Post || operation.Verb == HttpVerb.Put) &&
+                if ((operation.GetHttpSettings().Verb().IsPOST() || operation.GetHttpSettings().Verb().IsPUT()) &&
                     !parameter.TypeReference.Element.IsTypeDefinitionModel())
                 {
                     return "[FromBody]";
                 }
 
+                if (parameter.TypeReference.Element.IsTypeDefinitionModel() &&
+                    operation.GetHttpSettings().Route()?.Contains($"{{{parameter.Name}}}") == true)
+                {
+                    return "[FromRoute]";
+                }
+
                 return string.Empty;
             }
 
-            return parameter.Source switch
+            return parameter.GetParameterSettings().Source().AsEnum() switch
             {
-                SourceOptionsEnum.FromBody => "[FromBody]",
-                SourceOptionsEnum.FromForm => "[FromForm]",
-                SourceOptionsEnum.FromHeader => $@"[FromHeader(Name = ""{parameter.HeaderName ?? parameter.Name}"")]",
-                SourceOptionsEnum.FromQuery => "[FromQuery]",
-                SourceOptionsEnum.FromRoute => "[FromRoute]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromBody => "[FromBody]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromForm => "[FromForm]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromHeader =>
+                    $@"[FromHeader(Name = ""{parameter.GetParameterSettings().HeaderName()}"")]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromQuery => "[FromQuery]",
+                ParameterModelStereotypeExtensions.ParameterSettings.SourceOptionsEnum.FromRoute => "[FromRoute]",
                 _ => string.Empty
             };
+        }
+
+        public enum HttpVerb
+        {
+            Get,
+            Post,
+            Put,
+            Patch,
+            Delete,
+
+            // ReSharper disable InconsistentNaming
+            /// <summary>
+            /// Obsolete. Use <see cref="Get"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)] GET = 0,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Post"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)] POST = 1,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Put"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)] PUT = 2,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Patch"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)] PATCH = 3,
+
+            /// <summary>
+            /// Obsolete. Use <see cref="Delete"/> instead.
+            /// </summary>
+            [Obsolete(WillBeRemovedIn.Version4)] DELETE = 4
+            // ReSharper restore InconsistentNaming
         }
 
     }

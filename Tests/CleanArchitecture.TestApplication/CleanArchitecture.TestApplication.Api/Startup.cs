@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.TestApplication.Api.Configuration;
+using CleanArchitecture.TestApplication.Api.Services;
 using CleanArchitecture.TestApplication.Application;
 using CleanArchitecture.TestApplication.Application.Common.Interfaces;
 using CleanArchitecture.TestApplication.Infrastructure;
@@ -34,7 +35,7 @@ namespace CleanArchitecture.TestApplication.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.ConfigureJWTSecurity(Configuration);
+            services.ConfigureApplicationSecurity(Configuration);
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);

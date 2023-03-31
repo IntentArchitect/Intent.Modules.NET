@@ -9,31 +9,19 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Common
 {
     public static class UpdateHelper
     {
-        public static TOriginal UpdateObject<TChanged, TOriginal>(
-            this TOriginal baseElement,
-            TChanged changedElement,
-            Action<TOriginal, TChanged> assignmentAction)
-        {
-            if (baseElement == null)
-            {
-                return baseElement;
-            }
-
-            assignmentAction(baseElement, changedElement);
-            return baseElement;
-        }
-
-        public static void UpdateCollection<TChanged, TOriginal>(
-            this ICollection<TOriginal> baseCollection,
+        public static ICollection<TOriginal> CreateOrUpdateCollection<TChanged, TOriginal>(
+            ICollection<TOriginal> baseCollection,
             ICollection<TChanged> changedCollection,
             Func<TOriginal, TChanged, bool> equalityCheck,
-            Action<TOriginal, TChanged> assignmentAction)
+            Func<TOriginal, TChanged, TOriginal> assignmentAction)
             where TOriginal : class, new()
         {
             if (changedCollection == null)
             {
-                return;
+                return null;
             }
+
+            baseCollection ??= new List<TOriginal>()!;
 
             var result = baseCollection.CompareCollections(changedCollection, equalityCheck);
             foreach (var elementToAdd in result.ToAdd)
@@ -53,6 +41,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Common
             {
                 assignmentAction(elementToEdit.Original, elementToEdit.Changed);
             }
+
+            return baseCollection;
         }
     }
 }

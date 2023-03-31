@@ -255,7 +255,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             var domainPackage = new DomainPackageModel(model.InternalElement.Package);
             var cosmosSettings = domainPackage.GetCosmosDBContainerSettings();
 
-            if (model.ParentClass == null)
+            if (!IsInheriting(model) || !ParentConfigurationExists(model))
             {
                 var containerName = string.IsNullOrWhiteSpace(cosmosSettings?.ContainerName())
                     ? ExecutionContext.GetApplicationConfig().Name
@@ -263,7 +263,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
                 yield return $@"builder.ToContainer(""{containerName}"");";
             }
-            else if (IsInheriting(model) && ParentConfigurationExists(model))
+            if (IsInheriting(model) && ParentConfigurationExists(model))
             {
                 yield return $"builder.HasBaseType<{GetTypeName(model.ParentClass.InternalElement)}>();";
             }

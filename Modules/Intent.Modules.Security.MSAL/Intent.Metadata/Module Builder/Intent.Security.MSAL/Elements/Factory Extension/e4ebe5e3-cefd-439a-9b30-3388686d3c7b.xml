@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e4ebe5e3-cefd-439a-9b30-3388686d3c7b" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ApplicationSecurityConfigurationFactoryExtension</name>
+  <display>ApplicationSecurityConfigurationFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>70332e9d-3459-4c78-a43c-11642f89fca2</parentFolderId>
+  <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+  <packageName>Intent.Security.MSAL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

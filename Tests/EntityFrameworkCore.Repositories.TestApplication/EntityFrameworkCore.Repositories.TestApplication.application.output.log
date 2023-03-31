@@ -12,10 +12,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>852f5bb8-465d-4ade-bd09-6048d346c936</ProjectId>
-      <CorrelationId>Intent.Security.JWT.ConfigurationJWTAuthentication</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Configuration/JWTAuthenticationConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JWTAuthenticationConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>63957984-959a-4d3d-8cd3-54d0997f8a81</ProjectId>
-      <CorrelationId>Intent.Security.JWT.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>

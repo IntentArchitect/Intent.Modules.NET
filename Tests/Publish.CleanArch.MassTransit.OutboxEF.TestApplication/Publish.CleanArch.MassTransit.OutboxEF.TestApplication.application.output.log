@@ -12,10 +12,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>17fbe0d6-34ed-4d8e-a800-c6cf87014e47</ProjectId>
-      <CorrelationId>Intent.Security.JWT.ConfigurationJWTAuthentication</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Configuration/JWTAuthenticationConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JWTAuthenticationConfiguration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Configuration/ApplicationSecurityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationSecurityConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -68,7 +68,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0780cbfa-0516-4e5f-b84f-b71ed2bb893b</ProjectId>
-      <CorrelationId>Intent.Security.JWT.CurrentUserService</CorrelationId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
