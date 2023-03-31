@@ -190,7 +190,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
-				operation.ReturnType != null)
             if (operation.MediaType == MediaTypeOptions.ApplicationJson && operation.ReturnType != null)
             {
                 // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
