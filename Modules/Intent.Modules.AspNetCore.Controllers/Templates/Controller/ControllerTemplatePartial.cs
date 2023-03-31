@@ -190,10 +190,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({GetTypeName(operation)}), " : string.Empty;
-            var contentType = "";
+				operation.ReturnType != null)
             if (operation.MediaType == MediaTypeOptions.ApplicationJson && operation.ReturnType != null)
             {
-                contentType = @", ""application/json""";
+                // Need this because adding contentType to ProducesResponseType doesn't work - ongoing issue with Swashbuckle:
+                // https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/2320
+                attributes.Add($@"[Produces({UseType("System.Net.Mime.MediaTypeNames")}.Application.Json)]");
                 if (GetTypeInfo(operation.ReturnType).IsPrimitive || operation.ReturnType.HasStringType())
                 {
                     apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
@@ -203,19 +205,19 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK{contentType})]");
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
                     break;
                 case HttpVerb.Post:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created{contentType})]");
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]");
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
                     attributes.Add(operation.ReturnType != null
-                        ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK{contentType})]"
+                        ? $@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
                         : @"[ProducesResponseType(StatusCodes.Status204NoContent)]");
                     break;
                 case HttpVerb.Delete:
-                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK{contentType})]");
+                    attributes.Add($@"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
