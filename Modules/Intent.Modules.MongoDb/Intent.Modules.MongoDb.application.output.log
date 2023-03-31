@@ -82,6 +82,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1ff06ef6-6838-40ec-9ffe-8e69965781a2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DtoAutoMapperFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoAutoMapperFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#fbce7f40-2eba-4a2a-90f8-8edde9ba6b07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/EntityFactoryExtension.cs</ApplicationRelativeFilePath>

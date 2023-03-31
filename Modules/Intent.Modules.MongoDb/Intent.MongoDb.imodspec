@@ -39,6 +39,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.MongoDb.DependencyInjectionFactoryExtension" externalReference="d9b9b16c-50cd-4c7e-a2e0-a92a3446befc" />
     <factoryExtension id="Intent.MongoDb.DomainEventsFactoryExtension" externalReference="f269765c-a166-4830-acfb-5fbfc038e4ef" />
+    <factoryExtension id="Intent.MongoDb.DtoAutoMapperFactoryExtension" externalReference="1ff06ef6-6838-40ec-9ffe-8e69965781a2" />
     <factoryExtension id="Intent.MongoDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
   </factoryExtensions>
   <moduleSettings>
