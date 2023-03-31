@@ -36,6 +36,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
                     }
                 });
             });
+        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
     }
 
     public void ApplyMethodStatements(CSharpClassMethod method)

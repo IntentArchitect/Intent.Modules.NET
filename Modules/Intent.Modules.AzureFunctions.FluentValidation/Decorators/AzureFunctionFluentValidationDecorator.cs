@@ -19,153 +19,43 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AzureFunctions.FluentValidation.Decorators
 {
     [IntentManaged(Mode.Merge)]
-    public class AzureFunctionFluentValidationDecorator : AzureFunctionClassDecorator, IDecoratorExecutionHooks
+    public class AzureFunctionFluentValidationDecorator : AzureFunctionClassDecorator
     {
         [IntentManaged(Mode.Fully)]
         public const string DecoratorId = "Intent.AzureFunctions.FluentValidation.AzureFunctionFluentValidationDecorator";
 
-        [IntentManaged(Mode.Fully)]
-        private readonly AzureFunctionClassTemplate _template;
-        [IntentManaged(Mode.Fully)]
-        private readonly IApplication _application;
-
-        private readonly string _requestDtoTypeName;
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionFluentValidationDecorator(AzureFunctionClassTemplate template, IApplication application)
         {
-            _template = template;
-            _application = application;
-            _requestDtoTypeName = _template.Model.GetRequestDtoParameter() != null
-                ? _template.GetTypeName(_template.Model.GetRequestDtoParameter().TypeReference)
+            var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
+                ? template.GetTypeName(template.Model.GetRequestDtoParameter().TypeReference)
                 : null;
 
-            if (_requestDtoTypeName == null || _template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
+            if (requestDtoTypeName == null || template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
                 return;
             }
 
-            _template.CSharpFile.OnBuild(file =>
+            template.AddNugetDependency(NuGetPackages.FluentValidation);
+
+            template.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing("FluentValidation");
                 var @class = file.Classes.Single();
-                @class.Constructors.First().AddParameter(_template.GetValidationServiceInterfaceName(), "validator", param =>
+                @class.Constructors.First().AddParameter(template.GetValidationServiceInterfaceName(), "validator", param =>
                     {
                         param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
                     });
 
                 var runMethod = @class.FindMethod("Run");
-                runMethod.FindStatement<CSharpTryBlock>(x => true)
-                    .InsertStatement(0, $"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);")
+                runMethod.FindStatement(x => x.HasMetadata("service-dispatch-statement"))
+                    .InsertAbove($"await _validator.Validate({template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+
+                runMethod.FindStatement<CSharpTryBlock>(x => true)?
                     .InsertBelow(new CSharpCatchBlock("ValidationException", "exception")
                         .AddStatement("return new BadRequestObjectResult(exception.Errors);"));
-                //runMethod.FindStatement(x => x.GetText(string.Empty).Contains("await _appService"))
-                //    .InsertAbove($"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
-            });
-        }
 
-        public void BeforeTemplateExecution()
-        {
-            if (_requestDtoTypeName == null)
-            {
-                return;
-            }
-
-            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
-            {
-                return;
-            }
-
-            var templateDependency = TemplateDependency.OnTemplate(ValidationServiceInterfaceTemplate.TemplateId);
-            var template = _template.GetTemplate<IClassProvider>(templateDependency);
-            if (template != null)
-            {
-                _template.AddUsing(template.Namespace);
-            }
-
-            _template.AddTemplateDependency(templateDependency);
-        }
-
-        public override IEnumerable<string> GetClassEntryDefinitionList()
-        {
-            if (_requestDtoTypeName == null)
-            {
-                yield break;
-            }
-
-            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
-            {
-                yield break;
-            }
-
-            yield return $"private readonly {_template.GetValidationServiceInterfaceName()} _validation;";
-        }
-
-        public override IEnumerable<string> GetConstructorParameterDefinitionList()
-        {
-            if (_requestDtoTypeName == null)
-            {
-                yield break;
-            }
-
-            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
-            {
-                yield break;
-            }
-
-            yield return $"{_template.GetValidationServiceInterfaceName()} validation";
-        }
-
-        public override IEnumerable<string> GetConstructorBodyStatementList()
-        {
-            if (_requestDtoTypeName == null)
-            {
-                yield break;
-            }
-
-            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
-            {
-                yield break;
-            }
-
-            yield return $"_validation = validation ?? throw new ArgumentNullException(nameof(validation));";
-        }
-
-        public override IEnumerable<string> GetRunMethodEntryStatementList()
-        {
-            if (_requestDtoTypeName == null)
-            {
-                yield break;
-            }
-
-            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
-            {
-                yield break;
-            }
-
-            yield return $"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);";
-        }
-
-        public override IEnumerable<ExceptionCatchBlock> GetExceptionCatchBlocks()
-        {
-            if (_requestDtoTypeName == null)
-            {
-                yield break;
-            }
-
-            if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
-            {
-                yield break;
-            }
-
-            yield return new ExceptionCatchBlock("ValidationException exception")
-                .AddNamespaces("FluentValidation")
-                .AddStatementLines("return new BadRequestObjectResult(exception.Errors);");
-        }
-
-        public override IEnumerable<INugetPackageInfo> GetNugetDependencies()
-        {
-            yield return NuGetPackages.FluentValidation;
+            }, 10);
         }
     }
 }

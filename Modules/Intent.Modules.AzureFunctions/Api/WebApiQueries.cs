@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.AzureFunctions.Api;
 
@@ -29,6 +30,6 @@ public static class WebApiQueries
     {
         return parameterModel.GetParameterSetting()?.Source().IsFromBody() == true
                || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
-                   parameterModel.TypeReference.Element.IsDTOModel());
+                   !parameterModel.TypeReference.Element.IsTypeDefinitionModel());
     }
 }

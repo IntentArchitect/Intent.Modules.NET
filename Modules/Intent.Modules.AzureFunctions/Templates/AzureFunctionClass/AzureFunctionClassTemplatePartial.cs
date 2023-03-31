@@ -45,7 +45,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("using System")
+                .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.IO")
                 .AddUsing("System.Threading.Tasks")
@@ -63,8 +63,10 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
                     @class.AddMethod(GetRunMethodReturnType(), "Run", method =>
                     {
+                        method.Async();
                         method.AddAttribute("FunctionName", attr => attr.AddArgument(@$"""{Model.Name}"""));
                         _triggerStrategyHandler.ApplyMethodParameters(method);
+                        _triggerStrategyHandler.ApplyMethodStatements(method);
                     });
                 });
         }

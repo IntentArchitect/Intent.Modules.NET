@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Contracts.Templates;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.AzureFunctions.Templates;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -29,76 +32,62 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.Decorators
         {
             _template = template;
             _application = application;
-        }
-
-        public override IEnumerable<string> GetClassEntryDefinitionList()
-        {
-            yield return
-                $"private readonly {_template.GetTypeName(ServiceContractTemplate.TemplateId, _template.Model.ParentService)} _appService;";
-        }
-
-        public override IEnumerable<string> GetConstructorParameterDefinitionList()
-        {
-            yield return $"{_template.GetTypeName(ServiceContractTemplate.TemplateId, _template.Model.ParentService)} appService";
-        }
-
-        public override IEnumerable<string> GetConstructorBodyStatementList()
-        {
-            yield return "_appService = appService ?? throw new ArgumentNullException(nameof(appService));";
-        }
-
-        public override IEnumerable<string> GetRunMethodEntryStatementList()
-        {
-            if (_template.Model.ReturnType != null)
+            var mappedOperation = _template.Model.IsMapped ? _template.Model.Mapping.Element.AsOperationModel() : null;
+            if (mappedOperation == null)
             {
-                yield return $"var result = default({_template.GetTypeName(_template.Model.ReturnType)});";
-            }
-        }
-
-        public override IEnumerable<string> GetRunMethodBodyStatementList()
-        {
-            if (_template.Model.ReturnType != null)
-            {
-                yield return
-                    $"result = await _appService.{_template.Model.Name.ToPascalCase()}({_template.GetArguments(_template.Model.Parameters)});";
-                yield break;
+                return;
             }
 
-            yield return
-                $"await _appService.{_template.Model.Name.ToPascalCase()}({_template.GetArguments(_template.Model.Parameters)});";
+            _template.CSharpFile.OnBuild(file =>
+            {
+                file.AddUsing("FluentValidation");
+                var @class = file.Classes.Single();
+                @class.Constructors.First().AddParameter(_template.GetServiceContractName(mappedOperation.ParentService), "appService", param =>
+                {
+                    param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
+                });
+
+                var runMethod = @class.FindMethod("Run");
+                runMethod.FindStatement<CSharpTryBlock>(x => true)?
+                    .AddStatement($"{(_template.Model.ReturnType != null ? "var result = " : "")}await _appService.{_template.Model.Name.ToPascalCase()}({_template.GetArguments(_template.Model.Parameters)});",
+                        statement => statement.AddMetadata("service-dispatch-statement", true))
+                    .AddStatement(GetReturnStatement());
+                //runMethod.FindStatement(x => x.GetText(string.Empty).Contains("await _appService"))
+                //    .InsertAbove($"await _validation.Handle({_template.Model.GetRequestDtoParameter().Name.ToParameterName()}, default);");
+            });
         }
 
-        public override IEnumerable<string> GetRunMethodExitStatementList()
+        public CSharpStatement GetReturnStatement()
         {
             if (_template.Model.GetAzureFunction()?.Type().IsHttpTrigger() != true)
             {
-                return Enumerable.Empty<string>();
+                return null;
             }
 
             var httpTriggersView = _template.Model.GetAzureFunction().GetHttpTriggerView();
             string result = httpTriggersView.Method().AsEnum() switch
             {
-                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.GET => _template.Model.ReturnType ==
+                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.GET => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
-                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.POST =>
+                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.POST =>
                     _template.Model.ReturnType == null
                         ? $"return new CreatedResult(string.Empty, null);"
                         : $"return new CreatedResult(string.Empty, {GetResultExpression()});",
-                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT or
-                    OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PATCH => _template.Model.ReturnType ==
+                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PUT or
+                    AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.PATCH => _template.Model.ReturnType ==
                     null
                         ? $"return new NoContentResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
-                OperationModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.DELETE => _template.Model.ReturnType ==
+                AzureFunctionModelStereotypeExtensions.AzureFunction.MethodOptionsEnum.DELETE => _template.Model.ReturnType ==
                     null
                         ? $"return new OkResult();"
                         : $"return new OkObjectResult({GetResultExpression()});",
                 _ => throw new ArgumentOutOfRangeException()
             };
 
-            return new[] { result };
+            return result;
         }
 
         private string GetResultExpression()

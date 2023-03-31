@@ -47,8 +47,8 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationSer
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        Task Handle<TRequest>(TRequest request, CancellationToken cancel" +
-                    "lationToken = default);\r\n    }\r\n}");
+            this.Write("\r\n    {\r\n        Task Validate<TRequest>(TRequest request, CancellationToken canc" +
+                    "ellationToken = default);\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

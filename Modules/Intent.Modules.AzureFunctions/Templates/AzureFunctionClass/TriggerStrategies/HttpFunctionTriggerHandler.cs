@@ -8,6 +8,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStrategies;
@@ -43,11 +45,13 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         {
             method.AddParameter(_template.GetTypeName(parameterModel.Type), parameterModel.Name.ToParameterName());
         }
+
+        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
     }
 
     public void ApplyMethodStatements(CSharpClassMethod method)
     {
-        method.AddStatementBlock("try", tryBlock =>
+        method.AddTryBlock(tryBlock =>
         {
             foreach (var param in GetQueryParams())
             {
@@ -65,6 +69,9 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                 tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
                 tryBlock.AddStatement($@"var {GetRequestDtoParameterName()} = JsonConvert.DeserializeObject<{GetRequestDtoType()}>(requestBody);");
             }
+        }).AddCatchBlock("FormatException", "exception", catchBlock =>
+        {
+            catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ Message = exception.Message }});");
         });
     }
 
@@ -82,7 +89,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
     {
         return parameterModel.GetParameterSetting()?.Source().IsFromRoute() == true
                || (parameterModel.GetParameterSetting()?.Source().IsDefault() == true &&
-                   !parameterModel.TypeReference.Element.IsDTOModel());
+                   parameterModel.TypeReference.Element.IsTypeDefinitionModel());
     }
 
     public string GetRequestDtoType()
@@ -90,7 +97,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         var dtoParameter = _azureFunctionModel.GetRequestDtoParameter();
         return dtoParameter == null
             ? null
-            : _template.GetDtoModelName(dtoParameter.TypeReference.Element.AsDTOModel());
+            : _template.GetTypeName(dtoParameter.TypeReference.Element.AsTypeReference());
     }
 
     private IEnumerable<ParameterModel> GetQueryParams()

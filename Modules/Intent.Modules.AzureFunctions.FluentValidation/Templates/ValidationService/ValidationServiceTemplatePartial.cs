@@ -21,6 +21,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.Templates.ValidationSer
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValidationServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NuGetPackages.FluentValidation);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

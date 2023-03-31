@@ -16,6 +16,6 @@ namespace <#= Namespace #>
 {
     public interface <#= ClassName #>
     {
-        Task Handle<TRequest>(TRequest request, CancellationToken cancellationToken = default);
+        Task Validate<TRequest>(TRequest request, CancellationToken cancellationToken = default);
     }
 }

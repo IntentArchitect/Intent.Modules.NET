@@ -71,7 +71,7 @@
       <mappingSettings>
         <mappingSetting id="95923466-5e26-49ce-8824-db29d0d2d8b0">
           <name>Map to Service Operation</name>
-          <shortcut>ctrl + shift + q</shortcut>
+          <shortcut>ctrl + shift + o</shortcut>
           <defaultModeler>81104ae6-2bc5-4bae-b05a-f987b0372d81</defaultModeler>
           <optionsSource>elements-of-type</optionsSource>
           <autoSyncTypeReferences>true</autoSyncTypeReferences>
@@ -117,7 +117,7 @@
         </mappingSetting>
         <mappingSetting id="6cc1e01d-75fa-48f7-ad4b-09a4c305daf1">
           <name>Map to Command</name>
-          <shortcut>ctrl + shift + q</shortcut>
+          <shortcut>ctrl + shift + c</shortcut>
           <defaultModeler>81104ae6-2bc5-4bae-b05a-f987b0372d81</defaultModeler>
           <optionsSource>elements-of-type</optionsSource>
           <autoSyncTypeReferences>true</autoSyncTypeReferences>
@@ -134,10 +134,10 @@
                 <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
               </criteria>
               <mapTo specializationType="Azure Function" childMappingMode="map-to-child" />
-              <behaviour autoSelectChildren="true" />
+              <behaviour autoSelectChildren="false" />
               <childMappings>
                 <mapping id="0fedfaa1-3eb3-4d2e-8b3f-76b168aa5694">
-                  <criteria specializationType="Parameter">
+                  <criteria specializationType="DTO-Field">
                     <hasTypeReference>true</hasTypeReference>
                     <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                     <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
@@ -172,7 +172,7 @@
               <behaviour autoSelectChildren="true" />
               <childMappings>
                 <mapping id="f9c56259-418b-4914-a149-e2607a07c51c">
-                  <criteria specializationType="Parameter">
+                  <criteria specializationType="DTO-Field">
                     <hasTypeReference>true</hasTypeReference>
                     <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                     <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
