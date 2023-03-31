@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="46c3e739-1c7a-4578-8d34-6200a7604df2" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>AggregateB</name>
-  <display>AggregateB</display>
+<class id="3db6744f-16bf-4335-b5a2-600e25063d0a" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>I_MultipleAggregate</name>
+  <display>I_MultipleAggregate</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>3b776751-3dad-4f24-8130-760214c5ee4d</parentFolderId>
+  <parentFolderId>b3bf1b23-edb6-4f19-b172-fe11a8bd1f23</parentFolderId>
   <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
   <packageName>Mongo Domain Package</packageName>
   <stereotypes />
@@ -14,12 +14,12 @@
     <entry key="auto-manage-keys" value="true" />
   </metadata>
   <childElements>
-    <childElement id="1f9ca7b9-acf8-43cd-82e2-6cbf692da363" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="1992cdee-2bdb-4ffb-880c-59fa0d2e4059" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
       <display>Id: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="bbb04ac8-555a-40ad-8af5-eb9274356450">
+      <typeReference id="70ebef4c-fa07-4cb7-bfae-89f7f81b9a1e">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -31,12 +31,12 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>46c3e739-1c7a-4578-8d34-6200a7604df2</parentFolderId>
+      <parentFolderId>3db6744f-16bf-4335-b5a2-600e25063d0a</parentFolderId>
       <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
       <packageName>Mongo Domain Package</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
-          <addedByDefault>false</addedByDefault>
+          <addedByDefault>true</addedByDefault>
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
@@ -44,7 +44,7 @@
           </properties>
         </stereotype>
         <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
-          <addedByDefault>false</addedByDefault>
+          <addedByDefault>true</addedByDefault>
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
@@ -59,12 +59,12 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="dee3814e-618d-4ec4-9056-bbd805299e5d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="8c25b630-2584-4f2d-afac-d11eebf16ae5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Attribute</name>
       <display>Attribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="354e5e3c-1487-486f-b5b2-8087cd3cc60f">
+      <typeReference id="ddc27954-10c5-41e4-8ad7-c55ad5b53442">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -76,7 +76,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>46c3e739-1c7a-4578-8d34-6200a7604df2</parentFolderId>
+      <parentFolderId>3db6744f-16bf-4335-b5a2-600e25063d0a</parentFolderId>
       <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
       <packageName>Mongo Domain Package</packageName>
       <stereotypes>
@@ -92,6 +92,53 @@
         </stereotype>
       </stereotypes>
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f82133c6-f55f-4953-b27e-c44a7c349401" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>JRequireddependentId</name>
+      <display>JRequireddependentId: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1bacdcc3-0f3f-4860-8606-ce55c0c54cd7">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3db6744f-16bf-4335-b5a2-600e25063d0a</parentFolderId>
+      <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
+      <packageName>Mongo Domain Package</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="a0a92ec9-b124-4ef5-bba9-c9a6d9072425" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="JRequireddependentId" />
+        <entry key="association" value="a0a92ec9-b124-4ef5-bba9-c9a6d9072425" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

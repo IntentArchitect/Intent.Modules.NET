@@ -10,7 +10,9 @@
   <packageId>8944490e-7138-4da9-a654-55d50e151168</packageId>
   <packageName>Mongo Domain Package</packageName>
   <stereotypes />
-  <metadata />
+  <metadata>
+    <entry key="auto-manage-keys" value="true" />
+  </metadata>
   <childElements>
     <childElement id="5c95051a-1241-44f8-835a-64f67ba5ec23" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>

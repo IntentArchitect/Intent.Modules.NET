@@ -23,7 +23,7 @@
     <name>B_OptionalDependent</name>
     <display>B_OptionalDependent: B_OptionalDependent?</display>
     <sort-children>by-type-then-by-name</sort-children>
-    <order>2</order>
+    <order>3</order>
     <typeReference id="38050f5d-d549-4eb9-84a7-aa8d1d665fa5">
       <typeId>33c7e3f9-0c88-4a1a-a6a9-bce6baa0a6cf</typeId>
       <isNavigable>true</isNavigable>

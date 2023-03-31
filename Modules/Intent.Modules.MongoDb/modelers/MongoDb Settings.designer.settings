@@ -84,26 +84,102 @@
       </typeOrder>
       <macros>
         <macro trigger="on-loaded">
-          <script>if (element.specialization !== "Mongo Domain Package") {
-    return;
+          <script>{
+    // This script was made using a Typescript source. Don't edit this script directly.
+    if (element.specialization !== "Mongo Domain Package") {
+        return;
+    }
+    let classes = lookupTypesOf("Class").filter(x =&gt; x.getPackage().id === element.id);
+    for (let classElement of classes) {
+        updatePrimaryKey(classElement);
+        updateForeignKeys(classElement);
+    }
 }
-let classes = lookupTypesOf("Class").filter(x =&gt; x.getPackage().id === element.id);
-for (let classElement of classes) {
+function updatePrimaryKey(element) {
     const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-    let pk = classElement.getChildren("Attribute").filter(x =&gt; x.hasMetadata("id"))[0];
+    let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association"))[0];
+    if (pk &amp;&amp; !isAggregateRoot(element)) {
+        pk.delete();
+        return;
+    }
     if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
         return;
     }
-    const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
-    let idAttr = pk || createElement("Attribute", "Id", classElement.id);
+    let idAttr = pk || createElement("Attribute", "Id", element.id);
     idAttr.setOrder(0);
-    idAttr.typeReference.setType(isAggregateRoot(classElement) ? getDefaultIdType() : GuidTypeId);
-    if (!idAttr.hasMetadata("id")) {
-        idAttr.addMetadata("id", "true");
+    idAttr.typeReference.setType(getDefaultIdType());
+    if (!idAttr.hasMetadata("is-managed-key")) {
+        idAttr.addMetadata("is-managed-key", "true");
     }
     if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
         idAttr.addStereotype(PrimaryKeyStereotypeId);
     }
+}
+function updateForeignKeys(element) {
+    for (let association of element.getAssociations()) {
+        if (!association.isTargetEnd()) {
+            continue;
+        }
+        let sourceType = lookup(association.getOtherEnd().typeReference.typeId);
+        let targetType = lookup(association.typeReference.typeId);
+        if (!sourceType || !targetType) {
+            continue;
+        }
+        if (requiresForeignKey(association)) {
+            updateForeignKeyAttribute(sourceType, targetType, association, association.id);
+        }
+        if (requiresForeignKey(association.getOtherEnd())) {
+            updateForeignKeyAttribute(targetType, sourceType, association.getOtherEnd(), association.id);
+        }
+    }
+}
+function updateForeignKeyAttribute(startingEndType, destinationEndType, associationEnd, associationId) {
+    const ForeignKeyStereotypeId = "793a5128-57a1-440b-a206-af5722b752a6";
+    let primaryKeyDict = getPrimaryKeysWithMapPath(destinationEndType);
+    let primaryKeyObjects = Object.values(primaryKeyDict);
+    let primaryKeysLen = primaryKeyObjects.length;
+    primaryKeyObjects.forEach((pk, index) =&gt; {
+        let fk = startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId)[index] ||
+            createElement("Attribute", "", startingEndType.id);
+        // This check to avoid a loop where the Domain script is updating the conventions and this keeps renaming it back.
+        let fkNameToUse = `${toCamelCase(associationEnd.getName())}${toPascalCase(pk.name)}`;
+        if (associationEnd.typeReference.isCollection) {
+            fkNameToUse = pluralize(fkNameToUse);
+        }
+        if (fk.getName().toLocaleLowerCase() !== fkNameToUse.toLocaleLowerCase()) {
+            if (!fk.hasMetadata("fk-original-name") || (fk.getMetadata("fk-original-name") == fk.getName())) {
+                fk.setName(fkNameToUse);
+                fk.setMetadata("fk-original-name", fk.getName());
+            }
+        }
+        fk.setMetadata("association", associationId);
+        fk.setMetadata("is-managed-key", "true");
+        let fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
+        if (!fkStereotype) {
+            fk.addStereotype(ForeignKeyStereotypeId);
+            fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
+        }
+        fkStereotype.getProperty("Association").setValue(associationId);
+        fk.typeReference.setType(pk.typeId);
+        fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
+        fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+    });
+    startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId).forEach((attr, index) =&gt; {
+        if (index &gt;= primaryKeysLen) {
+            attr.delete();
+        }
+    });
+}
+function requiresForeignKey(associationEnd) {
+    return associationEnd.typeReference.isNavigable &amp;&amp;
+        isAggregateRelationship(associationEnd);
+}
+function isAggregateRelationship(associationEnd) {
+    let sourceAssociationEnd = associationEnd;
+    if (associationEnd.isTargetEnd()) {
+        sourceAssociationEnd = sourceAssociationEnd.getOtherEnd();
+    }
+    return sourceAssociationEnd.typeReference.isNullable || sourceAssociationEnd.typeReference.isCollection;
 }
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
@@ -124,6 +200,51 @@ function getDefaultIdType() {
             return IntTypeId;
         case "long":
             return LongTypeId;
+    }
+}
+;
+function getPrimaryKeysWithMapPath(entity) {
+    let keydict = Object.create(null);
+    let keys = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let generalizations = entity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+    // There is a problem with execution order where this script executes before
+    // the generalization script had a chance to potentially remove a PK attribute
+    // and so I have to perform an inheritance check and ignore any PKs on derived classes.
+    if (generalizations.length == 0) {
+        keys.forEach(key =&gt; keydict[key.id] = {
+            id: key.id,
+            name: key.getName(),
+            typeId: key.typeReference.typeId,
+            mapPath: [key.id],
+            isNullable: false,
+            isCollection: false
+        });
+    }
+    traverseInheritanceHierarchyForPrimaryKeys(keydict, entity, []);
+    return keydict;
+    function traverseInheritanceHierarchyForPrimaryKeys(keydict, curEntity, generalizationStack) {
+        if (!curEntity) {
+            return;
+        }
+        let generalizations = curEntity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+        if (generalizations.length == 0) {
+            return;
+        }
+        let generalization = generalizations[0];
+        generalizationStack.push(generalization.id);
+        let nextEntity = generalization.typeReference.getType();
+        let baseKeys = nextEntity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+        baseKeys.forEach(key =&gt; {
+            keydict[key.id] = {
+                id: key.id,
+                name: key.getName(),
+                typeId: key.typeReference.typeId,
+                mapPath: generalizationStack.concat([key.id]),
+                isNullable: key.typeReference.isNullable,
+                isCollection: key.typeReference.isCollection
+            };
+        });
+        traverseInheritanceHierarchyForPrimaryKeys(keydict, nextEntity, generalizationStack);
     }
 }</script>
         </macro>
@@ -180,33 +301,112 @@ function getDefaultIdType() {
       <mappingSettings />
       <macros>
         <macro trigger="on-changed">
-          <script>if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
+          <script>// This script was made using a Typescript source. Don't edit this script directly.
+if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
     return;
 }
 const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-if (!element.hasMetadata("id-managed")) {
-    if (!element.hasStereotype(PrimaryKeyStereotypeId)) {
+const ForeignKeyStereotypeId = "793a5128-57a1-440b-a206-af5722b752a6";
+if (!element.hasMetadata("is-managed-key")) {
+    if (element.hasStereotype(PrimaryKeyStereotypeId)) {
         element.removeStereotype(PrimaryKeyStereotypeId);
+    }
+    if (element.hasStereotype(ForeignKeyStereotypeId)) {
+        element.removeStereotype(ForeignKeyStereotypeId);
     }
     return;
 }
-if (!element.hasStereotype(PrimaryKeyStereotypeId)) {
+if (!element.hasMetadata("association") &amp;&amp; !element.hasStereotype(PrimaryKeyStereotypeId)) {
     element.addStereotype(PrimaryKeyStereotypeId);
+}
+if (element.hasMetadata("association") &amp;&amp; !element.hasStereotype(ForeignKeyStereotypeId)) {
+    element.addStereotype(ForeignKeyStereotypeId);
 }</script>
         </macro>
         <macro trigger="on-deleted">
-          <script>if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
+          <script>// This script was made using a Typescript source. Don't edit this script directly.
+if (element.getParent().getPackage().specialization !== "Mongo Domain Package") {
     return;
 }
-if (!element.hasMetadata("id-managed") || !isAggregateRoot(element.getParent())) {
+if (!element.hasMetadata("is-managed-key") || !isAggregateRoot(element.getParent())) {
     return;
 }
-const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-let idAttr = createElement("Attribute", "Id", element.getParent().id);
-idAttr.typeReference.setType(getDefaultIdType());
-idAttr.setOrder(0);
-idAttr.addMetadata("id-managed", "true");
-idAttr.addStereotype(PrimaryKeyStereotypeId);
+if (!element.hasMetadata("association")) {
+    const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+    let idAttr = createElement("Attribute", "Id", element.getParent().id);
+    idAttr.typeReference.setType(getDefaultIdType());
+    idAttr.setOrder(0);
+    idAttr.addMetadata("is-managed-key", "true");
+    idAttr.addStereotype(PrimaryKeyStereotypeId);
+    return;
+}
+updateForeignKeys(element.getParent());
+function updateForeignKeys(element) {
+    for (let association of element.getAssociations()) {
+        if (!association.isTargetEnd()) {
+            continue;
+        }
+        let sourceType = lookup(association.getOtherEnd().typeReference.typeId);
+        let targetType = lookup(association.typeReference.typeId);
+        if (!sourceType || !targetType) {
+            continue;
+        }
+        if (requiresForeignKey(association)) {
+            updateForeignKeyAttribute(sourceType, targetType, association, association.id);
+        }
+        if (requiresForeignKey(association.getOtherEnd())) {
+            updateForeignKeyAttribute(targetType, sourceType, association.getOtherEnd(), association.id);
+        }
+    }
+}
+function updateForeignKeyAttribute(startingEndType, destinationEndType, associationEnd, associationId) {
+    const ForeignKeyStereotypeId = "793a5128-57a1-440b-a206-af5722b752a6";
+    let primaryKeyDict = getPrimaryKeysWithMapPath(destinationEndType);
+    let primaryKeyObjects = Object.values(primaryKeyDict);
+    let primaryKeysLen = primaryKeyObjects.length;
+    primaryKeyObjects.forEach((pk, index) =&gt; {
+        let fk = startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId)[index] ||
+            createElement("Attribute", "", startingEndType.id);
+        // This check to avoid a loop where the Domain script is updating the conventions and this keeps renaming it back.
+        let fkNameToUse = `${toCamelCase(associationEnd.getName())}${toPascalCase(pk.name)}`;
+        if (associationEnd.typeReference.isCollection) {
+            fkNameToUse = pluralize(fkNameToUse);
+        }
+        if (fk.getName().toLocaleLowerCase() !== fkNameToUse.toLocaleLowerCase()) {
+            if (!fk.hasMetadata("fk-original-name") || (fk.getMetadata("fk-original-name") == fk.getName())) {
+                fk.setName(fkNameToUse);
+                fk.setMetadata("fk-original-name", fk.getName());
+            }
+        }
+        fk.setMetadata("association", associationId);
+        fk.setMetadata("is-managed-key", "true");
+        let fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
+        if (!fkStereotype) {
+            fk.addStereotype(ForeignKeyStereotypeId);
+            fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
+        }
+        fkStereotype.getProperty("Association").setValue(associationId);
+        fk.typeReference.setType(pk.typeId);
+        fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
+        fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+    });
+    startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId).forEach((attr, index) =&gt; {
+        if (index &gt;= primaryKeysLen) {
+            attr.delete();
+        }
+    });
+}
+function requiresForeignKey(associationEnd) {
+    return associationEnd.typeReference.isNavigable &amp;&amp;
+        isAggregateRelationship(associationEnd);
+}
+function isAggregateRelationship(associationEnd) {
+    let sourceAssociationEnd = associationEnd;
+    if (associationEnd.isTargetEnd()) {
+        sourceAssociationEnd = sourceAssociationEnd.getOtherEnd();
+    }
+    return sourceAssociationEnd.typeReference.isNullable || sourceAssociationEnd.typeReference.isCollection;
+}
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
@@ -227,6 +427,51 @@ function getDefaultIdType() {
         case "long":
             return LongTypeId;
     }
+}
+;
+function getPrimaryKeysWithMapPath(entity) {
+    let keydict = Object.create(null);
+    let keys = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+    let generalizations = entity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+    // There is a problem with execution order where this script executes before
+    // the generalization script had a chance to potentially remove a PK attribute
+    // and so I have to perform an inheritance check and ignore any PKs on derived classes.
+    if (generalizations.length == 0) {
+        keys.forEach(key =&gt; keydict[key.id] = {
+            id: key.id,
+            name: key.getName(),
+            typeId: key.typeReference.typeId,
+            mapPath: [key.id],
+            isNullable: false,
+            isCollection: false
+        });
+    }
+    traverseInheritanceHierarchyForPrimaryKeys(keydict, entity, []);
+    return keydict;
+    function traverseInheritanceHierarchyForPrimaryKeys(keydict, curEntity, generalizationStack) {
+        if (!curEntity) {
+            return;
+        }
+        let generalizations = curEntity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+        if (generalizations.length == 0) {
+            return;
+        }
+        let generalization = generalizations[0];
+        generalizationStack.push(generalization.id);
+        let nextEntity = generalization.typeReference.getType();
+        let baseKeys = nextEntity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+        baseKeys.forEach(key =&gt; {
+            keydict[key.id] = {
+                id: key.id,
+                name: key.getName(),
+                typeId: key.typeReference.typeId,
+                mapPath: generalizationStack.concat([key.id]),
+                isNullable: key.typeReference.isNullable,
+                isCollection: key.typeReference.isCollection
+            };
+        });
+        traverseInheritanceHierarchyForPrimaryKeys(keydict, nextEntity, generalizationStack);
+    }
 }</script>
         </macro>
       </macros>
@@ -235,13 +480,14 @@ function getDefaultIdType() {
       <mappingSettings />
       <macros>
         <macro trigger="on-created">
-          <script>if (element.getPackage().specialization !== "Mongo Domain Package") {
+          <script>// This script was made using a Typescript source. Don't edit this script directly.
+if (element.getPackage().specialization !== "Mongo Domain Package") {
     return;
 }
 const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
 let idAttr = createElement("Attribute", "Id", element.id);
 idAttr.typeReference.setType(getDefaultIdType());
-idAttr.addMetadata("id-managed", "true");
+idAttr.addMetadata("is-managed-key", "true");
 idAttr.addStereotype(PrimaryKeyStereotypeId);
 function getDefaultIdType() {
     const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
@@ -287,42 +533,176 @@ function getDefaultIdType() {
       </targetEndExtension>
       <macros>
         <macro trigger="on-changed">
-          <script>let targetClass = association.typeReference.getType();
-let existingIds = targetClass.getChildren("Attribute").filter(p =&gt; p.hasMetadata("id-managed"));
-if (isAggregateRoot(targetClass) &amp;&amp; existingIds.length === 0) {
-    const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-    let idAttr = createElement("Attribute", "Id", targetClass.id);
-    idAttr.typeReference.setType(getDefaultIdType());
-    idAttr.addMetadata("id-managed", "true");
-    idAttr.addStereotype(PrimaryKeyStereotypeId);
-    idAttr.setOrder(0);
-    return;
-}
-existingIds.forEach(x =&gt; x.delete());
-function isAggregateRoot(element) {
-    return !element.getAssociations("Association")
-        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
-}
-function getDefaultIdType() {
-    const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
-    const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
-    const IntTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
-    const LongTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
-    const MongoSettingId = "d5581fe8-7385-4bb6-88dc-8940e20ec1d4";
-    switch (application.getSettings(MongoSettingId)?.getField("Id Type")?.value) {
-        default:
-            return StringTypeId;
-        case "guid":
-            return GuidTypeId;
-        case "int":
-            return IntTypeId;
-        case "long":
-            return LongTypeId;
+          <script>// This script was made using a Typescript source. Don't edit this script directly.
+    {
+        let targetClass = association.typeReference.getType();
+        if (targetClass.getPackage().specialization !== "Mongo Domain Package") {
+            return;
+        }
+        updatePrimaryKey(targetClass);
+        updateForeignKeys(association);
     }
-}</script>
+    function updatePrimaryKey(element) {
+        const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+        let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association"))[0];
+        if (pk &amp;&amp; !isAggregateRoot(element)) {
+            pk.delete();
+            return;
+        }
+        if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
+            return;
+        }
+        let idAttr = pk || createElement("Attribute", "Id", element.id);
+        idAttr.setOrder(0);
+        idAttr.typeReference.setType(getDefaultIdType());
+        if (!idAttr.hasMetadata("is-managed-key")) {
+            idAttr.addMetadata("is-managed-key", "true");
+        }
+        if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
+            idAttr.addStereotype(PrimaryKeyStereotypeId);
+        }
+    }
+    function updateForeignKeys(associationEnd) {
+        let sourceType = lookup(associationEnd.getOtherEnd().typeReference.typeId);
+        let targetType = lookup(associationEnd.typeReference.typeId);
+        if (!sourceType || !targetType) {
+            return;
+        }
+        if (requiresForeignKey(associationEnd)) {
+            updateForeignKeyAttribute(sourceType, targetType, associationEnd, associationEnd.id);
+        }
+        else {
+            sourceType.getChildren()
+                .filter(x =&gt; x.getMetadata("association") == associationEnd.id)
+                .forEach(x =&gt; x.delete());
+        }
+        if (requiresForeignKey(associationEnd.getOtherEnd())) {
+            updateForeignKeyAttribute(targetType, sourceType, associationEnd.getOtherEnd(), associationEnd.id);
+        }
+        else {
+            targetType.getChildren()
+                .filter(x =&gt; x.getMetadata("association") == associationEnd.id)
+                .forEach(x =&gt; x.delete());
+        }
+    }
+    function updateForeignKeyAttribute(startingEndType, destinationEndType, associationEnd, associationId) {
+        const ForeignKeyStereotypeId = "793a5128-57a1-440b-a206-af5722b752a6";
+        let primaryKeyDict = getPrimaryKeysWithMapPath(destinationEndType);
+        let primaryKeyObjects = Object.values(primaryKeyDict);
+        let primaryKeysLen = primaryKeyObjects.length;
+        primaryKeyObjects.forEach((pk, index) =&gt; {
+            let fk = startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId)[index] ||
+                createElement("Attribute", "", startingEndType.id);
+            // This check to avoid a loop where the Domain script is updating the conventions and this keeps renaming it back.
+            let fkNameToUse = `${toCamelCase(associationEnd.getName())}${toPascalCase(pk.name)}`;
+            if (associationEnd.typeReference.isCollection) {
+                fkNameToUse = pluralize(fkNameToUse);
+            }
+            if (fk.getName().toLocaleLowerCase() !== fkNameToUse.toLocaleLowerCase()) {
+                if (!fk.hasMetadata("fk-original-name") || (fk.getMetadata("fk-original-name") == fk.getName())) {
+                    fk.setName(fkNameToUse);
+                    fk.setMetadata("fk-original-name", fk.getName());
+                }
+            }
+            fk.setMetadata("association", associationId);
+            fk.setMetadata("is-managed-key", "true");
+            let fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
+            if (!fkStereotype) {
+                fk.addStereotype(ForeignKeyStereotypeId);
+                fkStereotype = fk.getStereotype(ForeignKeyStereotypeId);
+            }
+            fkStereotype.getProperty("Association").setValue(associationId);
+            fk.typeReference.setType(pk.typeId);
+            fk.typeReference.setIsNullable(associationEnd.typeReference.isNullable);
+            fk.typeReference.setIsCollection(associationEnd.typeReference.isCollection);
+        });
+        startingEndType.getChildren().filter(x =&gt; x.getMetadata("association") == associationId).forEach((attr, index) =&gt; {
+            if (index &gt;= primaryKeysLen) {
+                attr.delete();
+            }
+        });
+    }
+    function requiresForeignKey(associationEnd) {
+        return associationEnd.typeReference.isNavigable &amp;&amp;
+            isAggregateRelationship(associationEnd);
+    }
+    function isAggregateRelationship(associationEnd) {
+        let sourceAssociationEnd = associationEnd;
+        if (associationEnd.isTargetEnd()) {
+            sourceAssociationEnd = sourceAssociationEnd.getOtherEnd();
+        }
+        return sourceAssociationEnd.typeReference.isNullable || sourceAssociationEnd.typeReference.isCollection;
+    }
+    function isAggregateRoot(element) {
+        return !element.getAssociations("Association")
+            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+    }
+    function getDefaultIdType() {
+        const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+        const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+        const IntTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+        const LongTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+        const MongoSettingId = "d5581fe8-7385-4bb6-88dc-8940e20ec1d4";
+        switch (application.getSettings(MongoSettingId)?.getField("Id Type")?.value) {
+            default:
+                return StringTypeId;
+            case "guid":
+                return GuidTypeId;
+            case "int":
+                return IntTypeId;
+            case "long":
+                return LongTypeId;
+        }
+    }
+    ;
+    function getPrimaryKeysWithMapPath(entity) {
+        let keydict = Object.create(null);
+        let keys = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+        let generalizations = entity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+        // There is a problem with execution order where this script executes before
+        // the generalization script had a chance to potentially remove a PK attribute
+        // and so I have to perform an inheritance check and ignore any PKs on derived classes.
+        if (generalizations.length == 0) {
+            keys.forEach(key =&gt; keydict[key.id] = {
+                id: key.id,
+                name: key.getName(),
+                typeId: key.typeReference.typeId,
+                mapPath: [key.id],
+                isNullable: false,
+                isCollection: false
+            });
+        }
+        traverseInheritanceHierarchyForPrimaryKeys(keydict, entity, []);
+        return keydict;
+        function traverseInheritanceHierarchyForPrimaryKeys(keydict, curEntity, generalizationStack) {
+            if (!curEntity) {
+                return;
+            }
+            let generalizations = curEntity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+            if (generalizations.length == 0) {
+                return;
+            }
+            let generalization = generalizations[0];
+            generalizationStack.push(generalization.id);
+            let nextEntity = generalization.typeReference.getType();
+            let baseKeys = nextEntity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+            baseKeys.forEach(key =&gt; {
+                keydict[key.id] = {
+                    id: key.id,
+                    name: key.getName(),
+                    typeId: key.typeReference.typeId,
+                    mapPath: generalizationStack.concat([key.id]),
+                    isNullable: key.typeReference.isNullable,
+                    isCollection: key.typeReference.isCollection
+                };
+            });
+            traverseInheritanceHierarchyForPrimaryKeys(keydict, nextEntity, generalizationStack);
+        }
+    }</script>
         </macro>
         <macro trigger="on-created">
-          <script>if (!association) {
+          <script>// This script was made using a Typescript source. Don't edit this script directly.
+if (!association) {
     return;
 }
 let sourceEnd = association.getOtherEnd().typeReference;
@@ -333,18 +713,46 @@ sourceEnd.setIsCollection(false);
 sourceEnd.setIsNullable(false);</script>
         </macro>
         <macro trigger="on-deleted">
-          <script>let targetClass = association.typeReference.getType();
-let existingIds = targetClass.getChildren("Attribute").filter(p =&gt; p.hasMetadata("id-managed"));
-if (isAggregateRoot(targetClass) &amp;&amp; existingIds.length === 0) {
-    const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
-    let idAttr = createElement("Attribute", "Id", targetClass.id);
-    idAttr.typeReference.setType(getDefaultIdType());
-    idAttr.addMetadata("id-managed", "true");
-    idAttr.addStereotype(PrimaryKeyStereotypeId);
-    idAttr.setOrder(0);
-    return;
+          <script>// This script was made using a Typescript source. Don't edit this script directly.
+{
+    let targetClass = association.typeReference.getType();
+    if (targetClass.getPackage().specialization !== "Mongo Domain Package") {
+        return;
+    }
+    updatePrimaryKey(targetClass);
+    removeAssociatedForeignKeys(association);
 }
-existingIds.forEach(x =&gt; x.delete());
+function updatePrimaryKey(element) {
+    const PrimaryKeyStereotypeId = "b99aac21-9ca4-467f-a3a6-046255a9eed6";
+    let pk = element.getChildren("Attribute").filter(x =&gt; x.hasMetadata("is-managed-key") &amp;&amp; !x.hasMetadata("association"))[0];
+    if (pk &amp;&amp; !isAggregateRoot(element)) {
+        pk.delete();
+        return;
+    }
+    if (pk &amp;&amp; pk.hasStereotype(PrimaryKeyStereotypeId)) {
+        return;
+    }
+    let idAttr = pk || createElement("Attribute", "Id", element.id);
+    idAttr.setOrder(0);
+    idAttr.typeReference.setType(getDefaultIdType());
+    if (!idAttr.hasMetadata("is-managed-key")) {
+        idAttr.addMetadata("is-managed-key", "true");
+    }
+    if (!idAttr.hasStereotype(PrimaryKeyStereotypeId)) {
+        idAttr.addStereotype(PrimaryKeyStereotypeId);
+    }
+}
+function removeAssociatedForeignKeys(associationEnd) {
+    const ForeignKeyStereotypeId = "793a5128-57a1-440b-a206-af5722b752a6";
+    let targetClass = associationEnd.typeReference.getType();
+    let sourceClass = associationEnd.getOtherEnd().typeReference.getType();
+    targetClass.getChildren()
+        .filter(x =&gt; x.getMetadata("association") == associationEnd.id)
+        .forEach(x =&gt; x.delete());
+    sourceClass.getChildren()
+        .filter(x =&gt; x.getMetadata("association") == associationEnd.id)
+        .forEach(x =&gt; x.delete());
+}
 function isAggregateRoot(element) {
     return !element.getAssociations("Association")
         .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
